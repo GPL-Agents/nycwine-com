@@ -16,6 +16,7 @@ import EventsSection from '../components/EventsSection';
 import SocialSection from '../components/SocialSection';
 import NewsSection from '../components/NewsSection';
 import StoresSection from '../components/StoresSection';
+import AdUnit from '../components/AdUnit';
 import Footer from '../components/Footer';
 
 export default function Home() {
@@ -35,8 +36,14 @@ export default function Home() {
       {/* ── Main content ─────────────────────────────────── */}
       <main>
         <EventsSection />
+        <AdUnit slot="after-events" />
+
         <SocialSection />
+        <AdUnit slot="after-social" />
+
         <NewsSection />
+        <AdUnit slot="after-news" />
+
         <StoresSection />
       </main>
 

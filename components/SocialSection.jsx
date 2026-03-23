@@ -1,4 +1,4 @@
-// components/SocialSection.jsx 
+// components/SocialSection.jsx
 // ─────────────────────────────────────────────────────────────
 // Modular social feed grid. 2-column layout; Reddit spans full width.
 //
@@ -25,27 +25,28 @@ export default function SocialSection() {
       <div className="social-grid">
 
         {/* ── Facebook ─────────────────────────────────────────
-            Live: paste Meta Page Plugin iframe/script here.
-            Config: NEXT_PUBLIC_FACEBOOK_PAGE_ID in .env.local
+            LIVE: Meta Page Plugin (free iframe embed, no API key needed)
+            Page: https://www.facebook.com/NYCWine
         ────────────────────────────────────────────────────── */}
         <div className="social-card">
           <div className="sc-header sc-fb">
             <div className="sc-platform">📘 Facebook</div>
-            <a href="https://facebook.com/NYCWine" className="sc-follow" target="_blank" rel="noopener noreferrer">NYCWine →</a>
+            <a href="https://www.facebook.com/NYCWine" className="sc-follow" target="_blank" rel="noopener noreferrer">NYCWine →</a>
           </div>
-          <div className="sc-body">
-            <div className="social-post">
-              <div className="sp-handle">NYCWine</div>
-              <div className="sp-text">This weekend: natural wine pop-up in Tribeca 🍷 Don&apos;t miss it <span className="sp-tag">#nycwine</span></div>
-              <div className="sp-meta">2h ago · 34 likes</div>
-            </div>
-            <div className="social-post">
-              <div className="sp-handle">NYCWine</div>
-              <div className="sp-text">Best patio wine bars for spring in NYC — our top picks are live on the site</div>
-              <div className="sp-meta">Yesterday · 61 likes</div>
-            </div>
+          <div className="sc-body sc-body-embed">
+            <iframe
+              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FNYCWine&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true"
+              width="340"
+              height="500"
+              style={{ border: 'none', overflow: 'hidden', width: '100%', maxWidth: '340px' }}
+              scrolling="no"
+              frameBorder="0"
+              allowFullScreen={true}
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              title="NYCWine Facebook Page"
+            />
           </div>
-          <div className="sc-footer">Live via Facebook Page Plugin · configure FACEBOOK_PAGE_ID in .env.local</div>
+          <div className="sc-footer">Live · Facebook Page Plugin · facebook.com/NYCWine</div>
         </div>
 
         {/* ── X / Twitter ──────────────────────────────────────
