@@ -1,4 +1,4 @@
-export default function QuickNav() {
+export default function QuickNav() { 
   function scrollTo(id) {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
