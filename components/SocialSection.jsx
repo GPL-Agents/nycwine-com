@@ -1,4 +1,4 @@
-// components/SocialSection.jsx
+// components/SocialSection.jsx 
 // ─────────────────────────────────────────────────────────────
 // Modular social feed grid. 2-column layout; Reddit spans full width.
 //
