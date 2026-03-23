@@ -1,4 +1,4 @@
-// components/Footer.jsx
+// components/Footer.jsx 
 // ─────────────────────────────────────────────────────────────
 // Minimal site footer. Update links/text here as the site grows.
 // ─────────────────────────────────────────────────────────────
