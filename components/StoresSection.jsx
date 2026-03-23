@@ -1,4 +1,4 @@
-// components/StoresSection.jsx
+// components/StoresSection.jsx 
 // ─────────────────────────────────────────────────────────────
 // NYC Wine Store directory — borough filter + store rows.
 //
