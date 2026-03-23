@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NYCWine.com — Homepage Mockup v2 (Mobile-First)</title>
+<style>
+/* ═══════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --pink: #E8007D;
+  --pink-light: #fff0f8;
+  --pink-dark: #b5005f;
+  --black: #1a1a1a;
+  --grey: #f7f7f5;
+  --text: #222;
+  --muted: #888;
+  --border: #e8e8e8;
+}
+body { font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif; background: #f0f0ed; color: var(--text); }
+
+/* ═══════════════════════════════════════
+   LAYOUT: SIDE-BY-SIDE PHONE + DESKTOP
+═══════════════════════════════════════ */
+.page-wrapper {
+  max-width: 1300px; margin: 0 auto; padding: 20px;
+  display: grid; grid-template-columns: 390px 1fr; gap: 32px;
+  align-items: start;
+}
+.col-phone { position: sticky; top: 20px; }
+.col-desktop {}
+
+/* ═══════════════════════════════════════
+   SECTION LABELS
+═══════════════════════════════════════ */
+.section-label {
+  font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+  color: white; background: var(--black); padding: 5px 14px; border-radius: 4px 4px 0 0;
+  display: inline-block; margin-bottom: 0;
+}
+.section-label.events { background: #27ae60; }
+.section-label.social { background: #8e44ad; }
+.section-label.delivery { background: var(--pink); }
+.section-label.stores { background: #2980b9; }
+.section-label.bars { background: #e67e22; }
+.section-label.wineries { background: #16a085; }
+.section-label.news { background: #c0392b; }
+.section-label.ads { background: #f39c12; }
+
+.int-tag {
+  display: inline-block; font-size: 9px; font-weight: 700; padding: 2px 8px;
+  border-radius: 10px; color: white; margin: 2px;
+  letter-spacing: 0.3px;
+}
+.it-events { background: #27ae60; }
+.it-social { background: #8e44ad; }
+.it-maps { background: #2980b9; }
+.it-nycwine { background: var(--pink); }
+.it-news { background: #c0392b; }
+.it-video { background: #c0392b; }
+.it-free { background: #95a5a6; }
+.it-paid { background: #e67e22; }
+
+.annotation {
+  background: #fffbf0; border: 1.5px dashed #e0c060; border-radius: 0 0 8px 8px;
+  padding: 8px 12px; font-size: 10.5px; color: #666; line-height: 1.5;
+}
+.annotation strong { color: #333; }
+
+/* ═══════════════════════════════════════
+   PHONE FRAME
+═══════════════════════════════════════ */
+.phone-frame {
+  background: #1a1a1a; border-radius: 44px; padding: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), inset 0 0 0 2px #333;
+  width: 390px;
+}
+.phone-notch {
+  width: 120px; height: 28px; background: #1a1a1a;
+  border-radius: 0 0 16px 16px; margin: 0 auto 8px;
+  position: relative; z-index: 10;
+}
+.phone-screen {
+  background: white; border-radius: 34px; overflow: hidden;
+  height: 780px; overflow-y: auto;
+  scrollbar-width: none;
+}
+.phone-screen::-webkit-scrollbar { display: none; }
+
+/* ═══════════════════════════════════════
+   SHARED SITE CHROME (inside phone + desktop)
+═══════════════════════════════════════ */
+
+/* HEADER */
+.site-header {
+  background: white; border-bottom: 3px solid var(--pink);
+  padding: 10px 14px; display: flex; align-items: center;
+  justify-content: space-between; position: sticky; top: 0; z-index: 50;
+}
+.logo { font-size: 20px; font-weight: 900; letter-spacing: -0.5px; color: var(--black); }
+.logo .wine { color: var(--pink); }
+.hamburger { font-size: 20px; color: var(--black); cursor: pointer; }
+.header-search-mobile {
+  flex: 1; margin: 0 10px; background: var(--grey); border-radius: 20px;
+  padding: 6px 12px; font-size: 12px; color: var(--muted); border: none; outline: none;
+  width: 100%;
+}
+
+/* ═══════════════════════════════════════
+   SECTION 1: UPCOMING EVENTS (TOP PRIORITY)
+═══════════════════════════════════════ */
+.events-top { background: white; }
+.events-header {
+  background: #27ae60; padding: 12px 14px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.events-header-title {
+  font-size: 13px; font-weight: 900; color: white; letter-spacing: 0.3px;
+}
+.events-header-title span { font-size: 16px; margin-right: 6px; }
+.see-all-white { font-size: 10px; color: rgba(255,255,255,0.85); font-weight: 700; text-decoration: none; }
+
+/* Event filter pills */
+.event-filters { padding: 10px 12px; display: flex; gap: 7px; overflow-x: auto; scrollbar-width: none; background: #f0faf4; border-bottom: 1px solid #d4edda; }
+.event-filters::-webkit-scrollbar { display: none; }
+.epill {
+  border-radius: 20px; padding: 5px 13px; font-size: 10px; font-weight: 700;
+  white-space: nowrap; border: 1.5px solid #27ae60; color: #27ae60;
+  background: white; cursor: pointer; flex-shrink: 0;
+}
+.epill.active { background: #27ae60; color: white; }
+
+/* Event cards — horizontal scroll on mobile */
+.event-cards-scroll { display: flex; gap: 10px; padding: 12px 12px; overflow-x: auto; scrollbar-width: none; }
+.event-cards-scroll::-webkit-scrollbar { display: none; }
+.event-card-m {
+  flex-shrink: 0; width: 180px; background: white;
+  border-radius: 12px; overflow: hidden; border: 1.5px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.ecm-header { height: 80px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.ecm-header.e1 { background: linear-gradient(135deg, #ff6b9d, #e8007d); }
+.ecm-header.e2 { background: linear-gradient(135deg, #a855f7, #7c3aed); }
+.ecm-header.e3 { background: linear-gradient(135deg, #34d399, #059669); }
+.ecm-header.e4 { background: linear-gradient(135deg, #fb923c, #ea580c); }
+.ecm-header.e5 { background: linear-gradient(135deg, #60a5fa, #2563eb); }
+.ecm-date-big { font-size: 22px; font-weight: 900; color: white; line-height: 1; }
+.ecm-month { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.85); text-transform: uppercase; letter-spacing: 1px; }
+.ecm-body { padding: 9px 10px; }
+.ecm-name { font-size: 11px; font-weight: 800; color: var(--black); line-height: 1.3; }
+.ecm-venue { font-size: 10px; color: var(--muted); margin-top: 3px; }
+.ecm-tag { font-size: 9px; background: #f0faf4; color: #27ae60; padding: 2px 7px; border-radius: 10px; font-weight: 700; display: inline-block; margin-top: 5px; }
+.ecm-price { font-size: 10px; color: var(--pink); font-weight: 800; float: right; margin-top: 5px; }
+
+/* This week list below the cards */
+.event-list { padding: 0 12px 12px; }
+.event-list-title { font-size: 10px; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; padding: 6px 0; }
+.event-row {
+  display: flex; align-items: center; gap: 10px; padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+}
+.event-row-date { text-align: center; flex-shrink: 0; width: 36px; }
+.erd-day { font-size: 14px; font-weight: 900; color: var(--pink); line-height: 1; }
+.erd-dow { font-size: 8px; color: var(--muted); text-transform: uppercase; }
+.event-row-info { flex: 1; }
+.eri-name { font-size: 11px; font-weight: 700; color: var(--black); line-height: 1.3; }
+.eri-venue { font-size: 10px; color: var(--muted); }
+.event-row-arrow { font-size: 12px; color: var(--border); flex-shrink: 0; }
+
+/* ═══════════════════════════════════════
+   SECTION 2: SOCIAL FEEDS #nycwine
+═══════════════════════════════════════ */
+.social-top { background: var(--grey); border-top: 3px solid #8e44ad; }
+.social-header-bar {
+  background: #8e44ad; padding: 10px 14px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.social-header-bar-title { font-size: 13px; font-weight: 900; color: white; }
+.social-tabs { display: flex; gap: 0; padding: 0 12px; background: white; border-bottom: 1px solid var(--border); }
+.stab {
+  font-size: 10px; font-weight: 700; padding: 8px 12px; color: var(--muted);
+  border-bottom: 2px solid transparent; cursor: pointer; white-space: nowrap;
+}
+.stab.active { color: #8e44ad; border-bottom-color: #8e44ad; }
+
+/* Instagram grid */
+.ig-feed { padding: 10px 12px; background: white; }
+.ig-grid-m { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; }
+.ig-cell {
+  aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center;
+  justify-content: center; font-size: 20px; position: relative; overflow: hidden;
+}
+.ig-cell.c1 { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366); }
+.ig-cell.c2 { background: linear-gradient(135deg, #ffecd2, #fcb69f); }
+.ig-cell.c3 { background: linear-gradient(135deg, #a8edea, #fed6e3); }
+.ig-cell.c4 { background: linear-gradient(135deg, #d299c2, #fef9d7); }
+.ig-cell.c5 { background: linear-gradient(135deg, #89f7fe, #66a6ff); }
+.ig-cell.c6 { background: linear-gradient(135deg, #fddb92, #d1fdff); }
+.ig-cell.c7 { background: linear-gradient(135deg, #f5576c, #f093fb); }
+.ig-cell.c8 { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+.ig-cell.c9 { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+.ig-hashtag { font-size: 9px; background: rgba(0,0,0,0.5); color: white; padding: 2px 5px; border-radius: 4px; position: absolute; bottom: 4px; left: 4px; font-weight: 700; }
+.ig-caption { font-size: 10px; color: var(--muted); text-align: center; padding: 6px 0 0; }
+
+/* ═══════════════════════════════════════
+   SECTION 3: GET WINE DELIVERED
+═══════════════════════════════════════ */
+.delivery-section { background: var(--pink); }
+.delivery-header { padding: 14px 14px 0; }
+.delivery-header h2 { font-size: 18px; font-weight: 900; color: white; line-height: 1.2; }
+.delivery-header p { font-size: 11px; color: rgba(255,255,255,0.8); margin-top: 4px; }
+.delivery-step { padding: 12px 14px; }
+.delivery-step-label { font-size: 9px; font-weight: 800; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+
+/* Borough selector */
+.borough-tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+.btab {
+  border: 2px solid rgba(255,255,255,0.4); border-radius: 20px; padding: 6px 14px;
+  font-size: 11px; font-weight: 700; color: white; cursor: pointer;
+  background: rgba(255,255,255,0.1);
+}
+.btab.active { background: white; color: var(--pink); border-color: white; }
+
+/* Neighborhood grid */
+.neighborhood-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin-top: 8px; }
+.nbhood {
+  background: rgba(255,255,255,0.15); border: 1.5px solid rgba(255,255,255,0.3);
+  border-radius: 8px; padding: 7px 10px; font-size: 10.5px; font-weight: 600;
+  color: white; cursor: pointer; text-align: center;
+}
+.nbhood.active { background: white; color: var(--pink); border-color: white; font-weight: 800; }
+.nbhood:hover { background: rgba(255,255,255,0.25); }
+
+/* Results */
+.delivery-results { background: white; border-radius: 12px 12px 0 0; margin: 10px 14px 0; padding: 12px; }
+.dr-header { font-size: 11px; font-weight: 800; color: var(--black); margin-bottom: 10px; }
+.dr-header span { color: var(--pink); }
+.store-result-card {
+  display: flex; gap: 10px; align-items: flex-start; padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.src-num { width: 22px; height: 22px; border-radius: 50%; background: var(--pink); color: white; font-size: 10px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.src-info { flex: 1; }
+.src-name { font-size: 12px; font-weight: 800; color: var(--black); }
+.src-addr { font-size: 10px; color: var(--muted); margin-top: 1px; }
+.src-phone { font-size: 10px; color: #2980b9; font-weight: 600; margin-top: 2px; }
+.src-tags { display: flex; gap: 4px; margin-top: 5px; flex-wrap: wrap; }
+.src-tag { font-size: 8px; padding: 2px 6px; border-radius: 8px; font-weight: 700; }
+.src-tag.delivery { background: #e8f8f5; color: #16a085; }
+.src-tag.online { background: var(--pink-light); color: var(--pink); }
+.src-tag.dist { background: #f0f3ff; color: #2980b9; }
+.src-btn { font-size: 9px; font-weight: 800; color: var(--pink); background: var(--pink-light); border: none; border-radius: 8px; padding: 6px 10px; cursor: pointer; flex-shrink: 0; margin-top: 1px; }
+
+/* ═══════════════════════════════════════
+   SECTION 4: FEATURED STORE OF THE WEEK
+═══════════════════════════════════════ */
+.sotw { background: var(--grey); padding: 12px 14px; }
+.sotw-label { font-size: 9px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--pink); margin-bottom: 8px; }
+.sotw-card { background: white; border-radius: 12px; overflow: hidden; border: 2px solid var(--pink); }
+.sotw-img { height: 100px; background: linear-gradient(135deg, #1a1a1a, #3d0015); display: flex; align-items: center; justify-content: center; font-size: 36px; }
+.sotw-body { padding: 12px; }
+.sotw-name { font-size: 15px; font-weight: 900; color: var(--black); }
+.sotw-tagline { font-size: 11px; color: var(--muted); margin-top: 3px; line-height: 1.4; }
+.sotw-meta { display: flex; gap: 10px; margin-top: 10px; }
+.sotw-btn { flex: 1; background: var(--pink); color: white; border: none; border-radius: 8px; padding: 9px; font-size: 11px; font-weight: 800; cursor: pointer; }
+.sotw-btn.outline { background: white; color: var(--pink); border: 2px solid var(--pink); }
+
+/* ═══════════════════════════════════════
+   SECTION 5: DIRECTORY QUICK ACCESS
+═══════════════════════════════════════ */
+.directory-links { background: white; padding: 12px 14px; }
+.dir-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+.dir-btn {
+  border-radius: 12px; padding: 14px 8px; text-align: center;
+  border: none; cursor: pointer; text-decoration: none; display: block;
+}
+.dir-btn.stores { background: #e8f4fd; }
+.dir-btn.bars { background: #fef5e7; }
+.dir-btn.wineries { background: #e8f8f5; }
+.dir-icon { font-size: 24px; display: block; margin-bottom: 5px; }
+.dir-label { font-size: 10px; font-weight: 800; color: var(--black); letter-spacing: 0.3px; }
+.dir-count { font-size: 9px; color: var(--muted); margin-top: 2px; }
+
+/* ═══════════════════════════════════════
+   SECTION 6: NEWS TICKER + FEED
+═══════════════════════════════════════ */
+.ticker-m { background: var(--black); padding: 8px 14px; display: flex; gap: 10px; align-items: center; overflow: hidden; }
+.ticker-badge { background: var(--pink); color: white; font-size: 8px; font-weight: 800; padding: 3px 8px; border-radius: 3px; letter-spacing: 0.5px; text-transform: uppercase; flex-shrink: 0; }
+.ticker-text { font-size: 11px; color: #eee; white-space: nowrap; }
+
+.news-cards-m { padding: 12px 14px; background: var(--grey); }
+.news-card-m { background: white; border-radius: 10px; padding: 12px; margin-bottom: 8px; display: flex; gap: 10px; box-shadow: 0 1px 6px rgba(0,0,0,0.05); }
+.ncm-emoji { font-size: 28px; flex-shrink: 0; }
+.ncm-source { font-size: 9px; font-weight: 800; color: #c0392b; text-transform: uppercase; letter-spacing: 0.5px; }
+.ncm-title { font-size: 12px; font-weight: 700; color: var(--black); margin-top: 3px; line-height: 1.35; }
+.ncm-date { font-size: 10px; color: var(--muted); margin-top: 4px; }
+
+/* ═══════════════════════════════════════
+   BOTTOM NAV (MOBILE)
+═══════════════════════════════════════ */
+.bottom-nav {
+  position: sticky; bottom: 0; background: white;
+  border-top: 1px solid var(--border); display: flex;
+  padding: 6px 0 8px;
+}
+.bnav-item { flex: 1; text-align: center; padding: 4px 0; cursor: pointer; }
+.bnav-icon { font-size: 18px; display: block; }
+.bnav-label { font-size: 8px; color: var(--muted); font-weight: 600; margin-top: 1px; }
+.bnav-item.active .bnav-label { color: var(--pink); }
+.bnav-item.active .bnav-icon { filter: none; }
+
+/* ═══════════════════════════════════════
+   DESKTOP ANNOTATION PANELS
+═══════════════════════════════════════ */
+.desktop-col { display: flex; flex-direction: column; gap: 20px; }
+.desktop-panel { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+.dp-header { padding: 12px 16px; display: flex; align-items: center; gap: 10px; }
+.dp-num { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 900; color: white; flex-shrink: 0; }
+.dp-title { font-size: 14px; font-weight: 900; color: var(--black); }
+.dp-subtitle { font-size: 11px; color: var(--muted); }
+.dp-body { padding: 14px 16px; border-top: 1px solid var(--border); }
+.dp-body p { font-size: 12px; color: #444; line-height: 1.6; margin-bottom: 10px; }
+.dp-body p:last-child { margin-bottom: 0; }
+.dp-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.dp-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+.dp-row-text { font-size: 12px; color: #444; line-height: 1.5; }
+.tags-row { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+
+/* NYC Neighborhood map placeholder */
+.nbhood-map {
+  background: linear-gradient(135deg, #e8f4fd, #d0e8f8);
+  border-radius: 10px; height: 180px; display: flex; align-items: center;
+  justify-content: center; flex-direction: column; gap: 8px;
+  border: 2px solid #aed6f1; margin: 10px 0;
+}
+.nbhood-map-label { font-size: 13px; font-weight: 700; color: #2980b9; }
+.nbhood-map-sub { font-size: 10px; color: #5d9cce; }
+
+/* Site architecture diagram */
+.arch-diagram { background: var(--grey); border-radius: 10px; padding: 14px; margin-top: 10px; }
+.arch-home { background: var(--pink); color: white; border-radius: 8px; padding: 8px 16px; text-align: center; font-weight: 800; font-size: 12px; margin-bottom: 12px; }
+.arch-arrow { text-align: center; font-size: 10px; color: var(--muted); margin: -4px 0; }
+.arch-pages { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.arch-page {
+  border-radius: 8px; padding: 8px; text-align: center;
+  border: 2px solid; font-size: 10px; font-weight: 700;
+}
+.arch-page.stores { border-color: #2980b9; color: #2980b9; background: #e8f4fd; }
+.arch-page.bars { border-color: #e67e22; color: #e67e22; background: #fef5e7; }
+.arch-page.wineries { border-color: #16a085; color: #16a085; background: #e8f8f5; }
+.arch-page.events { border-color: #27ae60; color: #27ae60; background: #f0faf4; }
+.arch-page-icon { font-size: 18px; display: block; margin-bottom: 4px; }
+.arch-line { height: 20px; display: flex; align-items: center; justify-content: center; }
+.arch-line::before { content: ''; display: block; width: 1px; height: 100%; background: var(--border); }
+
+/* Rotating store explainer */
+.rotation-explainer { background: #fff0f8; border: 2px dashed var(--pink); border-radius: 10px; padding: 12px 14px; margin-top: 10px; }
+.re-title { font-size: 11px; font-weight: 800; color: var(--pink); margin-bottom: 6px; }
+.re-text { font-size: 11px; color: #666; line-height: 1.5; }
+.re-schedule { display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; margin-top: 8px; font-size: 10px; }
+.re-schedule .day { font-weight: 700; color: var(--black); }
+.re-schedule .action { color: #666; }
+
+/* Filter detail */
+.filter-detail { background: #f0faf4; border-radius: 10px; padding: 12px 14px; margin-top: 10px; }
+.fd-title { font-size: 11px; font-weight: 800; color: #27ae60; margin-bottom: 8px; }
+.fd-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.fd-chip { background: white; border: 1.5px solid #27ae60; border-radius: 6px; padding: 5px 8px; font-size: 10px; font-weight: 600; color: #27ae60; }
+
+/* Social filtering detail */
+.social-filter-detail { background: #f5f0fb; border-radius: 10px; padding: 12px 14px; margin-top: 10px; }
+.sfd-title { font-size: 11px; font-weight: 800; color: #8e44ad; margin-bottom: 8px; }
+.sfd-rule { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 6px; font-size: 10.5px; color: #444; }
+.sfd-icon { flex-shrink: 0; }
+
+/* Page header labels */
+.page-heading { font-size: 13px; font-weight: 900; letter-spacing: -0.3px; margin-bottom: 6px; }
+.page-meta { font-size: 11px; color: var(--muted); }
+
+/* ═══════════════════════════════════════
+   WIDGET PLACEHOLDER
+   Shown whenever a widget ID / embed URL
+   hasn't been filled in yet. Replaced by
+   the real widget once configured.
+═══════════════════════════════════════ */
+.widget-placeholder {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 8px; padding: 28px 20px; background: var(--grey);
+  border: 2px dashed var(--border); border-radius: 12px; text-align: center;
+  margin: 10px 12px;
+}
+.wp-icon { font-size: 28px; opacity: 0.4; }
+.wp-title { font-size: 12px; font-weight: 800; color: var(--black); }
+.wp-desc  { font-size: 10px; color: var(--muted); line-height: 1.5; max-width: 240px; }
+.wp-badge {
+  font-size: 9px; font-weight: 800; padding: 3px 10px; border-radius: 20px;
+  background: #fff3cd; color: #856404; border: 1px solid #ffc107;
+  letter-spacing: 0.3px;
+}
+
+/* ═══════════════════════════════════════
+   QUICK-NAV BAR (sticky section jumper)
+═══════════════════════════════════════ */
+.quick-nav {
+  display: flex; gap: 6px; padding: 8px 12px;
+  overflow-x: auto; scrollbar-width: none;
+  background: white;
+  border-bottom: 2px solid var(--pink);
+  position: sticky; top: 53px; z-index: 49;
+}
+.quick-nav::-webkit-scrollbar { display: none; }
+.qnav-pill {
+  display: flex; align-items: center; gap: 4px;
+  flex-shrink: 0; cursor: pointer;
+  background: var(--grey); border: 1.5px solid var(--border);
+  border-radius: 20px; padding: 5px 12px;
+  font-size: 10px; font-weight: 800; color: var(--black);
+  white-space: nowrap; text-decoration: none;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.qnav-pill:hover { background: var(--pink-light); border-color: var(--pink); color: var(--pink); }
+.qnav-pill.events  { border-color: #27ae60; color: #27ae60; background: #f0faf4; }
+.qnav-pill.social  { border-color: #8e44ad; color: #8e44ad; background: #f5f0fb; }
+.qnav-pill.delivery { border-color: var(--pink); color: var(--pink); background: var(--pink-light); }
+.qnav-pill.stores  { border-color: #2980b9; color: #2980b9; background: #e8f4fd; }
+.qnav-pill.bars    { border-color: #e67e22; color: #e67e22; background: #fef5e7; }
+.qnav-pill.wineries { border-color: #16a085; color: #16a085; background: #e8f8f5; }
+.qnav-pill.tastings { border-color: #c0392b; color: #c0392b; background: #fdf0ef; }
+.qnav-pill.news    { border-color: #95a5a6; color: #555; background: var(--grey); }
+
+</style>
+</head>
+<body>
+
+<div style="background: #1a1a1a; color: white; text-align: center; padding: 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.5px;">
+  NYCWine.com — Homepage Mockup v2 · Mobile-First Design · Left = Phone View · Right = Section Notes
+</div>
+
+<div class="page-wrapper">
+
+<!-- ═══════════════════════════════════════
+     LEFT COLUMN: PHONE MOCKUP
+═══════════════════════════════════════ -->
+<div class="col-phone">
+  <div class="phone-frame">
+    <div class="phone-notch"></div>
+    <div class="phone-screen" id="phoneScreen">
+
+      <!-- STICKY HEADER -->
+      <div class="site-header">
+        <div class="logo">NYC<span class="wine">🍷</span>WINE</div>
+        <input class="header-search-mobile" placeholder="🔍 Search events, stores, wine…">
+        <div class="hamburger">☰</div>
+      </div>
+
+      <!-- QUICK-NAV BAR -->
+      <div class="quick-nav">
+        <a class="qnav-pill events"  href="#" onclick="scrollTo('sec-events');return false;">📅 Events</a>
+        <a class="qnav-pill social"  href="#" onclick="scrollTo('sec-social');return false;">📸 Social</a>
+        <a class="qnav-pill news"    href="#" onclick="scrollTo('sec-news');return false;">🗞 News</a>
+        <a class="qnav-pill stores"  href="#" onclick="scrollTo('sec-stores');return false;">🍷 Wine Stores</a>
+        <a class="qnav-pill bars"    href="#" onclick="scrollTo('sec-bars');return false;">🥂 Wine Bars</a>
+        <a class="qnav-pill wineries" href="#" onclick="scrollTo('sec-wineries');return false;" style="opacity:0.45; border-style:dashed;">🍇 Wineries <span style="font-size:8px; font-weight:700; background:#e0e0e0; color:#888; border-radius:8px; padding:1px 5px; margin-left:2px;">soon</span></a>
+      </div>
+
+      <!-- ──────────────────────────────── -->
+      <!-- SECTION 1: UPCOMING EVENTS -->
+      <!-- ──────────────────────────────── -->
+      <div class="events-top" id="sec-events">
+        <div class="events-header">
+          <div class="events-header-title"><span>📅</span>Upcoming Events</div>
+          <a href="#" class="see-all-white">See all →</a>
+        </div>
+        <div class="event-filters">
+          <button class="epill active">This Week</button>
+          <button class="epill">This Weekend</button>
+          <button class="epill">Tastings</button>
+          <button class="epill">Classes</button>
+          <button class="epill">Dinners</button>
+          <button class="epill">Free</button>
+        </div>
+        <!-- Horizontal scroll cards: soonest first -->
+        <div class="event-cards-scroll">
+          <div class="event-card-m">
+            <div class="ecm-header e1">
+              <div class="ecm-date-big">27</div>
+              <div class="ecm-month">Mar · Tomorrow</div>
+            </div>
+            <div class="ecm-body">
+              <div class="ecm-name">Spring Rosé Tasting</div>
+              <div class="ecm-venue">67 Wine, UWS</div>
+              <span class="ecm-tag">Tasting</span>
+              <span class="ecm-price">$45</span>
+            </div>
+          </div>
+          <div class="event-card-m">
+            <div class="ecm-header e2">
+              <div class="ecm-date-big">28</div>
+              <div class="ecm-month">Mar · Saturday</div>
+            </div>
+            <div class="ecm-body">
+              <div class="ecm-name">Natural Wine Night</div>
+              <div class="ecm-venue">Chambers St Wines</div>
+              <span class="ecm-tag">Free · RSVP</span>
+            </div>
+          </div>
+          <div class="event-card-m">
+            <div class="ecm-header e3">
+              <div class="ecm-date-big">29</div>
+              <div class="ecm-month">Mar · Sunday</div>
+            </div>
+            <div class="ecm-body">
+              <div class="ecm-name">Champagne Brunch Class</div>
+              <div class="ecm-venue">Corkbuzz, Chelsea</div>
+              <span class="ecm-tag">Class</span>
+              <span class="ecm-price">$75</span>
+            </div>
+          </div>
+          <div class="event-card-m">
+            <div class="ecm-header e4">
+              <div class="ecm-date-big">2</div>
+              <div class="ecm-month">Apr · Thursday</div>
+            </div>
+            <div class="ecm-body">
+              <div class="ecm-name">Burgundy & Beyond Dinner</div>
+              <div class="ecm-venue">Tribeca Wine Merch.</div>
+              <span class="ecm-tag">Dinner</span>
+              <span class="ecm-price">$120</span>
+            </div>
+          </div>
+          <div class="event-card-m">
+            <div class="ecm-header e5">
+              <div class="ecm-date-big">5</div>
+              <div class="ecm-month">Apr · Saturday</div>
+            </div>
+            <div class="ecm-body">
+              <div class="ecm-name">WSET Level 1 Wine</div>
+              <div class="ecm-venue">NYC Wine School</div>
+              <span class="ecm-tag">Course</span>
+              <span class="ecm-price">$195</span>
+            </div>
+          </div>
+        </div>
+        <!-- List view below cards -->
+        <div class="event-list">
+          <div class="event-list-title">More this week</div>
+          <div class="event-row">
+            <div class="event-row-date"><div class="erd-day">28</div><div class="erd-dow">Sat</div></div>
+            <div class="event-row-info"><div class="eri-name">Italian Varietals Evening</div><div class="eri-venue">Garnet Wines, UES</div></div>
+            <div class="event-row-arrow">›</div>
+          </div>
+          <div class="event-row">
+            <div class="event-row-date"><div class="erd-day">30</div><div class="erd-dow">Mon</div></div>
+            <div class="event-row-info"><div class="eri-name">Biodynamic Wine Talk · Free</div><div class="eri-venue">Union Sq Wines</div></div>
+            <div class="event-row-arrow">›</div>
+          </div>
+          <div class="event-row">
+            <div class="event-row-date"><div class="erd-day">1</div><div class="erd-dow">Wed</div></div>
+            <div class="event-row-info"><div class="eri-name">Finger Lakes Wine Tasting</div><div class="eri-venue">Astor Wines, NoHo</div></div>
+            <div class="event-row-arrow">›</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ──────────────────────────────── -->
+      <!-- SECTION 2: SOCIAL #nycwine -->
+      <!-- ──────────────────────────────── -->
+      <div class="social-top" id="sec-social">
+        <div class="social-header-bar">
+          <div class="social-header-bar-title">📸 #nycwine Right Now</div>
+          <a href="#" class="see-all-white" style="color:rgba(255,255,255,0.85);">Follow →</a>
+        </div>
+        <div class="social-tabs">
+          <div class="stab active">Instagram</div>
+          <div class="stab">Pinterest</div>
+          <div class="stab">X / Twitter</div>
+          <div class="stab">Facebook</div>
+        </div>
+        <!-- INSTAGRAM TAB: live grid (shown once Elfsight widget is configured) -->
+        <div class="ig-feed">
+          <div class="ig-grid-m">
+            <div class="ig-cell c1">🍷<span class="ig-hashtag">#nycwine</span></div>
+            <div class="ig-cell c2">🥂<span class="ig-hashtag">#nycwine</span></div>
+            <div class="ig-cell c3">🍇<span class="ig-hashtag">#winenyc</span></div>
+            <div class="ig-cell c4">🌆<span class="ig-hashtag">#nycwine</span></div>
+            <div class="ig-cell c5">🍾<span class="ig-hashtag">#nycwine</span></div>
+            <div class="ig-cell c6">🗽<span class="ig-hashtag">#winebar</span></div>
+            <div class="ig-cell c7">🌿<span class="ig-hashtag">#naturalwine</span></div>
+            <div class="ig-cell c8">✨<span class="ig-hashtag">#nycwine</span></div>
+            <div class="ig-cell c9">🎉<span class="ig-hashtag">#nycwine</span></div>
+          </div>
+          <div class="ig-caption">Live from Instagram · #nycwine #winenyc #nycwinebar · Tap to open Instagram</div>
+        </div>
+        <!-- PLACEHOLDER: shown for Pinterest, X, Facebook tabs until configured -->
+        <div class="widget-placeholder" style="display:none;" id="ph-pinterest">
+          <div class="wp-icon">📌</div>
+          <div class="wp-title">Pinterest Feed</div>
+          <div class="wp-desc">Add your Pinterest board embed URL in integrations-config.js to show NYC wine pins here.</div>
+          <div class="wp-badge">⚙️ Needs configuration</div>
+        </div>
+        <div class="widget-placeholder" style="display:none;" id="ph-twitter">
+          <div class="wp-icon">𝕏</div>
+          <div class="wp-title">X / Twitter Feed</div>
+          <div class="wp-desc">The @nycwine timeline embed will appear here. Free — just needs the account to be active.</div>
+          <div class="wp-badge">⚙️ Activate @nycwine account</div>
+        </div>
+        <div class="widget-placeholder" style="display:none;" id="ph-facebook">
+          <div class="wp-icon">📘</div>
+          <div class="wp-title">Facebook Feed</div>
+          <div class="wp-desc">The NYCWine Facebook page feed will appear here once the Facebook App ID is added.</div>
+          <div class="wp-badge">⚙️ Needs Facebook App ID</div>
+        </div>
+      </div>
+
+      <!-- ──────────────────────────────── -->
+      <!-- SECTION 3: WINE NEWS -->
+      <!-- ──────────────────────────────── -->
+      <div id="sec-news"></div>
+      <div class="ticker-m">
+        <div class="ticker-badge">Wine News</div>
+        <div class="ticker-text">Best Natural Wine Bars Opening in NYC · Finger Lakes Wins Gold · 5 Bottles Under $20 · Reddit: What wine for a first date? · NYT: The Best Bottles of 2025…</div>
+      </div>
+      <!-- News source filter tabs -->
+      <div style="display:flex; gap:0; padding:0 12px; background:white; border-bottom:1px solid var(--border); overflow-x:auto; scrollbar-width:none;">
+        <div style="font-size:10px; font-weight:700; padding:8px 10px; color:#c0392b; border-bottom:2px solid #c0392b; white-space:nowrap; cursor:pointer; flex-shrink:0;">All</div>
+        <div style="font-size:10px; font-weight:700; padding:8px 10px; color:var(--muted); border-bottom:2px solid transparent; white-space:nowrap; cursor:pointer; flex-shrink:0;">NY Times</div>
+        <div style="font-size:10px; font-weight:700; padding:8px 10px; color:var(--muted); border-bottom:2px solid transparent; white-space:nowrap; cursor:pointer; flex-shrink:0;">NY Post</div>
+        <div style="font-size:10px; font-weight:700; padding:8px 10px; color:var(--muted); border-bottom:2px solid transparent; white-space:nowrap; cursor:pointer; flex-shrink:0;">Eater NY</div>
+        <div style="font-size:10px; font-weight:700; padding:8px 10px; color:var(--muted); border-bottom:2px solid transparent; white-space:nowrap; cursor:pointer; flex-shrink:0;">VinePair</div>
+        <div style="font-size:10px; font-weight:700; padding:8px 10px; color:var(--muted); border-bottom:2px solid transparent; white-space:nowrap; cursor:pointer; flex-shrink:0;">Reddit</div>
+        <div style="font-size:10px; font-weight:700; padding:8px 10px; color:var(--muted); border-bottom:2px solid transparent; white-space:nowrap; cursor:pointer; flex-shrink:0;">Grub St.</div>
+        <div style="font-size:10px; font-weight:700; padding:8px 10px; color:var(--muted); border-bottom:2px solid transparent; white-space:nowrap; cursor:pointer; flex-shrink:0;">Wine Spec.</div>
+      </div>
+      <div class="news-cards-m">
+        <div class="news-card-m">
+          <div class="ncm-emoji">🗞</div>
+          <div>
+            <div class="ncm-source" style="color:#c0392b;">Eater NY</div>
+            <div class="ncm-title">Best New Wine Bars Opening in NYC This Spring</div>
+            <div class="ncm-date">2 hours ago</div>
+          </div>
+        </div>
+        <div class="news-card-m">
+          <div class="ncm-emoji" style="font-size:22px;">🗽</div>
+          <div>
+            <div class="ncm-source" style="color:#1a1a1a;">NY Times</div>
+            <div class="ncm-title">The Best Wine Bars in NYC Right Now, Ranked</div>
+            <div class="ncm-date">4 hours ago</div>
+          </div>
+        </div>
+        <div class="news-card-m">
+          <div class="ncm-emoji">🍷</div>
+          <div>
+            <div class="ncm-source" style="color:#c0392b;">VinePair</div>
+            <div class="ncm-title">5 Bottles Under $20 That Actually Taste Like $50</div>
+            <div class="ncm-date">Yesterday</div>
+          </div>
+        </div>
+        <div class="news-card-m">
+          <div class="ncm-emoji" style="font-size:22px;">🤖</div>
+          <div>
+            <div class="ncm-source" style="color:#ff4500;">Reddit · r/wine</div>
+            <div class="ncm-title">"What's a good bottle to bring to a dinner party in NYC for under $30?" — 247 comments</div>
+            <div class="ncm-date">3 hours ago · 892 upvotes</div>
+          </div>
+        </div>
+        <div class="news-card-m">
+          <div class="ncm-emoji" style="font-size:22px;">📰</div>
+          <div>
+            <div class="ncm-source" style="color:#d44000;">NY Post</div>
+            <div class="ncm-title">NYC's Hottest New Wine Bar Opened in the West Village</div>
+            <div class="ncm-date">Yesterday</div>
+          </div>
+        </div>
+        <div class="news-card-m">
+          <div class="ncm-emoji">📰</div>
+          <div>
+            <div class="ncm-source" style="color:#888;">Grub Street</div>
+            <div class="ncm-title">Where to Drink Outside in NYC This Weekend</div>
+            <div class="ncm-date">2 days ago</div>
+          </div>
+        </div>
+        <div class="news-card-m">
+          <div class="ncm-emoji" style="font-size:22px;">🍾</div>
+          <div>
+            <div class="ncm-source" style="color:#8e44ad;">Wine Spectator</div>
+            <div class="ncm-title">Finger Lakes Riesling Is Having Its Moment — Here's Why</div>
+            <div class="ncm-date">2 days ago</div>
+          </div>
+        </div>
+        <div class="news-card-m">
+          <div class="ncm-emoji" style="font-size:22px;">🤖</div>
+          <div>
+            <div class="ncm-source" style="color:#ff4500;">Reddit · r/nyc</div>
+            <div class="ncm-title">"Best wine shop in Brooklyn with knowledgeable staff?" — 134 comments</div>
+            <div class="ncm-date">5 hours ago · 441 upvotes</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ──────────────────────────────── -->
+      <!-- SECTION 4: NYC WINE STORES (MVP) -->
+      <!-- Simple directory — links out to store websites -->
+      <!-- Full neighborhood filter tool comes in V1       -->
+      <!-- ──────────────────────────────── -->
+      <div id="sec-stores" style="background:white; border-top:3px solid #2980b9;">
+        <div style="background:#2980b9; padding:10px 14px; display:flex; align-items:center; justify-content:space-between;">
+          <div style="font-size:13px; font-weight:900; color:white;">🍷 NYC Wine Stores</div>
+          <a href="#" style="font-size:10px; color:rgba(255,255,255,0.85); font-weight:700; text-decoration:none;">See all 200+ →</a>
+        </div>
+        <!-- Borough filter pills -->
+        <div style="display:flex; gap:6px; padding:10px 12px; overflow-x:auto; scrollbar-width:none; background:#e8f4fd; border-bottom:1px solid #aed6f1;">
+          <button style="border-radius:20px; padding:5px 13px; font-size:10px; font-weight:700; border:1.5px solid #2980b9; background:#2980b9; color:white; white-space:nowrap; flex-shrink:0;">All NYC</button>
+          <button style="border-radius:20px; padding:5px 13px; font-size:10px; font-weight:700; border:1.5px solid #2980b9; color:#2980b9; background:white; white-space:nowrap; flex-shrink:0;">Manhattan</button>
+          <button style="border-radius:20px; padding:5px 13px; font-size:10px; font-weight:700; border:1.5px solid #2980b9; color:#2980b9; background:white; white-space:nowrap; flex-shrink:0;">Brooklyn</button>
+          <button style="border-radius:20px; padding:5px 13px; font-size:10px; font-weight:700; border:1.5px solid #2980b9; color:#2980b9; background:white; white-space:nowrap; flex-shrink:0;">Queens</button>
+          <button style="border-radius:20px; padding:5px 13px; font-size:10px; font-weight:700; border:1.5px solid #2980b9; color:#2980b9; background:white; white-space:nowrap; flex-shrink:0;">Bronx</button>
+        </div>
+        <!-- Store cards -->
+        <div style="padding:10px 12px;">
+          <!-- Store row -->
+          <div style="display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid var(--border);">
+            <div style="width:36px; height:36px; border-radius:8px; background:linear-gradient(135deg,#e8f4fd,#aed6f1); display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0;">🍷</div>
+            <div style="flex:1;">
+              <div style="font-size:12px; font-weight:800; color:var(--black);">Chambers Street Wines</div>
+              <div style="font-size:10px; color:var(--muted); margin-top:1px;">160 Chambers St · Tribeca</div>
+              <div style="font-size:9px; color:#16a085; font-weight:700; margin-top:3px;">🌿 Natural Wine Specialist</div>
+            </div>
+            <a href="#" style="font-size:9px; font-weight:800; color:#2980b9; background:#e8f4fd; border:none; border-radius:8px; padding:6px 10px; text-decoration:none; flex-shrink:0;">Visit →</a>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid var(--border);">
+            <div style="width:36px; height:36px; border-radius:8px; background:linear-gradient(135deg,#fef5e7,#f9ca8a); display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0;">🥂</div>
+            <div style="flex:1;">
+              <div style="font-size:12px; font-weight:800; color:var(--black);">Astor Wines & Spirits</div>
+              <div style="font-size:10px; color:var(--muted); margin-top:1px;">399 Lafayette St · NoHo</div>
+              <div style="font-size:9px; color:#2980b9; font-weight:700; margin-top:3px;">🛒 Online Ordering</div>
+            </div>
+            <a href="#" style="font-size:9px; font-weight:800; color:#2980b9; background:#e8f4fd; border:none; border-radius:8px; padding:6px 10px; text-decoration:none; flex-shrink:0;">Visit →</a>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid var(--border);">
+            <div style="width:36px; height:36px; border-radius:8px; background:linear-gradient(135deg,#f5f0fb,#d7bfeb); display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0;">🍇</div>
+            <div style="flex:1;">
+              <div style="font-size:12px; font-weight:800; color:var(--black);">67 Wine & Spirits</div>
+              <div style="font-size:10px; color:var(--muted); margin-top:1px;">179 Columbus Ave · UWS</div>
+              <div style="font-size:9px; color:#2980b9; font-weight:700; margin-top:3px;">🛒 Online Ordering</div>
+            </div>
+            <a href="#" style="font-size:9px; font-weight:800; color:#2980b9; background:#e8f4fd; border:none; border-radius:8px; padding:6px 10px; text-decoration:none; flex-shrink:0;">Visit →</a>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid var(--border);">
+            <div style="width:36px; height:36px; border-radius:8px; background:linear-gradient(135deg,#e8f8f5,#a8e6cf); display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0;">🍾</div>
+            <div style="flex:1;">
+              <div style="font-size:12px; font-weight:800; color:var(--black);">Garnet Wines & Liquors</div>
+              <div style="font-size:10px; color:var(--muted); margin-top:1px;">929 Lexington Ave · UES</div>
+              <div style="font-size:9px; color:#16a085; font-weight:700; margin-top:3px;">🚚 Delivers</div>
+            </div>
+            <a href="#" style="font-size:9px; font-weight:800; color:#2980b9; background:#e8f4fd; border:none; border-radius:8px; padding:6px 10px; text-decoration:none; flex-shrink:0;">Visit →</a>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px; padding:10px 0;">
+            <div style="width:36px; height:36px; border-radius:8px; background:linear-gradient(135deg,#fff0f8,#f4a0cc); display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0;">🍷</div>
+            <div style="flex:1;">
+              <div style="font-size:12px; font-weight:800; color:var(--black);">Sherry-Lehmann</div>
+              <div style="font-size:10px; color:var(--muted); margin-top:1px;">505 Park Ave · UES</div>
+              <div style="font-size:9px; color:#2980b9; font-weight:700; margin-top:3px;">🛒 Online Ordering</div>
+            </div>
+            <a href="#" style="font-size:9px; font-weight:800; color:#2980b9; background:#e8f4fd; border:none; border-radius:8px; padding:6px 10px; text-decoration:none; flex-shrink:0;">Visit →</a>
+          </div>
+          <a href="#" style="display:block; text-align:center; font-size:11px; font-weight:800; color:#2980b9; padding:12px; border:1.5px solid #2980b9; border-radius:10px; margin-top:10px; text-decoration:none;">View all 200+ NYC Wine Stores →</a>
+        </div>
+      </div>
+
+      <!-- ──────────────────────────────── -->
+      <!-- SECTION 5: WINE BARS + WINERIES LINKS -->
+      <!-- ──────────────────────────────── -->
+      <div id="sec-bars" style="background:var(--grey); padding:12px 14px;">
+        <div style="font-size:11px; font-weight:800; color:var(--black); margin-bottom:10px; letter-spacing:0.3px;">MORE TO EXPLORE</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+          <a href="#" style="border-radius:12px; padding:14px 10px; text-align:center; background:#fef5e7; border:1.5px solid #f0d0a0; text-decoration:none; display:block;">
+            <span style="font-size:24px; display:block; margin-bottom:5px;">🥂</span>
+            <div style="font-size:11px; font-weight:800; color:var(--black);">Wine Bars</div>
+            <div style="font-size:9px; color:var(--muted); margin-top:2px;">NYC's best</div>
+          </a>
+          <a href="#" style="border-radius:12px; padding:14px 10px; text-align:center; background:#f0f0ee; border:1.5px dashed #ccc; text-decoration:none; display:block; opacity:0.6;" id="sec-wineries">
+            <span style="font-size:24px; display:block; margin-bottom:5px;">🍇</span>
+            <div style="font-size:11px; font-weight:800; color:#888;">Wineries</div>
+            <div style="font-size:9px; color:#aaa; margin-top:2px;">Coming in V1</div>
+          </a>
+        </div>
+      </div>
+
+      <!-- BOTTOM NAV -->
+      <div class="bottom-nav">
+        <div class="bnav-item active">
+          <span class="bnav-icon">🏠</span>
+          <div class="bnav-label" style="color:var(--pink);">Home</div>
+        </div>
+        <div class="bnav-item">
+          <span class="bnav-icon">📅</span>
+          <div class="bnav-label">Events</div>
+        </div>
+        <div class="bnav-item">
+          <span class="bnav-icon">🗺️</span>
+          <div class="bnav-label">Map</div>
+        </div>
+        <div class="bnav-item">
+          <span class="bnav-icon">🍷</span>
+          <div class="bnav-label">Stores</div>
+        </div>
+        <div class="bnav-item">
+          <span class="bnav-icon">🥂</span>
+          <div class="bnav-label">Bars</div>
+        </div>
+      </div>
+
+    </div><!-- end phone-screen -->
+  </div><!-- end phone-frame -->
+  <p style="text-align:center; font-size:10px; color:#888; margin-top:10px;">↕ Scroll inside phone to see full page</p>
+</div><!-- end col-phone -->
+
+
+<!-- ═══════════════════════════════════════
+     RIGHT COLUMN: SECTION NOTES
+═══════════════════════════════════════ -->
+<div class="col-desktop desktop-col">
+
+  <!-- QUICK NAV PANEL -->
+  <div class="desktop-panel">
+    <div class="dp-header" style="background:var(--pink);">
+      <div class="dp-num" style="background:white; color:var(--pink);">⚡</div>
+      <div>
+        <div class="dp-title" style="color:white;">Quick-Nav Bar — Jump to Any Section</div>
+        <div class="dp-subtitle" style="color:rgba(255,255,255,0.75);">Sticky below the header on mobile and desktop</div>
+      </div>
+    </div>
+    <div class="dp-body">
+      <p>A horizontal pill bar sits just below the logo/search header and stays pinned as you scroll. Each pill jumps directly to that section — no hunting, one tap anywhere on the page.</p>
+      <div class="dp-row"><div class="dp-icon">📅</div><div class="dp-row-text"><strong>Latest Events</strong> → scrolls to the Upcoming Events section</div></div>
+      <div class="dp-row"><div class="dp-icon">📸</div><div class="dp-row-text"><strong>Social Now</strong> → scrolls to #nycwine Instagram / Pinterest / X / Facebook feeds</div></div>
+      <div class="dp-row"><div class="dp-icon">🚚</div><div class="dp-row-text"><strong>Order Wine</strong> → scrolls to Get Wine Delivered borough/neighborhood tool</div></div>
+      <div class="dp-row"><div class="dp-icon">🍷</div><div class="dp-row-text"><strong>Wine Tastings</strong> → scrolls to Events, filtered to Tastings &amp; Classes</div></div>
+      <div class="dp-row"><div class="dp-icon">🏪</div><div class="dp-row-text"><strong>Wine Stores</strong> → goes to full Wine Stores directory page</div></div>
+      <div class="dp-row"><div class="dp-icon">🥂</div><div class="dp-row-text"><strong>Wine Bars</strong> → goes to full Wine Bars directory page</div></div>
+      <div class="dp-row"><div class="dp-icon">🍇</div><div class="dp-row-text"><strong>Wineries</strong> → goes to full Wineries directory page</div></div>
+      <div class="dp-row"><div class="dp-icon">🗞</div><div class="dp-row-text"><strong>Wine News</strong> → scrolls to the filtered news feed at the bottom</div></div>
+      <div style="background:#fff0f8; border:1.5px dashed var(--pink); border-radius:8px; padding:10px 12px; margin-top:8px; font-size:11px; color:#666; line-height:1.6;">
+        <strong style="color:var(--pink);">Design note:</strong> On mobile the bar scrolls horizontally — all 8 pills are accessible with a swipe. Color-coded to match their destination section so they're instantly recognizable on repeat visits.
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION ORDER OVERVIEW -->
+  <div class="desktop-panel">
+    <div class="dp-header" style="background:#1a1a1a;">
+      <div class="dp-num" style="background:var(--pink);">✓</div>
+      <div>
+        <div class="dp-title" style="color:white;">Homepage Section Order — Mobile Priority</div>
+        <div class="dp-subtitle" style="color:rgba(255,255,255,0.6);">Scroll order on phone = what matters most</div>
+      </div>
+    </div>
+    <div class="dp-body">
+      <div style="background:#fff0f8; border-left:3px solid var(--pink); padding:8px 12px; font-size:11px; color:#666; margin-bottom:12px; line-height:1.6;">
+        <strong style="color:var(--pink);">MVP philosophy:</strong> Community first — events, social, news. Get those three right and people have a reason to come back daily. Stores and commerce follow once there's an audience.
+      </div>
+      <div class="dp-row"><div class="dp-icon">1️⃣</div><div class="dp-row-text"><strong>Upcoming Events</strong> — Eventbrite API. Date-sorted, soonest first. Filter pills for This Week / Weekend / Tastings / Classes / Free.</div></div>
+      <div class="dp-row"><div class="dp-icon">2️⃣</div><div class="dp-row-text"><strong>#nycwine Social Feeds</strong> — Instagram (Elfsight), X timeline, Facebook page, Pinterest. Placeholder shown until each widget is configured.</div></div>
+      <div class="dp-row"><div class="dp-icon">3️⃣</div><div class="dp-row-text"><strong>Wine News</strong> — RSS from 8 sources, tabbed by publisher. Auto-updates hourly. Zero cost.</div></div>
+      <div class="dp-row"><div class="dp-icon">4️⃣</div><div class="dp-row-text"><strong>NYC Wine Stores</strong> — Simple borough-filtered list. Name, neighborhood, tags, link to their website. Data from our store database. No ordering — all offsite.</div></div>
+      <div class="dp-row"><div class="dp-icon">5️⃣</div><div class="dp-row-text"><strong>Wine Bars</strong> — Link to full Wine Bars directory page.</div></div>
+      <div style="background:#f0f0ee; border:1.5px dashed #ccc; border-radius:8px; padding:10px 12px; margin-top:8px; font-size:11px; color:#888; line-height:1.6;">
+        <strong style="color:#666;">V1 additions (after MVP launch):</strong> Get Wine Delivered neighborhood tool · Wine Store of the Week rotation · Wineries directory · Google Maps integration
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: EVENTS -->
+  <div class="desktop-panel">
+    <div class="dp-header" style="background:#27ae60;">
+      <div class="dp-num" style="background:rgba(255,255,255,0.3);">1</div>
+      <div>
+        <div class="dp-title" style="color:white;">Upcoming Events — Top Priority</div>
+        <div class="dp-subtitle" style="color:rgba(255,255,255,0.7);">Most important section for engagement</div>
+      </div>
+    </div>
+    <div class="dp-body">
+      <p>Events are the single strongest reason someone checks a site like this. Showing this first — sorted soonest to latest — means anyone who lands on the homepage immediately sees something they can act on <em>today or this weekend</em>.</p>
+      <div class="dp-row">
+        <div class="dp-icon">📱</div>
+        <div class="dp-row-text"><strong>Mobile UX:</strong> Horizontal scroll card carousel for the next 5 events (soonest = leftmost), then a condensed list of upcoming events below. Tap any card to go to Eventbrite/ticket page.</div>
+      </div>
+      <div class="dp-row">
+        <div class="dp-icon">🔌</div>
+        <div class="dp-row-text"><strong>Sources:</strong>
+          <span class="int-tag it-events">Eventbrite API · Free</span>
+          <span class="int-tag it-events">Fever · Free/Enterprise</span>
+          <span class="int-tag it-events">NYC.gov Events · Free</span>
+          Pulled daily, filtered for wine-related keywords (tasting, wine, sommelier, vineyard, winery).
+        </div>
+      </div>
+      <div class="filter-detail">
+        <div class="fd-title">Filter Pills (user-selectable)</div>
+        <div class="fd-grid">
+          <div class="fd-chip">This Week</div>
+          <div class="fd-chip">This Weekend</div>
+          <div class="fd-chip">Tastings</div>
+          <div class="fd-chip">Classes</div>
+          <div class="fd-chip">Dinners</div>
+          <div class="fd-chip">Free Events</div>
+          <div class="fd-chip">Daytime</div>
+          <div class="fd-chip">Evening</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: SOCIAL -->
+  <div class="desktop-panel">
+    <div class="dp-header" style="background:#8e44ad;">
+      <div class="dp-num" style="background:rgba(255,255,255,0.3);">2</div>
+      <div>
+        <div class="dp-title" style="color:white;">#nycwine Social Feeds</div>
+        <div class="dp-subtitle" style="color:rgba(255,255,255,0.7);">Live content from the community</div>
+      </div>
+    </div>
+    <div class="dp-body">
+      <p>Tabbed interface: Instagram · Pinterest · X · Facebook. Default tab is Instagram (most visual, most engaged for this audience). Each tab shows a live filtered feed of #nycwine hashtag content.</p>
+      <div class="social-filter-detail">
+        <div class="sfd-title">Content Filtering Rules — What Gets Shown</div>
+        <div class="sfd-rule"><div class="sfd-icon">✅</div>Posts tagged #nycwine, #winenyc, #nycwinebar, #nycwinelife, #naturalwinenyc</div>
+        <div class="sfd-rule"><div class="sfd-icon">✅</div>Minimum engagement threshold (likes/saves) to filter out spam</div>
+        <div class="sfd-rule"><div class="sfd-icon">✅</div>Image-based posts only (no text-only posts on Instagram)</div>
+        <div class="sfd-rule"><div class="sfd-icon">❌</div>No posts with profanity, political content, or adult content (auto-filtered by platform API)</div>
+        <div class="sfd-rule"><div class="sfd-icon">❌</div>No commercial spam or obvious bot accounts</div>
+        <div class="sfd-rule"><div class="sfd-icon">🔄</div>Refreshed every 30 minutes automatically</div>
+      </div>
+      <div class="tags-row" style="margin-top:12px;">
+        <span class="int-tag it-social">Instagram · Elfsight ~$5/mo</span>
+        <span class="int-tag it-social">Pinterest · Free widget</span>
+        <span class="int-tag it-social">X/Twitter · Free embed</span>
+        <span class="int-tag it-social">Facebook Page Plugin · Free</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: GET WINE DELIVERED -->
+  <div class="desktop-panel">
+    <div class="dp-header" style="background:var(--pink);">
+      <div class="dp-num" style="background:rgba(255,255,255,0.3);">3</div>
+      <div>
+        <div class="dp-title" style="color:white;">Get Wine Delivered — Interactive</div>
+        <div class="dp-subtitle" style="color:rgba(255,255,255,0.8);">Neighborhood filter → store results</div>
+      </div>
+    </div>
+    <div class="dp-body">
+      <p>The user selects their borough, then their neighborhood. The site instantly filters the wine store database to show the closest stores — with name, address, phone number, and a "Visit Website" link. All ordering happens on the store's own site.</p>
+      <div class="dp-row">
+        <div class="dp-icon">📍</div>
+        <div class="dp-row-text"><strong>No GPS required.</strong> Users pick their neighborhood manually. NYC people know their neighborhood — this is more reliable and privacy-friendly than GPS.</div>
+      </div>
+      <div class="nbhood-map">
+        <div class="nbhood-map-label">🗺️ NYC Neighborhood Map</div>
+        <div class="nbhood-map-sub">Visual map version (optional) — tap a neighborhood</div>
+        <div style="font-size:10px; color:#8abbd8; margin-top:4px;">Alternatively: Borough tabs → neighborhood grid (shown in phone)</div>
+      </div>
+      <div class="dp-row">
+        <div class="dp-icon">🏙️</div>
+        <div class="dp-row-text"><strong>Manhattan neighborhoods included:</strong> Upper East Side · Upper West Side · Midtown East · Midtown West · Hell's Kitchen · Chelsea · West Village · Greenwich Village · SoHo · NoHo · Tribeca · Lower East Side · East Village · Financial District · Harlem · Morningside Heights · Washington Heights · Inwood</div>
+      </div>
+      <div class="dp-row">
+        <div class="dp-icon">🏘️</div>
+        <div class="dp-row-text"><strong>Brooklyn:</strong> Williamsburg · DUMBO · Brooklyn Heights · Park Slope · Carroll Gardens · Cobble Hill · Fort Greene · Crown Heights · Bushwick · Greenpoint · Bed-Stuy · Flatbush · Bay Ridge · Red Hook<br>
+        <strong>Queens:</strong> Astoria · Long Island City · Jackson Heights · Flushing · Forest Hills<br>
+        <strong>Bronx:</strong> Riverdale · Fordham · Arthur Avenue area<br>
+        <strong>Staten Island:</strong> St. George · New Dorp</div>
+      </div>
+      <div class="dp-row">
+        <div class="dp-icon">📋</div>
+        <div class="dp-row-text"><strong>Each store result shows:</strong> Name · Full address · Phone number · Distance from neighborhood center · Delivery badge (if confirmed) · Online ordering badge · "Visit Website" button → goes to store site</div>
+      </div>
+      <div class="dp-row">
+        <div class="dp-icon">🔌</div>
+        <div class="dp-row-text">
+          <span class="int-tag it-nycwine">NYCWine Database (Supabase)</span>
+          <span class="int-tag it-maps">Google Places API · Free tier</span>
+          Store data lives in our database. Distance calculated from neighborhood centroid. Delivery/online badges set manually and updated periodically.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: WINE STORE OF THE WEEK -->
+  <div class="desktop-panel">
+    <div class="dp-header" style="background:var(--black);">
+      <div class="dp-num" style="background:var(--pink);">4</div>
+      <div>
+        <div class="dp-title" style="color:white;">Wine Store of the Week</div>
+        <div class="dp-subtitle" style="color:rgba(255,255,255,0.6);">Rotating spotlight — fully automated</div>
+      </div>
+    </div>
+    <div class="dp-body">
+      <p>Each week, a different wine store from the database is featured with a short editorial description, their address, phone, and a link to their website. This gives every store in the database a chance to be highlighted, and gives users a reason to check back.</p>
+      <div class="rotation-explainer">
+        <div class="re-title">How the Rotation Works</div>
+        <div class="re-text">The system cycles through all "registered" stores in the Supabase database in a set order. No manual work required after initial setup.</div>
+        <div class="re-schedule">
+          <div class="day">Every Monday</div><div class="action">Featured store automatically advances to the next in the queue</div>
+          <div class="day">Queue logic</div><div class="action">Round-robin rotation — each store gets equal time before repeating</div>
+          <div class="day">New stores</div><div class="action">Added to the end of the queue when you add them to the database</div>
+          <div class="day">Premium option</div><div class="action">Featured stores could eventually pay for placement (future revenue stream)</div>
+        </div>
+      </div>
+      <div class="dp-row" style="margin-top:12px;">
+        <div class="dp-icon">🔌</div>
+        <div class="dp-row-text"><span class="int-tag it-nycwine">NYCWine Database · Supabase</span> No external integration needed — purely our data. Store info (name, description, photo, phone, website) managed in the database.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: SITE ARCHITECTURE -->
+  <div class="desktop-panel">
+    <div class="dp-header" style="background:#2980b9;">
+      <div class="dp-num" style="background:rgba(255,255,255,0.3);">5</div>
+      <div>
+        <div class="dp-title" style="color:white;">Site Architecture — Pages</div>
+        <div class="dp-subtitle" style="color:rgba(255,255,255,0.7);">Home links out to 4 dedicated section pages</div>
+      </div>
+    </div>
+    <div class="dp-body">
+      <p>Wine Stores, Wine Bars, Wineries, and Events each get their own full pages — not just sections on the homepage. The homepage shows a preview/teaser of each with a "See all" link.</p>
+      <div class="arch-diagram">
+        <div class="arch-home">🏠 NYCWine.com Homepage</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:6px; text-align:center; margin-bottom:8px;">
+          <div style="font-size:12px; color:#aaa;">↓</div>
+          <div style="font-size:12px; color:#aaa;">↓</div>
+          <div style="font-size:12px; color:#aaa;">↓</div>
+          <div style="font-size:12px; color:#aaa;">↓</div>
+        </div>
+        <div class="arch-pages">
+          <div class="arch-page stores">
+            <span class="arch-page-icon">🍷</span>
+            Wine Stores
+            <div style="font-size:9px; margin-top:4px; font-weight:400;">Map + directory<br>Neighborhood filter<br>200+ stores</div>
+          </div>
+          <div class="arch-page bars">
+            <span class="arch-page-icon">🥂</span>
+            Wine Bars
+            <div style="font-size:9px; margin-top:4px; font-weight:400;">Map + listings<br>Ratings + hours<br>Reserve link</div>
+          </div>
+          <div class="arch-page wineries">
+            <span class="arch-page-icon">🍇</span>
+            Wineries
+            <div style="font-size:9px; margin-top:4px; font-weight:400;">Day trips<br>NY/NJ/CT/PA<br>Map + distance</div>
+          </div>
+          <div class="arch-page events">
+            <span class="arch-page-icon">📅</span>
+            All Events
+            <div style="font-size:9px; margin-top:4px; font-weight:400;">Full calendar<br>All filters<br>Eventbrite links</div>
+          </div>
+        </div>
+      </div>
+      <div class="dp-row" style="margin-top:12px;">
+        <div class="dp-icon">📱</div>
+        <div class="dp-row-text"><strong>Bottom Nav (mobile):</strong> Home · Events · Map · Stores · Bars — persistent bottom navigation bar so users can jump between sections instantly without scrolling back to the top.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEWS FEED PANEL -->
+  <div class="desktop-panel">
+    <div class="dp-header" style="background:#c0392b;">
+      <div class="dp-num" style="background:rgba(255,255,255,0.3);">6</div>
+      <div>
+        <div class="dp-title" style="color:white;">Wine News Feed — Filtered Multi-Source</div>
+        <div class="dp-subtitle" style="color:rgba(255,255,255,0.7);">8 sources, all free via RSS · Tabbed by publisher</div>
+      </div>
+    </div>
+    <div class="dp-body">
+      <p>An auto-updating news feed pulls headlines from the best food, wine, and NYC-focused publications. Users can filter by source tab to find what they want quickly. All headlines link out to the original article.</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:10px 0;">
+        <div style="background:#fff5f5; border:1.5px solid #f5c6c6; border-radius:8px; padding:8px 10px; font-size:10px;">
+          <div style="font-weight:800; color:#c0392b; margin-bottom:4px;">🗽 NY Times</div>
+          RSS feed · Food &amp; Wine section · free
+        </div>
+        <div style="background:#fff5f5; border:1.5px solid #f5c6c6; border-radius:8px; padding:8px 10px; font-size:10px;">
+          <div style="font-weight:800; color:#d44000; margin-bottom:4px;">📰 NY Post</div>
+          RSS feed · Food section · free
+        </div>
+        <div style="background:#fdf0ef; border:1.5px solid #f5c6c6; border-radius:8px; padding:8px 10px; font-size:10px;">
+          <div style="font-weight:800; color:#c0392b; margin-bottom:4px;">🍴 Eater NY</div>
+          RSS feed · NYC food &amp; drink · free
+        </div>
+        <div style="background:#fdf0ef; border:1.5px solid #f5c6c6; border-radius:8px; padding:8px 10px; font-size:10px;">
+          <div style="font-weight:800; color:#888; margin-bottom:4px;">🍽 Grub Street</div>
+          RSS feed · NYC restaurants · free
+        </div>
+        <div style="background:#fdf5ff; border:1.5px solid #e0c0f0; border-radius:8px; padding:8px 10px; font-size:10px;">
+          <div style="font-weight:800; color:#8e44ad; margin-bottom:4px;">🍾 Wine Spectator</div>
+          RSS feed · wine news &amp; reviews · free
+        </div>
+        <div style="background:#fdf5ff; border:1.5px solid #e0c0f0; border-radius:8px; padding:8px 10px; font-size:10px;">
+          <div style="font-weight:800; color:#c0392b; margin-bottom:4px;">🍷 VinePair</div>
+          RSS feed · wine culture · free
+        </div>
+        <div style="background:#fff3f0; border:1.5px solid #ffd0b0; border-radius:8px; padding:8px 10px; font-size:10px;">
+          <div style="font-weight:800; color:#ff4500; margin-bottom:4px;">🤖 Reddit · r/wine</div>
+          Reddit API · top posts · free tier
+        </div>
+        <div style="background:#fff3f0; border:1.5px solid #ffd0b0; border-radius:8px; padding:8px 10px; font-size:10px;">
+          <div style="font-weight:800; color:#ff4500; margin-bottom:4px;">🗽 Reddit · r/nyc</div>
+          Reddit API · wine-tagged posts · free
+        </div>
+      </div>
+      <div class="dp-row">
+        <div class="dp-icon">🔧</div>
+        <div class="dp-row-text"><strong>How it works:</strong> Next.js fetches each RSS feed server-side every hour. Results are merged, deduplicated, and sorted newest-first. Source tabs filter client-side — no additional API calls needed.</div>
+      </div>
+      <div class="dp-row">
+        <div class="dp-icon">💰</div>
+        <div class="dp-row-text"><strong>Cost: Free.</strong> All RSS feeds are free. Reddit API free tier allows 100 calls/minute — more than enough for hourly polling.</div>
+      </div>
+      <div class="dp-row">
+        <div class="dp-icon">📌</div>
+        <div class="dp-row-text"><strong>Filtering note:</strong> NYT and NY Post RSS feeds are full-section feeds. We'll keyword-filter client-side for "wine" terms so non-wine stories don't appear.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: ADS NOTE -->
+  <div class="desktop-panel">
+    <div class="dp-header" style="background:#f39c12;">
+      <div class="dp-num" style="background:rgba(255,255,255,0.3);">!</div>
+      <div>
+        <div class="dp-title" style="color:white;">Google Ads — Action Required</div>
+        <div class="dp-subtitle" style="color:rgba(255,255,255,0.8);">Clarify account type before integrating</div>
+      </div>
+    </div>
+    <div class="dp-body">
+      <p><strong>Finding from research:</strong> Google AdSense (the standard "show ads on my website" product) has restrictions that can limit wine/alcohol content sites. Google Ad Manager (the professional publisher tier) handles wine content fine with proper settings.</p>
+      <div class="dp-row">
+        <div class="dp-icon">❓</div>
+        <div class="dp-row-text"><strong>Action needed:</strong> Check whether the existing Google account set up for NYCWine is:<br>
+        (A) <strong>Google Ads</strong> — for running search/display ads to bring people <em>to</em> the site<br>
+        (B) <strong>Google AdSense</strong> — for showing ads <em>on</em> the site and earning revenue<br>
+        (C) <strong>Google Ad Manager</strong> — professional publisher ad platform<br><br>
+        If it's (A), we still need to set up (B) or (C) to show ads on the site. If it's (B), we need to verify wine content is approved. If (C), we're in good shape.</div>
+      </div>
+      <div class="dp-row">
+        <div class="dp-icon">💡</div>
+        <div class="dp-row-text"><strong>Backup options:</strong> If AdSense blocks wine content, we can use direct ad sales (sell banner space to wine brands/stores directly, no platform needed) or look at Mediavine/AdThrive for wine-friendly networks once the site has traffic.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end col-desktop -->
+</div><!-- end page-wrapper -->
+
+<div style="background:#1a1a1a; color:rgba(255,255,255,0.5); text-align:center; padding:16px; font-size:10px; margin-top:20px;">
+  NYCWine.com Homepage Mockup v5 — MVP Scope · Events · Social · News · Wine Store Links · Placeholders for unconfigured widgets
+</div>
+
+<script>
+// Smooth scroll to section inside the phone frame
+function scrollTo(sectionId) {
+  var screen = document.getElementById('phoneScreen');
+  var target = document.getElementById(sectionId);
+  if (!screen || !target) return;
+  // Account for the sticky quick-nav height (~40px) + header (~53px)
+  var offset = target.offsetTop - 100;
+  screen.scrollTo({ top: offset, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
