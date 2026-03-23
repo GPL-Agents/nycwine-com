@@ -4,11 +4,28 @@ Last updated: 2026-03-23
 
 ---
 
+## Corporate & Domain Info
+
+**Parent entity:** Metropolitan Vintners, LLC (NY DOS ID: 3771977, filed 02/06/2009, Active)
+⚠️ Biennial statement past due since 02/28/2011 — needs filing with NY Dept of State.
+
+**Domains owned:**
+- nycwine.com — events, social feeds, community hub (THIS SITE)
+- nycwinestores.com — wine store directory & online ordering (future)
+- nycwinereport.com — news, editorial, regional winery reviews (future)
+- metropolitanvintners.com — parent company
+- manhattanvintners.com — parent company alternate
+
+**Facebook Page:** facebook.com/NYCWine (currently showing as "Manhattan Vintners")
+
+---
+
 ## Project Goals
 
 1. **Live on nycwine.com, mobile-first.** Site is hosted on Vercel. All integrations must work well on mobile.
 2. **Hub, not publisher.** Zero original content. Everything comes from external feeds, APIs, widgets, and embeds. The site curates and aggregates all things wine in NYC. Architecture should make adding new sources easy.
 3. **Google AdSense for revenue.** ✅ Approved — publisher ID `ca-pub-6782277104310503`. Three responsive ad units live on homepage.
+4. **Multi-site network.** nycwine.com is one of three planned sites under Metropolitan Vintners, LLC. Sites will cross-link and support each other.
 
 ---
 
@@ -31,29 +48,24 @@ Update the **Status** column as each one goes live. Keep credentials in `.env.lo
 
 ---
 
-## 2. SOCIAL FEEDS
-
-### Box A — "From @nycwine" (our accounts)
+## 2. SOCIAL FEEDS (community content only — "hub not publisher")
 
 | Platform | Status | Method | Account needed | Env vars required | Cost | Notes |
 |---|---|---|---|---|---|---|
-| **X / Twitter** | 🟡 Ready to wire | Free timeline embed | @nycwine X account | None | Free | Embed from `publish.twitter.com`. No API key needed |
-| **Instagram** | 🔴 Placeholder | Basic Display API | @nycwine IG + Meta developer app | `INSTAGRAM_ACCESS_TOKEN` | Free | Shows 6 posts. Token expires every 60 days — needs refresh flow |
-| **Facebook** | 🟢 Live | Meta Page Plugin (iframe) | NYCWine Facebook Page (facebook.com/NYCWine) | None (free iframe embed) | Free | Shows timeline. No API key needed for basic page plugin |
-| **Pinterest** | 🔴 Placeholder | Board embed or Elfsight | nycwine Pinterest account | Board embed URL or `ELFSIGHT_PINTEREST_ID` | Free (embed) or ~$5/mo (Elfsight) | Need to fill in `boardEmbedUrl` in integrations-config.js |
+| **Reddit** | 🟢 Live (needs credentials) | Reddit API via `/api/reddit` | Reddit developer app | `REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET` | Free | r/wine + r/nyc + r/FoodNYC, filtered for wine content, sorted by popularity. 30min cache. Shows "needs setup" message until env vars added |
+| **Instagram #nycwine** | 🔴 Placeholder | Elfsight widget | Elfsight account (free tier available) | `ELFSIGHT_IG_ID` | Free tier or ~$5/mo | Community photos tagged #nycwine. Only practical method — Meta blocks hashtag API |
+| **Pinterest "NYC wine"** | 🔴 Placeholder | Elfsight widget | Elfsight account (free tier available) | `ELFSIGHT_PINTEREST_WIDGET_ID` | Free tier or ~$5/mo | Community pins about NYC wine |
 
-### Box B — "Around NYC Right Now" (community/hashtag posts)
+### Removed (only show our own posts — doesn't fit hub model)
 
-| Platform | Status | Method | Account needed | Env vars required | Cost | Notes |
-|---|---|---|---|---|---|---|
-| **Instagram hashtags** | 🔴 Placeholder | Elfsight widget | Elfsight account | `ELFSIGHT_IG_ID` | ~$5/mo | Only practical way — Meta blocks hashtag search for third parties. Grid 3 cols, 9 posts |
-| **X hashtag search** | ⬛ Disabled | X API Basic | X developer account | `X_API_BEARER_TOKEN` | $100/mo | Expensive. Disabled in config. Query: `#nycwine OR #winenyc` |
-| **Pinterest community** | 🔴 Placeholder | Elfsight widget | Elfsight account | `ELFSIGHT_PINTEREST_WIDGET_ID` | ~$5/mo | Search term: "NYC wine", 6 posts |
-| **Facebook hashtags** | ⬛ Disabled | N/A | N/A | N/A | N/A | Meta does not allow public hashtag search via API. Not feasible |
-| **Reddit** | 🔴 Placeholder | Reddit API | Reddit developer app | `REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET` | Free | Subreddits: r/wine, r/nyc, r/FoodNYC. 3 posts, sort by hot |
+| Platform | Status | Reason |
+|---|---|---|
+| **Facebook** | ⬛ Removed | Page Plugin only shows our own posts. No FB API for community/hashtag content |
+| **X / Twitter** | ⬛ Removed | Timeline embed only shows our own tweets. Hashtag search costs $100/mo |
+| **Instagram own account** | ⬛ Removed | Graph API only shows our own posts |
 
-**Current state:** `SocialSection.jsx` shows 5 cards with dummy text/emoji placeholders.
-**To go live:** Each card needs its embed script or API call wired in, replacing the placeholder `<div>` contents.
+**Current state:** Reddit card is wired to `/api/reddit` (live once credentials added). Instagram and Pinterest cards show placeholders until Elfsight is set up.
+**API routes:** `pages/api/reddit.js`
 
 ---
 
@@ -61,21 +73,22 @@ Update the **Status** column as each one goes live. Keep credentials in `.env.lo
 
 | Source | Status | Feed URL | Needs keyword filter? | Cost | Notes |
 |---|---|---|---|---|---|
-| **NY Times** | 🔴 Placeholder | Dining & Wine RSS | Yes | Free | Filter for wine-related keywords |
-| **NY Post** | 🔴 Placeholder | Food RSS | Yes | Free | Filter for wine-related keywords |
-| **Eater NY** | 🔴 Placeholder | NY feed RSS | Yes | Free | Filter for wine-related keywords |
-| **Grub Street** | 🔴 Placeholder | Main feed RSS | Yes | Free | Filter for wine-related keywords |
-| **VinePair** | 🔴 Placeholder | Main feed RSS | No (wine-only pub) | Free | No filtering needed |
-| **Wine Spectator** | 🔴 Placeholder | News RSS | No (wine-only pub) | Free | No filtering needed |
-| **Decanter** | 🔴 Placeholder | Main feed RSS | No (wine-only pub) | Free | No filtering needed |
-| **Wine Enthusiast** | 🔴 Placeholder | Magazine RSS | No (wine-only pub) | Free | No filtering needed |
+| **NY Times** | 🟢 Live | Dining & Wine RSS | Yes | Free | Filter for wine-related keywords |
+| **NY Post** | 🟢 Live | Food RSS | Yes | Free | Filter for wine-related keywords |
+| **Eater NY** | 🟢 Live | NY feed RSS | Yes | Free | Filter for wine-related keywords |
+| **Grub Street** | 🟢 Live | Main feed RSS | Yes | Free | Filter for wine-related keywords |
+| **VinePair** | 🟢 Live | Main feed RSS | No (wine-only pub) | Free | No filtering needed |
+| **Wine Spectator** | 🟢 Live | News RSS | No (wine-only pub) | Free | No filtering needed |
+| **Decanter** | 🟢 Live | Main feed RSS | No (wine-only pub) | Free | No filtering needed |
+| **Wine Enthusiast** | 🟢 Live | Magazine RSS | No (wine-only pub) | Free | No filtering needed |
 
-**Ticker:** Currently hardcoded sample text. Will pull headlines from the same RSS feeds.
-**Refresh interval:** 60 minutes (configured in `integrations-config.js`).
-**Filter keywords:** wine, winery, vineyard, tasting, sommelier, champagne, rosé, bordeaux, pinot, chardonnay, merlot, cabernet, prosecco, cava, riesling.
+**Ticker:** Auto-generated from top 6 headlines.
+**Refresh interval:** 60 minutes (in-memory cache in API route).
+**Filter keywords:** wine, winery, vineyard, tasting, sommelier, champagne, rosé, bordeaux, pinot, chardonnay, merlot, cabernet, prosecco, cava, riesling + many more.
 
-**Current state:** `NewsSection.jsx` shows 8 hardcoded sample articles + a static ticker.
-**To go live:** Build a Next.js API route (or `getServerSideProps`) that fetches all RSS feeds server-side, filters by keyword, merges, sorts by date, and returns to the component.
+**Current state:** `NewsSection.jsx` fetches from `/api/news` on mount. Shows real articles with links. Source filter tabs work. Loading and error states handled.
+**API route:** `pages/api/news.js` — fetches all 8 RSS feeds in parallel, filters, merges, sorts by date, caches 60 min.
+**Dependency added:** `rss-parser` in package.json.
 
 ---
 

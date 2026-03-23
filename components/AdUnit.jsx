@@ -10,19 +10,19 @@
 // Each <AdUnit> creates one responsive ad block that auto-sizes
 // for mobile vs desktop.
 //
-// To add a new ad placement: just drop <AdUnit slot="name" />
-// anywhere in the page. The slot name is for your reference only
-// (AdSense auto-fills with available ads).
+// The component watches for AdSense to fill the slot. If no ad
+// loads within 3 seconds, or the ad container stays empty, the
+// wrapper collapses to zero height so there's no blank gap.
 // ─────────────────────────────────────────────────────────────
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function AdUnit({ slot = 'default', className = '' }) {
   const adRef = useRef(null);
   const pushed = useRef(false);
+  const [hasAd, setHasAd] = useState(false);
 
   useEffect(() => {
-    // Only push the ad once per mount, and only if adsbygoogle is loaded
     if (!pushed.current && adRef.current && typeof window !== 'undefined') {
       try {
         (window.adsbygoogle = window.adsbygoogle || []).push({});
@@ -31,10 +31,28 @@ export default function AdUnit({ slot = 'default', className = '' }) {
         console.warn('AdSense push error:', e);
       }
     }
+
+    // Check if AdSense actually filled the slot
+    const timer = setTimeout(() => {
+      if (adRef.current) {
+        const ins = adRef.current;
+        // AdSense sets data-ad-status="filled" when an ad loads
+        const status = ins.getAttribute('data-ad-status');
+        if (status === 'filled') {
+          setHasAd(true);
+        }
+      }
+    }, 3000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div className={`ad-unit ${className}`} data-ad-slot={slot}>
+    <div
+      className={`ad-unit ${className}`}
+      data-ad-slot={slot}
+      style={!hasAd ? { minHeight: 0, padding: 0, overflow: 'hidden' } : undefined}
+    >
       <ins
         className="adsbygoogle"
         style={{ display: 'block' }}

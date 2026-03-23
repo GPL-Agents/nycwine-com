@@ -237,7 +237,7 @@ body {
 .sc-platform { font-size: 10px; font-weight: 800; color: white; }
 .sc-follow   { font-size: 9px; color: rgba(255,255,255,0.85); text-decoration: none; font-weight: 700; }
 .sc-body     { padding: 6px; min-height: 80px; }
-.sc-body-embed { padding: 0; display: flex; justify-content: center; align-items: flex-start; min-height: 200px; overflow: hidden; }
+.sc-body-embed { padding: 0; display: flex; justify-content: center; align-items: flex-start; overflow: hidden; }
 .sc-body-embed iframe { display: block; margin: 0 auto; }
 .sc-footer   { font-size: 8px; color: var(--muted); background: var(--grey); padding: 4px 8px; border-top: 1px solid var(--border); }
 
@@ -467,11 +467,12 @@ body {
    AD UNITS (Google AdSense)
 ═══════════════════════════════════════ */
 .ad-unit {
+  text-align: center;
+  overflow: hidden;
+}
+.ad-unit:has(ins[data-ad-status="filled"]) {
   padding: 8px 12px;
   background: var(--grey);
-  text-align: center;
-  min-height: 50px;
-  overflow: hidden;
 }
 
 /* ═══════════════════════════════════════
