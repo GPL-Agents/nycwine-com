@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NYCWine.com — New York City's Wine Guide</title>
+<meta name="description" content="New York City's guide to wine events, wine stores, wine bars, news and social buzz.">
+<style>
+
+/* ─────────────────────────────────────────
+   TOKENS
+───────────────────────────────────────── */
+:root {
+  --pink:       #E8007D;
+  --pink-dark:  #c2006a;
+  --pink-light: #fff0f8;
+  --black:      #1a1a1a;
+  --white:      #ffffff;
+  --grey-bg:    #f5f5f3;
+  --grey-light: #f0f0ee;
+  --border:     #e4e4e2;
+  --text:       #1a1a1a;
+  --muted:      #777;
+  --events:     #1a9e5c;
+  --social:     #7b3fa0;
+  --news:       #c0392b;
+  --stores:     #1a6eb5;
+  --radius:     12px;
+  --shadow:     0 2px 12px rgba(0,0,0,0.08);
+}
+
+/* ─────────────────────────────────────────
+   RESET
+───────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  background: var(--grey-bg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.5;
+}
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+img { max-width: 100%; display: block; }
+
+/* ─────────────────────────────────────────
+   HEADER
+───────────────────────────────────────── */
+.site-header {
+  background: var(--white);
+  border-bottom: 3px solid var(--pink);
+  padding: 14px 16px 12px;
+}
+.header-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  line-height: 1;
+}
+.logo-text {
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  color: var(--black);
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+.logo-text .logo-nyc { color: var(--black); }
+.logo-text .logo-wine { color: var(--black); }
+.logo-bottle-svg {
+  width: 22px;
+  height: 42px;
+  margin: 0 3px;
+  flex-shrink: 0;
+}
+
+/* HEADER RIGHT */
+.header-tagline {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: right;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  max-width: 120px;
+  line-height: 1.3;
+}
+
+/* ─────────────────────────────────────────
+   STICKY NAV
+───────────────────────────────────────── */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.sticky-nav::-webkit-scrollbar { display: none; }
+.nav-inner {
+  display: flex;
+  gap: 6px;
+  padding: 10px 16px;
+  max-width: 960px;
+  margin: 0 auto;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.nav-pill {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all 0.15s;
+  color: var(--white);
+}
+.nav-pill:hover { opacity: 0.85; transform: translateY(-1px); }
+.nav-pill.events  { background: var(--events); }
+.nav-pill.social  { background: var(--social); }
+.nav-pill.news    { background: var(--news); }
+.nav-pill.stores  { background: var(--stores); }
+
+/* ─────────────────────────────────────────
+   MAIN WRAPPER
+───────────────────────────────────────── */
+.main-content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 0 40px;
+}
+
+/* ─────────────────────────────────────────
+   SECTION BASE
+───────────────────────────────────────── */
+.section {
+  margin: 20px 16px 0;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.section-header h2 {
+  font-size: 16px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-header h2::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 18px;
+  border-radius: 2px;
+}
+.section-header.events h2::before  { background: var(--events); }
+.section-header.social h2::before  { background: var(--social); }
+.section-header.news h2::before    { background: var(--news); }
+.section-header.stores h2::before  { background: var(--stores); }
+
+.section-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--pink);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.section-link:hover { color: var(--pink-dark); }
+
+/* ─────────────────────────────────────────
+   FILTER PILLS
+───────────────────────────────────────── */
+.filter-bar {
+  display: flex;
+  gap: 6px;
+  padding: 10px 16px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  border-bottom: 1px solid var(--border);
+}
+.filter-bar::-webkit-scrollbar { display: none; }
+.filter-pill {
+  padding: 5px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  border: 1.5px solid var(--border);
+  color: var(--muted);
+  background: var(--white);
+  transition: all 0.15s;
+}
+.filter-pill:hover { border-color: var(--pink); color: var(--pink); }
+.filter-pill.active {
+  background: var(--pink);
+  border-color: var(--pink);
+  color: var(--white);
+}
+
+/* ─────────────────────────────────────────
+   PLACEHOLDER WIDGET
+───────────────────────────────────────── */
+.placeholder {
+  padding: 32px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.placeholder-icon {
+  font-size: 36px;
+  line-height: 1;
+}
+.placeholder-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+}
+.placeholder-desc {
+  font-size: 13px;
+  color: var(--muted);
+  max-width: 300px;
+  line-height: 1.5;
+}
+.placeholder-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+.placeholder-badge.next    { background: #fff3e0; color: #e67e22; }
+.placeholder-badge.ready   { background: #e8f5e9; color: #27ae60; }
+.placeholder-badge.soon    { background: #f3e5f5; color: #8e44ad; }
+
+/* Skeleton preview cards */
+.skeleton-cards {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 0 16px 16px;
+  scrollbar-width: none;
+  margin-top: 4px;
+}
+.skeleton-cards::-webkit-scrollbar { display: none; }
+.skeleton-card {
+  flex-shrink: 0;
+  width: 160px;
+  height: 110px;
+  background: linear-gradient(90deg, #f0f0ee 25%, #e8e8e6 50%, #f0f0ee 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 10px;
+}
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+.skeleton-list {
+  padding: 0 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.skeleton-row {
+  height: 52px;
+  background: linear-gradient(90deg, #f0f0ee 25%, #e8e8e6 50%, #f0f0ee 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+.skeleton-row:nth-child(2) { animation-delay: 0.15s; }
+.skeleton-row:nth-child(3) { animation-delay: 0.3s; }
+
+/* ─────────────────────────────────────────
+   EVENTS SECTION
+───────────────────────────────────────── */
+/* section-events: placeholder + skeleton preview */
+
+/* ─────────────────────────────────────────
+   SOCIAL TABS
+───────────────────────────────────────── */
+.social-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.social-tabs::-webkit-scrollbar { display: none; }
+.social-tab {
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.social-tab:hover { color: var(--social); }
+.social-tab.active {
+  color: var(--social);
+  border-bottom-color: var(--social);
+}
+.social-panel { display: none; }
+.social-panel.active { display: block; }
+
+/* ─────────────────────────────────────────
+   NEWS SECTION
+───────────────────────────────────────── */
+.live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--news);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.live-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--news);
+  animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+/* ─────────────────────────────────────────
+   STORES SECTION
+───────────────────────────────────────── */
+.store-count-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--stores);
+  background: #e8f0fb;
+  padding: 3px 9px;
+  border-radius: 10px;
+}
+.service-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.service-tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 10px;
+  background: var(--grey-light);
+  color: var(--muted);
+  border: 1.5px solid var(--border);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.service-tag:hover { border-color: var(--stores); color: var(--stores); }
+.service-tag.active { background: var(--stores); color: white; border-color: var(--stores); }
+
+/* ─────────────────────────────────────────
+   COMING SOON BANNER (v1 features)
+───────────────────────────────────────── */
+.v1-banner {
+  margin: 20px 16px 0;
+  padding: 14px 16px;
+  background: var(--pink-light);
+  border: 1.5px dashed var(--pink);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.v1-banner-icon { font-size: 20px; }
+.v1-banner-text { font-size: 13px; color: var(--pink-dark); line-height: 1.4; }
+.v1-banner-text strong { font-weight: 700; }
+
+/* ─────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────── */
+.site-footer {
+  background: var(--black);
+  color: var(--white);
+  padding: 28px 16px 32px;
+  margin-top: 32px;
+}
+.footer-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+.footer-logo {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.footer-logo .fp { color: var(--pink); }
+.footer-tagline {
+  font-size: 12px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.footer-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 4px;
+}
+.footer-links a {
+  font-size: 13px;
+  color: #aaa;
+  transition: color 0.15s;
+}
+.footer-links a:hover { color: var(--pink); }
+.footer-copy { font-size: 11px; color: #555; margin-top: 4px; }
+
+/* ─────────────────────────────────────────
+   DESKTOP TWEAKS
+───────────────────────────────────────── */
+@media (min-width: 600px) {
+  .site-header { padding: 16px 32px 14px; }
+  .logo-text { font-size: 38px; }
+  .logo-bottle-svg { width: 26px; height: 50px; }
+  .nav-inner { padding: 10px 32px; }
+  .main-content { padding: 0 0 60px; }
+  .section { margin: 24px 32px 0; }
+  .v1-banner { margin: 24px 32px 0; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     HEADER
+══════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <div class="logo-text">
+        <span class="logo-nyc">NYC</span>
+
+        <!-- Wine bottle SVG icon — rebuilt from original design -->
+        <svg class="logo-bottle-svg" viewBox="0 0 28 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Grape leaf top-left of neck -->
+          <ellipse cx="7" cy="13" rx="6.5" ry="4" fill="#E8007D" transform="rotate(-45 7 13)"/>
+          <ellipse cx="5" cy="10" rx="3.5" ry="2.5" fill="#E8007D" transform="rotate(-60 5 10)"/>
+          <!-- Bottle neck -->
+          <rect x="12" y="2" width="6" height="16" rx="2" fill="#E8007D"/>
+          <!-- Shoulder transition -->
+          <path d="M9 18 Q9 22 8 26 L8 48 Q8 54 14 54 L14 54 Q20 54 20 48 L20 26 Q19 22 19 18 Z" fill="#E8007D"/>
+          <!-- Label area highlight -->
+          <rect x="9.5" y="30" width="9" height="11" rx="2" fill="rgba(255,255,255,0.2)"/>
+          <!-- Capsule top of bottle -->
+          <rect x="11" y="0" width="8" height="5" rx="2" fill="#E8007D"/>
+        </svg>
+
+        <span class="logo-wine">WINE</span>
+      </div>
+    </a>
+    <div class="header-tagline">New York City's Wine Guide</div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════
+     STICKY NAV
+══════════════════════════════════════════ -->
+<nav class="sticky-nav" id="sticky-nav">
+  <div class="nav-inner">
+    <a href="#events" class="nav-pill events">📅 Events</a>
+    <a href="#social" class="nav-pill social">📸 Social</a>
+    <a href="#news"   class="nav-pill news">📰 News</a>
+    <a href="#stores" class="nav-pill stores">🍷 Wine Stores</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     MAIN
+══════════════════════════════════════════ -->
+<div class="main-content">
+
+  <!-- ───── SECTION 1: EVENTS ───── -->
+  <section class="section" id="events">
+    <div class="section-header events">
+      <h2>Upcoming Events</h2>
+      <a href="https://www.eventbrite.com/d/ny--new-york/wine/" target="_blank" class="section-link">See all →</a>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-pill active" onclick="setFilter(this)">This Week</button>
+      <button class="filter-pill" onclick="setFilter(this)">This Weekend</button>
+      <button class="filter-pill" onclick="setFilter(this)">Tastings</button>
+      <button class="filter-pill" onclick="setFilter(this)">Classes</button>
+      <button class="filter-pill" onclick="setFilter(this)">Free</button>
+      <button class="filter-pill" onclick="setFilter(this)">Dinners</button>
+    </div>
+
+    <!-- Skeleton preview (will be replaced by Eventbrite feed) -->
+    <div class="skeleton-cards" aria-hidden="true">
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+    </div>
+    <div class="skeleton-list" aria-hidden="true">
+      <div class="skeleton-row"></div>
+      <div class="skeleton-row"></div>
+      <div class="skeleton-row"></div>
+    </div>
+
+    <div class="placeholder">
+      <div class="placeholder-icon">📅</div>
+      <div class="placeholder-title">Eventbrite Events Feed</div>
+      <div class="placeholder-desc">Live NYC wine events pulled from Eventbrite, Fever &amp; NYC.gov. Sorted by date. Filter by type or cost.</div>
+      <span class="placeholder-badge next">⚡ Next to build</span>
+    </div>
+  </section>
+
+  <!-- ───── SECTION 2: NEWS ───── -->
+  <section class="section" id="news">
+    <div class="section-header news">
+      <h2>Wine News</h2>
+      <span class="live-badge">Live Feed</span>
+    </div>
+
+    <div class="skeleton-list" aria-hidden="true">
+      <div class="skeleton-row"></div>
+      <div class="skeleton-row"></div>
+      <div class="skeleton-row"></div>
+    </div>
+
+    <div class="placeholder">
+      <div class="placeholder-icon">📰</div>
+      <div class="placeholder-title">Wine News — RSS Feeds</div>
+      <div class="placeholder-desc">Headlines from Wine Spectator, Decanter, Wine Enthusiast, Vinepair, SevenFiftyDaily &amp; local NYC sources. Updates hourly. Zero cost.</div>
+      <span class="placeholder-badge next">⚡ Next to build</span>
+    </div>
+  </section>
+
+  <!-- ───── SECTION 3: SOCIAL ───── -->
+  <section class="section" id="social">
+    <div class="section-header social">
+      <h2>#nycwine Right Now</h2>
+      <a href="https://www.facebook.com/nycwine" target="_blank" class="section-link">Follow →</a>
+    </div>
+
+    <div class="social-tabs" role="tablist">
+      <button class="social-tab active" onclick="switchTab(this,'tab-facebook')" role="tab">Facebook</button>
+      <button class="social-tab" onclick="switchTab(this,'tab-twitter')" role="tab">X / Twitter</button>
+      <button class="social-tab" onclick="switchTab(this,'tab-instagram')" role="tab">Instagram</button>
+      <button class="social-tab" onclick="switchTab(this,'tab-pinterest')" role="tab">Pinterest</button>
+    </div>
+
+    <div id="tab-facebook" class="social-panel active">
+      <div class="placeholder">
+        <div class="placeholder-icon">👍</div>
+        <div class="placeholder-title">Facebook Page</div>
+        <div class="placeholder-desc">Facebook Page plugin for NYCWine Facebook page. Free embed via developers.facebook.com.</div>
+        <span class="placeholder-badge soon">⚙️ Add Facebook page URL</span>
+      </div>
+    </div>
+
+    <div id="tab-twitter" class="social-panel">
+      <div class="placeholder">
+        <div class="placeholder-icon">𝕏</div>
+        <div class="placeholder-title">X / Twitter — #nycwine</div>
+        <div class="placeholder-desc">Twitter/X timeline embed for #nycwine hashtag. Free embed from Twitter.com/settings.</div>
+        <span class="placeholder-badge soon">⚙️ Add Twitter widget ID</span>
+      </div>
+    </div>
+
+    <div id="tab-instagram" class="social-panel">
+      <div class="placeholder">
+        <div class="placeholder-icon">📸</div>
+        <div class="placeholder-title">Instagram — #nycwine</div>
+        <div class="placeholder-desc">Elfsight Instagram widget. Paste widget ID into config to go live instantly.</div>
+        <span class="placeholder-badge soon">⚙️ Add Elfsight widget ID</span>
+      </div>
+    </div>
+
+    <div id="tab-pinterest" class="social-panel">
+      <div class="placeholder">
+        <div class="placeholder-icon">📌</div>
+        <div class="placeholder-title">Pinterest Board</div>
+        <div class="placeholder-desc">Elfsight Pinterest widget or Pinterest board embed. Add widget ID to activate.</div>
+        <span class="placeholder-badge soon">⚙️ Add widget ID</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── SECTION 4: WINE STORES ───── -->
+  <section class="section" id="stores">
+    <div class="section-header stores">
+      <h2>NYC Wine Stores</h2>
+      <span class="store-count-badge">335 stores</span>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-pill active" onclick="setFilter(this)">All NYC</button>
+      <button class="filter-pill" onclick="setFilter(this)">Manhattan</button>
+      <button class="filter-pill" onclick="setFilter(this)">Brooklyn</button>
+      <button class="filter-pill" onclick="setFilter(this)">Queens</button>
+      <button class="filter-pill" onclick="setFilter(this)">Bronx</button>
+    </div>
+
+    <div class="service-tags">
+      <button class="service-tag" onclick="toggleTag(this)">🚚 Delivery</button>
+      <button class="service-tag" onclick="toggleTag(this)">🖥 Online Ordering</button>
+      <button class="service-tag" onclick="toggleTag(this)">🆓 Free Delivery</button>
+      <button class="service-tag" onclick="toggleTag(this)">🍷 Specialist</button>
+    </div>
+
+    <div class="skeleton-list" aria-hidden="true">
+      <div class="skeleton-row"></div>
+      <div class="skeleton-row"></div>
+      <div class="skeleton-row"></div>
+    </div>
+
+    <div class="placeholder">
+      <div class="placeholder-icon">🏪</div>
+      <div class="placeholder-title">Wine Store Directory</div>
+      <div class="placeholder-desc">335 NYC wine stores with neighborhood filter, service tags and links to each store's website. Data is ready — wiring it in next.</div>
+      <span class="placeholder-badge ready">✅ Data ready — connecting next</span>
+    </div>
+  </section>
+
+  <!-- ───── V1 COMING SOON ───── -->
+  <div class="v1-banner">
+    <div class="v1-banner-icon">🔜</div>
+    <div class="v1-banner-text">
+      <strong>Coming in V1:</strong> Get Wine Delivered neighborhood tool · Wine Store of the Week · Wine Bars directory · Wineries
+    </div>
+  </div>
+
+</div><!-- /main-content -->
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      NYC<span class="fp">🍷</span>WINE
+    </div>
+    <div class="footer-tagline">New York City's Wine Guide</div>
+    <div class="footer-links">
+      <a href="#events">Events</a>
+      <a href="#social">Social</a>
+      <a href="#news">News</a>
+      <a href="#stores">Wine Stores</a>
+      <a href="mailto:info@nycwine.com">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 NYCWine.com — All rights reserved</div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════
+     JS
+══════════════════════════════════════════ -->
+<script>
+
+// Filter pills — single-select within parent
+function setFilter(btn) {
+  const bar = btn.closest('.filter-bar');
+  bar.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// Social tab switching
+function switchTab(btn, targetId) {
+  // deactivate all tabs
+  btn.closest('.social-tabs').querySelectorAll('.social-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  // hide all panels, show target
+  document.querySelectorAll('.social-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById(targetId).classList.add('active');
+}
+
+// Service tag toggle (multi-select)
+function toggleTag(btn) {
+  btn.classList.toggle('active');
+}
+
+// Smooth scroll offset for sticky nav
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (!target) return;
+    e.preventDefault();
+    const navH = document.getElementById('sticky-nav').offsetHeight;
+    const top = target.getBoundingClientRect().top + window.scrollY - navH - 8;
+    window.scrollTo({ top, behavior: 'smooth' });
+  });
+});
+
+</script>
+</body>
+</html>
