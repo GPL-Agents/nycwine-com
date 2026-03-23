@@ -1,4 +1,4 @@
-// components/NewsSection.jsx
+// components/NewsSection.jsx 
 // ─────────────────────────────────────────────────────────────
 // Wine news feed from multiple RSS sources + Reddit.
 //
