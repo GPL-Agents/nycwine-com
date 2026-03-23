@@ -1,4 +1,4 @@
-// components/EventsSection.jsx
+// components/EventsSection.jsx 
 // ─────────────────────────────────────────────────────────────
 // Upcoming wine events — cards + list rows.
 //
