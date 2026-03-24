@@ -2,24 +2,64 @@
 // ─────────────────────────────────────────────────────────────
 // Social feed grid — community wine content from multiple sources.
 //
-// Order: Instagram, Reddit, X, Pinterest, Facebook
+// Order: Instagram, Reddit (NYC Wine), Reddit (r/wine), X, Pinterest, Facebook
 // ─────────────────────────────────────────────────────────────
 
 import { useState, useEffect } from 'react';
 
-export default function SocialSection() {
-  const [redditPosts, setRedditPosts] = useState([]);
-  const [redditLoading, setRedditLoading] = useState(true);
+function RedditGrid({ posts, loading, emptyMsg }) {
+  return (
+    <div className="reddit-grid">
+      {loading && (
+        <div className="reddit-card">
+          <div className="reddit-title">Loading…</div>
+        </div>
+      )}
+      {!loading && posts.length === 0 && (
+        <div className="reddit-card">
+          <div className="reddit-title">{emptyMsg}</div>
+        </div>
+      )}
+      {posts.slice(0, 10).map((post, i) => (
+        <a
+          key={i}
+          className="reddit-card"
+          href={post.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div className="reddit-sub">{post.subreddit}</div>
+          <div className="reddit-title">{post.title}</div>
+          <div className="reddit-meta">
+            {post.score.toLocaleString()} pts · {post.comments.toLocaleString()} comments · {post.ago}
+          </div>
+        </a>
+      ))}
+    </div>
+  );
+}
 
-  // Load Reddit posts
+export default function SocialSection() {
+  const [winePosts, setWinePosts] = useState([]);
+  const [nycPosts, setNycPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     fetch('/api/reddit')
       .then((res) => res.json())
       .then((data) => {
-        if (Array.isArray(data)) setRedditPosts(data);
-        setRedditLoading(false);
+        // New format: { wine: [...], nyc: [...] }
+        if (data && !Array.isArray(data)) {
+          if (Array.isArray(data.wine)) setWinePosts(data.wine);
+          if (Array.isArray(data.nyc)) setNycPosts(data.nyc);
+        }
+        // Legacy format: flat array (fallback)
+        if (Array.isArray(data)) {
+          setWinePosts(data);
+        }
+        setLoading(false);
       })
-      .catch(() => setRedditLoading(false));
+      .catch(() => setLoading(false));
   }, []);
 
   return (
@@ -43,42 +83,33 @@ export default function SocialSection() {
           </div>
         </div>
 
-        {/* ── 2. Reddit — wine discussion cards (5×2 grid) ────────── */}
+        {/* ── 2. Reddit — NYC Wine Discussions ────────────────────── */}
         <div className="social-card full-width">
           <div className="sc-header sc-reddit">
-            <div className="sc-platform">Reddit — Wine Discussions</div>
-            <a href="https://reddit.com/r/wine" className="sc-follow" target="_blank" rel="noopener noreferrer">r/wine →</a>
+            <div className="sc-platform">Reddit — NYC Wine Discussions</div>
+            <a href="https://www.reddit.com/search/?q=nyc+wine" className="sc-follow" target="_blank" rel="noopener noreferrer">Search Reddit →</a>
           </div>
-          <div className="reddit-grid">
-            {redditLoading && (
-              <div className="reddit-card">
-                <div className="reddit-title">Loading…</div>
-              </div>
-            )}
-            {!redditLoading && redditPosts.length === 0 && (
-              <div className="reddit-card">
-                <div className="reddit-title">No wine discussions found right now.</div>
-              </div>
-            )}
-            {redditPosts.slice(0, 10).map((post, i) => (
-              <a
-                key={i}
-                className="reddit-card"
-                href={post.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div className="reddit-sub">{post.subreddit}</div>
-                <div className="reddit-title">{post.title}</div>
-                <div className="reddit-meta">
-                  {post.score.toLocaleString()} pts · {post.comments.toLocaleString()} comments · {post.ago}
-                </div>
-              </a>
-            ))}
-          </div>
+          <RedditGrid
+            posts={nycPosts}
+            loading={loading}
+            emptyMsg="No NYC wine discussions found right now."
+          />
         </div>
 
-        {/* ── 3. X / Twitter List — "NYC Wine Scene" ──────────────── */}
+        {/* ── 3. Reddit — r/wine (general) ───────────────────────── */}
+        <div className="social-card full-width">
+          <div className="sc-header sc-reddit">
+            <div className="sc-platform">Reddit — r/wine</div>
+            <a href="https://reddit.com/r/wine" className="sc-follow" target="_blank" rel="noopener noreferrer">r/wine →</a>
+          </div>
+          <RedditGrid
+            posts={winePosts}
+            loading={loading}
+            emptyMsg="No wine discussions found right now."
+          />
+        </div>
+
+        {/* ── 4. X / Twitter List — "NYC Wine Scene" ──────────────── */}
         <div className="social-card full-width">
           <div className="sc-header sc-x">
             <div className="sc-platform">X · NYC Wine Scene</div>
@@ -105,7 +136,7 @@ export default function SocialSection() {
           </div>
         </div>
 
-        {/* ── 4. Pinterest NYC Wine ──────────────────────────────── */}
+        {/* ── 5. Pinterest NYC Wine ──────────────────────────────── */}
         <div className="social-card full-width">
           <div className="sc-header sc-pin">
             <div className="sc-platform">Pinterest · NYC Wine</div>
@@ -132,7 +163,7 @@ export default function SocialSection() {
           </div>
         </div>
 
-        {/* ── 5. Facebook — NYCWineReport ─────────────────────────── */}
+        {/* ── 6. Facebook — NYCWineReport ─────────────────────────── */}
         <div className="social-card full-width">
           <div className="sc-header sc-fb">
             <div className="sc-platform">Facebook</div>

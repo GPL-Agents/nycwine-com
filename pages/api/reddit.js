@@ -179,113 +179,88 @@ function timeAgo(ms) {
   return `${days}d ago`;
 }
 
-// ── Static fallback posts (shown when Reddit is unreachable) ──
-const FALLBACK_POSTS = [
-  {
-    title: 'Best natural wine bars in NYC?',
-    subreddit: 'r/wine',
-    url: 'https://reddit.com/r/wine',
-    score: 42,
-    comments: 18,
-    ago: 'Popular',
-  },
-  {
-    title: 'Wine store recommendations in Manhattan',
-    subreddit: 'r/nyc',
-    url: 'https://reddit.com/r/nyc',
-    score: 38,
-    comments: 24,
-    ago: 'Popular',
-  },
-  {
-    title: 'What wine are you drinking this weekend?',
-    subreddit: 'r/wine',
-    url: 'https://reddit.com/r/wine',
-    score: 67,
-    comments: 45,
-    ago: 'Popular',
-  },
-];
+// ── Static fallback posts ────────────────────────────────────
+const FALLBACK = {
+  wine: [
+    { title: 'What wine are you drinking this weekend?', subreddit: 'r/wine', url: 'https://reddit.com/r/wine', score: 67, comments: 45, ago: 'Popular' },
+    { title: 'Best bottles under $20?', subreddit: 'r/wine', url: 'https://reddit.com/r/wine', score: 42, comments: 18, ago: 'Popular' },
+  ],
+  nyc: [
+    { title: 'Best natural wine bars in NYC?', subreddit: 'r/FoodNYC', url: 'https://reddit.com/r/FoodNYC', score: 42, comments: 18, ago: 'Popular' },
+    { title: 'Wine store recommendations in Manhattan', subreddit: 'r/nyc', url: 'https://reddit.com/r/nyc', score: 38, comments: 24, ago: 'Popular' },
+    { title: 'Good wine shops to visit in NYC?', subreddit: 'r/wine', url: 'https://reddit.com/r/wine', score: 8, comments: 27, ago: 'Popular' },
+  ],
+};
+
+// ── Deduplicate + format helper ─────────────────────────────
+function dedupeAndFormat(posts, limit) {
+  const seen = new Set();
+  return posts
+    .filter((post) => {
+      const key = post.title.toLowerCase().slice(0, 60);
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    })
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit)
+    .map((post) => ({
+      title: post.title,
+      subreddit: post.subreddit,
+      url: post.url,
+      score: post.score,
+      comments: post.comments,
+      ago: timeAgo(post.timestamp),
+    }));
+}
 
 // ── API Handler ───────────────────────────────────────────────
+// Returns: { wine: [...], nyc: [...] }
+// wine = r/wine hot posts (general)
+// nyc  = NYC-specific wine discussions (from search + r/nyc + r/FoodNYC)
 export default async function handler(req, res) {
-  // Return cached data if fresh
   if (cache && Date.now() - cacheTime < CACHE_TTL) {
     return res.status(200).json(cache);
   }
 
   try {
-    // Fetch subreddit RSS + search RSS in parallel
-    const [subResults, searchResults] = await Promise.all([
-      // Subreddit feeds
-      Promise.all(SUBREDDITS.map((sub) => fetchSubredditRSS(sub))),
-      // Search feeds for NYC-specific content
-      Promise.all(SEARCH_QUERIES.map((q) => fetchSearchRSS(q))),
+    // Fetch everything in parallel
+    const [wineRSS, nycRSS, foodRSS, ...searchRSS] = await Promise.all([
+      fetchSubredditRSS({ name: 'wine', alwaysRelevant: true }),
+      fetchSubredditRSS({ name: 'nyc', alwaysRelevant: false }),
+      fetchSubredditRSS({ name: 'FoodNYC', alwaysRelevant: false }),
+      ...SEARCH_QUERIES.map((q) => fetchSearchRSS(q)),
     ]);
 
-    let allPosts = [...subResults.flat(), ...searchResults.flat()];
-
-    // If RSS returned nothing, try JSON fallback for subreddits
-    if (allPosts.length === 0) {
-      console.log('Reddit RSS returned no posts, trying JSON fallback...');
-      const jsonResults = await Promise.all(
-        SUBREDDITS.map((sub) => fetchSubredditJSON(sub))
-      );
-      allPosts = jsonResults.flat();
+    // If RSS failed, try JSON fallback for r/wine
+    let winePosts = wineRSS;
+    if (winePosts.length === 0) {
+      winePosts = await fetchSubredditJSON({ name: 'wine', alwaysRelevant: true });
     }
 
-    // If still nothing, return static fallback
-    if (allPosts.length === 0) {
-      console.log('Reddit feeds unreachable, using static fallback');
-      cache = FALLBACK_POSTS;
-      cacheTime = Date.now();
-      return res.status(200).json(FALLBACK_POSTS);
-    }
+    // NYC bucket: search results + wine-filtered r/nyc + r/FoodNYC posts
+    const nycRaw = [
+      ...searchRSS.flat(),
+      ...nycRSS.filter(isWineRelated),
+      ...foodRSS.filter(isWineRelated),
+    ];
 
-    // Filter, deduplicate, sort
-    const seen = new Set();
-    const filtered = allPosts
-      .filter(isWineRelated)
-      .filter((post) => {
-        const key = post.title.toLowerCase().slice(0, 60);
-        if (seen.has(key)) return false;
-        seen.add(key);
-        return true;
-      });
+    // Format both groups
+    const wineFormatted = dedupeAndFormat(winePosts, 10);
+    const nycFormatted = dedupeAndFormat(nycRaw, 10);
 
-    // Sort by score (most popular first)
-    filtered.sort((a, b) => b.score - a.score);
+    const result = {
+      wine: wineFormatted.length > 0 ? wineFormatted : FALLBACK.wine,
+      nyc: nycFormatted.length > 0 ? nycFormatted : FALLBACK.nyc,
+    };
 
-    // Format for frontend
-    const posts = filtered.slice(0, 10).map((post) => ({
-      title: post.title,
-      subreddit: post.subreddit,
-      url: post.url,
-      score: post.score,
-      comments: post.comments,
-      ago: timeAgo(post.timestamp),
-    }));
-
-    // If filtering removed everything, use unfiltered subset
-    const finalPosts = posts.length > 0 ? posts : allPosts.slice(0, 5).map((post) => ({
-      title: post.title,
-      subreddit: post.subreddit,
-      url: post.url,
-      score: post.score,
-      comments: post.comments,
-      ago: timeAgo(post.timestamp),
-    }));
-
-    cache = finalPosts;
+    cache = result;
     cacheTime = Date.now();
 
-    res.setHeader(
-      'Cache-Control',
-      'public, s-maxage=1800, stale-while-revalidate=300'
-    );
-    return res.status(200).json(finalPosts);
+    res.setHeader('Cache-Control', 'public, s-maxage=1800, stale-while-revalidate=300');
+    return res.status(200).json(result);
   } catch (err) {
     console.error('Reddit API error:', err);
-    return res.status(200).json(FALLBACK_POSTS);
+    return res.status(200).json(FALLBACK);
   }
 }

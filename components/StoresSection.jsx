@@ -1,29 +1,31 @@
 // components/StoresSection.jsx
 // ─────────────────────────────────────────────────────────────
-// Homepage wine store discovery widget.
-//
-// Shows a compact search + neighborhood filter with a preview
-// of results (3 stores max). Links to a full /stores page for
-// the complete 335-store directory.
-//
-// Data loaded from /data/wine-stores.json.
+// Homepage wine store section — search, browse by neighborhood,
+// and see featured stores. 335 stores across Manhattan.
 // ─────────────────────────────────────────────────────────────
 
 import { useState, useEffect, useMemo } from 'react';
 
-// Curated neighborhoods for the quick-pick grid
+// Neighborhoods for the quick-pick chips.
+// These use partial matching so "Chelsea" matches "Chelsea" AND "Chelsea / Midtown South"
 const FEATURED_HOODS = [
   'Upper West Side', 'Upper East Side', 'Midtown',
   'Chelsea', 'West Village', 'East Village',
   'SoHo', 'Lower East Side', 'Harlem',
+  'Tribeca', 'Gramercy', 'Murray Hill',
+  'Financial District', 'Washington Heights',
 ];
+
+// Match a store's neighborhood against a short hood name
+function matchesHood(storeHood, filterHood) {
+  return storeHood.toLowerCase().includes(filterHood.toLowerCase());
+}
 
 export default function StoresSection() {
   const [stores, setStores] = useState([]);
   const [search, setSearch] = useState('');
   const [selectedHood, setSelectedHood] = useState(null);
 
-  // Load store data
   useEffect(() => {
     fetch('/data/wine-stores.json')
       .then((res) => res.json())
@@ -31,22 +33,20 @@ export default function StoresSection() {
       .catch(() => {});
   }, []);
 
-  // Count stores per neighborhood
+  // Count stores per featured neighborhood (partial match)
   const hoodCounts = useMemo(() => {
     const counts = {};
-    stores.forEach((s) => {
-      if (s.neighborhood) {
-        counts[s.neighborhood] = (counts[s.neighborhood] || 0) + 1;
-      }
+    FEATURED_HOODS.forEach((hood) => {
+      counts[hood] = stores.filter((s) => matchesHood(s.neighborhood, hood)).length;
     });
     return counts;
   }, [stores]);
 
-  // Filter stores based on search or selected neighborhood
+  // Filter stores
   const filtered = useMemo(() => {
     let result = stores;
     if (selectedHood) {
-      result = result.filter((s) => s.neighborhood === selectedHood);
+      result = result.filter((s) => matchesHood(s.neighborhood, selectedHood));
     }
     if (search.trim()) {
       const q = search.toLowerCase();
@@ -60,8 +60,16 @@ export default function StoresSection() {
     return result;
   }, [stores, selectedHood, search]);
 
-  const preview = filtered.slice(0, 3);
+  // Show featured stores with websites when no search active
+  const featuredStores = useMemo(() => {
+    return stores
+      .filter((s) => s.website)
+      .sort(() => 0.5 - Math.random())
+      .slice(0, 6);
+  }, [stores]);
+
   const isSearching = search.trim() || selectedHood;
+  const displayStores = isSearching ? filtered.slice(0, 8) : featuredStores;
 
   return (
     <section className="stores-section" id="sec-stores">
@@ -74,10 +82,9 @@ export default function StoresSection() {
         </a>
       </div>
 
-      {/* Search bar */}
+      {/* Search + neighborhoods */}
       <div className="store-finder">
         <div className="store-finder-inner">
-          <div className="store-finder-label">Find a wine store near you</div>
           <input
             type="search"
             placeholder="Search by name, address, or neighborhood…"
@@ -87,7 +94,7 @@ export default function StoresSection() {
           />
         </div>
 
-        {/* Neighborhood quick picks */}
+        {/* Neighborhood chips */}
         <div className="hood-grid">
           {FEATURED_HOODS.map((hood) => (
             <button
@@ -105,53 +112,54 @@ export default function StoresSection() {
         </div>
       </div>
 
-      {/* Preview results (only when searching/filtering) */}
-      {isSearching && (
-        <div className="store-preview">
-          {preview.length === 0 ? (
-            <div className="store-preview-empty">
-              No stores match your search. <a href="/stores">Browse all stores</a>
-            </div>
-          ) : (
-            <>
-              {preview.map((store) => (
-                <div key={store.id} className="store-row">
-                  <div className="store-info">
-                    <div className="store-name">{store.name}</div>
-                    <div className="store-address">
-                      {store.address} &middot; {store.neighborhood}
-                    </div>
-                    {store.phone && (
-                      <div className="store-phone">
-                        <a href={`tel:${store.phone}`}>{store.phone}</a>
-                      </div>
-                    )}
-                  </div>
-                  {store.url ? (
-                    <a
-                      href={store.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="store-visit-btn"
-                    >
-                      Visit
-                    </a>
-                  ) : store.phone ? (
-                    <a href={`tel:${store.phone}`} className="store-visit-btn">
-                      Call
-                    </a>
-                  ) : null}
-                </div>
-              ))}
-              {filtered.length > 3 && (
-                <a href="/stores" className="store-see-all">
-                  View all {filtered.length} results &rarr;
+      {/* Store cards */}
+      <div className="store-cards-section">
+        {!isSearching && (
+          <div className="store-cards-label">Featured Stores</div>
+        )}
+        {isSearching && filtered.length === 0 && (
+          <div className="store-preview-empty">
+            No stores match your search. <a href="/stores">Browse all {stores.length} stores →</a>
+          </div>
+        )}
+        <div className="store-cards-grid">
+          {displayStores.map((store) => (
+            <div key={store.id} className="store-card">
+              <div className="store-card-icon" style={{ background: store.iconBg }}>
+                {store.icon}
+              </div>
+              <div className="store-card-info">
+                <div className="store-card-name">{store.name}</div>
+                <div className="store-card-addr">{store.address}</div>
+                <div className="store-card-hood">{store.neighborhood}</div>
+                {store.phone && (
+                  <a href={`tel:${store.phone}`} className="store-card-phone">{store.phone}</a>
+                )}
+              </div>
+              {store.website && (
+                <a
+                  href={store.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="store-card-link"
+                >
+                  Visit →
                 </a>
               )}
-            </>
-          )}
+            </div>
+          ))}
         </div>
-      )}
+        {isSearching && filtered.length > 8 && (
+          <a href="/stores" className="store-see-all">
+            View all {filtered.length} results →
+          </a>
+        )}
+        {!isSearching && (
+          <a href="/stores" className="store-see-all">
+            Browse all {stores.length} wine stores →
+          </a>
+        )}
+      </div>
 
       {/* Explore more: Wine Bars + Wineries */}
       <div className="explore-section" id="sec-bars">

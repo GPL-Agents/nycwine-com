@@ -100,9 +100,9 @@ export default function StoresPage() {
                   </div>
                 )}
               </div>
-              {store.url ? (
+              {store.website ? (
                 <a
-                  href={store.url}
+                  href={store.website}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="store-visit-btn"
