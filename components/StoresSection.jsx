@@ -161,21 +161,6 @@ export default function StoresSection() {
         )}
       </div>
 
-      {/* Explore more: Wine Bars + Wineries */}
-      <div className="explore-section" id="sec-bars">
-        <div className="explore-title">More to explore</div>
-        <div className="explore-grid">
-          <a href="/bars" className="explore-card bars">
-            <div className="explore-name">Wine Bars</div>
-            <div className="explore-sub">NYC&apos;s best wine bars</div>
-          </a>
-          <a href="#" className="explore-card wineries" id="sec-wineries">
-            <div className="explore-name" style={{ color: 'var(--muted)' }}>Wineries</div>
-            <div className="explore-sub">Coming soon</div>
-          </a>
-        </div>
-      </div>
-
     </section>
   );
 }

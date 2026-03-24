@@ -918,3 +918,210 @@ body {
 .search-more { font-size: 13px; color: var(--muted); margin-top: 8px; }
 .search-more a { color: var(--pink); text-decoration: none; }
 .search-more a:hover { text-decoration: underline; }
+
+/* ═══════════════════════════════════════
+   WINE BARS SECTION
+   Pink ribbon header to alternate with
+   black store header above it.
+═══════════════════════════════════════ */
+.bars-section { background: white; border-top: 1px solid var(--border); }
+.bars-header {
+  background: var(--pink);
+  padding: 14px 24px;
+}
+.bars-header .section-header-title { color: white; }
+.bars-header .see-all-link { color: rgba(255,255,255,0.7); }
+
+/* Bar finder widget (homepage) */
+.bar-finder {
+  padding: 20px 24px;
+  background: var(--cream);
+}
+.bar-finder-inner {
+  margin-bottom: 16px;
+}
+.bar-search {
+  width: 100%;
+  padding: 12px 18px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 14px;
+  background: white;
+  outline: none;
+  color: var(--text);
+  font-family: var(--font-sans);
+  transition: border-color 0.2s;
+}
+.bar-search:focus { border-color: var(--rose-muted); }
+.bar-search::placeholder { color: var(--muted); }
+
+/* Borough chip grid */
+.borough-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.borough-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: white;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: all 0.2s;
+  font-size: 12px;
+}
+.borough-chip:hover { border-color: var(--rose-muted); }
+.borough-chip.active { background: var(--pink); border-color: var(--pink); }
+.borough-chip.active .borough-name { color: white; }
+.borough-chip.active .borough-count { color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.15); }
+.borough-name { font-weight: 500; color: var(--text); }
+.borough-count {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--cream);
+  padding: 1px 7px;
+  border-radius: 10px;
+}
+
+/* Bar cards section */
+.bar-cards-section { padding: 16px 24px 8px; background: white; }
+.bar-cards-label {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.bar-preview-empty {
+  padding: 20px 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+.bar-preview-empty a { color: var(--rose); text-decoration: none; font-weight: 500; }
+.bar-preview-empty a:hover { text-decoration: underline; }
+
+.bar-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+.bar-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: white;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.bar-card:hover { border-color: var(--rose-muted); box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.bar-card-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 18px;
+  background: var(--pink-light);
+}
+.bar-card-info { flex: 1; min-width: 0; }
+.bar-card-name { font-size: 14px; font-weight: 600; color: var(--black); font-family: var(--font-sans); }
+.bar-card-addr { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.bar-card-borough { font-size: 11px; color: var(--rose); margin-top: 2px; font-weight: 500; }
+.bar-card-phone { font-size: 12px; color: var(--muted); text-decoration: none; margin-top: 3px; display: inline-block; }
+.bar-card-phone:hover { color: var(--rose); }
+.bar-card-link {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--rose);
+  background: var(--rose-light);
+  border-radius: 8px;
+  padding: 6px 12px;
+  text-decoration: none;
+  flex-shrink: 0;
+  white-space: nowrap;
+  align-self: center;
+  transition: all 0.15s;
+}
+.bar-card-link:hover { background: var(--rose); color: white; }
+
+.bar-see-all {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--rose);
+  padding: 16px;
+  margin-top: 12px;
+  text-decoration: none;
+  border: 1px solid var(--rose-muted);
+  border-radius: 10px;
+  transition: all 0.15s;
+}
+.bar-see-all:hover { background: var(--rose); color: white; border-color: var(--rose); }
+
+/* Bar visit button (used on /bars page) */
+.bar-visit-btn {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--rose);
+  background: var(--rose-light);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  text-decoration: none;
+  flex-shrink: 0;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: all 0.15s;
+}
+.bar-visit-btn:hover { background: var(--rose); color: white; }
+
+/* ── Bars standalone page (/bars) ────────────────────────── */
+.bars-page { max-width: 800px; margin: 0 auto; padding: 24px; }
+.bars-page-header { margin-bottom: 24px; }
+.bars-page-title { font-family: var(--font-serif); font-size: 28px; font-weight: 700; color: var(--black); }
+.bars-page-subtitle { font-size: 14px; color: var(--muted); margin-top: 4px; }
+.bars-page-controls { display: flex; gap: 12px; margin-bottom: 16px; }
+.bars-page-select {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 14px;
+  background: white;
+  color: var(--text);
+  font-family: var(--font-sans);
+  min-width: 160px;
+}
+.bars-page-count { font-size: 13px; color: var(--muted); margin-bottom: 16px; }
+.bars-page-list { display: flex; flex-direction: column; gap: 8px; }
+.bar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: border-color 0.15s;
+}
+.bar-row:hover { border-color: var(--rose-muted); }
+.bar-info { flex: 1; min-width: 0; }
+.bar-name { font-size: 15px; font-weight: 600; color: var(--black); font-family: var(--font-sans); }
+.bar-address { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.bar-phone { font-size: 12px; margin-top: 3px; }
+.bar-phone a { color: var(--muted); text-decoration: none; }
+.bar-phone a:hover { color: var(--rose); }
+
+@media (max-width: 600px) {
+  .bars-page-controls { flex-direction: column; }
+  .bars-page-select { min-width: 100%; }
+}

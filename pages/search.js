@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Header from '../components/Header';
 import storesData from '../data/wine-stores.json';
+import barsData from '../data/wine-bars.json';
 
 export default function SearchPage() {
   const router = useRouter();
@@ -39,6 +40,15 @@ export default function SearchPage() {
       )
     : [];
 
+  // Search wine bars
+  const barResults = query
+    ? barsData.filter(b =>
+        b.name.toLowerCase().includes(query) ||
+        b.address.toLowerCase().includes(query) ||
+        b.borough.toLowerCase().includes(query)
+      )
+    : [];
+
   // Search events
   const eventResults = query
     ? events.filter(e =>
@@ -57,7 +67,7 @@ export default function SearchPage() {
       )
     : [];
 
-  const totalResults = storeResults.length + eventResults.length + newsResults.length;
+  const totalResults = storeResults.length + barResults.length + eventResults.length + newsResults.length;
 
   return (
     <>
@@ -114,6 +124,33 @@ export default function SearchPage() {
                 <p className="search-more">
                   Showing 20 of {storeResults.length} stores.{' '}
                   <a href={`/stores?search=${encodeURIComponent(q)}`}>View all on Stores page →</a>
+                </p>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* ── Wine bar results ──────────────────────────── */}
+        {barResults.length > 0 && (
+          <div className="search-section">
+            <h2 className="search-section-title">Wine Bars ({barResults.length})</h2>
+            <div className="search-results">
+              {barResults.slice(0, 20).map((b, i) => (
+                <div key={i} className="search-result-card">
+                  <div className="src-name">{b.name}</div>
+                  <div className="src-meta">{b.address} · {b.borough}</div>
+                  {b.phone && <div className="src-meta">{b.phone}</div>}
+                  {b.website && (
+                    <a href={b.website} className="src-link" target="_blank" rel="noopener noreferrer">
+                      Visit website →
+                    </a>
+                  )}
+                </div>
+              ))}
+              {barResults.length > 20 && (
+                <p className="search-more">
+                  Showing 20 of {barResults.length} wine bars.{' '}
+                  <a href="/bars">View all on Wine Bars page →</a>
                 </p>
               )}
             </div>
