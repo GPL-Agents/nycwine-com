@@ -185,8 +185,8 @@ export default async function handler(req, res) {
       fetchEventbrite(),
     ]);
 
-    console.log('NYC filtered:', nycEvents.length);
-    console.log('Eventbrite filtered:', ebEvents.length);
+    console.warn('NYC filtered:', nycEvents.length);
+    console.warn('Eventbrite filtered:', ebEvents.length);
 
     const allEvents = [...nycEvents, ...ebEvents]
       .sort((a, b) => new Date(a.date) - new Date(b.date));
