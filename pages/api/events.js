@@ -82,6 +82,7 @@ async function fetchNYCOpenData() {
     });
     if (!res.ok) return [];
     const data = await res.json();
+    console.log("NYC raw:", data.length);
 
     // Filter for wine-related events
     return data
@@ -127,6 +128,7 @@ async function fetchEventbriteQuery(apiKey, query) {
     });
     if (!res.ok) return [];
     const data = await res.json();
+    console.log("Eventbrite raw:", (data.events || []).length);
 
     return (data.events || [])
       .filter((ev) => matchesWine(`${ev.name?.text || ''} ${ev.description?.text || ''}`))
@@ -190,6 +192,8 @@ export default async function handler(req, res) {
       fetchNYCOpenData(),
       fetchEventbrite(),
     ]);
+  	console.log("NYC filtered:", nycEvents.length);
+ 	console.log("Eventbrite filtered:", ebEvents.length);
 
     // Merge and sort by date
     const allEvents = [...nycEvents, ...ebEvents]
