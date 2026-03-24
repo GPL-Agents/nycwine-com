@@ -10,15 +10,16 @@ export default async function handler(req, res) {
 
     const html = await response.text();
 
-    const matches = [...html.matchAll(/https:\\\/\\\/www\.eventbrite\.com\\\/e\\\/[^"]+/g)]
-      .map((m) => m[0])
-      .map((url) =>
-        url
-          .replace(/\\\//g, '/')
-          .replace(/\?aff=.*$/, '')
-      );
+    const hrefMatches = [...html.matchAll(/href="([^"]+)"/g)]
+      .map((m) => m[1])
+      .filter((href) => href.includes('/e/') || href.includes('eventbrite.com/e/'))
+      .map((href) => {
+        if (href.startsWith('http')) return href.replace(/\?aff=.*$/, '');
+        if (href.startsWith('/')) return `https://www.eventbrite.com${href}`.replace(/\?aff=.*$/, '');
+        return href;
+      });
 
-    const uniqueUrls = [...new Set(matches)];
+    const uniqueUrls = [...new Set(hrefMatches)];
 
     const events = uniqueUrls.slice(0, 20).map((url, i) => {
       const slug = url.split('/e/')[1] || '';
