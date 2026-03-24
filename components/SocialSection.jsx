@@ -66,30 +66,14 @@ export default function SocialSection() {
           </div>
         </div>
 
-        {/* ── Instagram (Elfsight widget — full width) ──────────
-            To activate:
-            1. Sign up at elfsight.com
-            2. Create an Instagram Feed widget for #nycwine
-            3. Copy the embed code (a <script> + <div> tag)
-            4. Replace the placeholder div below with your embed code
-
-            The Elfsight script tag goes in _app.js (one-time).
-            The widget div goes here.
-        ────────────────────────────────────────────────────── */}
+        {/* ── Instagram (Elfsight Social Feed widget) ──────────── */}
         <div className="social-card full-width">
           <div className="sc-header sc-ig">
             <div className="sc-platform">Instagram · #nycwine</div>
             <a href="https://www.instagram.com/explore/tags/nycwine/" className="sc-follow" target="_blank" rel="noopener noreferrer">#nycwine →</a>
           </div>
-          <div className="sc-body elfsight-placeholder">
-            {/* ── PASTE YOUR ELFSIGHT WIDGET DIV HERE ──
-                It will look something like:
-                <div className="elfsight-app-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" data-elfsight-app-lazy></div>
-            ────────────────────────────────────────── */}
-            <div className="social-coming-soon">
-              <div className="scs-title">Instagram Feed</div>
-              <div className="scs-text">Setting up Elfsight widget — community #nycwine photos will appear here automatically.</div>
-            </div>
+          <div className="sc-body elfsight-body">
+            <div className="elfsight-app-5c219adb-d249-478a-a3da-e1d087a08843" data-elfsight-app-lazy></div>
           </div>
         </div>
 

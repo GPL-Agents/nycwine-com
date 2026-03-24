@@ -27,6 +27,12 @@ export default function App({ Component, pageProps }) {
         crossOrigin="anonymous"
         strategy="afterInteractive"
       />
+
+      {/* Elfsight — powers the Instagram social feed widget */}
+      <Script
+        src="https://elfsightcdn.com/platform.js"
+        strategy="afterInteractive"
+      />
       <Component {...pageProps} />
     </>
   );
