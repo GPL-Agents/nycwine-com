@@ -10,14 +10,34 @@ export default async function handler(req, res) {
 
     const html = await response.text();
 
-    const hrefMatches = [...html.matchAll(/href="([^"]+)"/g)]
-      .map((m) => m[1])
-      .filter((href) => href.includes('/e/') || href.includes('eventbrite.com/e/'));
+    const matches = [...html.matchAll(/https:\\\/\\\/www\.eventbrite\.com\\\/e\\\/[^"]+/g)]
+      .map((m) => m[0])
+      .map((url) =>
+        url
+          .replace(/\\\//g, '/')
+          .replace(/\?aff=.*$/, '')
+      );
 
-    return res.status(200).json({
-      count: hrefMatches.length,
-      sample: hrefMatches.slice(0, 20),
+    const uniqueUrls = [...new Set(matches)];
+
+    const events = uniqueUrls.slice(0, 20).map((url, i) => {
+      const slug = url.split('/e/')[1] || '';
+      const cleanTitle = slug
+        .replace(/-tickets.*$/, '')
+        .replace(/-/g, ' ')
+        .replace(/\b\w/g, (c) => c.toUpperCase());
+
+      return {
+        id: i + 1,
+        title: cleanTitle || 'Wine Event',
+        venue: 'New York City',
+        date: null,
+        url,
+        source: 'Eventbrite',
+      };
     });
+
+    return res.status(200).json(events);
   } catch (err) {
     return res.status(500).json({ error: err.message });
   }
