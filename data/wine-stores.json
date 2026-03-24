@@ -1,0 +1,3352 @@
+[
+  {
+    "id": 1,
+    "name": "Burgundy Wine Company, Ltd",
+    "address": "143 West 26th Street",
+    "neighborhood": "Chelsea / Midtown South",
+    "borough": "Manhattan",
+    "phone": "(212) 691-9092",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 2,
+    "name": "Clearview Spirits, Inc.",
+    "address": "99 West 27th Street",
+    "neighborhood": "Chelsea / Midtown South",
+    "borough": "Manhattan",
+    "phone": "(917) 606-9877",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 3,
+    "name": "De Lauren Wines",
+    "address": "332 8th Avenue",
+    "neighborhood": "Chelsea / Midtown South",
+    "borough": "Manhattan",
+    "phone": "(212) 255-0854",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 4,
+    "name": "Diplomat Wine & Spirits",
+    "address": "939 2nd Avenue",
+    "neighborhood": "Chelsea / Midtown South",
+    "borough": "Manhattan",
+    "phone": "(212) 832-5080",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 5,
+    "name": "East River Liquors",
+    "address": "1364 York Avenue",
+    "neighborhood": "Chelsea / Midtown South",
+    "borough": "Manhattan",
+    "phone": "(212) 535-9300",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 6,
+    "name": "Grand Wine & Liquor Store",
+    "address": "30 West 31st Street, Floor 5",
+    "neighborhood": "Chelsea / Midtown South",
+    "borough": "Manhattan",
+    "phone": "(718) 728-2520",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 7,
+    "name": "Great Sunsan Wine Imports, Limited",
+    "address": "15 Penn Plaza",
+    "neighborhood": "Chelsea / Midtown South",
+    "borough": "Manhattan",
+    "phone": "(212) 714-2099",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 8,
+    "name": "House of Cheers",
+    "address": "261 West 18th Street",
+    "neighborhood": "Chelsea / Midtown South",
+    "borough": "Manhattan",
+    "phone": "(212) 929-1924",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 9,
+    "name": "JM Liquor Corporation",
+    "address": "1861 Lexington Avenue",
+    "neighborhood": "Chelsea / Midtown South",
+    "borough": "Manhattan",
+    "phone": "(212) 996-1450",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 10,
+    "name": "MJK Wine & Liquors, Incorporated",
+    "address": "161 3rd Avenue",
+    "neighborhood": "Chelsea / Midtown South",
+    "borough": "Manhattan",
+    "phone": "(212) 995-8899",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 11,
+    "name": "Miat Liquor Store",
+    "address": "166 2nd Avenue",
+    "neighborhood": "Chelsea / Midtown South",
+    "borough": "Manhattan",
+    "phone": "(212) 228-5811",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 12,
+    "name": "Midtown Wine & Liquor Shop",
+    "address": "44 East 50th Street",
+    "neighborhood": "Chelsea / Midtown South",
+    "borough": "Manhattan",
+    "phone": "(212) 753-2744",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 13,
+    "name": "NRS Wine & Liquor",
+    "address": "414 8th Avenue",
+    "neighborhood": "Chelsea / Midtown South",
+    "borough": "Manhattan",
+    "phone": "(212) 290-0710",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 14,
+    "name": "New York wine Exchange",
+    "address": "9 Broadway",
+    "neighborhood": "Chelsea / Midtown South",
+    "borough": "Manhattan",
+    "phone": "(212) 422-2222",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 15,
+    "name": "Nizga Liquors",
+    "address": "58 Avenue A",
+    "neighborhood": "Chelsea / Midtown South",
+    "borough": "Manhattan",
+    "phone": "(212) 420-1449",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 16,
+    "name": "Olympic Liquors & Wine",
+    "address": "391 8th Avenue",
+    "neighborhood": "Chelsea / Midtown South",
+    "borough": "Manhattan",
+    "phone": "(212) 864-3860",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 17,
+    "name": "Scandalous Cup",
+    "address": "234 5th Avenue",
+    "neighborhood": "Chelsea / Midtown South",
+    "borough": "Manhattan",
+    "phone": "(212) 689-3545",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 18,
+    "name": "Sonest Liquors",
+    "address": "878 6th Avenue",
+    "neighborhood": "Chelsea / Midtown South",
+    "borough": "Manhattan",
+    "phone": "(212) 689-8707",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 19,
+    "name": "The Village Vinter, Inc.",
+    "address": "448 Avenue of the Americas",
+    "neighborhood": "Chelsea / Midtown South",
+    "borough": "Manhattan",
+    "phone": "(212) 255-0539",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 20,
+    "name": "Wine Angel",
+    "address": "115 West 30th Street, #505",
+    "neighborhood": "Chelsea / Midtown South",
+    "borough": "Manhattan",
+    "phone": "(212) 273-0330",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 21,
+    "name": "De Vino",
+    "address": "30 Clinton Street",
+    "neighborhood": "Lower East Side / Chinatown",
+    "borough": "Manhattan",
+    "phone": "(212) 228-0073",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 22,
+    "name": "East Village Wines & Liquors",
+    "address": "183 Stanton Street",
+    "neighborhood": "Lower East Side / Chinatown",
+    "borough": "Manhattan",
+    "phone": "(212) 358-7700",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 23,
+    "name": "Gary's Liquor, Inc.",
+    "address": "141 Essex Street",
+    "neighborhood": "Lower East Side / Chinatown",
+    "borough": "Manhattan",
+    "phone": "(212) 529-7187",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 24,
+    "name": "MP Liquor",
+    "address": "29 Ludlow Street",
+    "neighborhood": "Lower East Side / Chinatown",
+    "borough": "Manhattan",
+    "phone": "(212) 219-2177",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 25,
+    "name": "Montgomery Liquor Store",
+    "address": "195 Madison Street",
+    "neighborhood": "Lower East Side / Chinatown",
+    "borough": "Manhattan",
+    "phone": "(212) 267-7408",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 26,
+    "name": "Sam Wai Liquor Store",
+    "address": "17 East Broadway",
+    "neighborhood": "Lower East Side / Chinatown",
+    "borough": "Manhattan",
+    "phone": "(212) 962-2088",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 27,
+    "name": "September Wine & Spirits",
+    "address": "100 Stanton Street",
+    "neighborhood": "Lower East Side / Chinatown",
+    "borough": "Manhattan",
+    "phone": "(212) 388-0770",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 28,
+    "name": "Seward Park Liquors, Inc.",
+    "address": "393 Grand Street",
+    "neighborhood": "Lower East Side / Chinatown",
+    "borough": "Manhattan",
+    "phone": "(212) 260-6363",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 29,
+    "name": "Yoshi Wine & Liquor, Inc.",
+    "address": "49 Chrystie Street",
+    "neighborhood": "Lower East Side / Chinatown",
+    "borough": "Manhattan",
+    "phone": "(212) 625-9344",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 30,
+    "name": "8 Street Wine Shop",
+    "address": "50 East 8th Street",
+    "neighborhood": "East Village / Union Square",
+    "borough": "Manhattan",
+    "phone": "(718) 491-2358",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 31,
+    "name": "Astor Wines & Spirits",
+    "address": "399 Lafayette",
+    "neighborhood": "East Village / Union Square",
+    "borough": "Manhattan",
+    "phone": "(212) 674-7500",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 32,
+    "name": "Cellar Dwellers Incorporated",
+    "address": "238 East 14th Street, #240",
+    "neighborhood": "East Village / Union Square",
+    "borough": "Manhattan",
+    "phone": "(646) 602-6050",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 33,
+    "name": "Frank's Liquor Shop",
+    "address": "46 Union Square East",
+    "neighborhood": "East Village / Union Square",
+    "borough": "Manhattan",
+    "phone": "(212) 473-3231",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 34,
+    "name": "Gramercy Wine Cellars",
+    "address": "236 Third Avenue",
+    "neighborhood": "East Village / Union Square",
+    "borough": "Manhattan",
+    "phone": "(212) 529-6668",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 35,
+    "name": "Italian Wine Merchants",
+    "address": "108 East 16th Street",
+    "neighborhood": "East Village / Union Square",
+    "borough": "Manhattan",
+    "phone": "(212) 473-2323",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 36,
+    "name": "Maxim's Liquor Store",
+    "address": "331 1st Avenue",
+    "neighborhood": "East Village / Union Square",
+    "borough": "Manhattan",
+    "phone": "(800) 894-9857",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 37,
+    "name": "Moore Brothers Wine Co",
+    "address": "33 East 20th Street",
+    "neighborhood": "East Village / Union Square",
+    "borough": "Manhattan",
+    "phone": "(212) 375-1575",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 38,
+    "name": "Picadeli Is Wine",
+    "address": "225 East 5th Street",
+    "neighborhood": "East Village / Union Square",
+    "borough": "Manhattan",
+    "phone": "(212) 254-7800",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 39,
+    "name": "S&P Liquor & Wine Corporation",
+    "address": "300 East 5th Street",
+    "neighborhood": "East Village / Union Square",
+    "borough": "Manhattan",
+    "phone": "(212) 475-4671",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 40,
+    "name": "Stuyvesant Square Liquors",
+    "address": "333 2nd Avenue",
+    "neighborhood": "East Village / Union Square",
+    "borough": "Manhattan",
+    "phone": "(212) 473-5050",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 41,
+    "name": "Tinto Fino",
+    "address": "85 1st Avenue",
+    "neighborhood": "East Village / Union Square",
+    "borough": "Manhattan",
+    "phone": "(212) 254-0850",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 42,
+    "name": "Union Square Wines and Spirits",
+    "address": "140 4th Avenue",
+    "neighborhood": "East Village / Union Square",
+    "borough": "Manhattan",
+    "phone": "(212) 675-8100",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 43,
+    "name": "Warehouse Wines & Spirits",
+    "address": "735 Broadway",
+    "neighborhood": "East Village / Union Square",
+    "borough": "Manhattan",
+    "phone": "(212) 982-7770",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 44,
+    "name": "Zeeman B & S, Inc.",
+    "address": "47 University Place",
+    "neighborhood": "East Village / Union Square",
+    "borough": "Manhattan",
+    "phone": "(212) 473-2525",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 45,
+    "name": "Zeichner Wine & Liquor",
+    "address": "279 1st Avenue",
+    "neighborhood": "East Village / Union Square",
+    "borough": "Manhattan",
+    "phone": "(212) 777-7730",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 46,
+    "name": "Famous Wines & Spirits",
+    "address": "27 William Street",
+    "neighborhood": "Financial District",
+    "borough": "Manhattan",
+    "phone": "(212) 422-4743",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 47,
+    "name": "MJR Wines Inc.",
+    "address": "55 Liberty Street",
+    "neighborhood": "Financial District",
+    "borough": "Manhattan",
+    "phone": "(212) 406-9463",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 48,
+    "name": "Water Street Wine and Spirit",
+    "address": "79 Pine Street",
+    "neighborhood": "Financial District",
+    "borough": "Manhattan",
+    "phone": "(212) 797-7777",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 49,
+    "name": "West Street Wine & Spirits",
+    "address": "33 Rector Street",
+    "neighborhood": "Financial District",
+    "borough": "Manhattan",
+    "phone": "(212) 383-8300",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 50,
+    "name": "Chambers Street Wines",
+    "address": "160 Chambers Street",
+    "neighborhood": "Tribeca / City Hall",
+    "borough": "Manhattan",
+    "phone": "(212) 227-1434",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 51,
+    "name": "City Hall Wines & Spirits",
+    "address": "108 Chambers Street",
+    "neighborhood": "Tribeca / City Hall",
+    "borough": "Manhattan",
+    "phone": "(212) 227-3385",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 52,
+    "name": "New York Wine Co",
+    "address": "21 Warren Street",
+    "neighborhood": "Tribeca / City Hall",
+    "borough": "Manhattan",
+    "phone": "(212) 812-3999",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 53,
+    "name": "10th Street & Avenue C Wine & Liquor",
+    "address": "159 Avenue C",
+    "neighborhood": "East Village / Alphabet City",
+    "borough": "Manhattan",
+    "phone": "(212) 995-8200",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 54,
+    "name": "6 Avenue B Liquors Corporation",
+    "address": "6 Avenue B",
+    "neighborhood": "East Village / Alphabet City",
+    "borough": "Manhattan",
+    "phone": "(212) 982-7860",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 55,
+    "name": "Alphabet City Wine Company",
+    "address": "100 Avenue C",
+    "neighborhood": "East Village / Alphabet City",
+    "borough": "Manhattan",
+    "phone": "(212) 505-9463",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 56,
+    "name": "Avenue A Wine & Liquor, Incorporated",
+    "address": "196 Avenue A",
+    "neighborhood": "East Village / Alphabet City",
+    "borough": "Manhattan",
+    "phone": "(212) 260-7878",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 57,
+    "name": "Avenue C Liquor",
+    "address": "193 Avenue C",
+    "neighborhood": "East Village / Alphabet City",
+    "borough": "Manhattan",
+    "phone": "(212) 677-8640",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 58,
+    "name": "Bee Liquors",
+    "address": "225 Avenue B",
+    "neighborhood": "East Village / Alphabet City",
+    "borough": "Manhattan",
+    "phone": "(212) 995-5606",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 59,
+    "name": "Brix NYC, LLC",
+    "address": "649 East 9th Street",
+    "neighborhood": "East Village / Alphabet City",
+    "borough": "Manhattan",
+    "phone": "(212) 777-0691",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 60,
+    "name": "Discovery Wines",
+    "address": "10 Avenue A",
+    "neighborhood": "East Village / Alphabet City",
+    "borough": "Manhattan",
+    "phone": "(212) 674-7833",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 61,
+    "name": "East Village Wines",
+    "address": "138 1st Avenue",
+    "neighborhood": "East Village / Alphabet City",
+    "borough": "Manhattan",
+    "phone": "(212) 677-7070",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 62,
+    "name": "Marty's Liquors, Inc.",
+    "address": "133 Avenue D",
+    "neighborhood": "East Village / Alphabet City",
+    "borough": "Manhattan",
+    "phone": "(212) 673-1613",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 63,
+    "name": "Sale Price Liquor",
+    "address": "24 Avenue C",
+    "neighborhood": "East Village / Alphabet City",
+    "borough": "Manhattan",
+    "phone": "(212) 228-7501",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 64,
+    "name": "Wines on 1st",
+    "address": "224 1st Avenue",
+    "neighborhood": "East Village / Alphabet City",
+    "borough": "Manhattan",
+    "phone": "(212) 979-1999",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 65,
+    "name": "333 Wine Heaven",
+    "address": "333 3rd Avenue",
+    "neighborhood": "Gramercy / Flatiron",
+    "borough": "Manhattan",
+    "phone": "(212) 726-0033",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 66,
+    "name": "Elmans Wines & Liquors",
+    "address": "279 3rd Avenue",
+    "neighborhood": "Gramercy / Flatiron",
+    "borough": "Manhattan",
+    "phone": "(212) 673-8362",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 67,
+    "name": "First Avenue Wine & Spirits Supermarket",
+    "address": "383 First Avenue",
+    "neighborhood": "Gramercy / Flatiron",
+    "borough": "Manhattan",
+    "phone": "(212) 673-3600",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 68,
+    "name": "Gramercy Park Wines & Spirits",
+    "address": "104 East 23rd Street",
+    "neighborhood": "Gramercy / Flatiron",
+    "borough": "Manhattan",
+    "phone": "(212) 505-0550",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 69,
+    "name": "Majestic Wine, Inc.",
+    "address": "10 Waterside Plaza",
+    "neighborhood": "Gramercy / Flatiron",
+    "borough": "Manhattan",
+    "phone": "(718) 791-7706",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 70,
+    "name": "Peetr Cellars",
+    "address": "54 West 21st Street",
+    "neighborhood": "Gramercy / Flatiron",
+    "borough": "Manhattan",
+    "phone": "(212) 488-2100",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 71,
+    "name": "Punch",
+    "address": "913 Broadway",
+    "neighborhood": "Gramercy / Flatiron",
+    "borough": "Manhattan",
+    "phone": "(212) 673-6333",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 72,
+    "name": "Royal Wine Merchants Limited",
+    "address": "25 Waterside Plaza",
+    "neighborhood": "Gramercy / Flatiron",
+    "borough": "Manhattan",
+    "phone": "(212) 689-4855",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 73,
+    "name": "Welcome Wine & Spirits, Limited",
+    "address": "424 2nd Avenue",
+    "neighborhood": "Gramercy / Flatiron",
+    "borough": "Manhattan",
+    "phone": "(212) 532-5222",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 74,
+    "name": "8th Street Wine Cellar",
+    "address": "28 West 8th Street",
+    "neighborhood": "Chelsea",
+    "borough": "Manhattan",
+    "phone": "(212) 260-9463",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 75,
+    "name": "Appellation Wine & Spirits",
+    "address": "156 10th Avenue",
+    "neighborhood": "Chelsea",
+    "borough": "Manhattan",
+    "phone": "(212) 741-9474",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 76,
+    "name": "B & E Quality Beverage Incorporated",
+    "address": "511 West 23rd Street",
+    "neighborhood": "Chelsea",
+    "borough": "Manhattan",
+    "phone": "(212) 243-6812",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 77,
+    "name": "Bottle Rocket",
+    "address": "5 West 19th Street",
+    "neighborhood": "Chelsea",
+    "borough": "Manhattan",
+    "phone": "(212) 929-2323",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 78,
+    "name": "Chelsea Liquor Store",
+    "address": "114 9th Avenue",
+    "neighborhood": "Chelsea",
+    "borough": "Manhattan",
+    "phone": "(212) 243-2065",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 79,
+    "name": "Chelsea Wine Cellar, Incorporated",
+    "address": "200 7th Avenue",
+    "neighborhood": "Chelsea",
+    "borough": "Manhattan",
+    "phone": "(212) 675-1813",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 80,
+    "name": "Chelsea Wine Country",
+    "address": "86 7th Avenue",
+    "neighborhood": "Chelsea",
+    "borough": "Manhattan",
+    "phone": "(212) 366-4904",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 81,
+    "name": "Chelsea Wine Institute",
+    "address": "410 West 16th Street",
+    "neighborhood": "Chelsea",
+    "borough": "Manhattan",
+    "phone": "(212) 255-4221",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 82,
+    "name": "Chelsea Wine Vault",
+    "address": "75 9th Avenue, #11",
+    "neighborhood": "Chelsea",
+    "borough": "Manhattan",
+    "phone": "(212) 462-4244",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 83,
+    "name": "Crossroads Wine & Liquor",
+    "address": "55 West 14th Street",
+    "neighborhood": "Chelsea",
+    "borough": "Manhattan",
+    "phone": "(212) 924-3060",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 84,
+    "name": "Is-Wine",
+    "address": "24 West 8th Street",
+    "neighborhood": "Chelsea",
+    "borough": "Manhattan",
+    "phone": "(212) 254-7800",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 85,
+    "name": "London Terrace Liquor Shop",
+    "address": "221 9th Avenue",
+    "neighborhood": "Chelsea",
+    "borough": "Manhattan",
+    "phone": "(212) 929-2462",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 86,
+    "name": "Mosteiro & Castro Liquors",
+    "address": "576 Avenue of The Americas",
+    "neighborhood": "Chelsea",
+    "borough": "Manhattan",
+    "phone": "(212) 242-2719",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 87,
+    "name": "NYC Wine Co",
+    "address": "167 West 23rd Street",
+    "neighborhood": "Chelsea",
+    "borough": "Manhattan",
+    "phone": "(212) 647-1875",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 88,
+    "name": "North Village Wine & Liquor",
+    "address": "254 West 14th Street",
+    "neighborhood": "Chelsea",
+    "borough": "Manhattan",
+    "phone": "(212) 627-2009",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 89,
+    "name": "Philippe Wine & Liquor",
+    "address": "312 West 23rd Street",
+    "neighborhood": "Chelsea",
+    "borough": "Manhattan",
+    "phone": "(212) 243-1355",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 90,
+    "name": "Pop the Cork Wine Merchants",
+    "address": "168 7th Avenue",
+    "neighborhood": "Chelsea",
+    "borough": "Manhattan",
+    "phone": "(212) 807-1010",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 91,
+    "name": "Village Wine & Spirits",
+    "address": "486 Avenue of The Americas",
+    "neighborhood": "Chelsea",
+    "borough": "Manhattan",
+    "phone": "(212) 255-0539",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 92,
+    "name": "Anthony Liquors, Incorporated",
+    "address": "52 Spring Street, Front A",
+    "neighborhood": "SoHo / NoHo",
+    "borough": "Manhattan",
+    "phone": "(212) 431-6580",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 93,
+    "name": "SoHo Wine & Spirits, Limited",
+    "address": "461 West Broadway",
+    "neighborhood": "SoHo / NoHo",
+    "borough": "Manhattan",
+    "phone": "(212) 777-4332",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 94,
+    "name": "Spring Street Wine Shop",
+    "address": "187 Spring Street",
+    "neighborhood": "SoHo / NoHo",
+    "borough": "Manhattan",
+    "phone": "(212) 219-0521",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 95,
+    "name": "Thompson Wine & Spirits",
+    "address": "222 Thompson Street",
+    "neighborhood": "SoHo / NoHo",
+    "borough": "Manhattan",
+    "phone": "(212) 353-3566",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 96,
+    "name": "Village Wine Imports",
+    "address": "14 East 4th Street, #406",
+    "neighborhood": "SoHo / NoHo",
+    "borough": "Manhattan",
+    "phone": "(212) 673-1056",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 97,
+    "name": "Washinton Square Liquor Store",
+    "address": "545 Laguardia Place",
+    "neighborhood": "SoHo / NoHo",
+    "borough": "Manhattan",
+    "phone": "(212) 477-4395",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 98,
+    "name": "Wine Symphony",
+    "address": "580 Broadway, #716",
+    "neighborhood": "SoHo / NoHo",
+    "borough": "Manhattan",
+    "phone": "(212) 226-8283",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 99,
+    "name": "Wine Therapy",
+    "address": "171 Elizabeth Street",
+    "neighborhood": "SoHo / NoHo",
+    "borough": "Manhattan",
+    "phone": "(212) 625-2999",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 100,
+    "name": "A O C Wine",
+    "address": "401 Broadway",
+    "neighborhood": "Tribeca / SoHo",
+    "borough": "Manhattan",
+    "phone": "(212) 343-9463",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 101,
+    "name": "AK's World of Wines, LLC",
+    "address": "31 Pell Street",
+    "neighborhood": "Tribeca / SoHo",
+    "borough": "Manhattan",
+    "phone": "(212) 619-8430",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 102,
+    "name": "Brite Buy Wines & Spirits",
+    "address": "11 Avenue of The Americas",
+    "neighborhood": "Tribeca / SoHo",
+    "borough": "Manhattan",
+    "phone": "(212) 226-4993",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 103,
+    "name": "Downtown Liquor Store",
+    "address": "90 Hudson Street",
+    "neighborhood": "Tribeca / SoHo",
+    "borough": "Manhattan",
+    "phone": "(212) 226-1087",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 104,
+    "name": "Elizabeth Street Wine & Liquor",
+    "address": "86 Elizabeth Street",
+    "neighborhood": "Tribeca / SoHo",
+    "borough": "Manhattan",
+    "phone": "(646) 613-9288",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 105,
+    "name": "Global Wine & Spirits Imports, LLC",
+    "address": "401 Broadway",
+    "neighborhood": "Tribeca / SoHo",
+    "borough": "Manhattan",
+    "phone": "(212) 966-9463",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 106,
+    "name": "Granyette Wine & Spirits, Inc.",
+    "address": "151 Grand Street",
+    "neighborhood": "Tribeca / SoHo",
+    "borough": "Manhattan",
+    "phone": "(212) 925-1236",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 107,
+    "name": "Hecht Liquors Incorporated",
+    "address": "237 West Broadway",
+    "neighborhood": "Tribeca / SoHo",
+    "borough": "Manhattan",
+    "phone": "(212) 226-0840",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 108,
+    "name": "Hudson Wine & Spirits",
+    "address": "165 Hudson Street",
+    "neighborhood": "Tribeca / SoHo",
+    "borough": "Manhattan",
+    "phone": "(212) 431-1010",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 109,
+    "name": "Mark's Wine & Spirits Limited",
+    "address": "53 Mott Street",
+    "neighborhood": "Tribeca / SoHo",
+    "borough": "Manhattan",
+    "phone": "(212) 962-1982",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 110,
+    "name": "Old World Wine Merchants, Inc.",
+    "address": "250 Hudson Street",
+    "neighborhood": "Tribeca / SoHo",
+    "borough": "Manhattan",
+    "phone": "(212) 675-4004",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 111,
+    "name": "Tribeca Wine Merchants Limited",
+    "address": "40 Hudson Street",
+    "neighborhood": "Tribeca / SoHo",
+    "borough": "Manhattan",
+    "phone": "(212) 393-1400",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 112,
+    "name": "Tribeca Wines",
+    "address": "327 Greenwich Street",
+    "neighborhood": "Tribeca / SoHo",
+    "borough": "Manhattan",
+    "phone": "(212) 965-0657",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 113,
+    "name": "Vestry Wines",
+    "address": "65 Vestry Street",
+    "neighborhood": "Tribeca / SoHo",
+    "borough": "Manhattan",
+    "phone": "(212) 810-2899",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 114,
+    "name": "Vinovino",
+    "address": "211 West Broadway",
+    "neighborhood": "Tribeca / SoHo",
+    "borough": "Manhattan",
+    "phone": "(212) 925-8510",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 115,
+    "name": "Casa Liquor & Wine Company",
+    "address": "258 Avenue of The Americas",
+    "neighborhood": "West Village / Greenwich Village",
+    "borough": "Manhattan",
+    "phone": "(212) 533-4455",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 116,
+    "name": "Casa Oliveira Wines & Liquors, Incorporated",
+    "address": "98 7th Avenue",
+    "neighborhood": "West Village / Greenwich Village",
+    "borough": "Manhattan",
+    "phone": "(212) 929-0760",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 117,
+    "name": "Christopher Street Wine & Spirits",
+    "address": "45 Christopher Street",
+    "neighborhood": "West Village / Greenwich Village",
+    "borough": "Manhattan",
+    "phone": "(212) 255-5737",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 118,
+    "name": "Golden Rule Wine & Liquor Store",
+    "address": "457 Hudson Street",
+    "neighborhood": "West Village / Greenwich Village",
+    "borough": "Manhattan",
+    "phone": "(212) 924-6340",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 119,
+    "name": "Imperial Liquors",
+    "address": "579 Hudson Street",
+    "neighborhood": "West Village / Greenwich Village",
+    "borough": "Manhattan",
+    "phone": "(212) 929-6222",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 120,
+    "name": "Le Du's Wines",
+    "address": "600 Washington Street",
+    "neighborhood": "West Village / Greenwich Village",
+    "borough": "Manhattan",
+    "phone": "(212) 924-6999",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 121,
+    "name": "Manley's Liquor Store",
+    "address": "35 8th Avenue",
+    "neighborhood": "West Village / Greenwich Village",
+    "borough": "Manhattan",
+    "phone": "(212) 242-3712",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 122,
+    "name": "Michtom Vineyards",
+    "address": "32 Bethune Street",
+    "neighborhood": "West Village / Greenwich Village",
+    "borough": "Manhattan",
+    "phone": "(212) 691-4283",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 123,
+    "name": "Sagatiba",
+    "address": "95 Morton Street",
+    "neighborhood": "West Village / Greenwich Village",
+    "borough": "Manhattan",
+    "phone": "(212) 905-3370",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 124,
+    "name": "Sea Grape Wine & Spirits",
+    "address": "512 Hudson Street",
+    "neighborhood": "West Village / Greenwich Village",
+    "borough": "Manhattan",
+    "phone": "(212) 463-7688",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 125,
+    "name": "Spirits of Carmine",
+    "address": "52 Carmine Street",
+    "neighborhood": "West Village / Greenwich Village",
+    "borough": "Manhattan",
+    "phone": "(212) 206-0091",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 126,
+    "name": "Turks & Frogs",
+    "address": "323 West 11th Street, #2",
+    "neighborhood": "West Village / Greenwich Village",
+    "borough": "Manhattan",
+    "phone": "(212) 691-8875",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 127,
+    "name": "Vinvino Wine Company, OD, PC",
+    "address": "56 King Street",
+    "neighborhood": "West Village / Greenwich Village",
+    "borough": "Manhattan",
+    "phone": "(212) 463-7880",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 128,
+    "name": "Waverly Wine & Liquor",
+    "address": "135 Waverly Place",
+    "neighborhood": "West Village / Greenwich Village",
+    "borough": "Manhattan",
+    "phone": "(212) 727-0483",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 129,
+    "name": "Wines by Com",
+    "address": "23 Jones Street",
+    "neighborhood": "West Village / Greenwich Village",
+    "borough": "Manhattan",
+    "phone": "(212) 242-5144",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 130,
+    "name": "111 Lex Liquors, Inc.",
+    "address": "111 Lexinton Avenue",
+    "neighborhood": "Murray Hill / Kips Bay",
+    "borough": "Manhattan",
+    "phone": "(212) 213-2288",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 131,
+    "name": "A & J Kessler Liquors",
+    "address": "23 East 28th Street",
+    "neighborhood": "Murray Hill / Kips Bay",
+    "borough": "Manhattan",
+    "phone": "(212) 685-7651",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 132,
+    "name": "Buy Rite Discount Liquors",
+    "address": "398 3rd Avenue",
+    "neighborhood": "Murray Hill / Kips Bay",
+    "borough": "Manhattan",
+    "phone": "(212) 679-1224",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 133,
+    "name": "Choose It Wines & Spirits Company",
+    "address": "472 2nd Avenue",
+    "neighborhood": "Murray Hill / Kips Bay",
+    "borough": "Manhattan",
+    "phone": "(212) 889-3747",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 134,
+    "name": "House of Wine & Liquor",
+    "address": "250 East 34th Street",
+    "neighborhood": "Murray Hill / Kips Bay",
+    "borough": "Manhattan",
+    "phone": "(212) 532-0980",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 135,
+    "name": "JL Wine & Liquors, Inc.",
+    "address": "60 East 34th Street",
+    "neighborhood": "Murray Hill / Kips Bay",
+    "borough": "Manhattan",
+    "phone": "(212) 686-8899",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 136,
+    "name": "Kobrand Corporation",
+    "address": "134 East 40th Street",
+    "neighborhood": "Murray Hill / Kips Bay",
+    "borough": "Manhattan",
+    "phone": "(212) 490-9300",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 137,
+    "name": "LP Wines & Spirits, Limited",
+    "address": "474 3rd Avenue",
+    "neighborhood": "Murray Hill / Kips Bay",
+    "borough": "Manhattan",
+    "phone": "(212) 779-4422",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 138,
+    "name": "Madison Avenue Liquors, Inc.",
+    "address": "244 Madison Avenue, #1",
+    "neighborhood": "Murray Hill / Kips Bay",
+    "borough": "Manhattan",
+    "phone": "(212) 338-0004",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 139,
+    "name": "Murray Hill Wine & Spirits",
+    "address": "516 3rd Avenue",
+    "neighborhood": "Murray Hill / Kips Bay",
+    "borough": "Manhattan",
+    "phone": "(212) 532-2440",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 140,
+    "name": "Quality House",
+    "address": "2 Park Avenue",
+    "neighborhood": "Murray Hill / Kips Bay",
+    "borough": "Manhattan",
+    "phone": "(212) 532-2944",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 141,
+    "name": "Stonehaven",
+    "address": "275 Madison Avenue, #2002",
+    "neighborhood": "Murray Hill / Kips Bay",
+    "borough": "Manhattan",
+    "phone": "(212) 922-0958",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 142,
+    "name": "The Wine Shop",
+    "address": "345 Lexington Avenue",
+    "neighborhood": "Murray Hill / Kips Bay",
+    "borough": "Manhattan",
+    "phone": "(212) 685-5151",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 143,
+    "name": "VINO",
+    "address": "143 East 27th Street",
+    "neighborhood": "Murray Hill / Kips Bay",
+    "borough": "Manhattan",
+    "phone": "(212) 725-6058",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 144,
+    "name": "VINO Italian Wine & Spirits",
+    "address": "121 East 27th Street",
+    "neighborhood": "Murray Hill / Kips Bay",
+    "borough": "Manhattan",
+    "phone": "(212) 725-6516",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 145,
+    "name": "Vig 27",
+    "address": "119 East 27th Street",
+    "neighborhood": "Murray Hill / Kips Bay",
+    "borough": "Manhattan",
+    "phone": "(212) 686-5500",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 146,
+    "name": "Windsor Wine Shop",
+    "address": "474 3rd Avenue",
+    "neighborhood": "Murray Hill / Kips Bay",
+    "borough": "Manhattan",
+    "phone": "(212) 779-4422",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 147,
+    "name": "Wine Tech, LLC",
+    "address": "15 East 40th Street",
+    "neighborhood": "Murray Hill / Kips Bay",
+    "borough": "Manhattan",
+    "phone": "(212) 683-8380",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 148,
+    "name": "Winfield-Flynn, Limited",
+    "address": "558 3rd Avenue",
+    "neighborhood": "Murray Hill / Kips Bay",
+    "borough": "Manhattan",
+    "phone": "(212) 679-4455",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 149,
+    "name": "World Wine & Spirits",
+    "address": "705 2nd Avenue",
+    "neighborhood": "Murray Hill / Kips Bay",
+    "borough": "Manhattan",
+    "phone": "(646) 227-0446",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 150,
+    "name": "Beekman Liquors Inc.",
+    "address": "500 Lexington Avenue",
+    "neighborhood": "Midtown East",
+    "borough": "Manhattan",
+    "phone": "(212) 759-5857",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 151,
+    "name": "Dark Liquor, Inc.",
+    "address": "100 Park Avenue",
+    "neighborhood": "Midtown East",
+    "borough": "Manhattan",
+    "phone": "(212) 351-5010",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 152,
+    "name": "Grand Harvest Wines",
+    "address": "107 East 42nd Street",
+    "neighborhood": "Midtown East",
+    "borough": "Manhattan",
+    "phone": "(212) 682-5855",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 153,
+    "name": "Melita Wines & Liquor",
+    "address": "764 3rd Avenue",
+    "neighborhood": "Midtown East",
+    "borough": "Manhattan",
+    "phone": "(212) 223-4966",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 154,
+    "name": "Park Avenue Liquor Shop",
+    "address": "292 Madison Avenue",
+    "neighborhood": "Midtown East",
+    "borough": "Manhattan",
+    "phone": "(212) 685-2442",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 155,
+    "name": "Sussex Wine & Spirits",
+    "address": "300 East 42nd Street",
+    "neighborhood": "Midtown East",
+    "borough": "Manhattan",
+    "phone": "(212) 867-5838",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 156,
+    "name": "Turtle Bay Liquors",
+    "address": "855 2nd Avenue",
+    "neighborhood": "Midtown East",
+    "borough": "Manhattan",
+    "phone": "",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 157,
+    "name": "Wine Direct",
+    "address": "100 Park Avenue",
+    "neighborhood": "Midtown East",
+    "borough": "Manhattan",
+    "phone": "(212) 880-2677",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 158,
+    "name": "Yamamori USA, Inc.",
+    "address": "18 East 41st Street",
+    "neighborhood": "Midtown East",
+    "borough": "Manhattan",
+    "phone": "(212) 213-1120",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 159,
+    "name": "474 9th Avenue, Incorporated",
+    "address": "474 9th Avenue",
+    "neighborhood": "Midtown West / Hell's Kitchen",
+    "borough": "Manhattan",
+    "phone": "(212) 736-1310",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 160,
+    "name": "Athens Wine & Liquor",
+    "address": "302 West 40th Street",
+    "neighborhood": "Midtown West / Hell's Kitchen",
+    "borough": "Manhattan",
+    "phone": "(212) 279-3865",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 161,
+    "name": "Cambridge Wine & Liquor",
+    "address": "594 8th Avenue",
+    "neighborhood": "Midtown West / Hell's Kitchen",
+    "borough": "Manhattan",
+    "phone": "(212) 719-1366",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 162,
+    "name": "Harry's Liquors",
+    "address": "270 West 36th Street",
+    "neighborhood": "Midtown West / Hell's Kitchen",
+    "borough": "Manhattan",
+    "phone": "(212) 244-5276",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 163,
+    "name": "US Wine and Liquors",
+    "address": "486 9th Avenue, Front 2",
+    "neighborhood": "Midtown West / Hell's Kitchen",
+    "borough": "Manhattan",
+    "phone": "(212) 563-1135",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 164,
+    "name": "54 Wine & Spirits",
+    "address": "400 West 55th Street",
+    "neighborhood": "Midtown West / Columbus Circle",
+    "borough": "Manhattan",
+    "phone": "(212) 757-7123",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 165,
+    "name": "Adriatic Wine & Liquor",
+    "address": "714 10th Avenue",
+    "neighborhood": "Midtown West / Columbus Circle",
+    "borough": "Manhattan",
+    "phone": "(212) 581-2918",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 166,
+    "name": "Carnegie Spirits & Wine Limited",
+    "address": "849 7th Avenue",
+    "neighborhood": "Midtown West / Columbus Circle",
+    "borough": "Manhattan",
+    "phone": "(212) 977-3039",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 167,
+    "name": "Columbus Circle Liquor Store",
+    "address": "1802 Broadway",
+    "neighborhood": "Midtown West / Columbus Circle",
+    "borough": "Manhattan",
+    "phone": "(212) 247-0764",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 168,
+    "name": "Fifty Fifth Street Liquor Shop",
+    "address": "40 West 55th Street",
+    "neighborhood": "Midtown West / Columbus Circle",
+    "borough": "Manhattan",
+    "phone": "(212) 246-2323",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 169,
+    "name": "Ninth Avenue Wine & Liquors",
+    "address": "860 9th Avenue",
+    "neighborhood": "Midtown West / Columbus Circle",
+    "borough": "Manhattan",
+    "phone": "(212) 265-5130",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 170,
+    "name": "Ray & Frank Liquor Store, Inc.",
+    "address": "706 9th Avenue",
+    "neighborhood": "Midtown West / Columbus Circle",
+    "borough": "Manhattan",
+    "phone": "(212) 489-2029",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 171,
+    "name": "Shon 45 Liquors, Inc.",
+    "address": "840 8th Avenue",
+    "neighborhood": "Midtown West / Columbus Circle",
+    "borough": "Manhattan",
+    "phone": "(212) 582-5539",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 172,
+    "name": "Vintage Wine Warehouse",
+    "address": "1630 Cody Avenue",
+    "neighborhood": "Midtown West / Columbus Circle",
+    "borough": "Manhattan",
+    "phone": "(212) 245-4889",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 173,
+    "name": "West 57 Wine & Spirits",
+    "address": "340 West 57th Street",
+    "neighborhood": "Midtown West / Columbus Circle",
+    "borough": "Manhattan",
+    "phone": "(212) 247-5624",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 174,
+    "name": "Westerly Liquor, Inc.",
+    "address": "921 8th Avenue",
+    "neighborhood": "Midtown West / Columbus Circle",
+    "borough": "Manhattan",
+    "phone": "(212) 247-0555",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 175,
+    "name": "Morrell Wine Store",
+    "address": "1 Rockefeller Plaza",
+    "neighborhood": "Midtown",
+    "borough": "Manhattan",
+    "phone": "(212) 981-1106",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 176,
+    "name": "Aulden Cellars",
+    "address": "1334 York Avenue",
+    "neighborhood": "Upper East Side",
+    "borough": "Manhattan",
+    "phone": "(212) 249-4088",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 177,
+    "name": "Big Apple Wine & Spirits, Inc.",
+    "address": "1408 2nd Avenue, #1",
+    "neighborhood": "Upper East Side",
+    "borough": "Manhattan",
+    "phone": "(212) 288-2133",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 178,
+    "name": "Cellar 72",
+    "address": "1355 2nd Avenue",
+    "neighborhood": "Upper East Side",
+    "borough": "Manhattan",
+    "phone": "(212) 639-9463",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 179,
+    "name": "City Wine Gallery",
+    "address": "1145 2nd Avenue",
+    "neighborhood": "Upper East Side",
+    "borough": "Manhattan",
+    "phone": "(212) 486-2103",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 180,
+    "name": "Drink",
+    "address": "235 East 69th Street",
+    "neighborhood": "Upper East Side",
+    "borough": "Manhattan",
+    "phone": "(212) 737-1177",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 181,
+    "name": "Embassy Wine & Spirits",
+    "address": "796 Lexington Avenue",
+    "neighborhood": "Upper East Side",
+    "borough": "Manhattan",
+    "phone": "(212) 838-6551",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 182,
+    "name": "In Vino Veritas",
+    "address": "1375 1st Avenue",
+    "neighborhood": "Upper East Side",
+    "borough": "Manhattan",
+    "phone": "(212) 288-0100",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 183,
+    "name": "Stuart's Wine & Spirits",
+    "address": "1043 3rd Avenue",
+    "neighborhood": "Upper East Side",
+    "borough": "Manhattan",
+    "phone": "(212) 758-6150",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 184,
+    "name": "Woody Liquor & Wine, Inc.",
+    "address": "1450 2nd Avenue",
+    "neighborhood": "Upper East Side",
+    "borough": "Manhattan",
+    "phone": "(212) 734-6453",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 185,
+    "name": "Aiello",
+    "address": "1059 1st Avenue",
+    "neighborhood": "Upper East Side / Midtown East",
+    "borough": "Manhattan",
+    "phone": "(212) 751-4997",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 186,
+    "name": "Ambassador Wine & Spirits",
+    "address": "1020 2nd Avenue",
+    "neighborhood": "Upper East Side / Midtown East",
+    "borough": "Manhattan",
+    "phone": "(212) 421-5078",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 187,
+    "name": "Crush Wine & Spirits",
+    "address": "153 East 57th Street",
+    "neighborhood": "Upper East Side / Midtown East",
+    "borough": "Manhattan",
+    "phone": "(212) 980-9463",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 188,
+    "name": "First Avenue Vinter",
+    "address": "984 1st Avenue",
+    "neighborhood": "Upper East Side / Midtown East",
+    "borough": "Manhattan",
+    "phone": "(212) 754-4483",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 189,
+    "name": "Jeffrey Liquors",
+    "address": "944 1st Avenue",
+    "neighborhood": "Upper East Side / Midtown East",
+    "borough": "Manhattan",
+    "phone": "(212) 751-7940",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 190,
+    "name": "Jeffrey Wine & Liquors",
+    "address": "939 1st Avenue",
+    "neighborhood": "Upper East Side / Midtown East",
+    "borough": "Manhattan",
+    "phone": "(212) 753-3725",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 191,
+    "name": "Schumer's Wine & Liquors",
+    "address": "59 East 54th Street",
+    "neighborhood": "Upper East Side / Midtown East",
+    "borough": "Manhattan",
+    "phone": "(212) 355-0940",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 192,
+    "name": "Sherry-Lehmann Wine and Spirits",
+    "address": "505 Park Avenue",
+    "neighborhood": "Upper East Side / Midtown East",
+    "borough": "Manhattan",
+    "phone": "(212) 838-7500",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 193,
+    "name": "Sutton Wine Shop",
+    "address": "403 East 57th Street",
+    "neighborhood": "Upper East Side / Midtown East",
+    "borough": "Manhattan",
+    "phone": "(212) 755-6626",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 194,
+    "name": "U.N. Liquor, Incorporated",
+    "address": "885 1st Avenue",
+    "neighborhood": "Upper East Side / Midtown East",
+    "borough": "Manhattan",
+    "phone": "(212) 829-7200",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 195,
+    "name": "Wine On Line International Food Wine Syndicate",
+    "address": "400 East 59th Street",
+    "neighborhood": "Upper East Side / Midtown East",
+    "borough": "Manhattan",
+    "phone": "(212) 755-4363",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 196,
+    "name": "67 Wine & Spirits, Inc.",
+    "address": "179 Columbus Avenue",
+    "neighborhood": "Upper West Side",
+    "borough": "Manhattan",
+    "phone": "(212) 724-6767",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 197,
+    "name": "Acker, Merrall & Condit Company",
+    "address": "160 West 72nd Street",
+    "neighborhood": "Upper West Side",
+    "borough": "Manhattan",
+    "phone": "(212) 787-1700",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 198,
+    "name": "Bacchus Wine Made Simple",
+    "address": "2056 Broadway",
+    "neighborhood": "Upper West Side",
+    "borough": "Manhattan",
+    "phone": "(212) 875-1200",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 199,
+    "name": "Beacon Wines & Spirits",
+    "address": "2120 Broadway",
+    "neighborhood": "Upper West Side",
+    "borough": "Manhattan",
+    "phone": "(212) 877-0028",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 200,
+    "name": "Central Wine & Liquor Store",
+    "address": "227 Columbus Avenue",
+    "neighborhood": "Upper West Side",
+    "borough": "Manhattan",
+    "phone": "(212) 787-4465",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 201,
+    "name": "Ehrlich Wines & Spirits",
+    "address": "222 Amsterdam Avenue",
+    "neighborhood": "Upper West Side",
+    "borough": "Manhattan",
+    "phone": "(212) 877-6090",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 202,
+    "name": "Nancy's Wines for Food",
+    "address": "313 Columbus Avenue",
+    "neighborhood": "Upper West Side",
+    "borough": "Manhattan",
+    "phone": "(212) 877-4040",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 203,
+    "name": "Roma Discount Wine & Liquor",
+    "address": "73 Amsterdam Avenue",
+    "neighborhood": "Upper West Side",
+    "borough": "Manhattan",
+    "phone": "(212) 749-3790",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 204,
+    "name": "The New Ehrlich's Wine & Liquor",
+    "address": "222 Amsterdam Avenue",
+    "neighborhood": "Upper West Side",
+    "borough": "Manhattan",
+    "phone": "",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 205,
+    "name": "Wine Workshop, Inc.",
+    "address": "160 West 72nd Street",
+    "neighborhood": "Upper West Side",
+    "borough": "Manhattan",
+    "phone": "(212) 787-1287",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 206,
+    "name": "Wine for Food Limited",
+    "address": "161 West 75th Street",
+    "neighborhood": "Upper West Side",
+    "borough": "Manhattan",
+    "phone": "(212) 769-1300",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 207,
+    "name": "79 Street Wine & Spirits Corporation",
+    "address": "230 West 79th Street",
+    "neighborhood": "Upper West Side",
+    "borough": "Manhattan",
+    "phone": "(212) 724-1737",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 208,
+    "name": "86th Corner Wine & Liquor Co.",
+    "address": "536 Columbus Avenue",
+    "neighborhood": "Upper West Side",
+    "borough": "Manhattan",
+    "phone": "(212) 496-1769",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 209,
+    "name": "Best Cellars, UWS",
+    "address": "2246 Broadway",
+    "neighborhood": "Upper West Side",
+    "borough": "Manhattan",
+    "phone": "(212) 362-8730",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 210,
+    "name": "Candlelight Wines Limited",
+    "address": "2315 Broadway",
+    "neighborhood": "Upper West Side",
+    "borough": "Manhattan",
+    "phone": "(212) 877-7085",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 211,
+    "name": "M & H Fine Wines",
+    "address": "2246 Broadway",
+    "neighborhood": "Upper West Side",
+    "borough": "Manhattan",
+    "phone": "(212) 362-8730",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 212,
+    "name": "Mitchell's Wine & Liquor Store",
+    "address": "200 West 86th Street",
+    "neighborhood": "Upper West Side",
+    "borough": "Manhattan",
+    "phone": "(212) 874-2255",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 213,
+    "name": "Rose Wine & Liquor Corporation",
+    "address": "449 Columbus Avenue",
+    "neighborhood": "Upper West Side",
+    "borough": "Manhattan",
+    "phone": "(212) 877-6900",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 214,
+    "name": "The Wine Place",
+    "address": "2406 Broadway",
+    "neighborhood": "Upper West Side",
+    "borough": "Manhattan",
+    "phone": "(212) 874-4600",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 215,
+    "name": "Turin Wines & Liquors",
+    "address": "609 Columbus Avenue, Frnt 3",
+    "neighborhood": "Upper West Side",
+    "borough": "Manhattan",
+    "phone": "(212) 595-4059",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 216,
+    "name": "Westside Wine & Spirits Shop",
+    "address": "481 Columbus Avenue",
+    "neighborhood": "Upper West Side",
+    "borough": "Manhattan",
+    "phone": "(212) 874-2900",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 217,
+    "name": "Adel Wine & Liquor",
+    "address": "925 Columbus Avenue",
+    "neighborhood": "Upper West Side / Morningside Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 222-4157",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 218,
+    "name": "Buy Rite Wines & Liquors",
+    "address": "700 Columbus Avenue",
+    "neighborhood": "Upper West Side / Morningside Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 865-7094",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 219,
+    "name": "Columbus Avenue Wine & Spirits",
+    "address": "730 Columbus Avenue",
+    "neighborhood": "Upper West Side / Morningside Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 865-7070",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 220,
+    "name": "Gotham Wines & Liquors",
+    "address": "2517 Broadway",
+    "neighborhood": "Upper West Side / Morningside Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 932-0990",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 221,
+    "name": "H & H Broadway Wine Center, Limited",
+    "address": "2669 Broadway",
+    "neighborhood": "Upper West Side / Morningside Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 222-3640",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 222,
+    "name": "International Wines & Spirits",
+    "address": "2903 Broadway",
+    "neighborhood": "Upper West Side / Morningside Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 280-1850",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 223,
+    "name": "Martin Brothers Liquor Strore",
+    "address": "2781 Broadway",
+    "neighborhood": "Upper West Side / Morningside Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 222-8218",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 224,
+    "name": "Mega Academy Liquor & Wine",
+    "address": "2648 Broadway",
+    "neighborhood": "Upper West Side / Morningside Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 666-3960",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 225,
+    "name": "Polanco Liquor Store",
+    "address": "948 Amsterdam Avenue",
+    "neighborhood": "Upper West Side / Morningside Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 666-9358",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 226,
+    "name": "Riverside Liquor Company",
+    "address": "2746 Broadway",
+    "neighborhood": "Upper West Side / Morningside Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 749-0665",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 227,
+    "name": "Westlane Wines & Liquor",
+    "address": "689 Columbus Avenue, #2",
+    "neighborhood": "Upper West Side / Morningside Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 749-0990",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 228,
+    "name": "A & D Liquors",
+    "address": "23 Lenox Avenue",
+    "neighborhood": "Harlem",
+    "borough": "Manhattan",
+    "phone": "(212) 932-9732",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 229,
+    "name": "Fred's Wine & Liquors",
+    "address": "77 Lenox Avenue",
+    "neighborhood": "Harlem",
+    "borough": "Manhattan",
+    "phone": "(212) 749-8020",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 230,
+    "name": "Grand Liquors, Inc.",
+    "address": "2049 8th Avenue",
+    "neighborhood": "Harlem",
+    "borough": "Manhattan",
+    "phone": "(212) 864-3784",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 231,
+    "name": "Harlem Retail Wine & Liquor",
+    "address": "1902 7th Avenue",
+    "neighborhood": "Harlem",
+    "borough": "Manhattan",
+    "phone": "(212) 662-3343",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 232,
+    "name": "The Winery",
+    "address": "2166 Frederick Douglass Boulevard",
+    "neighborhood": "Harlem",
+    "borough": "Manhattan",
+    "phone": "(212) 222-4866",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 233,
+    "name": "574 Liquor Corporation",
+    "address": "574 West 125th Street",
+    "neighborhood": "Harlem / Morningside Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 663-9221",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 234,
+    "name": "8th Avenue Wine & Liquors, Inc.",
+    "address": "2391 Fredrick Douglass Boulevard",
+    "neighborhood": "Harlem / Morningside Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 864-3868",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 235,
+    "name": "Amsterdam Liquor Mart",
+    "address": "1356 Amsterdam Avenue",
+    "neighborhood": "Harlem / Morningside Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 222-1334",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 236,
+    "name": "Caro Wines & Liquors",
+    "address": "3139 Broadway",
+    "neighborhood": "Harlem / Morningside Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 749-0994",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 237,
+    "name": "Harlem Vintage",
+    "address": "2235 8th Avenue, #4",
+    "neighborhood": "Harlem / Morningside Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 866-9463",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 238,
+    "name": "Lenox Winery",
+    "address": "681 Lenox Avenue",
+    "neighborhood": "Harlem / Morningside Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 410-9463",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 239,
+    "name": "86th Street Wine & Liquor",
+    "address": "306 East 86th Street",
+    "neighborhood": "Upper East Side / Yorkville",
+    "borough": "Manhattan",
+    "phone": "(212) 396-3535",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 240,
+    "name": "Best Cellars",
+    "address": "1291 Lexington Avenue",
+    "neighborhood": "Upper East Side / Yorkville",
+    "borough": "Manhattan",
+    "phone": "(212) 246-4200",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 241,
+    "name": "Citiwine",
+    "address": "227 East 81st Street",
+    "neighborhood": "Upper East Side / Yorkville",
+    "borough": "Manhattan",
+    "phone": "(212) 288-3747",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 242,
+    "name": "Crown Wine & Liquor, Inc.",
+    "address": "1587 2nd Avenue",
+    "neighborhood": "Upper East Side / Yorkville",
+    "borough": "Manhattan",
+    "phone": "(212) 472-8610",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 243,
+    "name": "Eli's Manhattan Warehouse, Inc.",
+    "address": "1411 3rd Avenue",
+    "neighborhood": "Upper East Side / Yorkville",
+    "borough": "Manhattan",
+    "phone": "(212) 717-8100",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 244,
+    "name": "Enos & Wunderlich",
+    "address": "1256 Lexington Avenue",
+    "neighborhood": "Upper East Side / Yorkville",
+    "borough": "Manhattan",
+    "phone": "(212) 517-6554",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 245,
+    "name": "Gracies Wine",
+    "address": "1577 York Avenue",
+    "neighborhood": "Upper East Side / Yorkville",
+    "borough": "Manhattan",
+    "phone": "(212) 988-8288",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 246,
+    "name": "Headington Wines & Liquors",
+    "address": "1479 3rd Avenue",
+    "neighborhood": "Upper East Side / Yorkville",
+    "borough": "Manhattan",
+    "phone": "(212) 288-6850",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 247,
+    "name": "Lumers Fine Wines & Spirits",
+    "address": "1479 3rd Avenue",
+    "neighborhood": "Upper East Side / Yorkville",
+    "borough": "Manhattan",
+    "phone": "(212) 535-6800",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 248,
+    "name": "Rosenthal Wine Merchant",
+    "address": "318 East 84th Street",
+    "neighborhood": "Upper East Side / Yorkville",
+    "borough": "Manhattan",
+    "phone": "(212) 249-6650",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 249,
+    "name": "The Wine Shop",
+    "address": "300 East 85th Street",
+    "neighborhood": "Upper East Side / Yorkville",
+    "borough": "Manhattan",
+    "phone": "(212) 517-2550",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 250,
+    "name": "The Wine Shop Inc.",
+    "address": "1585 1st Avenue",
+    "neighborhood": "Upper East Side / Yorkville",
+    "borough": "Manhattan",
+    "phone": "(212) 517-2550",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 251,
+    "name": "Wine Emporium",
+    "address": "1545 2nd Avenue",
+    "neighborhood": "Upper East Side / Yorkville",
+    "borough": "Manhattan",
+    "phone": "(212) 517-9463",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 252,
+    "name": "Yorkshire Wines & Spirits",
+    "address": "1646 1st Avenue",
+    "neighborhood": "Upper East Side / Yorkville",
+    "borough": "Manhattan",
+    "phone": "(212) 717-5100",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 253,
+    "name": "Edwin's Wines & Liquors",
+    "address": "176 East 103rd Street",
+    "neighborhood": "East Harlem / Yorkville",
+    "borough": "Manhattan",
+    "phone": "(212) 722-9183",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 254,
+    "name": "House of J & H, Inc.",
+    "address": "2073 2nd Avenue",
+    "neighborhood": "East Harlem / Yorkville",
+    "borough": "Manhattan",
+    "phone": "(212) 534-4700",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 255,
+    "name": "Lennox Liquor Depot, Incorporated",
+    "address": "2172 2nd Avenue",
+    "neighborhood": "East Harlem / Yorkville",
+    "borough": "Manhattan",
+    "phone": "(212) 996-2181",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 256,
+    "name": "Mercedes Liquor Store",
+    "address": "102 East 103rd Street",
+    "neighborhood": "East Harlem / Yorkville",
+    "borough": "Manhattan",
+    "phone": "(646) 672-1193",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 257,
+    "name": "Min's Lucky Star Liquor, Inc.",
+    "address": "249 East 115th Street, #1",
+    "neighborhood": "East Harlem / Yorkville",
+    "borough": "Manhattan",
+    "phone": "(212) 860-6699",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 258,
+    "name": "Rivera Liquor Store, Inc.",
+    "address": "2025 1st Avenue",
+    "neighborhood": "East Harlem / Yorkville",
+    "borough": "Manhattan",
+    "phone": "(212) 876-6007",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 259,
+    "name": "Third Avenue Liquor Corporation",
+    "address": "2030 3rd Avenue",
+    "neighborhood": "East Harlem / Yorkville",
+    "borough": "Manhattan",
+    "phone": "(212) 876-6994",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 260,
+    "name": "Y S Wines & Liquors",
+    "address": "1755 Lexington Avenue",
+    "neighborhood": "East Harlem / Yorkville",
+    "borough": "Manhattan",
+    "phone": "(212) 426-5381",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 261,
+    "name": "Harlem Discount Liquors NY",
+    "address": "2302 7th Avenue",
+    "neighborhood": "Harlem",
+    "borough": "Manhattan",
+    "phone": "(212) 234-5958",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 262,
+    "name": "Wendy's Liquors",
+    "address": "2651 8th Avenue",
+    "neighborhood": "Harlem",
+    "borough": "Manhattan",
+    "phone": "(212) 694-0550",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 263,
+    "name": "3658 Broadway Liquors",
+    "address": "3658 Broadway",
+    "neighborhood": "Hamilton Heights / Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(800) 300-5882",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 264,
+    "name": "Alan Liquors Company",
+    "address": "3490 Broadway",
+    "neighborhood": "Hamilton Heights / Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 690-1892",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 265,
+    "name": "Almanzar Liquor Store",
+    "address": "1806 Amsterdam Avenue",
+    "neighborhood": "Hamilton Heights / Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 927-5430",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 266,
+    "name": "Brand's Wine & Liquor",
+    "address": "550 West 145th Street",
+    "neighborhood": "Hamilton Heights / Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 234-1460",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 267,
+    "name": "Bronx Spirits Liquor, Inc.",
+    "address": "3375 Broadway",
+    "neighborhood": "Hamilton Heights / Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 926-2888",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 268,
+    "name": "Jocl Liquor Store",
+    "address": "561 West 147th Street",
+    "neighborhood": "Hamilton Heights / Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 368-3337",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 269,
+    "name": "Mega Liquor and Wine",
+    "address": "3648 Broadway",
+    "neighborhood": "Hamilton Heights / Washington Heights",
+    "borough": "Manhattan",
+    "phone": "",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 270,
+    "name": "Ray's Wines and Liquors",
+    "address": "3435 Broadway",
+    "neighborhood": "Hamilton Heights / Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 694-4914",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 271,
+    "name": "Unity Liquors",
+    "address": "708 Saint Nicholas Avenue",
+    "neighborhood": "Hamilton Heights / Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 491-7821",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 272,
+    "name": "CYP Liquors, Inc.",
+    "address": "3906 Broadway",
+    "neighborhood": "Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 927-1600",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 273,
+    "name": "Cousin's Liquor Store, Corporation",
+    "address": "2208 Amsterdam Avenue",
+    "neighborhood": "Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 927-0484",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 274,
+    "name": "Grand Beverage",
+    "address": "665 West 158th Street",
+    "neighborhood": "Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 927-8700",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 275,
+    "name": "Guadalupe Barbara",
+    "address": "4084 Broadway",
+    "neighborhood": "Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 740-2231",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 276,
+    "name": "I M Liquors, Inc.",
+    "address": "1963 Amsterdam Avenue, #157-158",
+    "neighborhood": "Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 234-5390",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 277,
+    "name": "In Good Spirits Corporation",
+    "address": "3789 Broadway",
+    "neighborhood": "Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 568-3800",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 278,
+    "name": "In Vino Veritas",
+    "address": "1202 Saint Nicholas Avenue",
+    "neighborhood": "Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 781-4900",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 279,
+    "name": "Mariela's Liquor",
+    "address": "2001 Amsterdam Avenue",
+    "neighborhood": "Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 568-6006",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 280,
+    "name": "Reda Patk Liquor Store, Inc.",
+    "address": "3819 Broadway",
+    "neighborhood": "Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 568-6603",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 281,
+    "name": "Vargas Liquor Store",
+    "address": "114 Audobon Avenue",
+    "neighborhood": "Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 781-5195",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 282,
+    "name": "185 Street Broadway Liquor Store Incorporated",
+    "address": "4329 Broadway",
+    "neighborhood": "Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 923-8750",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 283,
+    "name": "A & T Wine & Liquors",
+    "address": "188 Audubon Avenue",
+    "neighborhood": "Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 568-3041",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 284,
+    "name": "Cabrini Wines, Inc.",
+    "address": "831 West 181st Street",
+    "neighborhood": "Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 568-3290",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 285,
+    "name": "F C Liquor Store",
+    "address": "550 West 174th Street",
+    "neighborhood": "Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(800) 894-9962",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 286,
+    "name": "First KBJ Spirits, Incorporated",
+    "address": "4189 Broadway",
+    "neighborhood": "Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 781-9500",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 287,
+    "name": "Heights Liquor Supermarket",
+    "address": "547 West 181st Street",
+    "neighborhood": "Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 568-6500",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 288,
+    "name": "JP Discount Liquor",
+    "address": "377 Audobon Avenue",
+    "neighborhood": "Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 740-4027",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 289,
+    "name": "Fiesta Liquors",
+    "address": "274 Nagle Avenue",
+    "neighborhood": "Inwood",
+    "borough": "Manhattan",
+    "phone": "(212) 569-9454",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 290,
+    "name": "Moon River 207, Incorporated",
+    "address": "529 West 207th Street",
+    "neighborhood": "Inwood",
+    "borough": "Manhattan",
+    "phone": "(212) 567-0830",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 291,
+    "name": "Old Chelsea Wine & Liquor",
+    "address": "109 Seaman Avenue, Apt 1F",
+    "neighborhood": "Inwood",
+    "borough": "Manhattan",
+    "phone": "(212) 366-4904",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 292,
+    "name": "PJ Liquor Warehouse",
+    "address": "4898 Broadway",
+    "neighborhood": "Inwood",
+    "borough": "Manhattan",
+    "phone": "(212) 567-5500",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 293,
+    "name": "2171 Liquor & Wine Supermarket",
+    "address": "2171 3rd Avenue",
+    "neighborhood": "East Harlem",
+    "borough": "Manhattan",
+    "phone": "(212) 289-3322",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 294,
+    "name": "Lexington Wine & Liquor",
+    "address": "2010 Lexington Avenue",
+    "neighborhood": "East Harlem",
+    "borough": "Manhattan",
+    "phone": "(212) 348 1313",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 295,
+    "name": "Madison Avenue Wines",
+    "address": "1793 Madison Avenue",
+    "neighborhood": "East Harlem",
+    "borough": "Manhattan",
+    "phone": "(212) 987-0099",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 296,
+    "name": "Uptown Wine Pantry, Inc.",
+    "address": "63 East 125th Street",
+    "neighborhood": "East Harlem",
+    "borough": "Manhattan",
+    "phone": "(212) 289-4470",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 297,
+    "name": "42nd Street Wine Loft",
+    "address": "507 West 42nd Street",
+    "neighborhood": "Midtown / Hell's Kitchen",
+    "borough": "Manhattan",
+    "phone": "(212) 736-1375",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 298,
+    "name": "Manhattan Plaza Winery, Inc.",
+    "address": "589 9th Avenue",
+    "neighborhood": "Midtown / Hell's Kitchen",
+    "borough": "Manhattan",
+    "phone": "(212) 695-8170",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 299,
+    "name": "Ninth Avenue Vinter, Limited",
+    "address": "669 9th Avenue",
+    "neighborhood": "Midtown / Hell's Kitchen",
+    "borough": "Manhattan",
+    "phone": "(212) 664-9463",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 300,
+    "name": "Reidy Wine & Liquor, Inc.",
+    "address": "762 8th Avenue",
+    "neighborhood": "Midtown / Hell's Kitchen",
+    "borough": "Manhattan",
+    "phone": "(212) 246-0187",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 301,
+    "name": "458 Lenox Liquors, Incorporated",
+    "address": "458 Malcolm X Boulevard",
+    "neighborhood": "Harlem",
+    "borough": "Manhattan",
+    "phone": "(212) 234-7722",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 302,
+    "name": "Dorden Liquors, Incorporated",
+    "address": "555 Malcolm X Boulevard",
+    "neighborhood": "Harlem",
+    "borough": "Manhattan",
+    "phone": "(212) 368-9000",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 303,
+    "name": "Friedland Wine & Liquor Store",
+    "address": "605 Malcolm X Boulevard",
+    "neighborhood": "Harlem",
+    "borough": "Manhattan",
+    "phone": "(212) 368-3200",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 304,
+    "name": "Just In Liquors, Inc.",
+    "address": "2095 Madison Avenue",
+    "neighborhood": "Harlem",
+    "borough": "Manhattan",
+    "phone": "(212) 234-7967",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 305,
+    "name": "Fulton Wines & Spirits",
+    "address": "110 Fulton Street, #1",
+    "neighborhood": "Financial District / Seaport",
+    "borough": "Manhattan",
+    "phone": "(212) 571-2480",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 306,
+    "name": "Greene Grape Downtown",
+    "address": "55 Liberty Place",
+    "neighborhood": "Financial District / Seaport",
+    "borough": "Manhattan",
+    "phone": "(212) 962-3214",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 307,
+    "name": "La Petite CAV",
+    "address": "83 Maiden Lane",
+    "neighborhood": "Financial District / Seaport",
+    "borough": "Manhattan",
+    "phone": "(212) 514-9817",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 308,
+    "name": "Maiden Lane wine & Liquors",
+    "address": "6 Maiden Lane",
+    "neighborhood": "Financial District / Seaport",
+    "borough": "Manhattan",
+    "phone": "(212) 267-8530",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 309,
+    "name": "Royal Wine & Liquor Store",
+    "address": "45 Madison Street",
+    "neighborhood": "Financial District / Seaport",
+    "borough": "Manhattan",
+    "phone": "(212) 974-7222",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 310,
+    "name": "8th Avenue Liquor",
+    "address": "2835 Fredrick Douglass Boulevard",
+    "neighborhood": "Harlem",
+    "borough": "Manhattan",
+    "phone": "(212) 926-8054",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 311,
+    "name": "Luis Liquor Corporation",
+    "address": "108 West 145th Street",
+    "neighborhood": "Harlem",
+    "borough": "Manhattan",
+    "phone": "(212) 694-6619",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 312,
+    "name": "Sepia Liquor",
+    "address": "2517 7th Avenue",
+    "neighborhood": "Harlem",
+    "borough": "Manhattan",
+    "phone": "(212) 234-9098",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 313,
+    "name": "Dyckman Liquors Incorporated",
+    "address": "121 Dyckman Street",
+    "neighborhood": "Inwood / Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 569-7145",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 314,
+    "name": "Jay's Liquors",
+    "address": "1621 Saint Nicholas Avenue",
+    "neighborhood": "Inwood / Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 781-1954",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 315,
+    "name": "Sanchez Liquors",
+    "address": "4500 Broadway",
+    "neighborhood": "Inwood / Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 544-9350",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 316,
+    "name": "Sherman Liquor Corp.",
+    "address": "25 Sherman Avenue",
+    "neighborhood": "Inwood / Washington Heights",
+    "borough": "Manhattan",
+    "phone": "(212) 942-3611",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 317,
+    "name": "Cork and Bottle Liquor Store",
+    "address": "1158 1st Avenue, Front 1",
+    "neighborhood": "Upper East Side / Lenox Hill",
+    "borough": "Manhattan",
+    "phone": "(212) 838-5300",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 318,
+    "name": "First & Vine",
+    "address": "1103 1st Avenue",
+    "neighborhood": "Upper East Side / Lenox Hill",
+    "borough": "Manhattan",
+    "phone": "(212) 308-1650",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 319,
+    "name": "Garnet Wines & Liquors",
+    "address": "929 Lexington",
+    "neighborhood": "Upper East Side / Lenox Hill",
+    "borough": "Manhattan",
+    "phone": "(212) 772-3211",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 320,
+    "name": "Renaissance Fine Wines & Spirits",
+    "address": "161 Freedom Place",
+    "neighborhood": "Upper West Side",
+    "borough": "Manhattan",
+    "phone": "(212) 875-9463",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 321,
+    "name": "76 Liquors Limited",
+    "address": "1473 1st Avenue",
+    "neighborhood": "Upper East Side",
+    "borough": "Manhattan",
+    "phone": "(212) 249-1700",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 322,
+    "name": "McCabes Wine & Spirits",
+    "address": "1347 3rd Avenue",
+    "neighborhood": "Upper East Side",
+    "borough": "Manhattan",
+    "phone": "(212) 737-0790",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 323,
+    "name": "Wine at 79",
+    "address": "1490 York Avenue",
+    "neighborhood": "Upper East Side",
+    "borough": "Manhattan",
+    "phone": "(212) 396-9300",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 324,
+    "name": "Costello Wines, LLC",
+    "address": "350 5th Avenue, Suite 7218",
+    "neighborhood": "Midtown",
+    "borough": "Manhattan",
+    "phone": "(212) 244-4470",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 325,
+    "name": "Penn Wine & Spirits, Inc.",
+    "address": "1 Penn Plaza",
+    "neighborhood": "Midtown",
+    "borough": "Manhattan",
+    "phone": "(212) 630-0219",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 326,
+    "name": "East 87th Street Liquors",
+    "address": "1693 2nd Avenue, Front 1",
+    "neighborhood": "Upper East Side / Carnegie Hill",
+    "borough": "Manhattan",
+    "phone": "(212) 369-1822",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 327,
+    "name": "K&D Liquors",
+    "address": "1366 Madison Avenue",
+    "neighborhood": "Upper East Side / Carnegie Hill",
+    "borough": "Manhattan",
+    "phone": "(212) 289-1818",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 328,
+    "name": "Mister Wright, Inc.",
+    "address": "1593 3rd Avenue",
+    "neighborhood": "Upper East Side / Carnegie Hill",
+    "borough": "Manhattan",
+    "phone": "(212) 722-4564",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 329,
+    "name": "Normandie Wines",
+    "address": "1834 2nd Avenue, #1",
+    "neighborhood": "Upper East Side / Carnegie Hill",
+    "borough": "Manhattan",
+    "phone": "(212) 876-1994",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 330,
+    "name": "Park East Liquors",
+    "address": "1657 York Avenue",
+    "neighborhood": "Upper East Side / Carnegie Hill",
+    "borough": "Manhattan",
+    "phone": "(212) 534-2093",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  },
+  {
+    "id": 331,
+    "name": "Premier CRU",
+    "address": "1200 Madison Avenue",
+    "neighborhood": "Upper East Side / Carnegie Hill",
+    "borough": "Manhattan",
+    "phone": "(212) 534-6709",
+    "icon": "\ud83c\udf77",
+    "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)"
+  },
+  {
+    "id": 332,
+    "name": "Uptown Wine Shop, Inc.",
+    "address": "1361 Lexington Avenue",
+    "neighborhood": "Upper East Side / Carnegie Hill",
+    "borough": "Manhattan",
+    "phone": "(212) 289-6900",
+    "icon": "\ud83e\udd42",
+    "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)"
+  },
+  {
+    "id": 333,
+    "name": "West Coast Wine & Liquor, Inc.",
+    "address": "1440 Lexington Avenue, Front A",
+    "neighborhood": "Upper East Side / Carnegie Hill",
+    "borough": "Manhattan",
+    "phone": "(212) 534-5710",
+    "icon": "\ud83c\udf47",
+    "iconBg": "linear-gradient(135deg, #f5f0fb, #d7bfeb)"
+  },
+  {
+    "id": 334,
+    "name": "Wine Lovers",
+    "address": "1752 2nd Avenue",
+    "neighborhood": "Upper East Side / Carnegie Hill",
+    "borough": "Manhattan",
+    "phone": "(212) 831-9463",
+    "icon": "\ud83c\udf7e",
+    "iconBg": "linear-gradient(135deg, #e8f8f5, #a8e6cf)"
+  },
+  {
+    "id": 335,
+    "name": "Bulls & Bears Winery, Incorporated",
+    "address": "309 South End Avenue",
+    "neighborhood": "Battery Park City",
+    "borough": "Manhattan",
+    "phone": "(212) 912-0890",
+    "icon": "\ud83c\udf3f",
+    "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)"
+  }
+]

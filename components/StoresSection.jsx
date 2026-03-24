@@ -1,93 +1,60 @@
-// components/StoresSection.jsx 
+// components/StoresSection.jsx
 // ─────────────────────────────────────────────────────────────
-// NYC Wine Store directory — borough filter + store rows.
+// LIVE NYC Wine Store directory — 335 Manhattan stores loaded
+// from /data/wine-stores.json (converted from CSV).
 //
-// DATA: Currently uses a short curated list of placeholder stores.
-// V1 upgrade: pull from Supabase using the wine-stores-manhattan.csv
-// data loaded into the database.
+// Features:
+//   - Neighborhood filter dropdown (25+ neighborhoods)
+//   - Search by store name
+//   - Paginated list (show 10 at a time, "Show more" button)
+//   - Links to store websites where available
 //
-// Status tags: 'online' | 'delivery' | 'free-delivery' | null
-// To deactivate a store: set its status to 'inactive' in the DB
-// (never delete — see store-data/wine-stores-manhattan.xlsx)
-//
-// To add a store to this preview list: add an object to PREVIEW_STORES.
+// To update store data: edit data/wine-stores.json or re-run
+// the CSV-to-JSON conversion script.
 // ─────────────────────────────────────────────────────────────
 
-import { useState } from 'react';
-
-// ── Preview store data (top 5 for homepage) ───────────────────
-const PREVIEW_STORES = [
-  {
-    id: 1,
-    name: 'Chambers Street Wines',
-    address: '160 Chambers St',
-    neighborhood: 'Tribeca',
-    borough: 'Manhattan',
-    badge: '🌿 Natural Wine Specialist',
-    badgeType: 'delivery',
-    icon: '🍷',
-    iconBg: 'linear-gradient(135deg, #e8f4fd, #aed6f1)',
-    url: 'https://www.chambersstwines.com',
-  },
-  {
-    id: 2,
-    name: 'Astor Wines & Spirits',
-    address: '399 Lafayette St',
-    neighborhood: 'NoHo',
-    borough: 'Manhattan',
-    badge: '🛒 Online Ordering',
-    badgeType: 'online',
-    icon: '🥂',
-    iconBg: 'linear-gradient(135deg, #fef5e7, #f9ca8a)',
-    url: 'https://www.astorwines.com',
-  },
-  {
-    id: 3,
-    name: '67 Wine & Spirits',
-    address: '179 Columbus Ave',
-    neighborhood: 'UWS',
-    borough: 'Manhattan',
-    badge: '🛒 Online Ordering',
-    badgeType: 'online',
-    icon: '🍇',
-    iconBg: 'linear-gradient(135deg, #f5f0fb, #d7bfeb)',
-    url: 'https://www.67wine.com',
-  },
-  {
-    id: 4,
-    name: 'Garnet Wines & Liquors',
-    address: '929 Lexington Ave',
-    neighborhood: 'UES',
-    borough: 'Manhattan',
-    badge: '🚚 Delivers',
-    badgeType: 'delivery',
-    icon: '🍾',
-    iconBg: 'linear-gradient(135deg, #e8f8f5, #a8e6cf)',
-    url: 'https://www.garnetwine.com',
-  },
-  {
-    id: 5,
-    name: 'Sherry-Lehmann',
-    address: '505 Park Ave',
-    neighborhood: 'UES',
-    borough: 'Manhattan',
-    badge: '🛒 Online Ordering',
-    badgeType: 'online',
-    icon: '🍷',
-    iconBg: 'linear-gradient(135deg, #fff0f8, #f4a0cc)',
-    url: 'https://www.sherry-lehmann.com',
-  },
-];
-
-const BOROUGHS = ['All NYC', 'Manhattan', 'Brooklyn', 'Queens', 'Bronx'];
-// ──────────────────────────────────────────────────────────────
+import { useState, useEffect, useMemo } from 'react';
 
 export default function StoresSection() {
-  const [activeBorough, setActiveBorough] = useState('All NYC');
+  const [stores, setStores] = useState([]);
+  const [neighborhood, setNeighborhood] = useState('All');
+  const [search, setSearch] = useState('');
+  const [showCount, setShowCount] = useState(10);
 
-  const filtered = activeBorough === 'All NYC'
-    ? PREVIEW_STORES
-    : PREVIEW_STORES.filter(s => s.borough === activeBorough);
+  // Load store data
+  useEffect(() => {
+    fetch('/data/wine-stores.json')
+      .then((res) => res.json())
+      .then((data) => setStores(data))
+      .catch(() => {});
+  }, []);
+
+  // Get unique neighborhoods, sorted
+  const neighborhoods = useMemo(() => {
+    const hoods = [...new Set(stores.map((s) => s.neighborhood))].filter(Boolean).sort();
+    return ['All', ...hoods];
+  }, [stores]);
+
+  // Filter stores
+  const filtered = useMemo(() => {
+    let result = stores;
+    if (neighborhood !== 'All') {
+      result = result.filter((s) => s.neighborhood === neighborhood);
+    }
+    if (search.trim()) {
+      const q = search.toLowerCase();
+      result = result.filter(
+        (s) =>
+          s.name.toLowerCase().includes(q) ||
+          s.address.toLowerCase().includes(q) ||
+          s.neighborhood.toLowerCase().includes(q)
+      );
+    }
+    return result;
+  }, [stores, neighborhood, search]);
+
+  const visible = filtered.slice(0, showCount);
+  const hasMore = filtered.length > showCount;
 
   return (
     <section className="stores-section" id="sec-stores">
@@ -95,48 +62,90 @@ export default function StoresSection() {
       {/* Header */}
       <div className="section-header stores-header">
         <div className="section-header-title">🍷 NYC Wine Stores</div>
-        <a href="/stores" className="see-all-link">See all 200+ →</a>
+        <span className="see-all-link">{filtered.length} stores</span>
       </div>
 
-      {/* Borough filter pills */}
-      <div className="borough-filters">
-        {BOROUGHS.map(b => (
-          <button
-            key={b}
-            className={`bpill${activeBorough === b ? ' active' : ''}`}
-            onClick={() => setActiveBorough(b)}
-          >
-            {b}
-          </button>
-        ))}
+      {/* Search + filter row */}
+      <div className="store-controls">
+        <input
+          type="search"
+          placeholder="Search stores…"
+          value={search}
+          onChange={(e) => { setSearch(e.target.value); setShowCount(10); }}
+          className="store-search"
+        />
+        <select
+          value={neighborhood}
+          onChange={(e) => { setNeighborhood(e.target.value); setShowCount(10); }}
+          className="store-filter-select"
+        >
+          {neighborhoods.map((h) => (
+            <option key={h} value={h}>{h === 'All' ? 'All Neighborhoods' : h}</option>
+          ))}
+        </select>
       </div>
 
       {/* Store rows */}
       <div className="store-list">
-        {filtered.map(store => (
+        {visible.map((store) => (
           <div key={store.id} className="store-row">
             <div className="store-icon" style={{ background: store.iconBg }}>
               {store.icon}
             </div>
             <div className="store-info">
               <div className="store-name">{store.name}</div>
-              <div className="store-address">{store.address} · {store.neighborhood}</div>
-              <div className={`store-tag ${store.badgeType}`}>{store.badge}</div>
+              <div className="store-address">
+                {store.address} · {store.neighborhood}
+              </div>
+              {store.phone && (
+                <div className="store-phone">
+                  <a href={`tel:${store.phone}`} style={{ color: 'var(--muted)', textDecoration: 'none', fontSize: 12 }}>
+                    {store.phone}
+                  </a>
+                </div>
+              )}
+              {store.badge && (
+                <div className={`store-tag ${store.badgeType}`}>{store.badge}</div>
+              )}
             </div>
-            <a
-              href={store.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="store-visit-btn"
-            >
-              Visit →
-            </a>
+            {store.url ? (
+              <a
+                href={store.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="store-visit-btn"
+              >
+                Visit →
+              </a>
+            ) : store.phone ? (
+              <a
+                href={`tel:${store.phone}`}
+                className="store-visit-btn"
+              >
+                Call →
+              </a>
+            ) : null}
           </div>
         ))}
 
-        <a href="/stores" className="store-see-all">
-          View all 200+ NYC Wine Stores →
-        </a>
+        {visible.length === 0 && (
+          <div className="store-row" style={{ justifyContent: 'center', padding: 20 }}>
+            <div className="store-info" style={{ textAlign: 'center' }}>
+              <div className="store-name">No stores found</div>
+              <div className="store-address">Try a different search or neighborhood</div>
+            </div>
+          </div>
+        )}
+
+        {hasMore && (
+          <button
+            className="store-see-all"
+            onClick={() => setShowCount((c) => c + 10)}
+            style={{ cursor: 'pointer', border: 'none', background: 'none', width: '100%' }}
+          >
+            Show more ({filtered.length - showCount} remaining) →
+          </button>
+        )}
       </div>
 
       {/* Explore more: Wine Bars + Wineries */}

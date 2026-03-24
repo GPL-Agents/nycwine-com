@@ -1,24 +1,25 @@
 // components/SocialSection.jsx
 // ─────────────────────────────────────────────────────────────
-// Social feed grid — community content only ("hub not publisher").
+// Social feed grid — community wine content from multiple sources.
 //
-// Active cards:
-//   - Reddit (live API, full width) — wine discussions from r/wine, r/nyc
-//   - Instagram #nycwine (Elfsight widget placeholder) — community photos
-//   - Pinterest (Elfsight widget placeholder) — community pins
+// LIVE:
+//   - X/Twitter timeline embed (@nycwine) — free, no API key
+//   - Reddit wine discussions — /api/reddit (needs credentials)
 //
-// Removed:
-//   - Facebook — Page Plugin only shows our own posts
-//   - X/Twitter — Timeline embed only shows our own tweets
+// COMING SOON (need Elfsight ~$5/mo each):
+//   - Instagram #nycwine community photos
+//   - Pinterest NYC wine community pins
 // ─────────────────────────────────────────────────────────────
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function SocialSection() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [needsSetup, setNeedsSetup] = useState(false);
+  const twitterRef = useRef(null);
 
+  // Load Reddit posts
   useEffect(() => {
     fetch('/api/reddit')
       .then((res) => res.json())
@@ -33,23 +34,60 @@ export default function SocialSection() {
       .catch(() => setLoading(false));
   }, []);
 
+  // Load X/Twitter embed widget script
+  useEffect(() => {
+    if (typeof window !== 'undefined' && !document.getElementById('twitter-wjs')) {
+      const script = document.createElement('script');
+      script.id = 'twitter-wjs';
+      script.src = 'https://platform.twitter.com/widgets.js';
+      script.async = true;
+      script.charset = 'utf-8';
+      document.body.appendChild(script);
+    } else if (typeof window !== 'undefined' && window.twttr?.widgets) {
+      window.twttr.widgets.load(twitterRef.current);
+    }
+  }, []);
+
   return (
     <section className="social-section" id="sec-social">
 
       {/* Header */}
       <div className="social-section-header">
         <div className="section-header-title">📸 NYC Wine Community</div>
-        <a href="https://reddit.com/r/wine" className="see-all-link" target="_blank" rel="noopener noreferrer">
-          See more →
+        <a href="https://twitter.com/nycwine" className="see-all-link" target="_blank" rel="noopener noreferrer">
+          Follow @nycwine →
         </a>
       </div>
 
       <div className="social-grid">
 
-        {/* ── Instagram #nycwine (Elfsight widget) ─────────────
-            Placeholder until Elfsight account is set up.
-            Shows community photos tagged #nycwine.
-            Config: NEXT_PUBLIC_ELFSIGHT_IG_ID in .env.local
+        {/* ── X / Twitter Timeline Embed ──────────────────────────
+            LIVE: Public timeline embed, no API key needed.
+            Uses publish.twitter.com embed markup.
+        ────────────────────────────────────────────────────── */}
+        <div className="social-card" ref={twitterRef}>
+          <div className="sc-header sc-x">
+            <div className="sc-platform">𝕏 @nycwine</div>
+            <a href="https://twitter.com/nycwine" className="sc-follow" target="_blank" rel="noopener noreferrer">Follow →</a>
+          </div>
+          <div className="sc-body sc-body-embed" style={{ maxHeight: 400, overflow: 'auto' }}>
+            <a
+              className="twitter-timeline"
+              data-height="400"
+              data-width="100%"
+              data-chrome="noheader nofooter noborders transparent"
+              data-tweet-limit="5"
+              href="https://twitter.com/nycwine"
+            >
+              Loading @nycwine tweets…
+            </a>
+          </div>
+          <div className="sc-footer">Live · X Timeline Embed · free, no API key</div>
+        </div>
+
+        {/* ── Instagram #nycwine ─────────────────────────────────
+            COMING SOON: Elfsight widget (~$5/mo)
+            Shows community photos tagged #nycwine
         ────────────────────────────────────────────────────── */}
         <div className="social-card">
           <div className="sc-header sc-ig">
@@ -57,22 +95,18 @@ export default function SocialSection() {
             <a href="https://www.instagram.com/explore/tags/nycwine/" className="sc-follow" target="_blank" rel="noopener noreferrer">#nycwine →</a>
           </div>
           <div className="sc-body">
-            <div className="ig-grid">
-              {['🍷','🥂','🍇','🌆','🍾','🗽','🌿','✨','🎉'].map((em, i) => (
-                <div key={i} className="ig-cell">
-                  {em}
-                  <span className="ig-hashtag">#nycwine</span>
-                </div>
-              ))}
+            <div className="social-coming-soon">
+              <div className="scs-icon">📸</div>
+              <div className="scs-title">Instagram Feed</div>
+              <div className="scs-text">Community photos from #nycwine will appear here. Coming soon via Elfsight widget.</div>
             </div>
           </div>
-          <div className="sc-footer">Community photos · Elfsight widget · coming soon</div>
+          <div className="sc-footer">Coming soon · Elfsight Instagram widget · ~$5/mo</div>
         </div>
 
-        {/* ── Pinterest "NYC wine" (Elfsight widget) ───────────
-            Placeholder until Elfsight account is set up.
-            Shows community pins about NYC wine.
-            Config: NEXT_PUBLIC_ELFSIGHT_PINTEREST_ID in .env.local
+        {/* ── Pinterest NYC Wine ─────────────────────────────────
+            COMING SOON: Elfsight widget (~$5/mo)
+            Shows community pins about NYC wine
         ────────────────────────────────────────────────────── */}
         <div className="social-card">
           <div className="sc-header sc-pin">
@@ -80,21 +114,16 @@ export default function SocialSection() {
             <a href="https://pinterest.com/search/pins/?q=nyc+wine" className="sc-follow" target="_blank" rel="noopener noreferrer">Explore →</a>
           </div>
           <div className="sc-body">
-            <div className="pin-grid">
-              <div className="pin-cell">🍷</div>
-              <div className="pin-cell">🥂</div>
-              <div className="pin-cell">🍇</div>
-              <div className="pin-cell">🍾</div>
+            <div className="social-coming-soon">
+              <div className="scs-icon">📌</div>
+              <div className="scs-title">Pinterest Feed</div>
+              <div className="scs-text">NYC wine pins and boards will appear here. Coming soon via Elfsight widget.</div>
             </div>
           </div>
-          <div className="sc-footer">Community pins · Elfsight widget · coming soon</div>
+          <div className="sc-footer">Coming soon · Elfsight Pinterest widget · ~$5/mo</div>
         </div>
 
-        {/* ── Reddit (full width, LIVE) ────────────────────────
-            Fetches from /api/reddit — wine posts from
-            r/wine, r/nyc, r/FoodNYC sorted by popularity.
-            Requires REDDIT_CLIENT_ID + REDDIT_CLIENT_SECRET
-        ────────────────────────────────────────────────────── */}
+        {/* ── Reddit (full width, LIVE) ────────────────────────── */}
         <div className="social-card full-width">
           <div className="sc-header sc-reddit">
             <div className="sc-platform">🤖 Reddit — What NYC is asking about wine</div>
@@ -108,7 +137,10 @@ export default function SocialSection() {
             )}
             {needsSetup && (
               <div className="reddit-post">
-                <div className="reddit-title">Reddit API credentials needed — add REDDIT_CLIENT_ID and REDDIT_CLIENT_SECRET to .env.local</div>
+                <div className="reddit-sub" style={{ color: 'var(--muted)' }}>Setup needed</div>
+                <div className="reddit-title">
+                  Reddit API credentials needed to show live wine discussions. Add REDDIT_CLIENT_ID and REDDIT_CLIENT_SECRET to .env.local
+                </div>
               </div>
             )}
             {!loading && !needsSetup && posts.length === 0 && (

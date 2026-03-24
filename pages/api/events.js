@@ -1,0 +1,191 @@
+// pages/api/events.js
+// ─────────────────────────────────────────────────────────────
+// Wine Events Aggregator — pulls real events from:
+//   1. NYC Open Data (city arts/entertainment events)
+//   2. Eventbrite API (when EVENTBRITE_API_KEY is set)
+//
+// Endpoint: GET /api/events
+// Returns: JSON array of event objects
+//
+// NYC Open Data is free and requires no API key.
+// Eventbrite requires a free developer account.
+//
+// Uses in-memory cache (30 min) to be a good API citizen.
+// ─────────────────────────────────────────────────────────────
+
+const WINE_KEYWORDS = [
+  'wine', 'winery', 'vineyard', 'tasting', 'sommelier',
+  'champagne', 'rosé', 'rose', 'prosecco', 'cava',
+  'riesling', 'pinot', 'chardonnay', 'merlot', 'cabernet',
+  'wine bar', 'wine class', 'wine dinner', 'wine pairing',
+  'natural wine', 'sparkling', 'burgundy', 'bordeaux',
+  'viticulture', 'enology', 'oenology',
+];
+
+function matchesWine(text) {
+  const lower = (text || '').toLowerCase();
+  return WINE_KEYWORDS.some((kw) => lower.includes(kw));
+}
+
+// ── In-memory cache ───────────────────────────────────────────
+let cache = null;
+let cacheTime = 0;
+const CACHE_TTL = 30 * 60 * 1000; // 30 minutes
+
+// ── Date helpers ──────────────────────────────────────────────
+function formatDay(dateStr) {
+  const d = new Date(dateStr);
+  return d.getDate().toString();
+}
+
+function formatMonth(dateStr) {
+  const d = new Date(dateStr);
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const now = new Date();
+  const tomorrow = new Date(now);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+
+  const monthStr = months[d.getMonth()];
+  if (d.toDateString() === now.toDateString()) return `${monthStr} · Today`;
+  if (d.toDateString() === tomorrow.toDateString()) return `${monthStr} · Tomorrow`;
+  return `${monthStr} · ${days[d.getDay()]}`;
+}
+
+function getTag(event) {
+  const title = (event.title || event.event_name || '').toLowerCase();
+  const desc = (event.description || event.short_description || '').toLowerCase();
+  const combined = `${title} ${desc}`;
+
+  if (combined.includes('class') || combined.includes('course') || combined.includes('wset') || combined.includes('education')) return 'Class';
+  if (combined.includes('dinner') || combined.includes('pairing')) return 'Dinner';
+  if (combined.includes('tasting') || combined.includes('sampling')) return 'Tasting';
+  if (combined.includes('free') || combined.includes('no cover') || combined.includes('complimentary')) return 'Free';
+  if (combined.includes('festival') || combined.includes('celebration')) return 'Festival';
+  if (combined.includes('brunch')) return 'Brunch';
+  return 'Event';
+}
+
+// Color cycling for cards
+const COLORS = ['c1', 'c2', 'c3', 'c4', 'c5'];
+
+// ── NYC Open Data ─────────────────────────────────────────────
+// API docs: https://data.cityofnewyork.us/resource/tvpp-9vvx.json
+// Free, no key needed, returns JSON directly
+async function fetchNYCOpenData() {
+  try {
+    const today = new Date().toISOString().split('T')[0];
+    const url = `https://data.cityofnewyork.us/resource/tvpp-9vvx.json?$where=start_date_time >= '${today}'&$order=start_date_time ASC&$limit=200`;
+
+    const res = await fetch(url, {
+      headers: { 'User-Agent': 'NYCWine.com Events/1.0' },
+    });
+    if (!res.ok) return [];
+    const data = await res.json();
+
+    // Filter for wine-related events
+    return data
+      .filter((ev) => matchesWine(`${ev.event_name || ''} ${ev.short_description || ''} ${ev.event_type || ''}`))
+      .map((ev) => ({
+        title: ev.event_name || 'NYC Wine Event',
+        venue: ev.event_location || ev.event_borough || 'NYC',
+        date: ev.start_date_time,
+        day: formatDay(ev.start_date_time),
+        month: formatMonth(ev.start_date_time),
+        tag: getTag({ title: ev.event_name, description: ev.short_description }),
+        price: null,
+        url: ev.event_page_url || null,
+        source: 'NYC Open Data',
+      }));
+  } catch (err) {
+    console.warn('NYC Open Data fetch failed:', err.message);
+    return [];
+  }
+}
+
+// ── Eventbrite API ────────────────────────────────────────────
+// Requires EVENTBRITE_API_KEY in .env.local
+async function fetchEventbrite() {
+  const apiKey = process.env.EVENTBRITE_API_KEY;
+  if (!apiKey) return [];
+
+  try {
+    // Search for wine events near NYC (10mi radius of Midtown)
+    const params = new URLSearchParams({
+      'location.latitude': '40.7580',
+      'location.longitude': '-73.9855',
+      'location.within': '10mi',
+      'q': 'wine tasting',
+      'start_date.keyword': 'this_week',
+      'sort_by': 'date',
+      'expand': 'venue',
+    });
+
+    const res = await fetch(`https://www.eventbriteapi.com/v3/events/search/?${params}`, {
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        'User-Agent': 'NYCWine.com Events/1.0',
+      },
+    });
+    if (!res.ok) return [];
+    const data = await res.json();
+
+    return (data.events || [])
+      .filter((ev) => matchesWine(`${ev.name?.text || ''} ${ev.description?.text || ''}`))
+      .map((ev) => {
+        const startDate = ev.start?.local || ev.start?.utc;
+        const isFree = ev.is_free;
+        return {
+          title: ev.name?.text || 'Wine Event',
+          venue: ev.venue?.name || ev.venue?.address?.city || 'NYC',
+          date: startDate,
+          day: formatDay(startDate),
+          month: formatMonth(startDate),
+          tag: isFree ? 'Free' : getTag({ title: ev.name?.text, description: ev.description?.text }),
+          price: isFree ? null : (ev.ticket_availability?.minimum_ticket_price?.display || null),
+          url: ev.url || null,
+          source: 'Eventbrite',
+        };
+      });
+  } catch (err) {
+    console.warn('Eventbrite fetch failed:', err.message);
+    return [];
+  }
+}
+
+// ── API Handler ───────────────────────────────────────────────
+export default async function handler(req, res) {
+  // Return cached data if fresh
+  if (cache && Date.now() - cacheTime < CACHE_TTL) {
+    return res.status(200).json(cache);
+  }
+
+  try {
+    // Fetch all sources in parallel
+    const [nycEvents, ebEvents] = await Promise.all([
+      fetchNYCOpenData(),
+      fetchEventbrite(),
+    ]);
+
+    // Merge and sort by date
+    const allEvents = [...nycEvents, ...ebEvents]
+      .sort((a, b) => new Date(a.date) - new Date(b.date));
+
+    // Add color cycling and IDs
+    const events = allEvents.slice(0, 20).map((ev, i) => ({
+      ...ev,
+      id: i + 1,
+      color: COLORS[i % COLORS.length],
+    }));
+
+    // Cache the result
+    cache = events;
+    cacheTime = Date.now();
+
+    res.setHeader('Cache-Control', 'public, s-maxage=1800, stale-while-revalidate=300');
+    return res.status(200).json(events);
+  } catch (err) {
+    console.error('Events API error:', err);
+    return res.status(500).json({ error: 'Failed to fetch events' });
+  }
+}

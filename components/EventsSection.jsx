@@ -1,37 +1,51 @@
-// components/EventsSection.jsx 
+// components/EventsSection.jsx
 // ─────────────────────────────────────────────────────────────
-// Upcoming wine events — cards + list rows.
+// LIVE upcoming wine events — fetches from /api/events.
 //
-// DATA: Currently uses placeholder data defined in this file.
-// V1 upgrade path: replace PLACEHOLDER_EVENTS with a fetch()
-// call to the Eventbrite API (see integrations-config.js).
+// Sources: NYC Open Data (free) + Eventbrite (when API key set).
+// Falls back to loading/error states gracefully.
 //
-// To add/change events: edit the PLACEHOLDER_EVENTS array below.
-// Each event needs: id, day, month, name, venue, tag, price (opt), color
+// Filter pills filter the live data by tag.
+// Cards scroll horizontally; list rows show additional events.
 // ─────────────────────────────────────────────────────────────
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-// ── Placeholder data (replace with API call in V1) ─────────────
-const PLACEHOLDER_EVENTS = [
-  { id: 1, day: '27', month: 'Mar · Tomorrow',  name: 'Spring Rosé Tasting',        venue: '67 Wine, UWS',           tag: 'Tasting',      price: '$45',  color: 'c1' },
-  { id: 2, day: '28', month: 'Mar · Saturday',  name: 'Natural Wine Night',          venue: 'Chambers St Wines',      tag: 'Free · RSVP',  price: null,   color: 'c2' },
-  { id: 3, day: '29', month: 'Mar · Sunday',    name: 'Champagne Brunch Class',      venue: 'Corkbuzz, Chelsea',      tag: 'Class',        price: '$75',  color: 'c3' },
-  { id: 4, day: '2',  month: 'Apr · Thursday',  name: 'Burgundy & Beyond Dinner',   venue: 'Tribeca Wine Merch.',    tag: 'Dinner',       price: '$120', color: 'c4' },
-  { id: 5, day: '5',  month: 'Apr · Saturday',  name: 'WSET Level 1 Wine',          venue: 'NYC Wine School',        tag: 'Course',       price: '$195', color: 'c5' },
-];
-
-const PLACEHOLDER_LIST = [
-  { day: '28', dow: 'Sat', name: 'Italian Varietals Evening',    venue: 'Garnet Wines, UES' },
-  { day: '30', dow: 'Mon', name: 'Biodynamic Wine Talk · Free',  venue: 'Union Sq Wines' },
-  { day: '1',  dow: 'Wed', name: 'Finger Lakes Wine Tasting',    venue: 'Astor Wines, NoHo' },
-];
-
-const FILTERS = ['This Week', 'This Weekend', 'Tastings', 'Classes', 'Dinners', 'Free'];
-// ──────────────────────────────────────────────────────────────
+const FILTERS = ['All', 'Tasting', 'Class', 'Dinner', 'Free', 'Festival'];
 
 export default function EventsSection() {
-  const [activeFilter, setActiveFilter] = useState('This Week');
+  const [activeFilter, setActiveFilter] = useState('All');
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    fetch('/api/events')
+      .then((res) => {
+        if (!res.ok) throw new Error('Failed to fetch');
+        return res.json();
+      })
+      .then((data) => {
+        if (Array.isArray(data)) {
+          setEvents(data);
+        }
+        setLoading(false);
+      })
+      .catch(() => {
+        setError(true);
+        setLoading(false);
+      });
+  }, []);
+
+  // Filter events by tag
+  const filtered =
+    activeFilter === 'All'
+      ? events
+      : events.filter((ev) => ev.tag === activeFilter);
+
+  // Split into cards (first 5) and list (rest)
+  const cardEvents = filtered.slice(0, 5);
+  const listEvents = filtered.slice(5, 10);
 
   return (
     <section className="events-section" id="sec-events">
@@ -57,39 +71,96 @@ export default function EventsSection() {
 
       {/* Horizontal card scroll */}
       <div className="event-cards-scroll">
-        {PLACEHOLDER_EVENTS.map(ev => (
-          <div key={ev.id} className="event-card">
+        {loading && (
+          <div className="event-card">
+            <div className="event-card-header c1">
+              <div className="event-date-big">…</div>
+              <div className="event-month">Loading events</div>
+            </div>
+            <div className="event-card-body">
+              <div className="event-card-name">Searching for wine events near NYC…</div>
+            </div>
+          </div>
+        )}
+        {error && (
+          <div className="event-card">
+            <div className="event-card-header c1">
+              <div className="event-date-big">⚠️</div>
+              <div className="event-month">Oops</div>
+            </div>
+            <div className="event-card-body">
+              <div className="event-card-name">Unable to load events right now. Try again later.</div>
+            </div>
+          </div>
+        )}
+        {!loading && !error && cardEvents.length === 0 && (
+          <div className="event-card">
+            <div className="event-card-header c2">
+              <div className="event-date-big">🔍</div>
+              <div className="event-month">No matches</div>
+            </div>
+            <div className="event-card-body">
+              <div className="event-card-name">
+                {activeFilter === 'All'
+                  ? 'No upcoming wine events found right now. Check back soon!'
+                  : `No "${activeFilter}" events right now. Try "All" to see everything.`}
+              </div>
+            </div>
+          </div>
+        )}
+        {cardEvents.map((ev) => (
+          <a
+            key={ev.id}
+            className="event-card"
+            href={ev.url || '#'}
+            target={ev.url ? '_blank' : undefined}
+            rel={ev.url ? 'noopener noreferrer' : undefined}
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
             <div className={`event-card-header ${ev.color}`}>
               <div className="event-date-big">{ev.day}</div>
               <div className="event-month">{ev.month}</div>
             </div>
             <div className="event-card-body">
-              <div className="event-card-name">{ev.name}</div>
+              <div className="event-card-name">{ev.title}</div>
               <div className="event-card-venue">{ev.venue}</div>
               <span className="event-card-tag">{ev.tag}</span>
               {ev.price && <span className="event-card-price">{ev.price}</span>}
             </div>
-          </div>
+          </a>
         ))}
       </div>
 
-      {/* List view */}
-      <div className="event-list">
-        <div className="event-list-title">More this week</div>
-        {PLACEHOLDER_LIST.map((ev, i) => (
-          <div key={i} className="event-row">
-            <div className="event-row-date">
-              <div className="event-row-day">{ev.day}</div>
-              <div className="event-row-dow">{ev.dow}</div>
-            </div>
-            <div className="event-row-info">
-              <div className="event-row-name">{ev.name}</div>
-              <div className="event-row-venue">{ev.venue}</div>
-            </div>
-            <div className="event-row-arrow">›</div>
-          </div>
-        ))}
-      </div>
+      {/* List view — additional events */}
+      {listEvents.length > 0 && (
+        <div className="event-list">
+          <div className="event-list-title">More coming up</div>
+          {listEvents.map((ev) => {
+            const d = new Date(ev.date);
+            const dows = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            return (
+              <a
+                key={ev.id}
+                className="event-row"
+                href={ev.url || '#'}
+                target={ev.url ? '_blank' : undefined}
+                rel={ev.url ? 'noopener noreferrer' : undefined}
+                style={{ textDecoration: 'none', color: 'inherit' }}
+              >
+                <div className="event-row-date">
+                  <div className="event-row-day">{ev.day}</div>
+                  <div className="event-row-dow">{dows[d.getDay()]}</div>
+                </div>
+                <div className="event-row-info">
+                  <div className="event-row-name">{ev.title}</div>
+                  <div className="event-row-venue">{ev.venue}</div>
+                </div>
+                <div className="event-row-arrow">›</div>
+              </a>
+            );
+          })}
+        </div>
+      )}
 
     </section>
   );

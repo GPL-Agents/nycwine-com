@@ -288,6 +288,20 @@ body {
 .pin-cell:nth-child(3) { background: #e8fde8; }
 .pin-cell:nth-child(4) { background: #fef8e8; }
 
+/* Coming soon placeholder cards */
+.social-coming-soon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 10px;
+  text-align: center;
+  min-height: 100px;
+}
+.scs-icon { font-size: 28px; margin-bottom: 6px; opacity: 0.5; }
+.scs-title { font-size: 11px; font-weight: 800; color: var(--muted); }
+.scs-text { font-size: 9px; color: var(--muted); margin-top: 3px; line-height: 1.4; max-width: 160px; }
+
 /* Reddit cards */
 .reddit-posts { display: flex; gap: 6px; padding: 6px; }
 .reddit-post  { flex: 1; background: var(--grey); border-radius: 6px; padding: 7px 8px; }
@@ -392,6 +406,45 @@ body {
   cursor: pointer;
 }
 .bpill.active { background: var(--stores); color: white; }
+
+/* Store search + filter controls */
+.store-controls {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  background: #e8f4fd;
+  border-bottom: 1px solid #aed6f1;
+}
+.store-search {
+  flex: 1;
+  padding: 7px 12px;
+  border: 1.5px solid #aed6f1;
+  border-radius: 8px;
+  font-size: 12px;
+  background: white;
+  outline: none;
+  color: var(--text);
+}
+.store-search:focus {
+  border-color: var(--stores);
+}
+.store-search::placeholder { color: var(--muted); }
+.store-filter-select {
+  padding: 7px 10px;
+  border: 1.5px solid #aed6f1;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  background: white;
+  color: var(--stores);
+  cursor: pointer;
+  outline: none;
+  max-width: 180px;
+}
+.store-filter-select:focus {
+  border-color: var(--stores);
+}
+.store-phone { margin-top: 1px; }
 
 .store-list { padding: 8px 12px; }
 .store-row {

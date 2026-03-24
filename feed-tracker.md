@@ -1,6 +1,6 @@
 # NYCWine.com — Feed & Integration Tracker
 
-Last updated: 2026-03-23
+Last updated: 2026-03-24
 
 ---
 
@@ -40,31 +40,24 @@ Update the **Status** column as each one goes live. Keep credentials in `.env.lo
 
 | Integration | Status | What it does | Account needed | Env vars required | Cost | Notes |
 |---|---|---|---|---|---|---|
-| **Eventbrite API** | 🔴 Placeholder | Pull wine events near NYC | Eventbrite developer account | `EVENTBRITE_API_KEY` | Free tier | Search: wine, tasting, sommelier, etc. 10mi radius of NYC. Limit 10 on homepage |
-| **NYC Open Data** | 🔴 Placeholder | City arts/entertainment events | None (public API) | None | Free | URL: `data.cityofnewyork.us/resource/tvpp-9vvx.json` |
+| **NYC Open Data** | 🟢 Live | City events filtered for wine content | None (public API) | None | Free | API route: `pages/api/events.js`. Fetches from `data.cityofnewyork.us`, filters by wine keywords, auto-formats dates |
+| **Eventbrite API** | 🟡 Ready to wire | Wine events near NYC | Eventbrite developer account | `EVENTBRITE_API_KEY` | Free tier | Already coded in events.js — just add the API key and it activates automatically |
 
-**Current state:** `EventsSection.jsx` shows 5 hardcoded sample events + 3 list items.
-**To go live:** Build an API route that fetches from Eventbrite + Open Data, replace `PLACEHOLDER_EVENTS` with real data.
+**Current state:** `EventsSection.jsx` fetches from `/api/events` on mount. Shows real NYC wine events. Filter pills work on live data. Loading and error states handled. Cards link to event pages.
+**API route:** `pages/api/events.js` — fetches NYC Open Data + Eventbrite (when key set), filters for wine content, 30min cache.
 
 ---
 
-## 2. SOCIAL FEEDS (community content only — "hub not publisher")
+## 2. SOCIAL FEEDS (community content)
 
 | Platform | Status | Method | Account needed | Env vars required | Cost | Notes |
 |---|---|---|---|---|---|---|
-| **Reddit** | 🟢 Live (needs credentials) | Reddit API via `/api/reddit` | Reddit developer app | `REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET` | Free | r/wine + r/nyc + r/FoodNYC, filtered for wine content, sorted by popularity. 30min cache. Shows "needs setup" message until env vars added |
-| **Instagram #nycwine** | 🔴 Placeholder | Elfsight widget | Elfsight account (free tier available) | `ELFSIGHT_IG_ID` | Free tier or ~$5/mo | Community photos tagged #nycwine. Only practical method — Meta blocks hashtag API |
-| **Pinterest "NYC wine"** | 🔴 Placeholder | Elfsight widget | Elfsight account (free tier available) | `ELFSIGHT_PINTEREST_WIDGET_ID` | Free tier or ~$5/mo | Community pins about NYC wine |
+| **X / Twitter** | 🟢 Live | Timeline embed (@nycwine) | None | None | Free | Uses `platform.twitter.com/widgets.js` — no API key needed. Shows @nycwine timeline |
+| **Reddit** | 🟡 Ready to wire | Reddit API via `/api/reddit` | Reddit developer app | `REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET` | Free | Code done. Shows "needs setup" message until env vars added. Greg setting up account |
+| **Instagram #nycwine** | 🔴 Placeholder | Elfsight widget | Elfsight account | `ELFSIGHT_IG_ID` | Free tier or ~$5/mo | Clean "coming soon" card displayed. Only practical method — Meta blocks hashtag API |
+| **Pinterest "NYC wine"** | 🔴 Placeholder | Elfsight widget | Elfsight account | `ELFSIGHT_PINTEREST_WIDGET_ID` | Free tier or ~$5/mo | Clean "coming soon" card displayed |
 
-### Removed (only show our own posts — doesn't fit hub model)
-
-| Platform | Status | Reason |
-|---|---|---|
-| **Facebook** | ⬛ Removed | Page Plugin only shows our own posts. No FB API for community/hashtag content |
-| **X / Twitter** | ⬛ Removed | Timeline embed only shows our own tweets. Hashtag search costs $100/mo |
-| **Instagram own account** | ⬛ Removed | Graph API only shows our own posts |
-
-**Current state:** Reddit card is wired to `/api/reddit` (live once credentials added). Instagram and Pinterest cards show placeholders until Elfsight is set up.
+**Current state:** X/Twitter timeline embed is live (free). Reddit is coded and ready (needs credentials). Instagram and Pinterest show polished "coming soon" placeholders.
 **API routes:** `pages/api/reddit.js`
 
 ---
@@ -88,7 +81,7 @@ Update the **Status** column as each one goes live. Keep credentials in `.env.lo
 
 **Current state:** `NewsSection.jsx` fetches from `/api/news` on mount. Shows real articles with links. Source filter tabs work. Loading and error states handled.
 **API route:** `pages/api/news.js` — fetches all 8 RSS feeds in parallel, filters, merges, sorts by date, caches 60 min.
-**Dependency added:** `rss-parser` in package.json.
+**Dependency:** `rss-parser` in package.json.
 
 ---
 
@@ -96,11 +89,11 @@ Update the **Status** column as each one goes live. Keep credentials in `.env.lo
 
 | Integration | Status | What it does | Account needed | Env vars required | Cost | Notes |
 |---|---|---|---|---|---|---|
-| **Supabase database** | 🔴 Placeholder | Store wine stores, bars, wineries | Supabase account | `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Free tier | Tables: wine_stores, wine_bars, wineries, store_of_week |
+| **Static JSON** | 🟢 Live | 335 Manhattan wine stores | None | None | Free | Data in `public/data/wine-stores.json`. Search + neighborhood filter. Paginated (show 10, load more). Phone links. |
+| **Supabase database** | ⬛ Deferred to V1 | Dynamic store management | Supabase account | `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Free tier | Migrate from static JSON when ready |
 
-**Current state:** `StoresSection.jsx` shows 5 hardcoded preview stores. Wineries card says "Coming in V1".
-**To go live:** Set up Supabase project, create tables, import `wine-stores-manhattan.csv`, query from component.
-**Data available:** 335 Manhattan wine stores from CSV (more boroughs to come).
+**Current state:** `StoresSection.jsx` loads all 335 stores from `public/data/wine-stores.json`. Search bar and neighborhood dropdown filter live. "Show more" pagination. Phone numbers are clickable call links. Visit buttons link to store websites where available.
+**Data source:** Converted from `store-data/wine-stores-manhattan.csv` (also in `data/wine-stores.json` for reference).
 
 ---
 
@@ -110,7 +103,7 @@ Update the **Status** column as each one goes live. Keep credentials in `.env.lo
 |---|---|---|---|---|---|---|
 | **Mailchimp** | 🔴 Not wired | Email newsletter signup | Mailchimp account | `MAILCHIMP_API_KEY`, `MAILCHIMP_LIST_ID`, `MAILCHIMP_SERVER_PREFIX` | Free up to 500 contacts | Need to fill in `embedActionUrl` and `listId` in integrations-config.js |
 
-**Current state:** Configured in `integrations-config.js` but no signup form exists in any component yet.
+**Current state:** No signup form component yet.
 **To go live:** Create Mailchimp account, get embed action URL, add signup form component to footer or homepage.
 
 ---
@@ -121,7 +114,7 @@ Update the **Status** column as each one goes live. Keep credentials in `.env.lo
 |---|---|---|---|---|---|---|
 | **Google AdSense** | 🟢 Live | Display ads (primary revenue) | ✅ Approved — ca-pub-6782277104310503 | Script loaded in `_app.js` | Free (revenue generating) | 3 responsive ad units placed: after-events, after-social, after-news. Auto-sizes for mobile/desktop |
 
-**Current state:** AdSense script loaded globally via `next/script`. Three `<AdUnit>` components placed between content sections. Ads are responsive (`data-ad-format="auto"` + `data-full-width-responsive="true"`).
+**Current state:** AdSense script loaded globally via `next/script`. Three `<AdUnit>` components placed between content sections.
 **Component:** `components/AdUnit.jsx` — drop `<AdUnit slot="name" />` anywhere to add more placements.
 
 ---
@@ -142,8 +135,8 @@ Update the **Status** column as each one goes live. Keep credentials in `.env.lo
 | Icon | Meaning |
 |---|---|
 | 🟢 Live | Working on the site |
-| 🟡 Ready to wire | No account/key needed, just code changes |
-| 🔴 Placeholder | Showing dummy data, needs account setup + code |
+| 🟡 Ready to wire | Code done, just needs credentials or config |
+| 🔴 Placeholder | Showing "coming soon" message, needs account setup |
 | ⬛ Disabled | Intentionally off — future phase or too expensive |
 
 ---
@@ -152,16 +145,11 @@ Update the **Status** column as each one goes live. Keep credentials in `.env.lo
 
 All secrets go in `.env.local` (see `.env.template` for the full list). Never commit this file.
 
-- [ ] `NEXT_PUBLIC_SUPABASE_URL`
-- [ ] `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-- [ ] `EVENTBRITE_API_KEY`
-- [ ] `REDDIT_CLIENT_ID`
-- [ ] `REDDIT_CLIENT_SECRET`
-- [ ] `INSTAGRAM_ACCESS_TOKEN`
-- [ ] `FACEBOOK_APP_ID`
-- [ ] `ELFSIGHT_IG_ID` (if using Elfsight for Instagram hashtags)
-- [ ] `ELFSIGHT_PINTEREST_WIDGET_ID` (if using Elfsight for Pinterest)
-- [ ] `MAILCHIMP_API_KEY`
+- [ ] `EVENTBRITE_API_KEY` — unlocks Eventbrite events (code already written)
+- [ ] `REDDIT_CLIENT_ID` — Greg setting up account
+- [ ] `REDDIT_CLIENT_SECRET` — Greg setting up account
+- [ ] `ELFSIGHT_IG_ID` — for Instagram #nycwine widget
+- [ ] `ELFSIGHT_PINTEREST_WIDGET_ID` — for Pinterest widget
+- [ ] `MAILCHIMP_API_KEY` — for email signup
 - [ ] `MAILCHIMP_LIST_ID`
 - [ ] `MAILCHIMP_SERVER_PREFIX`
-- [ ] `GOOGLE_AD_PUBLISHER_ID`
