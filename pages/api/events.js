@@ -1,17 +1,5 @@
 // pages/api/events.js
-// ─────────────────────────────────────────────────────────────
-// Wine Events Aggregator — pulls real events from:
-//   1. NYC Open Data (city arts/entertainment events)
-//   2. Eventbrite API (when EVENTBRITE_API_KEY is set)
-//
-// Endpoint: GET /api/events
-// Returns: JSON array of event objects
-//
-// NYC Open Data is free and requires no API key.
-// Eventbrite requires a free developer account.
-//
-// Uses in-memory cache (30 min) to be a good API citizen.
-// ─────────────────────────────────────────────────────────────
+// Wine Events Aggregator
 
 const WINE_KEYWORDS = [
   'wine', 'winery', 'vineyard', 'tasting', 'sommelier',
@@ -27,12 +15,10 @@ function matchesWine(text) {
   return WINE_KEYWORDS.some((kw) => lower.includes(kw));
 }
 
-// ── In-memory cache ───────────────────────────────────────────
 let cache = null;
 let cacheTime = 0;
-const CACHE_TTL = 30 * 60 * 1000; // 30 minutes
+const CACHE_TTL = 30 * 60 * 1000;
 
-// ── Date helpers ──────────────────────────────────────────────
 function formatDay(dateStr) {
   const d = new Date(dateStr);
   return d.getDate().toString();
@@ -66,12 +52,8 @@ function getTag(event) {
   return 'Event';
 }
 
-// Color cycling for cards
 const COLORS = ['c1', 'c2', 'c3', 'c4', 'c5'];
 
-// ── NYC Open Data ─────────────────────────────────────────────
-// API docs: https://data.cityofnewyork.us/resource/tvpp-9vvx.json
-// Free, no key needed, returns JSON directly
 async function fetchNYCOpenData() {
   try {
     const today = new Date().toISOString().split('T')[0];
@@ -80,13 +62,29 @@ async function fetchNYCOpenData() {
     const res = await fetch(url, {
       headers: { 'User-Agent': 'NYCWine.com Events/1.0' },
     });
-    if (!res.ok) return [];
-    const data = await res.json();
-    console.log("NYC raw:", data.length);
 
-    // Filter for wine-related events
+    if (!res.ok) return [];
+
+    const data = await res.json();
+    console.log('NYC raw:', data.length);
+
     return data
-      .filter((ev) => matchesWine(`${ev.event_name || ''} ${ev.short_description || ''} ${ev.event_type || ''}`))
+      .filter((ev) => {
+        const text = `${ev.event_name || ''} ${ev.short_description || ''} ${ev.event_type || ''}`.toLowerCase();
+        const location = `${ev.event_location || ''} ${ev.event_borough || ''}`.toLowerCase();
+
+        const isWine = matchesWine(text);
+        const isNYC =
+          location.includes('nyc') ||
+          location.includes('new york') ||
+          location.includes('manhattan') ||
+          location.includes('brooklyn') ||
+          location.includes('queens') ||
+          location.includes('bronx') ||
+          location.includes('staten island');
+
+        return isWine && isNYC;
+      })
       .map((ev) => ({
         title: ev.event_name || 'NYC Wine Event',
         venue: ev.event_location || ev.event_borough || 'NYC',
@@ -104,9 +102,6 @@ async function fetchNYCOpenData() {
   }
 }
 
-// ── Eventbrite API ────────────────────────────────────────────
-// Requires EVENTBRITE_API_KEY in env vars (Vercel dashboard).
-// Runs multiple searches to maximize results.
 const EB_SEARCH_TERMS = ['wine', 'wine tasting', 'sommelier', 'vineyard'];
 
 async function fetchEventbriteQuery(apiKey, query) {
@@ -115,9 +110,9 @@ async function fetchEventbriteQuery(apiKey, query) {
       'location.latitude': '40.7580',
       'location.longitude': '-73.9855',
       'location.within': '50mi',
-      'q': query,
-      'sort_by': 'date',
-      'expand': 'venue',
+      q: query,
+      sort_by: 'date',
+      expand: 'venue',
     });
 
     const res = await fetch(`https://www.eventbriteapi.com/v3/events/search/?${params}`, {
@@ -126,29 +121,30 @@ async function fetchEventbriteQuery(apiKey, query) {
         'User-Agent': 'NYCWine.com Events/1.0',
       },
     });
-    if (!res.ok) return [];
-    const data = await res.json();
-    console.log("Eventbrite raw:", (data.events || []).length);
 
-    return (data.events || [])
-      .filter((ev) => matchesWine(`${ev.name?.text || ''} ${ev.description?.text || ''}`))
-      .map((ev) => {
-        const startDate = ev.start?.local || ev.start?.utc;
-        const isFree = ev.is_free;
-        const logo = ev.logo?.original?.url || ev.logo?.url || null;
-        return {
-          title: ev.name?.text || 'Wine Event',
-          venue: ev.venue?.name || ev.venue?.address?.city || 'NYC',
-          date: startDate,
-          day: formatDay(startDate),
-          month: formatMonth(startDate),
-          tag: isFree ? 'Free' : getTag({ title: ev.name?.text, description: ev.description?.text }),
-          price: isFree ? null : (ev.ticket_availability?.minimum_ticket_price?.display || null),
-          url: ev.url || null,
-          image: logo,
-          source: 'Eventbrite',
-        };
-      });
+    if (!res.ok) return [];
+
+    const data = await res.json();
+    console.log('Eventbrite raw:', (data.events || []).length);
+
+    return (data.events || []).map((ev) => {
+      const startDate = ev.start?.local || ev.start?.utc;
+      const isFree = ev.is_free;
+      const logo = ev.logo?.original?.url || ev.logo?.url || null;
+
+      return {
+        title: ev.name?.text || 'Wine Event',
+        venue: ev.venue?.name || ev.venue?.address?.city || 'NYC',
+        date: startDate,
+        day: formatDay(startDate),
+        month: formatMonth(startDate),
+        tag: isFree ? 'Free' : getTag({ title: ev.name?.text, description: ev.description?.text }),
+        price: isFree ? null : (ev.ticket_availability?.minimum_ticket_price?.display || null),
+        url: ev.url || null,
+        image: logo,
+        source: 'Eventbrite',
+      };
+    });
   } catch (err) {
     console.warn(`Eventbrite search "${query}" failed:`, err.message);
     return [];
@@ -162,12 +158,10 @@ async function fetchEventbrite() {
     return [];
   }
 
-  // Run all search queries in parallel
   const results = await Promise.allSettled(
     EB_SEARCH_TERMS.map((q) => fetchEventbriteQuery(apiKey, q))
   );
 
-  // Merge and deduplicate by URL
   const seen = new Set();
   return results
     .filter((r) => r.status === 'fulfilled')
@@ -179,34 +173,29 @@ async function fetchEventbrite() {
     });
 }
 
-// ── API Handler ───────────────────────────────────────────────
 export default async function handler(req, res) {
-  // Return cached data if fresh
   if (cache && Date.now() - cacheTime < CACHE_TTL) {
     return res.status(200).json(cache);
   }
 
   try {
-    // Fetch all sources in parallel
     const [nycEvents, ebEvents] = await Promise.all([
       fetchNYCOpenData(),
       fetchEventbrite(),
     ]);
-  	console.log("NYC filtered:", nycEvents.length);
- 	console.log("Eventbrite filtered:", ebEvents.length);
 
-    // Merge and sort by date
+    console.log('NYC filtered:', nycEvents.length);
+    console.log('Eventbrite filtered:', ebEvents.length);
+
     const allEvents = [...nycEvents, ...ebEvents]
       .sort((a, b) => new Date(a.date) - new Date(b.date));
 
-    // Add color cycling and IDs
     const events = allEvents.slice(0, 20).map((ev, i) => ({
       ...ev,
       id: i + 1,
       color: COLORS[i % COLORS.length],
     }));
 
-    // Cache the result
     cache = events;
     cacheTime = Date.now();
 
