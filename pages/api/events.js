@@ -110,11 +110,12 @@ async function fetchEventbrite() {
   if (!apiKey) return [];
 
   try {
-    // Search for wine events near NYC (10mi radius of Midtown)
+    // Search for wine events near NYC (50mi radius — covers all 5 boroughs,
+    // NJ, Westchester, Long Island, Hudson Valley, CT wine country)
     const params = new URLSearchParams({
       'location.latitude': '40.7580',
       'location.longitude': '-73.9855',
-      'location.within': '10mi',
+      'location.within': '50mi',
       'q': 'wine tasting',
       'start_date.keyword': 'this_week',
       'sort_by': 'date',
