@@ -66,7 +66,7 @@ async function fetchNYCOpenData() {
     if (!res.ok) return [];
 
     const data = await res.json();
-    console.log('NYC raw:', data.length);
+    console.warn('NYC raw:', data.length);
 
     return data
       .filter((ev) => {
@@ -125,7 +125,7 @@ async function fetchEventbriteQuery(apiKey, query) {
     if (!res.ok) return [];
 
     const data = await res.json();
-    console.log('Eventbrite raw:', (data.events || []).length);
+    console.warn('Eventbrite raw:', (data.events || []).length);
 
     return (data.events || []).map((ev) => {
       const startDate = ev.start?.local || ev.start?.utc;
