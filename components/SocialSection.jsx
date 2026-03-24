@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react';
 
 function RedditGrid({ posts, loading, emptyMsg }) {
   return (
-    <div className="reddit-grid">
+    <div className="reddit-carousel">
       {loading && (
         <div className="reddit-card">
           <div className="reddit-title">Loading…</div>
@@ -21,7 +21,7 @@ function RedditGrid({ posts, loading, emptyMsg }) {
         </div>
       )}
       {posts.slice(0, 10).map((post, i) => (
-        <a
+        
           key={i}
           className="reddit-card"
           href={post.url}

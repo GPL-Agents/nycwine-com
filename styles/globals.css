@@ -374,17 +374,23 @@ body {
 .scs-title { font-family: var(--font-serif); font-size: 14px; font-weight: 500; color: var(--muted); font-style: italic; }
 .scs-text { font-size: 11px; color: var(--muted); margin-top: 6px; line-height: 1.5; max-width: 200px; }
 
-/* Reddit card grid — 5 per row, 2 rows */
-.reddit-grid {
+/* Reddit card carousel — single scrollable row */
+.reddit-carousel {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
+  overflow-x: auto;
   gap: 8px;
   padding: 10px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.reddit-carousel::-webkit-scrollbar {
+  display: none;
 }
 .reddit-card {
-  flex: 1 1 calc((100% - 32px) / 5);
-  min-width: 140px;
-  max-width: calc((100% - 32px) / 5);
+  flex: 0 0 220px;
+  scroll-snap-align: start;
   background: var(--cream);
   border-radius: 8px;
   padding: 10px 12px;
