@@ -303,7 +303,7 @@ body {
 .social-card {
   background: white;
   border-radius: 10px;
-  overflow: hidden;
+  overflow: visible;
   border: 1px solid var(--border);
   box-shadow: 0 2px 12px rgba(45,41,38,0.04);
 }
@@ -576,7 +576,7 @@ body {
 @media (max-width: 480px) {
   .news-card-img { width: 80px; min-height: 60px; }
   .news-card-snippet { display: none; }
-  .reddit-card { flex: 1 1 calc((100% - 8px) / 2); max-width: calc((100% - 8px) / 2); min-width: 0; }
+  .reddit-card { flex: 0 0 200px; max-width: 200px; }
 }
 
 /* ═══════════════════════════════════════
@@ -881,7 +881,7 @@ body {
   .event-card { flex: 0 0 160px; } /* horizontal scroll on mobile */
   .social-grid { grid-template-columns: 1fr; }
   .social-card.full-width { grid-column: span 1; }
-  .reddit-card { flex: 1 1 calc((100% - 16px) / 3); max-width: calc((100% - 16px) / 3); }
+  .reddit-card { flex: 0 0 200px; max-width: 200px; }
   .reddit-grid { gap: 6px; }
   .stores-page-controls { flex-direction: column; }
   .stores-page-select { max-width: 100%; }
