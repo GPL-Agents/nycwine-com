@@ -43,13 +43,13 @@ async function fetchEventbrite() {
   }
 
   const params = new URLSearchParams({
-    q: 'wine',
-    'location.address': 'New York City',
-    'location.within': '25mi',
-    sort_by: 'date',
-    'start_date.range_start': new Date().toISOString(),
-    expand: 'venue',
-  });
+  q: 'wine',
+  'location.within': '50mi',
+  'location.latitude': '40.7128',
+  'location.longitude': '-74.0060',
+  sort_by: 'date',
+  expand: 'venue',
+});
 
   try {
     const res = await fetch(`https://www.eventbriteapi.com/v3/events/search/?${params}`, {
