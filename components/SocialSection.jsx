@@ -4,33 +4,42 @@
 //
 // LIVE:
 //   - X/Twitter List link card ("NYC Wine Scene")
-//   - X/Twitter account link card (@nycwine)
+//   - X/Twitter account link card (@NYCWineReport)
+//   - Instagram photo grid (via Instagram Graph API)
 //   - Reddit wine discussions (public JSON feeds)
 //
-// NOTE: Native X/Twitter embeds stopped working for non-logged-in
-// visitors. We now show styled link cards instead — they look
-// clean, load instantly, and work for everyone.
-//
-// COMING SOON:
-//   - Instagram #nycwine community photos
-//   - Pinterest NYC wine community pins
+// Instagram: fetches from /api/instagram which uses the Graph API.
+// Until credentials are configured, shows a link card fallback.
 // ─────────────────────────────────────────────────────────────
 
 import { useState, useEffect } from 'react';
 
 export default function SocialSection() {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [redditPosts, setRedditPosts] = useState([]);
+  const [redditLoading, setRedditLoading] = useState(true);
+  const [igPhotos, setIgPhotos] = useState([]);
+  const [igLoading, setIgLoading] = useState(true);
 
   // Load Reddit posts
   useEffect(() => {
     fetch('/api/reddit')
       .then((res) => res.json())
       .then((data) => {
-        if (Array.isArray(data)) setPosts(data);
-        setLoading(false);
+        if (Array.isArray(data)) setRedditPosts(data);
+        setRedditLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch(() => setRedditLoading(false));
+  }, []);
+
+  // Load Instagram photos
+  useEffect(() => {
+    fetch('/api/instagram')
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data)) setIgPhotos(data);
+        setIgLoading(false);
+      })
+      .catch(() => setIgLoading(false));
   }, []);
 
   return (
@@ -39,16 +48,14 @@ export default function SocialSection() {
       {/* Header */}
       <div className="social-section-header">
         <div className="section-header-title">NYC Wine Community</div>
-        <a href="https://twitter.com/nycwine" className="see-all-link" target="_blank" rel="noopener noreferrer">
-          Follow @nycwine →
+        <a href="https://twitter.com/NYCWineReport" className="see-all-link" target="_blank" rel="noopener noreferrer">
+          Follow @NYCWineReport →
         </a>
       </div>
 
       <div className="social-grid">
 
-        {/* ── X / Twitter List — "NYC Wine Scene" ──────────────────
-            Styled link card directing visitors to the curated list.
-        ────────────────────────────────────────────────────────── */}
+        {/* ── X / Twitter List — "NYC Wine Scene" ──────────────── */}
         <div className="social-card">
           <div className="sc-header sc-x">
             <div className="sc-platform">NYC Wine Scene</div>
@@ -75,17 +82,15 @@ export default function SocialSection() {
           </div>
         </div>
 
-        {/* ── X / Twitter @nycwine ─────────────────────────────────
-            Styled link card directing visitors to the account.
-        ────────────────────────────────────────────────────────── */}
+        {/* ── X / Twitter @NYCWineReport ───────────────────────── */}
         <div className="social-card">
           <div className="sc-header sc-x">
             <div className="sc-platform">@NYCWineReport</div>
-            <a href="https://twitter.com/nycwine" className="sc-follow" target="_blank" rel="noopener noreferrer">Follow →</a>
+            <a href="https://twitter.com/NYCWineReport" className="sc-follow" target="_blank" rel="noopener noreferrer">Follow →</a>
           </div>
           <div className="sc-body">
             <a
-              href="https://twitter.com/nycwine"
+              href="https://twitter.com/NYCWineReport"
               target="_blank"
               rel="noopener noreferrer"
               className="social-link-card"
@@ -104,39 +109,67 @@ export default function SocialSection() {
           </div>
         </div>
 
-        {/* ── Instagram #nycwine ──────────────────────────────────── */}
-        <div className="social-card">
+        {/* ── Instagram #nycwinereport — photo grid ──────────────
+            Fetches from /api/instagram (Graph API).
+            Falls back to link card if no photos available yet.
+        ────────────────────────────────────────────────────── */}
+        <div className="social-card full-width">
           <div className="sc-header sc-ig">
-            <div className="sc-platform">Instagram</div>
-            <a href="https://www.instagram.com/explore/tags/nycwine/" className="sc-follow" target="_blank" rel="noopener noreferrer">#nycwine →</a>
+            <div className="sc-platform">Instagram · #nycwinereport</div>
+            <a href="https://www.instagram.com/explore/tags/nycwinereport/" className="sc-follow" target="_blank" rel="noopener noreferrer">#nycwinereport →</a>
           </div>
-          <div className="sc-body">
-            <a
-              href="https://www.instagram.com/explore/tags/nycwine/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link-card"
-            >
-              <div className="slc-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" strokeWidth="2"/>
-                  <circle cx="12" cy="12" r="5" stroke="currentColor" strokeWidth="2"/>
-                  <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
-                </svg>
-              </div>
-              <div className="slc-content">
-                <div className="slc-title">#nycwine</div>
-                <div className="slc-desc">Community photos of wine moments around NYC. Browse the tag on Instagram.</div>
-              </div>
-              <div className="slc-arrow">&rsaquo;</div>
-            </a>
-          </div>
+          {igPhotos.length > 0 ? (
+            <div className="ig-photo-grid">
+              {igPhotos.slice(0, 6).map((photo) => (
+                <a
+                  key={photo.id}
+                  href={photo.permalink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ig-photo-cell"
+                >
+                  <img
+                    src={photo.imageUrl}
+                    alt={photo.caption || 'NYC wine photo'}
+                    loading="lazy"
+                  />
+                  <div className="ig-photo-overlay">
+                    <span className="ig-photo-caption">{photo.caption}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          ) : (
+            <div className="sc-body">
+              <a
+                href="https://www.instagram.com/explore/tags/nycwinereport/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link-card"
+              >
+                <div className="slc-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" strokeWidth="2"/>
+                    <circle cx="12" cy="12" r="5" stroke="currentColor" strokeWidth="2"/>
+                    <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+                  </svg>
+                </div>
+                <div className="slc-content">
+                  <div className="slc-title">#nycwinereport</div>
+                  <div className="slc-desc">
+                    {igLoading ? 'Loading photos...' : 'Community photos of wine moments around NYC. Browse the tag on Instagram.'}
+                  </div>
+                </div>
+                <div className="slc-arrow">&rsaquo;</div>
+              </a>
+            </div>
+          )}
         </div>
 
-        {/* ── Pinterest NYC Wine ──────────────────────────────────── */}
-        <div className="social-card">
+        {/* ── Pinterest NYC Wine ──────────────────────────────── */}
+        <div className="social-card full-width">
           <div className="sc-header sc-pin">
-            <div className="sc-platform">Pinterest</div>
+            <div className="sc-platform">Pinterest · NYC Wine</div>
             <a href="https://pinterest.com/search/pins/?q=nyc+wine" className="sc-follow" target="_blank" rel="noopener noreferrer">Explore →</a>
           </div>
           <div className="sc-body">
@@ -167,17 +200,17 @@ export default function SocialSection() {
             <a href="https://reddit.com/r/wine" className="sc-follow" target="_blank" rel="noopener noreferrer">r/wine →</a>
           </div>
           <div className="reddit-posts">
-            {loading && (
+            {redditLoading && (
               <div className="reddit-post">
                 <div className="reddit-title">Loading wine discussions…</div>
               </div>
             )}
-            {!loading && posts.length === 0 && (
+            {!redditLoading && redditPosts.length === 0 && (
               <div className="reddit-post">
                 <div className="reddit-title">No wine discussions found right now.</div>
               </div>
             )}
-            {posts.slice(0, 5).map((post, i) => (
+            {redditPosts.slice(0, 5).map((post, i) => (
               <a
                 key={i}
                 className="reddit-post"
