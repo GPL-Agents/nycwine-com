@@ -1,20 +1,26 @@
 export default async function handler(req, res) {
   try {
-    const today = new Date().toISOString().split('T')[0];
-    const url = `https://data.cityofnewyork.us/resource/tvpp-9vvx.json?$where=start_date_time >= '${today}'&$order=start_date_time ASC&$limit=20`;
+    const url = 'https://www.eventbrite.com/d/ny--new-york/wine/';
 
     const response = await fetch(url);
-    const text = await response.text();
+    const html = await response.text();
 
-    return res.status(200).json({
-      ok: response.ok,
-      status: response.status,
-      url,
-      preview: text.slice(0, 2000)
-    });
+    // VERY simple extraction: grab event titles from page text
+    const matches = [...html.matchAll(/"name":"([^"]+)"/g)];
+
+    const events = matches
+      .slice(0, 20)
+      .map((m, i) => ({
+        id: i + 1,
+        title: m[1],
+        venue: 'New York City',
+        date: null,
+        url: url,
+        source: 'Eventbrite',
+      }));
+
+    return res.status(200).json(events);
   } catch (err) {
-    return res.status(500).json({
-      error: err.message
-    });
+    return res.status(500).json({ error: err.message });
   }
 }

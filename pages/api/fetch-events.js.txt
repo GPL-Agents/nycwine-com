@@ -1,0 +1,181 @@
+import * as cheerio from 'cheerio';
+
+const SEARCH_URLS = [
+  'https://www.eventbrite.com/d/ny--new-york/wine-tasting/',
+  'https://www.eventbrite.com/d/ny--new-york/wine-event/',
+];
+
+function normalizeText(value) {
+  return (value || '').replace(/\s+/g, ' ').trim();
+}
+
+function formatDay(dateStr) {
+  if (!dateStr) return '';
+  const d = new Date(dateStr);
+  return Number.isNaN(d.getTime()) ? '' : String(d.getDate());
+}
+
+function formatMonth(dateStr) {
+  if (!dateStr) return '';
+  const d = new Date(dateStr);
+  if (Number.isNaN(d.getTime())) return '';
+
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+  const now = new Date();
+  const tomorrow = new Date();
+  tomorrow.setDate(now.getDate() + 1);
+
+  const monthStr = months[d.getMonth()];
+  if (d.toDateString() === now.toDateString()) return `${monthStr} · Today`;
+  if (d.toDateString() === tomorrow.toDateString()) return `${monthStr} · Tomorrow`;
+  return `${monthStr} · ${days[d.getDay()]}`;
+}
+
+function getTag(title) {
+  const t = (title || '').toLowerCase();
+  if (t.includes('tasting')) return 'Tasting';
+  if (t.includes('dinner') || t.includes('pairing')) return 'Dinner';
+  if (t.includes('class')) return 'Class';
+  return 'Event';
+}
+
+function parseJsonLd($) {
+  const events = [];
+
+  $('script[type="application/ld+json"]').each((_, el) => {
+    const raw = $(el).html();
+    if (!raw) return;
+
+    try {
+      const parsed = JSON.parse(raw);
+      const items = Array.isArray(parsed) ? parsed : [parsed];
+
+      for (const item of items) {
+        if (!item) continue;
+
+        if (item['@type'] === 'Event') {
+          events.push(item);
+        }
+
+        if (item['@type'] === 'ItemList' && Array.isArray(item.itemListElement)) {
+          for (const entry of item.itemListElement) {
+            const candidate = entry?.item || entry;
+            if (candidate?.['@type'] === 'Event') {
+              events.push(candidate);
+            }
+          }
+        }
+      }
+    } catch {
+      // ignore bad JSON-LD blocks
+    }
+  });
+
+  return events;
+}
+
+function parseCards($) {
+  const events = [];
+
+  $('a[href*="/e/"]').each((_, el) => {
+    const link = $(el).attr('href');
+    const text = normalizeText($(el).text());
+
+    if (!link || !text) return;
+    if (text.length < 8) return;
+
+    events.push({
+      name: text,
+      url: link.startsWith('http') ? link : `https://www.eventbrite.com${link}`,
+    });
+  });
+
+  return events;
+}
+
+async function scrapeSearchPage(url) {
+  const res = await fetch(url, {
+    headers: {
+      'User-Agent': 'Mozilla/5.0 NYCWineBot/1.0',
+      Accept: 'text/html,application/xhtml+xml',
+    },
+  });
+
+  if (!res.ok) {
+    throw new Error(`Failed to fetch ${url}: ${res.status}`);
+  }
+
+  const html = await res.text();
+  const $ = cheerio.load(html);
+
+  const jsonLdEvents = parseJsonLd($).map((ev) => ({
+    title: normalizeText(ev.name),
+    venue: normalizeText(
+      ev.location?.name ||
+      ev.location?.address?.name ||
+      ev.location?.address?.addressLocality ||
+      'New York City'
+    ),
+    date: ev.startDate || null,
+    day: formatDay(ev.startDate),
+    month: formatMonth(ev.startDate),
+    tag: getTag(ev.name),
+    price: null,
+    url: ev.url || null,
+    image: ev.image || null,
+    source: 'Eventbrite',
+  }));
+
+  if (jsonLdEvents.length > 0) {
+    return jsonLdEvents;
+  }
+
+  return parseCards($).map((ev) => ({
+    title: ev.name,
+    venue: 'New York City',
+    date: null,
+    day: '',
+    month: '',
+    tag: getTag(ev.name),
+    price: null,
+    url: ev.url,
+    image: null,
+    source: 'Eventbrite',
+  }));
+}
+
+export default async function handler(req, res) {
+  try {
+    const results = await Promise.allSettled(SEARCH_URLS.map(scrapeSearchPage));
+
+    const seen = new Set();
+    const events = results
+      .filter((r) => r.status === 'fulfilled')
+      .flatMap((r) => r.value)
+      .filter((ev) => {
+        if (!ev.url) return false;
+        if (seen.has(ev.url)) return false;
+        seen.add(ev.url);
+        return true;
+      })
+      .filter((ev) => {
+        const title = (ev.title || '').toLowerCase();
+        return title.includes('wine');
+      })
+      .slice(0, 20)
+      .map((ev, i) => ({
+        ...ev,
+        id: i + 1,
+        color: ['c1', 'c2', 'c3', 'c4', 'c5'][i % 5],
+      }));
+
+    return res.status(200).json(events);
+  } catch (err) {
+    return res.status(500).json({
+      error: 'Failed to fetch events',
+      message: err.message,
+    });
+  }
+}
