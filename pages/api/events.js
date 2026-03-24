@@ -17,7 +17,7 @@ function matchesWine(text) {
 
 let cache = null;
 let cacheTime = 0;
-const CACHE_TTL = 30 * 60 * 1000;
+const CACHE_TTL = 0;
 
 function formatDay(dateStr) {
   const d = new Date(dateStr);
