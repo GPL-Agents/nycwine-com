@@ -85,7 +85,6 @@ export default function NewsSection() {
       <div className="news-cards">
         {loading && (
           <div className="news-card">
-            <div className="news-card-emoji">⏳</div>
             <div>
               <div className="news-card-title">Loading wine news…</div>
             </div>
@@ -93,7 +92,6 @@ export default function NewsSection() {
         )}
         {error && (
           <div className="news-card">
-            <div className="news-card-emoji">⚠️</div>
             <div>
               <div className="news-card-title">
                 Unable to load news right now. Please try again later.
@@ -103,7 +101,6 @@ export default function NewsSection() {
         )}
         {!loading && !error && filtered.length === 0 && (
           <div className="news-card">
-            <div className="news-card-emoji">🔍</div>
             <div>
               <div className="news-card-title">
                 No wine news from {activeTab} right now.
@@ -120,7 +117,6 @@ export default function NewsSection() {
             rel="noopener noreferrer"
             style={{ textDecoration: 'none', color: 'inherit' }}
           >
-            <div className="news-card-emoji">{item.emoji}</div>
             <div>
               <div className="news-card-source" style={{ color: item.color }}>
                 {item.source}

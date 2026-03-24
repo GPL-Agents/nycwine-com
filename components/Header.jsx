@@ -18,26 +18,19 @@ export default function Header() {
       <input
         type="search"
         placeholder="Search wine, stores, events…"
-        style={{
-          flex: 1,
-          margin: '0 12px',
-          background: 'var(--grey)',
-          borderRadius: 20,
-          padding: '6px 14px',
-          fontSize: 12,
-          color: 'var(--muted)',
-          border: 'none',
-          outline: 'none',
-          maxWidth: 280,
-        }}
+        className="header-search"
       />
 
       {/* Hamburger — will open nav drawer in a future version */}
       <button
         aria-label="Open menu"
-        style={{ fontSize: 22, background: 'none', border: 'none', cursor: 'pointer', color: 'var(--black)' }}
+        className="header-menu-btn"
       >
-        ☰
+        <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line y1="1" x2="20" y2="1" stroke="currentColor" strokeWidth="1.5"/>
+          <line y1="8" x2="20" y2="8" stroke="currentColor" strokeWidth="1.5"/>
+          <line y1="15" x2="20" y2="15" stroke="currentColor" strokeWidth="1.5"/>
+        </svg>
       </button>
     </header>
   );

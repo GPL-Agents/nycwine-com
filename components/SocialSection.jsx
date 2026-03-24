@@ -50,7 +50,7 @@ export default function SocialSection() {
 
       {/* Header */}
       <div className="social-section-header">
-        <div className="section-header-title">📸 NYC Wine Community</div>
+        <div className="section-header-title">NYC Wine Community</div>
         <a href="https://twitter.com/nycwine" className="see-all-link" target="_blank" rel="noopener noreferrer">
           Follow @nycwine →
         </a>
@@ -88,12 +88,11 @@ export default function SocialSection() {
         ────────────────────────────────────────────────────── */}
         <div className="social-card">
           <div className="sc-header sc-ig">
-            <div className="sc-platform">📸 Instagram · #nycwine</div>
+            <div className="sc-platform">Instagram · #nycwine</div>
             <a href="https://www.instagram.com/explore/tags/nycwine/" className="sc-follow" target="_blank" rel="noopener noreferrer">#nycwine →</a>
           </div>
           <div className="sc-body">
             <div className="social-coming-soon">
-              <div className="scs-icon">📸</div>
               <div className="scs-title">Instagram Feed</div>
               <div className="scs-text">Community photos from #nycwine will appear here. Coming soon via Elfsight widget.</div>
             </div>
@@ -107,12 +106,11 @@ export default function SocialSection() {
         ────────────────────────────────────────────────────── */}
         <div className="social-card">
           <div className="sc-header sc-pin">
-            <div className="sc-platform">📌 Pinterest · NYC Wine</div>
+            <div className="sc-platform">Pinterest · NYC Wine</div>
             <a href="https://pinterest.com/search/pins/?q=nyc+wine" className="sc-follow" target="_blank" rel="noopener noreferrer">Explore →</a>
           </div>
           <div className="sc-body">
             <div className="social-coming-soon">
-              <div className="scs-icon">📌</div>
               <div className="scs-title">Pinterest Feed</div>
               <div className="scs-text">NYC wine pins and boards will appear here. Coming soon via Elfsight widget.</div>
             </div>
@@ -123,7 +121,7 @@ export default function SocialSection() {
         {/* ── Reddit (full width, LIVE) ────────────────────────── */}
         <div className="social-card full-width">
           <div className="sc-header sc-reddit">
-            <div className="sc-platform">🤖 Reddit — What NYC is asking about wine</div>
+            <div className="sc-platform">Reddit — Wine Discussions</div>
             <a href="https://reddit.com/r/wine" className="sc-follow" target="_blank" rel="noopener noreferrer">r/wine →</a>
           </div>
           <div className="reddit-posts">

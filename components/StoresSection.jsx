@@ -1,25 +1,27 @@
 // components/StoresSection.jsx
 // ─────────────────────────────────────────────────────────────
-// LIVE NYC Wine Store directory — 335 Manhattan stores loaded
-// from /data/wine-stores.json (converted from CSV).
+// Homepage wine store discovery widget.
 //
-// Features:
-//   - Neighborhood filter dropdown (25+ neighborhoods)
-//   - Search by store name
-//   - Paginated list (show 10 at a time, "Show more" button)
-//   - Links to store websites where available
+// Shows a compact search + neighborhood filter with a preview
+// of results (3 stores max). Links to a full /stores page for
+// the complete 335-store directory.
 //
-// To update store data: edit data/wine-stores.json or re-run
-// the CSV-to-JSON conversion script.
+// Data loaded from /data/wine-stores.json.
 // ─────────────────────────────────────────────────────────────
 
 import { useState, useEffect, useMemo } from 'react';
 
+// Curated neighborhoods for the quick-pick grid
+const FEATURED_HOODS = [
+  'Upper West Side', 'Upper East Side', 'Midtown',
+  'Chelsea', 'West Village', 'East Village',
+  'SoHo', 'Lower East Side', 'Harlem',
+];
+
 export default function StoresSection() {
   const [stores, setStores] = useState([]);
-  const [neighborhood, setNeighborhood] = useState('All');
   const [search, setSearch] = useState('');
-  const [showCount, setShowCount] = useState(10);
+  const [selectedHood, setSelectedHood] = useState(null);
 
   // Load store data
   useEffect(() => {
@@ -29,17 +31,22 @@ export default function StoresSection() {
       .catch(() => {});
   }, []);
 
-  // Get unique neighborhoods, sorted
-  const neighborhoods = useMemo(() => {
-    const hoods = [...new Set(stores.map((s) => s.neighborhood))].filter(Boolean).sort();
-    return ['All', ...hoods];
+  // Count stores per neighborhood
+  const hoodCounts = useMemo(() => {
+    const counts = {};
+    stores.forEach((s) => {
+      if (s.neighborhood) {
+        counts[s.neighborhood] = (counts[s.neighborhood] || 0) + 1;
+      }
+    });
+    return counts;
   }, [stores]);
 
-  // Filter stores
+  // Filter stores based on search or selected neighborhood
   const filtered = useMemo(() => {
     let result = stores;
-    if (neighborhood !== 'All') {
-      result = result.filter((s) => s.neighborhood === neighborhood);
+    if (selectedHood) {
+      result = result.filter((s) => s.neighborhood === selectedHood);
     }
     if (search.trim()) {
       const q = search.toLowerCase();
@@ -51,116 +58,112 @@ export default function StoresSection() {
       );
     }
     return result;
-  }, [stores, neighborhood, search]);
+  }, [stores, selectedHood, search]);
 
-  const visible = filtered.slice(0, showCount);
-  const hasMore = filtered.length > showCount;
+  const preview = filtered.slice(0, 3);
+  const isSearching = search.trim() || selectedHood;
 
   return (
     <section className="stores-section" id="sec-stores">
 
       {/* Header */}
       <div className="section-header stores-header">
-        <div className="section-header-title">🍷 NYC Wine Stores</div>
-        <span className="see-all-link">{filtered.length} stores</span>
+        <div className="section-header-title">Wine Stores</div>
+        <a href="/stores" className="see-all-link">
+          {stores.length} stores &rarr;
+        </a>
       </div>
 
-      {/* Search + filter row */}
-      <div className="store-controls">
-        <input
-          type="search"
-          placeholder="Search stores…"
-          value={search}
-          onChange={(e) => { setSearch(e.target.value); setShowCount(10); }}
-          className="store-search"
-        />
-        <select
-          value={neighborhood}
-          onChange={(e) => { setNeighborhood(e.target.value); setShowCount(10); }}
-          className="store-filter-select"
-        >
-          {neighborhoods.map((h) => (
-            <option key={h} value={h}>{h === 'All' ? 'All Neighborhoods' : h}</option>
+      {/* Search bar */}
+      <div className="store-finder">
+        <div className="store-finder-inner">
+          <div className="store-finder-label">Find a wine store near you</div>
+          <input
+            type="search"
+            placeholder="Search by name, address, or neighborhood…"
+            value={search}
+            onChange={(e) => { setSearch(e.target.value); setSelectedHood(null); }}
+            className="store-search"
+          />
+        </div>
+
+        {/* Neighborhood quick picks */}
+        <div className="hood-grid">
+          {FEATURED_HOODS.map((hood) => (
+            <button
+              key={hood}
+              className={`hood-chip${selectedHood === hood ? ' active' : ''}`}
+              onClick={() => {
+                setSelectedHood(selectedHood === hood ? null : hood);
+                setSearch('');
+              }}
+            >
+              <span className="hood-name">{hood}</span>
+              <span className="hood-count">{hoodCounts[hood] || 0}</span>
+            </button>
           ))}
-        </select>
+        </div>
       </div>
 
-      {/* Store rows */}
-      <div className="store-list">
-        {visible.map((store) => (
-          <div key={store.id} className="store-row">
-            <div className="store-icon" style={{ background: store.iconBg }}>
-              {store.icon}
+      {/* Preview results (only when searching/filtering) */}
+      {isSearching && (
+        <div className="store-preview">
+          {preview.length === 0 ? (
+            <div className="store-preview-empty">
+              No stores match your search. <a href="/stores">Browse all stores</a>
             </div>
-            <div className="store-info">
-              <div className="store-name">{store.name}</div>
-              <div className="store-address">
-                {store.address} · {store.neighborhood}
-              </div>
-              {store.phone && (
-                <div className="store-phone">
-                  <a href={`tel:${store.phone}`} style={{ color: 'var(--muted)', textDecoration: 'none', fontSize: 12 }}>
-                    {store.phone}
-                  </a>
+          ) : (
+            <>
+              {preview.map((store) => (
+                <div key={store.id} className="store-row">
+                  <div className="store-info">
+                    <div className="store-name">{store.name}</div>
+                    <div className="store-address">
+                      {store.address} &middot; {store.neighborhood}
+                    </div>
+                    {store.phone && (
+                      <div className="store-phone">
+                        <a href={`tel:${store.phone}`}>{store.phone}</a>
+                      </div>
+                    )}
+                  </div>
+                  {store.url ? (
+                    <a
+                      href={store.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="store-visit-btn"
+                    >
+                      Visit
+                    </a>
+                  ) : store.phone ? (
+                    <a href={`tel:${store.phone}`} className="store-visit-btn">
+                      Call
+                    </a>
+                  ) : null}
                 </div>
+              ))}
+              {filtered.length > 3 && (
+                <a href="/stores" className="store-see-all">
+                  View all {filtered.length} results &rarr;
+                </a>
               )}
-              {store.badge && (
-                <div className={`store-tag ${store.badgeType}`}>{store.badge}</div>
-              )}
-            </div>
-            {store.url ? (
-              <a
-                href={store.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="store-visit-btn"
-              >
-                Visit →
-              </a>
-            ) : store.phone ? (
-              <a
-                href={`tel:${store.phone}`}
-                className="store-visit-btn"
-              >
-                Call →
-              </a>
-            ) : null}
-          </div>
-        ))}
-
-        {visible.length === 0 && (
-          <div className="store-row" style={{ justifyContent: 'center', padding: 20 }}>
-            <div className="store-info" style={{ textAlign: 'center' }}>
-              <div className="store-name">No stores found</div>
-              <div className="store-address">Try a different search or neighborhood</div>
-            </div>
-          </div>
-        )}
-
-        {hasMore && (
-          <button
-            className="store-see-all"
-            onClick={() => setShowCount((c) => c + 10)}
-            style={{ cursor: 'pointer', border: 'none', background: 'none', width: '100%' }}
-          >
-            Show more ({filtered.length - showCount} remaining) →
-          </button>
-        )}
-      </div>
+            </>
+          )}
+        </div>
+      )}
 
       {/* Explore more: Wine Bars + Wineries */}
       <div className="explore-section" id="sec-bars">
         <div className="explore-title">More to explore</div>
         <div className="explore-grid">
           <a href="/bars" className="explore-card bars">
-            <span className="explore-icon">🥂</span>
             <div className="explore-name">Wine Bars</div>
-            <div className="explore-sub">NYC&apos;s best</div>
+            <div className="explore-sub">NYC&apos;s best wine bars</div>
           </a>
           <a href="#" className="explore-card wineries" id="sec-wineries">
-            <span className="explore-icon">🍇</span>
-            <div className="explore-name" style={{ color: '#888' }}>Wineries</div>
-            <div className="explore-sub">Coming in V1</div>
+            <div className="explore-name" style={{ color: 'var(--muted)' }}>Wineries</div>
+            <div className="explore-sub">Coming soon</div>
           </a>
         </div>
       </div>

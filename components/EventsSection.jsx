@@ -52,7 +52,7 @@ export default function EventsSection() {
 
       {/* Header bar */}
       <div className="section-header events-header">
-        <div className="section-header-title"><span style={{ marginRight: 6 }}>📅</span>Upcoming Events</div>
+        <div className="section-header-title">Upcoming Events</div>
         <a href="/events" className="see-all-link">See all →</a>
       </div>
 
@@ -85,7 +85,7 @@ export default function EventsSection() {
         {error && (
           <div className="event-card">
             <div className="event-card-header c1">
-              <div className="event-date-big">⚠️</div>
+              <div className="event-date-big">!</div>
               <div className="event-month">Oops</div>
             </div>
             <div className="event-card-body">
@@ -96,7 +96,7 @@ export default function EventsSection() {
         {!loading && !error && cardEvents.length === 0 && (
           <div className="event-card">
             <div className="event-card-header c2">
-              <div className="event-date-big">🔍</div>
+              <div className="event-date-big">&mdash;</div>
               <div className="event-month">No matches</div>
             </div>
             <div className="event-card-body">
