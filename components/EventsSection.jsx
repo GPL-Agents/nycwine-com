@@ -133,6 +133,7 @@ export default function EventsSection() {
             <div className="event-card-body">
               <div className="event-card-name">{ev.title}</div>
               <div className="event-card-venue">{ev.venue}</div>
+              {ev.dateDisplay && <div className="event-card-date">{ev.dateDisplay}</div>}
               <span className="event-card-tag">{ev.tag}</span>
               {ev.price && <span className="event-card-price">{ev.price}</span>}
             </div>
@@ -144,10 +145,7 @@ export default function EventsSection() {
       {listEvents.length > 0 && (
         <div className="event-list">
           <div className="event-list-title">More coming up</div>
-          {listEvents.map((ev) => {
-            const d = new Date(ev.date);
-            const dows = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-            return (
+          {listEvents.map((ev) => (
               <a
                 key={ev.id}
                 className="event-row"
@@ -158,16 +156,16 @@ export default function EventsSection() {
               >
                 <div className="event-row-date">
                   <div className="event-row-day">{ev.day}</div>
-                  <div className="event-row-dow">{dows[d.getDay()]}</div>
+                  <div className="event-row-dow">{ev.month}</div>
                 </div>
                 <div className="event-row-info">
                   <div className="event-row-name">{ev.title}</div>
                   <div className="event-row-venue">{ev.venue}</div>
+                  {ev.dateDisplay && <div className="event-row-venue">{ev.dateDisplay}</div>}
                 </div>
-                <div className="event-row-arrow">›</div>
+                <div className="event-row-arrow">&rsaquo;</div>
               </a>
-            );
-          })}
+          ))}
         </div>
       )}
 

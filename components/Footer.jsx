@@ -19,7 +19,7 @@ export default function Footer() {
         <span className="footer-dot">&middot;</span>
         <a href="/events">Events</a>
       </nav>
-      <div className="footer-copy">&copy; {year} NYCWine.com &mdash; All rights reserved</div>
+      <div className="footer-copy">&copy; {year} Metropolitan Vintners, LLC &mdash; All rights reserved</div>
     </footer>
   );
 }
