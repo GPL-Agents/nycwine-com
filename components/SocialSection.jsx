@@ -21,7 +21,7 @@ function RedditGrid({ posts, loading, emptyMsg }) {
         </div>
       )}
       {posts.slice(0, 10).map((post, i) => (
-        
+        <a
           key={i}
           className="reddit-card"
           href={post.url}
