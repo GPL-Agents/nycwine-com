@@ -45,8 +45,10 @@ body {
    HEADER
 ═══════════════════════════════════════ */
 .site-header {
-  background: var(--pink);
-  padding: 14px 24px;
+  background: white;
+  border-top: 3px solid var(--pink);
+  border-bottom: 3px solid var(--pink);
+  padding: 12px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -58,30 +60,30 @@ body {
 .header-search {
   flex: 1;
   margin: 0 16px;
-  background: rgba(255,255,255,0.2);
+  background: white;
   border-radius: 24px;
   padding: 8px 18px;
   font-size: 13px;
-  color: white;
-  border: 1px solid rgba(255,255,255,0.35);
+  color: var(--text);
+  border: 1.5px solid var(--border);
   outline: none;
   max-width: 300px;
   font-family: var(--font-sans);
-  transition: background 0.2s;
+  transition: border-color 0.2s;
 }
-.header-search:focus { background: rgba(255,255,255,0.3); border-color: rgba(255,255,255,0.5); }
-.header-search::placeholder { color: rgba(255,255,255,0.7); }
+.header-search:focus { border-color: var(--pink); }
+.header-search::placeholder { color: var(--muted); }
 
 .header-menu-btn {
   background: none;
   border: none;
   cursor: pointer;
-  color: white;
+  color: var(--black);
   padding: 4px;
   display: flex;
   align-items: center;
 }
-.header-menu-btn:hover { color: rgba(255,255,255,0.7); }
+.header-menu-btn:hover { color: var(--pink); }
 
 /* ═══════════════════════════════════════
    QUICK NAV
