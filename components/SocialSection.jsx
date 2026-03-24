@@ -4,12 +4,9 @@
 //
 // LIVE:
 //   - X/Twitter List link card ("NYC Wine Scene")
-//   - X/Twitter account link card (@NYCWineReport)
-//   - Instagram photo grid (via Instagram Graph API)
+//   - Instagram feed (Elfsight widget — paste embed code below)
 //   - Reddit wine discussions (public JSON feeds)
-//
-// Instagram: fetches from /api/instagram which uses the Graph API.
-// Until credentials are configured, shows a link card fallback.
+//   - Pinterest link card
 // ─────────────────────────────────────────────────────────────
 
 import { useState, useEffect } from 'react';
@@ -17,8 +14,6 @@ import { useState, useEffect } from 'react';
 export default function SocialSection() {
   const [redditPosts, setRedditPosts] = useState([]);
   const [redditLoading, setRedditLoading] = useState(true);
-  const [igPhotos, setIgPhotos] = useState([]);
-  const [igLoading, setIgLoading] = useState(true);
 
   // Load Reddit posts
   useEffect(() => {
@@ -29,17 +24,6 @@ export default function SocialSection() {
         setRedditLoading(false);
       })
       .catch(() => setRedditLoading(false));
-  }, []);
-
-  // Load Instagram photos
-  useEffect(() => {
-    fetch('/api/instagram')
-      .then((res) => res.json())
-      .then((data) => {
-        if (Array.isArray(data)) setIgPhotos(data);
-        setIgLoading(false);
-      })
-      .catch(() => setIgLoading(false));
   }, []);
 
   return (
@@ -82,92 +66,8 @@ export default function SocialSection() {
           </div>
         </div>
 
-        {/* ── X / Twitter @NYCWineReport ───────────────────────── */}
-        <div className="social-card">
-          <div className="sc-header sc-x">
-            <div className="sc-platform">@NYCWineReport</div>
-            <a href="https://twitter.com/NYCWineReport" className="sc-follow" target="_blank" rel="noopener noreferrer">Follow →</a>
-          </div>
-          <div className="sc-body">
-            <a
-              href="https://twitter.com/NYCWineReport"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link-card"
-            >
-              <div className="slc-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/>
-                </svg>
-              </div>
-              <div className="slc-content">
-                <div className="slc-title">@NYCWineReport</div>
-                <div className="slc-desc">Wine events, tastings, and news from around New York City. Follow for updates.</div>
-              </div>
-              <div className="slc-arrow">&rsaquo;</div>
-            </a>
-          </div>
-        </div>
-
-        {/* ── Instagram #nycwinereport — photo grid ──────────────
-            Fetches from /api/instagram (Graph API).
-            Falls back to link card if no photos available yet.
-        ────────────────────────────────────────────────────── */}
-        <div className="social-card full-width">
-          <div className="sc-header sc-ig">
-            <div className="sc-platform">Instagram · #nycwinereport</div>
-            <a href="https://www.instagram.com/explore/tags/nycwinereport/" className="sc-follow" target="_blank" rel="noopener noreferrer">#nycwinereport →</a>
-          </div>
-          {igPhotos.length > 0 ? (
-            <div className="ig-photo-grid">
-              {igPhotos.slice(0, 6).map((photo) => (
-                <a
-                  key={photo.id}
-                  href={photo.permalink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="ig-photo-cell"
-                >
-                  <img
-                    src={photo.imageUrl}
-                    alt={photo.caption || 'NYC wine photo'}
-                    loading="lazy"
-                  />
-                  <div className="ig-photo-overlay">
-                    <span className="ig-photo-caption">{photo.caption}</span>
-                  </div>
-                </a>
-              ))}
-            </div>
-          ) : (
-            <div className="sc-body">
-              <a
-                href="https://www.instagram.com/explore/tags/nycwinereport/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-link-card"
-              >
-                <div className="slc-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" strokeWidth="2"/>
-                    <circle cx="12" cy="12" r="5" stroke="currentColor" strokeWidth="2"/>
-                    <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
-                  </svg>
-                </div>
-                <div className="slc-content">
-                  <div className="slc-title">#nycwinereport</div>
-                  <div className="slc-desc">
-                    {igLoading ? 'Loading photos...' : 'Community photos of wine moments around NYC. Browse the tag on Instagram.'}
-                  </div>
-                </div>
-                <div className="slc-arrow">&rsaquo;</div>
-              </a>
-            </div>
-          )}
-        </div>
-
         {/* ── Pinterest NYC Wine ──────────────────────────────── */}
-        <div className="social-card full-width">
+        <div className="social-card">
           <div className="sc-header sc-pin">
             <div className="sc-platform">Pinterest · NYC Wine</div>
             <a href="https://pinterest.com/search/pins/?q=nyc+wine" className="sc-follow" target="_blank" rel="noopener noreferrer">Explore →</a>
@@ -190,6 +90,33 @@ export default function SocialSection() {
               </div>
               <div className="slc-arrow">&rsaquo;</div>
             </a>
+          </div>
+        </div>
+
+        {/* ── Instagram (Elfsight widget — full width) ──────────
+            To activate:
+            1. Sign up at elfsight.com
+            2. Create an Instagram Feed widget for #nycwine
+            3. Copy the embed code (a <script> + <div> tag)
+            4. Replace the placeholder div below with your embed code
+
+            The Elfsight script tag goes in _app.js (one-time).
+            The widget div goes here.
+        ────────────────────────────────────────────────────── */}
+        <div className="social-card full-width">
+          <div className="sc-header sc-ig">
+            <div className="sc-platform">Instagram · #nycwine</div>
+            <a href="https://www.instagram.com/explore/tags/nycwine/" className="sc-follow" target="_blank" rel="noopener noreferrer">#nycwine →</a>
+          </div>
+          <div className="sc-body elfsight-placeholder">
+            {/* ── PASTE YOUR ELFSIGHT WIDGET DIV HERE ──
+                It will look something like:
+                <div className="elfsight-app-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" data-elfsight-app-lazy></div>
+            ────────────────────────────────────────── */}
+            <div className="social-coming-soon">
+              <div className="scs-title">Instagram Feed</div>
+              <div className="scs-text">Setting up Elfsight widget — community #nycwine photos will appear here automatically.</div>
+            </div>
           </div>
         </div>
 
