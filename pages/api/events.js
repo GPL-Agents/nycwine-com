@@ -10,27 +10,14 @@ export default async function handler(req, res) {
 
     const html = await response.text();
 
-    const titleMatches = [...html.matchAll(/"name":"([^"]+)"/g)];
-    const linkMatches = [...html.matchAll(/"url":"(https:\\\/\\\/www\.eventbrite\.com\\\/e\\\/[^"]+)"/g)];
+    const hrefMatches = [...html.matchAll(/href="([^"]+)"/g)]
+      .map((m) => m[1])
+      .filter((href) => href.includes('/e/') || href.includes('eventbrite.com/e/'));
 
-    const events = titleMatches.slice(0, 20).map((m, i) => {
-      let eventUrl = linkMatches[i]?.[1] || searchUrl;
-
-      eventUrl = eventUrl
-        .replace(/\\\//g, '/')
-        .replace(/\\\\u002[Ff]/g, '/');
-
-      return {
-        id: i + 1,
-        title: m[1],
-        venue: 'New York City',
-        date: null,
-        url: eventUrl,
-        source: 'Eventbrite',
-      };
+    return res.status(200).json({
+      count: hrefMatches.length,
+      sample: hrefMatches.slice(0, 20),
     });
-
-    return res.status(200).json(events);
   } catch (err) {
     return res.status(500).json({ error: err.message });
   }
