@@ -1,19 +1,17 @@
 // components/NewsSection.jsx
 // ─────────────────────────────────────────────────────────────
-// LIVE wine news feed from 8 RSS sources.
+// LIVE wine news feed from 13 RSS sources.
 //
 // Fetches from /api/news on mount, shows real articles.
 // Falls back to a "Loading..." state, then error message
 // if the API is unreachable.
 //
-// Source filter tabs let users filter by publication.
+// Source filter tabs are built dynamically from API data.
+// NYC-local sources get a star badge in the tabs.
 // Ticker scrolls the top 5 headlines.
 // ─────────────────────────────────────────────────────────────
 
-import { useState, useEffect } from 'react';
-
-// Tab labels — "All" plus the source names from the API
-const SOURCES = ['All', 'NY Times', 'NY Post', 'Eater NY', 'VinePair', 'Grub St.', 'Wine Spectator', 'Decanter', 'Wine Enthusiast'];
+import { useState, useEffect, useMemo } from 'react';
 
 export default function NewsSection() {
   const [activeTab, setActiveTab] = useState('All');
@@ -37,11 +35,21 @@ export default function NewsSection() {
       });
   }, []);
 
+  // Build tabs dynamically from the data
+  const sources = useMemo(() => {
+    const seen = new Set();
+    return ['All', ...news.map((n) => n.source).filter((s) => {
+      if (seen.has(s)) return false;
+      seen.add(s);
+      return true;
+    })];
+  }, [news]);
+
   // Filter by active tab
   const filtered =
     activeTab === 'All'
       ? news
-      : news.filter((n) => n.source.includes(activeTab));
+      : news.filter((n) => n.source === activeTab);
 
   // Build ticker text from top headlines
   const tickerText = news
@@ -60,9 +68,9 @@ export default function NewsSection() {
         </span>
       </div>
 
-      {/* Source filter tabs */}
+      {/* Source filter tabs (built dynamically from API data) */}
       <div className="news-source-tabs">
-        {SOURCES.map((s) => (
+        {sources.map((s) => (
           <button
             key={s}
             className={`news-tab${activeTab === s ? ' active' : ''}`}

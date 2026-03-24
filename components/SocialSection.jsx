@@ -16,17 +16,14 @@ import { useState, useEffect, useRef } from 'react';
 export default function SocialSection() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [needsSetup, setNeedsSetup] = useState(false);
   const twitterRef = useRef(null);
 
-  // Load Reddit posts
+  // Load Reddit posts (uses free public JSON feeds, no API key needed)
   useEffect(() => {
     fetch('/api/reddit')
       .then((res) => res.json())
       .then((data) => {
-        if (data.needsSetup) {
-          setNeedsSetup(true);
-        } else if (Array.isArray(data)) {
+        if (Array.isArray(data)) {
           setPosts(data);
         }
         setLoading(false);
@@ -135,15 +132,7 @@ export default function SocialSection() {
                 <div className="reddit-title">Loading wine discussions…</div>
               </div>
             )}
-            {needsSetup && (
-              <div className="reddit-post">
-                <div className="reddit-sub" style={{ color: 'var(--muted)' }}>Setup needed</div>
-                <div className="reddit-title">
-                  Reddit API credentials needed to show live wine discussions. Add REDDIT_CLIENT_ID and REDDIT_CLIENT_SECRET to .env.local
-                </div>
-              </div>
-            )}
-            {!loading && !needsSetup && posts.length === 0 && (
+            {!loading && posts.length === 0 && (
               <div className="reddit-post">
                 <div className="reddit-title">No wine discussions found right now.</div>
               </div>
@@ -165,7 +154,7 @@ export default function SocialSection() {
               </a>
             ))}
           </div>
-          <div className="sc-footer">Live via Reddit API · r/wine + r/nyc + r/FoodNYC</div>
+          <div className="sc-footer">Live · r/wine + r/nyc + r/FoodNYC · no API key needed</div>
         </div>
 
       </div>

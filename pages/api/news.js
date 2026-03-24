@@ -1,6 +1,6 @@
 // pages/api/news.js
 // ─────────────────────────────────────────────────────────────
-// RSS News Aggregator — fetches wine news from 8 sources,
+// RSS News Aggregator — fetches wine news from 13 sources,
 // filters by wine keywords, merges and sorts by date.
 //
 // Endpoint: GET /api/news
@@ -78,6 +78,45 @@ const FEEDS = [
     url: 'https://www.winemag.com/feed/',
     emoji: '🍇',
     color: '#4a0e2e',
+    filterByKeyword: false,
+  },
+  // ── NYC-specific sources ──────────────────────────────────
+  {
+    name: 'Grape Collective',
+    url: 'https://grapecollective.com/articles/rss',
+    emoji: '🗽',
+    color: '#5b2c6f',
+    filterByKeyword: false,
+    nycLocal: true,
+  },
+  {
+    name: 'Dame Wine',
+    url: 'https://damewine.com/feed/',
+    emoji: '🌹',
+    color: '#c0392b',
+    filterByKeyword: false,
+    nycLocal: true,
+  },
+  // ── Additional wine publications ──────────────────────────
+  {
+    name: 'SevenFifty Daily',
+    url: 'https://daily.sevenfifty.com/feed/',
+    emoji: '📋',
+    color: '#2c3e50',
+    filterByKeyword: false,
+  },
+  {
+    name: 'PUNCH',
+    url: 'https://punchdrink.com/feed/',
+    emoji: '🍸',
+    color: '#e74c3c',
+    filterByKeyword: true,
+  },
+  {
+    name: 'Wine Folly',
+    url: 'https://winefolly.com/feed/',
+    emoji: '📚',
+    color: '#6c3461',
     filterByKeyword: false,
   },
 ];

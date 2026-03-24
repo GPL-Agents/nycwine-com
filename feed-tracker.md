@@ -74,14 +74,20 @@ Update the **Status** column as each one goes live. Keep credentials in `.env.lo
 | **Wine Spectator** | 🟢 Live | News RSS | No (wine-only pub) | Free | No filtering needed |
 | **Decanter** | 🟢 Live | Main feed RSS | No (wine-only pub) | Free | No filtering needed |
 | **Wine Enthusiast** | 🟢 Live | Magazine RSS | No (wine-only pub) | Free | No filtering needed |
+| **Grape Collective** | 🟢 Live | NYC wine shop + magazine RSS | No (wine-only, NYC local) | Free | NYC-specific: store reviews, events, tastings. Based on Broadway, NYC |
+| **Dame Wine** | 🟢 Live | Blog RSS | No (wine-only, NYC local) | Free | NYC-specific: "Celebrating Wine, Life and Inspiring Colorful People in New York City" |
+| **SevenFifty Daily** | 🟢 Live | Industry magazine RSS | No (wine/spirits pub) | Free | Wine/spirits business and culture. NYC-based publication |
+| **PUNCH** | 🟢 Live | Drinks magazine RSS | Yes | Free | Narrative journalism on wine, spirits, cocktails. Filter for wine keywords |
+| **Wine Folly** | 🟢 Live | Education blog RSS | No (wine-only pub) | Free | Popular wine education site. Shareable, accessible content |
 
 **Ticker:** Auto-generated from top 6 headlines.
 **Refresh interval:** 60 minutes (in-memory cache in API route).
 **Filter keywords:** wine, winery, vineyard, tasting, sommelier, champagne, rosé, bordeaux, pinot, chardonnay, merlot, cabernet, prosecco, cava, riesling + many more.
 
-**Current state:** `NewsSection.jsx` fetches from `/api/news` on mount. Shows real articles with links. Source filter tabs work. Loading and error states handled.
-**API route:** `pages/api/news.js` — fetches all 8 RSS feeds in parallel, filters, merges, sorts by date, caches 60 min.
+**Current state:** `NewsSection.jsx` fetches from `/api/news` on mount. Shows real articles with links. Source filter tabs built dynamically from API data. Loading and error states handled.
+**API route:** `pages/api/news.js` — fetches all 13 RSS feeds in parallel, filters, merges, sorts by date, caches 60 min.
 **Dependency:** `rss-parser` in package.json.
+**NYC-local feeds:** Grape Collective and Dame Wine are flagged as `nycLocal: true` in the API for future prioritization.
 
 ---
 

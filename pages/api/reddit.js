@@ -1,19 +1,23 @@
 // pages/api/reddit.js
 // ─────────────────────────────────────────────────────────────
-// Reddit Wine Feed — fetches wine-related posts from
-// r/wine, r/nyc, and r/FoodNYC using the free Reddit API.
+// Reddit Wine Feed — fetches wine-related posts using Reddit's
+// FREE public JSON endpoints (no API key or account needed).
 //
 // Endpoint: GET /api/reddit
 // Returns: JSON array of reddit posts
 //
-// Requires env vars: REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET
-// Register at: https://www.reddit.com/prefs/apps (script type)
+// Sources: r/wine (all posts), r/nyc + r/FoodNYC (wine-filtered)
 //
-// Uses in-memory cache (30 min) to stay well within rate limits.
-// Free tier: 100 requests/minute — we only need a few per hour.
+// Uses in-memory cache (30 min) to be a good citizen.
+// Public endpoints are rate-limited but generous for light use.
 // ─────────────────────────────────────────────────────────────
 
-const SUBREDDITS = ['wine', 'nyc', 'FoodNYC'];
+const SUBREDDITS = [
+  { name: 'wine', alwaysRelevant: true },
+  { name: 'nyc', alwaysRelevant: false },
+  { name: 'FoodNYC', alwaysRelevant: false },
+];
+
 const WINE_KEYWORDS = [
   'wine', 'winery', 'vineyard', 'tasting', 'sommelier',
   'champagne', 'rosé', 'rose', 'bordeaux', 'pinot',
@@ -27,53 +31,24 @@ let cache = null;
 let cacheTime = 0;
 const CACHE_TTL = 30 * 60 * 1000; // 30 minutes
 
-// ── Reddit OAuth token ────────────────────────────────────────
-let accessToken = null;
-let tokenExpiry = 0;
-
-async function getAccessToken() {
-  if (accessToken && Date.now() < tokenExpiry) return accessToken;
-
-  const clientId = process.env.REDDIT_CLIENT_ID;
-  const clientSecret = process.env.REDDIT_CLIENT_SECRET;
-
-  if (!clientId || !clientSecret) {
-    throw new Error('REDDIT_CREDENTIALS_MISSING');
-  }
-
-  const auth = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');
-  const res = await fetch('https://www.reddit.com/api/v1/access_token', {
-    method: 'POST',
-    headers: {
-      Authorization: `Basic ${auth}`,
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'User-Agent': 'NYCWine.com/1.0',
-    },
-    body: 'grant_type=client_credentials',
-  });
-
-  if (!res.ok) throw new Error('Reddit auth failed');
-  const data = await res.json();
-  accessToken = data.access_token;
-  tokenExpiry = Date.now() + (data.expires_in - 60) * 1000;
-  return accessToken;
-}
-
-// ── Fetch posts from one subreddit ────────────────────────────
-async function fetchSubreddit(subreddit, token) {
+// ── Fetch posts from one subreddit (public JSON) ──────────────
+async function fetchSubreddit(sub) {
   try {
     const res = await fetch(
-      `https://oauth.reddit.com/r/${subreddit}/hot?limit=25`,
+      `https://www.reddit.com/r/${sub.name}/hot.json?limit=25`,
       {
         headers: {
-          Authorization: `Bearer ${token}`,
-          'User-Agent': 'NYCWine.com/1.0',
+          // Reddit requires a descriptive User-Agent for public endpoints
+          'User-Agent': 'NYCWine.com/1.0 (wine community aggregator)',
         },
       }
     );
     if (!res.ok) return [];
     const data = await res.json();
-    return (data.data?.children || []).map((child) => child.data);
+    return (data.data?.children || []).map((child) => ({
+      ...child.data,
+      _alwaysRelevant: sub.alwaysRelevant,
+    }));
   } catch {
     return [];
   }
@@ -81,10 +56,8 @@ async function fetchSubreddit(subreddit, token) {
 
 // ── Filter for wine-related content ───────────────────────────
 function isWineRelated(post) {
+  if (post._alwaysRelevant) return true;
   const text = `${post.title} ${post.selftext || ''}`.toLowerCase();
-  // Posts from r/wine are always relevant
-  if (post.subreddit.toLowerCase() === 'wine') return true;
-  // Others need wine keywords
   return WINE_KEYWORDS.some((kw) => text.includes(kw));
 }
 
@@ -96,7 +69,6 @@ function timeAgo(utcSeconds) {
   if (hrs < 1) return 'Just now';
   if (hrs < 24) return `${hrs}h ago`;
   if (days === 1) return 'Yesterday';
-  if (days < 7) return `${days}d ago`;
   return `${days}d ago`;
 }
 
@@ -108,15 +80,21 @@ export default async function handler(req, res) {
   }
 
   try {
-    const token = await getAccessToken();
-
     // Fetch all subreddits in parallel
     const results = await Promise.all(
-      SUBREDDITS.map((sub) => fetchSubreddit(sub, token))
+      SUBREDDITS.map((sub) => fetchSubreddit(sub))
     );
 
-    // Flatten, filter for wine content, deduplicate
-    const allPosts = results.flat().filter(isWineRelated);
+    // Flatten, filter for wine content, deduplicate by ID
+    const seen = new Set();
+    const allPosts = results
+      .flat()
+      .filter(isWineRelated)
+      .filter((post) => {
+        if (seen.has(post.id)) return false;
+        seen.add(post.id);
+        return true;
+      });
 
     // Sort by score (most popular first)
     allPosts.sort((a, b) => b.score - a.score);
@@ -144,9 +122,6 @@ export default async function handler(req, res) {
     );
     return res.status(200).json(posts);
   } catch (err) {
-    if (err.message === 'REDDIT_CREDENTIALS_MISSING') {
-      return res.status(200).json({ needsSetup: true });
-    }
     console.error('Reddit API error:', err);
     return res.status(500).json({ error: 'Failed to fetch Reddit posts' });
   }
