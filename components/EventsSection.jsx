@@ -117,10 +117,19 @@ export default function EventsSection() {
             rel={ev.url ? 'noopener noreferrer' : undefined}
             style={{ textDecoration: 'none', color: 'inherit' }}
           >
-            <div className={`event-card-header ${ev.color}`}>
-              <div className="event-date-big">{ev.day}</div>
-              <div className="event-month">{ev.month}</div>
-            </div>
+            {ev.image ? (
+              <div className="event-card-header" style={{ backgroundImage: `url(${ev.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                <div className="event-date-overlay">
+                  <div className="event-date-big">{ev.day}</div>
+                  <div className="event-month">{ev.month}</div>
+                </div>
+              </div>
+            ) : (
+              <div className={`event-card-header ${ev.color}`}>
+                <div className="event-date-big">{ev.day}</div>
+                <div className="event-month">{ev.month}</div>
+              </div>
+            )}
             <div className="event-card-body">
               <div className="event-card-name">{ev.title}</div>
               <div className="event-card-venue">{ev.venue}</div>

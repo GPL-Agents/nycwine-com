@@ -104,20 +104,17 @@ async function fetchNYCOpenData() {
 }
 
 // ── Eventbrite API ────────────────────────────────────────────
-// Requires EVENTBRITE_API_KEY in .env.local
-async function fetchEventbrite() {
-  const apiKey = process.env.EVENTBRITE_API_KEY;
-  if (!apiKey) return [];
+// Requires EVENTBRITE_API_KEY in env vars (Vercel dashboard).
+// Runs multiple searches to maximize results.
+const EB_SEARCH_TERMS = ['wine', 'wine tasting', 'sommelier', 'vineyard'];
 
+async function fetchEventbriteQuery(apiKey, query) {
   try {
-    // Search for wine events near NYC (50mi radius — covers all 5 boroughs,
-    // NJ, Westchester, Long Island, Hudson Valley, CT wine country)
     const params = new URLSearchParams({
       'location.latitude': '40.7580',
       'location.longitude': '-73.9855',
       'location.within': '50mi',
-      'q': 'wine tasting',
-      'start_date.keyword': 'this_week',
+      'q': query,
       'sort_by': 'date',
       'expand': 'venue',
     });
@@ -136,6 +133,7 @@ async function fetchEventbrite() {
       .map((ev) => {
         const startDate = ev.start?.local || ev.start?.utc;
         const isFree = ev.is_free;
+        const logo = ev.logo?.original?.url || ev.logo?.url || null;
         return {
           title: ev.name?.text || 'Wine Event',
           venue: ev.venue?.name || ev.venue?.address?.city || 'NYC',
@@ -145,13 +143,38 @@ async function fetchEventbrite() {
           tag: isFree ? 'Free' : getTag({ title: ev.name?.text, description: ev.description?.text }),
           price: isFree ? null : (ev.ticket_availability?.minimum_ticket_price?.display || null),
           url: ev.url || null,
+          image: logo,
           source: 'Eventbrite',
         };
       });
   } catch (err) {
-    console.warn('Eventbrite fetch failed:', err.message);
+    console.warn(`Eventbrite search "${query}" failed:`, err.message);
     return [];
   }
+}
+
+async function fetchEventbrite() {
+  const apiKey = process.env.EVENTBRITE_API_KEY;
+  if (!apiKey) {
+    console.warn('No EVENTBRITE_API_KEY set — skipping Eventbrite.');
+    return [];
+  }
+
+  // Run all search queries in parallel
+  const results = await Promise.allSettled(
+    EB_SEARCH_TERMS.map((q) => fetchEventbriteQuery(apiKey, q))
+  );
+
+  // Merge and deduplicate by URL
+  const seen = new Set();
+  return results
+    .filter((r) => r.status === 'fulfilled')
+    .flatMap((r) => r.value)
+    .filter((ev) => {
+      if (seen.has(ev.url)) return false;
+      seen.add(ev.url);
+      return true;
+    });
 }
 
 // ── API Handler ───────────────────────────────────────────────
