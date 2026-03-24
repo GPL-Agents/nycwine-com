@@ -3,21 +3,30 @@
 @tailwind utilities;
 
 /* ═══════════════════════════════════════
-   CSS VARIABLES — NYCWine Refined Palette
-   Warm, feminine, editorial. Think lifestyle magazine.
+   CSS VARIABLES — NYCWine Brand Palette
+   Vibrant pink, crisp white, clean black.
+   Matches the established NYCWine.com brand.
 ═══════════════════════════════════════ */
 :root {
-  --rose:       #c2185b;
-  --rose-light: #fdf2f4;
-  --rose-muted: #e8a0b4;
-  --burgundy:   #6b2142;
-  --cream:      #faf8f5;
-  --warm-white: #fefcfa;
-  --black:      #2d2926;
-  --text:       #3d3632;
-  --muted:      #9e9490;
-  --border:     #ebe5df;
-  --border-light: #f3efe9;
+  --pink:        #e91e63;
+  --pink-dark:   #c2185b;
+  --pink-light:  #fce4ec;
+  --pink-muted:  #f48fb1;
+  --black:       #1a1a1a;
+  --white:       #ffffff;
+  --grey-bg:     #f5f5f5;
+  --text:        #222222;
+  --muted:       #888888;
+  --border:      #e0e0e0;
+  --border-light:#f0f0f0;
+
+  /* Aliases for backward compat in components */
+  --rose:        var(--pink);
+  --rose-light:  var(--pink-light);
+  --rose-muted:  var(--pink-muted);
+  --burgundy:    var(--pink-dark);
+  --cream:       var(--grey-bg);
+  --cream-dark:  #e8e8e8;
 
   --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-sans:  'DM Sans', -apple-system, 'Helvetica Neue', Arial, sans-serif;
@@ -27,7 +36,7 @@
 
 body {
   font-family: var(--font-sans);
-  background: var(--cream);
+  background: var(--white);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
 }
@@ -36,8 +45,7 @@ body {
    HEADER
 ═══════════════════════════════════════ */
 .site-header {
-  background: white;
-  border-bottom: 2px solid var(--rose);
+  background: var(--pink);
   padding: 14px 24px;
   display: flex;
   align-items: center;
@@ -50,30 +58,30 @@ body {
 .header-search {
   flex: 1;
   margin: 0 16px;
-  background: var(--cream);
+  background: rgba(255,255,255,0.2);
   border-radius: 24px;
   padding: 8px 18px;
   font-size: 13px;
-  color: var(--text);
-  border: 1px solid var(--border);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.35);
   outline: none;
   max-width: 300px;
   font-family: var(--font-sans);
-  transition: border-color 0.2s;
+  transition: background 0.2s;
 }
-.header-search:focus { border-color: var(--rose-muted); }
-.header-search::placeholder { color: var(--muted); }
+.header-search:focus { background: rgba(255,255,255,0.3); border-color: rgba(255,255,255,0.5); }
+.header-search::placeholder { color: rgba(255,255,255,0.7); }
 
 .header-menu-btn {
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--black);
+  color: white;
   padding: 4px;
   display: flex;
   align-items: center;
 }
-.header-menu-btn:hover { color: var(--rose); }
+.header-menu-btn:hover { color: rgba(255,255,255,0.7); }
 
 /* ═══════════════════════════════════════
    QUICK NAV
@@ -145,7 +153,7 @@ body {
 .events-section { background: white; border-top: 1px solid var(--border); }
 
 .events-header {
-  background: var(--burgundy);
+  background: var(--pink);
   padding: 14px 24px;
 }
 .events-header .section-header-title { color: white; }
@@ -206,11 +214,11 @@ body {
   align-items: center;
   justify-content: center;
 }
-.event-card-header.c1 { background: linear-gradient(135deg, #c2185b, #880e4f); }
-.event-card-header.c2 { background: linear-gradient(135deg, #6b2142, #4a1530); }
-.event-card-header.c3 { background: linear-gradient(135deg, #8e6b5a, #5d4037); }
-.event-card-header.c4 { background: linear-gradient(135deg, #c2185b, #ad1457); }
-.event-card-header.c5 { background: linear-gradient(135deg, #6b2142, #3e1228); }
+.event-card-header.c1 { background: linear-gradient(135deg, #e91e63, #c2185b); }
+.event-card-header.c2 { background: linear-gradient(135deg, #c2185b, #ad1457); }
+.event-card-header.c3 { background: linear-gradient(135deg, #1a1a1a, #333333); }
+.event-card-header.c4 { background: linear-gradient(135deg, #e91e63, #d81b60); }
+.event-card-header.c5 { background: linear-gradient(135deg, #333333, #1a1a1a); }
 .event-date-big { font-family: var(--font-serif); font-size: 26px; font-weight: 700; color: white; line-height: 1; }
 .event-month    { font-size: 10px; font-weight: 500; color: rgba(255,255,255,0.75); text-transform: uppercase; letter-spacing: 1.5px; }
 .event-card-body { padding: 12px 14px; }
@@ -234,7 +242,7 @@ body {
 .event-row:hover { background: var(--cream); margin: 0 -8px; padding-left: 8px; padding-right: 8px; border-radius: 6px; }
 .event-row:last-child { border-bottom: none; }
 .event-row-date { text-align: center; flex-shrink: 0; width: 40px; }
-.event-row-day  { font-family: var(--font-serif); font-size: 18px; font-weight: 700; color: var(--rose); line-height: 1; }
+.event-row-day  { font-family: var(--font-serif); font-size: 18px; font-weight: 700; color: var(--pink); line-height: 1; }
 .event-row-dow  { font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
 .event-row-info { flex: 1; }
 .event-row-name { font-size: 13px; font-weight: 600; color: var(--black); line-height: 1.3; }
@@ -244,7 +252,7 @@ body {
 /* ═══════════════════════════════════════
    SOCIAL SECTION
 ═══════════════════════════════════════ */
-.social-section { background: var(--cream); border-top: 1px solid var(--border); }
+.social-section { background: var(--grey-bg); border-top: 1px solid var(--border); }
 .social-section-header {
   padding: 14px 24px;
   background: var(--black);
@@ -278,9 +286,9 @@ body {
 }
 .sc-fb     { background: #1877f2; }
 .sc-x      { background: var(--black); }
-.sc-pin    { background: #c2185b; }
-.sc-ig     { background: linear-gradient(135deg, #e8567a, #c2185b, #8b1a5c); }
-.sc-reddit { background: #6b2142; }
+.sc-pin    { background: var(--pink); }
+.sc-ig     { background: linear-gradient(135deg, #f06292, #e91e63, #c2185b); }
+.sc-reddit { background: var(--black); }
 
 .sc-platform { font-size: 12px; font-weight: 600; color: white; font-family: var(--font-sans); }
 .sc-follow   { font-size: 11px; color: rgba(255,255,255,0.7); text-decoration: none; font-weight: 500; }
@@ -362,7 +370,7 @@ body {
 .news-section { background: white; border-top: 1px solid var(--border); }
 
 .news-ticker {
-  background: var(--burgundy);
+  background: var(--pink);
   padding: 8px 24px;
   display: flex;
   align-items: center;
@@ -494,7 +502,7 @@ body {
   font-size: 12px;
 }
 .hood-chip:hover { border-color: var(--rose-muted); }
-.hood-chip.active { background: var(--burgundy); border-color: var(--burgundy); }
+.hood-chip.active { background: var(--pink); border-color: var(--pink); }
 .hood-chip.active .hood-name { color: white; }
 .hood-chip.active .hood-count { color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.15); }
 .hood-name { font-weight: 500; color: var(--text); }
@@ -620,7 +628,7 @@ body {
   flex-wrap: wrap;
   margin-bottom: 12px;
 }
-.footer-links a { color: var(--rose-muted); text-decoration: none; transition: color 0.15s; }
+.footer-links a { color: var(--pink-muted); text-decoration: none; transition: color 0.15s; }
 .footer-links a:hover { color: white; }
 .footer-dot { color: rgba(255,255,255,0.25); }
 .footer-copy { color: rgba(255,255,255,0.35); font-size: 11px; }
