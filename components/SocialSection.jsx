@@ -4,8 +4,9 @@
 //
 // LIVE:
 //   - X/Twitter List link card ("NYC Wine Scene")
-//   - Instagram feed (Elfsight widget — paste embed code below)
-//   - Reddit wine discussions (public JSON feeds)
+//   - Instagram feed (Elfsight widget)
+//   - Facebook link card (NYCWineReport page)
+//   - Reddit wine discussions (via RSS → API route)
 //   - Pinterest link card
 // ─────────────────────────────────────────────────────────────
 
@@ -32,17 +33,14 @@ export default function SocialSection() {
       {/* Header */}
       <div className="social-section-header">
         <div className="section-header-title">NYC Wine Community</div>
-        <a href="https://twitter.com/NYCWineReport" className="see-all-link" target="_blank" rel="noopener noreferrer">
-          Follow @NYCWineReport →
-        </a>
       </div>
 
       <div className="social-grid">
 
         {/* ── X / Twitter List — "NYC Wine Scene" ──────────────── */}
-        <div className="social-card full-width">
+        <div className="social-card">
           <div className="sc-header sc-x">
-            <div className="sc-platform">NYC Wine Scene</div>
+            <div className="sc-platform">X · NYC Wine Scene</div>
             <a href="https://x.com/i/lists/2036448383569625436" className="sc-follow" target="_blank" rel="noopener noreferrer">View list →</a>
           </div>
           <div className="sc-body">
@@ -59,7 +57,34 @@ export default function SocialSection() {
               </div>
               <div className="slc-content">
                 <div className="slc-title">NYC Wine Scene</div>
-                <div className="slc-desc">A curated list of NYC wine writers, sommeliers, bars, and shops. Follow the conversation.</div>
+                <div className="slc-desc">A curated list of NYC wine writers, sommeliers, bars, and shops.</div>
+              </div>
+              <div className="slc-arrow">&rsaquo;</div>
+            </a>
+          </div>
+        </div>
+
+        {/* ── Facebook — NYCWineReport ─────────────────────────── */}
+        <div className="social-card">
+          <div className="sc-header sc-fb">
+            <div className="sc-platform">Facebook</div>
+            <a href="https://www.facebook.com/NYCWineReport" className="sc-follow" target="_blank" rel="noopener noreferrer">Follow →</a>
+          </div>
+          <div className="sc-body">
+            <a
+              href="https://www.facebook.com/NYCWineReport"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link-card"
+            >
+              <div className="slc-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M24 12c0-6.627-5.373-12-12-12S0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854V15.47H7.078V12h3.047V9.356c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.875V12h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12z" fill="currentColor"/>
+                </svg>
+              </div>
+              <div className="slc-content">
+                <div className="slc-title">NYC Wine Report</div>
+                <div className="slc-desc">Wine news, events, and community updates from New York City.</div>
               </div>
               <div className="slc-arrow">&rsaquo;</div>
             </a>
