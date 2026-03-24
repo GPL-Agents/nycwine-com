@@ -11,7 +11,7 @@
 
 import { useState, useEffect } from 'react';
 
-const FILTERS = ['All', 'Tasting', 'Class', 'Dinner', 'Free', 'Festival'];
+const FILTERS = ['All', 'Tasting', 'Class', 'Dinner', 'Event', 'Festival'];
 
 export default function EventsSection() {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -134,7 +134,7 @@ export default function EventsSection() {
               <div className="event-card-name">{ev.title}</div>
               <div className="event-card-venue">{ev.venue}</div>
               {ev.dateDisplay && <div className="event-card-date">{ev.dateDisplay}</div>}
-              <span className="event-card-tag">{ev.tag}</span>
+              <span className="event-card-tag" data-tag={ev.tag}>{ev.tag}</span>
               {ev.price && <span className="event-card-price">{ev.price}</span>}
             </div>
           </a>

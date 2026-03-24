@@ -118,11 +118,12 @@ body {
   letter-spacing: 0.02em;
 }
 .qnav-pill:hover { border-color: var(--rose); color: var(--rose); }
-.qnav-pill.events   { border-color: var(--rose-muted); color: var(--rose); background: var(--rose-light); }
-.qnav-pill.social   { border-color: var(--border); color: var(--text); background: white; }
-.qnav-pill.news     { border-color: var(--border); color: var(--text); background: white; }
-.qnav-pill.stores   { border-color: var(--border); color: var(--text); background: white; }
+.qnav-pill.events,
+.qnav-pill.social,
+.qnav-pill.news,
+.qnav-pill.stores,
 .qnav-pill.bars     { border-color: var(--border); color: var(--text); background: white; }
+.qnav-pill.qnav-active { border-color: var(--rose-muted); color: var(--rose); background: var(--rose-light); }
 .qnav-pill.wineries { border-color: var(--border); color: var(--muted); background: var(--cream); border-style: dashed; opacity: 0.5; }
 
 /* ═══════════════════════════════════════
@@ -236,7 +237,12 @@ body {
 .event-card-name  { font-size: 13px; font-weight: 600; color: var(--black); line-height: 1.4; }
 .event-card-venue { font-size: 11px; color: var(--muted); margin-top: 4px; }
 .event-card-date  { font-size: 11px; color: var(--pink); font-weight: 500; margin-top: 3px; }
-.event-card-tag   { font-size: 10px; background: var(--rose-light); color: var(--rose); padding: 3px 10px; border-radius: 10px; font-weight: 500; display: inline-block; margin-top: 8px; }
+.event-card-tag   { font-size: 10px; padding: 3px 10px; border-radius: 10px; font-weight: 500; display: inline-block; margin-top: 8px; }
+.event-card-tag[data-tag="Tasting"]  { background: #fce4ec; color: #c62828; }
+.event-card-tag[data-tag="Class"]    { background: #e3f2fd; color: #1565c0; }
+.event-card-tag[data-tag="Dinner"]   { background: #fff3e0; color: #e65100; }
+.event-card-tag[data-tag="Event"]    { background: #f3e5f5; color: #7b1fa2; }
+.event-card-tag[data-tag="Festival"] { background: #e8f5e9; color: #2e7d32; }
 .event-card-price { font-size: 11px; color: var(--burgundy); font-weight: 600; float: right; margin-top: 8px; }
 
 /* Event list rows */
@@ -355,12 +361,29 @@ body {
 .scs-title { font-family: var(--font-serif); font-size: 14px; font-weight: 500; color: var(--muted); font-style: italic; }
 .scs-text { font-size: 11px; color: var(--muted); margin-top: 6px; line-height: 1.5; max-width: 200px; }
 
-/* Reddit cards */
-.reddit-posts { display: flex; gap: 8px; padding: 8px; }
-.reddit-post  { flex: 1; background: var(--cream); border-radius: 8px; padding: 10px 12px; }
+/* Reddit card grid — 5 per row, 2 rows */
+.reddit-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px;
+}
+.reddit-card {
+  flex: 1 1 calc((100% - 32px) / 5);
+  min-width: 140px;
+  max-width: calc((100% - 32px) / 5);
+  background: var(--cream);
+  border-radius: 8px;
+  padding: 10px 12px;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: background 0.15s;
+}
+.reddit-card:hover { background: var(--pink-light, #fce4ec); }
 .reddit-sub   { font-size: 10px; font-weight: 600; color: var(--rose); }
-.reddit-title { font-size: 12px; color: var(--black); margin-top: 4px; line-height: 1.45; }
-.reddit-meta  { font-size: 10px; color: var(--muted); margin-top: 4px; }
+.reddit-title { font-size: 12px; color: var(--black); margin-top: 4px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.reddit-meta  { font-size: 10px; color: var(--muted); margin-top: 6px; }
 
 .social-post { padding: 8px; border-bottom: 1px solid var(--border-light); }
 .social-post:last-child { border-bottom: none; }
@@ -534,6 +557,7 @@ body {
 @media (max-width: 480px) {
   .news-card-img { width: 80px; min-height: 60px; }
   .news-card-snippet { display: none; }
+  .reddit-card { flex: 1 1 calc((100% - 8px) / 2); max-width: calc((100% - 8px) / 2); min-width: 0; }
 }
 
 /* ═══════════════════════════════════════
@@ -796,7 +820,8 @@ body {
   .event-card { flex: 0 0 160px; } /* horizontal scroll on mobile */
   .social-grid { grid-template-columns: 1fr; }
   .social-card.full-width { grid-column: span 1; }
-  .reddit-posts { flex-direction: column; }
+  .reddit-card { flex: 1 1 calc((100% - 16px) / 3); max-width: calc((100% - 16px) / 3); }
+  .reddit-grid { gap: 6px; }
   .stores-page-controls { flex-direction: column; }
   .stores-page-select { max-width: 100%; }
   .hood-grid { gap: 6px; }

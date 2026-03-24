@@ -66,13 +66,11 @@ function formatDateDisplay(dateStr) {
 
 function getTag(title) {
   const t = (title || '').toLowerCase();
-  if (t.includes('class') || t.includes('course') || t.includes('wset') || t.includes('education')) return 'Class';
-  if (t.includes('dinner') || t.includes('pairing')) return 'Dinner';
   if (t.includes('tasting') || t.includes('sampling')) return 'Tasting';
-  if (t.includes('free') || t.includes('complimentary')) return 'Free';
-  if (t.includes('festival') || t.includes('celebration')) return 'Festival';
-  if (t.includes('brunch')) return 'Brunch';
-  return 'Tasting';
+  if (t.includes('class') || t.includes('course') || t.includes('wset') || t.includes('education')) return 'Class';
+  if (t.includes('dinner') || t.includes('pairing') || t.includes('brunch')) return 'Dinner';
+  if (t.includes('festival') || t.includes('celebration') || t.includes('fest')) return 'Festival';
+  return 'Event';
 }
 
 // ── Fetch a single Eventbrite event page for JSON-LD data ─────

@@ -2,12 +2,7 @@
 // ─────────────────────────────────────────────────────────────
 // Social feed grid — community wine content from multiple sources.
 //
-// LIVE:
-//   - X/Twitter List link card ("NYC Wine Scene")
-//   - Instagram feed (Elfsight widget)
-//   - Facebook link card (NYCWineReport page)
-//   - Reddit wine discussions (via RSS → API route)
-//   - Pinterest link card
+// Order: Instagram, Reddit, X, Pinterest, Facebook
 // ─────────────────────────────────────────────────────────────
 
 import { useState, useEffect } from 'react';
@@ -37,8 +32,54 @@ export default function SocialSection() {
 
       <div className="social-grid">
 
-        {/* ── X / Twitter List — "NYC Wine Scene" ──────────────── */}
-        <div className="social-card">
+        {/* ── 1. Instagram (Elfsight Social Feed widget) ──────────── */}
+        <div className="social-card full-width">
+          <div className="sc-header sc-ig">
+            <div className="sc-platform">Instagram · #nycwine</div>
+            <a href="https://www.instagram.com/explore/tags/nycwine/" className="sc-follow" target="_blank" rel="noopener noreferrer">#nycwine →</a>
+          </div>
+          <div className="sc-body elfsight-body">
+            <div className="elfsight-app-5c219adb-d249-478a-a3da-e1d087a08843" data-elfsight-app-lazy></div>
+          </div>
+        </div>
+
+        {/* ── 2. Reddit — wine discussion cards (5×2 grid) ────────── */}
+        <div className="social-card full-width">
+          <div className="sc-header sc-reddit">
+            <div className="sc-platform">Reddit — Wine Discussions</div>
+            <a href="https://reddit.com/r/wine" className="sc-follow" target="_blank" rel="noopener noreferrer">r/wine →</a>
+          </div>
+          <div className="reddit-grid">
+            {redditLoading && (
+              <div className="reddit-card">
+                <div className="reddit-title">Loading…</div>
+              </div>
+            )}
+            {!redditLoading && redditPosts.length === 0 && (
+              <div className="reddit-card">
+                <div className="reddit-title">No wine discussions found right now.</div>
+              </div>
+            )}
+            {redditPosts.slice(0, 10).map((post, i) => (
+              <a
+                key={i}
+                className="reddit-card"
+                href={post.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="reddit-sub">{post.subreddit}</div>
+                <div className="reddit-title">{post.title}</div>
+                <div className="reddit-meta">
+                  {post.score.toLocaleString()} pts · {post.comments.toLocaleString()} comments · {post.ago}
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* ── 3. X / Twitter List — "NYC Wine Scene" ──────────────── */}
+        <div className="social-card full-width">
           <div className="sc-header sc-x">
             <div className="sc-platform">X · NYC Wine Scene</div>
             <a href="https://x.com/i/lists/2036448383569625436" className="sc-follow" target="_blank" rel="noopener noreferrer">View list →</a>
@@ -64,81 +105,7 @@ export default function SocialSection() {
           </div>
         </div>
 
-        {/* ── Facebook — NYCWineReport ─────────────────────────── */}
-        <div className="social-card">
-          <div className="sc-header sc-fb">
-            <div className="sc-platform">Facebook</div>
-            <a href="https://www.facebook.com/NYCWineReport" className="sc-follow" target="_blank" rel="noopener noreferrer">Follow →</a>
-          </div>
-          <div className="sc-body">
-            <a
-              href="https://www.facebook.com/NYCWineReport"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link-card"
-            >
-              <div className="slc-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M24 12c0-6.627-5.373-12-12-12S0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854V15.47H7.078V12h3.047V9.356c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.875V12h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12z" fill="currentColor"/>
-                </svg>
-              </div>
-              <div className="slc-content">
-                <div className="slc-title">NYC Wine Report</div>
-                <div className="slc-desc">Wine news, events, and community updates from New York City.</div>
-              </div>
-              <div className="slc-arrow">&rsaquo;</div>
-            </a>
-          </div>
-        </div>
-
-        {/* ── Instagram (Elfsight Social Feed widget) ──────────── */}
-        <div className="social-card full-width">
-          <div className="sc-header sc-ig">
-            <div className="sc-platform">Instagram · #nycwine</div>
-            <a href="https://www.instagram.com/explore/tags/nycwine/" className="sc-follow" target="_blank" rel="noopener noreferrer">#nycwine →</a>
-          </div>
-          <div className="sc-body elfsight-body">
-            <div className="elfsight-app-5c219adb-d249-478a-a3da-e1d087a08843" data-elfsight-app-lazy></div>
-          </div>
-        </div>
-
-        {/* ── Reddit (full width, LIVE) ────────────────────────── */}
-        <div className="social-card full-width">
-          <div className="sc-header sc-reddit">
-            <div className="sc-platform">Reddit — Wine Discussions</div>
-            <a href="https://reddit.com/r/wine" className="sc-follow" target="_blank" rel="noopener noreferrer">r/wine →</a>
-          </div>
-          <div className="reddit-posts">
-            {redditLoading && (
-              <div className="reddit-post">
-                <div className="reddit-title">Loading wine discussions…</div>
-              </div>
-            )}
-            {!redditLoading && redditPosts.length === 0 && (
-              <div className="reddit-post">
-                <div className="reddit-title">No wine discussions found right now.</div>
-              </div>
-            )}
-            {redditPosts.slice(0, 5).map((post, i) => (
-              <a
-                key={i}
-                className="reddit-post"
-                href={post.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
-              >
-                <div className="reddit-sub">{post.subreddit}</div>
-                <div className="reddit-title">{post.title}</div>
-                <div className="reddit-meta">
-                  {post.score.toLocaleString()} upvotes · {post.comments.toLocaleString()} comments · {post.ago}
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-
-        {/* ── Pinterest NYC Wine ──────────────────────────────── */}
+        {/* ── 4. Pinterest NYC Wine ──────────────────────────────── */}
         <div className="social-card full-width">
           <div className="sc-header sc-pin">
             <div className="sc-platform">Pinterest · NYC Wine</div>
@@ -159,6 +126,33 @@ export default function SocialSection() {
               <div className="slc-content">
                 <div className="slc-title">NYC Wine</div>
                 <div className="slc-desc">Wine bars, bottles, and inspiration from NYC. Explore pins and boards.</div>
+              </div>
+              <div className="slc-arrow">&rsaquo;</div>
+            </a>
+          </div>
+        </div>
+
+        {/* ── 5. Facebook — NYCWineReport ─────────────────────────── */}
+        <div className="social-card full-width">
+          <div className="sc-header sc-fb">
+            <div className="sc-platform">Facebook</div>
+            <a href="https://www.facebook.com/NYCWineReport" className="sc-follow" target="_blank" rel="noopener noreferrer">Follow →</a>
+          </div>
+          <div className="sc-body">
+            <a
+              href="https://www.facebook.com/NYCWineReport"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link-card"
+            >
+              <div className="slc-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M24 12c0-6.627-5.373-12-12-12S0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854V15.47H7.078V12h3.047V9.356c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.875V12h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12z" fill="currentColor"/>
+                </svg>
+              </div>
+              <div className="slc-content">
+                <div className="slc-title">NYC Wine Report</div>
+                <div className="slc-desc">Wine news, events, and community updates from New York City.</div>
               </div>
               <div className="slc-arrow">&rsaquo;</div>
             </a>

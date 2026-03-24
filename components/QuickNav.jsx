@@ -1,16 +1,56 @@
-export default function QuickNav() { 
+import { useState, useEffect } from 'react';
+
+const SECTIONS = [
+  { id: 'sec-events', label: 'Events', cls: 'events' },
+  { id: 'sec-social', label: 'Social', cls: 'social' },
+  { id: 'sec-news', label: 'News', cls: 'news' },
+  { id: 'sec-stores', label: 'Wine Stores', cls: 'stores' },
+  { id: 'sec-bars', label: 'Wine Bars', cls: 'bars' },
+];
+
+export default function QuickNav() {
+  const [active, setActive] = useState('sec-events');
+
+  // Track which section is in view using IntersectionObserver
+  useEffect(() => {
+    const ids = SECTIONS.map((s) => s.id);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+          }
+        }
+      },
+      { rootMargin: '-20% 0px -60% 0px', threshold: 0 }
+    );
+
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   function scrollTo(id) {
+    setActive(id);
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   return (
     <nav className="quick-nav" aria-label="Jump to section">
-      <a className="qnav-pill events"   href="#sec-events"   onClick={(e) => { e.preventDefault(); scrollTo('sec-events'); }}>Events</a>
-      <a className="qnav-pill social"   href="#sec-social"   onClick={(e) => { e.preventDefault(); scrollTo('sec-social'); }}>Social</a>
-      <a className="qnav-pill news"     href="#sec-news"     onClick={(e) => { e.preventDefault(); scrollTo('sec-news'); }}>News</a>
-      <a className="qnav-pill stores"   href="#sec-stores"   onClick={(e) => { e.preventDefault(); scrollTo('sec-stores'); }}>Wine Stores</a>
-      <a className="qnav-pill bars"     href="#sec-bars"     onClick={(e) => { e.preventDefault(); scrollTo('sec-bars'); }}>Wine Bars</a>
+      {SECTIONS.map((s) => (
+        <a
+          key={s.id}
+          className={`qnav-pill ${s.cls}${active === s.id ? ' qnav-active' : ''}`}
+          href={`#${s.id}`}
+          onClick={(e) => { e.preventDefault(); scrollTo(s.id); }}
+        >
+          {s.label}
+        </a>
+      ))}
       <a className="qnav-pill wineries" href="#sec-wineries" onClick={(e) => { e.preventDefault(); }}>
         Wineries <span style={{ fontSize: 9, fontWeight: 500, background: 'var(--cream-dark, #efe9e1)', color: 'var(--muted)', borderRadius: 8, padding: '1px 6px', marginLeft: 4, letterSpacing: '0.02em' }}>soon</span>
       </a>
