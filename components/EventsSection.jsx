@@ -45,7 +45,7 @@ export default function EventsSection() {
 
   // Split into cards (first 5) and list (rest)
   const cardEvents = filtered.slice(0, 10);
-  const listEvents = filtered.slice(10, 30);
+  const listEvents = filtered.slice(10, 20);
 
   return (
     <section className="events-section" id="sec-events">
