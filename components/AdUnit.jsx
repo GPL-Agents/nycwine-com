@@ -10,9 +10,9 @@
 // Each <AdUnit> creates one responsive ad block that auto-sizes
 // for mobile vs desktop.
 //
-// The component watches for AdSense to fill the slot. If no ad
-// loads within 3 seconds, or the ad container stays empty, the
-// wrapper collapses to zero height so there's no blank gap.
+// IMPORTANT: The wrapper starts with display:none and height:0
+// to prevent blank gaps. It only becomes visible when AdSense
+// confirms an ad has filled the slot.
 // ─────────────────────────────────────────────────────────────
 
 import { useEffect, useRef, useState } from 'react';
@@ -32,26 +32,33 @@ export default function AdUnit({ slot = 'default', className = '' }) {
       }
     }
 
-    // Check if AdSense actually filled the slot
-    const timer = setTimeout(() => {
+    // Poll for AdSense to fill the slot (check every 500ms for up to 5s)
+    let checks = 0;
+    const interval = setInterval(() => {
+      checks++;
       if (adRef.current) {
-        const ins = adRef.current;
-        // AdSense sets data-ad-status="filled" when an ad loads
-        const status = ins.getAttribute('data-ad-status');
+        const status = adRef.current.getAttribute('data-ad-status');
         if (status === 'filled') {
           setHasAd(true);
+          clearInterval(interval);
         }
       }
-    }, 3000);
+      if (checks >= 10) clearInterval(interval);
+    }, 500);
 
-    return () => clearTimeout(timer);
+    return () => clearInterval(interval);
   }, []);
+
+  // Hide completely until an ad fills — prevents blank white gaps
+  const wrapperStyle = hasAd
+    ? undefined
+    : { display: 'none', height: 0, overflow: 'hidden' };
 
   return (
     <div
       className={`ad-unit ${className}`}
       data-ad-slot={slot}
-      style={!hasAd ? { minHeight: 0, padding: 0, overflow: 'hidden' } : undefined}
+      style={wrapperStyle}
     >
       <ins
         className="adsbygoogle"

@@ -636,10 +636,18 @@ body {
 .ad-unit {
   text-align: center;
   overflow: hidden;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+  font-size: 0;
 }
 .ad-unit:has(ins[data-ad-status="filled"]) {
+  height: auto;
   padding: 12px 24px;
   background: var(--cream);
+  line-height: normal;
+  font-size: initial;
 }
 
 /* ═══════════════════════════════════════
