@@ -111,17 +111,28 @@ export default function NewsSection() {
         {filtered.map((item, i) => (
           <a
             key={`${item.source}-${i}`}
-            className="news-card"
+            className={`news-card${item.image ? ' has-image' : ''}`}
             href={item.link}
             target="_blank"
             rel="noopener noreferrer"
             style={{ textDecoration: 'none', color: 'inherit' }}
           >
-            <div>
+            {item.image && (
+              <div className="news-card-img">
+                <img
+                  src={item.image}
+                  alt=""
+                  loading="lazy"
+                  onError={(e) => { e.target.parentElement.style.display = 'none'; }}
+                />
+              </div>
+            )}
+            <div className="news-card-text">
               <div className="news-card-source" style={{ color: item.color }}>
                 {item.source}
               </div>
               <div className="news-card-title">{item.title}</div>
+              {item.snippet && <div className="news-card-snippet">{item.snippet}</div>}
               <div className="news-card-date">{item.ago}</div>
             </div>
           </a>

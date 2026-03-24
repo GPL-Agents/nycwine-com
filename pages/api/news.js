@@ -18,7 +18,39 @@ const parser = new Parser({
   headers: {
     'User-Agent': 'NYCWine.com News Aggregator',
   },
+  customFields: {
+    item: [
+      ['media:content', 'mediaContent', { keepArray: false }],
+      ['media:thumbnail', 'mediaThumbnail', { keepArray: false }],
+      ['enclosure', 'enclosure', { keepArray: false }],
+    ],
+  },
 });
+
+// ── Image extraction helper ─────────────────────────────────
+// RSS feeds store images in different places depending on the
+// publisher. We check multiple fields in priority order.
+function extractImage(item) {
+  // 1. media:content (most common — Decanter, Wine Enthusiast, VinePair)
+  if (item.mediaContent) {
+    const url = item.mediaContent.$ ? item.mediaContent.$.url : item.mediaContent.url;
+    if (url) return url;
+  }
+  // 2. media:thumbnail
+  if (item.mediaThumbnail) {
+    const url = item.mediaThumbnail.$ ? item.mediaThumbnail.$.url : item.mediaThumbnail.url;
+    if (url) return url;
+  }
+  // 3. enclosure (podcasts and some blogs)
+  if (item.enclosure && item.enclosure.url && (item.enclosure.type || '').startsWith('image')) {
+    return item.enclosure.url;
+  }
+  // 4. First <img> in content:encoded or content HTML
+  const html = item['content:encoded'] || item.content || '';
+  const imgMatch = html.match(/<img[^>]+src=["']([^"']+)["']/i);
+  if (imgMatch && imgMatch[1]) return imgMatch[1];
+  return null;
+}
 
 // ── RSS Feed Sources ──────────────────────────────────────────
 // filterByKeyword: true = general publication, needs wine filtering
@@ -171,6 +203,8 @@ async function fetchFeed(source) {
       source: source.name,
       emoji: source.emoji,
       color: source.color,
+      image: extractImage(item),
+      snippet: (item.contentSnippet || '').slice(0, 120).trim() || null,
     }));
 
     // Apply keyword filter if needed
