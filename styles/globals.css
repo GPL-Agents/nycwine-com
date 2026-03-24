@@ -710,7 +710,7 @@ body {
   align-self: center;
   transition: all 0.15s;
 }
-.store-card-link:hover { background: var(--rose); color: white; }
+.store-card-link:hover { background: var(--pink-muted); color: white; }
 /* Store visit button (used on /stores page) */
 .store-visit-btn {
   font-size: 11px;
@@ -726,7 +726,7 @@ body {
   font-family: var(--font-sans);
   transition: all 0.15s;
 }
-.store-visit-btn:hover { background: var(--rose); color: white; }
+.store-visit-btn:hover { background: var(--pink-muted); color: white; }
 
 .store-see-all {
   display: block;
@@ -741,7 +741,7 @@ body {
   border-radius: 10px;
   transition: all 0.15s;
 }
-.store-see-all:hover { background: var(--rose); color: white; border-color: var(--rose); }
+.store-see-all:hover { background: var(--pink-muted); color: white; border-color: var(--pink-muted); }
 
 /* ═══════════════════════════════════════
    EXPLORE MORE (bars / wineries links)
@@ -1052,7 +1052,7 @@ body {
   align-self: center;
   transition: all 0.15s;
 }
-.bar-card-link:hover { background: var(--rose); color: white; }
+.bar-card-link:hover { background: var(--pink-muted); color: white; }
 
 .bar-see-all {
   display: block;
@@ -1067,7 +1067,7 @@ body {
   border-radius: 10px;
   transition: all 0.15s;
 }
-.bar-see-all:hover { background: var(--rose); color: white; border-color: var(--rose); }
+.bar-see-all:hover { background: var(--pink-muted); color: white; border-color: var(--pink-muted); }
 
 /* Bar visit button (used on /bars page) */
 .bar-visit-btn {
@@ -1084,7 +1084,7 @@ body {
   font-family: var(--font-sans);
   transition: all 0.15s;
 }
-.bar-visit-btn:hover { background: var(--rose); color: white; }
+.bar-visit-btn:hover { background: var(--pink-muted); color: white; }
 
 /* ── Bars standalone page (/bars) ────────────────────────── */
 .bars-page { max-width: 800px; margin: 0 auto; padding: 24px; }
