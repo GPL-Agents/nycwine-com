@@ -174,7 +174,7 @@ async function fetchEventbrite() {
 }
 
 export default async function handler(req, res) {
-  console.log('EVENTS API GITHUB VERSION LIVE');
+  console.warn('EVENTS API GITHUB VERSION LIVE');
   if (cache && Date.now() - cacheTime < CACHE_TTL) {
     return res.status(200).json(cache);
   }
