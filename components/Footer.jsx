@@ -11,8 +11,6 @@ export default function Footer() {
       <nav className="footer-links">
         <a href="/about">About</a>
         <span className="footer-dot">&middot;</span>
-        <a href="/contact">Contact</a>
-        <span className="footer-dot">&middot;</span>
         <a href="/stores">Wine Stores</a>
         <span className="footer-dot">&middot;</span>
         <a href="/bars">Wine Bars</a>
