@@ -3,8 +3,9 @@
 // Social feed grid — community wine content from multiple sources.
 //
 // LIVE:
-//   - X/Twitter timeline embed (@nycwine) — free, no API key
-//   - Reddit wine discussions — /api/reddit (needs credentials)
+//   - X/Twitter List embed ("NYC Wine Scene") — free, no API key
+//   - X/Twitter account timeline (@nycwine) — free, no API key
+//   - Reddit wine discussions — free public JSON feeds
 //
 // COMING SOON (need Elfsight ~$5/mo each):
 //   - Instagram #nycwine community photos
@@ -16,7 +17,8 @@ import { useState, useEffect, useRef } from 'react';
 export default function SocialSection() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const twitterRef = useRef(null);
+  const listRef = useRef(null);
+  const timelineRef = useRef(null);
 
   // Load Reddit posts (uses free public JSON feeds, no API key needed)
   useEffect(() => {
@@ -31,7 +33,7 @@ export default function SocialSection() {
       .catch(() => setLoading(false));
   }, []);
 
-  // Load X/Twitter embed widget script
+  // Load X/Twitter embed widget script (renders both list + account timeline)
   useEffect(() => {
     if (typeof window !== 'undefined' && !document.getElementById('twitter-wjs')) {
       const script = document.createElement('script');
@@ -41,7 +43,8 @@ export default function SocialSection() {
       script.charset = 'utf-8';
       document.body.appendChild(script);
     } else if (typeof window !== 'undefined' && window.twttr?.widgets) {
-      window.twttr.widgets.load(twitterRef.current);
+      if (listRef.current) window.twttr.widgets.load(listRef.current);
+      if (timelineRef.current) window.twttr.widgets.load(timelineRef.current);
     }
   }, []);
 
@@ -58,19 +61,42 @@ export default function SocialSection() {
 
       <div className="social-grid">
 
-        {/* ── X / Twitter Timeline Embed ──────────────────────────
-            LIVE: Public timeline embed, no API key needed.
-            Uses publish.twitter.com embed markup.
+        {/* ── X / Twitter List Embed ("NYC Wine Scene") ────────────
+            LIVE: Curated list of NYC wine accounts.
+            Free embed, no API key needed.
         ────────────────────────────────────────────────────── */}
-        <div className="social-card" ref={twitterRef}>
+        <div className="social-card" ref={listRef}>
           <div className="sc-header sc-x">
-            <div className="sc-platform">𝕏 @nycwine</div>
-            <a href="https://twitter.com/nycwine" className="sc-follow" target="_blank" rel="noopener noreferrer">Follow →</a>
+            <div className="sc-platform">NYC Wine Scene</div>
+            <a href="https://x.com/i/lists/2036448383569625436" className="sc-follow" target="_blank" rel="noopener noreferrer">View list →</a>
           </div>
-          <div className="sc-body sc-body-embed" style={{ maxHeight: 400, overflow: 'auto' }}>
+          <div className="sc-body sc-body-embed" style={{ maxHeight: 420, overflow: 'auto' }}>
             <a
               className="twitter-timeline"
-              data-height="400"
+              data-height="420"
+              data-width="100%"
+              data-chrome="noheader nofooter noborders transparent"
+              data-tweet-limit="8"
+              href="https://x.com/i/lists/2036448383569625436"
+            >
+              Loading NYC Wine Scene…
+            </a>
+          </div>
+          <div className="sc-footer">Live · Curated X List · free</div>
+        </div>
+
+        {/* ── X / Twitter @nycwine Timeline ────────────────────────
+            LIVE: Account timeline embed.
+        ────────────────────────────────────────────────────── */}
+        <div className="social-card" ref={timelineRef}>
+          <div className="sc-header sc-x">
+            <div className="sc-platform">@NYCWineReport</div>
+            <a href="https://twitter.com/nycwine" className="sc-follow" target="_blank" rel="noopener noreferrer">Follow →</a>
+          </div>
+          <div className="sc-body sc-body-embed" style={{ maxHeight: 420, overflow: 'auto' }}>
+            <a
+              className="twitter-timeline"
+              data-height="420"
               data-width="100%"
               data-chrome="noheader nofooter noborders transparent"
               data-tweet-limit="5"
@@ -79,7 +105,7 @@ export default function SocialSection() {
               Loading @nycwine tweets…
             </a>
           </div>
-          <div className="sc-footer">Live · X Timeline Embed · free, no API key</div>
+          <div className="sc-footer">Live · @NYCWineReport · free</div>
         </div>
 
         {/* ── Instagram #nycwine ─────────────────────────────────
