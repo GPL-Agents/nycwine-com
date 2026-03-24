@@ -11,26 +11,43 @@ const SECTIONS = [
 export default function QuickNav() {
   const [active, setActive] = useState('sec-events');
 
-  // Track which section is in view using IntersectionObserver
+  // Track which section is in view using IntersectionObserver.
+  // Delay observer until user scrolls so the default "Events" sticks on load.
   useEffect(() => {
-    const ids = SECTIONS.map((s) => s.id);
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id);
+    let observer;
+    let hasScrolled = false;
+
+    function startObserver() {
+      if (observer) return;
+      const ids = SECTIONS.map((s) => s.id);
+      observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              setActive(entry.target.id);
+            }
           }
-        }
-      },
-      { rootMargin: '-20% 0px -60% 0px', threshold: 0 }
-    );
+        },
+        { rootMargin: '-20% 0px -60% 0px', threshold: 0 }
+      );
+      ids.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
+      });
+    }
 
-    ids.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
+    function onScroll() {
+      if (!hasScrolled) {
+        hasScrolled = true;
+        startObserver();
+      }
+    }
 
-    return () => observer.disconnect();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (observer) observer.disconnect();
+    };
   }, []);
 
   function scrollTo(id) {
