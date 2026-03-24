@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // scripts/event-fetch.js
 // ─────────────────────────────────────────────────────────────
-// Daily event fetcher — scrapes Eventbrite for NYC wine events
+// Daily event fetcher — scrapes Eventbrite for NYC wine events,
+// fetches each event page for real dates/venues/images,
 // and writes the results to public/data/events-cache.json.
 //
 // This file serves as a static fallback for the API route,
@@ -21,6 +22,12 @@ const SEARCH_URLS = [
   'https://www.eventbrite.com/d/ny--new-york/sommelier/',
 ];
 
+const HEADERS = {
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'Accept': 'text/html,application/xhtml+xml',
+  'Accept-Language': 'en-US,en;q=0.9',
+};
+
 const COLORS = ['c1', 'c2', 'c3', 'c4', 'c5'];
 
 function formatDay(dateStr) {
@@ -35,7 +42,7 @@ function formatMonth(dateStr) {
   if (isNaN(d)) return 'Upcoming';
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  return `${months[d.getMonth()]} ${d.getDate()} · ${days[d.getDay()]}`;
+  return `${months[d.getMonth()]} · ${days[d.getDay()]}`;
 }
 
 function formatDateDisplay(dateStr) {
@@ -61,55 +68,79 @@ function getTag(title) {
   return 'Tasting';
 }
 
-async function scrapeSearch(searchUrl) {
-  const events = [];
-
+// Fetch a single event page for JSON-LD details
+async function fetchEventDetails(url) {
   try {
-    console.log(`  Fetching: ${searchUrl}`);
-    const response = await fetch(searchUrl, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-        'Accept': 'text/html,application/xhtml+xml',
-        'Accept-Language': 'en-US,en;q=0.9',
-      },
-    });
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 8000);
 
-    if (!response.ok) {
-      console.warn(`  HTTP ${response.status} for ${searchUrl}`);
-      return [];
-    }
+    const response = await fetch(url, { headers: HEADERS, signal: controller.signal });
+    clearTimeout(timeout);
 
+    if (!response.ok) return null;
     const html = await response.text();
-    console.log(`  Got ${html.length} bytes`);
 
-    // Strategy 1: JSON-LD structured data
+    // Extract JSON-LD
     const jsonLdMatches = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
     for (const match of jsonLdMatches) {
       try {
         const data = JSON.parse(match[1]);
         const items = Array.isArray(data) ? data : data['@graph'] || [data];
         for (const item of items) {
-          if (item['@type'] === 'Event' && item.url) {
-            events.push({
-              title: item.name || 'Wine Event',
-              venue: item.location?.name || item.location?.address?.addressLocality || 'New York City',
+          if (item['@type'] === 'Event') {
+            return {
+              title: item.name || null,
+              venue: item.location?.name || item.location?.address?.addressLocality || null,
               date: item.startDate || null,
-              dateDisplay: formatDateDisplay(item.startDate),
-              day: formatDay(item.startDate),
-              month: formatMonth(item.startDate),
-              tag: getTag(item.name),
-              url: item.url.replace(/\?aff=.*$/, ''),
               image: typeof item.image === 'string' ? item.image : (Array.isArray(item.image) ? item.image[0] : null),
-              source: 'Eventbrite',
-            });
+            };
           }
         }
       } catch { /* skip */ }
     }
 
-    // Strategy 2: Fallback — parse links + slugs
-    if (events.length === 0) {
-      console.log('  No JSON-LD found, falling back to link parsing');
+    // Fallback: meta tags
+    const dateMatch = html.match(/<meta[^>]+property="event:start_time"[^>]+content="([^"]+)"/i)
+      || html.match(/<time[^>]+datetime="([^"]+)"/i)
+      || html.match(/"startDate"\s*:\s*"([^"]+)"/);
+    const imgMatch = html.match(/<meta[^>]+property="og:image"[^>]+content="([^"]+)"/i);
+    const venueMatch = html.match(/<meta[^>]+property="event:location"[^>]+content="([^"]+)"/i);
+
+    if (dateMatch || imgMatch) {
+      return {
+        title: null,
+        venue: venueMatch ? venueMatch[1] : null,
+        date: dateMatch ? dateMatch[1] : null,
+        image: imgMatch ? imgMatch[1] : null,
+      };
+    }
+
+    return null;
+  } catch {
+    return null;
+  }
+}
+
+async function main() {
+  console.log('=== NYCWine Event Fetch ===');
+  console.log(`Date: ${new Date().toISOString()}`);
+
+  const eventUrls = [];
+  const seenUrls = new Set();
+
+  // Step 1: Collect event URLs from search pages
+  for (const searchUrl of SEARCH_URLS) {
+    try {
+      console.log(`  Fetching search: ${searchUrl}`);
+      const response = await fetch(searchUrl, { headers: HEADERS });
+      if (!response.ok) {
+        console.warn(`  HTTP ${response.status}`);
+        continue;
+      }
+      const html = await response.text();
+      console.log(`  Got ${html.length} bytes`);
+
+      // Extract event links from HTML
       const hrefMatches = [...html.matchAll(/href="([^"]+)"/g)]
         .map((m) => m[1])
         .filter((href) => href.includes('/e/'))
@@ -119,61 +150,63 @@ async function scrapeSearch(searchUrl) {
           return href;
         });
 
-      const imgMatches = [...html.matchAll(/data-src="(https:\/\/img\.evbuc\.com[^"]+)"/g)]
-        .map((m) => m[1]);
-
-      const uniqueUrls = [...new Set(hrefMatches)];
-
-      for (let i = 0; i < uniqueUrls.length; i++) {
-        const url = uniqueUrls[i];
-        const slug = url.split('/e/')[1] || '';
-        const cleanTitle = slug
-          .replace(/-tickets.*$/, '')
-          .replace(/-\d+$/, '')
-          .replace(/-/g, ' ')
-          .replace(/\b\w/g, (c) => c.toUpperCase());
-
-        events.push({
-          title: cleanTitle || 'Wine Event',
-          venue: 'New York City',
-          date: null,
-          dateDisplay: null,
-          day: '—',
-          month: 'Upcoming',
-          tag: getTag(cleanTitle),
-          url,
-          image: imgMatches[i] || null,
-          source: 'Eventbrite',
-        });
+      for (const url of hrefMatches) {
+        if (!seenUrls.has(url)) {
+          seenUrls.add(url);
+          eventUrls.push(url);
+        }
       }
+    } catch (err) {
+      console.error(`  Error: ${err.message}`);
     }
-
-    console.log(`  Found ${events.length} events`);
-  } catch (err) {
-    console.error(`  Error scraping ${searchUrl}:`, err.message);
   }
 
-  return events;
-}
+  console.log(`\nFound ${eventUrls.length} unique event URLs`);
 
-async function main() {
-  console.log('=== NYCWine Event Fetch ===');
-  console.log(`Date: ${new Date().toISOString()}`);
+  // Step 2: Fetch each event page for details (limit to 25)
+  const limited = eventUrls.slice(0, 25);
+  console.log(`Fetching details for ${limited.length} events...`);
 
+  const detailResults = await Promise.allSettled(
+    limited.map((url) => fetchEventDetails(url))
+  );
+
+  // Step 3: Assemble events
   const allEvents = [];
-  const seenUrls = new Set();
+  for (let i = 0; i < limited.length; i++) {
+    const url = limited[i];
+    const details = detailResults[i].status === 'fulfilled' ? detailResults[i].value : null;
 
-  for (const url of SEARCH_URLS) {
-    const events = await scrapeSearch(url);
-    for (const ev of events) {
-      if (!seenUrls.has(ev.url)) {
-        seenUrls.add(ev.url);
-        allEvents.push(ev);
-      }
-    }
+    const slug = url.split('/e/')[1] || '';
+    const slugTitle = slug
+      .replace(/-tickets.*$/, '')
+      .replace(/-\d+$/, '')
+      .replace(/-/g, ' ')
+      .replace(/\b\w/g, (c) => c.toUpperCase());
+
+    const title = details?.title || slugTitle || 'Wine Event';
+    const venue = details?.venue || 'New York City';
+    const date = details?.date || null;
+    const image = details?.image || null;
+
+    allEvents.push({
+      title,
+      venue,
+      date,
+      dateDisplay: formatDateDisplay(date),
+      day: formatDay(date),
+      month: formatMonth(date),
+      tag: getTag(title),
+      url,
+      image,
+      source: 'Eventbrite',
+    });
+
+    const status = date ? `${formatDateDisplay(date)}` : 'no date';
+    console.log(`  [${i + 1}] ${title.substring(0, 50)} — ${status}`);
   }
 
-  // Sort: dated events first (chronological), then undated
+  // Sort: dated events first, then undated
   allEvents.sort((a, b) => {
     if (!a.date && !b.date) return 0;
     if (!a.date) return 1;
@@ -195,7 +228,8 @@ async function main() {
   const outPath = path.join(outDir, 'events-cache.json');
   fs.writeFileSync(outPath, JSON.stringify(final, null, 2));
 
-  console.log(`\nWrote ${final.length} events to ${outPath}`);
+  const withDates = final.filter((e) => e.date).length;
+  console.log(`\nWrote ${final.length} events (${withDates} with dates) to ${outPath}`);
   console.log('Done!');
 }
 

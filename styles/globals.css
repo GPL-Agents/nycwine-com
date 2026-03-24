@@ -190,6 +190,7 @@ body {
 /* Event cards */
 .event-cards-scroll {
   display: flex;
+  flex-wrap: wrap;
   gap: 14px;
   padding: 16px 24px 8px;
   overflow-x: auto;
@@ -198,8 +199,8 @@ body {
 .event-cards-scroll::-webkit-scrollbar { display: none; }
 
 .event-card {
-  flex-shrink: 0;
-  width: 200px;
+  flex: 0 0 calc((100% - 56px) / 5);  /* 5 per row with 14px gaps */
+  min-width: 150px;
   background: white;
   border-radius: 10px;
   overflow: hidden;
@@ -721,7 +722,17 @@ body {
 /* ═══════════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════════ */
+@media (max-width: 900px) {
+  .event-card { flex: 0 0 calc((100% - 42px) / 4); } /* 4 per row */
+}
+
+@media (max-width: 700px) {
+  .event-card { flex: 0 0 calc((100% - 28px) / 3); } /* 3 per row */
+}
+
 @media (max-width: 600px) {
+  .event-cards-scroll { flex-wrap: nowrap; overflow-x: auto; }
+  .event-card { flex: 0 0 200px; } /* back to horizontal scroll on mobile */
   .social-grid { grid-template-columns: 1fr; }
   .social-card.full-width { grid-column: span 1; }
   .reddit-posts { flex-direction: column; }
