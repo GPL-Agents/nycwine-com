@@ -56,8 +56,8 @@ body {
   z-index: 50;
 }
 
+.header-search-form { margin-left: 12px; }
 .header-search {
-  margin-left: 12px;
   background: white;
   border-radius: 24px;
   padding: 8px 18px;
@@ -186,7 +186,20 @@ body {
   font-family: var(--font-sans);
   transition: all 0.2s ease;
 }
+/* Default active (All pill) */
 .epill.active { background: var(--rose); color: white; border-color: var(--rose); }
+
+/* Color-coded filter pills — match event card tag colors */
+.epill[data-filter="Tasting"]        { border-color: #ef9a9a; color: #c62828; background: #fce4ec; }
+.epill[data-filter="Tasting"].active { background: #c62828; color: white; border-color: #c62828; }
+.epill[data-filter="Class"]          { border-color: #90caf9; color: #1565c0; background: #e3f2fd; }
+.epill[data-filter="Class"].active   { background: #1565c0; color: white; border-color: #1565c0; }
+.epill[data-filter="Dinner"]         { border-color: #ffcc80; color: #e65100; background: #fff3e0; }
+.epill[data-filter="Dinner"].active  { background: #e65100; color: white; border-color: #e65100; }
+.epill[data-filter="Event"]          { border-color: #ce93d8; color: #7b1fa2; background: #f3e5f5; }
+.epill[data-filter="Event"].active   { background: #7b1fa2; color: white; border-color: #7b1fa2; }
+.epill[data-filter="Festival"]       { border-color: #a5d6a7; color: #2e7d32; background: #e8f5e9; }
+.epill[data-filter="Festival"].active{ background: #2e7d32; color: white; border-color: #2e7d32; }
 
 /* Event cards */
 .event-cards-scroll {
@@ -302,10 +315,10 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-.sc-fb     { background: #1877f2; }
+.sc-fb     { background: var(--black); }
 .sc-x      { background: var(--black); }
-.sc-pin    { background: var(--pink); }
-.sc-ig     { background: linear-gradient(135deg, #f06292, #e91e63, #c2185b); }
+.sc-pin    { background: var(--black); }
+.sc-ig     { background: var(--black); }
 .sc-reddit { background: var(--black); }
 
 .sc-platform { font-size: 12px; font-weight: 600; color: white; font-family: var(--font-sans); }
@@ -827,3 +840,39 @@ body {
   .hood-grid { gap: 6px; }
   .hood-chip { padding: 6px 10px; font-size: 11px; }
 }
+
+/* ═══════════════════════════════════════
+   SEARCH PAGE
+═══════════════════════════════════════ */
+.search-page { max-width: 800px; margin: 0 auto; padding: 32px 24px 60px; }
+.search-page-header { margin-bottom: 28px; }
+.search-page-title { font-family: var(--font-serif); font-size: 24px; font-weight: 700; color: var(--black); }
+.search-page-count { font-size: 13px; color: var(--muted); margin-top: 6px; font-family: var(--font-sans); }
+.search-loading { font-size: 14px; color: var(--muted); }
+.search-empty { font-size: 14px; color: var(--muted); line-height: 1.6; }
+.search-section { margin-bottom: 32px; }
+.search-section-title { font-family: var(--font-serif); font-size: 18px; font-weight: 600; color: var(--black); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.search-results { display: flex; flex-direction: column; gap: 8px; }
+.search-result-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  transition: border-color 0.15s;
+  display: block;
+}
+.search-result-card:hover { border-color: var(--rose-muted); }
+.src-name { font-size: 15px; font-weight: 600; color: var(--black); font-family: var(--font-sans); }
+.src-meta { font-size: 12px; color: var(--muted); margin-top: 4px; font-family: var(--font-sans); }
+.src-link { font-size: 12px; color: var(--pink); text-decoration: none; margin-top: 6px; display: inline-block; font-weight: 500; }
+.src-link:hover { text-decoration: underline; }
+.src-snippet { font-size: 13px; color: var(--text); margin-top: 6px; line-height: 1.5; }
+.src-tag { font-size: 10px; padding: 2px 8px; border-radius: 8px; font-weight: 500; }
+.src-tag[data-tag="Tasting"]  { background: #fce4ec; color: #c62828; }
+.src-tag[data-tag="Class"]    { background: #e3f2fd; color: #1565c0; }
+.src-tag[data-tag="Dinner"]   { background: #fff3e0; color: #e65100; }
+.src-tag[data-tag="Event"]    { background: #f3e5f5; color: #7b1fa2; }
+.src-tag[data-tag="Festival"] { background: #e8f5e9; color: #2e7d32; }
+.search-more { font-size: 13px; color: var(--muted); margin-top: 8px; }
+.search-more a { color: var(--pink); text-decoration: none; }
+.search-more a:hover { text-decoration: underline; }

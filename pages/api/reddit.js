@@ -1,20 +1,26 @@
 // pages/api/reddit.js
 // ─────────────────────────────────────────────────────────────
-// Reddit Wine Feed — uses Reddit's RSS feeds (which are more
-// permissive than JSON endpoints on Vercel server IPs).
+// Reddit Wine Feed — combines:
+//   1. r/wine hot posts (general wine content, always fresh)
+//   2. r/nyc + r/FoodNYC (wine-filtered)
+//   3. Reddit search for "nyc wine" and "new york city wine"
+//      (less frequent but more targeted)
 //
-// Endpoint: GET /api/reddit
-// Returns: JSON array of reddit posts
-//
-// Sources: r/wine (all posts), r/nyc + r/FoodNYC (wine-filtered)
-//
-// Uses in-memory cache (30 min) to be a good citizen.
+// Uses RSS feeds (more permissive than JSON on Vercel IPs).
+// Falls back to JSON, then to static posts.
+// 30-minute in-memory cache.
 // ─────────────────────────────────────────────────────────────
 
 const SUBREDDITS = [
   { name: 'wine', alwaysRelevant: true },
   { name: 'nyc', alwaysRelevant: false },
   { name: 'FoodNYC', alwaysRelevant: false },
+];
+
+// Reddit search queries for NYC-specific wine content
+const SEARCH_QUERIES = [
+  'nyc wine',
+  'new york city wine',
 ];
 
 const WINE_KEYWORDS = [
@@ -31,9 +37,8 @@ let cacheTime = 0;
 const CACHE_TTL = 30 * 60 * 1000; // 30 minutes
 
 // ── Parse RSS XML for Reddit posts ──────────────────────────
-function parseRedditRSS(xml, subredditName, alwaysRelevant) {
+function parseRedditRSS(xml, sourceName, alwaysRelevant) {
   const posts = [];
-  // Match each <entry> in the Atom feed
   const entries = xml.split('<entry>').slice(1);
 
   for (const entry of entries) {
@@ -42,7 +47,6 @@ function parseRedditRSS(xml, subredditName, alwaysRelevant) {
     const updated = (entry.match(/<updated>([\s\S]*?)<\/updated>/) || [])[1] || '';
     const content = (entry.match(/<content[^>]*>([\s\S]*?)<\/content>/) || [])[1] || '';
 
-    // Clean HTML entities in title
     const cleanTitle = title
       .replace(/&amp;/g, '&')
       .replace(/&lt;/g, '<')
@@ -55,13 +59,16 @@ function parseRedditRSS(xml, subredditName, alwaysRelevant) {
 
     if (!cleanTitle || !link) continue;
 
-    // Extract score and comments from the content HTML if available
     const scoreMatch = content.match(/(\d+)\s*point/i);
     const commentsMatch = content.match(/(\d+)\s*comment/i);
 
+    // Try to extract subreddit from the link URL
+    const subMatch = link.match(/\/r\/([^/]+)\//);
+    const subreddit = subMatch ? `r/${subMatch[1]}` : sourceName;
+
     posts.push({
       title: cleanTitle,
-      subreddit: `r/${subredditName}`,
+      subreddit,
       url: link,
       score: scoreMatch ? parseInt(scoreMatch[1], 10) : 0,
       comments: commentsMatch ? parseInt(commentsMatch[1], 10) : 0,
@@ -77,7 +84,6 @@ function parseRedditRSS(xml, subredditName, alwaysRelevant) {
 // ── Fetch RSS from one subreddit ────────────────────────────
 async function fetchSubredditRSS(sub) {
   try {
-    // Reddit RSS feeds use .rss extension
     const res = await fetch(
       `https://www.reddit.com/r/${sub.name}/hot.rss?limit=25`,
       {
@@ -88,16 +94,41 @@ async function fetchSubredditRSS(sub) {
         signal: AbortSignal.timeout(8000),
       }
     );
-
     if (!res.ok) {
       console.log(`Reddit RSS r/${sub.name}: HTTP ${res.status}`);
       return [];
     }
-
     const xml = await res.text();
-    return parseRedditRSS(xml, sub.name, sub.alwaysRelevant);
+    return parseRedditRSS(xml, `r/${sub.name}`, sub.alwaysRelevant);
   } catch (err) {
     console.log(`Reddit RSS r/${sub.name} error:`, err.message);
+    return [];
+  }
+}
+
+// ── Fetch Reddit search RSS for a query ─────────────────────
+async function fetchSearchRSS(query) {
+  try {
+    const encoded = encodeURIComponent(query);
+    const res = await fetch(
+      `https://www.reddit.com/search.rss?q=${encoded}&sort=relevance&t=year&limit=25`,
+      {
+        headers: {
+          'User-Agent': 'NYCWine.com/1.0 (wine community aggregator)',
+          'Accept': 'application/rss+xml, application/xml, text/xml, */*',
+        },
+        signal: AbortSignal.timeout(8000),
+      }
+    );
+    if (!res.ok) {
+      console.log(`Reddit search "${query}": HTTP ${res.status}`);
+      return [];
+    }
+    const xml = await res.text();
+    // Search results are always relevant (they matched our query)
+    return parseRedditRSS(xml, `search: ${query}`, true);
+  } catch (err) {
+    console.log(`Reddit search "${query}" error:`, err.message);
     return [];
   }
 }
@@ -184,20 +215,23 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Try RSS first (more permissive on server IPs)
-    let results = await Promise.all(
-      SUBREDDITS.map((sub) => fetchSubredditRSS(sub))
-    );
+    // Fetch subreddit RSS + search RSS in parallel
+    const [subResults, searchResults] = await Promise.all([
+      // Subreddit feeds
+      Promise.all(SUBREDDITS.map((sub) => fetchSubredditRSS(sub))),
+      // Search feeds for NYC-specific content
+      Promise.all(SEARCH_QUERIES.map((q) => fetchSearchRSS(q))),
+    ]);
 
-    let allPosts = results.flat();
+    let allPosts = [...subResults.flat(), ...searchResults.flat()];
 
-    // If RSS returned nothing, try JSON as fallback
+    // If RSS returned nothing, try JSON fallback for subreddits
     if (allPosts.length === 0) {
       console.log('Reddit RSS returned no posts, trying JSON fallback...');
-      results = await Promise.all(
+      const jsonResults = await Promise.all(
         SUBREDDITS.map((sub) => fetchSubredditJSON(sub))
       );
-      allPosts = results.flat();
+      allPosts = jsonResults.flat();
     }
 
     // If still nothing, return static fallback
@@ -232,7 +266,7 @@ export default async function handler(req, res) {
       ago: timeAgo(post.timestamp),
     }));
 
-    // If filtering removed everything, use a subset of unfiltered
+    // If filtering removed everything, use unfiltered subset
     const finalPosts = posts.length > 0 ? posts : allPosts.slice(0, 5).map((post) => ({
       title: post.title,
       subreddit: post.subreddit,
@@ -252,7 +286,6 @@ export default async function handler(req, res) {
     return res.status(200).json(finalPosts);
   } catch (err) {
     console.error('Reddit API error:', err);
-    // Return fallback on any error
     return res.status(200).json(FALLBACK_POSTS);
   }
 }

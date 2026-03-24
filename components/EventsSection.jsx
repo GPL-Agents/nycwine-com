@@ -62,6 +62,7 @@ export default function EventsSection() {
           <button
             key={f}
             className={`epill${activeFilter === f ? ' active' : ''}`}
+            data-filter={f}
             onClick={() => setActiveFilter(f)}
           >
             {f}
