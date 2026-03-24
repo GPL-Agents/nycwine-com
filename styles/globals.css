@@ -921,16 +921,15 @@ body {
 
 /* ═══════════════════════════════════════
    WINE BARS SECTION
-   Pink ribbon header to alternate with
-   black store header above it.
+   Black ribbon header (matches stores).
 ═══════════════════════════════════════ */
 .bars-section { background: white; border-top: 1px solid var(--border); }
 .bars-header {
-  background: var(--pink);
+  background: var(--black);
   padding: 14px 24px;
 }
 .bars-header .section-header-title { color: white; }
-.bars-header .see-all-link { color: rgba(255,255,255,0.7); }
+.bars-header .see-all-link { color: rgba(255,255,255,0.6); }
 
 /* Bar finder widget (homepage) */
 .bar-finder {
