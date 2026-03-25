@@ -56,7 +56,7 @@ export default function PrivacyPage() {
 
           <h2 style={{ marginTop: 32, marginBottom: 8 }}>Event Data</h2>
           <p>
-            Event listings on this site are sourced from public listings on Eventbrite. We do not
+            Event listings on this site are sourced from public listings. We do not
             collect or store any data about which events you view or click on.
           </p>
 
@@ -75,8 +75,8 @@ export default function PrivacyPage() {
           <h2 style={{ marginTop: 32, marginBottom: 8 }}>Contact</h2>
           <p>
             If you have any questions about this privacy policy, you can reach us at:{' '}
-            <a href="mailto:hello@nycwine.com" style={{ color: 'var(--rose)' }}>
-              hello@nycwine.com
+            <a href="mailto:admin@nycwine.com" style={{ color: 'var(--rose)' }}>
+              admin@nycwine.com
             </a>
           </p>
 
