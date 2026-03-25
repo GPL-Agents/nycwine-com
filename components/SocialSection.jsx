@@ -5,36 +5,85 @@
 // Order: Instagram, Reddit (NYC Wine), Reddit (r/wine), X, Pinterest, Facebook
 // ─────────────────────────────────────────────────────────────
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 function RedditGrid({ posts, loading, emptyMsg }) {
+  const scrollRef = useRef(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  const checkScroll = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 0);
+    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+  }, []);
+
+  useEffect(() => {
+    checkScroll();
+    const el = scrollRef.current;
+    if (el) el.addEventListener('scroll', checkScroll, { passive: true });
+    window.addEventListener('resize', checkScroll);
+    return () => {
+      if (el) el.removeEventListener('scroll', checkScroll);
+      window.removeEventListener('resize', checkScroll);
+    };
+  }, [posts, loading, checkScroll]);
+
+  const scroll = (dir) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const amount = el.clientWidth * 0.7;
+    el.scrollBy({ left: dir === 'left' ? -amount : amount, behavior: 'smooth' });
+  };
+
   return (
-    <div className="reddit-carousel">
-      {loading && (
-        <div className="reddit-card">
-          <div className="reddit-title">Loading…</div>
-        </div>
-      )}
-      {!loading && posts.length === 0 && (
-        <div className="reddit-card">
-          <div className="reddit-title">{emptyMsg}</div>
-        </div>
-      )}
-      {posts.slice(0, 10).map((post, i) => (
-        <a
-          key={i}
-          className="reddit-card"
-          href={post.url}
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className="reddit-carousel-wrap">
+      {canScrollLeft && (
+        <button
+          className="reddit-arrow reddit-arrow-left"
+          onClick={() => scroll('left')}
+          aria-label="Scroll left"
         >
-          <div className="reddit-sub">{post.subreddit}</div>
-          <div className="reddit-title">{post.title}</div>
-          <div className="reddit-meta">
-            {post.score.toLocaleString()} pts · {post.comments.toLocaleString()} comments · {post.ago}
+          &#8249;
+        </button>
+      )}
+      <div className="reddit-carousel" ref={scrollRef}>
+        {loading && (
+          <div className="reddit-card">
+            <div className="reddit-title">Loading…</div>
           </div>
-        </a>
-      ))}
+        )}
+        {!loading && posts.length === 0 && (
+          <div className="reddit-card">
+            <div className="reddit-title">{emptyMsg}</div>
+          </div>
+        )}
+        {posts.slice(0, 10).map((post, i) => (
+          <a
+            key={i}
+            className="reddit-card"
+            href={post.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="reddit-sub">{post.subreddit}</div>
+            <div className="reddit-title">{post.title}</div>
+            <div className="reddit-meta">
+              {post.score.toLocaleString()} pts · {post.comments.toLocaleString()} comments · {post.ago}
+            </div>
+          </a>
+        ))}
+      </div>
+      {canScrollRight && (
+        <button
+          className="reddit-arrow reddit-arrow-right"
+          onClick={() => scroll('right')}
+          aria-label="Scroll right"
+        >
+          &#8250;
+        </button>
+      )}
     </div>
   );
 }

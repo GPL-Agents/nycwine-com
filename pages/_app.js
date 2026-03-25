@@ -11,6 +11,9 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
+        {/* Google AdSense — site ownership verification */}
+        <meta name="google-adsense-account" content="ca-pub-6782277104310503" />
+
         {/* Google Fonts — Playfair Display (editorial serif) + DM Sans (clean body) */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
