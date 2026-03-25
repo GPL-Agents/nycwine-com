@@ -1,71 +1,112 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 80" preserveAspectRatio="none">
-  <g fill="#e8e8e8" opacity="0.5">
-    <!-- Far left buildings -->
-    <rect x="10" y="40" width="18" height="40"/>
-    <rect x="32" y="30" width="14" height="50"/>
-    <rect x="50" y="45" width="20" height="35"/>
-    <rect x="74" y="25" width="12" height="55"/>
-    <rect x="90" y="35" width="22" height="45"/>
-    <!-- Left cluster -->
-    <rect x="120" y="20" width="16" height="60"/>
-    <rect x="140" y="30" width="24" height="50"/>
-    <rect x="168" y="15" width="10" height="65"/>
-    <rect x="182" y="38" width="20" height="42"/>
-    <rect x="206" y="28" width="14" height="52"/>
-    <!-- Mid-left -->
-    <rect x="230" y="42" width="18" height="38"/>
-    <rect x="252" y="22" width="12" height="58"/>
-    <rect x="268" y="35" width="26" height="45"/>
-    <rect x="298" y="18" width="8" height="62"/>
-    <rect x="310" y="32" width="20" height="48"/>
-    <!-- Center-left -->
-    <rect x="340" y="40" width="16" height="40"/>
-    <rect x="360" y="12" width="14" height="68"/>
-    <rect x="378" y="28" width="22" height="52"/>
-    <rect x="404" y="38" width="12" height="42"/>
-    <rect x="420" y="20" width="18" height="60"/>
-    <!-- Empire State area -->
-    <rect x="450" y="5" width="10" height="75"/>
-    <rect x="445" y="10" width="20" height="4"/>
-    <rect x="464" y="25" width="24" height="55"/>
-    <rect x="492" y="35" width="16" height="45"/>
-    <rect x="512" y="22" width="20" height="58"/>
-    <!-- Center -->
-    <rect x="540" y="30" width="14" height="50"/>
-    <rect x="558" y="42" width="22" height="38"/>
-    <rect x="584" y="18" width="12" height="62"/>
-    <rect x="600" y="8" width="8" height="72"/>
-    <rect x="612" y="28" width="20" height="52"/>
-    <!-- Center-right (Chrysler-ish) -->
-    <rect x="640" y="38" width="18" height="42"/>
-    <rect x="662" y="3" width="8" height="77"/>
-    <rect x="658" y="8" width="16" height="5"/>
-    <rect x="674" y="25" width="22" height="55"/>
-    <rect x="700" y="35" width="14" height="45"/>
-    <rect x="718" y="20" width="18" height="60"/>
-    <!-- Right cluster -->
-    <rect x="744" y="32" width="20" height="48"/>
-    <rect x="768" y="42" width="14" height="38"/>
-    <rect x="786" y="15" width="12" height="65"/>
-    <rect x="802" y="28" width="24" height="52"/>
-    <rect x="830" y="38" width="16" height="42"/>
-    <!-- Mid-right -->
-    <rect x="854" y="22" width="18" height="58"/>
-    <rect x="876" y="40" width="12" height="40"/>
-    <rect x="892" y="30" width="22" height="50"/>
-    <rect x="918" y="18" width="10" height="62"/>
-    <rect x="932" y="35" width="20" height="45"/>
-    <!-- Far right -->
-    <rect x="960" y="42" width="16" height="38"/>
-    <rect x="980" y="25" width="14" height="55"/>
-    <rect x="998" y="38" width="24" height="42"/>
-    <rect x="1026" y="30" width="12" height="50"/>
-    <rect x="1042" y="45" width="20" height="35"/>
-    <rect x="1066" y="22" width="18" height="58"/>
-    <rect x="1088" y="35" width="14" height="45"/>
-    <rect x="1106" y="42" width="22" height="38"/>
-    <rect x="1132" y="28" width="16" height="52"/>
-    <rect x="1152" y="40" width="20" height="40"/>
-    <rect x="1176" y="32" width="14" height="48"/>
+  <g fill="#dcdcdc" opacity="0.5">
+
+    <!-- Far left low buildings -->
+    <rect x="0" y="60" width="12" height="20"/>
+    <rect x="16" y="55" width="10" height="25"/>
+    <rect x="30" y="58" width="14" height="22"/>
+    <rect x="48" y="52" width="10" height="28"/>
+    <rect x="62" y="56" width="16" height="24"/>
+    <rect x="82" y="50" width="12" height="30"/>
+    <rect x="98" y="54" width="14" height="26"/>
+    <rect x="116" y="48" width="10" height="32"/>
+    <rect x="130" y="52" width="16" height="28"/>
+    <rect x="150" y="46" width="12" height="34"/>
+    <rect x="166" y="50" width="14" height="30"/>
+
+    <!-- Left mid buildings growing taller -->
+    <rect x="186" y="40" width="14" height="40"/>
+    <rect x="204" y="44" width="18" height="36"/>
+    <rect x="226" y="36" width="12" height="44"/>
+    <rect x="242" y="42" width="16" height="38"/>
+    <rect x="262" y="34" width="14" height="46"/>
+    <rect x="280" y="38" width="10" height="42"/>
+
+    <!-- Pre-midtown -->
+    <rect x="296" y="30" width="16" height="50"/>
+    <rect x="316" y="36" width="12" height="44"/>
+    <rect x="332" y="28" width="18" height="52"/>
+    <rect x="354" y="34" width="14" height="46"/>
+
+    <!-- ═══ EMPIRE STATE BUILDING ═══ -->
+    <!-- Base -->
+    <rect x="378" y="30" width="30" height="50"/>
+    <!-- Setback 1 -->
+    <rect x="382" y="22" width="22" height="8"/>
+    <!-- Setback 2 -->
+    <rect x="386" y="16" width="14" height="6"/>
+    <!-- Upper tower -->
+    <rect x="389" y="8" width="8" height="8"/>
+    <!-- Antenna mast -->
+    <rect x="392" y="0" width="2" height="8"/>
+
+    <!-- Between Empire State and Chrysler -->
+    <rect x="414" y="32" width="14" height="48"/>
+    <rect x="432" y="26" width="18" height="54"/>
+    <rect x="454" y="34" width="12" height="46"/>
+    <rect x="470" y="28" width="16" height="52"/>
+    <rect x="490" y="36" width="10" height="44"/>
+
+    <!-- ═══ CHRYSLER BUILDING ═══ -->
+    <!-- Main shaft -->
+    <rect x="506" y="18" width="18" height="62"/>
+    <!-- Art deco crown - triangular arches -->
+    <polygon points="506,18 515,6 524,18"/>
+    <!-- Spire -->
+    <rect x="514" y="0" width="2" height="6"/>
+
+    <!-- East midtown -->
+    <rect x="530" y="28" width="16" height="52"/>
+    <rect x="550" y="24" width="14" height="56"/>
+    <rect x="568" y="32" width="18" height="48"/>
+    <rect x="590" y="26" width="12" height="54"/>
+
+    <!-- Transitional -->
+    <rect x="608" y="36" width="16" height="44"/>
+    <rect x="628" y="30" width="14" height="50"/>
+    <rect x="646" y="38" width="12" height="42"/>
+    <rect x="662" y="32" width="18" height="48"/>
+
+    <!-- ═══ ONE WORLD TRADE CENTER (Freedom Tower) ═══ -->
+    <!-- Tapered form -->
+    <polygon points="692,80 692,8 702,2 712,8 712,80"/>
+    <!-- Antenna -->
+    <rect x="701" y="0" width="2" height="2"/>
+
+    <!-- WTC complex neighbors -->
+    <rect x="718" y="22" width="16" height="58"/>
+    <rect x="738" y="18" width="14" height="62"/>
+    <rect x="756" y="26" width="16" height="54"/>
+
+    <!-- Lower Manhattan financial district -->
+    <rect x="778" y="30" width="14" height="50"/>
+    <rect x="796" y="24" width="18" height="56"/>
+    <rect x="818" y="32" width="12" height="48"/>
+    <rect x="834" y="28" width="16" height="52"/>
+    <rect x="854" y="36" width="14" height="44"/>
+
+    <!-- Right side tapering -->
+    <rect x="874" y="40" width="12" height="40"/>
+    <rect x="890" y="44" width="16" height="36"/>
+    <rect x="910" y="38" width="10" height="42"/>
+    <rect x="924" y="46" width="14" height="34"/>
+    <rect x="942" y="42" width="12" height="38"/>
+    <rect x="958" y="48" width="16" height="32"/>
+    <rect x="978" y="44" width="10" height="36"/>
+    <rect x="992" y="50" width="14" height="30"/>
+
+    <!-- Far right low -->
+    <rect x="1010" y="54" width="16" height="26"/>
+    <rect x="1030" y="50" width="12" height="30"/>
+    <rect x="1046" y="56" width="14" height="24"/>
+    <rect x="1064" y="52" width="10" height="28"/>
+    <rect x="1078" y="58" width="16" height="22"/>
+    <rect x="1098" y="54" width="12" height="26"/>
+    <rect x="1114" y="58" width="14" height="22"/>
+    <rect x="1132" y="56" width="10" height="24"/>
+    <rect x="1146" y="60" width="16" height="20"/>
+    <rect x="1166" y="58" width="12" height="22"/>
+    <rect x="1182" y="62" width="18" height="18"/>
+
   </g>
 </svg>
