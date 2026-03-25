@@ -105,7 +105,7 @@ body {
   padding: 8px 18px;
   font-size: 13px;
   color: var(--text);
-  border: 1.5px solid var(--border);
+  border: 1.5px solid #333;
   outline: none;
   width: 240px;
   font-family: var(--font-sans);
@@ -665,7 +665,7 @@ body {
 }
 .ad-cta {
   display: inline-block;
-  background: var(--pink);
+  background: #2e8b57;
   color: white;
   font-size: 13px;
   font-weight: 600;
@@ -676,7 +676,7 @@ body {
   transition: background 0.2s;
   margin-top: auto;
 }
-.ad-cta:hover { background: var(--pink-dark); }
+.ad-cta:hover { background: #256e46; }
 @media (max-width: 800px) {
   .social-links-row { flex-direction: column; }
   .social-ad-sidebar {

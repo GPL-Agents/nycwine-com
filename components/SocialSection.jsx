@@ -255,7 +255,7 @@ export default function SocialSection() {
           <div className="social-ad-sidebar">
             <div className="infeed-ad">
               <img
-                src="/Wineryad.png"
+                src="/images/winerad2.png"
                 alt="Borghese Vineyard"
                 className="infeed-ad-img"
               />
