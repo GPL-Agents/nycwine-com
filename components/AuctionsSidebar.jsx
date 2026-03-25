@@ -53,7 +53,11 @@ export default function AuctionsSidebar() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          via {source.name} →
+          <img
+            src="https://www.ackerwines.com/wp-content/uploads/2019/04/acker-logo-black-1.svg"
+            alt="Acker Wines"
+            className="auctions-source-logo"
+          />
         </a>
       )}
     </div>

@@ -380,7 +380,14 @@ body {
   padding-top: 8px;
   border-top: 1px solid var(--border-light, #f0eeeb);
 }
-.auctions-source:hover { color: var(--pink, #e91e63); }
+.auctions-source:hover { opacity: 0.7; }
+.auctions-source-logo {
+  height: 22px;
+  width: auto;
+  opacity: 0.45;
+  transition: opacity 0.2s;
+}
+.auctions-source:hover .auctions-source-logo { opacity: 0.8; }
 @media (max-width: 800px) {
   .event-list-row {
     flex-direction: column;
@@ -498,6 +505,51 @@ body {
 .slc-desc { font-size: 12px; color: var(--muted); margin-top: 3px; line-height: 1.4; }
 .slc-arrow { font-size: 22px; color: var(--border); flex-shrink: 0; transition: color 0.15s; }
 .social-link-card:hover .slc-arrow { color: var(--pink); }
+
+/* Social links + ad sidebar layout */
+.social-links-row {
+  display: flex;
+  gap: 24px;
+  grid-column: 1 / -1;
+}
+.social-links-col {
+  flex: 2;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.social-ad-sidebar {
+  flex: 1;
+  align-self: flex-start;
+  position: sticky;
+  top: 120px;
+  display: flex;
+  justify-content: center;
+}
+.ad-placeholder {
+  background: var(--cream, #faf8f5);
+  border: 1px dashed var(--border, #e0ddd8);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ad-placeholder-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted, #ccc);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+@media (max-width: 800px) {
+  .social-links-row { flex-direction: column; }
+  .social-ad-sidebar {
+    position: static;
+    width: 100%;
+  }
+  .ad-placeholder { width: 100% !important; min-height: 100px !important; }
+}
 
 /* Coming soon placeholder cards */
 .social-coming-soon {
