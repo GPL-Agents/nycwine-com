@@ -83,7 +83,6 @@ export default function EventsSection() {
       {/* Header bar */}
       <div className="section-header events-header">
         <div className="section-header-title">Upcoming Events</div>
-        <a href="/events" className="see-all-link">See all →</a>
       </div>
 
       {/* Filter pills */}

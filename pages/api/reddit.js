@@ -6,9 +6,12 @@
 //   3. Reddit search for NYC wine queries
 //
 // Uses RSS feeds (more permissive than JSON on Vercel IPs).
-// Falls back to JSON, then to static posts.
+// Falls back to JSON, then to cached file, then to static posts.
 // 30-minute in-memory cache.
 // ─────────────────────────────────────────────────────────────
+
+import fs from 'fs';
+import path from 'path';
 
 const SUBREDDITS = [
   { name: 'wine', alwaysRelevant: true },
@@ -275,7 +278,10 @@ function dedupeAndFormat(posts, limit, scoreFn = null) {
         const diff = scoreFn(b) - scoreFn(a);
         if (diff !== 0) return diff;
       }
-      return b.score - a.score;
+      // Sort by engagement: points + comments weighted
+      const engageA = a.score + a.comments * 2;
+      const engageB = b.score + b.comments * 2;
+      return engageB - engageA;
     })
     .slice(0, limit)
     .map((post) => ({
@@ -319,6 +325,7 @@ export default async function handler(req, res) {
     // NYC bucket: ALL sources go through the same strict filter.
     // nycRelevanceScore handles subreddit-awareness (NYC subs only
     // need wine-in-title; others need NYC + wine).
+    // Exclude r/wine posts — they already have their own dedicated row.
     const allNycCandidates = [
       ...searchRSS.flat(),
       ...foodNycRSS,
@@ -326,7 +333,7 @@ export default async function handler(req, res) {
       ...nycBarsRSS,
       ...nycRSS,
       ...askNycRSS,
-    ];
+    ].filter(post => post.subreddit.toLowerCase() !== 'r/wine');
     const nycRaw = allNycCandidates.filter(isNYCWineRelated);
 
     // Format: NYC row sorted by hashtag relevance first, then score
@@ -346,6 +353,17 @@ export default async function handler(req, res) {
     return res.status(200).json(result);
   } catch (err) {
     console.error('Reddit API error:', err);
+
+    // Try the daily-cached file before falling back to static posts
+    try {
+      const cachePath = path.join(process.cwd(), 'public', 'data', 'reddit-cache.json');
+      const cached = JSON.parse(fs.readFileSync(cachePath, 'utf8'));
+      if (cached.wine?.length || cached.nyc?.length) {
+        console.log('Using reddit-cache.json fallback');
+        return res.status(200).json({ wine: cached.wine, nyc: cached.nyc });
+      }
+    } catch { /* cache file missing or invalid, fall through */ }
+
     return res.status(200).json(FALLBACK);
   }
 }
