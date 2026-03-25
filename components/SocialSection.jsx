@@ -116,7 +116,8 @@ export default function SocialSection() {
 
       {/* Header */}
       <div className="social-section-header">
-        <div className="section-header-title">NYC Wine Community</div>
+        <div className="section-header-title">NYC Wine Social</div>
+        <div className="section-header-sub">Use <strong>@nycwine</strong> on any social channel to get your posts picked up</div>
       </div>
 
       <div className="social-grid">
@@ -169,7 +170,7 @@ export default function SocialSection() {
             <div className="social-card full-width">
               <div className="sc-header sc-x">
                 <svg className="sc-brand-icon" width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="white"/></svg>
-                <div className="sc-platform">X · NYC Wine Scene</div>
+                <div className="sc-platform">X · @NYCWineReport</div>
                 <a href="https://x.com/i/lists/2036448383569625436" className="sc-follow" target="_blank" rel="noopener noreferrer">View list →</a>
               </div>
               <div className="sc-body">
@@ -225,12 +226,12 @@ export default function SocialSection() {
             <div className="social-card full-width">
               <div className="sc-header sc-fb">
                 <svg className="sc-brand-icon" width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12c0-6.627-5.373-12-12-12S0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854V15.47H7.078V12h3.047V9.356c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.875V12h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12z" fill="#1877F2"/></svg>
-                <div className="sc-platform">Facebook</div>
-                <a href="https://www.facebook.com/NYCWineReport" className="sc-follow" target="_blank" rel="noopener noreferrer">Follow →</a>
+                <div className="sc-platform">Facebook · @NYCWine</div>
+                <a href="https://www.facebook.com/NYCWine" className="sc-follow" target="_blank" rel="noopener noreferrer">Follow →</a>
               </div>
               <div className="sc-body">
                 <a
-                  href="https://www.facebook.com/NYCWineReport"
+                  href="https://www.facebook.com/NYCWine"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-link-card"

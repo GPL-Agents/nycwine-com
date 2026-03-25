@@ -72,17 +72,18 @@ const BLOCKED_SUBREDDITS = [
 const UA = 'NYCWine.com/1.0 (wine community aggregator; scheduled fetch)';
 const OUTPUT_PATH = path.join(__dirname, '..', 'public', 'data', 'reddit-cache.json');
 
-const MAX_AGE_WINE = 7 * 24 * 3600 * 1000;   // 7 days
-const MAX_AGE_NYC  = 60 * 24 * 3600 * 1000;   // 60 days
+const MAX_AGE_WINE = 14 * 24 * 3600 * 1000;   // 14 days
+const MAX_AGE_NYC  = 180 * 24 * 3600 * 1000;  // 180 days (niche, less frequent)
 
 // ── JSON fetchers (preferred — has real scores) ─────────────
-async function fetchSubredditJSON(sub) {
+async function fetchSubredditJSON(sub, sort = 'hot', time = '') {
+  const timeParam = time ? `&t=${time}` : '';
   try {
     const res = await fetch(
-      `https://www.reddit.com/r/${sub.name}/hot.json?limit=25`,
+      `https://www.reddit.com/r/${sub.name}/${sort}.json?limit=25${timeParam}`,
       { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(10000) }
     );
-    if (!res.ok) { console.log(`  JSON r/${sub.name}: HTTP ${res.status}`); return []; }
+    if (!res.ok) { console.log(`  JSON r/${sub.name}/${sort}: HTTP ${res.status}`); return []; }
     const data = await res.json();
     const posts = (data.data?.children || [])
       .filter((child) => !child.data.stickied)
@@ -96,10 +97,10 @@ async function fetchSubredditJSON(sub) {
         _alwaysRelevant: sub.alwaysRelevant,
         _text: `${child.data.title} ${child.data.selftext || ''}`.toLowerCase(),
       }));
-    console.log(`  JSON r/${sub.name}: ${posts.length} posts`);
+    console.log(`  JSON r/${sub.name}/${sort}: ${posts.length} posts`);
     return posts;
   } catch (err) {
-    console.log(`  JSON r/${sub.name} error: ${err.message}`);
+    console.log(`  JSON r/${sub.name}/${sort} error: ${err.message}`);
     return [];
   }
 }
@@ -108,7 +109,7 @@ async function fetchSearchJSON(query) {
   try {
     const encoded = encodeURIComponent(query);
     const res = await fetch(
-      `https://www.reddit.com/search.json?q=${encoded}&sort=new&t=month&limit=25`,
+      `https://www.reddit.com/search.json?q=${encoded}&sort=relevance&t=year&limit=25`,
       { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(10000) }
     );
     if (!res.ok) { console.log(`  Search "${query}": HTTP ${res.status}`); return []; }
@@ -141,10 +142,11 @@ function nycRelevanceScore(post) {
   if (BLOCKED_SUBREDDITS.includes(sub)) return 0;
   if (NYC_HASHTAGS.some((tag) => text.includes(tag))) return 3;
   const titleHasWine = WINE_KEYWORDS.some((kw) => title.includes(kw));
-  if (!titleHasWine) return 0;
-  if (NYC_SUBREDDITS.includes(sub)) return 2;
+  const bodyHasWine = WINE_KEYWORDS.some((kw) => text.includes(kw));
   const hasNYC = NYC_KEYWORDS.some((kw) => text.includes(kw));
-  if (hasNYC) return 2;
+  if (NYC_SUBREDDITS.includes(sub) && (titleHasWine || bodyHasWine)) return 2;
+  if (titleHasWine && hasNYC) return 2;
+  if (bodyHasWine && NYC_KEYWORDS.some((kw) => title.includes(kw))) return 1;
   return 0;
 }
 
@@ -199,11 +201,21 @@ async function main() {
   console.log('=== NYCWine Reddit Fetch ===');
   console.log(`Date: ${new Date().toISOString()}`);
 
-  // Fetch all subreddits via JSON + search queries in parallel
+  // Fetch all subreddits (hot + top for wine) + search queries
+  const wineSub = { name: 'wine', alwaysRelevant: true };
   console.log('\nFetching subreddit posts (JSON)...');
-  const subResults = await Promise.all(
-    SUBREDDITS.map((sub) => fetchSubredditJSON(sub))
-  );
+  const [wineHot, wineTop, foodNycPosts, nycDrinksPosts, nycBarsPosts, nycPosts, askNycPosts] =
+    await Promise.all([
+      fetchSubredditJSON(wineSub, 'hot'),
+      fetchSubredditJSON(wineSub, 'top', 'week'),
+      fetchSubredditJSON({ name: 'FoodNYC', alwaysRelevant: false }),
+      fetchSubredditJSON({ name: 'nycdrinks', alwaysRelevant: false }),
+      fetchSubredditJSON({ name: 'NYCbars', alwaysRelevant: false }),
+      fetchSubredditJSON({ name: 'nyc', alwaysRelevant: false }),
+      fetchSubredditJSON({ name: 'AskNYC', alwaysRelevant: false }),
+    ]);
+
+  const wineSource = [...wineHot, ...wineTop];
 
   // Brief pause to avoid rate limiting
   await new Promise((r) => setTimeout(r, 2000));
@@ -213,9 +225,7 @@ async function main() {
     SEARCH_QUERIES.map((q) => fetchSearchJSON(q))
   );
 
-  const [winePosts, foodNycPosts, nycDrinksPosts, nycBarsPosts, nycPosts, askNycPosts] = subResults;
-
-  // NYC bucket: exclude r/wine (they have their own row)
+  // NYC bucket: r/wine posts allowed IF they mention NYC
   const allNycCandidates = [
     ...searchResults.flat(),
     ...foodNycPosts,
@@ -223,13 +233,17 @@ async function main() {
     ...nycBarsPosts,
     ...nycPosts,
     ...askNycPosts,
-  ].filter(post => post.subreddit.toLowerCase() !== 'r/wine');
-
+    ...wineSource,
+  ];
   const nycRaw = allNycCandidates.filter(isNYCWineRelated);
+
+  // Wine row: exclude posts already in NYC row
+  const nycUrls = new Set(nycRaw.map(p => p.url));
+  const wineOnly = wineSource.filter(p => !nycUrls.has(p.url));
 
   // Sort by recency + points (relevance is filter only)
   const nycFormatted = dedupeAndFormat(nycRaw, 15, MAX_AGE_NYC);
-  const wineFormatted = dedupeAndFormat(winePosts.filter(isWineRelated), 15, MAX_AGE_WINE);
+  const wineFormatted = dedupeAndFormat(wineOnly.filter(isWineRelated), 15, MAX_AGE_WINE);
 
   const result = {
     wine: wineFormatted,
