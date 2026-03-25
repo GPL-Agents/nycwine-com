@@ -251,10 +251,13 @@ export default function SocialSection() {
 
           </div>
 
-          {/* ── Ad unit placeholder (300×250 Medium Rectangle) ────── */}
+          {/* ── Ad unit placeholders ────── */}
           <div className="social-ad-sidebar">
             <div className="ad-placeholder" style={{ width: 300, minHeight: 250 }}>
-              <span className="ad-placeholder-label">Ad</span>
+              <span className="ad-placeholder-label">Ad &middot; 300&times;250</span>
+            </div>
+            <div className="ad-placeholder ad-infeed" style={{ width: '100%' }}>
+              <span className="ad-placeholder-label">In-feed Ad</span>
             </div>
           </div>
         </div>
