@@ -260,7 +260,6 @@ export default function SocialSection() {
                 className="infeed-ad-img"
               />
               <div className="infeed-ad-content">
-                <div className="ad-title">Borghese Vineyard</div>
                 <div className="ad-headline">Escape the City. Drink the North Fork.</div>
                 <div className="ad-body">Tastings &bull; Tours &bull; Private Events</div>
                 <a
