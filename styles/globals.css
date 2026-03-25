@@ -663,14 +663,11 @@ body {
   overflow: hidden;
   box-shadow: 0 1px 6px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04);
   width: 100%;
-  flex: 1;
-  min-height: 0;
 }
 .infeed-ad:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
 .infeed-ad-img {
   width: 100%;
-  flex: 1;
-  min-height: 0;
+  height: 315px;
   display: block;
   object-fit: cover;
   object-position: top;
