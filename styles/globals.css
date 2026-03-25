@@ -377,6 +377,7 @@ body {
 .sc-ig     { background: var(--black); }
 .sc-reddit { background: var(--black); }
 
+.sc-brand-icon { flex-shrink: 0; margin-right: 8px; }
 .sc-platform { font-size: 12px; font-weight: 600; color: white; font-family: var(--font-sans); }
 .sc-follow   { font-size: 11px; color: rgba(255,255,255,0.7); text-decoration: none; font-weight: 500; }
 .sc-body     { padding: 8px; min-height: 80px; }
@@ -409,7 +410,11 @@ body {
   color: var(--muted);
   transition: color 0.2s, background 0.2s;
 }
-.social-link-card:hover .slc-icon { color: var(--pink); background: var(--pink-light); }
+/* Brand-colored icon backgrounds */
+.slc-icon-x         { background: #f5f5f5; }
+.slc-icon-pinterest  { background: #fce4ec; }
+.slc-icon-fb         { background: #e8f0fe; }
+.social-link-card:hover .slc-icon { background: var(--pink-light); }
 .slc-content { flex: 1; min-width: 0; }
 .slc-title { font-size: 14px; font-weight: 600; color: var(--black); }
 .slc-desc { font-size: 12px; color: var(--muted); margin-top: 3px; line-height: 1.4; }
