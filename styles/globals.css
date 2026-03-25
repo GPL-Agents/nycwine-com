@@ -84,25 +84,15 @@ body {
   z-index: 50;
 }
 
-.logo-skyline-frame {
+.logo-frame {
   position: relative;
   z-index: 1;
   display: flex;
-  flex-direction: column;
   align-items: center;
   background: white;
-  border-left: 1.5px solid #ccc;
-  border-right: 1.5px solid #ccc;
-  border-bottom: 1.5px solid #ccc;
-  border-radius: 0 0 4px 4px;
-  padding: 0 10px 4px;
-  margin-top: -1px;
-}
-.logo-skyline-top {
-  width: 100%;
-  height: 10px;
-  display: block;
-  margin-top: -10px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 4px 10px;
 }
 .header-search-form { margin-left: 12px; flex: 1; }
 .header-ad-link {
@@ -664,17 +654,13 @@ body {
   overflow: hidden;
   transition: box-shadow 0.2s;
   width: 100%;
-  flex: 1;
-  min-height: 0;
 }
 .infeed-ad:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
 .infeed-ad-img {
   width: 100%;
-  flex: 1;
-  min-height: 0;
-  object-fit: cover;
-  object-position: top;
   display: block;
+  object-fit: contain;
+  object-position: top;
 }
 .infeed-ad-content {
   padding: 8px 12px;
