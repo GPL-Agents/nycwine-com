@@ -581,7 +581,7 @@ body {
   display: flex;
   gap: 24px;
   grid-column: 1 / -1;
-  align-items: stretch;
+  align-items: flex-start;
 }
 .social-links-col {
   flex: 2;
@@ -655,14 +655,11 @@ body {
   overflow: hidden;
   transition: box-shadow 0.2s;
   width: 100%;
-  flex: 1;
-  min-height: 0;
 }
 .infeed-ad:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
 .infeed-ad-img {
   width: 100%;
-  flex: 1;
-  min-height: 0;
+  height: 370px;
   display: block;
   object-fit: cover;
   object-position: top;
