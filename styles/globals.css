@@ -205,7 +205,7 @@ body {
   padding: 14px var(--content-pad);
 }
 .events-header .section-header-title { color: white; }
-.events-header .see-all-link { color: rgba(255,255,255,0.7); }
+.events-header .see-all-link { color: var(--black); }
 
 /* Filter pills */
 .event-filters {
@@ -482,7 +482,7 @@ body {
   justify-content: space-between;
 }
 .social-section-header .section-header-title { color: white; }
-.social-section-header .see-all-link { color: rgba(255,255,255,0.6); }
+.social-section-header .see-all-link { color: var(--pink); }
 .section-header-sub {
   font-size: 12px;
   color: rgba(255,255,255,0.6);
@@ -523,7 +523,7 @@ body {
 
 .sc-brand-icon { flex-shrink: 0; margin-right: 8px; }
 .sc-platform { font-size: 12px; font-weight: 600; color: white; font-family: var(--font-sans); }
-.sc-follow   { font-size: 11px; color: rgba(255,255,255,0.7); text-decoration: none; font-weight: 500; }
+.sc-follow   { font-size: 11px; color: var(--pink); text-decoration: none; font-weight: 500; }
 .sc-body     { padding: 8px; min-height: 80px; }
 .elfsight-body { padding: 0; min-height: 0; }
 .sc-body-embed { padding: 0; display: flex; justify-content: center; align-items: flex-start; overflow: hidden; }
@@ -965,7 +965,7 @@ body {
   padding: 14px var(--content-pad);
 }
 .stores-header .section-header-title { color: white; }
-.stores-header .see-all-link { color: rgba(255,255,255,0.6); }
+.stores-header .see-all-link { color: var(--pink); }
 
 /* Store finder widget (homepage) */
 .store-finder {
@@ -1426,7 +1426,7 @@ body {
   padding: 14px var(--content-pad);
 }
 .bars-header .section-header-title { color: white; }
-.bars-header .see-all-link { color: rgba(255,255,255,0.6); }
+.bars-header .see-all-link { color: var(--pink); }
 
 /* Bar finder widget (homepage) */
 .bar-finder {
