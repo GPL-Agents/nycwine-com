@@ -108,7 +108,78 @@ function parseRedditRSS(xml, sourceName, alwaysRelevant) {
   return posts;
 }
 
-// ── Fetch RSS from one subreddit ────────────────────────────
+// ── Fetch JSON from one subreddit (preferred — has scores) ──
+async function fetchSubredditJSON(sub) {
+  try {
+    const res = await fetch(
+      `https://www.reddit.com/r/${sub.name}/hot.json?limit=25`,
+      {
+        headers: {
+          'User-Agent': 'NYCWine.com/1.0 (wine community aggregator)',
+        },
+        signal: AbortSignal.timeout(8000),
+      }
+    );
+    if (!res.ok) {
+      console.log(`Reddit JSON r/${sub.name}: HTTP ${res.status}`);
+      return [];
+    }
+    const data = await res.json();
+    return (data.data?.children || [])
+      .filter((child) => !child.data.stickied) // skip pinned/stickied posts
+      .map((child) => ({
+        title: child.data.title,
+        subreddit: `r/${child.data.subreddit}`,
+        url: `https://reddit.com${child.data.permalink}`,
+        score: child.data.score || 0,
+        comments: child.data.num_comments || 0,
+        timestamp: child.data.created_utc * 1000,
+        _alwaysRelevant: sub.alwaysRelevant,
+        _text: `${child.data.title} ${child.data.selftext || ''}`.toLowerCase(),
+      }));
+  } catch (err) {
+    console.log(`Reddit JSON r/${sub.name} error:`, err.message);
+    return [];
+  }
+}
+
+// ── Fetch Reddit search JSON for a query ────────────────────
+async function fetchSearchJSON(query) {
+  try {
+    const encoded = encodeURIComponent(query);
+    const res = await fetch(
+      `https://www.reddit.com/search.json?q=${encoded}&sort=new&t=month&limit=25`,
+      {
+        headers: {
+          'User-Agent': 'NYCWine.com/1.0 (wine community aggregator)',
+        },
+        signal: AbortSignal.timeout(8000),
+      }
+    );
+    if (!res.ok) {
+      console.log(`Reddit search "${query}": HTTP ${res.status}`);
+      return [];
+    }
+    const data = await res.json();
+    return (data.data?.children || [])
+      .filter((child) => !child.data.stickied)
+      .map((child) => ({
+        title: child.data.title,
+        subreddit: `r/${child.data.subreddit}`,
+        url: `https://reddit.com${child.data.permalink}`,
+        score: child.data.score || 0,
+        comments: child.data.num_comments || 0,
+        timestamp: child.data.created_utc * 1000,
+        _alwaysRelevant: false,
+        _text: `${child.data.title} ${child.data.selftext || ''}`.toLowerCase(),
+      }));
+  } catch (err) {
+    console.log(`Reddit search "${query}" error:`, err.message);
+    return [];
+  }
+}
+
+// ── Fallback: try RSS endpoint ──────────────────────────────
 async function fetchSubredditRSS(sub) {
   try {
     const res = await fetch(
@@ -121,68 +192,9 @@ async function fetchSubredditRSS(sub) {
         signal: AbortSignal.timeout(8000),
       }
     );
-    if (!res.ok) {
-      console.log(`Reddit RSS r/${sub.name}: HTTP ${res.status}`);
-      return [];
-    }
+    if (!res.ok) return [];
     const xml = await res.text();
     return parseRedditRSS(xml, `r/${sub.name}`, sub.alwaysRelevant);
-  } catch (err) {
-    console.log(`Reddit RSS r/${sub.name} error:`, err.message);
-    return [];
-  }
-}
-
-// ── Fetch Reddit search RSS for a query ─────────────────────
-async function fetchSearchRSS(query) {
-  try {
-    const encoded = encodeURIComponent(query);
-    const res = await fetch(
-      `https://www.reddit.com/search.rss?q=${encoded}&sort=relevance&t=year&limit=25`,
-      {
-        headers: {
-          'User-Agent': 'NYCWine.com/1.0 (wine community aggregator)',
-          'Accept': 'application/rss+xml, application/xml, text/xml, */*',
-        },
-        signal: AbortSignal.timeout(8000),
-      }
-    );
-    if (!res.ok) {
-      console.log(`Reddit search "${query}": HTTP ${res.status}`);
-      return [];
-    }
-    const xml = await res.text();
-    return parseRedditRSS(xml, `search: ${query}`, false);
-  } catch (err) {
-    console.log(`Reddit search "${query}" error:`, err.message);
-    return [];
-  }
-}
-
-// ── Fallback: try JSON endpoint ─────────────────────────────
-async function fetchSubredditJSON(sub) {
-  try {
-    const res = await fetch(
-      `https://www.reddit.com/r/${sub.name}/hot.json?limit=25`,
-      {
-        headers: {
-          'User-Agent': 'NYCWine.com/1.0 (wine community aggregator)',
-        },
-        signal: AbortSignal.timeout(8000),
-      }
-    );
-    if (!res.ok) return [];
-    const data = await res.json();
-    return (data.data?.children || []).map((child) => ({
-      title: child.data.title,
-      subreddit: `r/${child.data.subreddit}`,
-      url: `https://reddit.com${child.data.permalink}`,
-      score: child.data.score,
-      comments: child.data.num_comments,
-      timestamp: child.data.created_utc * 1000,
-      _alwaysRelevant: sub.alwaysRelevant,
-      _text: `${child.data.title} ${child.data.selftext || ''}`.toLowerCase(),
-    }));
   } catch {
     return [];
   }
@@ -263,26 +275,33 @@ const FALLBACK = {
   ],
 };
 
+// ── Max age filters ─────────────────────────────────────────
+const MAX_AGE_WINE = 7 * 24 * 3600 * 1000;  // 7 days for r/wine
+const MAX_AGE_NYC  = 60 * 24 * 3600 * 1000;  // 60 days for NYC (less frequent)
+
+// ── Recency + points ranking ────────────────────────────────
+// Newer posts rank higher; high-score posts get a boost.
+// This gives a "hot" feel without showing stale content.
+function rankScore(post) {
+  const ageHours = Math.max(1, (Date.now() - post.timestamp) / 3600000);
+  // Reddit-style gravity: score decays with age
+  return (post.score + post.comments * 2 + 1) / Math.pow(ageHours, 1.2);
+}
+
 // ── Deduplicate + format helper ─────────────────────────────
-function dedupeAndFormat(posts, limit, scoreFn = null) {
+function dedupeAndFormat(posts, limit, maxAge) {
   const seen = new Set();
+  const now = Date.now();
   return posts
     .filter((post) => {
+      // Filter out posts older than max age
+      if (now - post.timestamp > maxAge) return false;
       const key = post.title.toLowerCase().slice(0, 60);
       if (seen.has(key)) return false;
       seen.add(key);
       return true;
     })
-    .sort((a, b) => {
-      if (scoreFn) {
-        const diff = scoreFn(b) - scoreFn(a);
-        if (diff !== 0) return diff;
-      }
-      // Sort by engagement: points + comments weighted
-      const engageA = a.score + a.comments * 2;
-      const engageB = b.score + b.comments * 2;
-      return engageB - engageA;
-    })
+    .sort((a, b) => rankScore(b) - rankScore(a))
     .slice(0, limit)
     .map((post) => ({
       title: post.title,
@@ -304,42 +323,40 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Fetch all subreddits + search queries in parallel
-    const [wineRSS, foodNycRSS, nycDrinksRSS, nycBarsRSS, nycRSS, askNycRSS, ...searchRSS] =
+    // Fetch all subreddits (JSON first) + search queries in parallel
+    const [winePosts, foodNycPosts, nycDrinksPosts, nycBarsPosts, nycPosts, askNycPosts, ...searchPosts] =
       await Promise.all([
-        fetchSubredditRSS({ name: 'wine', alwaysRelevant: true }),
-        fetchSubredditRSS({ name: 'FoodNYC', alwaysRelevant: false }),
-        fetchSubredditRSS({ name: 'nycdrinks', alwaysRelevant: false }),
-        fetchSubredditRSS({ name: 'NYCbars', alwaysRelevant: false }),
-        fetchSubredditRSS({ name: 'nyc', alwaysRelevant: false }),
-        fetchSubredditRSS({ name: 'AskNYC', alwaysRelevant: false }),
-        ...SEARCH_QUERIES.map((q) => fetchSearchRSS(q)),
+        fetchSubredditJSON({ name: 'wine', alwaysRelevant: true }),
+        fetchSubredditJSON({ name: 'FoodNYC', alwaysRelevant: false }),
+        fetchSubredditJSON({ name: 'nycdrinks', alwaysRelevant: false }),
+        fetchSubredditJSON({ name: 'NYCbars', alwaysRelevant: false }),
+        fetchSubredditJSON({ name: 'nyc', alwaysRelevant: false }),
+        fetchSubredditJSON({ name: 'AskNYC', alwaysRelevant: false }),
+        ...SEARCH_QUERIES.map((q) => fetchSearchJSON(q)),
       ]);
 
-    // If RSS failed for r/wine, try JSON fallback
-    let winePosts = wineRSS;
-    if (winePosts.length === 0) {
-      winePosts = await fetchSubredditJSON({ name: 'wine', alwaysRelevant: true });
+    // If JSON failed for r/wine, try RSS fallback
+    let wineSource = winePosts;
+    if (wineSource.length === 0) {
+      wineSource = await fetchSubredditRSS({ name: 'wine', alwaysRelevant: true });
     }
 
-    // NYC bucket: ALL sources go through the same strict filter.
-    // nycRelevanceScore handles subreddit-awareness (NYC subs only
-    // need wine-in-title; others need NYC + wine).
-    // Exclude r/wine posts — they already have their own dedicated row.
+    // NYC bucket: all sources filtered for relevance (wine + NYC keywords).
+    // Relevance is a FILTER only — sorting is by recency + points.
+    // Exclude r/wine posts — they have their own dedicated row.
     const allNycCandidates = [
-      ...searchRSS.flat(),
-      ...foodNycRSS,
-      ...nycDrinksRSS,
-      ...nycBarsRSS,
-      ...nycRSS,
-      ...askNycRSS,
+      ...searchPosts.flat(),
+      ...foodNycPosts,
+      ...nycDrinksPosts,
+      ...nycBarsPosts,
+      ...nycPosts,
+      ...askNycPosts,
     ].filter(post => post.subreddit.toLowerCase() !== 'r/wine');
     const nycRaw = allNycCandidates.filter(isNYCWineRelated);
 
-    // Format: NYC row sorted by hashtag relevance first, then score
-    const nycFormatted = dedupeAndFormat(nycRaw, 10, nycRelevanceScore);
-    // Wine row sorted purely by score
-    const wineFormatted = dedupeAndFormat(winePosts.filter(isWineRelated), 10);
+    // Both rows: sorted by recency + points, relevance is filter only
+    const nycFormatted = dedupeAndFormat(nycRaw, 10, MAX_AGE_NYC);
+    const wineFormatted = dedupeAndFormat(wineSource.filter(isWineRelated), 10, MAX_AGE_WINE);
 
     const result = {
       wine: wineFormatted.length > 0 ? wineFormatted : FALLBACK.wine,
