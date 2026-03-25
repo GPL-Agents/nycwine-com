@@ -647,10 +647,9 @@ body {
 .infeed-ad:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
 .infeed-ad-img {
   width: 100%;
-  max-height: 240px;
+  max-height: 340px;
   object-fit: contain;
   display: block;
-  background: #f5f5f5;
 }
 .infeed-ad-content {
   padding: 10px 14px;
