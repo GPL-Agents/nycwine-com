@@ -1341,7 +1341,7 @@ body {
    STORES PAGE (full directory)
 ═══════════════════════════════════════ */
 .stores-page { max-width: 720px; margin: 0 auto; padding: 0 24px 40px; }
-.stores-page-header { padding: 32px 0 20px; text-align: center; }
+.stores-page-header { padding: 32px 0 20px; text-align: left; }
 .stores-page-title {
   font-family: var(--font-serif);
   font-size: 28px;
