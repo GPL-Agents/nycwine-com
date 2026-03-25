@@ -583,25 +583,24 @@ body {
 
 /* Social links + ad sidebar layout */
 .social-links-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 280px;
   gap: 24px;
   grid-column: 1 / -1;
-  align-items: flex-start;
 }
 .social-links-col {
-  flex: 2;
   min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 .social-ad-sidebar {
-  flex: 0 0 280px;
   max-width: 280px;
   display: flex;
   overflow: hidden;
   flex-direction: column;
   align-items: center;
+  min-height: 0;
   gap: 16px;
 }
 .ad-placeholder {
@@ -662,11 +661,14 @@ body {
   overflow: hidden;
   box-shadow: 0 1px 6px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04);
   width: 100%;
+  flex: 1;
+  min-height: 0;
 }
 .infeed-ad:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
 .infeed-ad-img {
   width: 100%;
-  height: 370px;
+  flex: 1;
+  min-height: 0;
   display: block;
   object-fit: cover;
   object-position: top;
@@ -712,7 +714,7 @@ body {
 }
 .ad-cta:hover { background: #256e46; }
 @media (max-width: 800px) {
-  .social-links-row { flex-direction: column; }
+  .social-links-row { grid-template-columns: 1fr; }
   .social-ad-sidebar {
     position: static;
     width: 100%;
