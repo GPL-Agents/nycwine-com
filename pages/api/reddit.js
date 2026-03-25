@@ -2,9 +2,8 @@
 // ─────────────────────────────────────────────────────────────
 // Reddit Wine Feed — combines:
 //   1. r/wine hot posts (general wine content, always fresh)
-//   2. r/nyc + r/FoodNYC (wine-filtered)
-//   3. Reddit search for "nyc wine" and "new york city wine"
-//      (less frequent but more targeted)
+//   2. NYC-focused subreddits (wine-filtered)
+//   3. Reddit search for NYC wine queries
 //
 // Uses RSS feeds (more permissive than JSON on Vercel IPs).
 // Falls back to JSON, then to static posts.
@@ -13,22 +12,48 @@
 
 const SUBREDDITS = [
   { name: 'wine', alwaysRelevant: true },
-  { name: 'nyc', alwaysRelevant: false },
   { name: 'FoodNYC', alwaysRelevant: false },
+  { name: 'nycdrinks', alwaysRelevant: false },
+  { name: 'NYCbars', alwaysRelevant: false },
+  { name: 'nyc', alwaysRelevant: false },
+  { name: 'AskNYC', alwaysRelevant: false },
 ];
 
 // Reddit search queries for NYC-specific wine content
 const SEARCH_QUERIES = [
-  'nyc wine',
-  'new york city wine',
+  'nycwine',
+  'nycwinereport',
+  'nyc wine bar',
+  'nyc wine tasting',
+  'nyc wine store',
+  'new york wine',
 ];
 
 const WINE_KEYWORDS = [
-  'wine', 'winery', 'vineyard', 'tasting', 'sommelier',
-  'champagne', 'rosé', 'rose', 'bordeaux', 'pinot',
-  'chardonnay', 'merlot', 'cabernet', 'prosecco', 'riesling',
-  'wine bar', 'wine shop', 'wine store', 'natural wine',
-  'bottle', 'cellar', 'vintage', 'pairing',
+  // The word itself
+  'wine',
+  // Venues & retail
+  'wine bar', 'wine shop', 'wine store', 'winery', 'vineyard',
+  // Events & experiences
+  'wine tasting', 'wine event', 'wine class', 'wine dinner',
+  'wine festival', 'wine flight', 'corkage',
+  // Expertise
+  'sommelier', 'terroir', 'appellation', 'decant',
+  // Varietals people actually drink in NYC
+  'champagne', 'prosecco', 'rosé', 'pinot noir', 'pinot grigio',
+  'chardonnay', 'merlot', 'cabernet', 'sauvignon blanc',
+  'riesling', 'bordeaux', 'burgundy', 'chianti', 'barolo',
+];
+
+const NYC_KEYWORDS = [
+  'nyc', 'new york', 'manhattan', 'brooklyn', 'queens',
+  'bronx', 'staten island', 'east village', 'west village',
+  'lower east side', 'upper east side', 'upper west side',
+  'soho', 'tribeca', 'chelsea', 'midtown', 'harlem',
+];
+
+const NYC_HASHTAGS = [
+  'nycwine', 'nycwinereport', '#nycwine', '#nycwinereport',
 ];
 
 // ── In-memory cache ───────────────────────────────────────────
@@ -62,7 +87,6 @@ function parseRedditRSS(xml, sourceName, alwaysRelevant) {
     const scoreMatch = content.match(/(\d+)\s*point/i);
     const commentsMatch = content.match(/(\d+)\s*comment/i);
 
-    // Try to extract subreddit from the link URL
     const subMatch = link.match(/\/r\/([^/]+)\//);
     const subreddit = subMatch ? `r/${subMatch[1]}` : sourceName;
 
@@ -125,8 +149,7 @@ async function fetchSearchRSS(query) {
       return [];
     }
     const xml = await res.text();
-    // Search results are always relevant (they matched our query)
-    return parseRedditRSS(xml, `search: ${query}`, true);
+    return parseRedditRSS(xml, `search: ${query}`, false);
   } catch (err) {
     console.log(`Reddit search "${query}" error:`, err.message);
     return [];
@@ -162,9 +185,23 @@ async function fetchSubredditJSON(sub) {
   }
 }
 
-// ── Filter for wine-related content ───────────────────────────
+// ── Relevance scoring for NYC wine content ───────────────────
+function nycRelevanceScore(post) {
+  const text = post._text;
+  // Highest priority: explicit hashtags
+  if (NYC_HASHTAGS.some((tag) => text.includes(tag))) return 3;
+  // Second: NYC + wine both present
+  const hasWine = WINE_KEYWORDS.some((kw) => text.includes(kw));
+  const hasNYC = NYC_KEYWORDS.some((kw) => text.includes(kw));
+  if (hasWine && hasNYC) return 2;
+  return 0;
+}
+
+function isNYCWineRelated(post) {
+  return nycRelevanceScore(post) > 0;
+}
+
 function isWineRelated(post) {
-  if (post._alwaysRelevant) return true;
   return WINE_KEYWORDS.some((kw) => post._text.includes(kw));
 }
 
@@ -193,7 +230,7 @@ const FALLBACK = {
 };
 
 // ── Deduplicate + format helper ─────────────────────────────
-function dedupeAndFormat(posts, limit) {
+function dedupeAndFormat(posts, limit, scoreFn = null) {
   const seen = new Set();
   return posts
     .filter((post) => {
@@ -202,7 +239,13 @@ function dedupeAndFormat(posts, limit) {
       seen.add(key);
       return true;
     })
-    .sort((a, b) => b.score - a.score)
+    .sort((a, b) => {
+      if (scoreFn) {
+        const diff = scoreFn(b) - scoreFn(a);
+        if (diff !== 0) return diff;
+      }
+      return b.score - a.score;
+    })
     .slice(0, limit)
     .map((post) => ({
       title: post.title,
@@ -216,38 +259,46 @@ function dedupeAndFormat(posts, limit) {
 
 // ── API Handler ───────────────────────────────────────────────
 // Returns: { wine: [...], nyc: [...] }
-// wine = r/wine hot posts (general)
-// nyc  = NYC-specific wine discussions (from search + r/nyc + r/FoodNYC)
+// wine = r/wine hot posts (general wine content)
+// nyc  = NYC-specific wine discussions, hashtag posts floated to top
 export default async function handler(req, res) {
   if (cache && Date.now() - cacheTime < CACHE_TTL) {
     return res.status(200).json(cache);
   }
 
   try {
-    // Fetch everything in parallel
-    const [wineRSS, nycRSS, foodRSS, ...searchRSS] = await Promise.all([
-      fetchSubredditRSS({ name: 'wine', alwaysRelevant: true }),
-      fetchSubredditRSS({ name: 'nyc', alwaysRelevant: false }),
-      fetchSubredditRSS({ name: 'FoodNYC', alwaysRelevant: false }),
-      ...SEARCH_QUERIES.map((q) => fetchSearchRSS(q)),
-    ]);
+    // Fetch all subreddits + search queries in parallel
+    const [wineRSS, foodNycRSS, nycDrinksRSS, nycBarsRSS, nycRSS, askNycRSS, ...searchRSS] =
+      await Promise.all([
+        fetchSubredditRSS({ name: 'wine', alwaysRelevant: true }),
+        fetchSubredditRSS({ name: 'FoodNYC', alwaysRelevant: false }),
+        fetchSubredditRSS({ name: 'nycdrinks', alwaysRelevant: false }),
+        fetchSubredditRSS({ name: 'NYCbars', alwaysRelevant: false }),
+        fetchSubredditRSS({ name: 'nyc', alwaysRelevant: false }),
+        fetchSubredditRSS({ name: 'AskNYC', alwaysRelevant: false }),
+        ...SEARCH_QUERIES.map((q) => fetchSearchRSS(q)),
+      ]);
 
-    // If RSS failed, try JSON fallback for r/wine
+    // If RSS failed for r/wine, try JSON fallback
     let winePosts = wineRSS;
     if (winePosts.length === 0) {
       winePosts = await fetchSubredditJSON({ name: 'wine', alwaysRelevant: true });
     }
 
-    // NYC bucket: search results + wine-filtered r/nyc + r/FoodNYC posts
+    // NYC bucket: must pass NYC+wine filter — no generic wine posts
     const nycRaw = [
-      ...searchRSS.flat(),
-      ...nycRSS.filter(isWineRelated),
-      ...foodRSS.filter(isWineRelated),
+      ...searchRSS.flat().filter(isNYCWineRelated),
+      ...foodNycRSS.filter(isNYCWineRelated),
+      ...nycDrinksRSS.filter(isWineRelated),  // nycdrinks is already NYC-specific
+      ...nycBarsRSS.filter(isWineRelated),     // NYCbars is already NYC-specific
+      ...nycRSS.filter(isNYCWineRelated),
+      ...askNycRSS.filter(isNYCWineRelated),
     ];
 
-    // Format both groups
-    const wineFormatted = dedupeAndFormat(winePosts, 10);
-    const nycFormatted = dedupeAndFormat(nycRaw, 10);
+    // Format: NYC row sorted by hashtag relevance first, then score
+    const nycFormatted = dedupeAndFormat(nycRaw, 10, nycRelevanceScore);
+    // Wine row sorted purely by score
+    const wineFormatted = dedupeAndFormat(winePosts.filter(isWineRelated), 10);
 
     const result = {
       wine: wineFormatted.length > 0 ? wineFormatted : FALLBACK.wine,
