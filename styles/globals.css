@@ -73,10 +73,10 @@ body {
    HEADER
 ═══════════════════════════════════════ */
 .site-header {
-  background: white;
+  background: white url('/images/nyc-skyline.svg') center bottom / 100% auto no-repeat;
   border-top: 3px solid var(--pink);
   border-bottom: 3px solid var(--pink);
-  padding: 12px var(--content-pad);
+  padding: 6px var(--content-pad);
   display: flex;
   align-items: center;
   position: sticky;
@@ -85,20 +85,19 @@ body {
 }
 
 .header-search-form { margin-left: 12px; flex: 1; }
-.header-ad-placeholder {
-  width: 468px;
-  height: 60px;
+.header-ad-link {
   flex-shrink: 0;
   margin-left: auto;
-  background: var(--cream, #faf8f5);
-  border: 1px dashed var(--border, #e0ddd8);
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  line-height: 0;
+}
+.header-ad-img {
+  width: 468px;
+  height: 60px;
+  object-fit: contain;
+  display: block;
 }
 @media (max-width: 800px) {
-  .header-ad-placeholder { display: none; }
+  .header-ad-link { display: none; }
 }
 .header-search {
   background: white;
@@ -139,8 +138,12 @@ body {
   background: white;
   border-bottom: 1px solid var(--border);
   position: sticky;
-  top: 60px;
+  top: 78px;
   z-index: 40;
+}
+@media (max-width: 800px) {
+  /* Header ad hidden on mobile, so header is shorter */
+  .quick-nav { top: 50px; }
 }
 .quick-nav::-webkit-scrollbar { display: none; }
 
@@ -602,6 +605,78 @@ body {
   flex: 1;
   min-height: 120px;
 }
+
+/* Sidebar image ad (under auctions) */
+.sidebar-ad-link {
+  display: block;
+  margin-top: 16px;
+  line-height: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: opacity 0.2s;
+}
+.sidebar-ad-link:hover { opacity: 0.9; }
+.sidebar-ad-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* In-feed ad (social sidebar) */
+.infeed-ad {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+.infeed-ad:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.infeed-ad-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.infeed-ad-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.ad-title {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 4px;
+}
+.ad-headline {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.ad-body {
+  font-size: 13px;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.ad-cta {
+  display: inline-block;
+  background: var(--pink);
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.2s;
+  margin-top: auto;
+}
+.ad-cta:hover { background: var(--pink-dark); }
 @media (max-width: 800px) {
   .social-links-row { flex-direction: column; }
   .social-ad-sidebar {
@@ -1084,6 +1159,110 @@ body {
   background: var(--cream);
   line-height: normal;
   font-size: initial;
+}
+
+/* ═══════════════════════════════════════
+   EVENTS PAGE (full page view)
+═══════════════════════════════════════ */
+.events-page { max-width: var(--max-content); margin: 0 auto; }
+.events-page-layout {
+  display: flex;
+  gap: 24px;
+  padding: 16px var(--content-pad);
+}
+.events-page-list { flex: 2; display: flex; flex-direction: column; gap: 12px; }
+.events-page-sidebar {
+  flex: 1;
+  align-self: flex-start;
+  position: sticky;
+  top: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.events-page-msg {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+}
+.events-page-card {
+  display: flex;
+  text-decoration: none;
+  color: inherit;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.events-page-card:hover {
+  border-color: var(--pink);
+  box-shadow: 0 2px 12px rgba(233,30,99,0.08);
+}
+.events-page-card-img {
+  width: 140px;
+  min-height: 100px;
+  flex-shrink: 0;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--cream);
+}
+.events-page-card-info {
+  display: flex;
+  flex: 1;
+  padding: 12px 16px;
+  gap: 12px;
+  align-items: flex-start;
+}
+.events-page-card-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  min-width: 44px;
+}
+.events-page-day {
+  font-size: 22px;
+  font-weight: 700;
+  font-family: var(--font-serif);
+  color: var(--pink);
+  line-height: 1;
+}
+.events-page-month {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+.events-page-card-details { flex: 1; min-width: 0; }
+.events-page-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--black);
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+.events-page-card-venue {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+.events-page-card-time {
+  font-size: 12px;
+  color: var(--pink);
+  margin-bottom: 6px;
+}
+.events-page-card-price {
+  font-size: 11px;
+  color: var(--muted);
+  margin-left: 6px;
+}
+@media (max-width: 800px) {
+  .events-page-layout { flex-direction: column; }
+  .events-page-sidebar { position: static; width: 100%; }
+  .events-page-card-img { width: 90px; min-height: 80px; }
 }
 
 /* ═══════════════════════════════════════

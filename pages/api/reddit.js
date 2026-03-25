@@ -275,11 +275,16 @@ const FALLBACK = {
   wine: [
     { title: 'What wine are you drinking this weekend?', subreddit: 'r/wine', url: 'https://reddit.com/r/wine', score: 67, comments: 45, ago: 'Popular' },
     { title: 'Best bottles under $20?', subreddit: 'r/wine', url: 'https://reddit.com/r/wine', score: 42, comments: 18, ago: 'Popular' },
+    { title: 'First time trying a natural wine — thoughts?', subreddit: 'r/wine', url: 'https://reddit.com/r/wine', score: 35, comments: 22, ago: 'Popular' },
+    { title: 'Pinot Noir recommendations for a dinner party', subreddit: 'r/wine', url: 'https://reddit.com/r/wine', score: 28, comments: 31, ago: 'Popular' },
+    { title: 'Champagne vs Prosecco — which do you prefer?', subreddit: 'r/wine', url: 'https://reddit.com/r/wine', score: 54, comments: 39, ago: 'Popular' },
   ],
   nyc: [
     { title: 'Best natural wine bars in NYC?', subreddit: 'r/FoodNYC', url: 'https://reddit.com/r/FoodNYC', score: 42, comments: 18, ago: 'Popular' },
     { title: 'Wine store recommendations in Manhattan', subreddit: 'r/nyc', url: 'https://reddit.com/r/nyc', score: 38, comments: 24, ago: 'Popular' },
-    { title: 'Good wine shops to visit in NYC?', subreddit: 'r/wine', url: 'https://reddit.com/r/wine', score: 8, comments: 27, ago: 'Popular' },
+    { title: 'Good wine shops to visit in NYC?', subreddit: 'r/AskNYC', url: 'https://reddit.com/r/AskNYC', score: 29, comments: 27, ago: 'Popular' },
+    { title: 'Wine tasting events happening this month in Brooklyn?', subreddit: 'r/brooklyn', url: 'https://reddit.com/r/brooklyn', score: 15, comments: 12, ago: 'Popular' },
+    { title: 'Best BYOB restaurants in Manhattan?', subreddit: 'r/FoodNYC', url: 'https://reddit.com/r/FoodNYC', score: 33, comments: 21, ago: 'Popular' },
   ],
 };
 

@@ -84,6 +84,7 @@ export default function EventsSection() {
       {/* Header bar */}
       <div className="section-header events-header">
         <div className="section-header-title">Upcoming Events</div>
+        <a href="/events" className="see-all-link">View All →</a>
       </div>
 
       {/* Filter pills */}
@@ -201,19 +202,19 @@ export default function EventsSection() {
           </div>
           <div className="event-sidebar">
             <AuctionsSidebar />
-            {/* In-feed ad unit below auctions */}
-            <div className="ad-placeholder ad-infeed" style={{ width: '100%', marginTop: 16 }}>
-              <span className="ad-placeholder-label">In-feed Ad</span>
-            </div>
-            {/* AdSense in-feed ad — uncomment once site is approved:
-            <ins className="adsbygoogle"
-              style={{ display: 'block' }}
-              data-ad-format="fluid"
-              data-ad-layout-key="-fb+5w+4e-db+86"
-              data-ad-client="ca-pub-6782277104310503"
-              data-ad-slot="2849490464"
-            />
-            */}
+            {/* Borghese winery ad below auctions */}
+            <a
+              href="https://www.opentable.com/r/the-halyard-restaurant-at-the-sound-view-greenport"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="sidebar-ad-link"
+            >
+              <img
+                src="/Wineryad.png"
+                alt="Borghese Vineyard — Discover the Best of Long Island Wine Country"
+                className="sidebar-ad-img"
+              />
+            </a>
           </div>
         </div>
       )}

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 80" preserveAspectRatio="none">
+  <g fill="#e8e8e8" opacity="0.5">
+    <!-- Far left buildings -->
+    <rect x="10" y="40" width="18" height="40"/>
+    <rect x="32" y="30" width="14" height="50"/>
+    <rect x="50" y="45" width="20" height="35"/>
+    <rect x="74" y="25" width="12" height="55"/>
+    <rect x="90" y="35" width="22" height="45"/>
+    <!-- Left cluster -->
+    <rect x="120" y="20" width="16" height="60"/>
+    <rect x="140" y="30" width="24" height="50"/>
+    <rect x="168" y="15" width="10" height="65"/>
+    <rect x="182" y="38" width="20" height="42"/>
+    <rect x="206" y="28" width="14" height="52"/>
+    <!-- Mid-left -->
+    <rect x="230" y="42" width="18" height="38"/>
+    <rect x="252" y="22" width="12" height="58"/>
+    <rect x="268" y="35" width="26" height="45"/>
+    <rect x="298" y="18" width="8" height="62"/>
+    <rect x="310" y="32" width="20" height="48"/>
+    <!-- Center-left -->
+    <rect x="340" y="40" width="16" height="40"/>
+    <rect x="360" y="12" width="14" height="68"/>
+    <rect x="378" y="28" width="22" height="52"/>
+    <rect x="404" y="38" width="12" height="42"/>
+    <rect x="420" y="20" width="18" height="60"/>
+    <!-- Empire State area -->
+    <rect x="450" y="5" width="10" height="75"/>
+    <rect x="445" y="10" width="20" height="4"/>
+    <rect x="464" y="25" width="24" height="55"/>
+    <rect x="492" y="35" width="16" height="45"/>
+    <rect x="512" y="22" width="20" height="58"/>
+    <!-- Center -->
+    <rect x="540" y="30" width="14" height="50"/>
+    <rect x="558" y="42" width="22" height="38"/>
+    <rect x="584" y="18" width="12" height="62"/>
+    <rect x="600" y="8" width="8" height="72"/>
+    <rect x="612" y="28" width="20" height="52"/>
+    <!-- Center-right (Chrysler-ish) -->
+    <rect x="640" y="38" width="18" height="42"/>
+    <rect x="662" y="3" width="8" height="77"/>
+    <rect x="658" y="8" width="16" height="5"/>
+    <rect x="674" y="25" width="22" height="55"/>
+    <rect x="700" y="35" width="14" height="45"/>
+    <rect x="718" y="20" width="18" height="60"/>
+    <!-- Right cluster -->
+    <rect x="744" y="32" width="20" height="48"/>
+    <rect x="768" y="42" width="14" height="38"/>
+    <rect x="786" y="15" width="12" height="65"/>
+    <rect x="802" y="28" width="24" height="52"/>
+    <rect x="830" y="38" width="16" height="42"/>
+    <!-- Mid-right -->
+    <rect x="854" y="22" width="18" height="58"/>
+    <rect x="876" y="40" width="12" height="40"/>
+    <rect x="892" y="30" width="22" height="50"/>
+    <rect x="918" y="18" width="10" height="62"/>
+    <rect x="932" y="35" width="20" height="45"/>
+    <!-- Far right -->
+    <rect x="960" y="42" width="16" height="38"/>
+    <rect x="980" y="25" width="14" height="55"/>
+    <rect x="998" y="38" width="24" height="42"/>
+    <rect x="1026" y="30" width="12" height="50"/>
+    <rect x="1042" y="45" width="20" height="35"/>
+    <rect x="1066" y="22" width="18" height="58"/>
+    <rect x="1088" y="35" width="14" height="45"/>
+    <rect x="1106" y="42" width="22" height="38"/>
+    <rect x="1132" y="28" width="16" height="52"/>
+    <rect x="1152" y="40" width="20" height="40"/>
+    <rect x="1176" y="32" width="14" height="48"/>
+  </g>
+</svg>

@@ -38,17 +38,19 @@ export default function Header() {
         />
       </form>
 
-      {/* Banner ad placeholder (468×60) — right side of header */}
-      <div className="header-ad-placeholder">
-        <span className="ad-placeholder-label">Ad · 468×60</span>
-      </div>
-      {/* AdSense banner ad — uncomment once site is approved:
-      <ins className="adsbygoogle"
-        style={{ display: 'inline-block', width: '468px', height: '60px' }}
-        data-ad-client="ca-pub-6782277104310503"
-        data-ad-slot="2838548456"
-      />
-      */}
+      {/* Banner ad (468×60) — right side of header */}
+      <a
+        href="https://yorkshirewines.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="header-ad-link"
+      >
+        <img
+          src="/images/YorkshireBannerAd.png"
+          alt="Yorkshire Wines & Spirits — Fast delivery to Upper East Side"
+          className="header-ad-img"
+        />
+      </a>
     </header>
   );
 }

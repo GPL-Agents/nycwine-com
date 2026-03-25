@@ -251,20 +251,28 @@ export default function SocialSection() {
 
           </div>
 
-          {/* ── In-feed ad unit ────── */}
+          {/* ── Borghese Vineyard in-feed ad ────── */}
           <div className="social-ad-sidebar">
-            <div className="ad-placeholder ad-infeed" style={{ width: '100%' }}>
-              <span className="ad-placeholder-label">In-feed Ad</span>
+            <div className="infeed-ad">
+              <img
+                src="/Wineryad.png"
+                alt="Borghese Vineyard"
+                className="infeed-ad-img"
+              />
+              <div className="infeed-ad-content">
+                <div className="ad-title">Borghese Vineyard</div>
+                <div className="ad-headline">Escape the City. Drink the North Fork.</div>
+                <div className="ad-body">Tastings &bull; Tours &bull; Private Events</div>
+                <a
+                  href="https://www.opentable.com/r/the-halyard-restaurant-at-the-sound-view-greenport"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ad-cta"
+                >
+                  Book Now &rarr;
+                </a>
+              </div>
             </div>
-            {/* AdSense in-feed ad — uncomment once site is approved:
-            <ins className="adsbygoogle"
-              style={{ display: 'block' }}
-              data-ad-format="fluid"
-              data-ad-layout-key="-fb+5w+4e-db+86"
-              data-ad-client="ca-pub-6782277104310503"
-              data-ad-slot="2849490464"
-            />
-            */}
           </div>
         </div>
 
@@ -272,3 +280,4 @@ export default function SocialSection() {
     </section>
   );
 }
+                                                                                                               
