@@ -84,7 +84,22 @@ body {
   z-index: 50;
 }
 
-.header-search-form { margin-left: 12px; }
+.header-search-form { margin-left: 12px; flex: 1; }
+.header-ad-placeholder {
+  width: 468px;
+  height: 60px;
+  flex-shrink: 0;
+  margin-left: auto;
+  background: var(--cream, #faf8f5);
+  border: 1px dashed var(--border, #e0ddd8);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 800px) {
+  .header-ad-placeholder { display: none; }
+}
 .header-search {
   background: white;
   border-radius: 24px;

@@ -37,6 +37,18 @@ export default function Header() {
           onChange={(e) => setQuery(e.target.value)}
         />
       </form>
+
+      {/* Banner ad placeholder (468×60) — right side of header */}
+      <div className="header-ad-placeholder">
+        <span className="ad-placeholder-label">Ad · 468×60</span>
+      </div>
+      {/* AdSense banner ad — uncomment once site is approved:
+      <ins className="adsbygoogle"
+        style={{ display: 'inline-block', width: '468px', height: '60px' }}
+        data-ad-client="ca-pub-6782277104310503"
+        data-ad-slot="2838548456"
+      />
+      */}
     </header>
   );
 }
