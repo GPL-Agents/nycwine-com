@@ -202,18 +202,22 @@ export default function EventsSection() {
           </div>
           <div className="event-sidebar">
             <AuctionsSidebar />
-            {/* Borghese winery ad below auctions */}
+            {/* Acker Wines ad below auctions */}
             <a
-              href="https://www.opentable.com/r/the-halyard-restaurant-at-the-sound-view-greenport"
+              href="https://www.ackerwines.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="sidebar-ad-link"
+              className="sidebar-ad-link acker-ad-block"
             >
               <img
-                src="/Wineryad.png"
-                alt="Borghese Vineyard — Discover the Best of Long Island Wine Country"
+                src="/images/ackerwinesad.png"
+                alt="Acker Wines — NYC's Oldest Wine Shop"
                 className="sidebar-ad-img"
               />
+              <div className="sidebar-ad-address">
+                160 W 72nd St · Between Amsterdam &amp; Columbus Ave<br />
+                New York, NY 10023
+              </div>
             </a>
           </div>
         </div>

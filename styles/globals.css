@@ -621,6 +621,16 @@ body {
   height: auto;
   display: block;
 }
+.acker-ad-block { line-height: 1.4; }
+.sidebar-ad-address {
+  display: block;
+  padding: 8px 12px 10px;
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+  background: #faf8f5;
+  border-top: 1px solid var(--border);
+}
 
 /* In-feed ad (social sidebar) */
 .infeed-ad {
