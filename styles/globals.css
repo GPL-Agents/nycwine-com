@@ -570,6 +570,7 @@ body {
   display: flex;
   gap: 24px;
   grid-column: 1 / -1;
+  align-items: flex-start;
 }
 .social-links-col {
   flex: 2;
@@ -581,12 +582,10 @@ body {
 .social-ad-sidebar {
   flex: 0 0 280px;
   max-width: 280px;
-  max-height: 420px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  overflow: hidden;
 }
 .ad-placeholder {
   background: var(--cream, #faf8f5);
@@ -643,7 +642,6 @@ body {
   border-radius: 10px;
   overflow: hidden;
   transition: box-shadow 0.2s;
-  max-height: 420px;
   width: 100%;
 }
 .infeed-ad:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
