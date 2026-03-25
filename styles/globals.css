@@ -84,6 +84,13 @@ body {
   z-index: 50;
 }
 
+.site-header a[aria-label] {
+  position: relative;
+  z-index: 1;
+  background: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
 .header-search-form { margin-left: 12px; flex: 1; }
 .header-ad-link {
   flex-shrink: 0;
