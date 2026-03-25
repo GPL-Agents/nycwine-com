@@ -66,6 +66,25 @@ function getTag(title) {
   return 'Event';
 }
 
+// Fix Eventbrite image URLs — extract actual CDN URL from their image proxy
+function fixImageUrl(url) {
+  if (!url) return null;
+  if (url.startsWith('https://img.evbuc.com')) return url;
+  if (url.startsWith('https://cdn.evbuc.com')) return url;
+  if (url.includes('_next/image') && url.includes('url=')) {
+    try {
+      const match = url.match(/url=([^&]+)/);
+      if (match) {
+        let decoded = decodeURIComponent(match[1]);
+        if (decoded.includes('%')) decoded = decodeURIComponent(decoded);
+        if (decoded.startsWith('http')) return decoded;
+      }
+    } catch { /* fall through */ }
+  }
+  if (url.startsWith('/')) return `https://www.eventbrite.com${url}`;
+  return url;
+}
+
 async function fetchEventDetails(url) {
   try {
     const controller = new AbortController();
@@ -150,4 +169,73 @@ async function main() {
         }
       }
     } catch (err) {
-      console.err
+      console.error(`  Search error: ${err.message}`);
+    }
+  }
+
+  console.log(`\n  Found ${eventUrls.length} unique event URLs`);
+
+  // Step 2: Fetch details for each event (with rate limiting)
+  const allEvents = [];
+  let colorIdx = 0;
+
+  for (const url of eventUrls.slice(0, 30)) { // limit to 30 events
+    console.log(`  Fetching: ${url.split('/e/')[1]?.slice(0, 50) || url}`);
+    const details = await fetchEventDetails(url);
+
+    // Build title from slug as fallback
+    const slug = url.split('/e/')[1] || '';
+    const slugTitle = slug
+      .replace(/-tickets.*$/, '')
+      .replace(/-\d+$/, '')
+      .replace(/-/g, ' ')
+      .replace(/\b\w/g, (c) => c.toUpperCase());
+
+    const title = details?.title || slugTitle || 'Wine Event';
+    const venue = details?.venue || 'New York City';
+    const date = details?.date || null;
+    const image = fixImageUrl(details?.image || null);
+
+    allEvents.push({
+      title,
+      venue,
+      date,
+      dateDisplay: formatDateDisplay(date),
+      day: formatDay(date),
+      month: formatMonth(date),
+      tag: getTag(title),
+      url,
+      image,
+      source: 'Eventbrite',
+      id: allEvents.length + 1,
+      color: COLORS[colorIdx % COLORS.length],
+    });
+    colorIdx++;
+
+    // Brief pause to be polite to Eventbrite
+    await new Promise((r) => setTimeout(r, 500));
+  }
+
+  // Sort by date
+  allEvents.sort((a, b) => {
+    if (!a.date && !b.date) return 0;
+    if (!a.date) return 1;
+    if (!b.date) return -1;
+    return new Date(normalizeDate(a.date)) - new Date(normalizeDate(b.date));
+  });
+
+  // Write cache file
+  const outputPath = path.join(__dirname, '..', 'public', 'data', 'events-cache.json');
+  const outputDir = path.dirname(outputPath);
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
+  }
+
+  fs.writeFileSync(outputPath, JSON.stringify(allEvents, null, 2));
+  console.log(`\n✓ Saved ${allEvents.length} events to ${outputPath}`);
+}
+
+main().catch((err) => {
+  console.error('Fatal error:', err);
+  process.exit(1);
+});

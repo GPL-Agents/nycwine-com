@@ -22,6 +22,31 @@ const CACHE_TTL = 30 * 60 * 1000; // 30 minutes
 // ── Color cycling for cards without images ────────────────────
 const COLORS = ['c1', 'c2', 'c3', 'c4', 'c5'];
 
+// ── Fix Eventbrite image URLs ─────────────────────────────────
+// Eventbrite sometimes returns relative URLs like /e/_next/image?url=...
+// Extract the actual CDN URL from the encoded query parameter.
+function fixImageUrl(url) {
+  if (!url) return null;
+  // Already a full CDN URL
+  if (url.startsWith('https://img.evbuc.com')) return url;
+  if (url.startsWith('https://cdn.evbuc.com')) return url;
+  // Relative Eventbrite image proxy URL — extract real URL from query param
+  if (url.includes('_next/image') && url.includes('url=')) {
+    try {
+      const match = url.match(/url=([^&]+)/);
+      if (match) {
+        let decoded = decodeURIComponent(match[1]);
+        // Sometimes double-encoded
+        if (decoded.includes('%')) decoded = decodeURIComponent(decoded);
+        if (decoded.startsWith('http')) return decoded;
+      }
+    } catch { /* fall through */ }
+  }
+  // Relative URL — prefix with Eventbrite domain
+  if (url.startsWith('/')) return `https://www.eventbrite.com${url}`;
+  return url;
+}
+
 // ── Shared fetch headers ──────────────────────────────────────
 const HEADERS = {
   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
@@ -234,7 +259,7 @@ async function scrapeEventbrite() {
     const title = details?.title || slugTitle || 'Wine Event';
     const venue = details?.venue || 'New York City';
     const date = details?.date || null;
-    const image = details?.image || null;
+    const image = fixImageUrl(details?.image || null);
 
     allEvents.push({
       title,
@@ -259,7 +284,9 @@ function readCachedEvents() {
     const filePath = path.join(process.cwd(), 'public', 'data', 'events-cache.json');
     if (fs.existsSync(filePath)) {
       const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-      return Array.isArray(data) ? data : [];
+      const events = Array.isArray(data) ? data : [];
+      // Fix any relative image URLs in the cached data
+      return events.map(ev => ({ ...ev, image: fixImageUrl(ev.image) }));
     }
   } catch {}
   return [];
