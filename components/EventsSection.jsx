@@ -207,17 +207,13 @@ export default function EventsSection() {
               href="https://www.ackerwines.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="sidebar-ad-link acker-ad-block"
+              className="sidebar-ad-link"
             >
               <img
                 src="/images/ackerwinesad.png"
-                alt="Acker Wines — NYC's Oldest Wine Shop"
+                alt="Acker Wines — 160 W 72nd St, New York, NY 10023"
                 className="sidebar-ad-img"
               />
-              <div className="sidebar-ad-address">
-                160 W 72nd St · Between Amsterdam &amp; Columbus Ave<br />
-                New York, NY 10023
-              </div>
             </a>
           </div>
         </div>
