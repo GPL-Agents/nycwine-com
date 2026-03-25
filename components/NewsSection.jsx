@@ -13,36 +13,36 @@
 
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 
-// In-feed ad that matches the news card layout
-function InFeedAd() {
-  const adRef = useRef(null);
-  const pushed = useRef(false);
-
-  useEffect(() => {
-    if (!pushed.current && adRef.current && typeof window !== 'undefined') {
-      try {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-        pushed.current = true;
-      } catch (e) {
-        console.warn('AdSense push error:', e);
-      }
-    }
-  }, []);
-
-  return (
-    <div className="news-card-ad">
-      <ins
-        className="adsbygoogle"
-        style={{ display: 'block' }}
-        data-ad-format="fluid"
-        data-ad-layout-key="-fu+19-4-tz+1j5"
-        data-ad-client="ca-pub-6782277104310503"
-        data-ad-slot="2794449877"
-        ref={adRef}
-      />
-    </div>
-  );
-}
+// TODO: Uncomment InFeedAd once Google AdSense is approved
+// function InFeedAd() {
+//   const adRef = useRef(null);
+//   const pushed = useRef(false);
+//
+//   useEffect(() => {
+//     if (!pushed.current && adRef.current && typeof window !== 'undefined') {
+//       try {
+//         (window.adsbygoogle = window.adsbygoogle || []).push({});
+//         pushed.current = true;
+//       } catch (e) {
+//         console.warn('AdSense push error:', e);
+//       }
+//     }
+//   }, []);
+//
+//   return (
+//     <div className="news-card-ad">
+//       <ins
+//         className="adsbygoogle"
+//         style={{ display: 'block' }}
+//         data-ad-format="fluid"
+//         data-ad-layout-key="-fu+19-4-tz+1j5"
+//         data-ad-client="ca-pub-6782277104310503"
+//         data-ad-slot="2794449877"
+//         ref={adRef}
+//       />
+//     </div>
+//   );
+// }
 
 export default function NewsSection() {
   const [activeTab, setActiveTab] = useState('All');
@@ -141,9 +141,9 @@ export default function NewsSection() {
         )}
         {filtered.map((item, i) => (
           <React.Fragment key={`${item.source}-${i}`}>
-            {/* In-feed ad after 3rd and 8th articles */}
-            {i === 3 && <InFeedAd />}
-            {i === 8 && <InFeedAd />}
+            {/* In-feed ad after 3rd and 8th articles (uncomment when AdSense approved) */}
+            {/* {i === 3 && <InFeedAd />} */}
+            {/* {i === 8 && <InFeedAd />} */}
             <a
               className={`news-card${item.image ? ' has-image' : ''}`}
               href={item.link}

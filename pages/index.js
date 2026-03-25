@@ -17,7 +17,9 @@ import SocialSection from '../components/SocialSection';
 import NewsSection from '../components/NewsSection';
 import StoresSection from '../components/StoresSection';
 import WineBarsSection from '../components/WineBarsSection';
-import AdUnit from '../components/AdUnit';
+// TODO: Uncomment ad imports once Google AdSense is approved
+// import AdUnit from '../components/AdUnit';
+// import LeaderboardAd from '../components/LeaderboardAd';
 import Footer from '../components/Footer';
 
 export default function Home() {
@@ -34,16 +36,19 @@ export default function Home() {
       <Header />
       <QuickNav />
 
+      {/* ── Leaderboard banner ad (uncomment when AdSense approved) ── */}
+      {/* <LeaderboardAd /> */}
+
       {/* ── Main content ─────────────────────────────────── */}
       <main>
         <EventsSection />
-        <AdUnit slot="after-events" />
+        {/* <AdUnit slot="after-events" /> */}
 
         <SocialSection />
-        <AdUnit slot="after-social" />
+        {/* <AdUnit slot="after-social" /> */}
 
         <NewsSection />
-        <AdUnit slot="after-news" />
+        {/* <AdUnit slot="after-news" /> */}
 
         <StoresSection />
 

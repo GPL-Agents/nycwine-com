@@ -100,16 +100,16 @@ body {
 .header-search:focus { border-color: var(--pink); }
 .header-search::placeholder { color: var(--muted); }
 
-/* Header banner ad — fills remaining space to the right */
-.header-ad {
-  margin-left: auto;
-  flex: 1;
-  max-width: 728px;
-  min-width: 120px;
-  overflow: hidden;
+/* Leaderboard banner ad — sits between nav and content */
+.leaderboard-ad {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  padding: 10px var(--content-pad);
+  text-align: center;
+  line-height: 0;
 }
 @media (max-width: 600px) {
-  .header-ad { display: none; }
+  .leaderboard-ad { display: none; }
 }
 
 /* ═══════════════════════════════════════

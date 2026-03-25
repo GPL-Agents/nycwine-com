@@ -1,36 +1,6 @@
 import Image from 'next/image';
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
-
-function HeaderAd() {
-  const adRef = useRef(null);
-  const pushed = useRef(false);
-
-  useEffect(() => {
-    if (!pushed.current && adRef.current && typeof window !== 'undefined') {
-      try {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-        pushed.current = true;
-      } catch (e) {
-        console.warn('AdSense push error:', e);
-      }
-    }
-  }, []);
-
-  return (
-    <div className="header-ad">
-      <ins
-        className="adsbygoogle"
-        style={{ display: 'block' }}
-        data-ad-client="ca-pub-6782277104310503"
-        data-ad-slot="2838548456"
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-        ref={adRef}
-      />
-    </div>
-  );
-}
 
 export default function Header() {
   const router = useRouter();
@@ -67,9 +37,6 @@ export default function Header() {
           onChange={(e) => setQuery(e.target.value)}
         />
       </form>
-
-      {/* Banner ad — top right */}
-      <HeaderAd />
     </header>
   );
 }
