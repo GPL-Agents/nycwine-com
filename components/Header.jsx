@@ -1,6 +1,36 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
+
+function HeaderAd() {
+  const adRef = useRef(null);
+  const pushed = useRef(false);
+
+  useEffect(() => {
+    if (!pushed.current && adRef.current && typeof window !== 'undefined') {
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+        pushed.current = true;
+      } catch (e) {
+        console.warn('AdSense push error:', e);
+      }
+    }
+  }, []);
+
+  return (
+    <div className="header-ad">
+      <ins
+        className="adsbygoogle"
+        style={{ display: 'block' }}
+        data-ad-client="ca-pub-6782277104310503"
+        data-ad-slot="2838548456"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+        ref={adRef}
+      />
+    </div>
+  );
+}
 
 export default function Header() {
   const router = useRouter();
@@ -38,17 +68,8 @@ export default function Header() {
         />
       </form>
 
-      {/* Hamburger — will open nav drawer in a future version */}
-      <button
-        aria-label="Open menu"
-        className="header-menu-btn"
-      >
-        <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <line y1="1" x2="20" y2="1" stroke="currentColor" strokeWidth="1.5"/>
-          <line y1="8" x2="20" y2="8" stroke="currentColor" strokeWidth="1.5"/>
-          <line y1="15" x2="20" y2="15" stroke="currentColor" strokeWidth="1.5"/>
-        </svg>
-      </button>
+      {/* Banner ad — top right */}
+      <HeaderAd />
     </header>
   );
 }

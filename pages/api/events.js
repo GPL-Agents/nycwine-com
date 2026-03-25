@@ -281,6 +281,14 @@ export default async function handler(req, res) {
       events = readCachedEvents();
     }
 
+    // Remove past events — only show today or future
+    const startOfToday = new Date();
+    startOfToday.setHours(0, 0, 0, 0);
+    events = events.filter((ev) => {
+      if (!ev.date) return true; // keep undated events (can't tell if past)
+      return new Date(ev.date) >= startOfToday;
+    });
+
     // Sort by date (events with dates first, then undated)
     events.sort((a, b) => {
       if (!a.date && !b.date) return 0;

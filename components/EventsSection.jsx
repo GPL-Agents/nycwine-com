@@ -9,7 +9,37 @@
 // Cards scroll horizontally; list rows show additional events.
 // ─────────────────────────────────────────────────────────────
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+
+// Multiplex ad unit — fits beside the event list on desktop, stacks on mobile
+function MultiplexAd() {
+  const adRef = useRef(null);
+  const pushed = useRef(false);
+
+  useEffect(() => {
+    if (!pushed.current && adRef.current && typeof window !== 'undefined') {
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+        pushed.current = true;
+      } catch (e) {
+        console.warn('AdSense push error:', e);
+      }
+    }
+  }, []);
+
+  return (
+    <div className="event-multiplex-ad">
+      <ins
+        className="adsbygoogle"
+        style={{ display: 'block' }}
+        data-ad-format="autorelaxed"
+        data-ad-client="ca-pub-6782277104310503"
+        data-ad-slot="1265745785"
+        ref={adRef}
+      />
+    </div>
+  );
+}
 
 const FILTERS = ['All', 'Tasting', 'Class', 'Dinner', 'Event', 'Festival'];
 
@@ -142,31 +172,34 @@ export default function EventsSection() {
         ))}
       </div>
 
-      {/* List view — additional events */}
+      {/* List view + multiplex ad — side by side on desktop */}
       {listEvents.length > 0 && (
-        <div className="event-list">
-          <div className="event-list-title">More coming up</div>
-          {listEvents.map((ev) => (
-              <a
-                key={ev.id}
-                className="event-row"
-                href={ev.url || '#'}
-                target={ev.url ? '_blank' : undefined}
-                rel={ev.url ? 'noopener noreferrer' : undefined}
-                style={{ textDecoration: 'none', color: 'inherit' }}
-              >
-                <div className="event-row-date">
-                  <div className="event-row-day">{ev.day}</div>
-                  <div className="event-row-dow">{ev.month}</div>
-                </div>
-                <div className="event-row-info">
-                  <div className="event-row-name">{ev.title}</div>
-                  <div className="event-row-venue">{ev.venue}</div>
-                  {ev.dateDisplay && <div className="event-row-venue">{ev.dateDisplay}</div>}
-                </div>
-                <div className="event-row-arrow">&rsaquo;</div>
-              </a>
-          ))}
+        <div className="event-list-row">
+          <div className="event-list">
+            <div className="event-list-title">More coming up</div>
+            {listEvents.map((ev) => (
+                <a
+                  key={ev.id}
+                  className="event-row"
+                  href={ev.url || '#'}
+                  target={ev.url ? '_blank' : undefined}
+                  rel={ev.url ? 'noopener noreferrer' : undefined}
+                  style={{ textDecoration: 'none', color: 'inherit' }}
+                >
+                  <div className="event-row-date">
+                    <div className="event-row-day">{ev.day}</div>
+                    <div className="event-row-dow">{ev.month}</div>
+                  </div>
+                  <div className="event-row-info">
+                    <div className="event-row-name">{ev.title}</div>
+                    <div className="event-row-venue">{ev.venue}</div>
+                    {ev.dateDisplay && <div className="event-row-venue">{ev.dateDisplay}</div>}
+                  </div>
+                  <div className="event-row-arrow">&rsaquo;</div>
+                </a>
+            ))}
+          </div>
+          <MultiplexAd />
         </div>
       )}
 

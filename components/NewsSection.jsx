@@ -11,7 +11,38 @@
 // Ticker scrolls the top 5 headlines.
 // ─────────────────────────────────────────────────────────────
 
-import { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
+
+// In-feed ad that matches the news card layout
+function InFeedAd() {
+  const adRef = useRef(null);
+  const pushed = useRef(false);
+
+  useEffect(() => {
+    if (!pushed.current && adRef.current && typeof window !== 'undefined') {
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+        pushed.current = true;
+      } catch (e) {
+        console.warn('AdSense push error:', e);
+      }
+    }
+  }, []);
+
+  return (
+    <div className="news-card-ad">
+      <ins
+        className="adsbygoogle"
+        style={{ display: 'block' }}
+        data-ad-format="fluid"
+        data-ad-layout-key="-fu+19-4-tz+1j5"
+        data-ad-client="ca-pub-6782277104310503"
+        data-ad-slot="2794449877"
+        ref={adRef}
+      />
+    </div>
+  );
+}
 
 export default function NewsSection() {
   const [activeTab, setActiveTab] = useState('All');
@@ -109,33 +140,37 @@ export default function NewsSection() {
           </div>
         )}
         {filtered.map((item, i) => (
-          <a
-            key={`${item.source}-${i}`}
-            className={`news-card${item.image ? ' has-image' : ''}`}
-            href={item.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ textDecoration: 'none', color: 'inherit' }}
-          >
-            {item.image && (
-              <div className="news-card-img">
-                <img
-                  src={item.image}
-                  alt=""
-                  loading="lazy"
-                  onError={(e) => { e.target.parentElement.style.display = 'none'; }}
-                />
+          <React.Fragment key={`${item.source}-${i}`}>
+            {/* In-feed ad after 3rd and 8th articles */}
+            {i === 3 && <InFeedAd />}
+            {i === 8 && <InFeedAd />}
+            <a
+              className={`news-card${item.image ? ' has-image' : ''}`}
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: 'none', color: 'inherit' }}
+            >
+              {item.image && (
+                <div className="news-card-img">
+                  <img
+                    src={item.image}
+                    alt=""
+                    loading="lazy"
+                    onError={(e) => { e.target.parentElement.style.display = 'none'; }}
+                  />
+                </div>
+              )}
+              <div className="news-card-text">
+                <div className="news-card-source" style={{ color: item.color }}>
+                  {item.source}
+                </div>
+                <div className="news-card-title">{item.title}</div>
+                {item.snippet && <div className="news-card-snippet">{item.snippet}</div>}
+                <div className="news-card-date">{item.ago}</div>
               </div>
-            )}
-            <div className="news-card-text">
-              <div className="news-card-source" style={{ color: item.color }}>
-                {item.source}
-              </div>
-              <div className="news-card-title">{item.title}</div>
-              {item.snippet && <div className="news-card-snippet">{item.snippet}</div>}
-              <div className="news-card-date">{item.ago}</div>
-            </div>
-          </a>
+            </a>
+          </React.Fragment>
         ))}
       </div>
 

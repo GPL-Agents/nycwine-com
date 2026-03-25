@@ -100,17 +100,17 @@ body {
 .header-search:focus { border-color: var(--pink); }
 .header-search::placeholder { color: var(--muted); }
 
-.header-menu-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--black);
-  padding: 4px;
-  display: flex;
-  align-items: center;
+/* Header banner ad — fills remaining space to the right */
+.header-ad {
   margin-left: auto;
+  flex: 1;
+  max-width: 728px;
+  min-width: 120px;
+  overflow: hidden;
 }
-.header-menu-btn:hover { color: var(--pink); }
+@media (max-width: 600px) {
+  .header-ad { display: none; }
+}
 
 /* ═══════════════════════════════════════
    QUICK NAV
@@ -286,7 +286,35 @@ body {
 .event-card-tag[data-tag="Festival"] { background: #e8f5e9; color: #2e7d32; }
 .event-card-price { font-size: 11px; color: var(--burgundy); font-weight: 600; float: right; margin-top: 8px; }
 
-/* Event list rows */
+/* Event list + multiplex ad — side by side on desktop */
+.event-list-row {
+  display: flex;
+  gap: 24px;
+  padding: 0 var(--content-pad) 4px;
+}
+.event-list-row .event-list {
+  flex: 1;
+  min-width: 0;
+  padding: 0; /* padding now on parent */
+}
+.event-multiplex-ad {
+  flex: 0 0 300px;
+  align-self: flex-start;
+  position: sticky;
+  top: 120px; /* below sticky header + nav */
+  overflow: hidden;
+}
+@media (max-width: 800px) {
+  .event-list-row {
+    flex-direction: column;
+  }
+  .event-multiplex-ad {
+    flex: none;
+    position: static;
+  }
+}
+
+/* Event list rows (when NOT inside the two-column layout) */
 .event-list { padding: 0 var(--content-pad) 4px; }
 .event-list-title { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; padding: 8px 0; }
 .event-row {
@@ -631,6 +659,13 @@ body {
 .news-card-title  { font-size: 14px; font-weight: 500; color: var(--black); line-height: 1.5; margin-top: 3px; }
 .news-card-snippet { font-size: 12px; color: var(--muted); line-height: 1.5; margin-top: 4px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .news-card-date   { font-size: 11px; color: var(--muted); margin-top: 6px; }
+
+/* In-feed ad inside news list — matches card spacing */
+.news-card-ad {
+  padding: 8px var(--content-pad);
+  border-bottom: 1px solid var(--border-light);
+  overflow: hidden;
+}
 
 @media (max-width: 480px) {
   .news-card-img { width: 80px; min-height: 60px; }
