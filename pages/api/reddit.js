@@ -185,15 +185,45 @@ async function fetchSubredditJSON(sub) {
   }
 }
 
+// ── Subreddits that should NEVER appear in the NYC row ───────
+const BLOCKED_SUBREDDITS = [
+  'shittyfoodporn', 'washingtondc', 'dc', 'philadelphia', 'boston',
+  'chicago', 'losangeles', 'sanfrancisco', 'seattle', 'portland',
+  'austin', 'denver', 'atlanta', 'miami', 'houston', 'dallas',
+  'mildlyinteresting', 'pics', 'funny', 'todayilearned',
+];
+
+// ── NYC-focused subreddits (posts here only need a wine keyword) ──
+const NYC_SUBREDDITS = [
+  'nyc', 'asknyc', 'foodnyc', 'nycdrinks', 'nycbars',
+  'nycbitcheswithtaste', 'bedstuy', 'astoria', 'brooklyn',
+  'manhattan', 'queens', 'bronx', 'statenisland',
+  'williamsburg', 'parkslope', 'upperwestside', 'uppereastside',
+];
+
 // ── Relevance scoring for NYC wine content ───────────────────
 function nycRelevanceScore(post) {
   const text = post._text;
+  const title = post.title.toLowerCase();
+
+  // Block irrelevant subreddits entirely
+  const sub = post.subreddit.replace('r/', '').toLowerCase();
+  if (BLOCKED_SUBREDDITS.includes(sub)) return 0;
+
   // Highest priority: explicit hashtags
   if (NYC_HASHTAGS.some((tag) => text.includes(tag))) return 3;
-  // Second: NYC + wine both present
-  const hasWine = WINE_KEYWORDS.some((kw) => text.includes(kw));
+
+  // Title must contain a wine keyword — body-only matches are too noisy
+  const titleHasWine = WINE_KEYWORDS.some((kw) => title.includes(kw));
+  if (!titleHasWine) return 0;
+
+  // If from an NYC-focused subreddit, wine in the title is enough
+  if (NYC_SUBREDDITS.includes(sub)) return 2;
+
+  // Otherwise, need NYC keyword somewhere in the post too
   const hasNYC = NYC_KEYWORDS.some((kw) => text.includes(kw));
-  if (hasWine && hasNYC) return 2;
+  if (hasNYC) return 2;
+
   return 0;
 }
 
@@ -202,7 +232,8 @@ function isNYCWineRelated(post) {
 }
 
 function isWineRelated(post) {
-  return WINE_KEYWORDS.some((kw) => post._text.includes(kw));
+  // For the general wine row, require wine keyword in the TITLE
+  return WINE_KEYWORDS.some((kw) => post.title.toLowerCase().includes(kw));
 }
 
 // ── Time-ago helper ───────────────────────────────────────────
@@ -285,15 +316,18 @@ export default async function handler(req, res) {
       winePosts = await fetchSubredditJSON({ name: 'wine', alwaysRelevant: true });
     }
 
-    // NYC bucket: must pass NYC+wine filter — no generic wine posts
-    const nycRaw = [
-      ...searchRSS.flat().filter(isNYCWineRelated),
-      ...foodNycRSS.filter(isNYCWineRelated),
-      ...nycDrinksRSS.filter(isWineRelated),  // nycdrinks is already NYC-specific
-      ...nycBarsRSS.filter(isWineRelated),     // NYCbars is already NYC-specific
-      ...nycRSS.filter(isNYCWineRelated),
-      ...askNycRSS.filter(isNYCWineRelated),
+    // NYC bucket: ALL sources go through the same strict filter.
+    // nycRelevanceScore handles subreddit-awareness (NYC subs only
+    // need wine-in-title; others need NYC + wine).
+    const allNycCandidates = [
+      ...searchRSS.flat(),
+      ...foodNycRSS,
+      ...nycDrinksRSS,
+      ...nycBarsRSS,
+      ...nycRSS,
+      ...askNycRSS,
     ];
+    const nycRaw = allNycCandidates.filter(isNYCWineRelated);
 
     // Format: NYC row sorted by hashtag relevance first, then score
     const nycFormatted = dedupeAndFormat(nycRaw, 10, nycRelevanceScore);
