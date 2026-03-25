@@ -1,151 +1,161 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 80" preserveAspectRatio="none">
+  <g fill="#d0d0d0" opacity="0.55">
 
-  <!-- ═══ LEFT BUILDINGS (x=0 to ~220) ═══ -->
-  <g fill="#d0d0d0" opacity="0.5">
-    <rect x="0" y="62" width="12" height="18"/>
-    <rect x="14" y="57" width="10" height="23"/>
-    <rect x="28" y="60" width="14" height="20"/>
-    <rect x="46" y="54" width="10" height="26"/>
-    <rect x="60" y="58" width="16" height="22"/>
-    <rect x="80" y="52" width="12" height="28"/>
-    <rect x="96" y="55" width="14" height="25"/>
-    <rect x="114" y="50" width="10" height="30"/>
-    <rect x="128" y="53" width="16" height="27"/>
-    <rect x="148" y="48" width="12" height="32"/>
-    <rect x="164" y="51" width="14" height="29"/>
-    <rect x="182" y="46" width="12" height="34"/>
-    <rect x="198" y="49" width="14" height="31"/>
-    <rect x="216" y="44" width="12" height="36"/>
-  </g>
-
-  <!-- ═══ SUSPENSION BRIDGE (behind logo ~x=238 to ~x=392) ═══ -->
-  <g fill="#d0d0d0" fill-opacity="0.5" stroke="#d0d0d0" stroke-opacity="0.5">
-    <!-- Left tower — tapered trapezoid with crossbeams -->
-    <polygon points="238,80 243,4 251,4 256,80" stroke="none"/>
-    <rect x="236" y="38" width="22" height="2.5" stroke="none"/>
-    <rect x="236" y="54" width="22" height="2.5" stroke="none"/>
-
-    <!-- Right tower — tapered trapezoid with crossbeams -->
-    <polygon points="374,80 379,4 387,4 392,80" stroke="none"/>
-    <rect x="372" y="38" width="22" height="2.5" stroke="none"/>
-    <rect x="372" y="54" width="22" height="2.5" stroke="none"/>
-
-    <!-- Main cable (catenary curve) -->
-    <path d="M247,6 C275,50 300,62 315,64 C330,62 355,50 383,6" fill="none" stroke-width="1.8"/>
-
-    <!-- Vertical suspender cables -->
-    <line x1="260" y1="22" x2="260" y2="66" fill="none" stroke-width="0.6"/>
-    <line x1="272" y1="33" x2="272" y2="66" fill="none" stroke-width="0.6"/>
-    <line x1="284" y1="42" x2="284" y2="66" fill="none" stroke-width="0.6"/>
-    <line x1="296" y1="50" x2="296" y2="66" fill="none" stroke-width="0.6"/>
-    <line x1="306" y1="56" x2="306" y2="66" fill="none" stroke-width="0.6"/>
-    <line x1="315" y1="60" x2="315" y2="66" fill="none" stroke-width="0.6"/>
-    <line x1="324" y1="56" x2="324" y2="66" fill="none" stroke-width="0.6"/>
-    <line x1="334" y1="50" x2="334" y2="66" fill="none" stroke-width="0.6"/>
-    <line x1="346" y1="42" x2="346" y2="66" fill="none" stroke-width="0.6"/>
-    <line x1="358" y1="33" x2="358" y2="66" fill="none" stroke-width="0.6"/>
-    <line x1="370" y1="22" x2="370" y2="66" fill="none" stroke-width="0.6"/>
-
+    <!-- ═══ BROOKLYN BRIDGE (left side, x=20-200) ═══ -->
+    <!-- Left Gothic tower with pointed arch windows -->
+    <path d="M38,80 L38,12 L40,10 L48,10 L50,12 L50,80 Z"/>
+    <!-- Arch cutout left tower -->
+    <path d="M41,50 L41,35 Q44,28 47,35 L47,50 Z" fill="white"/>
+    <!-- Right Gothic tower -->
+    <path d="M160,80 L160,12 L162,10 L170,10 L172,12 L172,80 Z"/>
+    <!-- Arch cutout right tower -->
+    <path d="M163,50 L163,35 Q166,28 169,35 L169,50 Z" fill="white"/>
     <!-- Road deck -->
-    <line x1="233" y1="66" x2="397" y2="66" fill="none" stroke-width="2"/>
-  </g>
+    <rect x="34" y="66" width="142" height="3"/>
+    <!-- Main cables (catenary) -->
+    <path d="M44,12 Q70,48 105,54 Q140,48 166,12" fill="none" stroke="#d0d0d0" stroke-opacity="0.55" stroke-width="1.8"/>
+    <path d="M44,15 Q72,44 105,50 Q138,44 166,15" fill="none" stroke="#d0d0d0" stroke-opacity="0.55" stroke-width="0.8"/>
+    <!-- Vertical suspenders -->
+    <rect x="60" y="26" width="0.8" height="40"/>
+    <rect x="72" y="34" width="0.8" height="32"/>
+    <rect x="84" y="40" width="0.8" height="26"/>
+    <rect x="96" y="46" width="0.8" height="20"/>
+    <rect x="105" y="50" width="0.8" height="16"/>
+    <rect x="114" y="46" width="0.8" height="20"/>
+    <rect x="126" y="40" width="0.8" height="26"/>
+    <rect x="138" y="34" width="0.8" height="32"/>
+    <rect x="150" y="26" width="0.8" height="40"/>
+    <!-- Diagonal stay cables from towers -->
+    <path d="M44,13 L68,66 M44,13 L82,66 M44,13 L96,66" fill="none" stroke="#d0d0d0" stroke-opacity="0.35" stroke-width="0.5"/>
+    <path d="M166,13 L142,66 M166,13 L128,66 M166,13 L114,66" fill="none" stroke="#d0d0d0" stroke-opacity="0.35" stroke-width="0.5"/>
 
-  <!-- ═══ RIGHT SIDE: ICONIC NYC SKYLINE (x=410+) ═══ -->
-  <g fill="#d0d0d0" opacity="0.5">
+    <!-- ═══ TRANSITION: LOW BROOKLYN BUILDINGS (x=200-300) ═══ -->
+    <!-- Row houses / brownstones with stepped rooflines -->
+    <path d="M200,80 L200,58 L202,56 L210,56 L212,58 L212,80 Z"/>
+    <path d="M216,80 L216,54 L218,52 L228,52 L230,54 L230,80 Z"/>
+    <path d="M234,80 L234,50 L236,48 L244,48 L246,50 L246,80 Z"/>
+    <path d="M250,80 L250,52 L260,52 L260,46 L268,46 L268,80 Z"/>
+    <path d="M272,80 L272,44 L282,44 L282,48 L288,48 L288,80 Z"/>
+    <path d="M292,80 L292,42 L298,38 L304,42 L304,80 Z"/>
 
-    <!-- Transition buildings after bridge -->
-    <rect x="410" y="52" width="10" height="28"/>
-    <rect x="424" y="46" width="12" height="34"/>
-    <rect x="440" y="50" width="10" height="30"/>
+    <!-- ═══ DOWNTOWN / LOWER MANHATTAN (x=310-500) ═══ -->
+    <!-- Woolworth Building - Gothic spire -->
+    <path d="M310,80 L310,30 L312,28 L314,22 L316,18 L317,10 L318,18 L320,22 L322,28 L324,30 L324,80 Z"/>
 
-    <!-- ── Statue of Liberty silhouette ── -->
-    <!-- Body/pedestal -->
-    <polygon points="458,80 460,56 464,50 462,46 466,44 464,40 468,38 466,34 470,80"/>
-    <!-- Torch arm raised -->
-    <line x1="464" y1="40" x2="458" y2="28" stroke="#d0d0d0" stroke-opacity="0.5" stroke-width="1.5"/>
-    <!-- Torch flame -->
-    <ellipse cx="457" cy="25" rx="2.5" ry="4"/>
-    <!-- Crown spikes -->
-    <line x1="463" y1="34" x2="460" y2="28" stroke="#d0d0d0" stroke-opacity="0.5" stroke-width="0.8"/>
-    <line x1="465" y1="33" x2="465" y2="26" stroke="#d0d0d0" stroke-opacity="0.5" stroke-width="0.8"/>
-    <line x1="467" y1="34" x2="470" y2="28" stroke="#d0d0d0" stroke-opacity="0.5" stroke-width="0.8"/>
+    <!-- 70 Pine St - Art Deco stepped crown -->
+    <path d="M330,80 L330,26 L332,24 L334,20 L336,24 L338,26 L340,24 L342,20 L344,24 L346,26 L346,80 Z"/>
 
-    <!-- Low buildings between Liberty and midtown -->
-    <rect x="480" y="54" width="14" height="26"/>
-    <rect x="498" y="48" width="10" height="32"/>
-    <rect x="512" y="52" width="16" height="28"/>
-    <rect x="532" y="44" width="12" height="36"/>
-    <rect x="548" y="48" width="14" height="32"/>
+    <!-- Generic downtown towers -->
+    <path d="M352,80 L352,32 L354,30 L362,30 L364,32 L364,80 Z"/>
+    <path d="M370,80 L370,28 L380,28 L380,80 Z"/>
+    <path d="M384,80 L384,34 L392,34 L392,80 Z"/>
 
-    <!-- Growing taller toward midtown -->
-    <rect x="566" y="38" width="14" height="42"/>
-    <rect x="584" y="34" width="16" height="46"/>
-    <rect x="604" y="30" width="12" height="50"/>
-    <rect x="620" y="36" width="14" height="44"/>
-    <rect x="638" y="28" width="16" height="52"/>
+    <!-- ═══ ONE WORLD TRADE CENTER ═══ -->
+    <!-- Tapered glass tower with antenna -->
+    <path d="M400,80 L402,14 L406,6 L408,4 L410,6 L414,14 L416,80 Z"/>
+    <!-- Antenna/spire -->
+    <rect x="407" y="0" width="2" height="4"/>
+    <!-- WTC complex neighbors (shorter glass boxes) -->
+    <path d="M420,80 L420,30 L430,30 L430,80 Z"/>
+    <path d="M434,80 L434,24 L442,24 L442,80 Z"/>
+    <path d="M446,80 L446,34 L454,34 L454,80 Z"/>
 
-    <!-- ── CHRYSLER BUILDING ── -->
+    <!-- ═══ MIDTOWN TRANSITION (x=460-560) ═══ -->
+    <path d="M462,80 L462,38 L470,38 L470,80 Z"/>
+    <path d="M474,80 L474,34 L480,34 L480,80 Z"/>
+    <path d="M484,80 L484,30 L494,30 L494,80 Z"/>
+    <!-- UN Headquarters - flat-topped slab -->
+    <path d="M500,80 L500,22 L504,22 L504,80 Z"/>
+    <path d="M508,80 L508,28 L518,28 L518,80 Z"/>
+    <path d="M522,80 L522,34 L530,34 L530,80 Z"/>
+    <path d="M534,80 L534,26 L544,26 L544,80 Z"/>
+    <path d="M548,80 L548,32 L556,32 L556,80 Z"/>
+
+    <!-- ═══ CHRYSLER BUILDING ═══ -->
     <!-- Main shaft -->
-    <rect x="660" y="18" width="14" height="62"/>
-    <!-- Art deco terraced crown -->
-    <polygon points="660,18 662,14 664,16 666,11 668,14 670,8 672,14 674,11 676,16 678,14 680,18"/>
-    <!-- Spire -->
-    <rect x="669" y="0" width="2" height="8"/>
+    <path d="M564,80 L564,20 L578,20 L578,80 Z"/>
+    <!-- Art Deco sunburst crown with terraced triangular arches -->
+    <path d="M562,20 L564,18 L566,15 L567,18 L568,13 L569,16 L570,8 L571,4 L572,8 L573,16 L574,13 L575,18 L576,15 L577,18 L580,20 Z"/>
+    <!-- Spire needle -->
+    <rect x="570.5" y="0" width="1" height="4"/>
 
     <!-- Buildings between Chrysler and Empire State -->
-    <rect x="686" y="26" width="14" height="54"/>
-    <rect x="704" y="22" width="12" height="58"/>
-    <rect x="720" y="30" width="16" height="50"/>
+    <path d="M584,80 L584,26 L594,26 L594,80 Z"/>
+    <path d="M598,80 L598,30 L606,30 L606,80 Z"/>
+    <path d="M610,80 L610,24 L620,24 L620,80 Z"/>
+    <!-- MetLife / PanAm building (wide with flat top) -->
+    <path d="M624,80 L624,22 L626,20 L640,20 L642,22 L642,80 Z"/>
+    <path d="M646,80 L646,28 L656,28 L656,80 Z"/>
 
-    <!-- ── EMPIRE STATE BUILDING ── -->
-    <!-- Wide base -->
-    <rect x="742" y="26" width="30" height="54"/>
-    <!-- Setback 1 -->
-    <rect x="746" y="18" width="22" height="8"/>
-    <!-- Setback 2 -->
-    <rect x="750" y="12" width="14" height="6"/>
+    <!-- ═══ EMPIRE STATE BUILDING ═══ -->
+    <!-- Wide Art Deco base -->
+    <path d="M664,80 L664,30 L694,30 L694,80 Z"/>
+    <!-- First setback -->
+    <path d="M668,30 L668,22 L690,22 L690,30 Z"/>
+    <!-- Second setback -->
+    <path d="M672,22 L672,16 L686,16 L686,22 Z"/>
     <!-- Upper tower -->
-    <rect x="753" y="6" width="8" height="6"/>
-    <!-- Antenna mast (tall, iconic) -->
-    <rect x="756" y="0" width="2" height="6"/>
+    <path d="M675,16 L675,10 L683,10 L683,16 Z"/>
+    <!-- Observatory crown -->
+    <path d="M677,10 L677,7 L681,7 L681,10 Z"/>
+    <!-- Tall antenna mast -->
+    <rect x="678.5" y="0" width="1" height="7"/>
 
-    <!-- Buildings between Empire State and One WTC -->
-    <rect x="778" y="28" width="14" height="52"/>
-    <rect x="796" y="24" width="16" height="56"/>
-    <rect x="816" y="32" width="12" height="48"/>
-    <rect x="832" y="26" width="14" height="54"/>
+    <!-- ═══ UPPER MIDTOWN (x=700-900) ═══ -->
+    <path d="M702,80 L702,28 L712,28 L712,80 Z"/>
+    <!-- Citigroup Center - angled roof -->
+    <path d="M716,80 L716,24 L726,16 L726,24 L728,24 L728,80 Z"/>
+    <path d="M732,80 L732,30 L742,30 L742,80 Z"/>
 
-    <!-- ── ONE WORLD TRADE CENTER ── -->
-    <!-- Tapered form -->
-    <polygon points="854,80 856,10 864,2 872,10 874,80"/>
-    <!-- Antenna -->
-    <rect x="863" y="0" width="2" height="2"/>
+    <!-- 432 Park Ave - super tall thin tower -->
+    <path d="M748,80 L748,8 L754,8 L754,80 Z"/>
 
-    <!-- WTC complex neighbors -->
-    <rect x="880" y="24" width="14" height="56"/>
-    <rect x="898" y="20" width="12" height="60"/>
-    <rect x="914" y="28" width="16" height="52"/>
+    <path d="M760,80 L760,32 L768,32 L768,80 Z"/>
+    <path d="M772,80 L772,26 L782,26 L782,80 Z"/>
 
-    <!-- Financial district -->
-    <rect x="934" y="32" width="14" height="48"/>
-    <rect x="952" y="28" width="16" height="52"/>
-    <rect x="972" y="36" width="12" height="44"/>
-    <rect x="988" y="32" width="14" height="48"/>
+    <!-- One Vanderbilt - tapered top -->
+    <path d="M788,80 L788,18 L790,14 L792,10 L794,14 L796,18 L796,80 Z"/>
 
-    <!-- Tapering right -->
-    <rect x="1006" y="40" width="12" height="40"/>
-    <rect x="1022" y="44" width="14" height="36"/>
-    <rect x="1040" y="40" width="10" height="40"/>
-    <rect x="1054" y="48" width="14" height="32"/>
-    <rect x="1072" y="44" width="12" height="36"/>
-    <rect x="1088" y="50" width="14" height="30"/>
+    <path d="M802,80 L802,30 L810,30 L810,80 Z"/>
+    <path d="M814,80 L814,24 L824,24 L824,80 Z"/>
 
-    <!-- Far right low -->
-    <rect x="1106" y="54" width="12" height="26"/>
-    <rect x="1122" y="50" width="14" height="30"/>
-    <rect x="1140" y="56" width="10" height="24"/>
-    <rect x="1154" y="52" width="14" height="28"/>
-    <rect x="1172" y="58" width="12" height="22"/>
-    <rect x="1188" y="62" width="12" height="18"/>
+    <!-- ═══ UPPER WEST / CENTRAL PARK TOWERS (x=830-1000) ═══ -->
+    <!-- Central Park Tower / Steinway - super-tall pencil -->
+    <path d="M834,80 L834,6 L840,6 L840,80 Z"/>
+
+    <path d="M846,80 L846,28 L856,28 L856,80 Z"/>
+    <path d="M860,80 L860,34 L868,34 L868,80 Z"/>
+
+    <!-- 30 Hudson Yards - observation deck jut-out -->
+    <path d="M874,80 L874,22 L884,22 L886,18 L888,22 L888,80 Z"/>
+
+    <path d="M894,80 L894,32 L902,32 L902,80 Z"/>
+    <path d="M906,80 L906,38 L914,38 L914,80 Z"/>
+    <path d="M918,80 L918,42 L926,42 L926,80 Z"/>
+
+    <!-- ═══ TAPERING TO RESIDENTIAL (x=930-1100) ═══ -->
+    <path d="M934,80 L934,46 L940,42 L946,46 L946,80 Z"/>
+    <path d="M950,80 L950,48 L960,48 L960,80 Z"/>
+    <path d="M964,80 L964,52 L972,52 L972,80 Z"/>
+    <path d="M976,80 L976,50 L984,50 L984,80 Z"/>
+    <path d="M990,80 L990,54 L998,54 L998,80 Z"/>
+    <path d="M1004,80 L1004,56 L1010,56 L1010,80 Z"/>
+    <path d="M1016,80 L1016,58 L1024,58 L1024,80 Z"/>
+    <path d="M1030,80 L1030,56 L1038,56 L1038,80 Z"/>
+    <path d="M1044,80 L1044,60 L1050,60 L1050,80 Z"/>
+
+    <!-- ═══ FAR RIGHT LOW BUILDINGS (x=1055-1200) ═══ -->
+    <path d="M1058,80 L1058,62 L1066,62 L1066,80 Z"/>
+    <path d="M1072,80 L1072,58 L1080,58 L1080,80 Z"/>
+    <path d="M1086,80 L1086,62 L1092,62 L1092,80 Z"/>
+    <path d="M1098,80 L1098,60 L1106,60 L1106,80 Z"/>
+    <path d="M1112,80 L1112,64 L1118,64 L1118,80 Z"/>
+    <path d="M1124,80 L1124,62 L1132,62 L1132,80 Z"/>
+    <path d="M1138,80 L1138,66 L1144,66 L1144,80 Z"/>
+    <path d="M1150,80 L1150,64 L1158,64 L1158,80 Z"/>
+    <path d="M1164,80 L1164,68 L1170,68 L1170,80 Z"/>
+    <path d="M1176,80 L1176,66 L1184,66 L1184,80 Z"/>
+    <path d="M1190,80 L1190,70 L1200,70 L1200,80 Z"/>
+
   </g>
 </svg>
