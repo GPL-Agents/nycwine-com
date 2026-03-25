@@ -42,7 +42,7 @@ export default function StoresSection() {
     return counts;
   }, [stores]);
 
-  // Filter stores
+  // Filter stores — always alphabetical
   const filtered = useMemo(() => {
     let result = stores;
     if (selectedHood) {
@@ -57,14 +57,14 @@ export default function StoresSection() {
           s.neighborhood.toLowerCase().includes(q)
       );
     }
-    return result;
+    return result.slice().sort((a, b) => a.name.localeCompare(b.name));
   }, [stores, selectedHood, search]);
 
-  // Show featured stores with websites when no search active
+  // Show featured stores with websites — alphabetical
   const featuredStores = useMemo(() => {
     return stores
       .filter((s) => s.website)
-      .sort(() => 0.5 - Math.random())
+      .sort((a, b) => a.name.localeCompare(b.name))
       .slice(0, 6);
   }, [stores]);
 

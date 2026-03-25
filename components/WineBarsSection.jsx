@@ -30,7 +30,7 @@ export default function WineBarsSection() {
     return counts;
   }, [bars]);
 
-  // Filter bars
+  // Filter bars — always alphabetical
   const filtered = useMemo(() => {
     let result = bars;
     if (selectedBorough) {
@@ -45,14 +45,14 @@ export default function WineBarsSection() {
           b.borough.toLowerCase().includes(q)
       );
     }
-    return result;
+    return result.slice().sort((a, b) => a.name.localeCompare(b.name));
   }, [bars, selectedBorough, search]);
 
-  // Show featured bars with websites when no search active
+  // Show featured bars with websites — alphabetical
   const featuredBars = useMemo(() => {
     return bars
       .filter((b) => b.website)
-      .sort(() => 0.5 - Math.random())
+      .sort((a, b) => a.name.localeCompare(b.name))
       .slice(0, 6);
   }, [bars]);
 
