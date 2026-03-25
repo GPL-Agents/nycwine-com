@@ -99,9 +99,9 @@ export default function AboutPage() {
           </div>
 
           <p className="about-closing">
-            NYCWine.com is a project of Metropolitan Vintners, LLC.
+         
           </p>
-        </div>
+ 
       </main>
 
       <Footer />
