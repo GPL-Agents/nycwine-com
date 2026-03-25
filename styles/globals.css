@@ -651,11 +651,16 @@ body {
   overflow: hidden;
   transition: box-shadow 0.2s;
   width: 100%;
+  flex: 1;
+  min-height: 0;
 }
 .infeed-ad:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
 .infeed-ad-img {
   width: 100%;
-  height: auto;
+  flex: 1;
+  min-height: 0;
+  object-fit: cover;
+  object-position: top;
   display: block;
 }
 .infeed-ad-content {
