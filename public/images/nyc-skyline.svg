@@ -1,124 +1,133 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 80" preserveAspectRatio="none">
-  <g fill="#dcdcdc" opacity="0.5">
 
-    <!-- Far left low buildings -->
-    <rect x="0" y="60" width="12" height="20"/>
-    <rect x="16" y="55" width="10" height="25"/>
-    <rect x="30" y="58" width="14" height="22"/>
-    <rect x="48" y="52" width="10" height="28"/>
-    <rect x="62" y="56" width="16" height="24"/>
-    <rect x="82" y="50" width="12" height="30"/>
-    <rect x="98" y="54" width="14" height="26"/>
-    <rect x="116" y="48" width="10" height="32"/>
-    <rect x="130" y="52" width="16" height="28"/>
-    <rect x="150" y="46" width="12" height="34"/>
-    <rect x="166" y="50" width="14" height="30"/>
+  <!-- ═══ BROOKLYN BRIDGE (behind logo area, x=0 to ~240) ═══ -->
+  <g fill="none" stroke="#dcdcdc" stroke-opacity="0.55">
 
-    <!-- Left mid buildings growing taller -->
-    <rect x="186" y="40" width="14" height="40"/>
-    <rect x="204" y="44" width="18" height="36"/>
-    <rect x="226" y="36" width="12" height="44"/>
-    <rect x="242" y="42" width="16" height="38"/>
-    <rect x="262" y="34" width="14" height="46"/>
-    <rect x="280" y="38" width="10" height="42"/>
+    <!-- Left tower -->
+    <rect x="30" y="10" width="5" height="70" fill="#dcdcdc" fill-opacity="0.55" stroke="none"/>
+    <rect x="40" y="10" width="5" height="70" fill="#dcdcdc" fill-opacity="0.55" stroke="none"/>
+    <path d="M35,48 L35,36 Q37.5,30 40,36 L40,48" stroke-width="1.2"/>
+    <rect x="28" y="8" width="19" height="3" fill="#dcdcdc" fill-opacity="0.55" stroke="none"/>
 
-    <!-- Pre-bridge left buildings -->
-    <rect x="296" y="30" width="16" height="50"/>
-    <rect x="316" y="36" width="12" height="44"/>
-    <rect x="332" y="28" width="18" height="52"/>
-    <rect x="354" y="34" width="14" height="46"/>
-    <rect x="374" y="30" width="12" height="50"/>
-    <rect x="390" y="36" width="16" height="44"/>
-  </g>
+    <!-- Right tower -->
+    <rect x="195" y="10" width="5" height="70" fill="#dcdcdc" fill-opacity="0.55" stroke="none"/>
+    <rect x="205" y="10" width="5" height="70" fill="#dcdcdc" fill-opacity="0.55" stroke="none"/>
+    <path d="M200,48 L200,36 Q202.5,30 205,36 L205,48" stroke-width="1.2"/>
+    <rect x="193" y="8" width="19" height="3" fill="#dcdcdc" fill-opacity="0.55" stroke="none"/>
 
-  <!-- ═══ BROOKLYN BRIDGE ═══ -->
-  <g fill="none" stroke="#dcdcdc" stroke-opacity="0.5">
+    <!-- Main suspension cables -->
+    <path d="M37,12 Q75,50 120,54 Q165,50 202,12" stroke-width="1.5"/>
+    <path d="M37,16 Q80,46 120,49 Q160,46 202,16" stroke-width="0.8"/>
 
-    <!-- Left tower (Gothic arch shape) -->
-    <rect x="418" y="10" width="6" height="70" fill="#dcdcdc" fill-opacity="0.5" stroke="none"/>
-    <rect x="430" y="10" width="6" height="70" fill="#dcdcdc" fill-opacity="0.5" stroke="none"/>
-    <!-- Gothic arch opening in left tower -->
-    <path d="M424,50 L424,38 Q427,32 430,38 L430,50" stroke-width="1.5"/>
-    <!-- Tower cap -->
-    <rect x="416" y="8" width="22" height="4" fill="#dcdcdc" fill-opacity="0.5" stroke="none"/>
-
-    <!-- Right tower (Gothic arch shape) -->
-    <rect x="764" y="10" width="6" height="70" fill="#dcdcdc" fill-opacity="0.5" stroke="none"/>
-    <rect x="776" y="10" width="6" height="70" fill="#dcdcdc" fill-opacity="0.5" stroke="none"/>
-    <!-- Gothic arch opening in right tower -->
-    <path d="M770,50 L770,38 Q773,32 776,38 L776,50" stroke-width="1.5"/>
-    <!-- Tower cap -->
-    <rect x="762" y="8" width="22" height="4" fill="#dcdcdc" fill-opacity="0.5" stroke="none"/>
-
-    <!-- Main suspension cables (catenary curves between towers) -->
-    <path d="M427,12 Q500,55 600,58 Q700,55 773,12" stroke-width="1.8"/>
-
-    <!-- Secondary lower cables -->
-    <path d="M427,16 Q510,52 600,54 Q690,52 773,16" stroke-width="1"/>
-
-    <!-- Vertical suspender cables from main cable down to deck -->
-    <line x1="450" y1="26" x2="450" y2="72" stroke-width="0.6"/>
-    <line x1="470" y1="34" x2="470" y2="72" stroke-width="0.6"/>
-    <line x1="490" y1="40" x2="490" y2="72" stroke-width="0.6"/>
-    <line x1="510" y1="44" x2="510" y2="72" stroke-width="0.6"/>
-    <line x1="530" y1="48" x2="530" y2="72" stroke-width="0.6"/>
-    <line x1="550" y1="52" x2="550" y2="72" stroke-width="0.6"/>
-    <line x1="570" y1="55" x2="570" y2="72" stroke-width="0.6"/>
-    <line x1="590" y1="57" x2="590" y2="72" stroke-width="0.6"/>
-    <line x1="610" y1="57" x2="610" y2="72" stroke-width="0.6"/>
-    <line x1="630" y1="55" x2="630" y2="72" stroke-width="0.6"/>
-    <line x1="650" y1="52" x2="650" y2="72" stroke-width="0.6"/>
-    <line x1="670" y1="48" x2="670" y2="72" stroke-width="0.6"/>
-    <line x1="690" y1="44" x2="690" y2="72" stroke-width="0.6"/>
-    <line x1="710" y1="40" x2="710" y2="72" stroke-width="0.6"/>
-    <line x1="730" y1="34" x2="730" y2="72" stroke-width="0.6"/>
-    <line x1="750" y1="26" x2="750" y2="72" stroke-width="0.6"/>
+    <!-- Vertical suspender cables -->
+    <line x1="55" y1="26" x2="55" y2="70" stroke-width="0.5"/>
+    <line x1="70" y1="34" x2="70" y2="70" stroke-width="0.5"/>
+    <line x1="85" y1="40" x2="85" y2="70" stroke-width="0.5"/>
+    <line x1="100" y1="46" x2="100" y2="70" stroke-width="0.5"/>
+    <line x1="115" y1="50" x2="115" y2="70" stroke-width="0.5"/>
+    <line x1="130" y1="50" x2="130" y2="70" stroke-width="0.5"/>
+    <line x1="145" y1="46" x2="145" y2="70" stroke-width="0.5"/>
+    <line x1="160" y1="40" x2="160" y2="70" stroke-width="0.5"/>
+    <line x1="175" y1="34" x2="175" y2="70" stroke-width="0.5"/>
+    <line x1="190" y1="26" x2="190" y2="70" stroke-width="0.5"/>
 
     <!-- Diagonal stay cables from left tower -->
-    <line x1="427" y1="14" x2="460" y2="72" stroke-width="0.6"/>
-    <line x1="427" y1="14" x2="480" y2="72" stroke-width="0.6"/>
-    <line x1="427" y1="14" x2="510" y2="72" stroke-width="0.6"/>
-    <line x1="427" y1="14" x2="545" y2="72" stroke-width="0.6"/>
+    <line x1="37" y1="14" x2="65" y2="70" stroke-width="0.5"/>
+    <line x1="37" y1="14" x2="85" y2="70" stroke-width="0.5"/>
+    <line x1="37" y1="14" x2="108" y2="70" stroke-width="0.5"/>
 
     <!-- Diagonal stay cables from right tower -->
-    <line x1="773" y1="14" x2="740" y2="72" stroke-width="0.6"/>
-    <line x1="773" y1="14" x2="720" y2="72" stroke-width="0.6"/>
-    <line x1="773" y1="14" x2="690" y2="72" stroke-width="0.6"/>
-    <line x1="773" y1="14" x2="655" y2="72" stroke-width="0.6"/>
+    <line x1="202" y1="14" x2="175" y2="70" stroke-width="0.5"/>
+    <line x1="202" y1="14" x2="155" y2="70" stroke-width="0.5"/>
+    <line x1="202" y1="14" x2="132" y2="70" stroke-width="0.5"/>
 
     <!-- Road deck -->
-    <line x1="418" y1="72" x2="782" y2="72" stroke-width="2"/>
-
+    <line x1="28" y1="70" x2="212" y2="70" stroke-width="1.5"/>
   </g>
 
-  <!-- Right side buildings (after bridge) -->
+  <!-- ═══ BUILDINGS (from x=230 rightward — behind search box & ad) ═══ -->
   <g fill="#dcdcdc" opacity="0.5">
-    <rect x="798" y="36" width="16" height="44"/>
-    <rect x="818" y="30" width="14" height="50"/>
-    <rect x="836" y="34" width="18" height="46"/>
-    <rect x="858" y="28" width="12" height="52"/>
-    <rect x="874" y="32" width="16" height="48"/>
-    <rect x="894" y="36" width="14" height="44"/>
 
-    <!-- Right side tapering -->
-    <rect x="914" y="40" width="12" height="40"/>
-    <rect x="930" y="44" width="16" height="36"/>
-    <rect x="950" y="38" width="10" height="42"/>
-    <rect x="964" y="46" width="14" height="34"/>
-    <rect x="982" y="42" width="12" height="38"/>
-    <rect x="998" y="48" width="16" height="32"/>
-    <rect x="1018" y="44" width="10" height="36"/>
-    <rect x="1032" y="50" width="14" height="30"/>
+    <!-- Transition from bridge to buildings -->
+    <rect x="230" y="44" width="12" height="36"/>
+    <rect x="246" y="38" width="14" height="42"/>
+    <rect x="264" y="42" width="10" height="38"/>
+    <rect x="278" y="36" width="16" height="44"/>
+
+    <!-- Growing taller toward midtown -->
+    <rect x="298" y="30" width="14" height="50"/>
+    <rect x="316" y="34" width="18" height="46"/>
+    <rect x="338" y="28" width="12" height="52"/>
+    <rect x="354" y="32" width="16" height="48"/>
+    <rect x="374" y="26" width="14" height="54"/>
+
+    <!-- Empire State Building -->
+    <rect x="396" y="28" width="28" height="52"/>
+    <rect x="400" y="20" width="20" height="8"/>
+    <rect x="404" y="14" width="12" height="6"/>
+    <rect x="407" y="6" width="6" height="8"/>
+    <rect x="409" y="0" width="2" height="6"/>
+
+    <!-- Mid buildings -->
+    <rect x="430" y="30" width="14" height="50"/>
+    <rect x="448" y="24" width="18" height="56"/>
+    <rect x="470" y="32" width="12" height="48"/>
+    <rect x="486" y="26" width="16" height="54"/>
+
+    <!-- Chrysler Building -->
+    <rect x="508" y="16" width="16" height="64"/>
+    <polygon points="508,16 516,4 524,16"/>
+    <rect x="515" y="0" width="2" height="4"/>
+
+    <!-- East midtown -->
+    <rect x="530" y="28" width="16" height="52"/>
+    <rect x="550" y="22" width="14" height="58"/>
+    <rect x="568" y="30" width="18" height="50"/>
+    <rect x="590" y="24" width="12" height="56"/>
+
+    <!-- Transitional -->
+    <rect x="608" y="34" width="16" height="46"/>
+    <rect x="628" y="28" width="14" height="52"/>
+    <rect x="646" y="36" width="12" height="44"/>
+    <rect x="662" y="30" width="18" height="50"/>
+
+    <!-- One World Trade Center -->
+    <polygon points="690,80 690,8 700,2 710,8 710,80"/>
+    <rect x="699" y="0" width="2" height="2"/>
+
+    <!-- WTC neighbors -->
+    <rect x="716" y="22" width="16" height="58"/>
+    <rect x="736" y="18" width="14" height="62"/>
+    <rect x="754" y="26" width="16" height="54"/>
+
+    <!-- Financial district -->
+    <rect x="776" y="30" width="14" height="50"/>
+    <rect x="794" y="24" width="18" height="56"/>
+    <rect x="816" y="32" width="12" height="48"/>
+    <rect x="832" y="28" width="16" height="52"/>
+    <rect x="852" y="36" width="14" height="44"/>
+
+    <!-- Tapering right -->
+    <rect x="872" y="40" width="12" height="40"/>
+    <rect x="888" y="44" width="16" height="36"/>
+    <rect x="908" y="38" width="10" height="42"/>
+    <rect x="922" y="46" width="14" height="34"/>
+    <rect x="940" y="42" width="12" height="38"/>
+    <rect x="956" y="48" width="16" height="32"/>
+    <rect x="976" y="44" width="10" height="36"/>
+    <rect x="990" y="50" width="14" height="30"/>
 
     <!-- Far right low -->
-    <rect x="1050" y="54" width="16" height="26"/>
-    <rect x="1070" y="50" width="12" height="30"/>
-    <rect x="1086" y="56" width="14" height="24"/>
-    <rect x="1104" y="52" width="10" height="28"/>
-    <rect x="1118" y="58" width="16" height="22"/>
-    <rect x="1138" y="54" width="12" height="26"/>
-    <rect x="1154" y="58" width="14" height="22"/>
-    <rect x="1172" y="56" width="10" height="24"/>
-    <rect x="1186" y="60" width="14" height="20"/>
+    <rect x="1008" y="54" width="16" height="26"/>
+    <rect x="1028" y="50" width="12" height="30"/>
+    <rect x="1044" y="56" width="14" height="24"/>
+    <rect x="1062" y="52" width="10" height="28"/>
+    <rect x="1076" y="58" width="16" height="22"/>
+    <rect x="1096" y="54" width="12" height="26"/>
+    <rect x="1112" y="58" width="14" height="22"/>
+    <rect x="1130" y="56" width="10" height="24"/>
+    <rect x="1144" y="60" width="16" height="20"/>
+    <rect x="1164" y="58" width="12" height="22"/>
+    <rect x="1180" y="62" width="18" height="18"/>
   </g>
 </svg>
