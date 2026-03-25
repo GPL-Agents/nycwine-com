@@ -41,7 +41,7 @@ export default function StoresPage() {
           s.neighborhood.toLowerCase().includes(q)
       );
     }
-    return result;
+    return result.slice().sort((a, b) => a.name.localeCompare(b.name));
   }, [stores, neighborhood, search]);
 
   const visible = filtered.slice(0, showCount);

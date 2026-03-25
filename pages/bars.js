@@ -41,7 +41,7 @@ export default function BarsPage() {
           b.borough.toLowerCase().includes(q)
       );
     }
-    return result;
+    return result.slice().sort((a, b) => a.name.localeCompare(b.name));
   }, [bars, borough, search]);
 
   const visible = filtered.slice(0, showCount);

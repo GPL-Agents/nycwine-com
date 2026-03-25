@@ -962,7 +962,22 @@ body {
   padding: 8px 0 12px;
   border-bottom: 1px solid var(--border);
 }
-.stores-page-list { }
+.stores-page-list { display: flex; flex-direction: column; gap: 8px; }
+.store-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: border-color 0.15s;
+}
+.store-row:hover { border-color: var(--rose-muted); }
+.store-info { flex: 1; min-width: 0; }
+.store-name { font-size: 15px; font-weight: 600; color: var(--black); font-family: var(--font-sans); }
+.store-address { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.store-phone { font-size: 12px; margin-top: 3px; }
+.store-phone a { color: var(--muted); text-decoration: none; }
 
 /* ═══════════════════════════════════════
    RESPONSIVE
