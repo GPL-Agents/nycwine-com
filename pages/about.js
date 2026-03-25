@@ -97,9 +97,7 @@ export default function AboutPage() {
               or find us on social media.
             </p>
           </div>
-          <p className="about-closing">
-         </p>
- 
+        </div>
       </main>
 
       <Footer />
