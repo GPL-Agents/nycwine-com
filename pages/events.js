@@ -69,6 +69,7 @@ export default function EventsPage() {
             <button
               key={f}
               className={`epill${activeFilter === f ? ' active' : ''}`}
+              data-filter={f}
               onClick={() => setActiveFilter(f)}
             >
               {f}
