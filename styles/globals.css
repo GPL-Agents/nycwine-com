@@ -1175,11 +1175,11 @@ body {
 /* ═══════════════════════════════════════
    EVENTS PAGE (full page view)
 ═══════════════════════════════════════ */
-.events-page { max-width: var(--max-content); margin: 0 auto; }
+.events-page { padding: 0 var(--content-pad); }
 .events-page-layout {
   display: flex;
   gap: 24px;
-  padding: 16px var(--content-pad);
+  padding: 16px 0;
 }
 .events-page-list { flex: 2; display: flex; flex-direction: column; gap: 12px; }
 .events-page-sidebar {
