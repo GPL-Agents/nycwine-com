@@ -116,7 +116,6 @@ export default function SocialSection() {
 
       {/* Header */}
       <div className="social-section-header">
-        <img src="/images/social-icon.png" alt="" className="section-header-icon" />
         <div className="section-header-title">NYC Wine Social</div>
       </div>
 

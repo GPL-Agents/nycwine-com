@@ -93,7 +93,6 @@ export default function NewsSection() {
 
       {/* Scrolling ticker */}
       <div className="news-ticker">
-        <img src="/images/news-icon.png" alt="" className="section-header-icon" />
         <span className="ticker-badge">Wine News</span>
         <span className="ticker-text">
           {tickerText || 'Loading latest wine news…'}
