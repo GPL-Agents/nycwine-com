@@ -100,7 +100,7 @@ export default function BarsPage() {
                   </div>
                 )}
               </div>
-              {bar.website ? (
+              {bar.website && (
                 <a
                   href={bar.website}
                   target="_blank"
@@ -109,11 +109,7 @@ export default function BarsPage() {
                 >
                   Visit
                 </a>
-              ) : bar.phone ? (
-                <a href={`tel:${bar.phone}`} className="bar-visit-btn">
-                  Call
-                </a>
-              ) : null}
+              )}
             </div>
           ))}
 

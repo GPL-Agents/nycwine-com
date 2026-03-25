@@ -100,7 +100,7 @@ export default function StoresPage() {
                   </div>
                 )}
               </div>
-              {store.website ? (
+              {store.website && (
                 <a
                   href={store.website}
                   target="_blank"
@@ -109,11 +109,7 @@ export default function StoresPage() {
                 >
                   Visit
                 </a>
-              ) : store.phone ? (
-                <a href={`tel:${store.phone}`} className="store-visit-btn">
-                  Call
-                </a>
-              ) : null}
+              )}
             </div>
           ))}
 
