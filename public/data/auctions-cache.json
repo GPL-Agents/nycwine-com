@@ -9,7 +9,8 @@
       "dates": "Mon, Mar 23 – Sun, Mar 29",
       "location": "Online",
       "url": "https://www.ackerwines.com/wine-auctions/",
-      "status": "open"
+      "status": "open",
+      "image": "https://www.ackerwines.com/wp-content/uploads/2021/11/lot595.jpg"
     },
     {
       "title": "La Paulée March Delaware",
@@ -17,7 +18,8 @@
       "dates": "Thu–Sat, Mar 26–28",
       "location": "Delaware",
       "url": "https://www.ackerwines.com/wine-auctions/",
-      "status": "live"
+      "status": "live",
+      "image": "https://www.ackerwines.com/wp-content/uploads/2026/03/Domaine.jpg"
     },
     {
       "title": "April Hong Kong",
@@ -25,7 +27,8 @@
       "dates": "Sat, Apr 11",
       "location": "Hong Kong",
       "url": "https://www.ackerwines.com/wine-auctions/",
-      "status": "upcoming"
+      "status": "upcoming",
+      "image": "https://www.ackerwines.com/wp-content/uploads/2021/10/RedWine-1.jpg"
     },
     {
       "title": "April Delaware",
@@ -33,7 +36,8 @@
       "dates": "Sat, Apr 25",
       "location": "Delaware",
       "url": "https://www.ackerwines.com/wine-auctions/",
-      "status": "upcoming"
+      "status": "upcoming",
+      "image": "https://www.ackerwines.com/wp-content/uploads/2021/10/RedWine-1.jpg"
     },
     {
       "title": "May Swiss",
@@ -41,7 +45,8 @@
       "dates": "Sat, May 9",
       "location": "Switzerland",
       "url": "https://www.ackerwines.com/wine-auctions/",
-      "status": "upcoming"
+      "status": "upcoming",
+      "image": null
     }
   ]
 }

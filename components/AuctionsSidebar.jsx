@@ -25,7 +25,23 @@ export default function AuctionsSidebar() {
 
   return (
     <div className="auctions-sidebar">
-      <div className="auctions-sidebar-title">Wine Auctions</div>
+      {/* Header: title left, Acker logo right */}
+      <div className="auctions-sidebar-header">
+        <div className="auctions-sidebar-title">Wine Auctions</div>
+        <a
+          href="https://www.ackerwines.com/wine-auctions/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="auctions-header-logo"
+        >
+          <img
+            src="https://www.ackerwines.com/wp-content/uploads/2019/04/acker-logo-black-1.svg"
+            alt="Acker Wines"
+            className="auctions-source-logo"
+          />
+        </a>
+      </div>
+
       <div className="auctions-list">
         {auctions.map((a, i) => (
           <a
@@ -35,6 +51,14 @@ export default function AuctionsSidebar() {
             target="_blank"
             rel="noopener noreferrer"
           >
+            {a.image && (
+              <div
+                className="auction-image"
+                style={{
+                  backgroundImage: `url(${a.image})`,
+                }}
+              />
+            )}
             <div className="auction-status-row">
               {a.status === 'live' && <span className="auction-badge live">Live</span>}
               {a.status === 'open' && <span className="auction-badge open">Open</span>}
@@ -46,6 +70,8 @@ export default function AuctionsSidebar() {
           </a>
         ))}
       </div>
+
+      {/* "via Acker Wines →" attribution link */}
       {source && (
         <a
           className="auctions-source"
@@ -53,11 +79,7 @@ export default function AuctionsSidebar() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img
-            src="https://www.ackerwines.com/wp-content/uploads/2019/04/acker-logo-black-1.svg"
-            alt="Acker Wines"
-            className="auctions-source-logo"
-          />
+          via {source.name} &rarr;
         </a>
       )}
     </div>

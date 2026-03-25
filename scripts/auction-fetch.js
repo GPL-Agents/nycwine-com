@@ -77,6 +77,11 @@ async function main() {
       const titleMatch = block.match(/<h[23][^>]*>([\s\S]*?)<\/h[23]>/i)
         || block.match(/"auction[^"]*title[^"]*"[^>]*>([\s\S]*?)</i);
 
+      // Extract image — look for jpg/png in the block
+      const imgMatch = block.match(/<img[^>]+src=["']([^"']+\.(?:jpg|jpeg|png|webp))[^"']*["']/i)
+        || block.match(/url\(["']?([^"')]+\.(?:jpg|jpeg|png|webp))[^"')]*["']?\)/i);
+      const image = imgMatch ? imgMatch[1] : null;
+
       // Extract dates from the text
       const dateMatches = block.match(/(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)[,\s]+(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}(?:st|nd|rd|th)?,?\s*\d{4}/gi) || [];
 
@@ -128,6 +133,7 @@ async function main() {
           location,
           url: SOURCE_URL,
           status: isWeb && status === 'upcoming' ? 'open' : status,
+          image: image && image.startsWith('http') ? image : image ? `https://www.ackerwines.com${image}` : null,
         });
       }
     }
