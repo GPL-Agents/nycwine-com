@@ -1208,6 +1208,11 @@ body {
    EVENTS PAGE (full page view)
 ═══════════════════════════════════════ */
 .events-page { padding: 0 var(--content-pad); }
+.events-page > .events-header,
+.events-page > .event-filters {
+  margin-left: calc(-1 * var(--content-pad));
+  margin-right: calc(-1 * var(--content-pad));
+}
 .events-page-layout {
   display: flex;
   gap: 24px;
