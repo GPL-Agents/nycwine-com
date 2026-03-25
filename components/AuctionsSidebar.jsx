@@ -51,14 +51,8 @@ export default function AuctionsSidebar() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            {a.image && (
-              <div
-                className="auction-image"
-                style={{
-                  backgroundImage: `url(${a.image})`,
-                }}
-              />
-            )}
+            <div className="auction-item-inner">
+              <div className="auction-text">
             <div className="auction-status-row">
               {a.status === 'live' && <span className="auction-badge live">Live</span>}
               {a.status === 'open' && <span className="auction-badge open">Open</span>}
@@ -67,6 +61,14 @@ export default function AuctionsSidebar() {
             </div>
             <div className="auction-name">{a.title}</div>
             <div className="auction-dates">{a.dates}</div>
+              </div>
+              {a.image && (
+                <div
+                  className="auction-thumb"
+                  style={{ backgroundImage: `url(${a.image})` }}
+                />
+              )}
+            </div>
           </a>
         ))}
       </div>

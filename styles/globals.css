@@ -329,22 +329,28 @@ body {
 .auctions-header-logo {
   display: flex;
   align-items: center;
-  opacity: 0.45;
+  opacity: 0.75;
   transition: opacity 0.2s;
 }
-.auctions-header-logo:hover { opacity: 0.8; }
+.auctions-header-logo:hover { opacity: 1; }
 .auctions-header-logo .auctions-source-logo {
   height: 18px;
   width: auto;
 }
-/* Auction item images */
-.auction-image {
-  width: 100%;
-  height: 80px;
+/* Auction item layout: text left, thumbnail right */
+.auction-item-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.auction-text { flex: 1; min-width: 0; }
+.auction-thumb {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
   background-size: cover;
   background-position: center;
-  border-radius: 6px;
-  margin-bottom: 8px;
 }
 .auctions-list {
   display: flex;
