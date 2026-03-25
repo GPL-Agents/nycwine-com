@@ -11,35 +11,35 @@
 
 import { useState, useEffect, useRef } from 'react';
 
-// Multiplex ad unit — fits beside the event list on desktop, stacks on mobile
-function MultiplexAd() {
-  const adRef = useRef(null);
-  const pushed = useRef(false);
-
-  useEffect(() => {
-    if (!pushed.current && adRef.current && typeof window !== 'undefined') {
-      try {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-        pushed.current = true;
-      } catch (e) {
-        console.warn('AdSense push error:', e);
-      }
-    }
-  }, []);
-
-  return (
-    <div className="event-multiplex-ad">
-      <ins
-        className="adsbygoogle"
-        style={{ display: 'block' }}
-        data-ad-format="autorelaxed"
-        data-ad-client="ca-pub-6782277104310503"
-        data-ad-slot="1265745785"
-        ref={adRef}
-      />
-    </div>
-  );
-}
+// TODO: Uncomment MultiplexAd once Google AdSense is approved
+// function MultiplexAd() {
+//   const adRef = useRef(null);
+//   const pushed = useRef(false);
+//
+//   useEffect(() => {
+//     if (!pushed.current && adRef.current && typeof window !== 'undefined') {
+//       try {
+//         (window.adsbygoogle = window.adsbygoogle || []).push({});
+//         pushed.current = true;
+//       } catch (e) {
+//         console.warn('AdSense push error:', e);
+//       }
+//     }
+//   }, []);
+//
+//   return (
+//     <div className="event-multiplex-ad">
+//       <ins
+//         className="adsbygoogle"
+//         style={{ display: 'block' }}
+//         data-ad-format="autorelaxed"
+//         data-ad-client="ca-pub-6782277104310503"
+//         data-ad-slot="1265745785"
+//         ref={adRef}
+//       />
+//     </div>
+//   );
+// }
 
 const FILTERS = ['All', 'Tasting', 'Class', 'Dinner', 'Event', 'Festival'];
 
@@ -199,7 +199,7 @@ export default function EventsSection() {
                 </a>
             ))}
           </div>
-          <MultiplexAd />
+          {/* <MultiplexAd /> */}
         </div>
       )}
 

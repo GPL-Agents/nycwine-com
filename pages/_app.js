@@ -23,13 +23,13 @@ export default function App({ Component, pageProps }) {
         />
       </Head>
 
-      {/* Google AdSense — loads once, available to all <AdUnit> components */}
-      <Script
+      {/* Google AdSense — uncomment once approved by Google */}
+      {/* <Script
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6782277104310503"
         crossOrigin="anonymous"
         strategy="afterInteractive"
-      />
+      /> */}
 
       {/* Elfsight — powers the Instagram social feed widget */}
       <Script
