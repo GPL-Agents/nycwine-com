@@ -22,6 +22,26 @@ const CACHE_TTL = 30 * 60 * 1000; // 30 minutes
 // ── Color cycling for cards without images ────────────────────
 const COLORS = ['c1', 'c2', 'c3', 'c4', 'c5'];
 
+// ── Fix Eventbrite image URLs ─────────────────────────────────
+// Eventbrite returns relative URLs like /e/_next/image?url=<encoded>
+// which only work on eventbrite.com. Extract the real CDN URL
+// by decoding the url= parameter ONCE (not twice — the inner
+// path must stay percent-encoded for img.evbuc.com to work).
+function fixImageUrl(url) {
+  if (!url) return null;
+  if (url.startsWith('https://')) return url;  // already absolute
+  if (url.includes('_next/image') && url.includes('url=')) {
+    try {
+      const match = url.match(/url=([^&]+)/);
+      if (match) {
+        const decoded = decodeURIComponent(match[1]); // decode ONCE only
+        if (decoded.startsWith('http')) return decoded;
+      }
+    } catch { /* fall through */ }
+  }
+  if (url.startsWith('/')) return `https://www.eventbrite.com${url}`;
+  return url;
+}
 
 // ── Shared fetch headers ──────────────────────────────────────
 const HEADERS = {
@@ -235,7 +255,7 @@ async function scrapeEventbrite() {
     const title = details?.title || slugTitle || 'Wine Event';
     const venue = details?.venue || 'New York City';
     const date = details?.date || null;
-    const image = details?.image || null;
+    const image = fixImageUrl(details?.image || null);
 
     allEvents.push({
       title,

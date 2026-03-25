@@ -69,14 +69,12 @@ function getTag(title) {
 // Fix Eventbrite image URLs — extract actual CDN URL from their image proxy
 function fixImageUrl(url) {
   if (!url) return null;
-  if (url.startsWith('https://img.evbuc.com')) return url;
-  if (url.startsWith('https://cdn.evbuc.com')) return url;
+  if (url.startsWith('https://')) return url;  // already absolute
   if (url.includes('_next/image') && url.includes('url=')) {
     try {
       const match = url.match(/url=([^&]+)/);
       if (match) {
-        let decoded = decodeURIComponent(match[1]);
-        if (decoded.includes('%')) decoded = decodeURIComponent(decoded);
+        const decoded = decodeURIComponent(match[1]); // decode ONCE only
         if (decoded.startsWith('http')) return decoded;
       }
     } catch { /* fall through */ }
