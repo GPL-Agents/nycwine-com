@@ -83,6 +83,7 @@ export default function EventsSection() {
 
       {/* Header bar */}
       <div className="section-header events-header">
+        <img src="/images/events-icon.png" alt="" className="section-header-icon" />
         <div className="section-header-title">Upcoming Events</div>
         <a href="/events" className="see-all-link">View All →</a>
       </div>

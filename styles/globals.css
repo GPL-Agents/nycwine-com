@@ -199,6 +199,14 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+.section-header-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
 .section-header-title {
   font-family: var(--font-serif);
   font-size: 20px;
