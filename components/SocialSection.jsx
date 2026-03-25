@@ -251,14 +251,20 @@ export default function SocialSection() {
 
           </div>
 
-          {/* ── Ad unit placeholders ────── */}
+          {/* ── In-feed ad unit ────── */}
           <div className="social-ad-sidebar">
-            <div className="ad-placeholder" style={{ width: 300, minHeight: 250 }}>
-              <span className="ad-placeholder-label">Ad &middot; 300&times;250</span>
-            </div>
             <div className="ad-placeholder ad-infeed" style={{ width: '100%' }}>
               <span className="ad-placeholder-label">In-feed Ad</span>
             </div>
+            {/* AdSense in-feed ad — uncomment once site is approved:
+            <ins className="adsbygoogle"
+              style={{ display: 'block' }}
+              data-ad-format="fluid"
+              data-ad-layout-key="-fb+5w+4e-db+86"
+              data-ad-client="ca-pub-6782277104310503"
+              data-ad-slot="2849490464"
+            />
+            */}
           </div>
         </div>
 
