@@ -103,6 +103,7 @@ body {
   border-radius: 6px;
   overflow: hidden;
   background: white;
+  padding: 0 4px;
   border: 1px solid rgba(0,0,0,0.08);
   box-shadow: 0 1px 6px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04);
 }
@@ -121,13 +122,14 @@ body {
   padding: 8px 18px;
   font-size: 13px;
   color: var(--text);
-  border: 1.5px solid #333;
+  border: 1px solid rgba(0,0,0,0.08);
   outline: none;
   width: 240px;
   font-family: var(--font-sans);
-  transition: border-color 0.2s;
+  transition: box-shadow 0.2s;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04), inset 0 0 0 1.5px var(--pink);
 }
-.header-search:focus { border-color: var(--pink); }
+.header-search:focus { box-shadow: 0 1px 6px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04), inset 0 0 0 2px var(--pink); }
 .header-search::placeholder { color: var(--muted); }
 
 /* Leaderboard banner ad — sits between nav and content */
