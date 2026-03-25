@@ -10,6 +10,7 @@
 // ─────────────────────────────────────────────────────────────
 
 import { useState, useEffect, useRef } from 'react';
+import AuctionsSidebar from './AuctionsSidebar';
 
 // TODO: Uncomment MultiplexAd once Google AdSense is approved
 // function MultiplexAd() {
@@ -198,7 +199,9 @@ export default function EventsSection() {
                 </a>
             ))}
           </div>
-          {/* <MultiplexAd /> */}
+          <div className="event-sidebar">
+            <AuctionsSidebar />
+          </div>
         </div>
       )}
 

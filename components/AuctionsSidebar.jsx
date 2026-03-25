@@ -1,0 +1,61 @@
+// components/AuctionsSidebar.jsx
+// ─────────────────────────────────────────────────────────────
+// Compact sidebar widget showing upcoming wine auctions
+// from Acker Wines. Loads from /data/auctions-cache.json
+// (updated by scripts/auction-fetch.js via GitHub Actions).
+// ─────────────────────────────────────────────────────────────
+
+import { useState, useEffect } from 'react';
+
+export default function AuctionsSidebar() {
+  const [auctions, setAuctions] = useState([]);
+  const [source, setSource] = useState(null);
+
+  useEffect(() => {
+    fetch('/data/auctions-cache.json')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.auctions) setAuctions(data.auctions);
+        if (data.source) setSource({ name: data.source, url: data.sourceUrl });
+      })
+      .catch(() => {});
+  }, []);
+
+  if (auctions.length === 0) return null;
+
+  return (
+    <div className="auctions-sidebar">
+      <div className="auctions-sidebar-title">Wine Auctions</div>
+      <div className="auctions-list">
+        {auctions.map((a, i) => (
+          <a
+            key={i}
+            className="auction-item"
+            href={a.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="auction-status-row">
+              {a.status === 'live' && <span className="auction-badge live">Live</span>}
+              {a.status === 'open' && <span className="auction-badge open">Open</span>}
+              {a.status === 'upcoming' && <span className="auction-badge upcoming">Upcoming</span>}
+              <span className="auction-type">{a.type === 'web' ? 'Online' : a.location}</span>
+            </div>
+            <div className="auction-name">{a.title}</div>
+            <div className="auction-dates">{a.dates}</div>
+          </a>
+        ))}
+      </div>
+      {source && (
+        <a
+          className="auctions-source"
+          href={source.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          via {source.name} →
+        </a>
+      )}
+    </div>
+  );
+}

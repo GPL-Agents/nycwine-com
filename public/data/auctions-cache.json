@@ -1,0 +1,47 @@
+{
+  "fetchedAt": "2026-03-25T13:00:00Z",
+  "source": "Acker Wines",
+  "sourceUrl": "https://www.ackerwines.com/wine-auctions/",
+  "auctions": [
+    {
+      "title": "Weekly Web Auction",
+      "type": "web",
+      "dates": "Mon, Mar 23 – Sun, Mar 29",
+      "location": "Online",
+      "url": "https://www.ackerwines.com/wine-auctions/",
+      "status": "open"
+    },
+    {
+      "title": "La Paulée March Delaware",
+      "type": "live",
+      "dates": "Thu–Sat, Mar 26–28",
+      "location": "Delaware",
+      "url": "https://www.ackerwines.com/wine-auctions/",
+      "status": "live"
+    },
+    {
+      "title": "April Hong Kong",
+      "type": "live",
+      "dates": "Sat, Apr 11",
+      "location": "Hong Kong",
+      "url": "https://www.ackerwines.com/wine-auctions/",
+      "status": "upcoming"
+    },
+    {
+      "title": "April Delaware",
+      "type": "live",
+      "dates": "Sat, Apr 25",
+      "location": "Delaware",
+      "url": "https://www.ackerwines.com/wine-auctions/",
+      "status": "upcoming"
+    },
+    {
+      "title": "May Swiss",
+      "type": "live",
+      "dates": "Sat, May 9",
+      "location": "Switzerland",
+      "url": "https://www.ackerwines.com/wine-auctions/",
+      "status": "upcoming"
+    }
+  ]
+}
