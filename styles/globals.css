@@ -168,12 +168,12 @@ body {
   background: white;
   border-bottom: 1px solid var(--border);
   position: sticky;
-  top: 78px;
+  top: 90px;
   z-index: 49;
 }
 @media (max-width: 800px) {
-  /* Header ad hidden on mobile, so header is shorter */
-  .quick-nav { top: 50px; }
+  /* Header still has min-height: 90px even without the ad */
+  .quick-nav { top: 90px; }
 }
 .quick-nav::-webkit-scrollbar { display: none; }
 
