@@ -122,6 +122,11 @@ body {
 }
 @media (max-width: 800px) {
   .header-ad-link { display: none; }
+  /* On mobile the image is too short to fill the header from the top,
+     so anchor it to the bottom instead — any gap hides above the logo. */
+  .site-header {
+    background-position: 65% bottom;
+  }
 }
 .header-search {
   background: white;
