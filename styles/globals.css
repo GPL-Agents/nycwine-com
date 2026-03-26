@@ -73,8 +73,11 @@ body {
    HEADER
 ═══════════════════════════════════════ */
 .site-header {
-  /* Single light-gray skyline, full-width, buildings anchored to bottom */
-  background: white url('/images/skyline7.jpg') center bottom / 100% auto no-repeat;
+  /* Skyline fills ~75% of header height; width overflows left/right on narrow screens.
+     A 20% white overlay is layered on top to lighten the grey image. */
+  background:
+    linear-gradient(rgba(255,255,255,0.20), rgba(255,255,255,0.20)),
+    white url('/images/skyline7.jpg') center bottom / auto 75% no-repeat;
   min-height: 90px;
   border-top: 3px solid var(--pink);
   border-bottom: 3px solid var(--pink);
