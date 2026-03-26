@@ -19,11 +19,11 @@ export default function Header() {
     <header className="site-header">
       <a href="/" aria-label="NYCWine.com home" className="logo-frame">
         <Image
-          src="/nycwine-logo.png"
+          src="/nycwine-logo-tagline.png"
           alt="NYCWine.com"
           width={140}
-          height={50}
-          style={{ height: '36px', width: 'auto', objectFit: 'contain' }}
+          height={65}
+          style={{ height: '47px', width: 'auto', objectFit: 'contain' }}
           priority
         />
       </a>
