@@ -285,16 +285,14 @@ export default function NewsSection() {
               </div>
             </a>
           ))}
-          <div className="featured-venues-credit">
-            Curated by{' '}
-            <a
-              href="https://www.theinfatuation.com/new-york/guides/wine-bars-nyc"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              The Infatuation
-            </a>
-          </div>
+          <a
+            className="featured-venues-credit"
+            href="https://www.theinfatuation.com/new-york/guides/wine-bars-nyc"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            via The Infatuation &rarr;
+          </a>
         </aside>
 
       </div>

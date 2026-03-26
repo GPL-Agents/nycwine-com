@@ -998,29 +998,26 @@ body {
   overflow: hidden;
 }
 
-/* ── Featured Venues sidebar ── */
+/* ── Featured Venues sidebar ── card styled to match .auctions-sidebar */
 .featured-venues-sidebar {
-  background: var(--grey-bg);
   min-width: 0;
-  overflow: hidden;
-  position: relative;
-}
-/* Fade gradient at bottom so venue list blends cleanly */
-.featured-venues-sidebar::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 60px;
-  background: linear-gradient(to bottom, transparent, var(--grey-bg));
-  pointer-events: none;
+  align-self: start;           /* size to content; no gray empty stretch */
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;            /* clips child items to rounded corners */
+  box-shadow: 0 2px 12px rgba(45,41,38,0.06);
+  margin-top: 16px;            /* breathing room from the pink news ticker */
 }
 .featured-venues-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-family: var(--font-serif);
   font-size: 16px;
   font-weight: 700;
   color: var(--black);
-  padding: 14px 16px 12px;
-  background: white;
+  padding: 12px 16px;
   border-bottom: 2px solid var(--pink);
   letter-spacing: 0.01em;
 }
@@ -1029,9 +1026,9 @@ body {
   text-decoration: none;
   color: inherit;
   border-bottom: 1px solid var(--border);
-  background: white;
   transition: background 0.15s;
 }
+.featured-venue-item:last-child { border-bottom: none; }
 .featured-venue-item:hover { background: var(--cream); }
 .featured-venue-photo {
   width: 100%;
@@ -1087,12 +1084,12 @@ body {
   color: var(--muted);
 }
 .featured-venues-credit {
-  padding: 12px 16px;
+  display: block;
+  padding: 10px 16px;
   font-size: 11px;
   color: var(--muted);
-  background: white;
-  border-top: 1px solid var(--border);
-  text-align: center;
+  border-top: 1px solid var(--border-light);
+  text-align: right;
 }
 .featured-venues-credit a {
   color: var(--pink);
