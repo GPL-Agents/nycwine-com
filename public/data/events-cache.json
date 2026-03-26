@@ -8,21 +8,21 @@
     "month": "Feb · Fri",
     "tag": "Tasting",
     "url": "https://www.eventbrite.com/e/free-wine-tasting-tickets-1983881520031",
-    "image": "/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1178312606%252F402675815753%252F1%252Foriginal.20260224-155132%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D480%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.5%26fp-y%3D0.5%26s%3Db8a416b92f40e30b5c8086a2e288a13e&amp;w=940&amp;q=75",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1178312606%2F402675815753%2F1%2Foriginal.20260224-155132?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=b8a416b92f40e30b5c8086a2e288a13e",
     "source": "Eventbrite",
-    "id": 1,
+    "id": 16,
     "color": "c1"
   },
   {
-    "title": "20 Off Cheese Wine Tasting Taste Of The Caves",
+    "title": "Sip And Stencil",
     "venue": "New York City",
-    "date": "2026-03-26T18:30:00-04:00",
-    "dateDisplay": "Thu, Mar 26, 10:30 PM",
+    "date": "2026-03-26T18:00:00-04:00",
+    "dateDisplay": "Thu, Mar 26, 10:00 PM",
     "day": "26",
     "month": "Mar · Thu",
-    "tag": "Tasting",
-    "url": "https://www.eventbrite.com/e/20-off-cheese-wine-tasting-taste-of-the-caves-tickets-1979243327071",
-    "image": "/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F527958269%252F141392852881%252F1%252Foriginal.20230602-161544%3Fw%3D480%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26rect%3D0%252C0%252C2160%252C1080%26s%3D8e33669ae069aef8fddf26d209077476&amp;w=940&amp;q=75",
+    "tag": "Event",
+    "url": "https://www.eventbrite.com/e/sip-and-stencil-tickets-1984070133178",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1178534075%2F2185030016903%2F1%2Foriginal.20260226-174539?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=311a5161935f9e2ebc7f2503a7643c47",
     "source": "Eventbrite",
     "id": 2,
     "color": "c2"
@@ -36,10 +36,38 @@
     "month": "Mar · Thu",
     "tag": "Tasting",
     "url": "https://www.eventbrite.com/e/introduction-to-wine-101-a-guided-wine-tasting-tickets-1983265505515",
-    "image": "/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1175563159%252F2989617347493%252F1%252Foriginal.20260122-163745%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D480%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.5%26fp-y%3D0.5%26s%3D8928db1127a366a5936d59e7fc69d61d&amp;w=940&amp;q=75",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1175563159%2F2989617347493%2F1%2Foriginal.20260122-163745?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=8928db1127a366a5936d59e7fc69d61d",
     "source": "Eventbrite",
-    "id": 3,
-    "color": "c3"
+    "id": 4,
+    "color": "c4"
+  },
+  {
+    "title": "20 Off Cheese Wine Tasting Taste Of The Caves",
+    "venue": "New York City",
+    "date": "2026-03-26T18:30:00-04:00",
+    "dateDisplay": "Thu, Mar 26, 10:30 PM",
+    "day": "26",
+    "month": "Mar · Thu",
+    "tag": "Tasting",
+    "url": "https://www.eventbrite.com/e/20-off-cheese-wine-tasting-taste-of-the-caves-tickets-1979243327071",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F527958269%2F141392852881%2F1%2Foriginal.20230602-161544?w=480&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=8e33669ae069aef8fddf26d209077476",
+    "source": "Eventbrite",
+    "id": 6,
+    "color": "c1"
+  },
+  {
+    "title": "Free Wine Tasting The Antinori Legacy Tuscany Puglia",
+    "venue": "New York City",
+    "date": "2026-03-27T17:00:00-04:00",
+    "dateDisplay": "Fri, Mar 27, 9:00 PM",
+    "day": "27",
+    "month": "Mar · Fri",
+    "tag": "Tasting",
+    "url": "https://www.eventbrite.com/e/free-wine-tasting-the-antinori-legacy-tuscany-puglia-tickets-1984406912494",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1178936147%2F2181949613973%2F1%2Foriginal.20260303-192804?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=651d29e10b2d7983c59ead977db28a64",
+    "source": "Eventbrite",
+    "id": 30,
+    "color": "c5"
   },
   {
     "title": "Wine Tasting Cheese Pairing",
@@ -50,10 +78,10 @@
     "month": "Mar · Fri",
     "tag": "Tasting",
     "url": "https://www.eventbrite.com/e/wine-tasting-cheese-pairing-tickets-1985320367663",
-    "image": "/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1180240866%252F2468335513911%252F1%252Foriginal.20260319-153521%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D480%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.503%26fp-y%3D0.556%26s%3D0b4c72a60322256c80661348d126533f&amp;w=940&amp;q=75",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1180240866%2F2468335513911%2F1%2Foriginal.20260319-153521?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.503&fp-y=0.556&s=0b4c72a60322256c80661348d126533f",
     "source": "Eventbrite",
-    "id": 4,
-    "color": "c4"
+    "id": 27,
+    "color": "c2"
   },
   {
     "title": "Italian Cheese Wine Tasting",
@@ -64,9 +92,9 @@
     "month": "Mar · Sat",
     "tag": "Tasting",
     "url": "https://www.eventbrite.com/e/italian-cheese-wine-tasting-tickets-1979245179612",
-    "image": "/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F491224329%252F141392852881%252F1%252Foriginal.20230412-193028%3Fw%3D480%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26rect%3D0%252C0%252C4724%252C2362%26s%3D24bdd2eb07211598929591f08d300eac&amp;w=940&amp;q=75",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F491224329%2F141392852881%2F1%2Foriginal.20230412-193028?w=480&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C4724%2C2362&s=24bdd2eb07211598929591f08d300eac",
     "source": "Eventbrite",
-    "id": 5,
+    "id": 10,
     "color": "c5"
   },
   {
@@ -78,10 +106,10 @@
     "month": "Mar · Sat",
     "tag": "Event",
     "url": "https://www.eventbrite.com/e/april-14th-14-wines-7-cheeses-1-night-tickets-1983328933229",
-    "image": "/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F639686799%252F226001771292%252F1%252Foriginal.20231111-010357%3Fw%3D480%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26rect%3D0%252C35%252C960%252C480%26s%3Df978bcc9cf9d109b535c858c84eda2a6&amp;w=940&amp;q=75",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F639686799%2F226001771292%2F1%2Foriginal.20231111-010357?w=480&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C35%2C960%2C480&s=f978bcc9cf9d109b535c858c84eda2a6",
     "source": "Eventbrite",
-    "id": 6,
-    "color": "c1"
+    "id": 8,
+    "color": "c3"
   },
   {
     "title": "Cupsnconvos Adult Gamenight March 28th 21 Event",
@@ -92,10 +120,10 @@
     "month": "Mar · Sun",
     "tag": "Event",
     "url": "https://www.eventbrite.com/e/cupsnconvos-adult-gamenight-march-28th-21-event-tickets-1984953522419",
-    "image": "/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1179822352%252F287910181740%252F1%252Foriginal.20260313-234142%3Fw%3D480%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26s%3Da74da26b36e3252a019289413ea6f5ff&amp;w=940&amp;q=75",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1179822352%2F287910181740%2F1%2Foriginal.20260313-234142?w=480&auto=format%2Ccompress&q=75&sharp=10&s=a74da26b36e3252a019289413ea6f5ff",
     "source": "Eventbrite",
-    "id": 7,
-    "color": "c2"
+    "id": 25,
+    "color": "c5"
   },
   {
     "title": "Taste Of Italy Lombardia",
@@ -106,24 +134,24 @@
     "month": "Apr · Wed",
     "tag": "Event",
     "url": "https://www.eventbrite.com/e/taste-of-italy-lombardia-tickets-1985082645630",
-    "image": "/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1179712624%252F293225663464%252F1%252Foriginal.20260312-181443%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D480%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.5%26fp-y%3D0.5%26s%3D92370ffa40e38d726955fcd9332460f8&amp;w=940&amp;q=75",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1179712624%2F293225663464%2F1%2Foriginal.20260312-181443?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=92370ffa40e38d726955fcd9332460f8",
     "source": "Eventbrite",
-    "id": 8,
-    "color": "c3"
+    "id": 24,
+    "color": "c4"
   },
   {
-    "title": "Awaken Your Intuition: Psychic Exercise",
-    "venue": "New York City",
-    "date": "2026-04-02T12:00:00-05:00",
-    "dateDisplay": "Thu, Apr 2, 5:00 PM",
+    "title": "Passover Seder April",
+    "venue": "Soul Space NYC",
+    "date": "2026-04-01T20:00:00-04:00",
+    "dateDisplay": "Thu, Apr 2, 12:00 AM",
     "day": "2",
     "month": "Apr · Thu",
     "tag": "Event",
-    "url": "https://www.eventbrite.com/e/awaken-your-intuition-psychic-exercise-tickets-1984403132187",
-    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1097458673%2F1945009905353%2F1%2Foriginal.20250816-171628?w=480&auto=format%2Ccompress&q=75&sharp=10&s=5cb3fa8bb604e263d76d831ee52194be",
+    "url": "https://www.eventbrite.com/e/passover-seder-april-tickets-1985218819931",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1179867727%2F2082383989403%2F1%2Foriginal.20260315-040446?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.469&fp-y=0.956&s=b4baae3d444e1d50bb11e60e3529d45f",
     "source": "Eventbrite",
-    "id": 9,
-    "color": "c4"
+    "id": 26,
+    "color": "c1"
   },
   {
     "title": "Uncorking Excellence With Standish Wine Company",
@@ -134,38 +162,10 @@
     "month": "Apr · Thu",
     "tag": "Event",
     "url": "https://www.eventbrite.com/e/uncorking-excellence-with-standish-wine-company-tickets-1984639550320",
-    "image": "/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1179734016%252F1094500293343%252F1%252Foriginal.20260312-215941%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D480%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D1.0%26fp-y%3D0.543%26s%3Dc952d468575d5c72f8368228b3021358&amp;w=940&amp;q=75",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1179734016%2F1094500293343%2F1%2Foriginal.20260312-215941?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=1.0&fp-y=0.543&s=c952d468575d5c72f8368228b3021358",
     "source": "Eventbrite",
-    "id": 10,
-    "color": "c5"
-  },
-  {
-    "title": "Introduction To Wine 101 A Guided Wine Tasting",
-    "venue": "New York City",
-    "date": "2026-04-02T18:30:00-04:00",
-    "dateDisplay": "Thu, Apr 2, 10:30 PM",
-    "day": "2",
-    "month": "Apr · Thu",
-    "tag": "Tasting",
-    "url": "https://www.eventbrite.com/e/introduction-to-wine-101-a-guided-wine-tasting-tickets-1983265565695",
-    "image": "/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1175563159%252F2989617347493%252F1%252Foriginal.20260122-163745%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D480%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.5%26fp-y%3D0.5%26s%3D8928db1127a366a5936d59e7fc69d61d&amp;w=940&amp;q=75",
-    "source": "Eventbrite",
-    "id": 11,
-    "color": "c1"
-  },
-  {
-    "title": "20 Off Natural Orange Wine And Cheese Pairing",
-    "venue": "New York City",
-    "date": "2026-04-02T18:30:00-04:00",
-    "dateDisplay": "Thu, Apr 2, 10:30 PM",
-    "day": "2",
-    "month": "Apr · Thu",
-    "tag": "Dinner",
-    "url": "https://www.eventbrite.com/e/20-off-natural-orange-wine-and-cheese-pairing-tickets-1979248809469",
-    "image": "/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F997180853%252F141392852881%252F1%252Foriginal.20250331-211529%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D480%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.490347490347%26fp-y%3D0.129785233185%26s%3D7bb6111cfdd725cf8bf3df07933a710a&amp;w=940&amp;q=75",
-    "source": "Eventbrite",
-    "id": 12,
-    "color": "c2"
+    "id": 19,
+    "color": "c4"
   },
   {
     "title": "Tour Of Europe Cheese Wine Tasting",
@@ -176,10 +176,10 @@
     "month": "Apr · Sat",
     "tag": "Tasting",
     "url": "https://www.eventbrite.com/e/tour-of-europe-cheese-wine-tasting-tickets-1979249226717",
-    "image": "/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F534190849%252F141392852881%252F1%252Foriginal.20230612-160058%3Fw%3D480%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26rect%3D0%252C0%252C2160%252C1080%26s%3Dc324d5476a475d4ec51c2f03a8f0a5c0&amp;w=940&amp;q=75",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F534190849%2F141392852881%2F1%2Foriginal.20230612-160058?w=480&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=c324d5476a475d4ec51c2f03a8f0a5c0",
     "source": "Eventbrite",
-    "id": 13,
-    "color": "c3"
+    "id": 7,
+    "color": "c2"
   },
   {
     "title": "No Wine Left Behind X Moxy Hotels Bar Bedford",
@@ -190,7 +190,7 @@
     "month": "Apr · Wed",
     "tag": "Event",
     "url": "https://www.eventbrite.com/e/no-wine-left-behind-x-moxy-hotels-bar-bedford-tickets-1984677116682",
-    "image": "/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1179282608%252F1965939584683%252F1%252Foriginal.20260307-173920%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D480%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.893%26fp-y%3D0.493%26s%3Dcbcca49870d133a34d2d9c22c2ae850f&amp;w=940&amp;q=75",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1179282608%2F1965939584683%2F1%2Foriginal.20260307-173920?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.893&fp-y=0.493&s=cbcca49870d133a34d2d9c22c2ae850f",
     "source": "Eventbrite",
     "id": 14,
     "color": "c4"
@@ -204,10 +204,24 @@
     "month": "Apr · Thu",
     "tag": "Dinner",
     "url": "https://www.eventbrite.com/e/chart-house-orin-swift-wine-dinner-weehawken-tickets-1982927494515",
-    "image": "/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1177332413%252F2124192494563%252F1%252Foriginal.20260211-233503%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D480%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.5%26fp-y%3D0.5%26s%3Dbb7f7c5da6bb4f693c384a6609db51cd&amp;w=940&amp;q=75",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1177332413%2F2124192494563%2F1%2Foriginal.20260211-233503?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=bb7f7c5da6bb4f693c384a6609db51cd",
     "source": "Eventbrite",
-    "id": 15,
-    "color": "c5"
+    "id": 11,
+    "color": "c1"
+  },
+  {
+    "title": "Spring Garden Tour Wine Tasting",
+    "venue": "New York City",
+    "date": "2026-04-11T15:00:00-04:00",
+    "dateDisplay": "Sat, Apr 11, 7:00 PM",
+    "day": "11",
+    "month": "Apr · Sat",
+    "tag": "Tasting",
+    "url": "https://www.eventbrite.com/e/spring-garden-tour-wine-tasting-tickets-1984310398819",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1178809677%2F7466908021%2F1%2Foriginal.20260302-172759?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=9528cb5904e2ef3958d18479b92742d6",
+    "source": "Eventbrite",
+    "id": 28,
+    "color": "c3"
   },
   {
     "title": "French Cheese Wine Tasting",
@@ -218,10 +232,10 @@
     "month": "Apr · Sat",
     "tag": "Tasting",
     "url": "https://www.eventbrite.com/e/french-cheese-wine-tasting-tickets-1979776488772",
-    "image": "/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F486197379%252F141392852881%252F1%252Foriginal.20230405-175849%3Fw%3D480%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26rect%3D0%252C83%252C4724%252C2362%26s%3Dc69a0050e92690903beef7e146f0f64f&amp;w=940&amp;q=75",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F486197379%2F141392852881%2F1%2Foriginal.20230405-175849?w=480&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C83%2C4724%2C2362&s=c69a0050e92690903beef7e146f0f64f",
     "source": "Eventbrite",
-    "id": 16,
-    "color": "c1"
+    "id": 5,
+    "color": "c5"
   },
   {
     "title": "Elegance Uncorked Wine Tasting Experience",
@@ -232,10 +246,10 @@
     "month": "Apr · Sun",
     "tag": "Tasting",
     "url": "https://www.eventbrite.com/e/elegance-uncorked-wine-tasting-experience-tickets-1985685663272",
-    "image": "/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1180433310%252F309741633598%252F1%252Foriginal.20260323-003604%3Fw%3D480%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26s%3D43dc5b0d0d768c5b5ba13899f582cb7e&amp;w=940&amp;q=75",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1180433310%2F309741633598%2F1%2Foriginal.20260323-003604?w=480&auto=format%2Ccompress&q=75&sharp=10&s=43dc5b0d0d768c5b5ba13899f582cb7e",
     "source": "Eventbrite",
-    "id": 17,
-    "color": "c2"
+    "id": 20,
+    "color": "c5"
   },
   {
     "title": "A Bold Beautiful Wine Tasting",
@@ -246,9 +260,23 @@
     "month": "Apr · Sun",
     "tag": "Tasting",
     "url": "https://www.eventbrite.com/e/a-bold-beautiful-wine-tasting-tickets-1985685757554",
-    "image": "/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1180432761%252F309741633598%252F1%252Foriginal.20260323-002108%3Fw%3D480%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26s%3Dfbf1522b3adccee1c98c9f878ddba0ea&amp;w=940&amp;q=75",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1180432761%2F309741633598%2F1%2Foriginal.20260323-002108?w=480&auto=format%2Ccompress&q=75&sharp=10&s=fbf1522b3adccee1c98c9f878ddba0ea",
     "source": "Eventbrite",
-    "id": 18,
+    "id": 22,
+    "color": "c2"
+  },
+  {
+    "title": "Pizza Making Class",
+    "venue": "New York City",
+    "date": "2026-04-16T19:00:00-04:00",
+    "dateDisplay": "Thu, Apr 16, 11:00 PM",
+    "day": "16",
+    "month": "Apr · Thu",
+    "tag": "Class",
+    "url": "https://www.eventbrite.com/e/pizza-making-class-tickets-1982189975576",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1173230804%2F293225663464%2F1%2Foriginal.20251218-205041?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=9060b02223920633a29c70937a803f77",
+    "source": "Eventbrite",
+    "id": 3,
     "color": "c3"
   },
   {
@@ -260,9 +288,9 @@
     "month": "Apr · Fri",
     "tag": "Class",
     "url": "https://www.eventbrite.com/e/wine-cheese-crash-course-tickets-1979778394472",
-    "image": "/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F527958269%252F141392852881%252F1%252Foriginal.20230602-161544%3Fw%3D480%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26rect%3D0%252C0%252C2160%252C1080%26s%3D8e33669ae069aef8fddf26d209077476&amp;w=940&amp;q=75",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F527958269%2F141392852881%2F1%2Foriginal.20230602-161544?w=480&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=8e33669ae069aef8fddf26d209077476",
     "source": "Eventbrite",
-    "id": 19,
+    "id": 9,
     "color": "c4"
   },
   {
@@ -274,10 +302,38 @@
     "month": "Apr · Sat",
     "tag": "Tasting",
     "url": "https://www.eventbrite.com/e/iwm-saturday-public-wine-tasting-tickets-1985476690228",
-    "image": "/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1180183478%252F2606581790871%252F1%252Foriginal.20260318-214854%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D480%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.5%26fp-y%3D0.5%26s%3Df3c6385686c8823f955ca0b1d8ad9c59&amp;w=940&amp;q=75",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1180183478%2F2606581790871%2F1%2Foriginal.20260318-214854?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=f3c6385686c8823f955ca0b1d8ad9c59",
     "source": "Eventbrite",
-    "id": 20,
+    "id": 15,
     "color": "c5"
+  },
+  {
+    "title": "Bordeaux Wine Tasting Class",
+    "venue": "New York City",
+    "date": "2026-04-23T18:30:00-04:00",
+    "dateDisplay": "Thu, Apr 23, 10:30 PM",
+    "day": "23",
+    "month": "Apr · Thu",
+    "tag": "Tasting",
+    "url": "https://www.eventbrite.com/e/bordeaux-wine-tasting-class-tickets-1985603653980",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1180343681%2F675164940473%2F1%2Foriginal.20260320-195400?w=480&auto=format%2Ccompress&q=75&sharp=10&s=3949d34b1680c409fe54e9ec2ed9c864",
+    "source": "Eventbrite",
+    "id": 29,
+    "color": "c4"
+  },
+  {
+    "title": "New York City Craft Beer Wine And Spirits Fest",
+    "venue": "New York City",
+    "date": "2026-04-25T13:00:00-04:00",
+    "dateDisplay": "Sat, Apr 25, 5:00 PM",
+    "day": "25",
+    "month": "Apr · Sat",
+    "tag": "Festival",
+    "url": "https://www.eventbrite.com/e/new-york-city-craft-beer-wine-and-spirits-fest-tickets-1981957468140",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F953349273%2F258699274776%2F1%2Foriginal.20250205-150115?w=480&auto=format%2Ccompress&q=75&sharp=10&s=427919e1b81017c7198e494baef93163",
+    "source": "Eventbrite",
+    "id": 23,
+    "color": "c3"
   },
   {
     "title": "Mediterranean Cheese Wine Tasting",
@@ -288,9 +344,23 @@
     "month": "Apr · Sat",
     "tag": "Tasting",
     "url": "https://www.eventbrite.com/e/mediterranean-cheese-wine-tasting-tickets-1979783035353",
-    "image": "/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1044952203%252F141392852881%252F1%252Foriginal.20250603-165611%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D480%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.5%26fp-y%3D0.5%26s%3Da445738328f5fff6e13a1f7c50199302&amp;w=940&amp;q=75",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1044952203%2F141392852881%2F1%2Foriginal.20250603-165611?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=a445738328f5fff6e13a1f7c50199302",
     "source": "Eventbrite",
-    "id": 21,
+    "id": 17,
+    "color": "c2"
+  },
+  {
+    "title": "Spring in Pink: Rose Tasting Experience",
+    "venue": "Ayza Wine & Chocolate Bar",
+    "date": "2026-04-26T15:00:00-04:00",
+    "dateDisplay": "Sun, Apr 26, 7:00 PM",
+    "day": "26",
+    "month": "Apr · Sun",
+    "tag": "Tasting",
+    "url": "https://www.eventbrite.com/e/spring-in-pink-rose-tasting-experience-tickets-1982920689160",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1180364527%2F136743502664%2F1%2Foriginal.20260321-054443?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.705&fp-y=0.632&s=8d09702b89ea28d3a3d7f2deaf963f73",
+    "source": "Eventbrite",
+    "id": 1,
     "color": "c1"
   },
   {
@@ -302,9 +372,9 @@
     "month": "May · Fri",
     "tag": "Tasting",
     "url": "https://www.eventbrite.com/e/springtime-cheese-wine-tasting-tickets-1979789108518",
-    "image": "/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F486219159%252F141392852881%252F1%252Foriginal.20230405-182055%3Fw%3D480%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26rect%3D0%252C0%252C2160%252C1080%26s%3Df719a6ecf3c0a5f53b87af33971c9c94&amp;w=940&amp;q=75",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F486219159%2F141392852881%2F1%2Foriginal.20230405-182055?w=480&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=f719a6ecf3c0a5f53b87af33971c9c94",
     "source": "Eventbrite",
-    "id": 22,
+    "id": 12,
     "color": "c2"
   },
   {
@@ -316,9 +386,9 @@
     "month": "May · Fri",
     "tag": "Event",
     "url": "https://www.eventbrite.com/e/bloomy-rinds-floral-wines-tickets-1982454728459",
-    "image": "/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1176803752%252F141392852881%252F1%252Foriginal.20260205-183537%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D480%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.5%26fp-y%3D0.5%26s%3De3d230660d45f97b36c51b783e7cffa0&amp;w=940&amp;q=75",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1176803752%2F141392852881%2F1%2Foriginal.20260205-183537?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=e3d230660d45f97b36c51b783e7cffa0",
     "source": "Eventbrite",
-    "id": 23,
+    "id": 13,
     "color": "c3"
   },
   {
@@ -330,10 +400,10 @@
     "month": "May · Wed",
     "tag": "Tasting",
     "url": "https://www.eventbrite.com/e/tour-of-bordeaux-wine-tasting-tickets-1984147957954",
-    "image": "/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1179733725%252F2927394388511%252F1%252Foriginal.20260312-215550%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D480%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.5%26fp-y%3D0.5%26s%3D702a5063559c9b7f32fd9ce29e15b7eb&amp;w=940&amp;q=75",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1179733725%2F2927394388511%2F1%2Foriginal.20260312-215550?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=702a5063559c9b7f32fd9ce29e15b7eb",
     "source": "Eventbrite",
-    "id": 24,
-    "color": "c4"
+    "id": 21,
+    "color": "c1"
   },
   {
     "title": "Wine Night Lgbtq Networking The Captivating Wines Of Portugal Nyc",
@@ -344,9 +414,9 @@
     "month": "May · Thu",
     "tag": "Event",
     "url": "https://www.eventbrite.com/e/wine-night-lgbtq-networking-the-captivating-wines-of-portugal-nyc-tickets-1984486643973",
-    "image": "/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1173851394%252F767898029763%252F1%252Foriginal.20260102-181352%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D480%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.505%26fp-y%3D0.084%26s%3Dab68456a406ca39777186402095033f3&amp;w=940&amp;q=75",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1173851394%2F767898029763%2F1%2Foriginal.20260102-181352?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.505&fp-y=0.084&s=ab68456a406ca39777186402095033f3",
     "source": "Eventbrite",
-    "id": 25,
-    "color": "c5"
+    "id": 18,
+    "color": "c3"
   }
 ]
