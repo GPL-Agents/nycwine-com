@@ -74,7 +74,7 @@ body {
 ═══════════════════════════════════════ */
 .site-header {
   /* Single light-gray skyline, full-width, buildings anchored to bottom */
-  background: white url('/images/skyline6.jpg') center bottom / 100% auto no-repeat;
+  background: white url('/images/skyline7.jpg') center bottom / 100% auto no-repeat;
   min-height: 90px;
   border-top: 3px solid var(--pink);
   border-bottom: 3px solid var(--pink);
