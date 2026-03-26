@@ -51,38 +51,52 @@ const HEADERS = {
 };
 
 // ── Date helpers ──────────────────────────────────────────────
+// Parse the LOCAL time components from an ISO string like
+// "2026-05-01T18:30:00-04:00" without converting to UTC.
+// This ensures times display correctly regardless of server timezone.
+function parseLocal(dateStr) {
+  if (!dateStr) return null;
+  const m = dateStr.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/);
+  if (!m) {
+    const d = new Date(dateStr);
+    return isNaN(d) ? null : d;
+  }
+  // Construct a Date using local components (month is 0-based)
+  return new Date(+m[1], +m[2] - 1, +m[3], +m[4], +m[5]);
+}
+
 function formatDay(dateStr) {
-  if (!dateStr) return '—';
-  const d = new Date(dateStr);
-  return isNaN(d) ? '—' : d.getDate().toString();
+  const d = parseLocal(dateStr);
+  return d ? d.getDate().toString() : '—';
 }
 
 function formatMonth(dateStr) {
-  if (!dateStr) return 'Upcoming';
-  const d = new Date(dateStr);
-  if (isNaN(d)) return 'Upcoming';
+  const d = parseLocal(dateStr);
+  if (!d) return 'Upcoming';
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   const now = new Date();
-  const tomorrow = new Date(now);
+  // Compare date-only (ignore time)
+  const dDate = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  const nowDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const tomorrow = new Date(nowDate);
   tomorrow.setDate(tomorrow.getDate() + 1);
 
-  if (d.toDateString() === now.toDateString()) return `${months[d.getMonth()]} · Today`;
-  if (d.toDateString() === tomorrow.toDateString()) return `${months[d.getMonth()]} · Tomorrow`;
+  if (dDate.getTime() === nowDate.getTime()) return `${months[d.getMonth()]} · Today`;
+  if (dDate.getTime() === tomorrow.getTime()) return `${months[d.getMonth()]} · Tomorrow`;
   return `${months[d.getMonth()]} · ${days[d.getDay()]}`;
 }
 
 function formatDateDisplay(dateStr) {
-  if (!dateStr) return null;
-  const d = new Date(dateStr);
-  if (isNaN(d)) return null;
-  return d.toLocaleDateString('en-US', {
-    weekday: 'short',
-    month: 'short',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: '2-digit',
-  });
+  const d = parseLocal(dateStr);
+  if (!d) return null;
+  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  let hour = d.getHours();
+  const min = d.getMinutes().toString().padStart(2, '0');
+  const ampm = hour >= 12 ? 'PM' : 'AM';
+  hour = hour % 12 || 12;
+  return `${days[d.getDay()]}, ${months[d.getMonth()]} ${d.getDate()}, ${hour}:${min} ${ampm}`;
 }
 
 function getTag(title) {
@@ -181,16 +195,20 @@ async function scrapeEventbrite() {
             if (item['@type'] === 'Event' && item.url && !seenUrls.has(item.url)) {
               const cleanUrl = item.url.replace(/\?aff=.*$/, '');
               seenUrls.add(cleanUrl);
-              // If JSON-LD on search page has dates, use it directly
+              // Save search-page data as partial, but always fetch the
+              // individual event page too — search results often lack
+              // the real venue name (only have city).
               if (item.startDate) {
                 eventUrls.push({
                   url: cleanUrl,
-                  prefetched: {
+                  partial: {
                     title: item.name || null,
-                    venue: item.location?.name || item.location?.address?.addressLocality || null,
+                    venue: item.location?.name || null,
+                    city: item.location?.address?.addressLocality || null,
                     date: item.startDate,
                     image: typeof item.image === 'string' ? item.image : (Array.isArray(item.image) ? item.image[0] : null),
                   },
+                  prefetched: null, // force individual page fetch
                 });
               } else {
                 eventUrls.push({ url: cleanUrl, prefetched: null });
@@ -238,10 +256,11 @@ async function scrapeEventbrite() {
     }
   });
 
-  // Step 3: Assemble final events
+  // Step 3: Assemble final events — merge partial (search) + detail (page)
   const allEvents = [];
   for (const entry of limited) {
-    const details = entry.prefetched || detailsMap.get(entry.url);
+    const detail = detailsMap.get(entry.url);   // from individual page
+    const partial = entry.partial || null;       // from search page JSON-LD
     const url = entry.url;
 
     // Build title from slug as fallback
@@ -252,10 +271,11 @@ async function scrapeEventbrite() {
       .replace(/-/g, ' ')
       .replace(/\b\w/g, (c) => c.toUpperCase());
 
-    const title = details?.title || slugTitle || 'Wine Event';
-    const venue = details?.venue || 'New York City';
-    const date = details?.date || null;
-    const image = fixImageUrl(details?.image || null);
+    // Prefer individual page data, fall back to search page partial
+    const title = detail?.title || partial?.title || slugTitle || 'Wine Event';
+    const venue = detail?.venue || partial?.venue || partial?.city || 'New York City';
+    const date = detail?.date || partial?.date || null;
+    const image = fixImageUrl(detail?.image || partial?.image || null);
 
     allEvents.push({
       title,
@@ -303,11 +323,13 @@ export default async function handler(req, res) {
     }
 
     // Remove past events — only show today or future
-    const startOfToday = new Date();
-    startOfToday.setHours(0, 0, 0, 0);
+    // Use parseLocal so UTC servers don't accidentally filter events
+    const nowLocal = parseLocal(new Date().toISOString()) || new Date();
+    const startOfToday = new Date(nowLocal.getFullYear(), nowLocal.getMonth(), nowLocal.getDate());
     events = events.filter((ev) => {
       if (!ev.date) return true; // keep undated events (can't tell if past)
-      return new Date(ev.date) >= startOfToday;
+      const evDate = parseLocal(ev.date);
+      return evDate ? evDate >= startOfToday : true;
     });
 
     // Sort by date (events with dates first, then undated)
