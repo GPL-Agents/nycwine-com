@@ -101,9 +101,36 @@ async function fetchEventDetails(url) {
         const items = Array.isArray(data) ? data : data['@graph'] || [data];
         for (const item of items) {
           if (item['@type'] === 'Event') {
+            // Try multiple sources for venue — never fall back to city name
+            let venue = null;
+            if (item.location?.name) {
+              venue = item.location.name;
+            } else if (item.location?.address?.name) {
+              venue = item.location.address.name;
+            } else if (item.organizer?.name) {
+              const orgName = item.organizer.name;
+              if (!orgName.toLowerCase().includes('eventbrite') && orgName.length > 0) {
+                venue = orgName;
+              }
+            }
+
+            // Try extracting venue from description ("at Venue Name")
+            if (!venue && item.description) {
+              const m = item.description.match(/(?:at|@)\s+((?:[A-Z][A-Za-z0-9''.\-]*(?:\s*[&]\s*[A-Z][A-Za-z0-9''.\-]*)*(?:\s+[A-Z][A-Za-z0-9''.\-]*(?:\s*[&]\s*[A-Z][A-Za-z0-9''.\-]*)*)*))/);
+              if (m) {
+                let v = m[1].trim()
+                  .replace(/\s+(for|in|on|from|with|this|where|featuring|doors|tickets)\b.*/i, '')
+                  .replace(/[.,;:]+$/, '')
+                  .trim();
+                if (v.length > 3 && !v.toLowerCase().includes('eventbrite')) {
+                  venue = v;
+                }
+              }
+            }
+
             return {
               title: item.name || null,
-              venue: item.location?.name || item.location?.address?.addressLocality || null,
+              venue,
               date: item.startDate || null,
               image: typeof item.image === 'string' ? item.image : (Array.isArray(item.image) ? item.image[0] : null),
             };
@@ -118,10 +145,29 @@ async function fetchEventDetails(url) {
     const imgMatch = html.match(/<meta[^>]+property="og:image"[^>]+content="([^"]+)"/i);
     const venueMatch = html.match(/<meta[^>]+property="event:location"[^>]+content="([^"]+)"/i);
 
+    // Try HTML structure for venue if meta tags didn't find it
+    let htmlVenue = null;
+    if (!venueMatch) {
+      const htmlVenueMatch = html.match(
+        /<(?:h[2-3]|div|section|span)[^>]*class="[^"]*(?:venue|location-info)[^"]*"[^>]*>\s*([^<]+)/i
+      );
+      if (htmlVenueMatch) {
+        htmlVenue = htmlVenueMatch[1].trim();
+      }
+      if (!htmlVenue) {
+        const structuredMatch = html.match(
+          /<(?:div|section|p)[^>]*data-testid="[^"]*location[^"]*"[^>]*>\s*([^<]+)/i
+        );
+        if (structuredMatch) {
+          htmlVenue = structuredMatch[1].trim();
+        }
+      }
+    }
+
     if (dateMatch || imgMatch) {
       return {
         title: null,
-        venue: venueMatch ? venueMatch[1] : null,
+        venue: venueMatch ? venueMatch[1] : htmlVenue,
         date: dateMatch ? dateMatch[1] : null,
         image: imgMatch ? imgMatch[1] : null,
       };
