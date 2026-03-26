@@ -46,13 +46,13 @@ import React, { useState, useEffect, useMemo, useRef } from 'react';
 
 // ── Featured Venues data ─────────────────────────────────────
 // Venues sourced from The Infatuation's Best Wine Bars in NYC guide.
-// Ratings and details from theinfatuation.com.
 const FEATURED_VENUES = [
   {
     name: 'Penny',
     neighborhood: 'East Village',
     address: '90 E 10th St',
     rating: '9.4',
+    excerpt: 'This breezy wine bar in the East Village serves exceptional seafood.',
     url: 'https://www.theinfatuation.com/new-york/reviews/penny',
     image: '/images/venues/NYC_Penny_BNRMarketing_KatePrevite_00001_1_eqtzul.avif',
   },
@@ -61,14 +61,16 @@ const FEATURED_VENUES = [
     neighborhood: 'Clinton Hill',
     address: '212 Greene Ave',
     rating: '8.7',
+    excerpt: 'This Clinton Hill wine bar from the team behind Oxalis serves impressive small plates in an unreasonably pleasant space.',
     url: 'https://www.theinfatuation.com/new-york/reviews/place-des-fetes',
-    image: '/images/venues/NYC_PlaceDesFêtes_GroupShot_EmilySchindler_03_me7oze.avif',
+    image: '/images/venues/NYC_PlaceDesFetes_GroupShot_EmilySchindler_03_me7oze.avif',
   },
   {
     name: 'The Four Horsemen',
     neighborhood: 'Williamsburg',
     address: '295 Grand St',
     rating: '8.8',
+    excerpt: 'Everyone does small plates and natural wine. Williamsburg wine bar The Four Horsemen does them better.',
     url: 'https://www.theinfatuation.com/new-york/reviews/four-horsemen',
     image: '/images/venues/NYC_FourHorsemen_FoodGroup_KatePrevite_00001_amaolg.avif',
   },
@@ -77,6 +79,7 @@ const FEATURED_VENUES = [
     neighborhood: 'East Village',
     address: '90 E 10th St',
     rating: '8.6',
+    excerpt: 'A wine bar in the East Village serving delicious riffs on classic European fare.',
     url: 'https://www.theinfatuation.com/new-york/reviews/claud',
     image: '/images/venues/NYC_Claud_Interior_EmilySchindler_01_aogl1u.avif',
   },
@@ -85,6 +88,7 @@ const FEATURED_VENUES = [
     neighborhood: 'Lower East Side',
     address: '142 Orchard St',
     rating: '8.6',
+    excerpt: 'A casual wine bar on the Lower East Side, attached to the acclaimed tasting menu restaurant Contra.',
     url: 'https://www.theinfatuation.com/new-york/reviews/wildair',
     image: '/images/venues/NYC_Wildair_FoodGroup_KatePrevite_00001_vpaplo.avif',
   },
@@ -226,18 +230,21 @@ export default function NewsSection() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img
-                src={venue.image}
-                alt={venue.name}
-                loading="lazy"
-                onError={(e) => { e.target.parentElement.style.display = 'none'; }}
-              />
-              <div className="featured-venue-label">
+              <div className="featured-venue-photo">
+                <img
+                  src={venue.image}
+                  alt={venue.name}
+                  loading="lazy"
+                  onError={(e) => { e.target.closest('.featured-venue-photo').style.display = 'none'; }}
+                />
+              </div>
+              <div className="featured-venue-body">
                 <div className="featured-venue-meta">
                   <span className="featured-venue-neighborhood">{venue.neighborhood}</span>
                   <span className="featured-venue-rating">★ {venue.rating}</span>
                 </div>
                 <div className="featured-venue-name">{venue.name}</div>
+                <div className="featured-venue-excerpt">{venue.excerpt}</div>
                 <div className="featured-venue-address">{venue.address}</div>
               </div>
             </a>
