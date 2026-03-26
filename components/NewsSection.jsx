@@ -92,6 +92,42 @@ const FEATURED_VENUES = [
     url: 'https://www.theinfatuation.com/new-york/reviews/wildair',
     image: '/images/venues/NYC_Wildair_FoodGroup_KatePrevite_00001_vpaplo.avif',
   },
+  {
+    name: 'Ruffian',
+    neighborhood: 'East Village',
+    address: '125 E 7th St',
+    rating: '8.8',
+    excerpt: 'A tiny wine bar devoted to Eastern European natural wines and bold Mediterranean small plates cooked right behind the bar.',
+    url: 'https://www.theinfatuation.com/new-york/reviews/ruffian-wine-bar',
+    image: '/images/venues/EmilyS_NYC_Ruffian_09.avif',
+  },
+  {
+    name: "Justine's on Hudson",
+    neighborhood: 'West Village',
+    address: '518 Hudson St',
+    rating: '8.5',
+    excerpt: 'A warm, multi-generational wine bistro on Hudson Street serving sophisticated food and interesting bottles.',
+    url: 'https://www.theinfatuation.com/new-york/reviews/justines-on-hudson',
+    image: '/images/venues/NYC_JustinesOnHudson_Interior_KatePrevite_00002_ctgymu.avif',
+  },
+  {
+    name: 'Parcelle',
+    neighborhood: 'Greenwich Village',
+    address: '72 MacDougal St',
+    rating: '8.5',
+    excerpt: 'A mellow Greenwich Village wine bar with 500+ bottles — everything from esoteric naturals to collectible Burgundy.',
+    url: 'https://www.theinfatuation.com/new-york/reviews/parcelle-greenwich-village',
+    image: '/images/venues/Parcelle-Seating-Collin_20Hughes.avif',
+  },
+  {
+    name: 'Elvis',
+    neighborhood: 'NoHo',
+    address: '54 Great Jones St',
+    rating: '8.4',
+    excerpt: 'A French-inspired natural wine bar in a legendary NoHo space, with cozy chic atmosphere and standout small plates.',
+    url: 'https://www.theinfatuation.com/new-york/reviews/elvis',
+    image: '/images/venues/Elvis0120_1_2_bo9ytt.avif',
+  },
 ];
 
 export default function NewsSection() {
