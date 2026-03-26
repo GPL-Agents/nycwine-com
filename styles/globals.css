@@ -73,14 +73,8 @@ body {
    HEADER
 ═══════════════════════════════════════ */
 .site-header {
-  /* skyline2 (NYC, transparent bg) centered on top; skyline3 tiles left/right */
-  background-color: white;
-  background-image:
-    url('/images/skyline2_transparent.png'),
-    url('/images/skyline3.jpg');
-  background-position: center center, center center;
-  background-size: auto 100%, auto 100%;
-  background-repeat: no-repeat, repeat-x;
+  /* Single light-gray skyline, centered, scaled to fill header height */
+  background: white url('/images/skyline4.jpg') center center / auto 100% no-repeat;
   min-height: 90px;
   border-top: 3px solid var(--pink);
   border-bottom: 3px solid var(--pink);
@@ -922,7 +916,6 @@ body {
 }
 .news-main {
   min-width: 0;
-  border-right: 1px solid var(--border);
   padding: 0 20px;
 }
 

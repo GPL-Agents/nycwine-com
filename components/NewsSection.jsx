@@ -117,7 +117,7 @@ const FEATURED_VENUES = [
     rating: '8.5',
     excerpt: 'A mellow Greenwich Village wine bar with 500+ bottles — everything from esoteric naturals to collectible Burgundy.',
     url: 'https://www.theinfatuation.com/new-york/reviews/parcelle-greenwich-village',
-    image: '/images/venues/Parcelle-Seating-Collin_20Hughes.avif',
+    image: '/images/venues/Parcelle2-Seating-Collin.avif',
   },
   {
     name: 'Elvis',
@@ -127,6 +127,15 @@ const FEATURED_VENUES = [
     excerpt: 'A French-inspired natural wine bar in a legendary NoHo space, with cozy chic atmosphere and standout small plates.',
     url: 'https://www.theinfatuation.com/new-york/reviews/elvis',
     image: '/images/venues/Elvis0120_1_2_bo9ytt.avif',
+  },
+  {
+    name: "Di Palo's",
+    neighborhood: 'Little Italy',
+    address: '200 Grand St',
+    rating: '8.6',
+    excerpt: 'A legendary Little Italy institution spanning four generations — exceptional Italian wines, cured meats, and artisan cheeses.',
+    url: 'https://www.theinfatuation.com/new-york/reviews/di-palos',
+    image: '/images/venues/NYC_CDiPalo_Interior_AlexStaniloff-1_r31pbx.avif',
   },
 ];
 

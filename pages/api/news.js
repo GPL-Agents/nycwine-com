@@ -153,10 +153,10 @@ const FEEDS = [
   },
   {
     name: 'Imbibe',
-    url: 'https://imbibemagazine.com/category/article/wine-beer-article/feed/',
+    url: 'https://imbibemagazine.com/feed/',
     emoji: '🍾',
     color: '#2e7d32',
-    filterByKeyword: false,
+    filterByKeyword: true,
   },
 ];
 
