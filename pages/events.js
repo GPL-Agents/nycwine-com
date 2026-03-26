@@ -137,8 +137,8 @@ export default function EventsPage() {
               className="sidebar-ad-link"
             >
               <img
-                src="/images/ackerwinesad.png"
-                alt="Acker Wines — 160 W 72nd St, New York, NY 10023"
+                src="/images/acker.ad.events.png"
+                alt="Acker Wines — Top 10 World's Most Iconic Wine Shops — 160 W 72nd St, NYC"
                 className="sidebar-ad-img"
               />
             </a>

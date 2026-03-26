@@ -148,20 +148,39 @@ async function fetchEventDetails(url) {
         const items = Array.isArray(data) ? data : data['@graph'] || [data];
         for (const item of items) {
           if (item['@type'] === 'Event') {
-            // Try multiple sources for venue — never fall back to city name
+            // Try multiple sources for venue name
             let venue = null;
-            if (item.location?.name) {
-              venue = item.location.name;
-            } else if (item.location?.address?.name) {
-              venue = item.location.address.name;
-            } else if (item.organizer?.name) {
-              const orgName = item.organizer.name;
-              if (!orgName.toLowerCase().includes('eventbrite') && orgName.length > 0) {
-                venue = orgName;
+
+            // 1. location.name — the most reliable source
+            if (item.location?.name) venue = sanitizeVenue(item.location.name);
+
+            // 2. location.address.name — sometimes has venue
+            if (!venue && item.location?.address?.name) venue = sanitizeVenue(item.location.address.name);
+
+            // 3. streetAddress signals a real venue even if name is city-only
+            //    Build "Name, Neighborhood" from address parts
+            if (!venue && item.location?.address?.streetAddress) {
+              const street = item.location.address.streetAddress.trim();
+              const locality = item.location.address.addressLocality || '';
+              // Use organizer as proxy for venue name + address
+              const locName = item.location?.name || '';
+              if (sanitizeVenue(locName)) {
+                venue = sanitizeVenue(locName);
+              } else {
+                // Show street address as venue hint (e.g. "123 W 72nd St")
+                venue = street.length > 3 ? street : null;
               }
             }
 
-            // Try extracting venue from description ("at Venue Name")
+            // 4. organizer name as last resort (often the venue for self-hosted events)
+            if (!venue && item.organizer?.name) {
+              const org = item.organizer.name.trim();
+              if (!org.toLowerCase().includes('eventbrite') && org.length > 3) {
+                venue = org;
+              }
+            }
+
+            // 5. Extract venue from description ("at The Venue Name")
             if (!venue && item.description) {
               const m = item.description.match(/(?:at|@)\s+((?:[A-Z][A-Za-z0-9''.\-]*(?:\s*[&]\s*[A-Z][A-Za-z0-9''.\-]*)*(?:\s+[A-Z][A-Za-z0-9''.\-]*(?:\s*[&]\s*[A-Z][A-Za-z0-9''.\-]*)*)*))/);
               if (m) {
@@ -170,7 +189,7 @@ async function fetchEventDetails(url) {
                   .replace(/[.,;:]+$/, '')
                   .trim();
                 if (v.length > 3 && !v.toLowerCase().includes('eventbrite')) {
-                  venue = v;
+                  venue = sanitizeVenue(v) || v;
                 }
               }
             }
@@ -338,8 +357,9 @@ async function scrapeEventbrite() {
 
     // Prefer individual page data, fall back to search page partial
     // Use sanitizeVenue to discard bare city names (e.g. "New York City")
+    // Fall back to 'NYC' so there's always some location shown
     const title = detail?.title || partial?.title || slugTitle || 'Wine Event';
-    const venue = sanitizeVenue(detail?.venue) || sanitizeVenue(partial?.venue) || null;
+    const venue = sanitizeVenue(detail?.venue) || sanitizeVenue(partial?.venue) || 'NYC';
     const date = detail?.date || partial?.date || null;
     const image = fixImageUrl(detail?.image || partial?.image || null);
 
