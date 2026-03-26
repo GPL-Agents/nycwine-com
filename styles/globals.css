@@ -73,7 +73,7 @@ body {
    HEADER
 ═══════════════════════════════════════ */
 .site-header {
-  background: white url('/images/nyc-skyline.svg?v=2') center bottom / 100% auto no-repeat;
+  background: white url('/images/nyc-skyline-photo.png') center top / 100% auto no-repeat;
   border-top: 3px solid var(--pink);
   border-bottom: 3px solid var(--pink);
   padding: 6px var(--content-pad);

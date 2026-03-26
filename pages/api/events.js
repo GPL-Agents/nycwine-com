@@ -50,6 +50,23 @@ const HEADERS = {
   'Accept-Language': 'en-US,en;q=0.9',
 };
 
+// ── Venue sanitizer ───────────────────────────────────────────
+// Returns null if the venue string is just a city/region name (not a real venue).
+const CITY_ONLY_VENUES = new Set([
+  'new york city', 'new york', 'ny', 'n.y.', 'new york, ny', 'new york, new york',
+  'new york city, ny', 'new york city, new york', 'nyc', 'manhattan',
+  'brooklyn', 'queens', 'bronx', 'the bronx', 'staten island',
+  'online', 'online event', 'virtual', 'virtual event', 'tba', 'tbd', 'venue tba',
+]);
+
+function sanitizeVenue(v) {
+  if (!v) return null;
+  const trimmed = v.trim();
+  if (CITY_ONLY_VENUES.has(trimmed.toLowerCase())) return null;
+  if (trimmed.length < 3) return null;
+  return trimmed;
+}
+
 // ── Date helpers ──────────────────────────────────────────────
 // Parse the LOCAL time components from an ISO string like
 // "2026-05-01T18:30:00-04:00" without converting to UTC.
@@ -245,11 +262,13 @@ async function scrapeEventbrite() {
               // individual event page too — search results often lack
               // the real venue name (only have city).
               if (item.startDate) {
+                // Use sanitizeVenue to avoid storing bare city strings as venue
+                const rawVenue = item.location?.name || item.location?.address?.name || null;
                 eventUrls.push({
                   url: cleanUrl,
                   partial: {
                     title: item.name || null,
-                    venue: item.location?.name || item.location?.address?.name || null,
+                    venue: sanitizeVenue(rawVenue),
                     city: item.location?.address?.addressLocality || null,
                     date: item.startDate,
                     image: typeof item.image === 'string' ? item.image : (Array.isArray(item.image) ? item.image[0] : null),
@@ -318,8 +337,9 @@ async function scrapeEventbrite() {
       .replace(/\b\w/g, (c) => c.toUpperCase());
 
     // Prefer individual page data, fall back to search page partial
+    // Use sanitizeVenue to discard bare city names (e.g. "New York City")
     const title = detail?.title || partial?.title || slugTitle || 'Wine Event';
-    const venue = detail?.venue || partial?.venue || partial?.city || 'New York City';
+    const venue = sanitizeVenue(detail?.venue) || sanitizeVenue(partial?.venue) || null;
     const date = detail?.date || partial?.date || null;
     const image = fixImageUrl(detail?.image || partial?.image || null);
 

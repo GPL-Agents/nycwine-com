@@ -1,197 +1,107 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100" preserveAspectRatio="none">
-  <defs>
-    <linearGradient id="gnd" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#d6d6d6"/>
-      <stop offset="100%" stop-color="#c8c8c8"/>
-    </linearGradient>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 80" preserveAspectRatio="none">
 
-  <!-- Ground strip -->
-  <rect x="0" y="88" width="1200" height="12" fill="url(#gnd)"/>
+  <!-- ═══ LEFT SIDE: Manhattan buildings ═══ -->
+  <g fill="#d0d0d0" opacity="0.5">
 
-  <!-- ═══════════════════════════════════════════
-       STATUE OF LIBERTY  (x 10–95)
-  ════════════════════════════════════════════ -->
-  <g fill="#ddd">
-    <!-- Star-fort pedestal base -->
-    <rect x="12" y="78" width="68" height="10"/>
-    <!-- Pedestal step 2 -->
-    <rect x="19" y="65" width="54" height="14"/>
-    <!-- Pedestal step 3 -->
-    <rect x="27" y="55" width="38" height="11"/>
-    <!-- Robe / body -->
-    <path d="M34,55 L30,44 L31,36 L35,30 L40,27 L46,26 L52,27 L57,30 L61,36 L62,44 L58,55Z"/>
-    <!-- Head -->
-    <ellipse cx="46" cy="26" rx="9" ry="6"/>
-    <!-- Crown spikes (7) -->
-    <line x1="46" y1="20" x2="46" y2="12" stroke="#ddd" stroke-width="2.5"/>
-    <line x1="41" y1="22" x2="37" y2="15" stroke="#ddd" stroke-width="2.5"/>
-    <line x1="51" y1="22" x2="55" y2="15" stroke="#ddd" stroke-width="2.5"/>
-    <line x1="38" y1="25" x2="33" y2="20" stroke="#ddd" stroke-width="2.5"/>
-    <line x1="54" y1="25" x2="59" y2="20" stroke="#ddd" stroke-width="2.5"/>
-    <line x1="37" y1="28" x2="31" y2="25" stroke="#ddd" stroke-width="2.5"/>
-    <line x1="55" y1="28" x2="61" y2="25" stroke="#ddd" stroke-width="2.5"/>
-    <!-- Torch arm (right arm raised high) -->
-    <path d="M57,34 L62,26 L68,16 L72,18 L68,25 L64,32 L60,38Z"/>
-    <!-- Torch cup + flame -->
-    <rect x="68" y="12" width="5" height="6"/>
-    <path d="M67,10 L70,12 L73,10 L71,7 L69,7Z"/>
-    <!-- Tablet (left arm) -->
-    <rect x="28" y="38" width="7" height="10" rx="1"/>
+    <!-- Low foreground buildings far left -->
+    <rect x="0"   y="60" width="30" height="20"/>
+    <rect x="34"  y="54" width="28" height="26"/>
+    <rect x="66"  y="58" width="24" height="22"/>
+
+    <!-- Mid-rise cluster -->
+    <rect x="96"  y="46" width="34" height="34"/>
+    <rect x="134" y="40" width="30" height="40"/>
+
+    <!-- Tall tower (Empire State-like) — stepped top -->
+    <rect x="170" y="44" width="50" height="36"/>  <!-- base -->
+    <rect x="175" y="34" width="40" height="12"/>  <!-- setback 1 -->
+    <rect x="181" y="24" width="28" height="12"/>  <!-- setback 2 -->
+    <rect x="186" y="16" width="18" height="10"/>  <!-- setback 3 -->
+    <rect x="190" y="10" width="10" height="8"/>   <!-- mast -->
+    <rect x="193" y="4"  width="4"  height="8"/>   <!-- antenna -->
+
+    <!-- Wide slab building -->
+    <rect x="228" y="38" width="46" height="42"/>
+    <rect x="230" y="30" width="42" height="10"/>
+
+    <!-- Buildings stepping toward bridge -->
+    <rect x="282" y="44" width="36" height="36"/>
+    <rect x="324" y="38" width="38" height="42"/>
+    <rect x="368" y="46" width="32" height="34"/>
+
   </g>
 
-  <!-- ═══════════════════════════════════════════
-       LOWER MANHATTAN SUPPORT BUILDINGS (x 110–200)
-  ════════════════════════════════════════════ -->
-  <g fill="#ddd">
-    <rect x="112" y="58" width="30" height="30"/>
-    <rect x="148" y="50" width="26" height="38"/>
-    <rect x="180" y="42" width="32" height="46"/>
-  </g>
-
-  <!-- ═══════════════════════════════════════════
-       WOOLWORTH BUILDING  (x 218–248)
-  ════════════════════════════════════════════ -->
-  <g fill="#ddd">
-    <rect x="218" y="28" width="30" height="60"/>
-    <!-- Gothic tier -->
-    <path d="M224,28 L221,22 L222,16 L223,10 L224,4 L225,10 L226,16 L227,22 L224,28Z"/>
-    <!-- Shoulder cap -->
-    <path d="M215,28 L218,24 L224,22 L230,24 L233,28Z"/>
-  </g>
-
-  <!-- ═══════════════════════════════════════════
-       ONE WORLD TRADE CENTER  (x 258–304)
-  ════════════════════════════════════════════ -->
-  <g fill="#ddd">
-    <path d="M258,88 L262,36 L267,20 L271,10 L274,4 L277,4 L280,10 L284,20 L289,36 L293,88Z"/>
-    <rect x="275" y="0" width="2" height="4"/>
-  </g>
-
-  <!-- ═══════════════════════════════════════════
-       MORE LOWER MANHATTAN  (x 308–380)
-  ════════════════════════════════════════════ -->
-  <g fill="#ddd">
-    <rect x="308" y="44" width="32" height="44"/>
-    <rect x="346" y="50" width="28" height="38"/>
-  </g>
-
-  <!-- ═══════════════════════════════════════════
-       BROOKLYN BRIDGE  (x 396–652)
-  ════════════════════════════════════════════ -->
-  <g fill="#ddd">
-    <!-- Left Gothic tower (30 px wide) -->
-    <path d="M400,88 L400,14 L404,10 L415,10 L426,10 L430,14 L430,88Z"/>
-    <rect x="397" y="9" width="36" height="3"/>
-    <!-- Right Gothic tower (30 px wide) -->
-    <path d="M622,88 L622,14 L626,10 L637,10 L648,10 L652,14 L652,88Z"/>
-    <rect x="619" y="9" width="36" height="3"/>
+  <!-- ═══ BROOKLYN BRIDGE ═══ -->
+  <g fill="none" stroke="#dcdcdc" stroke-opacity="0.5">
+    <!-- Left tower -->
+    <rect x="418" y="10" width="6"  height="70" fill="#dcdcdc" fill-opacity="0.5" stroke="none"/>
+    <rect x="430" y="10" width="6"  height="70" fill="#dcdcdc" fill-opacity="0.5" stroke="none"/>
+    <path d="M424,50 L424,38 Q427,32 430,38 L430,50" stroke-width="1.5"/>
+    <rect x="416" y="8"  width="22" height="4"  fill="#dcdcdc" fill-opacity="0.5" stroke="none"/>
+    <!-- Right tower -->
+    <rect x="764" y="10" width="6"  height="70" fill="#dcdcdc" fill-opacity="0.5" stroke="none"/>
+    <rect x="776" y="10" width="6"  height="70" fill="#dcdcdc" fill-opacity="0.5" stroke="none"/>
+    <path d="M770,50 L770,38 Q773,32 776,38 L776,50" stroke-width="1.5"/>
+    <rect x="762" y="8"  width="22" height="4"  fill="#dcdcdc" fill-opacity="0.5" stroke="none"/>
+    <!-- Main suspension cables -->
+    <path d="M427,12 Q500,55 600,58 Q700,55 773,12" stroke-width="1.8"/>
+    <path d="M427,16 Q510,52 600,54 Q690,52 773,16" stroke-width="1"/>
+    <!-- Vertical suspenders -->
+    <line x1="450" y1="26" x2="450" y2="72" stroke-width="0.6"/>
+    <line x1="470" y1="34" x2="470" y2="72" stroke-width="0.6"/>
+    <line x1="490" y1="40" x2="490" y2="72" stroke-width="0.6"/>
+    <line x1="510" y1="44" x2="510" y2="72" stroke-width="0.6"/>
+    <line x1="530" y1="48" x2="530" y2="72" stroke-width="0.6"/>
+    <line x1="550" y1="52" x2="550" y2="72" stroke-width="0.6"/>
+    <line x1="570" y1="55" x2="570" y2="72" stroke-width="0.6"/>
+    <line x1="590" y1="57" x2="590" y2="72" stroke-width="0.6"/>
+    <line x1="610" y1="57" x2="610" y2="72" stroke-width="0.6"/>
+    <line x1="630" y1="55" x2="630" y2="72" stroke-width="0.6"/>
+    <line x1="650" y1="52" x2="650" y2="72" stroke-width="0.6"/>
+    <line x1="670" y1="48" x2="670" y2="72" stroke-width="0.6"/>
+    <line x1="690" y1="44" x2="690" y2="72" stroke-width="0.6"/>
+    <line x1="710" y1="40" x2="710" y2="72" stroke-width="0.6"/>
+    <line x1="730" y1="34" x2="730" y2="72" stroke-width="0.6"/>
+    <line x1="750" y1="26" x2="750" y2="72" stroke-width="0.6"/>
+    <!-- Diagonal stay cables -->
+    <line x1="427" y1="14" x2="460" y2="72" stroke-width="0.6"/>
+    <line x1="427" y1="14" x2="480" y2="72" stroke-width="0.6"/>
+    <line x1="427" y1="14" x2="510" y2="72" stroke-width="0.6"/>
+    <line x1="427" y1="14" x2="545" y2="72" stroke-width="0.6"/>
+    <line x1="773" y1="14" x2="740" y2="72" stroke-width="0.6"/>
+    <line x1="773" y1="14" x2="720" y2="72" stroke-width="0.6"/>
+    <line x1="773" y1="14" x2="690" y2="72" stroke-width="0.6"/>
+    <line x1="773" y1="14" x2="655" y2="72" stroke-width="0.6"/>
     <!-- Road deck -->
-    <rect x="396" y="83" width="260" height="5"/>
+    <line x1="418" y1="72" x2="782" y2="72" stroke-width="2"/>
   </g>
 
-  <!-- Gothic arch window cutouts (white) -->
-  <path d="M406,54 L406,30 Q415,18 424,30 L424,54Z" fill="white"/>
-  <path d="M628,54 L628,30 Q637,18 646,30 L646,54Z" fill="white"/>
+  <!-- ═══ RIGHT SIDE: Downtown buildings ═══ -->
+  <g fill="#d0d0d0" opacity="0.5">
 
-  <!-- Bridge cables -->
-  <g fill="none" stroke="#ddd">
-    <!-- Main suspension cable (thick) -->
-    <path d="M415,12 Q524,52 637,12" stroke-width="2.5"/>
-    <!-- Secondary cable -->
-    <path d="M415,16 Q524,44 637,16" stroke-width="1"/>
-    <!-- Vertical hangers (left half) -->
-    <line x1="443" y1="30" x2="443" y2="83" stroke-width="1"/>
-    <line x1="464" y1="40" x2="464" y2="83" stroke-width="1"/>
-    <line x1="484" y1="46" x2="484" y2="83" stroke-width="1"/>
-    <line x1="504" y1="50" x2="504" y2="83" stroke-width="1"/>
-    <line x1="524" y1="52" x2="524" y2="83" stroke-width="1"/>
-    <!-- Vertical hangers (right half) -->
-    <line x1="544" y1="50" x2="544" y2="83" stroke-width="1"/>
-    <line x1="564" y1="46" x2="564" y2="83" stroke-width="1"/>
-    <line x1="584" y1="40" x2="584" y2="83" stroke-width="1"/>
-    <line x1="609" y1="30" x2="609" y2="83" stroke-width="1"/>
-    <!-- Stay cables from tower tops -->
-    <line x1="415" y1="12" x2="454" y2="83" stroke-width="0.8"/>
-    <line x1="415" y1="12" x2="486" y2="83" stroke-width="0.8"/>
-    <line x1="637" y1="12" x2="598" y2="83" stroke-width="0.8"/>
-    <line x1="637" y1="12" x2="566" y2="83" stroke-width="0.8"/>
+    <!-- Buildings stepping up from bridge -->
+    <rect x="790" y="42" width="32" height="38"/>
+    <rect x="828" y="36" width="34" height="44"/>
+
+    <!-- Very tall tower (One WTC-like) -->
+    <rect x="870" y="22" width="46" height="58"/>  <!-- base -->
+    <rect x="874" y="14" width="38" height="10"/>  <!-- taper 1 -->
+    <rect x="879" y="8"  width="28" height="8"/>   <!-- taper 2 -->
+    <rect x="884" y="3"  width="18" height="7"/>   <!-- top -->
+    <rect x="891" y="0"  width="4"  height="5"/>   <!-- spire -->
+
+    <!-- Mid buildings -->
+    <rect x="924" y="30" width="38" height="50"/>
+    <rect x="968" y="36" width="34" height="44"/>
+    <rect x="1008" y="42" width="36" height="38"/>
+
+    <!-- Tapering off right -->
+    <rect x="1050" y="48" width="32" height="32"/>
+    <rect x="1088" y="54" width="28" height="26"/>
+    <rect x="1122" y="58" width="26" height="22"/>
+    <rect x="1154" y="62" width="24" height="18"/>
+    <rect x="1182" y="64" width="18" height="16"/>
+
   </g>
 
-  <!-- ═══════════════════════════════════════════
-       MIDTOWN — LEFT OF CHRYSLER  (x 668–700)
-  ════════════════════════════════════════════ -->
-  <g fill="#ddd">
-    <rect x="668" y="48" width="30" height="40"/>
-  </g>
-
-  <!-- ═══════════════════════════════════════════
-       CHRYSLER BUILDING  (x 706–740)
-  ════════════════════════════════════════════ -->
-  <g fill="#ddd">
-    <rect x="706" y="28" width="34" height="60"/>
-    <!-- Art Deco sunburst crown (eagle-head arcs) -->
-    <path d="M706,28 L708,22 L710,14 L712,20 L714,10 L716,17 L719,6 L721,4 L723,6 L726,17 L728,10 L730,20 L732,14 L734,22 L736,28Z"/>
-    <!-- Antenna -->
-    <rect x="720" y="0" width="2" height="4"/>
-  </g>
-
-  <!-- ═══════════════════════════════════════════
-       MIDTOWN SUPPORT  (x 746–800)
-  ════════════════════════════════════════════ -->
-  <g fill="#ddd">
-    <rect x="746" y="44" width="28" height="44"/>
-    <rect x="780" y="38" width="30" height="50"/>
-  </g>
-
-  <!-- ═══════════════════════════════════════════
-       EMPIRE STATE BUILDING  (x 816–872)
-  ════════════════════════════════════════════ -->
-  <g fill="#ddd">
-    <!-- Base -->
-    <rect x="816" y="48" width="56" height="40"/>
-    <!-- Setback 1 -->
-    <rect x="822" y="36" width="44" height="13"/>
-    <!-- Setback 2 -->
-    <rect x="828" y="26" width="32" height="11"/>
-    <!-- Setback 3 -->
-    <rect x="834" y="16" width="20" height="11"/>
-    <!-- Setback 4 / Broadcast floor -->
-    <rect x="839" y="8" width="10" height="9"/>
-    <!-- Mast -->
-    <rect x="843" y="0" width="2" height="8"/>
-  </g>
-
-  <!-- ═══════════════════════════════════════════
-       432 PARK AVENUE  (x 890–910)   supertall thin
-  ════════════════════════════════════════════ -->
-  <g fill="#ddd">
-    <rect x="890" y="8" width="20" height="80"/>
-  </g>
-
-  <!-- ═══════════════════════════════════════════
-       ONE VANDERBILT  (x 920–956)   tapered
-  ════════════════════════════════════════════ -->
-  <g fill="#ddd">
-    <path d="M920,88 L923,28 L928,16 L933,8 L938,8 L943,16 L948,28 L951,88Z"/>
-  </g>
-
-  <!-- ═══════════════════════════════════════════
-       30 HUDSON YARDS  (x 962–1000)
-  ════════════════════════════════════════════ -->
-  <g fill="#ddd">
-    <path d="M962,88 L962,22 L974,22 L980,18 L986,22 L990,22 L990,88Z"/>
-  </g>
-
-  <!-- ═══════════════════════════════════════════
-       RIGHT TAPER  (x 1008–1200)
-  ════════════════════════════════════════════ -->
-  <g fill="#ddd">
-    <rect x="1008" y="50" width="32" height="38"/>
-    <rect x="1046" y="58" width="28" height="30"/>
-    <rect x="1080" y="64" width="28" height="24"/>
-    <rect x="1114" y="70" width="28" height="18"/>
-    <rect x="1148" y="76" width="28" height="12"/>
-    <rect x="1182" y="80" width="18" height="8"/>
-  </g>
 </svg>
