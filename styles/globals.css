@@ -73,7 +73,8 @@ body {
    HEADER
 ═══════════════════════════════════════ */
 .site-header {
-  background: white;
+  background: white url('/images/skyline2.jpg') center bottom / 100% auto no-repeat;
+  min-height: 100px;
   border-top: 3px solid var(--pink);
   border-bottom: 3px solid var(--pink);
   padding: 10px var(--content-pad);
@@ -899,14 +900,13 @@ body {
 }
 
 /* Two-column layout: news list + featured venues sidebar
-   Mirrors .social-links-row so the sidebar aligns under the Borghese ad */
+   Mirrors .social-links-row so the sidebar aligns under the Borghese ad.
+   No max-width/margin:auto here — padding alone aligns it to match .social-grid. */
 .news-layout {
   display: grid;
   grid-template-columns: 1fr 280px;
   gap: 0;
   padding: 0 var(--content-pad);
-  max-width: var(--max-content);
-  margin: 0 auto;
 }
 /* Bleed the background colour beyond the padded box */
 .news-section {
