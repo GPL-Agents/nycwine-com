@@ -151,6 +151,13 @@ const FEEDS = [
     color: '#6c3461',
     filterByKeyword: false,
   },
+  {
+    name: 'Imbibe',
+    url: 'https://imbibemagazine.com/category/article/wine-beer-article/feed/',
+    emoji: '🍾',
+    color: '#2e7d32',
+    filterByKeyword: false,
+  },
 ];
 
 // ── Wine keyword filter ───────────────────────────────────────
