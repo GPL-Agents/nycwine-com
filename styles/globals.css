@@ -169,7 +169,7 @@ body {
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 78px;
-  z-index: 40;
+  z-index: 49;
 }
 @media (max-width: 800px) {
   /* Header ad hidden on mobile, so header is shorter */
