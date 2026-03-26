@@ -236,7 +236,9 @@ async function main() {
       .replace(/\b\w/g, (c) => c.toUpperCase());
 
     const title = details?.title || slugTitle || 'Wine Event';
-    const venue = details?.venue || 'New York City';
+    // Only use a venue we actually found — null means "unknown" and the
+    // component will omit the venue line rather than show "New York City".
+    const venue = details?.venue || null;
     const date = details?.date || null;
     const image = fixImageUrl(details?.image || null);
 

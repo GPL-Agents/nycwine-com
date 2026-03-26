@@ -252,7 +252,7 @@ async function main() {
     stats: {
       winePostsFound: wineFormatted.length,
       nycPostsFound: nycFormatted.length,
-      totalCandidatesWine: winePosts.length,
+      totalCandidatesWine: wineSource.length,
       totalCandidatesNyc: allNycCandidates.length,
     },
   };
@@ -272,5 +272,22 @@ async function main() {
 
 main().catch((err) => {
   console.error('Fatal error:', err);
+  // Even on a fatal error, write an empty cache so the site
+  // falls back gracefully rather than serving stale or broken data.
+  try {
+    const outputDir = path.dirname(OUTPUT_PATH);
+    if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
+    const empty = {
+      wine: [],
+      nyc: [],
+      fetchedAt: new Date().toISOString(),
+      error: err.message,
+      stats: { winePostsFound: 0, nycPostsFound: 0, totalCandidatesWine: 0, totalCandidatesNyc: 0 },
+    };
+    fs.writeFileSync(OUTPUT_PATH, JSON.stringify(empty, null, 2));
+    console.log('  Wrote empty cache due to error.');
+  } catch (writeErr) {
+    console.error('  Could not write empty cache:', writeErr.message);
+  }
   process.exit(1);
 });
