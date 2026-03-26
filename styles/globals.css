@@ -73,11 +73,13 @@ body {
    HEADER
 ═══════════════════════════════════════ */
 .site-header {
-  /* Single light-gray skyline, full-width, buildings anchored to bottom.
+  /* Skyline scaled to 130% width so it overflows; horizontal position 65%
+     shifts the Statue of Liberty to ~30% of screen width (between logo and
+     search box). Formula: 38.3% × 130% + (1-130%) × 65% = 30.3% at any width.
      A 20% white overlay lightens the grey image. */
   background:
     linear-gradient(rgba(255,255,255,0.20), rgba(255,255,255,0.20)),
-    white url('/images/skyline7.jpg') center bottom / 100% auto no-repeat;
+    white url('/images/skyline7.jpg') 65% bottom / 130% auto no-repeat;
   min-height: 90px;
   border-top: 3px solid var(--pink);
   border-bottom: 3px solid var(--pink);
