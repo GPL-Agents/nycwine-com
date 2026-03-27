@@ -68,7 +68,7 @@ export default function WineBarsSection() {
           Wine Bars
         </div>
         <a href="/bars" className="see-all-link">
-          {bars.length} wine bars &rarr;
+          View all {bars.length} wine bars &rarr;
         </a>
       </div>
 

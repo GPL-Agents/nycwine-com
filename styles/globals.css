@@ -915,7 +915,9 @@ body {
   padding: 12px var(--content-pad);
   display: flex;
   align-items: center;
+  gap: 10px;
 }
+.news-ticker .ribbon-icon { width: 25px; height: 25px; }
 .ticker-badge {
   font-family: var(--font-serif);
   font-size: 20px;

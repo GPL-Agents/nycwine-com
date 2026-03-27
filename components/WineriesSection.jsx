@@ -57,7 +57,7 @@ export default function WineriesSection() {
           Wineries
         </div>
         <a href="/wineries" className="see-all-link">
-          {wineries.length} wineries &rarr;
+          View all {wineries.length} wineries &rarr;
         </a>
       </div>
 

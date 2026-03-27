@@ -80,7 +80,7 @@ export default function StoresSection() {
           Wine Stores
         </div>
         <a href="/stores" className="see-all-link">
-          {stores.length} stores &rarr;
+          View all {stores.length} wine stores &rarr;
         </a>
       </div>
 
