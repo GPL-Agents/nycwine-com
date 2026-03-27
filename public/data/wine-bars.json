@@ -7,7 +7,7 @@
     "neighborhood": "Brooklyn",
     "phone": "",
     "email": "",
-    "website": "",
+    "website": "https://www.anaisbk.com/",
     "notes": "official website not surfaced cleanly"
   },
   {
@@ -210,25 +210,25 @@
   },
   {
     "id": 20,
-    "name": "1372 1st",
+    "name": "Vanguard Wine Bar (UES)",
     "address": "1372 1st Ave, New York, NY, 10021",
     "borough": "Manhattan",
     "neighborhood": "Manhattan",
     "phone": "(212) 288-9463",
     "email": "",
-    "website": "",
-    "notes": "official website not available"
+    "website": "https://www.vanguard-nyc.com/",
+    "notes": "Two-location chain; UES location at 1372 1st Ave"
   },
   {
     "id": 21,
-    "name": "189 Amsterdam Avenue Wine Bar Corp",
+    "name": "Vanguard Wine Bar (UWS)",
     "address": "189 Amsterdam Ave, New York, NY, 10023",
     "borough": "Manhattan",
     "neighborhood": "Manhattan",
     "phone": "(212) 799-9463",
     "email": "",
-    "website": "",
-    "notes": "official website not available"
+    "website": "https://www.vanguard-nyc.com/",
+    "notes": "Two-location chain; UWS location at 189 Amsterdam Ave"
   },
   {
     "id": 22,
@@ -238,7 +238,7 @@
     "neighborhood": "Manhattan",
     "phone": "(646) 590-1859",
     "email": "",
-    "website": "",
+    "website": "https://www.8thstwinecellar.com/",
     "notes": "no clean official site surfaced"
   },
   {
@@ -261,7 +261,7 @@
     "phone": "(212) 722-8959",
     "email": "",
     "website": "",
-    "notes": ""
+    "notes": "[CLOSED]"
   },
   {
     "id": 25,
@@ -283,7 +283,7 @@
     "phone": "(212) 234-3084",
     "email": "",
     "website": "",
-    "notes": "official site not cleanly surfaced"
+    "notes": "official site not cleanly surfaced [CLOSED]"
   },
   {
     "id": 27,
@@ -415,7 +415,7 @@
     "phone": "(212) 717-9190",
     "email": "",
     "website": "",
-    "notes": "no clean official site surfaced"
+    "notes": "no clean official site surfaced [CLOSED]"
   },
   {
     "id": 39,
@@ -426,7 +426,7 @@
     "phone": "(646) 270-2505",
     "email": "",
     "website": "",
-    "notes": ""
+    "notes": "[CLOSED]"
   },
   {
     "id": 40,
@@ -481,7 +481,7 @@
     "phone": "(646) 692-6640",
     "email": "",
     "website": "",
-    "notes": "wine/tapas spot"
+    "notes": "wine/tapas spot [CLOSED]"
   },
   {
     "id": 45,
@@ -546,7 +546,7 @@
     "neighborhood": "Manhattan",
     "phone": "(212) 227-7074",
     "email": "",
-    "website": "",
+    "website": "https://www.gomikoreanwinebar.com/",
     "notes": "no clean official site surfaced"
   },
   {
@@ -624,7 +624,7 @@
     "phone": "(212) 799-2253",
     "email": "",
     "website": "",
-    "notes": "no clean official site surfaced"
+    "notes": "no clean official site surfaced [CLOSED]"
   },
   {
     "id": 58,
@@ -634,7 +634,7 @@
     "neighborhood": "Manhattan",
     "phone": "(212) 431-3900",
     "email": "",
-    "website": "",
+    "website": "https://leanyc.com/",
     "notes": "no clean official site surfaced"
   },
   {
@@ -645,7 +645,7 @@
     "neighborhood": "Manhattan",
     "phone": "",
     "email": "",
-    "website": "",
+    "website": "https://www.leiwine.nyc/",
     "notes": "new Chinatown wine bar; official site not surfaced cleanly"
   },
   {
@@ -925,14 +925,14 @@
   },
   {
     "id": 85,
-    "name": "Taste Restaurant & Wine Bar",
+    "name": "Eli's Table (fka Taste)",
     "address": "1413 3rd Ave, New York, NY, 10028",
     "borough": "Manhattan",
     "neighborhood": "Manhattan",
     "phone": "(212) 717-9798",
     "email": "",
-    "website": "",
-    "notes": ""
+    "website": "https://www.elizabar.com/",
+    "notes": "Formerly Taste Restaurant & Wine Bar; now Eli's Table"
   },
   {
     "id": 86,
@@ -942,7 +942,7 @@
     "neighborhood": "Manhattan",
     "phone": "(212) 691-6000",
     "email": "",
-    "website": "",
+    "website": "https://www.temperancenyc.com/",
     "notes": ""
   },
   {
@@ -1008,7 +1008,7 @@
     "neighborhood": "Manhattan",
     "phone": "(212) 645-9758",
     "email": "",
-    "website": "",
+    "website": "https://www.theotheroomnyc.com/",
     "notes": "no clean official site surfaced"
   },
   {
@@ -1030,7 +1030,7 @@
     "neighborhood": "Manhattan",
     "phone": "(212) 579-7970",
     "email": "",
-    "website": "",
+    "website": "https://ilgustowinebar.com/",
     "notes": "official site not cleanly surfaced"
   },
   {
@@ -1042,7 +1042,7 @@
     "phone": "(212) 675-7749",
     "email": "",
     "website": "",
-    "notes": ""
+    "notes": "[CLOSED]"
   },
   {
     "id": 96,
@@ -1053,7 +1053,7 @@
     "phone": "(212) 614-2555",
     "email": "",
     "website": "",
-    "notes": "website not captured cleanly"
+    "notes": "website not captured cleanly [CLOSED]"
   },
   {
     "id": 97,
@@ -1107,7 +1107,7 @@
     "neighborhood": "Manhattan",
     "phone": "(212) 988-0222",
     "email": "",
-    "website": "",
+    "website": "https://vintnerwinemarketny.com/",
     "notes": "wine shop / bar format"
   },
   {
@@ -1119,7 +1119,7 @@
     "phone": "(646) 755-8538",
     "email": "",
     "website": "",
-    "notes": ""
+    "notes": "[CLOSED]"
   },
   {
     "id": 103,
@@ -1163,7 +1163,7 @@
     "phone": "(212) 777-1608",
     "email": "",
     "website": "",
-    "notes": ""
+    "notes": "[CLOSED]"
   },
   {
     "id": 107,
@@ -1173,7 +1173,7 @@
     "neighborhood": "Manhattan",
     "phone": "(212) 633-9463",
     "email": "",
-    "website": "",
+    "website": "https://www.wineescapenyc44.com/",
     "notes": "no clean official site surfaced"
   },
   {
@@ -1185,7 +1185,7 @@
     "phone": "(212) 226-3330",
     "email": "",
     "website": "",
-    "notes": "no clean official site surfaced"
+    "notes": "no clean official site surfaced [CLOSED]"
   },
   {
     "id": 109,
