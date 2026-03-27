@@ -58,7 +58,7 @@ export default function BarsPage() {
       <Header />
 
       <main className="bars-page">
-        <div className="bars-page-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
+        <div className="bars-page-header" style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
           <div>
             <h1 className="bars-page-title">NYC Wine Bars</h1>
             <p className="bars-page-subtitle">{bars.length} wine bars across New York City</p>

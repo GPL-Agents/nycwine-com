@@ -58,7 +58,7 @@ export default function StoresPage() {
       <Header />
 
       <main className="stores-page">
-        <div className="stores-page-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
+        <div className="stores-page-header" style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
           <div>
             <h1 className="stores-page-title">NYC Wine Stores</h1>
             <p className="stores-page-subtitle">{stores.length} wine stores across Manhattan</p>
