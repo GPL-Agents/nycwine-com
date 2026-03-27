@@ -1342,7 +1342,7 @@ body {
 .events-page-layout {
   display: flex;
   gap: 24px;
-  padding: 16px 0;
+  padding: 8px 0;
 }
 .events-page-list { flex: 2; display: flex; flex-direction: column; gap: 12px; }
 .events-page-sidebar {
@@ -1467,7 +1467,7 @@ body {
    STORES PAGE (full directory)
 ═══════════════════════════════════════ */
 .stores-page { max-width: 720px; margin: 0 auto; padding: 0 24px 40px; }
-.stores-page-header { padding: 32px 0 20px; text-align: left; }
+.stores-page-header { padding: 12px 0 10px; text-align: left; }
 .stores-page-title {
   font-family: var(--font-serif);
   font-size: 28px;
@@ -1592,11 +1592,11 @@ body {
 /* Wineries section */
 .wineries-section { border-top: 1px solid var(--border); }
 .wineries-header {
-  background: #2d5016;
+  background: var(--black);
   padding: 14px var(--content-pad);
 }
 .wineries-header .section-header-title { color: white; }
-.wineries-header .see-all-link { color: #a8d57a; }
+.wineries-header .see-all-link { color: var(--rose-muted); }
 
 /* Bar finder widget (homepage) */
 .bar-finder {
@@ -1753,8 +1753,8 @@ body {
 .bar-visit-btn:hover { background: var(--pink-muted); color: white; }
 
 /* ── Bars standalone page (/bars) ────────────────────────── */
-.bars-page { max-width: 800px; margin: 0 auto; padding: 24px; }
-.bars-page-header { margin-bottom: 24px; }
+.bars-page { max-width: 800px; margin: 0 auto; padding: 12px 24px 24px; }
+.bars-page-header { margin-bottom: 10px; }
 .bars-page-title { font-family: var(--font-serif); font-size: 28px; font-weight: 700; color: var(--black); }
 .bars-page-subtitle { font-size: 14px; color: var(--muted); margin-top: 4px; }
 .bars-page-controls { display: flex; gap: 12px; margin-bottom: 16px; }

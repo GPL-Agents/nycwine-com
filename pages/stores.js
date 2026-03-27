@@ -67,7 +67,7 @@ export default function StoresPage() {
             <img
               src="/images/maps3button.png"
               alt="Maps & Directions"
-              style={{ height: '120px', width: 'auto', cursor: 'pointer', borderRadius: '8px' }}
+              style={{ height: '150px', width: 'auto', cursor: 'pointer', borderRadius: '8px' }}
             />
           </Link>
         </div>
