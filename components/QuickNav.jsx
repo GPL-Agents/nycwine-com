@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 
 const SECTIONS = [
-  { id: 'sec-events', label: 'Events', cls: 'events' },
-  { id: 'sec-social', label: 'Social', cls: 'social' },
-  { id: 'sec-news', label: 'News', cls: 'news' },
-  { id: 'sec-stores', label: 'Wine Stores', cls: 'stores' },
-  { id: 'sec-bars', label: 'Wine Bars', cls: 'bars' },
+  { id: 'sec-events',    label: 'Events',      cls: 'events'    },
+  { id: 'sec-social',    label: 'Social',       cls: 'social'    },
+  { id: 'sec-news',      label: 'News',         cls: 'news'      },
+  { id: 'sec-bars',      label: 'Wine Bars',    cls: 'bars'      },
+  { id: 'sec-stores',    label: 'Wine Stores',  cls: 'stores'    },
+  { id: 'sec-wineries',  label: 'Wineries',     cls: 'wineries'  },
 ];
 
 export default function QuickNav() {
@@ -74,9 +75,6 @@ export default function QuickNav() {
           {s.label}
         </a>
       ))}
-      <a className="qnav-pill wineries" href="/wineries">
-        Wineries
-      </a>
       <a className="qnav-pill map" href="/map">
         Map
       </a>

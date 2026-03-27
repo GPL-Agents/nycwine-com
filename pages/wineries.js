@@ -61,23 +61,15 @@ export default function WineriesPage() {
       <main className="bars-page">
         <div className="bars-page-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
           <div>
-            <h1 className="bars-page-title" style={{ color: '#2d5016' }}>Wineries Near NYC</h1>
+            <h1 className="bars-page-title">Wineries Near NYC</h1>
             <p className="bars-page-subtitle">{wineries.length} wineries within driving distance</p>
           </div>
-          <Link href="/">
-            <span style={{
-              display: 'inline-block',
-              padding: '10px 20px',
-              background: '#2d5016',
-              color: 'white',
-              borderRadius: '8px',
-              fontSize: '14px',
-              fontWeight: 600,
-              cursor: 'pointer',
-              textDecoration: 'none',
-            }}>
-              ← Back to Home
-            </span>
+          <Link href="/map">
+            <img
+              src="/images/maps3button.png"
+              alt="Maps & Directions"
+              style={{ height: '150px', width: 'auto', cursor: 'pointer', borderRadius: '8px' }}
+            />
           </Link>
         </div>
 
@@ -93,7 +85,6 @@ export default function WineriesPage() {
             value={region}
             onChange={(e) => { setRegion(e.target.value); setShowCount(20); }}
             className="bars-page-select"
-            style={{ accentColor: '#2d5016' }}
           >
             {regions.map((r) => (
               <option key={r} value={r}>{r === 'All' ? 'All Regions' : r}</option>
@@ -126,7 +117,6 @@ export default function WineriesPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bar-visit-btn"
-                  style={{ background: '#2d5016' }}
                 >
                   Visit
                 </a>
@@ -144,7 +134,6 @@ export default function WineriesPage() {
             <button
               className="bar-see-all"
               onClick={() => setShowCount((c) => c + 20)}
-              style={{ cursor: 'pointer', width: '100%', border: '1px solid #2d5016', borderRadius: 10, marginTop: 16, color: '#2d5016' }}
             >
               Show more ({filtered.length - showCount} remaining)
             </button>
