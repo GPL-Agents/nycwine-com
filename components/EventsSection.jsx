@@ -167,7 +167,14 @@ export default function EventsSection() {
             )}
             <div className="event-card-body">
               <div className="event-card-name">{ev.title}</div>
-              {ev.venue && <div className="event-card-venue">{ev.venue}</div>}
+              {ev.venue && ev.venue !== 'NYC' && (
+                <div className="event-card-venue">
+                  {ev.venue}
+                  {ev.venueAddress && (
+                    <span className="event-card-venue-addr"> · {ev.venueAddress.split(',')[0]}</span>
+                  )}
+                </div>
+              )}
               {ev.dateDisplay && <div className="event-card-date">{ev.dateDisplay}</div>}
               <span className="event-card-tag" data-tag={ev.tag}>{ev.tag}</span>
               {ev.price && <span className="event-card-price">{ev.price}</span>}
@@ -196,7 +203,14 @@ export default function EventsSection() {
                   </div>
                   <div className="event-row-info">
                     <div className="event-row-name">{ev.title}</div>
-                    {ev.venue && <div className="event-row-venue">{ev.venue}</div>}
+                    {ev.venue && ev.venue !== 'NYC' && (
+                      <div className="event-row-venue">
+                        {ev.venue}
+                        {ev.venueAddress && (
+                          <span className="event-card-venue-addr"> · {ev.venueAddress.split(',')[0]}</span>
+                        )}
+                      </div>
+                    )}
                     {ev.dateDisplay && <div className="event-row-venue">{ev.dateDisplay}</div>}
                   </div>
                   <div className="event-row-arrow">&rsaquo;</div>

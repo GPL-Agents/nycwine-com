@@ -347,6 +347,7 @@ body {
 .event-card-body { padding: 12px 14px; }
 .event-card-name  { font-size: 13px; font-weight: 600; color: var(--black); line-height: 1.4; }
 .event-card-venue { font-size: 11px; color: var(--muted); margin-top: 4px; }
+.event-card-venue-addr { font-size: 10px; color: var(--muted); opacity: 0.8; }
 .event-card-date  { font-size: 11px; color: var(--pink); font-weight: 500; margin-top: 3px; }
 .event-card-tag   { font-size: 10px; padding: 3px 10px; border-radius: 10px; font-weight: 500; display: inline-block; margin-top: 8px; }
 .event-card-tag[data-tag="Tasting"]  { background: #fce4ec; color: #c62828; }

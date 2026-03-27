@@ -117,7 +117,14 @@ export default function EventsPage() {
                     </div>
                     <div className="events-page-card-details">
                       <div className="events-page-card-title">{ev.title}</div>
-                      <div className="events-page-card-venue">{ev.venue}</div>
+                      {ev.venue && ev.venue !== 'NYC' && (
+                        <div className="events-page-card-venue">
+                          {ev.venue}
+                          {ev.venueAddress && (
+                            <span className="event-card-venue-addr"> · {ev.venueAddress.split(',')[0]}</span>
+                          )}
+                        </div>
+                      )}
                       {ev.dateDisplay && (
                         <div className="events-page-card-time">{ev.dateDisplay}</div>
                       )}

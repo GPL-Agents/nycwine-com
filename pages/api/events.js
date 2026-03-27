@@ -19,6 +19,115 @@ let cache = null;
 let cacheTime = 0;
 const CACHE_TTL = 30 * 60 * 1000; // 30 minutes
 
+// ── Venue database enrichment ─────────────────────────────────
+// Loads wine-bars.json + wine-stores.json and builds two lookup
+// maps so we can match an event venue string either way:
+//   name  → add address to the event
+//   address → replace with proper name + address
+let venueDB = null;
+
+function loadVenueDB() {
+  if (venueDB) return venueDB;
+  const read = (filename) => {
+    try {
+      const p = path.join(process.cwd(), 'public', 'data', filename);
+      return JSON.parse(fs.readFileSync(p, 'utf8'));
+    } catch { return []; }
+  };
+  const all = [...read('wine-bars.json'), ...read('wine-stores.json')]
+    .filter((v) => v.name && !(v.notes || '').includes('[CLOSED]'));
+
+  // Map 1: normalized name → entry
+  const byName = new Map();
+  // Map 2: normalized street fragment → entry (first ~25 chars of address)
+  const byAddr = new Map();
+
+  for (const v of all) {
+    const nameLow = v.name.toLowerCase().trim();
+    byName.set(nameLow, v);
+
+    if (v.address) {
+      // Key on just the house number + street portion, lowercase, no commas
+      const addrKey = v.address.split(',')[0].toLowerCase().trim();
+      byAddr.set(addrKey, v);
+    }
+  }
+
+  venueDB = { all, byName, byAddr };
+  return venueDB;
+}
+
+// Normalize a string for fuzzy comparison:
+// lower-case, collapse spaces, drop punctuation, expand common abbreviations
+function normAddr(s) {
+  return (s || '')
+    .toLowerCase()
+    .replace(/\bst\b/g, 'street').replace(/\bave\b/g, 'avenue')
+    .replace(/\bblvd\b/g, 'boulevard').replace(/\bpl\b/g, 'place')
+    .replace(/\brd\b/g, 'road').replace(/\bdr\b/g, 'drive')
+    .replace(/[.,#]/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+// Try to find a matching venue in our DB and return enriched fields.
+// Returns { venue, venueAddress, borough } — unchanged if no match found.
+function enrichVenueFromDB(venue) {
+  if (!venue || venue === 'NYC') return { venue, venueAddress: null };
+  const db = loadVenueDB();
+
+  const vLow = venue.toLowerCase().trim();
+
+  // ── 1. Exact name match ──────────────────────────────────────
+  const exactName = db.byName.get(vLow);
+  if (exactName) {
+    return {
+      venue: exactName.name,
+      venueAddress: exactName.address || null,
+      borough: exactName.borough || exactName.neighborhood || null,
+    };
+  }
+
+  // ── 2. Venue string looks like a street address (starts with digit) ──
+  const isAddress = /^\d/.test(venue.trim());
+  if (isAddress) {
+    const normV = normAddr(venue.split(',')[0]);  // just the street part
+    // Exact address key match
+    const exactAddr = db.byAddr.get(venue.split(',')[0].toLowerCase().trim());
+    if (exactAddr) {
+      return {
+        venue: exactAddr.name,
+        venueAddress: exactAddr.address || null,
+        borough: exactAddr.borough || exactAddr.neighborhood || null,
+      };
+    }
+    // Normalized address match
+    for (const [key, entry] of db.byAddr) {
+      if (normAddr(key) === normV || normAddr(key).startsWith(normV) || normV.startsWith(normAddr(key))) {
+        return {
+          venue: entry.name,
+          venueAddress: entry.address || null,
+          borough: entry.borough || entry.neighborhood || null,
+        };
+      }
+    }
+    // No match — keep the address as the venue string
+    return { venue, venueAddress: null };
+  }
+
+  // ── 3. Partial / fuzzy name match (contains in either direction) ──
+  for (const [name, entry] of db.byName) {
+    if (vLow.includes(name) || name.includes(vLow)) {
+      return {
+        venue: entry.name,
+        venueAddress: entry.address || null,
+        borough: entry.borough || entry.neighborhood || null,
+      };
+    }
+  }
+
+  // ── 4. No match — return unchanged, no address ────────────────
+  return { venue, venueAddress: null };
+}
+
 // ── Color cycling for cards without images ────────────────────
 const COLORS = ['c1', 'c2', 'c3', 'c4', 'c5'];
 
@@ -359,13 +468,17 @@ async function scrapeEventbrite() {
     // Use sanitizeVenue to discard bare city names (e.g. "New York City")
     // Fall back to 'NYC' so there's always some location shown
     const title = detail?.title || partial?.title || slugTitle || 'Wine Event';
-    const venue = sanitizeVenue(detail?.venue) || sanitizeVenue(partial?.venue) || 'NYC';
+    const rawVenue = sanitizeVenue(detail?.venue) || sanitizeVenue(partial?.venue) || 'NYC';
     const date = detail?.date || partial?.date || null;
     const image = fixImageUrl(detail?.image || partial?.image || null);
 
+    // Enrich venue with address/name from our wine bar + store databases
+    const enriched = enrichVenueFromDB(rawVenue);
+
     allEvents.push({
       title,
-      venue,
+      venue: enriched.venue,
+      venueAddress: enriched.venueAddress || null,
       date,
       dateDisplay: formatDateDisplay(date),
       day: formatDay(date),
