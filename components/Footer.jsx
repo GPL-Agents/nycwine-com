@@ -7,6 +7,8 @@ export default function Footer() {
   return (
     <footer className="site-footer">
       <nav className="footer-links">
+        <a href="/">Home</a>
+        <span className="footer-dot">&middot;</span>
         <a href="/about">About</a>
         <span className="footer-dot">&middot;</span>
         <a href="/stores">Wine Stores</a>

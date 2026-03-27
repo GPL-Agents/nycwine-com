@@ -71,6 +71,9 @@ export default function QuickNav() {
       <a className="qnav-pill wineries" href="#sec-wineries" onClick={(e) => { e.preventDefault(); }}>
         Wineries <span style={{ fontSize: 9, fontWeight: 500, background: 'var(--cream-dark, #efe9e1)', color: 'var(--muted)', borderRadius: 8, padding: '1px 6px', marginLeft: 4, letterSpacing: '0.02em' }}>soon</span>
       </a>
+      <a className="qnav-pill map" href="/map">
+        Map
+      </a>
     </nav>
   );
 }

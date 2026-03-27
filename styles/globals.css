@@ -201,6 +201,7 @@ body {
 .qnav-pill.bars     { border-color: var(--border); color: var(--text); background: white; }
 .qnav-pill.qnav-active { border-color: var(--rose-muted); color: var(--rose); background: var(--rose-light); }
 .qnav-pill.wineries { border-color: var(--border); color: var(--muted); background: var(--cream); border-style: dashed; opacity: 0.5; }
+.qnav-pill.map      { border-color: var(--border); color: var(--text); background: white; }
 
 /* ═══════════════════════════════════════
    SECTION HEADERS (shared pattern)
