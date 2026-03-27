@@ -121,9 +121,7 @@
     "phone": "(718) 857-0101",
     "email": "",
     "website": "https://www.pdfnyc.com",
-    "notes": "",
-    "featuredBar": true,
-    "logo": "https://images.getbento.com/accounts/9dde1c96b0d142d502dec1e744f85d75/media/images/6434logo_vertical.svg"
+    "notes": ""
   },
   {
     "id": 12,
@@ -370,7 +368,9 @@
     "phone": "(212) 673-2424",
     "email": "",
     "website": "https://www.bibiwinebar.com",
-    "notes": ""
+    "notes": "",
+    "featuredBar": true,
+    "logo": "https://cdn.prod.website-files.com/62560bc00d5340414212deee/62561c6d781fd1e10fe9d8c7_Bibi_Logo-FPO.png"
   },
   {
     "id": 34,
@@ -733,7 +733,9 @@
     "phone": "(646) 707-3271",
     "email": "contact@musettewinebar.com",
     "website": "https://musettewinebar.com",
-    "notes": ""
+    "notes": "",
+    "featuredBar": true,
+    "logo": "https://static.spotapps.co/website_images/ab_websites/117051_website/logo.png"
   },
   {
     "id": 67,
@@ -1142,9 +1144,7 @@
     "phone": "(646) 964-5624",
     "email": "info@wildair.nyc",
     "website": "https://www.wildair.nyc",
-    "notes": "",
-    "featuredBar": true,
-    "logo": "https://images.squarespace-cdn.com/content/v1/5c3795d7aa49a125857b590b/245407a8-613a-40af-ad1f-e23f58251ab5/SKJDNFKDSJNFDKAJFBDASK.png"
+    "notes": ""
   },
   {
     "id": 104,
