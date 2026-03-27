@@ -50,9 +50,12 @@ export default function WineriesSection() {
   return (
     <section className="wineries-section" id="sec-wineries">
 
-      {/* Header — green ribbon */}
+      {/* Header — black ribbon */}
       <div className="section-header wineries-header">
-        <div className="section-header-title">Wineries</div>
+        <div className="section-header-title">
+          <img src="/images/icons/icon-winery.png" className="ribbon-icon" alt="" aria-hidden="true" />
+          Wineries
+        </div>
         <a href="/wineries" className="see-all-link">
           {wineries.length} wineries &rarr;
         </a>
@@ -130,11 +133,17 @@ export default function WineriesSection() {
             </div>
           ))}
         </div>
+        {isSearching && filtered.length > 9 && (
+          <a href="/wineries" className="bar-see-all">
+            View all {filtered.length} results →
+          </a>
+        )}
+        {!isSearching && (
+          <a href="/wineries" className="bar-see-all">
+            Browse all {wineries.length} wineries →
+          </a>
+        )}
       </div>
-
-      <a href="/wineries" className="browse-all-link">
-        Browse all {wineries.length} wineries →
-      </a>
 
     </section>
   );

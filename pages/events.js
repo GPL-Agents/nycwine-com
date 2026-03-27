@@ -61,7 +61,10 @@ export default function EventsPage() {
       <main className="events-page">
         {/* Page header */}
         <div className="section-header events-header">
-          <div className="section-header-title">Wine Events</div>
+          <div className="section-header-title">
+            <img src="/images/icons/icon-wine-events.png" className="ribbon-icon ribbon-icon-white" alt="" aria-hidden="true" />
+            Wine Events
+          </div>
         </div>
 
         {/* Filter pills */}

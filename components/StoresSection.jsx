@@ -75,7 +75,10 @@ export default function StoresSection() {
 
       {/* Header */}
       <div className="section-header stores-header">
-        <div className="section-header-title">Wine Stores</div>
+        <div className="section-header-title">
+          <img src="/images/icons/icon-wine-store.png" className="ribbon-icon" alt="" aria-hidden="true" />
+          Wine Stores
+        </div>
         <a href="/stores" className="see-all-link">
           {stores.length} stores &rarr;
         </a>

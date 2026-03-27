@@ -225,6 +225,19 @@ body {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ribbon-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  flex-shrink: 0;
+  opacity: 0.92;
+}
+.ribbon-icon-white {
+  filter: brightness(0) invert(1);
 }
 .see-all-link {
   font-size: 12px;

@@ -61,9 +61,12 @@ export default function WineBarsSection() {
   return (
     <section className="bars-section" id="sec-bars">
 
-      {/* Header — pink ribbon */}
+      {/* Header — black ribbon */}
       <div className="section-header bars-header">
-        <div className="section-header-title">Wine Bars</div>
+        <div className="section-header-title">
+          <img src="/images/icons/icon-wine-bar.png" className="ribbon-icon" alt="" aria-hidden="true" />
+          Wine Bars
+        </div>
         <a href="/bars" className="see-all-link">
           {bars.length} wine bars &rarr;
         </a>
