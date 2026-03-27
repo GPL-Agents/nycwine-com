@@ -101,7 +101,7 @@ export default function WineriesSection() {
         )}
         <div className="bar-cards-grid">
           {displayWineries.map((winery) => (
-            <div key={winery.id} className="bar-card">
+            <div key={winery.id} className="bar-card wineries-card">
               <div className="bar-card-icon" style={{ background: winery.logo ? '#fff' : undefined }}>
                 {winery.logo ? (
                   <img

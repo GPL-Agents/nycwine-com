@@ -1,39 +1,341 @@
 [
-  { "id": 1, "name": "Wölffer Estate Vineyard", "region": "Hamptons", "logo": "https://wolffer.com/cdn/shop/files/logo.png", "phone": "(631) 537-5106", "address": "139 Sagg Rd, Sagaponack, NY 11962", "website": "https://wolffer.com", "featured": true },
-  { "id": 2, "name": "Duck Walk Vineyards", "region": "Hamptons", "logo": "https://www.duckwalk.com/assets/logo.png", "phone": "(631) 726-7555", "address": "231 Montauk Hwy, Water Mill, NY 11976", "website": "https://www.duckwalk.com", "featured": true },
-  { "id": 3, "name": "Channing Daughters Winery", "region": "Hamptons", "logo": "https://channingdaughters.com/wp-content/uploads/logo.png", "phone": "(631) 537-7224", "address": "1927 Scuttle Hole Rd, Bridgehampton, NY 11932", "website": "https://channingdaughters.com", "featured": true },
-  { "id": 4, "name": "Macari Vineyards", "region": "North Fork", "logo": "https://macariwines.com/wp-content/uploads/logo.png", "phone": "(631) 734-7070", "address": "150 Bergen Ave, Mattituck, NY 11952", "website": "https://macariwines.com", "featured": true },
-  { "id": 5, "name": "Bedell Cellars", "region": "North Fork", "logo": "https://www.bedellcellars.com/assets/logo.png", "phone": "(631) 734-7537", "address": "36225 Main Rd, Cutchogue, NY 11935", "website": "https://www.bedellcellars.com", "featured": true },
-  { "id": 6, "name": "Sparkling Pointe Vineyards & Winery", "region": "North Fork", "logo": "https://sparklingpointe.com/wp-content/uploads/logo.png", "phone": "(631) 765-0200", "address": "39750 County Rd 48, Southold, NY 11971", "website": "https://sparklingpointe.com", "featured": true },
-  { "id": 7, "name": "Raphael Winery", "region": "North Fork", "logo": "https://raphaelwine.com/wp-content/uploads/logo.png", "phone": "(631) 765-1100", "address": "39390 Route 25, Peconic, NY 11958", "website": "https://raphaelwine.com" },
-  { "id": 8, "name": "Pindar Vineyards", "region": "North Fork", "logo": "https://pindar.net/wp-content/uploads/logo.png", "phone": "(631) 734-6200", "address": "37645 Main Rd, Peconic, NY 11958", "website": "https://pindar.net" },
-  { "id": 9, "name": "Paumanok Vineyards", "region": "North Fork", "logo": "https://paumanok.com/wp-content/uploads/logo.png", "phone": "(631) 722-8800", "address": "1074 Main Rd, Aquebogue, NY 11931", "website": "https://paumanok.com" },
-  { "id": 10, "name": "Palmer Vineyards", "region": "North Fork", "logo": "https://palmervineyards.com/wp-content/uploads/logo.png", "phone": "(631) 722-9463", "address": "5120 Sound Ave, Riverhead, NY 11901", "website": "https://palmervineyards.com" },
-  { "id": 11, "name": "Kontokosta Winery", "region": "North Fork", "logo": "https://kontokostawinery.com/wp-content/uploads/logo.png", "phone": "(631) 477-6977", "address": "825 North Rd, Greenport, NY 11944", "website": "https://kontokostawinery.com" },
-  { "id": 12, "name": "Sannino Vineyard", "region": "North Fork", "logo": "https://sanninovineyard.com/wp-content/uploads/logo.png", "phone": "(631) 734-8282", "address": "15975 County Rd 48, Cutchogue, NY 11935", "website": "https://sanninovineyard.com" },
-  { "id": 13, "name": "Lieb Cellars", "region": "North Fork", "logo": "https://liebcellars.com/wp-content/uploads/logo.png", "phone": "(631) 734-1100", "address": "22600 Main Rd, Cutchogue, NY 11935", "website": "https://liebcellars.com" },
-  { "id": 14, "name": "Coffee Pot Cellars", "region": "North Fork", "logo": "https://coffeepotcellars.com/wp-content/uploads/logo.png", "phone": "(631) 765-8929", "address": "13050 Oregon Rd, Cutchogue, NY 11935", "website": "https://coffeepotcellars.com" },
-  { "id": 15, "name": "Castello di Borghese Vineyard", "region": "North Fork", "logo": "https://castellodiborghese.com/wp-content/uploads/logo.png", "phone": "(631) 734-5111", "address": "17150 Route 48, Cutchogue, NY 11935", "website": "https://castellodiborghese.com" },
-  { "id": 16, "name": "Osprey's Dominion Vineyard", "region": "North Fork", "logo": "https://ospreysdominion.com/wp-content/uploads/logo.png", "phone": "(631) 765-6188", "address": "44075 Main Rd, Peconic, NY 11958", "website": "https://ospreysdominion.com" },
-  { "id": 17, "name": "RGNY (Rivero Gonzalez)", "region": "North Fork", "logo": "https://rgnywine.com/wp-content/uploads/logo.png", "phone": "(631) 298-0075", "address": "6025 Sound Ave, Riverhead, NY 11901", "website": "https://rgnywine.com" },
-  { "id": 18, "name": "Jamesport Vineyards", "region": "North Fork", "logo": "https://jamesportwines.com/wp-content/uploads/logo.png", "phone": "(631) 722-5256", "address": "1216 Main Rd, Jamesport, NY 11947", "website": "https://jamesportwines.com" },
-  { "id": 19, "name": "Harbes Vineyard", "region": "North Fork", "logo": "https://harbesvineyard.com/wp-content/uploads/logo.png", "phone": "(631) 298-9463", "address": "715 Sound Ave, Mattituck, NY 11952", "website": "https://harbesvineyard.com" },
-  { "id": 20, "name": "Shinn Estate Vineyards", "region": "North Fork", "logo": "https://shinnestatevineyards.com/wp-content/uploads/logo.png", "phone": "(631) 804-0367", "address": "2000 Oregon Rd, Mattituck, NY 11952", "website": "https://shinnestatevineyards.com" },
-  { "id": 21, "name": "Rose Hill Vineyards & Inn", "region": "North Fork", "logo": "https://rosehillvineyards.com/wp-content/uploads/logo.png", "phone": "(631) 765-1100", "address": "2000 Oregon Rd, Mattituck, NY 11952", "website": "https://rosehillvineyards.com" },
-  { "id": 22, "name": "Jason's Vineyard", "region": "North Fork", "logo": "https://jasonsvineyard.com/wp-content/uploads/logo.png", "phone": "(631) 238-5801", "address": "1785 Main Rd, Jamesport, NY 11947", "website": "https://jasonsvineyard.com" },
-  { "id": 23, "name": "Pugliese Vineyards", "region": "North Fork", "logo": "https://pugliesevineyards.com/wp-content/uploads/logo.png", "phone": "(631) 734-5791", "address": "34515 Main Rd, Cutchogue, NY 11935", "website": "https://pugliesevineyards.com" },
-  { "id": 24, "name": "Terra Vite Winery & Vineyard", "region": "North Fork", "logo": "https://terraviteny.com/wp-content/uploads/logo.png", "phone": "(631) 722-3416", "address": "250 Manor Ln, Jamesport, NY 11947", "website": "https://terraviteny.com" },
-  { "id": 25, "name": "Mattebella Vineyards", "region": "North Fork", "logo": "https://mattebella.com/wp-content/uploads/logo.png", "phone": "(631) 298-7987", "address": "46005 Main Rd, Southold, NY 11971", "website": "https://mattebella.com" },
-  { "id": 26, "name": "Suhr & Liev Vineyards", "region": "North Fork", "logo": "https://suhrliev.com/wp-content/uploads/logo.png", "phone": "(631) 734-2888", "address": "28670 Main Rd, Cutchogue, NY 11935", "website": "https://suhrliev.com" },
-  { "id": 27, "name": "Baiting Hollow Farm Vineyard", "region": "North Fork", "logo": "https://baitinghollowfarmvineyard.com/wp-content/uploads/logo.png", "phone": "(631) 369-0100", "address": "2114 Sound Ave, Calverton, NY 11933", "website": "https://baitinghollowfarmvineyard.com" },
-  { "id": 28, "name": "Pellegrini Vineyards", "region": "North Fork", "logo": "https://pellegrinivineyards.com/wp-content/uploads/logo.png", "phone": "(631) 734-4111", "address": "23005 Main Rd, Cutchogue, NY 11935", "website": "https://pellegrinivineyards.com" },
-  { "id": 29, "name": "Clovis Point Vineyard & Winery", "region": "North Fork", "logo": "https://clovispointwines.com/wp-content/uploads/logo.png", "phone": "(631) 722-4222", "address": "1935 Main Rd, Jamesport, NY 11947", "website": "https://clovispointwines.com" },
-  { "id": 30, "name": "Ev&Em Vineyards", "region": "North Fork", "logo": "https://evemvineyards.com/wp-content/uploads/logo.png", "phone": "(631) 298-0100", "address": "4362 Sound Ave, Laurel, NY 11948", "website": "https://evemvineyards.com" },
-  { "id": 31, "name": "The Vineyards at Aquebogue", "region": "North Fork", "logo": "https://vineyardsataquebogue.com/wp-content/uploads/logo.png", "phone": "(631) 722-3200", "address": "1785 Main Rd, Aquebogue, NY 11931", "website": "https://vineyardsataquebogue.com" },
-  { "id": 32, "name": "Farrm Wines", "region": "North Fork", "logo": "https://farrmwines.com/wp-content/uploads/logo.png", "phone": "(631) 369-0100", "address": "6055 Sound Ave, Baiting Hollow, NY 11933", "website": "https://farrmwines.com" },
-  { "id": 33, "name": "Roanoke Vineyards", "region": "North Fork", "logo": "https://roanokevineyards.net/wp-content/uploads/logo.png", "phone": "(631) 727-4161", "address": "3543 Sound Ave, Riverhead, NY 11901", "website": "https://roanokevineyards.net" },
-  { "id": 34, "name": "Del Vino Vineyards", "region": "Long Island (North Shore)", "logo": "https://delvinovineyards.com/wp-content/uploads/logo.png", "phone": "(631) 994-0101", "address": "29 Norwood Rd, Northport, NY 11768", "website": "https://delvinovineyards.com" },
-  { "id": 35, "name": "Whisper Vineyards", "region": "Long Island (North Shore)", "logo": "https://whispervineyards.com/wp-content/uploads/logo.png", "phone": "(631) 530-8806", "address": "485 Edgewood Ave, St James, NY 11780", "website": "https://whispervineyards.com" },
-  { "id": 36, "name": "Loughlin Vineyard", "region": "Long Island (South Shore)", "logo": "https://loughlinvineyard.com/wp-content/uploads/logo.png", "phone": "(631) 589-0027", "address": "299 Locust Ave, Sayville, NY 11782", "website": "https://loughlinvineyard.com" },
-  { "id": 37, "name": "FIV Fire Island Vines", "region": "Long Island (South Shore)", "logo": "https://fireislandvines.com/wp-content/uploads/logo.png", "phone": "(631) 647-7400", "address": "150 Bay Walk, Bay Shore, NY 11706", "website": "https://fireislandvines.com" }
+  {
+    "id": 1,
+    "name": "W\u00f6lffer Estate Vineyard",
+    "region": "Hamptons",
+    "logo": "/images/wineries/wolffer.png",
+    "phone": "(631) 537-5106",
+    "address": "139 Sagg Rd, Sagaponack, NY 11962",
+    "website": "https://wolffer.com",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "name": "Duck Walk Vineyards",
+    "region": "Hamptons",
+    "logo": "/images/wineries/duckwalk.png",
+    "phone": "(631) 726-7555",
+    "address": "231 Montauk Hwy, Water Mill, NY 11976",
+    "website": "https://www.duckwalk.com",
+    "featured": true
+  },
+  {
+    "id": 3,
+    "name": "Channing Daughters Winery",
+    "region": "Hamptons",
+    "logo": "/images/wineries/channing.png",
+    "phone": "(631) 537-7224",
+    "address": "1927 Scuttle Hole Rd, Bridgehampton, NY 11932",
+    "website": "https://channingdaughters.com",
+    "featured": true
+  },
+  {
+    "id": 4,
+    "name": "Macari Vineyards",
+    "region": "North Fork",
+    "logo": "/images/wineries/macari.png",
+    "phone": "(631) 734-7070",
+    "address": "150 Bergen Ave, Mattituck, NY 11952",
+    "website": "https://macariwines.com",
+    "featured": true
+  },
+  {
+    "id": 5,
+    "name": "Bedell Cellars",
+    "region": "North Fork",
+    "logo": "/images/wineries/bedell.png",
+    "phone": "(631) 734-7537",
+    "address": "36225 Main Rd, Cutchogue, NY 11935",
+    "website": "https://www.bedellcellars.com",
+    "featured": true
+  },
+  {
+    "id": 6,
+    "name": "Sparkling Pointe Vineyards & Winery",
+    "region": "North Fork",
+    "logo": "/images/wineries/sparkling-pointe.png",
+    "phone": "(631) 765-0200",
+    "address": "39750 County Rd 48, Southold, NY 11971",
+    "website": "https://sparklingpointe.com",
+    "featured": true
+  },
+  {
+    "id": 7,
+    "name": "Raphael Winery",
+    "region": "North Fork",
+    "logo": "",
+    "phone": "(631) 765-1100",
+    "address": "39390 Route 25, Peconic, NY 11958",
+    "website": "https://raphaelwine.com"
+  },
+  {
+    "id": 8,
+    "name": "Pindar Vineyards",
+    "region": "North Fork",
+    "logo": "",
+    "phone": "(631) 734-6200",
+    "address": "37645 Main Rd, Peconic, NY 11958",
+    "website": "https://pindar.net"
+  },
+  {
+    "id": 9,
+    "name": "Paumanok Vineyards",
+    "region": "North Fork",
+    "logo": "",
+    "phone": "(631) 722-8800",
+    "address": "1074 Main Rd, Aquebogue, NY 11931",
+    "website": "https://paumanok.com"
+  },
+  {
+    "id": 10,
+    "name": "Palmer Vineyards",
+    "region": "North Fork",
+    "logo": "",
+    "phone": "(631) 722-9463",
+    "address": "5120 Sound Ave, Riverhead, NY 11901",
+    "website": "https://palmervineyards.com"
+  },
+  {
+    "id": 11,
+    "name": "Kontokosta Winery",
+    "region": "North Fork",
+    "logo": "",
+    "phone": "(631) 477-6977",
+    "address": "825 North Rd, Greenport, NY 11944",
+    "website": "https://kontokostawinery.com"
+  },
+  {
+    "id": 12,
+    "name": "Sannino Vineyard",
+    "region": "North Fork",
+    "logo": "",
+    "phone": "(631) 734-8282",
+    "address": "15975 County Rd 48, Cutchogue, NY 11935",
+    "website": "https://sanninovineyard.com"
+  },
+  {
+    "id": 13,
+    "name": "Lieb Cellars",
+    "region": "North Fork",
+    "logo": "",
+    "phone": "(631) 734-1100",
+    "address": "22600 Main Rd, Cutchogue, NY 11935",
+    "website": "https://liebcellars.com"
+  },
+  {
+    "id": 14,
+    "name": "Coffee Pot Cellars",
+    "region": "North Fork",
+    "logo": "",
+    "phone": "(631) 765-8929",
+    "address": "13050 Oregon Rd, Cutchogue, NY 11935",
+    "website": "https://coffeepotcellars.com"
+  },
+  {
+    "id": 15,
+    "name": "Castello di Borghese Vineyard",
+    "region": "North Fork",
+    "logo": "",
+    "phone": "(631) 734-5111",
+    "address": "17150 Route 48, Cutchogue, NY 11935",
+    "website": "https://castellodiborghese.com"
+  },
+  {
+    "id": 16,
+    "name": "Osprey's Dominion Vineyard",
+    "region": "North Fork",
+    "logo": "",
+    "phone": "(631) 765-6188",
+    "address": "44075 Main Rd, Peconic, NY 11958",
+    "website": "https://ospreysdominion.com"
+  },
+  {
+    "id": 17,
+    "name": "RGNY (Rivero Gonzalez)",
+    "region": "North Fork",
+    "logo": "",
+    "phone": "(631) 298-0075",
+    "address": "6025 Sound Ave, Riverhead, NY 11901",
+    "website": "https://rgnywine.com"
+  },
+  {
+    "id": 18,
+    "name": "Jamesport Vineyards",
+    "region": "North Fork",
+    "logo": "",
+    "phone": "(631) 722-5256",
+    "address": "1216 Main Rd, Jamesport, NY 11947",
+    "website": "https://jamesportwines.com"
+  },
+  {
+    "id": 19,
+    "name": "Harbes Vineyard",
+    "region": "North Fork",
+    "logo": "",
+    "phone": "(631) 298-9463",
+    "address": "715 Sound Ave, Mattituck, NY 11952",
+    "website": "https://harbesvineyard.com"
+  },
+  {
+    "id": 20,
+    "name": "Shinn Estate Vineyards",
+    "region": "North Fork",
+    "logo": "",
+    "phone": "(631) 804-0367",
+    "address": "2000 Oregon Rd, Mattituck, NY 11952",
+    "website": "https://shinnestatevineyards.com"
+  },
+  {
+    "id": 21,
+    "name": "Rose Hill Vineyards & Inn",
+    "region": "North Fork",
+    "logo": "",
+    "phone": "(631) 765-1100",
+    "address": "2000 Oregon Rd, Mattituck, NY 11952",
+    "website": "https://rosehillvineyards.com"
+  },
+  {
+    "id": 22,
+    "name": "Jason's Vineyard",
+    "region": "North Fork",
+    "logo": "",
+    "phone": "(631) 238-5801",
+    "address": "1785 Main Rd, Jamesport, NY 11947",
+    "website": "https://jasonsvineyard.com"
+  },
+  {
+    "id": 23,
+    "name": "Pugliese Vineyards",
+    "region": "North Fork",
+    "logo": "",
+    "phone": "(631) 734-5791",
+    "address": "34515 Main Rd, Cutchogue, NY 11935",
+    "website": "https://pugliesevineyards.com"
+  },
+  {
+    "id": 24,
+    "name": "Terra Vite Winery & Vineyard",
+    "region": "North Fork",
+    "logo": "",
+    "phone": "(631) 722-3416",
+    "address": "250 Manor Ln, Jamesport, NY 11947",
+    "website": "https://terraviteny.com"
+  },
+  {
+    "id": 25,
+    "name": "Mattebella Vineyards",
+    "region": "North Fork",
+    "logo": "",
+    "phone": "(631) 298-7987",
+    "address": "46005 Main Rd, Southold, NY 11971",
+    "website": "https://mattebella.com"
+  },
+  {
+    "id": 26,
+    "name": "Suhr & Liev Vineyards",
+    "region": "North Fork",
+    "logo": "",
+    "phone": "(631) 734-2888",
+    "address": "28670 Main Rd, Cutchogue, NY 11935",
+    "website": "https://suhrliev.com"
+  },
+  {
+    "id": 27,
+    "name": "Baiting Hollow Farm Vineyard",
+    "region": "North Fork",
+    "logo": "",
+    "phone": "(631) 369-0100",
+    "address": "2114 Sound Ave, Calverton, NY 11933",
+    "website": "https://baitinghollowfarmvineyard.com"
+  },
+  {
+    "id": 28,
+    "name": "Pellegrini Vineyards",
+    "region": "North Fork",
+    "logo": "",
+    "phone": "(631) 734-4111",
+    "address": "23005 Main Rd, Cutchogue, NY 11935",
+    "website": "https://pellegrinivineyards.com"
+  },
+  {
+    "id": 29,
+    "name": "Clovis Point Vineyard & Winery",
+    "region": "North Fork",
+    "logo": "",
+    "phone": "(631) 722-4222",
+    "address": "1935 Main Rd, Jamesport, NY 11947",
+    "website": "https://clovispointwines.com"
+  },
+  {
+    "id": 30,
+    "name": "Ev&Em Vineyards",
+    "region": "North Fork",
+    "logo": "",
+    "phone": "(631) 298-0100",
+    "address": "4362 Sound Ave, Laurel, NY 11948",
+    "website": "https://evemvineyards.com"
+  },
+  {
+    "id": 31,
+    "name": "The Vineyards at Aquebogue",
+    "region": "North Fork",
+    "logo": "",
+    "phone": "(631) 722-3200",
+    "address": "1785 Main Rd, Aquebogue, NY 11931",
+    "website": "https://vineyardsataquebogue.com"
+  },
+  {
+    "id": 32,
+    "name": "Farrm Wines",
+    "region": "North Fork",
+    "logo": "",
+    "phone": "(631) 369-0100",
+    "address": "6055 Sound Ave, Baiting Hollow, NY 11933",
+    "website": "https://farrmwines.com"
+  },
+  {
+    "id": 33,
+    "name": "Roanoke Vineyards",
+    "region": "North Fork",
+    "logo": "",
+    "phone": "(631) 727-4161",
+    "address": "3543 Sound Ave, Riverhead, NY 11901",
+    "website": "https://roanokevineyards.net"
+  },
+  {
+    "id": 34,
+    "name": "Del Vino Vineyards",
+    "region": "Long Island (North Shore)",
+    "logo": "",
+    "phone": "(631) 994-0101",
+    "address": "29 Norwood Rd, Northport, NY 11768",
+    "website": "https://delvinovineyards.com"
+  },
+  {
+    "id": 35,
+    "name": "Whisper Vineyards",
+    "region": "Long Island (North Shore)",
+    "logo": "",
+    "phone": "(631) 530-8806",
+    "address": "485 Edgewood Ave, St James, NY 11780",
+    "website": "https://whispervineyards.com"
+  },
+  {
+    "id": 36,
+    "name": "Loughlin Vineyard",
+    "region": "Long Island (South Shore)",
+    "logo": "",
+    "phone": "(631) 589-0027",
+    "address": "299 Locust Ave, Sayville, NY 11782",
+    "website": "https://loughlinvineyard.com"
+  },
+  {
+    "id": 37,
+    "name": "FIV Fire Island Vines",
+    "region": "Long Island (South Shore)",
+    "logo": "",
+    "phone": "(631) 647-7400",
+    "address": "150 Bay Walk, Bay Shore, NY 11706",
+    "website": "https://fireislandvines.com"
+  }
 ]
