@@ -53,7 +53,13 @@ export default function QuickNav() {
   function scrollTo(id) {
     setActive(id);
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (!el) return;
+    // Offset by the bottom of the sticky nav so the section ribbon
+    // lands flush with the bottom edge of the QuickNav bar.
+    const nav = document.querySelector('.quick-nav');
+    const navBottom = nav ? nav.getBoundingClientRect().bottom : 0;
+    const elTop = el.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({ top: elTop - navBottom, behavior: 'smooth' });
   }
 
   return (
