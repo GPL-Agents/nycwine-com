@@ -198,10 +198,10 @@ body {
 .qnav-pill.social,
 .qnav-pill.news,
 .qnav-pill.stores,
-.qnav-pill.bars     { border-color: var(--border); color: var(--text); background: white; }
-.qnav-pill.qnav-active { border-color: var(--rose-muted); color: var(--rose); background: var(--rose-light); }
-.qnav-pill.wineries { border-color: #2d5016; color: #2d5016; background: white; }
+.qnav-pill.bars,
+.qnav-pill.wineries,
 .qnav-pill.map      { border-color: var(--border); color: var(--text); background: white; }
+.qnav-pill.qnav-active { border-color: var(--rose-muted); color: var(--rose); background: var(--rose-light); }
 
 /* ═══════════════════════════════════════
    SECTION HEADERS (shared pattern)
@@ -235,8 +235,6 @@ body {
   object-fit: contain;
   flex-shrink: 0;
   opacity: 0.92;
-}
-.ribbon-icon-white {
   filter: brightness(0) invert(1);
 }
 .see-all-link {
