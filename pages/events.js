@@ -62,7 +62,7 @@ export default function EventsPage() {
         {/* Page header */}
         <div className="section-header events-header">
           <div className="section-header-title">
-            <img src="/images/icons/icon-wine-events.png" className="ribbon-icon ribbon-icon-white" alt="" aria-hidden="true" />
+            <img src="/images/icons/icon-wine-events.png" className="ribbon-icon" alt="" aria-hidden="true" />
             Wine Events
           </div>
         </div>

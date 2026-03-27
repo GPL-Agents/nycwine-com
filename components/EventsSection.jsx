@@ -84,7 +84,7 @@ export default function EventsSection() {
       {/* Header bar */}
       <div className="section-header events-header">
         <div className="section-header-title">
-          <img src="/images/icons/icon-wine-events.png" className="ribbon-icon ribbon-icon-white" alt="" aria-hidden="true" />
+          <img src="/images/icons/icon-wine-events.png" className="ribbon-icon" alt="" aria-hidden="true" />
           Upcoming Events
         </div>
         <a href="/events" className="see-all-link">View All →</a>
