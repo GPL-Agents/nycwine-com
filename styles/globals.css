@@ -1740,14 +1740,7 @@ body {
   font-size: 18px;
   background: var(--pink-light);
 }
-/* Wider logo box for winery cards which use landscape text logos */
-.wineries-card .bar-card-icon {
-  width: 120px;
-  height: 48px;
-  border-radius: 8px;
-  background: white;
-  border: 1px solid var(--border);
-}
+
 .bar-card-info { flex: 1; min-width: 0; }
 .bar-card-name { font-size: 14px; font-weight: 600; color: var(--black); font-family: var(--font-sans); }
 .bar-card-addr { font-size: 12px; color: var(--muted); margin-top: 2px; }
