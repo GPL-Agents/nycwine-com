@@ -252,6 +252,8 @@
     "phone": "(929) 248-6685",
     "email": "info@aperitivobycarta.com",
     "website": "https://aperitivobycarta.com",
+    "logo": "https://aperitivobycarta.com/wp-content/uploads/2025/10/cropped-logoaperitivo.jpg",
+    "featured": true,
     "notes": ""
   },
   {
@@ -295,8 +297,8 @@
     "neighborhood": "Manhattan",
     "phone": "(212) 255-5588",
     "email": "",
-    "website": "https://aras.org",
-    "notes": ""
+    "website": "",
+    "notes": "[CLOSED]"
   },
   {
     "id": 28,
