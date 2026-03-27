@@ -147,7 +147,7 @@ async function fetchEventDetails(url) {
         const data = JSON.parse(match[1]);
         const items = Array.isArray(data) ? data : data['@graph'] || [data];
         for (const item of items) {
-          if (item['@type'] === 'Event') {
+          if (item['@type'] && (item['@type'] === 'Event' || item['@type'].includes('Event') || item['@type'].includes('Festival'))) {
             // Try multiple sources for venue name
             let venue = null;
 
@@ -274,7 +274,7 @@ async function scrapeEventbrite() {
           const data = JSON.parse(match[1]);
           const items = Array.isArray(data) ? data : data['@graph'] || [data];
           for (const item of items) {
-            if (item['@type'] === 'Event' && item.url && !seenUrls.has(item.url)) {
+            if (item['@type'] && (item['@type'] === 'Event' || item['@type'].includes('Event') || item['@type'].includes('Festival')) && item.url && !seenUrls.has(item.url)) {
               const cleanUrl = item.url.replace(/\?aff=.*$/, '');
               seenUrls.add(cleanUrl);
               // Save search-page data as partial, but always fetch the
