@@ -366,9 +366,7 @@
     "phone": "(212) 673-2424",
     "email": "",
     "website": "https://www.bibiwinebar.com",
-    "notes": "",
-    "logo": "https://cdn.prod.website-files.com/62560bc00d5340414212deee/62561c6d781fd1e10fe9d8c7_Bibi_Logo-FPO.png",
-    "featured": true
+    "notes": ""
   },
   {
     "id": 34,
@@ -654,7 +652,9 @@
     "phone": "",
     "email": "",
     "website": "https://www.leiwine.nyc/",
-    "notes": "new Chinatown wine bar; official site not surfaced cleanly"
+    "notes": "new Chinatown wine bar; official site not surfaced cleanly",
+    "featured": true,
+    "logo": "https://images.squarespace-cdn.com/content/v1/681282bb6b86085cb558827c/ccbd06a3-ef50-4bc8-a53c-487f28b2a5e2/SECONDARYLOGO_LEI+Green.png"
   },
   {
     "id": 60,
@@ -1098,7 +1098,9 @@
     "phone": "(646) 779-9683",
     "email": "",
     "website": "https://www.vsvwinebars.com",
-    "notes": "Riverside location"
+    "notes": "Riverside location",
+    "featured": true,
+    "logo": "https://images.getbento.com/accounts/ad7ac5d6a757485b222dc1d5ec1aa933/media/images/24711logo2.png"
   },
   {
     "id": 100,
@@ -1220,5 +1222,64 @@
     "email": "",
     "website": "https://addictivenyc.com",
     "notes": "wine and tapas bar"
+  },
+  {
+    "id": 111,
+    "name": "Eli's Table",
+    "address": "1411 3rd Ave, New York, NY 10028",
+    "borough": "Manhattan",
+    "neighborhood": "Manhattan",
+    "phone": "(212) 717-9798",
+    "email": "",
+    "website": "https://www.elizabar.com/",
+    "notes": "",
+    "featured": true,
+    "logo": "https://www.elizabar.com/App_Themes/elizabar/images/logo.png"
+  },
+  {
+    "id": 112,
+    "name": "Kafana",
+    "address": "116 Loisaida Ave, New York, NY 10009",
+    "borough": "Manhattan",
+    "neighborhood": "Manhattan",
+    "phone": "(212) 353-8000",
+    "email": "",
+    "website": "https://www.kafananyc.com",
+    "notes": ""
+  },
+  {
+    "id": 113,
+    "name": "Chambers",
+    "address": "94 Chambers St, New York, NY 10007",
+    "borough": "Manhattan",
+    "neighborhood": "Manhattan",
+    "phone": "(212) 580-3572",
+    "email": "",
+    "website": "https://chamberswine.com",
+    "notes": ""
+  },
+  {
+    "id": 114,
+    "name": "Tolo",
+    "address": "28 Canal St, New York, NY 10002",
+    "borough": "Manhattan",
+    "neighborhood": "Manhattan",
+    "phone": "(870) 600-3096",
+    "email": "",
+    "website": "https://tolo.nyc",
+    "notes": ""
+  },
+  {
+    "id": 115,
+    "name": "Popina",
+    "address": "127 Columbia Street, Brooklyn, NY 11231",
+    "borough": "Brooklyn",
+    "neighborhood": "Brooklyn",
+    "phone": "(718) 222-1901",
+    "email": "",
+    "website": "https://popinanyc.com",
+    "notes": "",
+    "featured": true,
+    "logo": "https://images.getbento.com/accounts/916807a92bd379a1b68c70cb275f7883/media/images/15262Popina_Logo_Unstacked.png"
   }
 ]

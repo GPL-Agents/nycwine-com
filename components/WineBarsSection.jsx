@@ -52,7 +52,7 @@ export default function WineBarsSection() {
   const featuredBars = useMemo(() => {
     const withLogo = bars.filter((b) => b.featured && b.logo && b.website);
     const withSite = bars.filter((b) => b.website && !(b.featured && b.logo));
-    return [...withLogo, ...withSite.sort((a, b) => a.name.localeCompare(b.name))].slice(0, 6);
+    return [...withLogo, ...withSite.sort((a, b) => a.name.localeCompare(b.name))].slice(0, 9);
   }, [bars]);
 
   const isSearching = search.trim() || selectedBorough;
