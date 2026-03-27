@@ -104,8 +104,15 @@ export default function EventsSection() {
         <a href="/events" className="event-view-all">View All →</a>
       </div>
 
+      {/* Auctions view — shown instead of cards when filter is active */}
+      {activeFilter === 'Auctions' && (
+        <div className="event-auctions-panel">
+          <AuctionsSidebar />
+        </div>
+      )}
+
       {/* Horizontal card scroll */}
-      <div className="event-cards-scroll">
+      <div className={`event-cards-scroll${activeFilter === 'Auctions' ? ' hidden' : ''}`}>
         {loading && (
           <div className="event-card">
             <div className="event-card-header c1">
@@ -184,7 +191,7 @@ export default function EventsSection() {
       </div>
 
       {/* List view + multiplex ad — side by side on desktop */}
-      {listEvents.length > 0 && (
+      {listEvents.length > 0 && activeFilter !== 'Auctions' && (
         <div className="event-list-row">
           <div className="event-list">
             <div className="event-list-title">More coming up</div>

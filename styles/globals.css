@@ -325,6 +325,13 @@ body {
   scrollbar-width: none;
 }
 .event-cards-scroll::-webkit-scrollbar { display: none; }
+.event-cards-scroll.hidden { display: none; }
+.event-auctions-panel {
+  padding: 16px var(--content-pad);
+}
+.event-auctions-panel .auctions-sidebar {
+  max-width: 600px;
+}
 
 .event-card {
   flex: 1 1 calc((100% - 40px) / 5);   /* 5 per row → 2 tidy rows of 5 */
