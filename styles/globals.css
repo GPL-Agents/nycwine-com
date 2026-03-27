@@ -244,8 +244,13 @@ body {
   font-weight: 500;
   text-decoration: none;
   letter-spacing: 0.02em;
+  transition: color 0.15s, opacity 0.15s;
 }
 .see-all-link:hover { opacity: 0.7; }
+/* On dark ribbon backgrounds, hover lightens toward white instead of dimming */
+.bars-header .see-all-link:hover,
+.stores-header .see-all-link:hover,
+.wineries-header .see-all-link:hover { color: white; opacity: 1; }
 
 /* ═══════════════════════════════════════
    EVENTS SECTION
@@ -576,7 +581,8 @@ body {
 
 .sc-brand-icon { flex-shrink: 0; margin-right: 8px; }
 .sc-platform { font-size: 12px; font-weight: 600; color: white; font-family: var(--font-sans); }
-.sc-follow   { font-size: 11px; color: var(--pink); text-decoration: none; font-weight: 500; }
+.sc-follow   { font-size: 11px; color: var(--pink); text-decoration: none; font-weight: 500; transition: color 0.15s; }
+.sc-follow:hover { color: var(--pink-light); }
 .sc-body     { padding: 8px; min-height: 80px; }
 .elfsight-body { padding: 0; min-height: 0; }
 .sc-body-embed { padding: 0; display: flex; justify-content: center; align-items: flex-start; overflow: hidden; }
