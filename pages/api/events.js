@@ -227,6 +227,7 @@ function formatDateDisplay(dateStr) {
 
 function getTag(title) {
   const t = (title || '').toLowerCase();
+  if (t.includes('auction')) return 'Auctions';
   if (t.includes('tasting') || t.includes('sampling')) return 'Tasting';
   if (t.includes('class') || t.includes('course') || t.includes('wset') || t.includes('education')) return 'Class';
   if (t.includes('dinner') || t.includes('pairing') || t.includes('brunch')) return 'Dinner';

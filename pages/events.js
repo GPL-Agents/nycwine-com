@@ -11,7 +11,7 @@ import Footer from '../components/Footer';
 import AuctionsSidebar from '../components/AuctionsSidebar';
 import { useState, useEffect } from 'react';
 
-const FILTERS = ['All', 'Tasting', 'Class', 'Dinner', 'Event', 'Festival'];
+const FILTERS = ['All', 'Tasting', 'Class', 'Dinner', 'Event', 'Festival', 'Auctions'];
 
 function fixImageUrl(url) {
   if (!url) return null;

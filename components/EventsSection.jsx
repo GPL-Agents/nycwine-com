@@ -42,7 +42,7 @@ import AuctionsSidebar from './AuctionsSidebar';
 //   );
 // }
 
-const FILTERS = ['All', 'Tasting', 'Class', 'Dinner', 'Event', 'Festival'];
+const FILTERS = ['All', 'Tasting', 'Class', 'Dinner', 'Event', 'Festival', 'Auctions'];
 
 export default function EventsSection() {
   const [activeFilter, setActiveFilter] = useState('All');

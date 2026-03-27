@@ -312,6 +312,8 @@ body {
 .epill[data-filter="Event"].active   { background: #7b1fa2; color: white; border-color: #7b1fa2; }
 .epill[data-filter="Festival"]       { border-color: #a5d6a7; color: #2e7d32; background: #e8f5e9; }
 .epill[data-filter="Festival"].active{ background: #2e7d32; color: white; border-color: #2e7d32; }
+.epill[data-filter="Auctions"]        { border-color: #ffd54f; color: #8d6e00; background: #fffde7; }
+.epill[data-filter="Auctions"].active { background: #f9a825; color: white; border-color: #f9a825; }
 
 /* Event cards */
 .event-cards-scroll {
