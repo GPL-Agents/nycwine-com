@@ -17,6 +17,7 @@ import SocialSection from '../components/SocialSection';
 import NewsSection from '../components/NewsSection';
 import StoresSection from '../components/StoresSection';
 import WineBarsSection from '../components/WineBarsSection';
+import WineriesSection from '../components/WineriesSection';
 // TODO: Uncomment ad imports once Google AdSense is approved
 // import AdUnit from '../components/AdUnit';
 // import LeaderboardAd from '../components/LeaderboardAd';
@@ -50,9 +51,11 @@ export default function Home() {
         <NewsSection />
         {/* <AdUnit slot="after-news" /> */}
 
+        <WineBarsSection />
+
         <StoresSection />
 
-        <WineBarsSection />
+        <WineriesSection />
       </main>
 
       {/* ── Footer ───────────────────────────────────────── */}

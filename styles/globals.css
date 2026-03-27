@@ -200,7 +200,7 @@ body {
 .qnav-pill.stores,
 .qnav-pill.bars     { border-color: var(--border); color: var(--text); background: white; }
 .qnav-pill.qnav-active { border-color: var(--rose-muted); color: var(--rose); background: var(--rose-light); }
-.qnav-pill.wineries { border-color: var(--border); color: var(--muted); background: var(--cream); border-style: dashed; opacity: 0.5; }
+.qnav-pill.wineries { border-color: #2d5016; color: #2d5016; background: white; }
 .qnav-pill.map      { border-color: var(--border); color: var(--text); background: white; }
 
 /* ═══════════════════════════════════════
@@ -1588,6 +1588,15 @@ body {
 }
 .bars-header .section-header-title { color: white; }
 .bars-header .see-all-link { color: var(--pink); }
+
+/* Wineries section */
+.wineries-section { border-top: 1px solid var(--border); }
+.wineries-header {
+  background: #2d5016;
+  padding: 14px var(--content-pad);
+}
+.wineries-header .section-header-title { color: white; }
+.wineries-header .see-all-link { color: #a8d57a; }
 
 /* Bar finder widget (homepage) */
 .bar-finder {
