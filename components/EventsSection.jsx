@@ -87,10 +87,9 @@ export default function EventsSection() {
           <img src="/images/icons/icon-wine-events.png" className="ribbon-icon" alt="" aria-hidden="true" />
           Upcoming Events
         </div>
-        <a href="/events" className="see-all-link">View All →</a>
       </div>
 
-      {/* Filter pills */}
+      {/* Filter pills + View All link */}
       <div className="event-filters">
         {FILTERS.map(f => (
           <button
@@ -102,6 +101,7 @@ export default function EventsSection() {
             {f}
           </button>
         ))}
+        <a href="/events" className="event-view-all">View All →</a>
       </div>
 
       {/* Horizontal card scroll */}
