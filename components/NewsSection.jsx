@@ -264,9 +264,9 @@ export default function NewsSection() {
           </div>
         </div>
 
-        {/* Right column: Featured Venues */}
+        {/* Right column: Sip. Explore. Repeat. */}
         <aside className="featured-venues-sidebar">
-          <div className="featured-venues-heading">Featured Venues</div>
+          <div className="featured-venues-heading">Sip. Explore. Repeat.</div>
           {FEATURED_VENUES.map((venue, i) => (
             <a
               key={i}

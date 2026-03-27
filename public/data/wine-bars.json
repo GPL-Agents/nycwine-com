@@ -10,8 +10,7 @@
     "website": "https://www.anaisbk.com/",
     "notes": "official website not surfaced cleanly",
     "logo": "https://images.squarespace-cdn.com/content/v1/62a0aa286b50441f3d9fc2d1/a1591594-769a-4f46-86c3-be3f6f12e668/Anais_logo.png?format=750w",
-    "featured": true,
-    "featuredBar": true
+    "featured": true
   },
   {
     "id": 2,
@@ -133,8 +132,8 @@
     "email": "hello@rhodorabk.com",
     "website": "https://www.rhodorabk.com",
     "notes": "",
-    "featuredBar": true,
-    "logo": "https://images.squarespace-cdn.com/content/v1/5d7bc8617e9d3f18cc755a50/1569435485360-2REA0K3DMQ8UHLDZGVA1/Logo-1.png"
+    "logo": "https://images.squarespace-cdn.com/content/v1/5d7bc8617e9d3f18cc755a50/1569435485360-2REA0K3DMQ8UHLDZGVA1/Logo-1.png",
+    "featured": true
   },
   {
     "id": 13,
@@ -257,8 +256,7 @@
     "website": "https://aperitivobycarta.com",
     "logo": "https://aperitivobycarta.com/wp-content/uploads/2025/10/cropped-logoaperitivo.jpg",
     "featured": true,
-    "notes": "",
-    "featuredBar": true
+    "notes": ""
   },
   {
     "id": 24,
@@ -369,8 +367,8 @@
     "email": "",
     "website": "https://www.bibiwinebar.com",
     "notes": "",
-    "featuredBar": true,
-    "logo": "https://cdn.prod.website-files.com/62560bc00d5340414212deee/62561c6d781fd1e10fe9d8c7_Bibi_Logo-FPO.png"
+    "logo": "https://cdn.prod.website-files.com/62560bc00d5340414212deee/62561c6d781fd1e10fe9d8c7_Bibi_Logo-FPO.png",
+    "featured": true
   },
   {
     "id": 34,
@@ -734,8 +732,8 @@
     "email": "contact@musettewinebar.com",
     "website": "https://musettewinebar.com",
     "notes": "",
-    "featuredBar": true,
-    "logo": "https://static.spotapps.co/website_images/ab_websites/117051_website/logo.png"
+    "logo": "https://static.spotapps.co/website_images/ab_websites/117051_website/logo.png",
+    "featured": true
   },
   {
     "id": 67,
@@ -813,8 +811,8 @@
     "email": "ciao@rosciolinyc.com",
     "website": "https://www.rosciolinyc.com",
     "notes": "restaurant with strong wine focus",
-    "featuredBar": true,
-    "logo": "https://images.squarespace-cdn.com/content/v1/691656a28c3867312e658fd6/f6995212-d6af-48dc-9f49-4cad06adbdf0/Roscioli_Logo_Cropped.png"
+    "logo": "https://images.squarespace-cdn.com/content/v1/691656a28c3867312e658fd6/f6995212-d6af-48dc-9f49-4cad06adbdf0/Roscioli_Logo_Cropped.png",
+    "featured": true
   },
   {
     "id": 74,

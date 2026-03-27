@@ -48,10 +48,10 @@ export default function WineBarsSection() {
     return result.slice().sort((a, b) => a.name.localeCompare(b.name));
   }, [bars, selectedBorough, search]);
 
-  // Show featured bars — prioritise entries with real logos (featuredBar flag), then fill with website-only
+  // Show featured bars — prioritise entries with real logos, then fill with website-only
   const featuredBars = useMemo(() => {
-    const withLogo = bars.filter((b) => b.featuredBar && b.logo && b.website);
-    const withSite = bars.filter((b) => b.website && !(b.featuredBar && b.logo));
+    const withLogo = bars.filter((b) => b.featured && b.logo && b.website);
+    const withSite = bars.filter((b) => b.website && !(b.featured && b.logo));
     return [...withLogo, ...withSite.sort((a, b) => a.name.localeCompare(b.name))].slice(0, 6);
   }, [bars]);
 
