@@ -131,11 +131,14 @@ export default function EventsPage() {
           <div className="events-page-sidebar">
             {/* Map button — above auctions */}
             <Link href="/map">
-              <img
-                src="/images/mapbutton.png"
-                alt="Interactive Map & Directions"
-                style={{ display: 'block', width: '100%', cursor: 'pointer', borderRadius: '8px', marginBottom: '16px' }}
-              />
+              <div style={{ position: 'relative', display: 'block', marginBottom: '16px' }} className="map-btn-wrap">
+                <img
+                  src="/images/maps2.button.png"
+                  alt="Maps & Directions"
+                  style={{ display: 'block', width: '100%', cursor: 'pointer', borderRadius: '8px' }}
+                />
+                <div className="map-btn-overlay">Maps &amp; Directions</div>
+              </div>
             </Link>
             <AuctionsSidebar />
             {/* Acker Wines ad below auctions */}

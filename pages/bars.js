@@ -65,8 +65,8 @@ export default function BarsPage() {
           </div>
           <Link href="/map">
             <img
-              src="/images/mapbutton.png"
-              alt="Interactive Map & Directions"
+              src="/images/maps3button.png"
+              alt="Maps & Directions"
               style={{ height: '80px', width: 'auto', cursor: 'pointer', borderRadius: '8px' }}
             />
           </Link>

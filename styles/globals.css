@@ -1908,3 +1908,29 @@ body {
   padding: 6px;
   border-radius: 8px;
 }
+
+/* ── Map button hover overlay (events sidebar) ───────────────── */
+.map-btn-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.map-btn-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-align: center;
+  padding: 6px 0;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+.map-btn-wrap:hover .map-btn-overlay {
+  opacity: 1;
+}

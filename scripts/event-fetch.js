@@ -100,7 +100,7 @@ async function fetchEventDetails(url) {
         const data = JSON.parse(match[1]);
         const items = Array.isArray(data) ? data : data['@graph'] || [data];
         for (const item of items) {
-          if (item['@type'] === 'Event') {
+          if (item['@type'] && (item['@type'] === 'Event' || item['@type'].includes('Event') || item['@type'].includes('Festival'))) {
             // Try multiple sources for venue — never fall back to city name
             let venue = null;
             if (item.location?.name) {
