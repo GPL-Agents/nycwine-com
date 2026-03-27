@@ -10,7 +10,8 @@
     "website": "https://www.anaisbk.com/",
     "notes": "official website not surfaced cleanly",
     "logo": "https://images.squarespace-cdn.com/content/v1/62a0aa286b50441f3d9fc2d1/a1591594-769a-4f46-86c3-be3f6f12e668/Anais_logo.png?format=750w",
-    "featured": true
+    "featured": true,
+    "featuredBar": true
   },
   {
     "id": 2,
@@ -120,7 +121,9 @@
     "phone": "(718) 857-0101",
     "email": "",
     "website": "https://www.pdfnyc.com",
-    "notes": ""
+    "notes": "",
+    "featuredBar": true,
+    "logo": "https://images.getbento.com/accounts/9dde1c96b0d142d502dec1e744f85d75/media/images/6434logo_vertical.svg"
   },
   {
     "id": 12,
@@ -131,7 +134,9 @@
     "phone": "",
     "email": "hello@rhodorabk.com",
     "website": "https://www.rhodorabk.com",
-    "notes": ""
+    "notes": "",
+    "featuredBar": true,
+    "logo": "https://images.squarespace-cdn.com/content/v1/5d7bc8617e9d3f18cc755a50/1569435485360-2REA0K3DMQ8UHLDZGVA1/Logo-1.png"
   },
   {
     "id": 13,
@@ -254,7 +259,8 @@
     "website": "https://aperitivobycarta.com",
     "logo": "https://aperitivobycarta.com/wp-content/uploads/2025/10/cropped-logoaperitivo.jpg",
     "featured": true,
-    "notes": ""
+    "notes": "",
+    "featuredBar": true
   },
   {
     "id": 24,
@@ -804,7 +810,9 @@
     "phone": "",
     "email": "ciao@rosciolinyc.com",
     "website": "https://www.rosciolinyc.com",
-    "notes": "restaurant with strong wine focus"
+    "notes": "restaurant with strong wine focus",
+    "featuredBar": true,
+    "logo": "https://images.squarespace-cdn.com/content/v1/691656a28c3867312e658fd6/f6995212-d6af-48dc-9f49-4cad06adbdf0/Roscioli_Logo_Cropped.png"
   },
   {
     "id": 74,
@@ -1134,7 +1142,9 @@
     "phone": "(646) 964-5624",
     "email": "info@wildair.nyc",
     "website": "https://www.wildair.nyc",
-    "notes": ""
+    "notes": "",
+    "featuredBar": true,
+    "logo": "https://images.squarespace-cdn.com/content/v1/5c3795d7aa49a125857b590b/245407a8-613a-40af-ad1f-e23f58251ab5/SKJDNFKDSJNFDKAJFBDASK.png"
   },
   {
     "id": 104,
