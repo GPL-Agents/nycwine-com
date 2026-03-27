@@ -182,6 +182,7 @@ export default function NewsSection() {
 
       {/* Pink ribbon — label only */}
       <div className="news-ticker">
+        <img src="/images/icons/icon-news.png" className="ribbon-icon" alt="" aria-hidden="true" />
         <span className="ticker-badge">Wine News</span>
       </div>
 

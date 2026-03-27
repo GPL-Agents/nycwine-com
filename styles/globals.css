@@ -1610,7 +1610,7 @@ body {
   padding: 14px var(--content-pad);
 }
 .wineries-header .section-header-title { color: white; }
-.wineries-header .see-all-link { color: var(--rose-muted); }
+.wineries-header .see-all-link { color: var(--pink); }
 
 /* Bar finder widget (homepage) */
 .bar-finder {
