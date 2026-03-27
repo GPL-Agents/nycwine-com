@@ -8,7 +8,9 @@
     "phone": "",
     "email": "",
     "website": "https://www.anaisbk.com/",
-    "notes": "official website not surfaced cleanly"
+    "notes": "official website not surfaced cleanly",
+    "logo": "https://images.squarespace-cdn.com/content/v1/62a0aa286b50441f3d9fc2d1/a1591594-769a-4f46-86c3-be3f6f12e668/Anais_logo.png?format=750w",
+    "featured": true
   },
   {
     "id": 2,
@@ -942,8 +944,8 @@
     "neighborhood": "Manhattan",
     "phone": "(212) 691-6000",
     "email": "",
-    "website": "https://www.temperancenyc.com/",
-    "notes": ""
+    "website": "",
+    "notes": "[CLOSED] Confirmed closed March 2026"
   },
   {
     "id": 87,
@@ -1008,8 +1010,8 @@
     "neighborhood": "Manhattan",
     "phone": "(212) 645-9758",
     "email": "",
-    "website": "https://www.theotheroomnyc.com/",
-    "notes": "no clean official site surfaced"
+    "website": "",
+    "notes": "[SITE DOWN] Website non-functional March 2026"
   },
   {
     "id": 93,
@@ -1107,8 +1109,8 @@
     "neighborhood": "Manhattan",
     "phone": "(212) 988-0222",
     "email": "",
-    "website": "https://vintnerwinemarketny.com/",
-    "notes": "wine shop / bar format"
+    "website": "",
+    "notes": "[CLOSED] Website non-functional March 2026"
   },
   {
     "id": 102,

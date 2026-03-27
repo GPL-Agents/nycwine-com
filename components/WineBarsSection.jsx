@@ -48,12 +48,11 @@ export default function WineBarsSection() {
     return result.slice().sort((a, b) => a.name.localeCompare(b.name));
   }, [bars, selectedBorough, search]);
 
-  // Show featured bars with websites — alphabetical
+  // Show featured bars — prioritise entries with real logos, then fill with website-only
   const featuredBars = useMemo(() => {
-    return bars
-      .filter((b) => b.website)
-      .sort((a, b) => a.name.localeCompare(b.name))
-      .slice(0, 6);
+    const withLogo = bars.filter((b) => b.featured && b.logo && b.website);
+    const withSite = bars.filter((b) => b.website && !(b.featured && b.logo));
+    return [...withLogo, ...withSite.sort((a, b) => a.name.localeCompare(b.name))].slice(0, 6);
   }, [bars]);
 
   const isSearching = search.trim() || selectedBorough;
@@ -113,7 +112,16 @@ export default function WineBarsSection() {
         <div className="bar-cards-grid">
           {displayBars.map((bar) => (
             <div key={bar.id} className="bar-card">
-              <div className="bar-card-icon">🍷</div>
+              <div className="bar-card-icon" style={{ background: bar.logo ? '#fff' : undefined }}>
+                {bar.logo ? (
+                  <img
+                    src={bar.logo}
+                    alt={bar.name}
+                    className="store-card-logo-img"
+                    onError={(e) => { e.target.style.display='none'; e.target.parentNode.innerHTML='🍷'; }}
+                  />
+                ) : '🍷'}
+              </div>
               <div className="bar-card-info">
                 <div className="bar-card-name">{bar.name}</div>
                 <div className="bar-card-addr">{bar.address}</div>

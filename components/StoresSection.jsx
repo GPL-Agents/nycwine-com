@@ -60,12 +60,11 @@ export default function StoresSection() {
     return result.slice().sort((a, b) => a.name.localeCompare(b.name));
   }, [stores, selectedHood, search]);
 
-  // Show featured stores with websites — alphabetical
+  // Show featured stores — prioritise entries with real logos, then fill with website-only
   const featuredStores = useMemo(() => {
-    return stores
-      .filter((s) => s.website)
-      .sort((a, b) => a.name.localeCompare(b.name))
-      .slice(0, 6);
+    const withLogo = stores.filter((s) => s.featured && s.logo && s.website);
+    const withSite = stores.filter((s) => s.website && !(s.featured && s.logo));
+    return [...withLogo, ...withSite.sort((a, b) => a.name.localeCompare(b.name))].slice(0, 6);
   }, [stores]);
 
   const isSearching = search.trim() || selectedHood;
@@ -125,8 +124,17 @@ export default function StoresSection() {
         <div className="store-cards-grid">
           {displayStores.map((store) => (
             <div key={store.id} className="store-card">
-              <div className="store-card-icon" style={{ background: store.iconBg }}>
-                {store.icon}
+              <div className="store-card-icon" style={{ background: store.logo ? '#fff' : store.iconBg }}>
+                {store.logo ? (
+                  <img
+                    src={store.logo}
+                    alt={store.name}
+                    className="store-card-logo-img"
+                    onError={(e) => { e.target.style.display='none'; e.target.parentNode.innerHTML = store.icon || '🍷'; }}
+                  />
+                ) : (
+                  store.icon
+                )}
               </div>
               <div className="store-card-info">
                 <div className="store-card-name">{store.name}</div>

@@ -1223,7 +1223,9 @@
     "phone": "(212) 393-1400",
     "icon": "🍷",
     "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)",
-    "website": "https://tribecawine.com/"
+    "website": "https://tribecawine.com/",
+    "logo": "https://tribeca-21644.kxcdn.com/wp-content/uploads/2025/02/TribecaLogoRedWhiteFill-e1738663042108.png",
+    "featured": true
   },
   {
     "id": 112,
@@ -1324,7 +1326,9 @@
     "phone": "(212) 924-6999",
     "icon": "🌿",
     "iconBg": "linear-gradient(135deg, #fff0f8, #f4a0cc)",
-    "website": "https://www.leduwines.com/"
+    "website": "https://www.leduwines.com/",
+    "logo": "https://www.leduwines.com/cdn/shop/files/leduwines-logo.png",
+    "featured": true
   },
   {
     "id": 121,
@@ -2119,7 +2123,9 @@
     "phone": "(212) 838-7500",
     "icon": "🥂",
     "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)",
-    "website": "https://www.sherry-lehmann.com/"
+    "website": "https://www.sherry-lehmann.com/",
+    "logo": "https://www.sherry-lehmann.com/assets/images/logo-sherry-lehmann-nyc.jpg",
+    "featured": true
   },
   {
     "id": 193,
@@ -2163,7 +2169,9 @@
     "phone": "(212) 724-6767",
     "icon": "🍷",
     "iconBg": "linear-gradient(135deg, #e8f4fd, #aed6f1)",
-    "website": "https://67wine.com/"
+    "website": "https://67wine.com/",
+    "logo": "https://67wine.com/cdn/shop/files/67wine_logo_2x_2e3358e8-3db0-45a7-be51-4cbc76c44116.png?v=1689901950",
+    "featured": true
   },
   {
     "id": 197,
@@ -2174,7 +2182,9 @@
     "phone": "(212) 787-1700",
     "icon": "🥂",
     "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)",
-    "website": "https://www.ackerwines.com/"
+    "website": "https://www.ackerwines.com/",
+    "logo": "https://www.ackerwines.com/wp-content/uploads/2019/04/cropped-bigA_red_favicon-180x180.png",
+    "featured": true
   },
   {
     "id": 198,
@@ -3552,7 +3562,9 @@
     "phone": "(212) 737-0790",
     "icon": "🥂",
     "iconBg": "linear-gradient(135deg, #fef5e7, #f9ca8a)",
-    "website": "https://mccabeswine.com/"
+    "website": "https://mccabeswine.com/",
+    "logo": "https://cityhive-production-cdn.cityhive.net/web_assets/6899f9abb6bada5aa5c55416.png?1754921387",
+    "featured": true
   },
   {
     "id": 323,
