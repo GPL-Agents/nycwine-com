@@ -6,6 +6,7 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -57,9 +58,18 @@ export default function StoresPage() {
       <Header />
 
       <main className="stores-page">
-        <div className="stores-page-header">
-          <h1 className="stores-page-title">NYC Wine Stores</h1>
-          <p className="stores-page-subtitle">{stores.length} wine stores across Manhattan</p>
+        <div className="stores-page-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
+          <div>
+            <h1 className="stores-page-title">NYC Wine Stores</h1>
+            <p className="stores-page-subtitle">{stores.length} wine stores across Manhattan</p>
+          </div>
+          <Link href="/map">
+            <img
+              src="/images/mapbutton.png"
+              alt="Interactive Map & Directions"
+              style={{ height: '80px', width: 'auto', cursor: 'pointer', borderRadius: '8px' }}
+            />
+          </Link>
         </div>
 
         <div className="stores-page-controls">

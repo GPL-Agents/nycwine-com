@@ -5,6 +5,7 @@
 // ─────────────────────────────────────────────────────────────
 
 import Head from 'next/head';
+import Link from 'next/link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import AuctionsSidebar from '../components/AuctionsSidebar';
@@ -128,6 +129,14 @@ export default function EventsPage() {
 
           {/* Auctions sidebar */}
           <div className="events-page-sidebar">
+            {/* Map button — above auctions */}
+            <Link href="/map">
+              <img
+                src="/images/mapbutton.png"
+                alt="Interactive Map & Directions"
+                style={{ display: 'block', width: '100%', cursor: 'pointer', borderRadius: '8px', marginBottom: '16px' }}
+              />
+            </Link>
             <AuctionsSidebar />
             {/* Acker Wines ad below auctions */}
             <a
