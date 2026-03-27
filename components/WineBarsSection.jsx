@@ -17,7 +17,7 @@ export default function WineBarsSection() {
   useEffect(() => {
     fetch('/data/wine-bars.json')
       .then((res) => res.json())
-      .then((data) => setBars(data))
+      .then((data) => setBars(data.filter((b) => !(b.notes || '').includes('[CLOSED]'))))
       .catch(() => {});
   }, []);
 
