@@ -6,6 +6,7 @@
 import Head from 'next/head';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import QuickNav from '../components/QuickNav';
 
 export default function MapPage() {
   return (
@@ -19,6 +20,7 @@ export default function MapPage() {
       </Head>
 
       <Header />
+      <QuickNav />
 
       <main
         style={{

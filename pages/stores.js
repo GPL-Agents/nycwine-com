@@ -10,6 +10,7 @@ import Link from 'next/link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import MapLink from '../components/MapLink';
+import QuickNav from '../components/QuickNav';
 
 export default function StoresPage() {
   const [stores, setStores] = useState([]);
@@ -57,6 +58,7 @@ export default function StoresPage() {
       </Head>
 
       <Header />
+      <QuickNav />
 
       <main className="stores-page">
         <div className="stores-page-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>

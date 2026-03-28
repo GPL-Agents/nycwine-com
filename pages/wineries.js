@@ -10,6 +10,7 @@ import Link from 'next/link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import MapLink from '../components/MapLink';
+import QuickNav from '../components/QuickNav';
 
 const REGIONS = ['Hamptons', 'North Fork', 'Long Island (North Shore)', 'Long Island (South Shore)'];
 
@@ -58,6 +59,7 @@ export default function WineriesPage() {
       </Head>
 
       <Header />
+      <QuickNav />
 
       <main className="bars-page">
         <div className="bars-page-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>

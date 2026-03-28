@@ -77,7 +77,7 @@ body {
   background:
     linear-gradient(rgba(255,255,255,0.20), rgba(255,255,255,0.20)),
     white url('/images/skyline7.jpg') 65% 35% / 130% auto no-repeat; */
-  background: white;
+  background: #f4f4f4;
   min-height: 90px;
   border-top: 3px solid var(--pink);
   border-bottom: 3px solid var(--pink);

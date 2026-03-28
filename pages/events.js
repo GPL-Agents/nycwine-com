@@ -8,6 +8,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import QuickNav from '../components/QuickNav';
 import AuctionsSidebar from '../components/AuctionsSidebar';
 import { useState, useEffect } from 'react';
 
@@ -86,6 +87,7 @@ export default function EventsPage() {
       </Head>
 
       <Header />
+      <QuickNav />
 
       <main className="events-page">
         {/* Page header */}
