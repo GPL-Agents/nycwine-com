@@ -156,13 +156,7 @@ const FEEDS = [
     filterByKeyword: true,   // ⚠️ not yet confirmed — watch after deploy
   },
   // ── Expert critics ────────────────────────────────────────────
-  {
-    name: 'Wine Spectator',
-    url: 'https://www.winespectator.com/rss',
-    emoji: '🍾',
-    color: '#722f37',
-    filterByKeyword: false,  // ⚠️ unconfirmed — may be paywalled; test after deploy
-  },
+  // Wine Spectator RSS tested — returned 0 articles (paywalled feed, no images)
   {
     name: 'Jancis Robinson',
     url: 'https://www.jancisrobinson.com/rss',
