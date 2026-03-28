@@ -1,51 +1,17 @@
-// components/NewsSection.jsx
+// pages/news.js
 // ─────────────────────────────────────────────────────────────
-// LIVE wine news feed from 13 RSS sources.
-//
-// Fetches from /api/news on mount, shows real articles.
-// Falls back to a "Loading..." state, then error message
-// if the API is unreachable.
-//
-// Source filter tabs are built dynamically from API data.
-// NYC-local sources get a star badge in the tabs.
-// Ticker scrolls the top 5 headlines.
+// Full wine news page — all articles from every RSS source.
+// Layout mirrors the Wine Events page: filter pills, two-column
+// list + sticky "Taste. Sip. Repeat." sidebar.
 // ─────────────────────────────────────────────────────────────
 
-import React, { useState, useEffect, useMemo, useRef } from 'react';
-
-// TODO: Uncomment InFeedAd once Google AdSense is approved
-// function InFeedAd() {
-//   const adRef = useRef(null);
-//   const pushed = useRef(false);
-//
-//   useEffect(() => {
-//     if (!pushed.current && adRef.current && typeof window !== 'undefined') {
-//       try {
-//         (window.adsbygoogle = window.adsbygoogle || []).push({});
-//         pushed.current = true;
-//       } catch (e) {
-//         console.warn('AdSense push error:', e);
-//       }
-//     }
-//   }, []);
-//
-//   return (
-//     <div className="news-card-ad">
-//       <ins
-//         className="adsbygoogle"
-//         style={{ display: 'block' }}
-//         data-ad-format="fluid"
-//         data-ad-layout-key="-fu+19-4-tz+1j5"
-//         data-ad-client="ca-pub-6782277104310503"
-//         data-ad-slot="2794449877"
-//         ref={adRef}
-//       />
-//     </div>
-//   );
-// }
+import Head from 'next/head';
+import React, { useState, useEffect, useMemo } from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 // ── Featured Venues data ─────────────────────────────────────
-// Venues sourced from The Infatuation's Best Wine Bars in NYC guide.
+// Sourced from The Infatuation's Best Wine Bars in NYC guide.
 const FEATURED_VENUES = [
   {
     name: 'Penny',
@@ -139,11 +105,11 @@ const FEATURED_VENUES = [
   },
 ];
 
-export default function NewsSection() {
-  const [activeTab, setActiveTab] = useState('All');
-  const [news, setNews] = useState([]);
+export default function NewsPage() {
+  const [news, setNews]       = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const [error, setError]     = useState(false);
+  const [activeTab, setActiveTab] = useState('All');
 
   useEffect(() => {
     fetch('/api/news')
@@ -151,17 +117,11 @@ export default function NewsSection() {
         if (!res.ok) throw new Error('Failed to fetch');
         return res.json();
       })
-      .then((data) => {
-        setNews(data);
-        setLoading(false);
-      })
-      .catch(() => {
-        setError(true);
-        setLoading(false);
-      });
+      .then((data) => { setNews(data); setLoading(false); })
+      .catch(() => { setError(true); setLoading(false); });
   }, []);
 
-  // Build tabs dynamically from the data
+  // Build source tabs dynamically from returned data
   const sources = useMemo(() => {
     const seen = new Set();
     return ['All', ...news.map((n) => n.source).filter((s) => {
@@ -171,70 +131,69 @@ export default function NewsSection() {
     })];
   }, [news]);
 
-  // Filter by active tab, cap at 20 articles on homepage
-  const filtered = (
+  // Filter by active tab — no cap on the news page
+  const filtered =
     activeTab === 'All'
       ? news
-      : news.filter((n) => n.source === activeTab)
-  ).slice(0, 20);
+      : news.filter((n) => n.source === activeTab);
 
   return (
-    <section className="news-section" id="sec-news">
+    <>
+      <Head>
+        <title>Wine News — Tastings, Trends &amp; Reviews | NYCWine.com</title>
+        <meta
+          name="description"
+          content="The latest wine news from top publications — reviews, trends, tasting notes, and stories from New York and beyond."
+        />
+      </Head>
 
-      {/* Pink ribbon — label only */}
-      <div className="news-ticker">
-        <img src="/images/icons/icon-news.png" className="ribbon-icon" alt="" aria-hidden="true" />
-        <span className="ticker-badge">Wine News</span>
-      </div>
+      <Header />
 
-      {/* Two-column layout */}
-      <div className="news-layout">
+      <main className="news-page">
 
-        {/* Left column: source tabs + article list */}
-        <div className="news-main">
-          <div className="news-source-tabs">
-            {sources.map((s) => (
-              <button
-                key={s}
-                className={`news-tab${activeTab === s ? ' active' : ''}`}
-                onClick={() => setActiveTab(s)}
-              >
-                {s}
-              </button>
-            ))}
+        {/* Page header */}
+        <div className="section-header news-page-header">
+          <div className="section-header-title">
+            <img src="/images/icons/icon-news.png" className="ribbon-icon" alt="" aria-hidden="true" />
+            Wine News
           </div>
+        </div>
 
-          <div className="news-cards">
+        {/* Source filter pills */}
+        <div className="news-source-tabs news-page-filters">
+          {sources.map((s) => (
+            <button
+              key={s}
+              className={`news-tab${activeTab === s ? ' active' : ''}`}
+              onClick={() => setActiveTab(s)}
+            >
+              {s}
+            </button>
+          ))}
+        </div>
+
+        {/* Two-column layout: articles + sidebar */}
+        <div className="news-page-layout">
+
+          {/* Article list */}
+          <div className="news-page-list">
             {loading && (
-              <div className="news-card">
-                <div>
-                  <div className="news-card-title">Loading wine news…</div>
-                </div>
-              </div>
+              <div className="news-page-msg">Loading wine news…</div>
             )}
             {error && (
-              <div className="news-card">
-                <div>
-                  <div className="news-card-title">
-                    Unable to load news right now. Please try again later.
-                  </div>
-                </div>
+              <div className="news-page-msg">
+                Unable to load news right now. Please try again later.
               </div>
             )}
             {!loading && !error && filtered.length === 0 && (
-              <div className="news-card">
-                <div>
-                  <div className="news-card-title">
-                    No wine news from {activeTab} right now.
-                  </div>
-                </div>
+              <div className="news-page-msg">
+                {activeTab === 'All'
+                  ? 'No wine news right now. Check back soon!'
+                  : `No articles from ${activeTab} right now.`}
               </div>
             )}
             {filtered.map((item, i) => (
               <React.Fragment key={`${item.source}-${i}`}>
-                {/* In-feed ad after 3rd and 8th articles (uncomment when AdSense approved) */}
-                {/* {i === 3 && <InFeedAd />} */}
-                {/* {i === 8 && <InFeedAd />} */}
                 <a
                   className={`news-card${item.image ? ' has-image' : ''}`}
                   href={item.link}
@@ -253,9 +212,7 @@ export default function NewsSection() {
                     </div>
                   )}
                   <div className="news-card-text">
-                    <div className="news-card-source">
-                      {item.source}
-                    </div>
+                    <div className="news-card-source">{item.source}</div>
                     <div className="news-card-title">{item.title}</div>
                     {item.snippet && <div className="news-card-snippet">{item.snippet}</div>}
                     <div className="news-card-date">{item.ago}</div>
@@ -265,57 +222,50 @@ export default function NewsSection() {
             ))}
           </div>
 
-          {/* View All link */}
-          {!loading && !error && (
-            <div className="news-view-all-wrap">
-              <a href="/news" className="news-view-all">
-                View All Wine News &rarr;
+          {/* Sticky sidebar: Taste. Sip. Repeat. */}
+          <aside className="featured-venues-sidebar news-page-sidebar">
+            <div className="featured-venues-heading">Taste. Sip. Repeat.</div>
+            {FEATURED_VENUES.map((venue, i) => (
+              <a
+                key={i}
+                href={venue.url}
+                className="featured-venue-item"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="featured-venue-photo">
+                  <img
+                    src={venue.image}
+                    alt={venue.name}
+                    loading="lazy"
+                    onError={(e) => { e.target.closest('.featured-venue-photo').style.display = 'none'; }}
+                  />
+                </div>
+                <div className="featured-venue-body">
+                  <div className="featured-venue-meta">
+                    <span className="featured-venue-neighborhood">{venue.neighborhood}</span>
+                    <span className="featured-venue-rating">★ {venue.rating}</span>
+                  </div>
+                  <div className="featured-venue-name">{venue.name}</div>
+                  <div className="featured-venue-excerpt">{venue.excerpt}</div>
+                  <div className="featured-venue-address">{venue.address}</div>
+                </div>
               </a>
-            </div>
-          )}
-        </div>
-
-        {/* Right column: Taste. Sip. Repeat. */}
-        <aside className="featured-venues-sidebar">
-          <div className="featured-venues-heading">Taste. Sip. Repeat.</div>
-          {FEATURED_VENUES.map((venue, i) => (
+            ))}
             <a
-              key={i}
-              href={venue.url}
-              className="featured-venue-item"
+              className="featured-venues-credit"
+              href="https://www.theinfatuation.com/new-york/guides/wine-bars-nyc"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <div className="featured-venue-photo">
-                <img
-                  src={venue.image}
-                  alt={venue.name}
-                  loading="lazy"
-                  onError={(e) => { e.target.closest('.featured-venue-photo').style.display = 'none'; }}
-                />
-              </div>
-              <div className="featured-venue-body">
-                <div className="featured-venue-meta">
-                  <span className="featured-venue-neighborhood">{venue.neighborhood}</span>
-                  <span className="featured-venue-rating">★ {venue.rating}</span>
-                </div>
-                <div className="featured-venue-name">{venue.name}</div>
-                <div className="featured-venue-excerpt">{venue.excerpt}</div>
-                <div className="featured-venue-address">{venue.address}</div>
-              </div>
+              via The Infatuation &rarr;
             </a>
-          ))}
-          <a
-            className="featured-venues-credit"
-            href="https://www.theinfatuation.com/new-york/guides/wine-bars-nyc"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            via The Infatuation &rarr;
-          </a>
-        </aside>
+          </aside>
 
-      </div>
-    </section>
+        </div>
+      </main>
+
+      <Footer />
+    </>
   );
 }

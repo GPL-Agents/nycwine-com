@@ -17,6 +17,8 @@ export default function Footer() {
         <span className="footer-dot">&middot;</span>
         <a href="/events">Events</a>
         <span className="footer-dot">&middot;</span>
+        <a href="/news">News</a>
+        <span className="footer-dot">&middot;</span>
         <a href="/privacy">Privacy Policy</a>
       </nav>
       <div className="footer-copy">&copy; {year} Metropolitan Vintners, LLC &nbsp;&mdash;&nbsp; New York, USA &nbsp;&mdash;&nbsp; All rights reserved</div>
