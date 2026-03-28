@@ -55,108 +55,106 @@ function extractImage(item) {
 // ── RSS Feed Sources ──────────────────────────────────────────
 // filterByKeyword: true = general publication, needs wine filtering
 // filterByKeyword: false = wine-only publication, all articles relevant
+//
+// Status legend (check /api/news response after deploy to verify):
+//   ✅ Confirmed working    ⚠️ Unconfirmed (may work server-side)    ❌ Confirmed dead
 const FEEDS = [
+  // ── NYC sources ──────────────────────────────────────────────
   {
     name: 'NY Times',
     url: 'https://rss.nytimes.com/services/xml/rss/nyt/DiningandWine.xml',
     emoji: '📰',
     color: '#1a1a1a',
-    filterByKeyword: true,
+    filterByKeyword: true,   // ✅ confirmed working
   },
   {
     name: 'NY Post',
     url: 'https://nypost.com/food/feed/',
     emoji: '🗞️',
     color: '#c41200',
-    filterByKeyword: true,
+    filterByKeyword: true,   // ✅ confirmed working
   },
   {
     name: 'Eater NY',
     url: 'https://ny.eater.com/rss/index.xml',
     emoji: '🍴',
     color: '#e4002b',
-    filterByKeyword: true,
+    filterByKeyword: true,   // ⚠️ not yet confirmed — watch after deploy
+    nycLocal: true,
   },
   {
     name: 'Grub St.',
     url: 'https://www.grubstreet.com/feed/rss',
     emoji: '🍽️',
     color: '#333',
-    filterByKeyword: true,
+    filterByKeyword: true,   // ⚠️ not yet confirmed — watch after deploy
+    nycLocal: true,
   },
+  // ── Major wine publications ───────────────────────────────────
   {
     name: 'VinePair',
     url: 'https://vinepair.com/feed/',
     emoji: '🍷',
     color: '#8b0000',
-    filterByKeyword: false,
-  },
-  {
-    name: 'Wine Spectator',
-    url: 'https://www.winespectator.com/rss/rss',
-    emoji: '🏆',
-    color: '#800020',
-    filterByKeyword: false,
+    filterByKeyword: false,  // ✅ confirmed working
   },
   {
     name: 'Decanter',
     url: 'https://www.decanter.com/feed/',
     emoji: '🥂',
     color: '#722f37',
-    filterByKeyword: false,
+    filterByKeyword: false,  // ✅ confirmed working
   },
   {
     name: 'Wine Enthusiast',
     url: 'https://www.winemag.com/feed/',
     emoji: '🍇',
     color: '#4a0e2e',
-    filterByKeyword: false,
+    filterByKeyword: false,  // ✅ confirmed working
   },
-  // ── NYC-specific sources ──────────────────────────────────
-  {
-    name: 'Grape Collective',
-    url: 'https://grapecollective.com/articles/rss',
-    emoji: '🗽',
-    color: '#5b2c6f',
-    filterByKeyword: false,
-    nycLocal: true,
-  },
-  {
-    name: 'Dame Wine',
-    url: 'https://damewine.com/feed/',
-    emoji: '🌹',
-    color: '#c0392b',
-    filterByKeyword: false,
-    nycLocal: true,
-  },
-  // ── Additional wine publications ──────────────────────────
   {
     name: 'SevenFifty Daily',
     url: 'https://daily.sevenfifty.com/feed/',
     emoji: '📋',
     color: '#2c3e50',
-    filterByKeyword: false,
-  },
-  {
-    name: 'PUNCH',
-    url: 'https://punchdrink.com/feed/',
-    emoji: '🍸',
-    color: '#e74c3c',
-    filterByKeyword: true,
+    filterByKeyword: false,  // ✅ confirmed working
   },
   {
     name: 'Wine Folly',
     url: 'https://winefolly.com/feed/',
     emoji: '📚',
     color: '#6c3461',
-    filterByKeyword: false,
+    filterByKeyword: false,  // ✅ confirmed working (was buried by 20-article cap)
+  },
+  // ── Mainstream food/drink (keyword filtered) ──────────────────
+  {
+    name: 'Food & Wine',
+    url: 'https://www.foodandwine.com/syndication/rss/all.rss',
+    emoji: '🥘',
+    color: '#c8522a',
+    filterByKeyword: true,   // ⚠️ newly added — watch after deploy
+  },
+  {
+    name: 'PUNCH',
+    url: 'https://punchdrink.com/feed/',
+    emoji: '🍸',
+    color: '#e74c3c',
+    filterByKeyword: true,   // ⚠️ not yet confirmed — watch after deploy
   },
   {
     name: 'Imbibe',
     url: 'https://imbibemagazine.com/feed/',
     emoji: '🍾',
     color: '#2e7d32',
-    filterByKeyword: true,
+    filterByKeyword: true,   // ⚠️ not yet confirmed — watch after deploy
+  },
+  // ── Expert critics ────────────────────────────────────────────
+  {
+    name: 'Jancis Robinson',
+    url: 'https://www.jancisrobinson.com/rss',
+    emoji: '🎓',
+    color: '#4a235a',
+    filterByKeyword: false,  // ⚠️ newly added — wine-only critic blog
   },
 ];
 
@@ -203,26 +201,28 @@ function timeAgo(dateStr) {
 async function fetchFeed(source) {
   try {
     const feed = await parser.parseURL(source.url);
-    const items = (feed.items || []).map((item) => ({
+    let feedItems = feed.items || [];
+
+    // Apply keyword filter BEFORE mapping so we have full content to check
+    if (source.filterByKeyword) {
+      feedItems = feedItems.filter((item) =>
+        matchesWineKeywords(item.title) ||
+        matchesWineKeywords(item.contentSnippet || '') ||
+        matchesWineKeywords(item['content:encoded'] || item.content || '')
+      );
+    }
+
+    return feedItems.map((item) => ({
       title: (item.title || '').trim(),
       link: item.link || '',
       date: item.isoDate || item.pubDate || '',
       source: source.name,
       emoji: source.emoji,
       color: source.color,
+      nycLocal: source.nycLocal || false,
       image: extractImage(item),
       snippet: (item.contentSnippet || '').slice(0, 120).trim() || null,
     }));
-
-    // Apply keyword filter if needed
-    if (source.filterByKeyword) {
-      return items.filter(
-        (item) =>
-          matchesWineKeywords(item.title) ||
-          matchesWineKeywords(item.contentSnippet || item.content || '')
-      );
-    }
-    return items;
   } catch (err) {
     console.warn(`RSS fetch failed for ${source.name}:`, err.message);
     return [];
@@ -242,20 +242,30 @@ export default async function handler(req, res) {
       FEEDS.map((source) => fetchFeed(source))
     );
 
-    // Flatten all items
+    // Per-source cap: take the 8 most recent articles per source so no
+    // single prolific publisher crowds out slower ones (e.g. Wine Folly)
+    const PER_SOURCE_MAX = 8;
     const allItems = results
       .filter((r) => r.status === 'fulfilled')
-      .flatMap((r) => r.value);
+      .flatMap((r) => {
+        const sourceItems = r.value;
+        sourceItems.sort((a, b) => {
+          const da = new Date(a.date).getTime() || 0;
+          const db = new Date(b.date).getTime() || 0;
+          return db - da;
+        });
+        return sourceItems.slice(0, PER_SOURCE_MAX);
+      });
 
-    // Sort by date (newest first)
+    // Sort merged pool by date (newest first)
     allItems.sort((a, b) => {
       const da = new Date(a.date).getTime() || 0;
       const db = new Date(b.date).getTime() || 0;
       return db - da;
     });
 
-    // Add relative time
-    const items = allItems.slice(0, 20).map((item) => ({
+    // Add relative time — return up to 60 articles so all active sources surface
+    const items = allItems.slice(0, 60).map((item) => ({
       ...item,
       ago: item.date ? timeAgo(item.date) : '',
     }));

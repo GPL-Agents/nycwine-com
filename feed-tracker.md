@@ -64,30 +64,40 @@ Update the **Status** column as each one goes live. Keep credentials in `.env.lo
 
 ## 3. NEWS / RSS FEEDS
 
-| Source | Status | Feed URL | Needs keyword filter? | Cost | Notes |
-|---|---|---|---|---|---|
-| **NY Times** | 🟢 Live | Dining & Wine RSS | Yes | Free | Filter for wine-related keywords |
-| **NY Post** | 🟢 Live | Food RSS | Yes | Free | Filter for wine-related keywords |
-| **Eater NY** | 🟢 Live | NY feed RSS | Yes | Free | Filter for wine-related keywords |
-| **Grub Street** | 🟢 Live | Main feed RSS | Yes | Free | Filter for wine-related keywords |
-| **VinePair** | 🟢 Live | Main feed RSS | No (wine-only pub) | Free | No filtering needed |
-| **Wine Spectator** | 🟢 Live | News RSS | No (wine-only pub) | Free | No filtering needed |
-| **Decanter** | 🟢 Live | Main feed RSS | No (wine-only pub) | Free | No filtering needed |
-| **Wine Enthusiast** | 🟢 Live | Magazine RSS | No (wine-only pub) | Free | No filtering needed |
-| **Grape Collective** | 🟢 Live | NYC wine shop + magazine RSS | No (wine-only, NYC local) | Free | NYC-specific: store reviews, events, tastings. Based on Broadway, NYC |
-| **Dame Wine** | 🟢 Live | Blog RSS | No (wine-only, NYC local) | Free | NYC-specific: "Celebrating Wine, Life and Inspiring Colorful People in New York City" |
-| **SevenFifty Daily** | 🟢 Live | Industry magazine RSS | No (wine/spirits pub) | Free | Wine/spirits business and culture. NYC-based publication |
-| **PUNCH** | 🟢 Live | Drinks magazine RSS | Yes | Free | Narrative journalism on wine, spirits, cocktails. Filter for wine keywords |
-| **Wine Folly** | 🟢 Live | Education blog RSS | No (wine-only pub) | Free | Popular wine education site. Shareable, accessible content |
+Last audited: 2026-03-28
 
-**Ticker:** Auto-generated from top 6 headlines.
+| Source | Status | Feed URL | Keyword filter? | Notes |
+|---|---|---|---|---|
+| **NY Times** | 🟢 Live | `rss.nytimes.com/…/DiningandWine.xml` | Yes | Confirmed working |
+| **NY Post** | 🟢 Live | `nypost.com/food/feed/` | Yes | Confirmed working |
+| **VinePair** | 🟢 Live | `vinepair.com/feed/` | No | Confirmed working |
+| **Decanter** | 🟢 Live | `decanter.com/feed/` | No | Confirmed working |
+| **Wine Enthusiast** | 🟢 Live | `winemag.com/feed/` | No | Confirmed working |
+| **SevenFifty Daily** | 🟢 Live | `daily.sevenfifty.com/feed/` | No | Confirmed working |
+| **Wine Folly** | 🟢 Live | `winefolly.com/feed/` | No | Confirmed working — was buried by old 20-article cap |
+| **Eater NY** | 🟡 Unconfirmed | `ny.eater.com/rss/index.xml` | Yes | Flagged nycLocal. Has not appeared in API response — may be blocked server-side |
+| **Grub St.** | 🟡 Unconfirmed | `grubstreet.com/feed/rss` | Yes | Flagged nycLocal. Has not appeared in API response — watch after next deploy |
+| **Food & Wine** | 🟡 Newly added | `foodandwine.com/syndication/rss/all.rss` | Yes | Added 2026-03-28 — check after deploy |
+| **PUNCH** | 🟡 Unconfirmed | `punchdrink.com/feed/` | Yes | Has not appeared in API response — watch after next deploy |
+| **Imbibe** | 🟡 Unconfirmed | `imbibemagazine.com/feed/` | Yes | Has not appeared in API response — watch after next deploy |
+| **Jancis Robinson** | 🟡 Newly added | `jancisrobinson.com/rss` | No | Added 2026-03-28 — leading wine critic. Check after deploy |
+| ~~Wine Spectator~~ | ❌ Removed | — | — | Confirmed blocked server-side. Never appeared in API response |
+| ~~Grape Collective~~ | ❌ Removed | — | — | Feed unreliable, never appeared in API response |
+| ~~Dame Wine~~ | ❌ Removed | — | — | Feed unreliable, never appeared in API response |
+
+**Bug fixes applied 2026-03-28:**
+- Keyword filter now runs BEFORE item mapping (was only checking titles, now checks full content)
+- Per-source cap added (max 8 articles per source) — prevents VinePair/Decanter from crowding out slower publishers
+- Article limit raised from 20 → 60 so all active sources can surface
+
+**Ticker:** Auto-generated from top headlines.
 **Refresh interval:** 60 minutes (in-memory cache in API route).
 **Filter keywords:** wine, winery, vineyard, tasting, sommelier, champagne, rosé, bordeaux, pinot, chardonnay, merlot, cabernet, prosecco, cava, riesling + many more.
 
 **Current state:** `NewsSection.jsx` fetches from `/api/news` on mount. Shows real articles with links. Source filter tabs built dynamically from API data. Loading and error states handled.
-**API route:** `pages/api/news.js` — fetches all 13 RSS feeds in parallel, filters, merges, sorts by date, caches 60 min.
+**API route:** `pages/api/news.js` — fetches all feeds in parallel, filters, caps per source, merges, sorts by date, caches 60 min.
 **Dependency:** `rss-parser` in package.json.
-**NYC-local feeds:** Grape Collective and Dame Wine are flagged as `nycLocal: true` in the API for future prioritization.
+**To verify after each deploy:** Visit `/api/news` and check which source names appear. Any source not represented despite being 🟢 or 🟡 should be investigated or replaced.
 
 ---
 
