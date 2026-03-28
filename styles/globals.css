@@ -1599,8 +1599,6 @@ body {
   flex: 0 0 280px;
   width: 280px;
   align-self: flex-start;
-  position: sticky;
-  top: 120px;
   display: flex;
   flex-direction: column;
   gap: 20px;
