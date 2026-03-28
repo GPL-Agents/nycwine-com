@@ -103,37 +103,33 @@ export default function WineriesSection() {
         <div className="bar-cards-grid">
           {displayWineries.map((winery) => (
             <div key={winery.id} className="bar-card">
-              <div className="bar-card-icon" style={{ background: winery.logo ? '#fff' : undefined }}>
-                {winery.logo ? (
-                  <img
-                    src={winery.logo}
-                    alt={winery.name}
-                    className="store-card-logo-img"
-                    onError={(e) => { e.target.style.display = 'none'; e.target.parentNode.innerHTML = '🍇'; }}
-                  />
-                ) : '🍇'}
+              {/* Left column: logo + Visit link */}
+              <div className="bar-card-left">
+                <div className="bar-card-icon" style={{ background: winery.logo ? '#fff' : undefined }}>
+                  {winery.logo ? (
+                    <img
+                      src={winery.logo}
+                      alt={winery.name}
+                      className="store-card-logo-img"
+                      onError={(e) => { e.target.style.display = 'none'; e.target.parentNode.innerHTML = '🍇'; }}
+                    />
+                  ) : '🍇'}
+                </div>
+                {winery.website && (
+                  <a href={winery.website} target="_blank" rel="noopener noreferrer" className="bar-card-link">
+                    Visit →
+                  </a>
+                )}
               </div>
+              {/* Right column: name, address, region+pin, phone */}
               <div className="bar-card-info">
                 <div className="bar-card-name">{winery.name}</div>
-                <div className="bar-card-addr">
-                  {winery.address}
-                  <MapLink name={winery.name} address={winery.address} />
-                </div>
-                <div className="bar-card-borough">{winery.region}</div>
+                <div className="bar-card-addr">{winery.address}</div>
+                <MapLink name={winery.name} address={winery.address} label={winery.region} />
                 {winery.phone && (
                   <a href={`tel:${winery.phone}`} className="bar-card-phone">{winery.phone}</a>
                 )}
               </div>
-              {winery.website && (
-                <a
-                  href={winery.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bar-card-link"
-                >
-                  Visit →
-                </a>
-              )}
             </div>
           ))}
         </div>
