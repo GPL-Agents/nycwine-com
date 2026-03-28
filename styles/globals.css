@@ -971,12 +971,14 @@ body {
   padding: 0 20px;
 }
 
-/* Inside news-main, strip content-pad since the parent now handles it */
+/* Inside news-main — no horizontal padding here, parent containers handle it */
 .news-source-tabs {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
   gap: 8px;
-  padding: 12px var(--content-pad);
+  padding: 12px 0;
   background: white;
   border-bottom: 1px solid var(--border);
 }
