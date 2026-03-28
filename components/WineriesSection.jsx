@@ -117,15 +117,19 @@ export default function WineriesSection() {
                 </div>
                 {winery.website && (
                   <a href={winery.website} target="_blank" rel="noopener noreferrer" className="bar-card-link">
-                    Visit →
+                    <span className="visit-default">Visit →</span>
+                    <span className="visit-hover">Visit Website →</span>
                   </a>
                 )}
               </div>
-              {/* Right column: name, address, region+pin, phone */}
+              {/* Right column: name, address+pin, region, phone */}
               <div className="bar-card-info">
                 <div className="bar-card-name">{winery.name}</div>
-                <div className="bar-card-addr">{winery.address}</div>
-                <MapLink name={winery.name} address={winery.address} label={winery.region} />
+                <div className="bar-card-addr-row">
+                  <MapLink name={winery.name} address={winery.address} />
+                  <span className="bar-card-addr">{winery.address}</span>
+                </div>
+                <div className="bar-card-neighborhood">{winery.region}</div>
                 {winery.phone && (
                   <a href={`tel:${winery.phone}`} className="bar-card-phone">{winery.phone}</a>
                 )}

@@ -130,15 +130,19 @@ export default function WineBarsSection() {
                 </div>
                 {bar.website && (
                   <a href={bar.website} target="_blank" rel="noopener noreferrer" className="bar-card-link">
-                    Visit →
+                    <span className="visit-default">Visit →</span>
+                    <span className="visit-hover">Visit Website →</span>
                   </a>
                 )}
               </div>
-              {/* Right column: name, address, location button, phone */}
+              {/* Right column: name, address+pin, neighborhood, phone */}
               <div className="bar-card-info">
                 <div className="bar-card-name">{bar.name}</div>
-                <div className="bar-card-addr">{bar.address}</div>
-                <MapLink name={bar.name} address={bar.address} label={bar.neighborhood || bar.borough} />
+                <div className="bar-card-addr-row">
+                  <MapLink name={bar.name} address={bar.address} />
+                  <span className="bar-card-addr">{bar.address}</span>
+                </div>
+                <div className="bar-card-neighborhood">{bar.neighborhood || bar.borough}</div>
                 {bar.phone && (
                   <a href={`tel:${bar.phone}`} className="bar-card-phone">{bar.phone}</a>
                 )}

@@ -144,15 +144,19 @@ export default function StoresSection() {
                 </div>
                 {store.website && (
                   <a href={store.website} target="_blank" rel="noopener noreferrer" className="store-card-link">
-                    Visit →
+                    <span className="visit-default">Visit →</span>
+                    <span className="visit-hover">Visit Website →</span>
                   </a>
                 )}
               </div>
-              {/* Right column: name, address, location button, phone */}
+              {/* Right column: name, address+pin, neighborhood, phone */}
               <div className="store-card-info">
                 <div className="store-card-name">{store.name}</div>
-                <div className="store-card-addr">{store.address}</div>
-                <MapLink name={store.name} address={store.address} label={store.neighborhood} />
+                <div className="store-card-addr-row">
+                  <MapLink name={store.name} address={store.address} />
+                  <span className="store-card-addr">{store.address}</span>
+                </div>
+                <div className="store-card-neighborhood">{store.neighborhood}</div>
                 {store.phone && (
                   <a href={`tel:${store.phone}`} className="store-card-phone">{store.phone}</a>
                 )}
