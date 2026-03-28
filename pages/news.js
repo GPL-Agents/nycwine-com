@@ -230,7 +230,7 @@ export default function NewsPage() {
             {/* Module 1: Wine Spectator Video */}
             <div className="ws-video-widget">
               <div className="ws-video-heading">
-                <span className="ws-video-label">Wine Spectator</span>
+                <span className="ws-video-label">Featured Video</span>
                 <a
                   href="https://www.youtube.com/@WineSpectatorVideo"
                   target="_blank"
