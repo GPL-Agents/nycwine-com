@@ -224,8 +224,34 @@ export default function NewsPage() {
             ))}
           </div>
 
-          {/* Sticky sidebar: Taste. Sip. Repeat. */}
+          {/* Sticky sidebar: Video + Taste. Sip. Repeat. */}
           <aside className="featured-venues-sidebar news-page-sidebar">
+
+            {/* Wine Spectator Video — latest uploads playlist */}
+            <div className="ws-video-widget">
+              <div className="ws-video-heading">
+                <span className="ws-video-label">Wine Spectator</span>
+                <a
+                  href="https://www.youtube.com/@WineSpectatorVideo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ws-video-channel-link"
+                >
+                  View Channel →
+                </a>
+              </div>
+              <div className="ws-video-frame-wrap">
+                <iframe
+                  src="https://www.youtube.com/embed/videoseries?list=UUo3gjg3DJV09ayA5CTPz-sg&rel=0"
+                  title="Wine Spectator Videos"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="ws-video-frame"
+                />
+              </div>
+            </div>
+
             <div className="featured-venues-heading">Taste. Sip. Repeat.</div>
             {FEATURED_VENUES.map((venue, i) => (
               <a

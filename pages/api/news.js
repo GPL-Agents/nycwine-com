@@ -157,6 +157,13 @@ const FEEDS = [
   },
   // ── Expert critics ────────────────────────────────────────────
   {
+    name: 'Wine Spectator',
+    url: 'https://www.winespectator.com/rss',
+    emoji: '🍾',
+    color: '#722f37',
+    filterByKeyword: false,  // ⚠️ unconfirmed — may be paywalled; test after deploy
+  },
+  {
     name: 'Jancis Robinson',
     url: 'https://www.jancisrobinson.com/rss',
     emoji: '🎓',
