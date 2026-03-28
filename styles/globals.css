@@ -73,13 +73,11 @@ body {
    HEADER
 ═══════════════════════════════════════ */
 .site-header {
-  /* Skyline scaled to 130% width so it overflows; horizontal position 65%
-     shifts the Statue of Liberty to ~30% of screen width (between logo and
-     search box). Formula: 38.3% × 130% + (1-130%) × 65% = 30.3% at any width.
-     A 20% white overlay lightens the grey image. */
+  /* Skyline commented out — file kept at /images/skyline7.jpg
   background:
     linear-gradient(rgba(255,255,255,0.20), rgba(255,255,255,0.20)),
-    white url('/images/skyline7.jpg') 65% 35% / 130% auto no-repeat;
+    white url('/images/skyline7.jpg') 65% 35% / 130% auto no-repeat; */
+  background: white;
   min-height: 90px;
   border-top: 3px solid var(--pink);
   border-bottom: 3px solid var(--pink);
@@ -1242,9 +1240,9 @@ body {
 .store-cards-section { padding: 16px var(--content-pad) 8px; background: white; }
 .store-cards-label {
   font-family: var(--font-serif);
-  font-size: 14px;
+  font-size: 16px;
   font-style: italic;
-  color: var(--muted);
+  color: var(--black);
   margin-bottom: 12px;
 }
 .store-preview-empty {
@@ -1853,9 +1851,9 @@ body {
 .bar-cards-section { padding: 16px var(--content-pad) 8px; background: white; }
 .bar-cards-label {
   font-family: var(--font-serif);
-  font-size: 14px;
+  font-size: 16px;
   font-style: italic;
-  color: var(--muted);
+  color: var(--black);
   margin-bottom: 12px;
 }
 .bar-preview-empty {
