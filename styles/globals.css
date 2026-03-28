@@ -943,6 +943,18 @@ body {
   gap: 10px;
 }
 .news-ticker .ribbon-icon { width: 25px; height: 25px; }
+.news-ticker-view-all {
+  margin-left: auto;
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: white;
+  opacity: 0.85;
+  transition: opacity 0.15s;
+}
+.news-ticker-view-all:hover { opacity: 1; }
 .ticker-badge {
   font-family: var(--font-serif);
   font-size: 20px;
@@ -1253,15 +1265,22 @@ body {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  padding: 14px;
+  padding: 10px 12px;
   border: 1px solid var(--border);
   border-radius: 10px;
   background: white;
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 .store-card:hover { border-color: var(--rose-muted); box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-.store-card-icon {
+/* Left column: icon + Visit link stacked */
+.store-card-left {
   flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.store-card-icon {
   width: 40px;
   height: 40px;
   display: flex;
@@ -1272,21 +1291,19 @@ body {
 }
 .store-card-info { flex: 1; min-width: 0; }
 .store-card-name { font-size: 14px; font-weight: 600; color: var(--black); font-family: var(--font-sans); }
-.store-card-addr { font-size: 12px; color: var(--muted); margin-top: 2px; display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
-.store-card-hood { font-size: 11px; color: var(--rose); margin-top: 2px; font-weight: 500; }
+.store-card-addr { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.store-card-hood { display: none; } /* replaced by map-link--label */
 .store-card-phone { font-size: 12px; color: var(--muted); text-decoration: none; margin-top: 3px; display: inline-block; }
 .store-card-phone:hover { color: var(--rose); }
 .store-card-link {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
   color: var(--rose);
   background: var(--rose-light);
-  border-radius: 8px;
-  padding: 6px 12px;
+  border-radius: 6px;
+  padding: 3px 8px;
   text-decoration: none;
-  flex-shrink: 0;
   white-space: nowrap;
-  align-self: center;
   transition: all 0.15s;
 }
 .store-card-link:hover { background: var(--pink-muted); color: white; }
@@ -1498,6 +1515,30 @@ body {
   font-family: inherit;
 }
 .map-link:hover {
+  color: var(--rose);
+  background: var(--rose-light);
+}
+/* Label variant: pin icon + neighborhood text as one clickable row.
+   Uses display:flex (block-level) so it always gets its own row and
+   the pin+text stay together regardless of Tailwind button resets. */
+.map-link--label {
+  display: flex !important;
+  align-items: center;
+  gap: 4px;
+  width: fit-content;
+  margin-top: 3px;
+  padding: 2px 6px 2px 4px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  background: none;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  line-height: 1.3;
+}
+.map-link--label:hover {
   color: var(--rose);
   background: var(--rose-light);
 }
@@ -1835,15 +1876,22 @@ body {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  padding: 14px;
+  padding: 10px 12px;
   border: 1px solid var(--border);
   border-radius: 10px;
   background: white;
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 .bar-card:hover { border-color: var(--rose-muted); box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-.bar-card-icon {
+/* Left column: icon + Visit link stacked */
+.bar-card-left {
   flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.bar-card-icon {
   width: 40px;
   height: 40px;
   display: flex;
@@ -1853,24 +1901,21 @@ body {
   font-size: 18px;
   background: var(--pink-light);
 }
-
 .bar-card-info { flex: 1; min-width: 0; }
 .bar-card-name { font-size: 14px; font-weight: 600; color: var(--black); font-family: var(--font-sans); }
-.bar-card-addr { font-size: 12px; color: var(--muted); margin-top: 2px; display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
-.bar-card-borough { font-size: 11px; color: var(--rose); margin-top: 2px; font-weight: 500; }
+.bar-card-addr { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.bar-card-borough { display: none; } /* replaced by map-link--label */
 .bar-card-phone { font-size: 12px; color: var(--muted); text-decoration: none; margin-top: 3px; display: inline-block; }
 .bar-card-phone:hover { color: var(--rose); }
 .bar-card-link {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
   color: var(--rose);
   background: var(--rose-light);
-  border-radius: 8px;
-  padding: 6px 12px;
+  border-radius: 6px;
+  padding: 3px 8px;
   text-decoration: none;
-  flex-shrink: 0;
   white-space: nowrap;
-  align-self: center;
   transition: all 0.15s;
 }
 .bar-card-link:hover { background: var(--pink-muted); color: white; }

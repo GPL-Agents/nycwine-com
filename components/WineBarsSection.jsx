@@ -116,37 +116,33 @@ export default function WineBarsSection() {
         <div className="bar-cards-grid">
           {displayBars.map((bar) => (
             <div key={bar.id} className="bar-card">
-              <div className="bar-card-icon" style={{ background: bar.logo ? '#fff' : undefined }}>
-                {bar.logo ? (
-                  <img
-                    src={bar.logo}
-                    alt={bar.name}
-                    className="store-card-logo-img"
-                    onError={(e) => { e.target.style.display='none'; e.target.parentNode.innerHTML='🍷'; }}
-                  />
-                ) : '🍷'}
+              {/* Left column: logo + Visit link */}
+              <div className="bar-card-left">
+                <div className="bar-card-icon" style={{ background: bar.logo ? '#fff' : undefined }}>
+                  {bar.logo ? (
+                    <img
+                      src={bar.logo}
+                      alt={bar.name}
+                      className="store-card-logo-img"
+                      onError={(e) => { e.target.style.display='none'; e.target.parentNode.innerHTML='🍷'; }}
+                    />
+                  ) : '🍷'}
+                </div>
+                {bar.website && (
+                  <a href={bar.website} target="_blank" rel="noopener noreferrer" className="bar-card-link">
+                    Visit →
+                  </a>
+                )}
               </div>
+              {/* Right column: name, address, location button, phone */}
               <div className="bar-card-info">
                 <div className="bar-card-name">{bar.name}</div>
-                <div className="bar-card-addr">
-                  {bar.address}
-                  <MapLink name={bar.name} address={bar.address} />
-                </div>
-                <div className="bar-card-borough">{bar.borough}</div>
+                <div className="bar-card-addr">{bar.address}</div>
+                <MapLink name={bar.name} address={bar.address} label={bar.neighborhood || bar.borough} />
                 {bar.phone && (
                   <a href={`tel:${bar.phone}`} className="bar-card-phone">{bar.phone}</a>
                 )}
               </div>
-              {bar.website && (
-                <a
-                  href={bar.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bar-card-link"
-                >
-                  Visit →
-                </a>
-              )}
             </div>
           ))}
         </div>

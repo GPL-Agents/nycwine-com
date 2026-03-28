@@ -128,39 +128,35 @@ export default function StoresSection() {
         <div className="store-cards-grid">
           {displayStores.map((store) => (
             <div key={store.id} className="store-card">
-              <div className="store-card-icon" style={{ background: store.logo ? '#fff' : store.iconBg }}>
-                {store.logo ? (
-                  <img
-                    src={store.logo}
-                    alt={store.name}
-                    className="store-card-logo-img"
-                    onError={(e) => { e.target.style.display='none'; e.target.parentNode.innerHTML = store.icon || '🍷'; }}
-                  />
-                ) : (
-                  store.icon
+              {/* Left column: logo + Visit link */}
+              <div className="store-card-left">
+                <div className="store-card-icon" style={{ background: store.logo ? '#fff' : store.iconBg }}>
+                  {store.logo ? (
+                    <img
+                      src={store.logo}
+                      alt={store.name}
+                      className="store-card-logo-img"
+                      onError={(e) => { e.target.style.display='none'; e.target.parentNode.innerHTML = store.icon || '🍷'; }}
+                    />
+                  ) : (
+                    store.icon
+                  )}
+                </div>
+                {store.website && (
+                  <a href={store.website} target="_blank" rel="noopener noreferrer" className="store-card-link">
+                    Visit →
+                  </a>
                 )}
               </div>
+              {/* Right column: name, address, location button, phone */}
               <div className="store-card-info">
                 <div className="store-card-name">{store.name}</div>
-                <div className="store-card-addr">
-                  {store.address}
-                  <MapLink name={store.name} address={store.address} />
-                </div>
-                <div className="store-card-hood">{store.neighborhood}</div>
+                <div className="store-card-addr">{store.address}</div>
+                <MapLink name={store.name} address={store.address} label={store.neighborhood} />
                 {store.phone && (
                   <a href={`tel:${store.phone}`} className="store-card-phone">{store.phone}</a>
                 )}
               </div>
-              {store.website && (
-                <a
-                  href={store.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="store-card-link"
-                >
-                  Visit →
-                </a>
-              )}
             </div>
           ))}
         </div>

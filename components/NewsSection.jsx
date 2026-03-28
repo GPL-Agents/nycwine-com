@@ -181,10 +181,11 @@ export default function NewsSection() {
   return (
     <section className="news-section" id="sec-news">
 
-      {/* Pink ribbon — label only */}
+      {/* Pink ribbon */}
       <div className="news-ticker">
         <img src="/images/icons/icon-news.png" className="ribbon-icon" alt="" aria-hidden="true" />
         <span className="ticker-badge">Wine News</span>
+        <a href="/news" className="news-ticker-view-all">View All →</a>
       </div>
 
       {/* Two-column layout */}
@@ -265,14 +266,6 @@ export default function NewsSection() {
             ))}
           </div>
 
-          {/* View All link */}
-          {!loading && !error && (
-            <div className="news-view-all-wrap">
-              <a href="/news" className="news-view-all">
-                View All Wine News &rarr;
-              </a>
-            </div>
-          )}
         </div>
 
         {/* Right column: Taste. Sip. Repeat. */}
