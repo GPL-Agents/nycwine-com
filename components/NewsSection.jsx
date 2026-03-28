@@ -252,7 +252,7 @@ export default function NewsSection() {
                     </div>
                   )}
                   <div className="news-card-text">
-                    <div className="news-card-source" style={{ color: item.color }}>
+                    <div className="news-card-source">
                       {item.source}
                     </div>
                     <div className="news-card-title">{item.title}</div>
