@@ -34,8 +34,12 @@ These are built or nearly-built items that just need to be wired up — low effo
 - [x] Added Food & Wine (foodandwine.com/syndication/rss/all.rss) — keyword filtered
 - [x] Added Jancis Robinson (jancisrobinson.com/rss) — wine-only critic
 - [x] Flagged Eater NY + Grub St. as nycLocal: true
-- [ ] **Deploy via GitHub Desktop → Vercel**
-- [ ] After deploy: visit nycwine.com/api/news and check which source tabs now appear — anything still missing is confirmed dead server-side
+- [x] Filtered out no-image articles at source level (Jancis Robinson, PUNCH, Imbibe had none)
+- [x] Converted source filter from underline tabs → wrapping pill style (matches event filters)
+- [x] Fixed pill layout bug — buttons were display:block, forcing vertical stack; added display:inline-flex
+- [x] Standardized source label color — removed per-source brand colors, all now use site hot pink (var(--rose))
+- [ ] **Deploy latest CSS/JSX fixes and verify pills render horizontally**
+- [ ] After deploy: visit nycwine.com/api/news and check which source tabs appear — anything still missing is confirmed dead server-side
 - [ ] Replace any still-broken feeds (candidates in Ideas Parking Lot)
 
 ### X / Twitter Embed
