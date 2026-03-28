@@ -9,6 +9,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import MapLink from '../components/MapLink';
 
 export default function StoresPage() {
   const [stores, setStores] = useState([]);
@@ -103,6 +104,7 @@ export default function StoresPage() {
                 <div className="store-name">{store.name}</div>
                 <div className="store-address">
                   {store.address} &middot; {store.neighborhood}
+                  <MapLink name={store.name} address={store.address} />
                 </div>
                 {store.phone && (
                   <div className="store-phone">

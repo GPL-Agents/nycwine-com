@@ -6,6 +6,7 @@
 // ─────────────────────────────────────────────────────────────
 
 import { useState, useEffect, useMemo } from 'react';
+import MapLink from './MapLink';
 
 const BOROUGHS = ['Manhattan', 'Brooklyn', 'Queens'];
 
@@ -127,7 +128,10 @@ export default function WineBarsSection() {
               </div>
               <div className="bar-card-info">
                 <div className="bar-card-name">{bar.name}</div>
-                <div className="bar-card-addr">{bar.address}</div>
+                <div className="bar-card-addr">
+                  {bar.address}
+                  <MapLink name={bar.name} address={bar.address} />
+                </div>
                 <div className="bar-card-borough">{bar.borough}</div>
                 {bar.phone && (
                   <a href={`tel:${bar.phone}`} className="bar-card-phone">{bar.phone}</a>

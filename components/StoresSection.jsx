@@ -5,6 +5,7 @@
 // ─────────────────────────────────────────────────────────────
 
 import { useState, useEffect, useMemo } from 'react';
+import MapLink from './MapLink';
 
 // Neighborhoods for the quick-pick chips.
 // These use partial matching so "Chelsea" matches "Chelsea" AND "Chelsea / Midtown South"
@@ -141,7 +142,10 @@ export default function StoresSection() {
               </div>
               <div className="store-card-info">
                 <div className="store-card-name">{store.name}</div>
-                <div className="store-card-addr">{store.address}</div>
+                <div className="store-card-addr">
+                  {store.address}
+                  <MapLink name={store.name} address={store.address} />
+                </div>
                 <div className="store-card-hood">{store.neighborhood}</div>
                 {store.phone && (
                   <a href={`tel:${store.phone}`} className="store-card-phone">{store.phone}</a>

@@ -11,6 +11,35 @@ import Footer from '../components/Footer';
 import AuctionsSidebar from '../components/AuctionsSidebar';
 import { useState, useEffect } from 'react';
 
+// Inline map opener for use inside <a> cards (avoids nested <a> tags)
+function EventMapBtn({ venue, address }) {
+  function handleClick(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    const query = encodeURIComponent(`${venue} ${address}`);
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    const url = isIOS
+      ? `https://maps.apple.com/?q=${query}`
+      : `https://www.google.com/maps/search/?api=1&query=${query}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+  }
+  return (
+    <span
+      className="event-map-btn"
+      role="button"
+      tabIndex={0}
+      onClick={handleClick}
+      onKeyDown={(e) => e.key === 'Enter' && handleClick(e)}
+      title="Get directions"
+      aria-label={`Get directions to ${venue}`}
+    >
+      <svg width="10" height="13" viewBox="0 0 11 14" fill="currentColor" aria-hidden="true">
+        <path d="M5.5 0C2.46 0 0 2.46 0 5.5 0 9.35 5.5 14 5.5 14S11 9.35 11 5.5C11 2.46 8.54 0 5.5 0zm0 7.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" />
+      </svg>
+    </span>
+  );
+}
+
 const FILTERS = ['All', 'Tasting', 'Class', 'Dinner', 'Event', 'Festival', 'Auctions'];
 
 function fixImageUrl(url) {
@@ -122,6 +151,9 @@ export default function EventsPage() {
                           {ev.venue}
                           {ev.venueAddress && (
                             <span className="event-card-venue-addr"> · {ev.venueAddress.split(',')[0]}</span>
+                          )}
+                          {ev.venueAddress && (
+                            <EventMapBtn venue={ev.venue} address={ev.venueAddress} />
                           )}
                         </div>
                       )}

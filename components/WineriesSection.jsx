@@ -5,6 +5,7 @@
 // ─────────────────────────────────────────────────────────────
 
 import { useState, useEffect, useMemo } from 'react';
+import MapLink from './MapLink';
 
 const REGIONS = ['Hamptons', 'North Fork', 'Long Island (North Shore)', 'Long Island (South Shore)'];
 
@@ -114,7 +115,10 @@ export default function WineriesSection() {
               </div>
               <div className="bar-card-info">
                 <div className="bar-card-name">{winery.name}</div>
-                <div className="bar-card-addr">{winery.address}</div>
+                <div className="bar-card-addr">
+                  {winery.address}
+                  <MapLink name={winery.name} address={winery.address} />
+                </div>
                 <div className="bar-card-borough">{winery.region}</div>
                 {winery.phone && (
                   <a href={`tel:${winery.phone}`} className="bar-card-phone">{winery.phone}</a>

@@ -9,6 +9,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import MapLink from '../components/MapLink';
 
 export default function BarsPage() {
   const [bars, setBars] = useState([]);
@@ -103,6 +104,7 @@ export default function BarsPage() {
                 <div className="bar-name">{bar.name}</div>
                 <div className="bar-address">
                   {bar.address} &middot; {bar.borough}
+                  <MapLink name={bar.name} address={bar.address} />
                 </div>
                 {bar.phone && (
                   <div className="bar-phone">

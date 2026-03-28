@@ -1272,7 +1272,7 @@ body {
 }
 .store-card-info { flex: 1; min-width: 0; }
 .store-card-name { font-size: 14px; font-weight: 600; color: var(--black); font-family: var(--font-sans); }
-.store-card-addr { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.store-card-addr { font-size: 12px; color: var(--muted); margin-top: 2px; display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
 .store-card-hood { font-size: 11px; color: var(--rose); margin-top: 2px; font-weight: 500; }
 .store-card-phone { font-size: 12px; color: var(--muted); text-decoration: none; margin-top: 3px; display: inline-block; }
 .store-card-phone:hover { color: var(--rose); }
@@ -1480,6 +1480,46 @@ body {
 }
 
 /* ═══════════════════════════════════════
+   MAP LINK — pin icon on venue addresses
+═══════════════════════════════════════ */
+.map-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  padding: 2px 4px;
+  border-radius: 4px;
+  color: var(--rose-muted);
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.15s, background 0.15s;
+  font-family: inherit;
+}
+.map-link:hover {
+  color: var(--rose);
+  background: var(--rose-light);
+}
+
+/* Inline span variant used inside event cards (no nested <a>) */
+.event-map-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 1px 4px;
+  border-radius: 4px;
+  color: var(--rose-muted);
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.15s, background 0.15s;
+  margin-left: 3px;
+}
+.event-map-btn:hover { color: var(--rose); background: var(--rose-light); }
+.events-page-card-venue { display: flex; align-items: center; gap: 0; flex-wrap: wrap; }
+
+/* ═══════════════════════════════════════
    NEWS PAGE (/news)
 ═══════════════════════════════════════ */
 .news-page { padding: 0 var(--content-pad); }
@@ -1631,7 +1671,7 @@ body {
 .store-row:hover { border-color: var(--rose-muted); }
 .store-info { flex: 1; min-width: 0; }
 .store-name { font-size: 15px; font-weight: 600; color: var(--black); font-family: var(--font-sans); }
-.store-address { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.store-address { font-size: 12px; color: var(--muted); margin-top: 2px; display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
 .store-phone { font-size: 12px; margin-top: 3px; }
 .store-phone a { color: var(--muted); text-decoration: none; }
 
@@ -1816,7 +1856,7 @@ body {
 
 .bar-card-info { flex: 1; min-width: 0; }
 .bar-card-name { font-size: 14px; font-weight: 600; color: var(--black); font-family: var(--font-sans); }
-.bar-card-addr { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.bar-card-addr { font-size: 12px; color: var(--muted); margin-top: 2px; display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
 .bar-card-borough { font-size: 11px; color: var(--rose); margin-top: 2px; font-weight: 500; }
 .bar-card-phone { font-size: 12px; color: var(--muted); text-decoration: none; margin-top: 3px; display: inline-block; }
 .bar-card-phone:hover { color: var(--rose); }
@@ -1897,7 +1937,7 @@ body {
 .bar-row:hover { border-color: var(--rose-muted); }
 .bar-info { flex: 1; min-width: 0; }
 .bar-name { font-size: 15px; font-weight: 600; color: var(--black); font-family: var(--font-sans); }
-.bar-address { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.bar-address { font-size: 12px; color: var(--muted); margin-top: 2px; display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
 .bar-phone { font-size: 12px; margin-top: 3px; }
 .bar-phone a { color: var(--muted); text-decoration: none; }
 .bar-phone a:hover { color: var(--rose); }

@@ -9,6 +9,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import MapLink from '../components/MapLink';
 
 const REGIONS = ['Hamptons', 'North Fork', 'Long Island (North Shore)', 'Long Island (South Shore)'];
 
@@ -104,6 +105,7 @@ export default function WineriesPage() {
                 <div className="bar-name">{winery.name}</div>
                 <div className="bar-address">
                   {winery.address} &middot; {winery.region}
+                  <MapLink name={winery.name} address={winery.address} />
                 </div>
                 {winery.phone && (
                   <div className="bar-phone">
