@@ -224,10 +224,10 @@ export default function NewsPage() {
             ))}
           </div>
 
-          {/* Sticky sidebar: Video + Taste. Sip. Repeat. */}
-          <aside className="featured-venues-sidebar news-page-sidebar">
+          {/* Sticky sidebar column — two independent modules */}
+          <div className="news-page-sidebar">
 
-            {/* Wine Spectator Video — latest uploads playlist */}
+            {/* Module 1: Wine Spectator Video */}
             <div className="ws-video-widget">
               <div className="ws-video-heading">
                 <span className="ws-video-label">Wine Spectator</span>
@@ -252,43 +252,47 @@ export default function NewsPage() {
               </div>
             </div>
 
-            <div className="featured-venues-heading">Taste. Sip. Repeat.</div>
-            {FEATURED_VENUES.map((venue, i) => (
+            {/* Module 2: Taste. Sip. Repeat. */}
+            <aside className="featured-venues-sidebar">
+              <div className="featured-venues-heading">Taste. Sip. Repeat.</div>
+              {FEATURED_VENUES.map((venue, i) => (
+                <a
+                  key={i}
+                  href={venue.url}
+                  className="featured-venue-item"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div className="featured-venue-photo">
+                    <img
+                      src={venue.image}
+                      alt={venue.name}
+                      loading="lazy"
+                      onError={(e) => { e.target.closest('.featured-venue-photo').style.display = 'none'; }}
+                    />
+                  </div>
+                  <div className="featured-venue-body">
+                    <div className="featured-venue-meta">
+                      <span className="featured-venue-neighborhood">{venue.neighborhood}</span>
+                      <span className="featured-venue-rating">★ {venue.rating}</span>
+                    </div>
+                    <div className="featured-venue-name">{venue.name}</div>
+                    <div className="featured-venue-excerpt">{venue.excerpt}</div>
+                    <div className="featured-venue-address">{venue.address}</div>
+                  </div>
+                </a>
+              ))}
               <a
-                key={i}
-                href={venue.url}
-                className="featured-venue-item"
+                className="featured-venues-credit"
+                href="https://www.theinfatuation.com/new-york/guides/wine-bars-nyc"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <div className="featured-venue-photo">
-                  <img
-                    src={venue.image}
-                    alt={venue.name}
-                    loading="lazy"
-                    onError={(e) => { e.target.closest('.featured-venue-photo').style.display = 'none'; }}
-                  />
-                </div>
-                <div className="featured-venue-body">
-                  <div className="featured-venue-meta">
-                    <span className="featured-venue-neighborhood">{venue.neighborhood}</span>
-                    <span className="featured-venue-rating">★ {venue.rating}</span>
-                  </div>
-                  <div className="featured-venue-name">{venue.name}</div>
-                  <div className="featured-venue-excerpt">{venue.excerpt}</div>
-                  <div className="featured-venue-address">{venue.address}</div>
-                </div>
+                via The Infatuation &rarr;
               </a>
-            ))}
-            <a
-              className="featured-venues-credit"
-              href="https://www.theinfatuation.com/new-york/guides/wine-bars-nyc"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              via The Infatuation &rarr;
-            </a>
-          </aside>
+            </aside>
+
+          </div>
 
         </div>
       </main>
