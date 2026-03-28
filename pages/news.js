@@ -132,11 +132,12 @@ export default function NewsPage() {
     })];
   }, [news]);
 
-  // Filter by active tab — no cap on the news page
-  const filtered =
+  // Filter by active tab — cap at 50 articles on the news page
+  const filtered = (
     activeTab === 'All'
       ? news
-      : news.filter((n) => n.source === activeTab);
+      : news.filter((n) => n.source === activeTab)
+  ).slice(0, 50);
 
   return (
     <>
