@@ -132,7 +132,14 @@ const FEEDS = [
     url: 'https://www.foodandwine.com/syndication/rss/all.rss',
     emoji: '🥘',
     color: '#c8522a',
-    filterByKeyword: true,   // ⚠️ newly added — watch after deploy
+    filterByKeyword: true,
+  },
+  {
+    name: 'Bon Appétit',
+    url: 'https://www.bonappetit.com/feed/rss',
+    emoji: '🍽️',
+    color: '#d4372b',
+    filterByKeyword: true,
   },
   {
     name: 'PUNCH',
