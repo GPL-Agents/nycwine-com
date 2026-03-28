@@ -82,7 +82,7 @@ export default function QuickNav() {
     <nav className="quick-nav" aria-label="Jump to section">
       {SECTIONS.map((s) => {
         const active = isActive(s);
-        if (isHome && s.href !== '/#sec-social') {
+        if (isHome) {
           // Homepage: scroll behaviour
           return (
             <a
