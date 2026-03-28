@@ -212,17 +212,21 @@ async function fetchFeed(source) {
       );
     }
 
-    return feedItems.map((item) => ({
-      title: (item.title || '').trim(),
-      link: item.link || '',
-      date: item.isoDate || item.pubDate || '',
-      source: source.name,
-      emoji: source.emoji,
-      color: source.color,
-      nycLocal: source.nycLocal || false,
-      image: extractImage(item),
-      snippet: (item.contentSnippet || '').slice(0, 120).trim() || null,
-    }));
+    // Map to our shape, then drop any article with no image —
+    // imageless cards break the visual layout of the news section
+    return feedItems
+      .map((item) => ({
+        title: (item.title || '').trim(),
+        link: item.link || '',
+        date: item.isoDate || item.pubDate || '',
+        source: source.name,
+        emoji: source.emoji,
+        color: source.color,
+        nycLocal: source.nycLocal || false,
+        image: extractImage(item),
+        snippet: (item.contentSnippet || '').slice(0, 120).trim() || null,
+      }))
+      .filter((item) => item.image);
   } catch (err) {
     console.warn(`RSS fetch failed for ${source.name}:`, err.message);
     return [];

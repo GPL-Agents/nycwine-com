@@ -974,32 +974,27 @@ body {
 /* Inside news-main, strip content-pad since the parent now handles it */
 .news-source-tabs {
   display: flex;
-  gap: 0;
-  padding: 0;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px var(--content-pad);
   background: white;
   border-bottom: 1px solid var(--border);
-  overflow-x: auto;
-  scrollbar-width: none;
 }
-.news-source-tabs::-webkit-scrollbar { display: none; }
 .news-tab {
+  border-radius: 20px;
+  padding: 6px 14px;
   font-size: 12px;
   font-weight: 500;
-  padding: 10px 14px;
   white-space: nowrap;
+  border: 1px solid var(--rose-muted);
+  color: var(--rose);
+  background: white;
   cursor: pointer;
-  flex-shrink: 0;
-  border-bottom: 2px solid transparent;
-  color: var(--muted);
   font-family: var(--font-sans);
-  transition: color 0.15s;
-  background: none;
-  border-top: none;
-  border-left: none;
-  border-right: none;
+  transition: all 0.2s ease;
 }
-.news-tab:hover { color: var(--text); }
-.news-tab.active { color: var(--rose); border-bottom-color: var(--rose); }
+.news-tab:hover { background: var(--rose-light); }
+.news-tab.active { background: var(--rose); color: white; border-color: var(--rose); }
 
 .news-cards { padding: 0; }
 .news-card {
