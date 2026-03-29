@@ -2198,3 +2198,93 @@ body {
 .map-btn-wrap:hover .map-btn-overlay {
   opacity: 1;
 }
+
+/* ═══════════════════════════════════════
+   SOCIAL PAGE (/social)
+═══════════════════════════════════════ */
+.social-page {
+  padding: 0;  /* SocialSection handles its own padding */
+}
+
+/* Two-column layout */
+.social-page-layout {
+  display: flex;
+  gap: 0;
+  align-items: flex-start;
+  padding: 0 var(--content-pad) 40px;
+}
+
+.social-page-main {
+  flex: 2;
+  min-width: 0;
+}
+
+/* Remove the outer section padding since we handle it at page level */
+.social-page-main .social-section {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.social-page-sidebar {
+  flex: 0 0 340px;
+  width: 340px;
+  align-self: flex-start;
+  position: sticky;
+  top: 80px;
+  padding-left: 24px;
+  padding-top: 20px;
+}
+
+.social-page-sidebar-heading {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* Facebook embed container — scale the 500px iframe down to fit the sidebar */
+.social-fb-embed-wrap {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid var(--border-light);
+  background: #fff;
+}
+
+.social-fb-embed-wrap iframe {
+  display: block;
+  transform-origin: top left;
+  transform: scale(0.66);
+  width: 500px !important;
+  /* Height is kept natural; wrapper auto-clips the bottom overflow */
+  pointer-events: auto;
+}
+
+/* Shrink the wrapper height to match scaled iframe height (648 * 0.66 ≈ 428) */
+.social-fb-embed-wrap {
+  height: 428px;
+}
+
+@media (max-width: 900px) {
+  .social-page-layout {
+    flex-direction: column;
+  }
+  .social-page-sidebar {
+    position: static;
+    width: 100%;
+    flex: none;
+    padding-left: 0;
+    padding-top: 0;
+  }
+  .social-fb-embed-wrap iframe {
+    transform: scale(0.74);
+    width: 500px !important;
+  }
+  .social-fb-embed-wrap {
+    height: 480px;
+  }
+}

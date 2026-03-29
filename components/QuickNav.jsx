@@ -4,7 +4,8 @@
 //
 // Homepage  → pills scroll to the section on the page.
 // All other pages → pills link to the dedicated page.
-//   Social has no dedicated page, so it always navigates to /#sec-social.
+//   Social: homepage scrolls to #sec-social; all other pages
+//   link to the dedicated /social page.
 // The active pill is highlighted:
 //   • Homepage: whichever section is in the viewport.
 //   • Other pages: whichever path matches the current route.
@@ -15,7 +16,7 @@ import { useRouter } from 'next/router';
 
 const SECTIONS = [
   { id: 'sec-events',   label: 'Events',      cls: 'events',   href: '/events'   },
-  { id: 'sec-social',   label: 'Social',      cls: 'social',   href: '/#sec-social' },
+  { id: 'sec-social',   label: 'Social',      cls: 'social',   href: '/social'   },
   { id: 'sec-news',     label: 'News',        cls: 'news',     href: '/news'     },
   { id: 'sec-bars',     label: 'Wine Bars',   cls: 'bars',     href: '/bars'     },
   { id: 'sec-stores',   label: 'Wine Stores', cls: 'stores',   href: '/stores'   },
