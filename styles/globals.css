@@ -1788,7 +1788,7 @@ body {
 ═══════════════════════════════════════ */
 .search-page { max-width: 800px; margin: 0 auto; padding: 32px 24px 60px; }
 .search-page-header { margin-bottom: 28px; }
-.search-page-title { font-family: var(--font-serif); font-size: 24px; font-weight: 700; color: var(--black); }
+.search-page-title { font-family: var(--font-serif); font-size: 24px; font-weight: 700; color: var(--pink); }
 .search-page-count { font-size: 13px; color: var(--muted); margin-top: 6px; font-family: var(--font-sans); }
 .search-loading { font-size: 14px; color: var(--muted); }
 .search-empty { font-size: 14px; color: var(--muted); line-height: 1.6; }
