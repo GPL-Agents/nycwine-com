@@ -1,8 +1,8 @@
 // pages/social.js
 // ─────────────────────────────────────────────────────────────
-// Standalone Social page — full social section content on the
-// left (~2/3) with a sidebar on the right (~1/3) for featured
-// posts and future social content.
+// Standalone Social page — uses the same two-column layout as
+// the News page (news-page CSS classes), with a black ribbon
+// header matching the homepage Social section.
 // ─────────────────────────────────────────────────────────────
 
 import Head from 'next/head';
@@ -25,23 +25,49 @@ export default function SocialPage() {
       <Header />
       <QuickNav />
 
-      <main className="social-page">
+      {/*
+        Reuse news-page CSS for the proven layout pattern.
+        social-page modifier overrides the ribbon to black and
+        strips SocialSection's internal double-padding.
+      */}
+      <main className="news-page social-page">
 
-        {/* Two-column layout: social content + sidebar */}
-        <div className="social-page-layout">
+        {/* Black ribbon — same icon as homepage social section */}
+        <div className="section-header news-page-header social-page-header">
+          <div className="section-header-title">
+            <img src="/images/icons/icon-social.png" className="ribbon-icon" alt="" aria-hidden="true" />
+            NYC Wine Social
+          </div>
+          <a href="/social" className="see-all-link social-page-header-link">
+            All Social Media Updates →
+          </a>
+        </div>
 
-          {/* Left column — full SocialSection content */}
-          <div className="social-page-main">
+        {/* Two-column layout: social feed + sidebar */}
+        <div className="news-page-layout">
+
+          {/* Left — full SocialSection (header hidden via CSS, padding stripped) */}
+          <div className="news-page-list social-page-list">
             <SocialSection />
           </div>
 
-          {/* Right column — featured post + future content */}
-          <div className="social-page-sidebar">
+          {/* Right — sidebar with Facebook featured post */}
+          <div className="news-page-sidebar social-page-sidebar">
 
-            <div className="social-page-sidebar-heading">Featured Post</div>
+            <div className="ws-video-heading" style={{ marginBottom: '12px' }}>
+              <span className="ws-video-label">Featured Post</span>
+              <a
+                href="https://www.facebook.com/NYCWine"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ws-video-channel-link"
+              >
+                Follow @NYCWine →
+              </a>
+            </div>
 
-            {/* Facebook post embed */}
-            <div className="social-fb-embed-wrap">
+            {/* Facebook post embed — scaled to fit 280px sidebar */}
+            <div className="social-page-fb-wrap">
               <iframe
                 src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FNYCWine%2Fposts%2Fpfbid03dm8LGaHA1iA5axEbo4LtMwsMtHVmFnzejQTeRmTAnszJtGnz3yxptSqqXGLxs4Ql&show_text=true&width=500"
                 width="500"

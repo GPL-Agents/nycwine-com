@@ -2201,90 +2201,86 @@ body {
 
 /* ═══════════════════════════════════════
    SOCIAL PAGE (/social)
+   Uses news-page layout classes as the base.
+   These rules only add/override what differs.
 ═══════════════════════════════════════ */
-.social-page {
-  padding: 0;  /* SocialSection handles its own padding */
+
+/* Black ribbon instead of the news-page pink */
+.social-page .news-page-header,
+.social-page-header {
+  background: var(--black);
+}
+.social-page .news-page-header .section-header-title {
+  color: white;
 }
 
-/* Two-column layout */
-.social-page-layout {
-  display: flex;
-  gap: 0;
-  align-items: flex-start;
-  padding: 0 var(--content-pad) 40px;
+/* Link on the right side of the ribbon */
+.social-page-header-link {
+  color: var(--pink);
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.15s;
 }
+.social-page-header-link:hover { color: #ff8cb8; }
 
-.social-page-main {
-  flex: 2;
-  min-width: 0;
+/* ── SocialSection inside the page layout ───────────────────
+   The news-page wrapper already applies var(--content-pad)
+   horizontally. Strip SocialSection's own internal horizontal
+   padding so content doesn't double-indent.
+   Also hide SocialSection's own black ribbon — the page has one.
+─────────────────────────────────────────────────────────────── */
+.social-page .social-section {
+  background: transparent;
+  border-top: none;
 }
-
-/* Remove the outer section padding since we handle it at page level */
-.social-page-main .social-section {
+.social-page .social-section-header {
+  display: none;  /* page-level ribbon replaces it */
+}
+.social-page .social-grid {
+  padding-left: 0;
+  padding-right: 0;
+}
+.social-page .social-links-row {
   padding-left: 0;
   padding-right: 0;
 }
 
-.social-page-sidebar {
-  flex: 0 0 340px;
-  width: 340px;
-  align-self: flex-start;
-  position: sticky;
-  top: 80px;
-  padding-left: 24px;
-  padding-top: 20px;
+/* Wider sidebar than news page to accommodate the FB embed */
+.social-page-sidebar.news-page-sidebar {
+  flex: 0 0 300px;
+  width: 300px;
 }
 
-.social-page-sidebar-heading {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 12px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--border-light);
-}
-
-/* Facebook embed container — scale the 500px iframe down to fit the sidebar */
-.social-fb-embed-wrap {
-  width: 100%;
+/* Facebook post embed — scale 500px iframe to fit 280px inner width
+   (sidebar 300px - any wrapper padding = ~280px usable)
+   Scale: 280 / 500 = 0.56  →  height: 648 × 0.56 ≈ 363px         */
+.social-page-fb-wrap {
   overflow: hidden;
   border-radius: 10px;
   border: 1px solid var(--border-light);
   background: #fff;
+  height: 363px;
+  margin-bottom: 20px;
 }
-
-.social-fb-embed-wrap iframe {
+.social-page-fb-wrap iframe {
   display: block;
   transform-origin: top left;
-  transform: scale(0.66);
+  transform: scale(0.56);
   width: 500px !important;
-  /* Height is kept natural; wrapper auto-clips the bottom overflow */
   pointer-events: auto;
 }
 
-/* Shrink the wrapper height to match scaled iframe height (648 * 0.66 ≈ 428) */
-.social-fb-embed-wrap {
-  height: 428px;
-}
-
-@media (max-width: 900px) {
-  .social-page-layout {
-    flex-direction: column;
-  }
-  .social-page-sidebar {
-    position: static;
+@media (max-width: 800px) {
+  .social-page-sidebar.news-page-sidebar {
     width: 100%;
     flex: none;
-    padding-left: 0;
-    padding-top: 0;
   }
-  .social-fb-embed-wrap iframe {
-    transform: scale(0.74);
-    width: 500px !important;
+  .social-page-fb-wrap {
+    height: 430px;
   }
-  .social-fb-embed-wrap {
-    height: 480px;
+  .social-page-fb-wrap iframe {
+    transform: scale(0.66);
   }
 }
