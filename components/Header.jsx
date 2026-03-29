@@ -47,7 +47,7 @@ export default function Header() {
         className="header-ad-link"
       >
         <img
-          src="/images/yorkshire2.png?v=5"
+          src="/images/yorkshire2.png?v=6"
           alt="Yorkshire Wines & Spirits — Fast delivery to Upper East Side"
           className="header-ad-img"
         />
