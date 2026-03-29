@@ -185,7 +185,7 @@ export default function NewsSection() {
       <div className="news-ticker">
         <img src="/images/icons/icon-news.png" className="ribbon-icon" alt="" aria-hidden="true" />
         <span className="ticker-badge">Wine News</span>
-        <a href="/news" className="news-ticker-view-all">View All →</a>
+        <a href="/news" className="news-ticker-view-all">View All News →</a>
       </div>
 
       {/* Two-column layout */}

@@ -121,7 +121,7 @@ export default function BarsPage() {
                   rel="noopener noreferrer"
                   className="bar-visit-btn"
                 >
-                  Visit
+                  Visit Website
                 </a>
               )}
             </div>

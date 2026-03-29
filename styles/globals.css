@@ -1319,6 +1319,8 @@ body {
   border: none;
   border-radius: 8px;
   padding: 8px 14px;
+  min-width: 120px;
+  text-align: center;
   text-decoration: none;
   flex-shrink: 0;
   cursor: pointer;
@@ -1756,7 +1758,7 @@ body {
 }
 .store-row:hover { border-color: var(--rose-muted); }
 .store-info { flex: 1; min-width: 0; }
-.store-name { font-size: 15px; font-weight: 600; color: var(--black); font-family: var(--font-sans); }
+.store-name { font-size: 15px; font-weight: 600; color: var(--rose); font-family: var(--font-sans); }
 .store-address { font-size: 12px; color: var(--muted); margin-top: 2px; display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
 .store-phone { font-size: 12px; margin-top: 3px; }
 .store-phone a { color: var(--muted); text-decoration: none; }
@@ -1994,6 +1996,8 @@ body {
   border: none;
   border-radius: 8px;
   padding: 8px 14px;
+  min-width: 120px;
+  text-align: center;
   text-decoration: none;
   flex-shrink: 0;
   cursor: pointer;
@@ -2031,7 +2035,7 @@ body {
 }
 .bar-row:hover { border-color: var(--rose-muted); }
 .bar-info { flex: 1; min-width: 0; }
-.bar-name { font-size: 15px; font-weight: 600; color: var(--black); font-family: var(--font-sans); }
+.bar-name { font-size: 15px; font-weight: 600; color: var(--rose); font-family: var(--font-sans); }
 .bar-address { font-size: 12px; color: var(--muted); margin-top: 2px; display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
 .bar-phone { font-size: 12px; margin-top: 3px; }
 .bar-phone a { color: var(--muted); text-decoration: none; }

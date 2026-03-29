@@ -121,7 +121,7 @@ export default function StoresPage() {
                   rel="noopener noreferrer"
                   className="store-visit-btn"
                 >
-                  Visit
+                  Visit Website
                 </a>
               )}
             </div>

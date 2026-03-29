@@ -122,7 +122,7 @@ export default function WineriesPage() {
                   rel="noopener noreferrer"
                   className="bar-visit-btn"
                 >
-                  Visit
+                  Visit Website
                 </a>
               )}
             </div>
