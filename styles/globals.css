@@ -2070,7 +2070,7 @@ body {
   font-family: var(--font-serif);
   font-size: 32px;
   font-weight: 700;
-  color: var(--black);
+  color: var(--pink);
   margin-bottom: 16px;
 }
 
@@ -2133,7 +2133,7 @@ body {
   font-family: var(--font-serif);
   font-size: 18px;
   font-weight: 700;
-  color: var(--black);
+  color: var(--pink);
   margin-bottom: 8px;
 }
 .about-contact p {
