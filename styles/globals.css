@@ -2245,6 +2245,16 @@ body {
 .social-page .social-links-row {
   padding-left: 0;
   padding-right: 0;
+  /* Collapse to single column — ad moved to right sidebar */
+  grid-template-columns: 1fr;
+}
+/* Hide the in-line ad sidebar; Borghese ad lives in the right sidebar instead */
+.social-page .social-ad-sidebar {
+  display: none;
+}
+/* X, Pinterest, Facebook cards now span full width like Reddit modules */
+.social-page .social-links-col {
+  width: 100%;
 }
 
 /* Wider sidebar than news page to accommodate the FB embed */

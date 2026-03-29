@@ -82,6 +82,22 @@ export default function SocialPage() {
               />
             </div>
 
+            {/* Castello di Borghese ad — moved here from left column */}
+            <a
+              href="https://castellodiborghese.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="infeed-ad"
+              style={{ display: 'block', textDecoration: 'none', marginTop: '20px' }}
+            >
+              <img
+                src="/images/Borghese3.png"
+                alt="Castello di Borghese Vineyard — North Fork, Long Island"
+                className="infeed-ad-img"
+                style={{ width: '100%', height: 'auto', borderRadius: '8px' }}
+              />
+            </a>
+
           </div>
         </div>
 
