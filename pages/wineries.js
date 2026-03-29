@@ -62,16 +62,16 @@ export default function WineriesPage() {
       <QuickNav />
 
       <main className="bars-page">
-        <div className="bars-page-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
-          <div>
+        <div className="bars-page-header" style={{ display: 'flex', alignItems: 'stretch', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <h1 className="bars-page-title">Wineries Near NYC</h1>
             <p className="bars-page-subtitle">{wineries.length} wineries within driving distance</p>
           </div>
-          <Link href="/map">
+          <Link href="/map" style={{ display: 'flex', alignSelf: 'stretch' }}>
             <img
               src="/images/maps3button.png"
               alt="Maps & Directions"
-              style={{ height: '115px', width: 'auto', cursor: 'pointer', borderRadius: '8px' }}
+              style={{ height: '100%', width: 'auto', cursor: 'pointer', borderRadius: '8px', display: 'block' }}
             />
           </Link>
         </div>
