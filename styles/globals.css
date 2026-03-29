@@ -1709,7 +1709,7 @@ body {
    STORES PAGE (full directory)
 ═══════════════════════════════════════ */
 .stores-page { padding: 0 var(--content-pad) 40px; }
-.stores-page-header { padding: 12px 0 10px; text-align: left; }
+.stores-page-header { padding: 6px 0 6px; text-align: left; }
 .stores-page-title {
   font-family: var(--font-serif);
   font-size: 28px;
@@ -2007,8 +2007,8 @@ body {
 .bar-visit-btn:hover { background: var(--pink-muted); color: white; }
 
 /* ── Bars standalone page (/bars) ────────────────────────── */
-.bars-page { padding: 12px var(--content-pad) 24px; }
-.bars-page-header { margin-bottom: 10px; }
+.bars-page { padding: 6px var(--content-pad) 24px; }
+.bars-page-header { margin-bottom: 6px; }
 .bars-page-title { font-family: var(--font-serif); font-size: 28px; font-weight: 700; color: var(--black); }
 .bars-page-subtitle { font-size: 14px; color: var(--muted); margin-top: 4px; }
 .bars-page-controls { display: flex; gap: 12px; margin-bottom: 16px; }
