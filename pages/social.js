@@ -38,9 +38,6 @@ export default function SocialPage() {
             <img src="/images/icons/icon-social.png" className="ribbon-icon" alt="" aria-hidden="true" />
             NYC Wine Social
           </div>
-          <a href="/social" className="see-all-link social-page-header-link">
-            All Social Media Updates →
-          </a>
         </div>
 
         {/* Two-column layout: social feed + sidebar */}
