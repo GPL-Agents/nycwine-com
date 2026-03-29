@@ -129,7 +129,7 @@ export default function WineBarsSection() {
                   ) : '🍷'}
                 </div>
                 {bar.website && (
-                  <a href={bar.website} target="_blank" rel="noopener noreferrer" className="bar-card-link">
+                  <a href={bar.website} target="_blank" rel="noopener noreferrer" title="Visit Website" className="bar-card-link">
                     <span className="visit-default">Visit →</span>
                     <span className="visit-hover">Visit Website →</span>
                   </a>

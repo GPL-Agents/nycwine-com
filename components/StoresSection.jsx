@@ -143,7 +143,7 @@ export default function StoresSection() {
                   )}
                 </div>
                 {store.website && (
-                  <a href={store.website} target="_blank" rel="noopener noreferrer" className="store-card-link">
+                  <a href={store.website} target="_blank" rel="noopener noreferrer" title="Visit Website" className="store-card-link">
                     <span className="visit-default">Visit →</span>
                     <span className="visit-hover">Visit Website →</span>
                   </a>

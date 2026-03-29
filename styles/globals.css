@@ -1268,30 +1268,8 @@ body {
   border-radius: 10px;
   background: white;
   transition: border-color 0.15s, box-shadow 0.15s;
-  position: relative;
-  cursor: pointer;
 }
 .store-card:hover { border-color: var(--rose-muted); box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-/* Cursor tooltip */
-.store-card::after {
-  content: 'Visit Website';
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  background: rgba(20, 20, 20, 0.78);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 500;
-  font-family: var(--font-sans);
-  padding: 3px 8px;
-  border-radius: 4px;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s;
-}
-.store-card:hover::after { opacity: 1; }
 /* Left column: icon + Visit link stacked */
 .store-card-left {
   flex-shrink: 0;
@@ -1776,29 +1754,8 @@ body {
   border: 1px solid var(--border);
   border-radius: 10px;
   transition: border-color 0.15s;
-  position: relative;
-  cursor: pointer;
 }
 .store-row:hover { border-color: var(--rose-muted); }
-.store-row::after {
-  content: 'Visit Website';
-  position: absolute;
-  top: 10px;
-  right: 14px;
-  background: rgba(20, 20, 20, 0.78);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 500;
-  font-family: var(--font-sans);
-  padding: 3px 8px;
-  border-radius: 4px;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s;
-}
-.store-row:hover::after { opacity: 1; }
 .store-info { flex: 1; min-width: 0; }
 .store-name { font-size: 15px; font-weight: 600; color: var(--rose); font-family: var(--font-sans); }
 .store-address { font-size: 12px; color: var(--muted); margin-top: 2px; display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
@@ -1970,30 +1927,8 @@ body {
   border-radius: 10px;
   background: white;
   transition: border-color 0.15s, box-shadow 0.15s;
-  position: relative;
-  cursor: pointer;
 }
 .bar-card:hover { border-color: var(--rose-muted); box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-/* Cursor tooltip — shared with store-card and winery cards */
-.bar-card::after {
-  content: 'Visit Website';
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  background: rgba(20, 20, 20, 0.78);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 500;
-  font-family: var(--font-sans);
-  padding: 3px 8px;
-  border-radius: 4px;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s;
-}
-.bar-card:hover::after { opacity: 1; }
 /* Left column: icon + Visit link stacked */
 .bar-card-left {
   flex-shrink: 0;
@@ -2095,29 +2030,8 @@ body {
   border: 1px solid var(--border);
   border-radius: 10px;
   transition: border-color 0.15s;
-  position: relative;
-  cursor: pointer;
 }
 .bar-row:hover { border-color: var(--rose-muted); }
-.bar-row::after {
-  content: 'Visit Website';
-  position: absolute;
-  top: 10px;
-  right: 14px;
-  background: rgba(20, 20, 20, 0.78);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 500;
-  font-family: var(--font-sans);
-  padding: 3px 8px;
-  border-radius: 4px;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s;
-}
-.bar-row:hover::after { opacity: 1; }
 .bar-info { flex: 1; min-width: 0; }
 .bar-name { font-size: 15px; font-weight: 600; color: var(--rose); font-family: var(--font-sans); }
 .bar-address { font-size: 12px; color: var(--muted); margin-top: 2px; display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
