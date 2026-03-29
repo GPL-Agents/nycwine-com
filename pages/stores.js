@@ -61,16 +61,16 @@ export default function StoresPage() {
       <QuickNav />
 
       <main className="stores-page">
-        <div className="stores-page-header" style={{ display: 'flex', alignItems: 'stretch', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <div className="stores-page-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px' }}>
+          <div>
             <h1 className="stores-page-title">NYC Wine Stores</h1>
             <p className="stores-page-subtitle">{stores.length} wine stores across Manhattan</p>
           </div>
-          <Link href="/map" style={{ display: 'flex', alignSelf: 'stretch' }}>
+          <Link href="/map">
             <img
               src="/images/maps3button.png"
               alt="Maps & Directions"
-              style={{ height: '100%', width: 'auto', cursor: 'pointer', borderRadius: '8px', display: 'block' }}
+              style={{ height: '70px', width: 'auto', cursor: 'pointer', borderRadius: '8px', display: 'block' }}
             />
           </Link>
         </div>
