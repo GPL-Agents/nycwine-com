@@ -70,7 +70,7 @@ export default function BarsPage() {
             <img
               src="/images/maps3button.png"
               alt="Maps & Directions"
-              style={{ height: '80px', width: 'auto', cursor: 'pointer', borderRadius: '8px' }}
+              style={{ height: '115px', width: 'auto', cursor: 'pointer', borderRadius: '8px' }}
             />
           </Link>
         </div>
