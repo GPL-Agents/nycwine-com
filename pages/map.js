@@ -21,9 +21,9 @@ import QuickNav from '../components/QuickNav';
 
 // ── Layer config ──────────────────────────────────────────────
 const LAYERS = {
-  bars:     { label: 'Wine Bars',   color: '#ec407a', emoji: '🍷' },
-  stores:   { label: 'Wine Stores', color: '#1a1a1a', emoji: '🛒' },
-  wineries: { label: 'Wineries',    color: '#7c3aed', emoji: '🍇' },
+  bars:     { label: 'Wine Bars',   singular: 'Wine Bar',  color: '#ec407a', emoji: '🍷' },
+  stores:   { label: 'Wine Stores', singular: 'Wine Store', color: '#1a1a1a', emoji: '🛒' },
+  wineries: { label: 'Wineries',    singular: 'Winery',    color: '#7c3aed', emoji: '🍇' },
 };
 
 const RADIUS_OPTIONS = [
@@ -108,7 +108,7 @@ function popupHtml(item, type) {
   const safeAddr = address.replace(/"/g, '&quot;');
   return `
     <div class="map-popup">
-      <div class="mp-type" style="background:${cfg.color}">${cfg.emoji} ${cfg.label.replace(/s$/, '')}</div>
+      <div class="mp-type" style="background:${cfg.color}">${cfg.emoji} ${cfg.singular}</div>
       <div class="mp-name">${name}</div>
       ${hood    ? `<div class="mp-hood">${hood}</div>`    : ''}
       ${address ? `<div class="mp-addr">${address}</div>` : ''}
