@@ -14,6 +14,20 @@
     "color": "c4"
   },
   {
+    "title": "Taste of Italy: Lombardia",
+    "venue": "77 Fulton St",
+    "date": "2026-04-01T18:00:00-04:00",
+    "dateDisplay": "Wed, Apr 1, 10:00 PM",
+    "day": "1",
+    "month": "Apr · Wed",
+    "tag": "Event",
+    "url": "https://www.eventbrite.com/e/taste-of-italy-lombardia-tickets-1985082645630",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1179712624%2F293225663464%2F1%2Foriginal.20260312-181443?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=92370ffa40e38d726955fcd9332460f8",
+    "source": "Eventbrite",
+    "id": 26,
+    "color": "c1"
+  },
+  {
     "title": "Passover Seder April",
     "venue": "Soul Space NYC",
     "date": "2026-04-01T20:00:00-04:00",
@@ -24,8 +38,8 @@
     "url": "https://www.eventbrite.com/e/passover-seder-april-tickets-1985218819931",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1179867727%2F2082383989403%2F1%2Foriginal.20260315-040446?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.469&fp-y=0.956&s=b4baae3d444e1d50bb11e60e3529d45f",
     "source": "Eventbrite",
-    "id": 2,
-    "color": "c2"
+    "id": 3,
+    "color": "c3"
   },
   {
     "title": "Uncorking Excellence with Standish Wine Company",
@@ -38,8 +52,8 @@
     "url": "https://www.eventbrite.com/e/uncorking-excellence-with-standish-wine-company-tickets-1984639550320",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1179734016%2F1094500293343%2F1%2Foriginal.20260312-215941?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=1.0&fp-y=0.543&s=c952d468575d5c72f8368228b3021358",
     "source": "Eventbrite",
-    "id": 22,
-    "color": "c2"
+    "id": 23,
+    "color": "c3"
   },
   {
     "title": "Introduction to Wine 101 | A Guided Wine Tasting",
@@ -192,8 +206,8 @@
     "url": "https://www.eventbrite.com/e/wine-tasting-social-tickets-1985927549761",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F451260149%2F90270920919%2F1%2Foriginal.20230221-181604?w=480&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C88%2C800%2C400&s=dcbdff2af7d66df1dc49d665c1118816",
     "source": "Eventbrite",
-    "id": 14,
-    "color": "c4"
+    "id": 15,
+    "color": "c5"
   },
   {
     "title": "\"ELEGANCE UNCORKED\" WINE TASTING EXPERIENCE!",
@@ -234,8 +248,8 @@
     "url": "https://www.eventbrite.com/e/tequila-fest-tickets-1984392114232",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1178936527%2F93744484845%2F1%2Foriginal.20260303-193109?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.531&fp-y=0.701&s=5b1ebe64997fc2666a0bef16eb2cbda5",
     "source": "Eventbrite",
-    "id": 26,
-    "color": "c1"
+    "id": 25,
+    "color": "c5"
   },
   {
     "title": "Pizza Making Class",
@@ -248,8 +262,8 @@
     "url": "https://www.eventbrite.com/e/pizza-making-class-tickets-1982189975576",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1173230804%2F293225663464%2F1%2Foriginal.20251218-205041?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=9060b02223920633a29c70937a803f77",
     "source": "Eventbrite",
-    "id": 3,
-    "color": "c3"
+    "id": 2,
+    "color": "c2"
   },
   {
     "title": "Wine & Cheese Crash Course",
@@ -374,8 +388,8 @@
     "url": "https://www.eventbrite.com/e/bloomy-rinds-floral-wines-tickets-1982454728459",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1176803752%2F141392852881%2F1%2Foriginal.20260205-183537?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=e3d230660d45f97b36c51b783e7cffa0",
     "source": "Eventbrite",
-    "id": 15,
-    "color": "c5"
+    "id": 14,
+    "color": "c4"
   },
   {
     "title": "Tour of Bordeaux Wine Tasting",
@@ -388,8 +402,8 @@
     "url": "https://www.eventbrite.com/e/tour-of-bordeaux-wine-tasting-tickets-1984147957954",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1179733725%2F2927394388511%2F1%2Foriginal.20260312-215550?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=702a5063559c9b7f32fd9ce29e15b7eb",
     "source": "Eventbrite",
-    "id": 23,
-    "color": "c3"
+    "id": 22,
+    "color": "c2"
   },
   {
     "title": "Wine Night LGBTQ Networking: The Captivating Wines of Portugal - NYC",
@@ -403,20 +417,6 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1173851394%2F767898029763%2F1%2Foriginal.20260102-181352?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.505&fp-y=0.084&s=ab68456a406ca39777186402095033f3",
     "source": "Eventbrite",
     "id": 20,
-    "color": "c5"
-  },
-  {
-    "title": "NEW JERSEY JERK FESTIVAL 2026",
-    "venue": "Middlesex County Fairgrounds",
-    "date": "2026-05-24T12:00:00-04:00",
-    "dateDisplay": "Sun, May 24, 4:00 PM",
-    "day": "24",
-    "month": "May · Sun",
-    "tag": "Festival",
-    "url": "https://www.eventbrite.com/e/new-jersey-jerk-festival-2026-tickets-1982603859514",
-    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1176977149%2F131744875504%2F1%2Foriginal.20260208-023303?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=1bc0f1cf3ba5759381811a4e3f8fe00b",
-    "source": "Eventbrite",
-    "id": 25,
     "color": "c5"
   }
 ]
