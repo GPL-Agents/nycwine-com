@@ -72,7 +72,6 @@ export default function SubmitPage() {
             <h1 className="sub-success-title">Submission Received!</h1>
             <p>Thanks — we&apos;re reviewing your listing now. You&apos;ll receive a confirmation at the email you provided once it goes live, typically within a few hours.</p>
             <div className="sub-success-links">
-              <Link href="/" className="adv-btn-primary">Back to Home</Link>
               <Link href="/advertise" className="adv-btn-secondary">View Ad Options</Link>
             </div>
           </div>

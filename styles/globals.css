@@ -3593,11 +3593,13 @@ body {
   text-transform: uppercase;
   color: var(--pink);
   margin-bottom: 6px;
+  text-align: center;
 }
 .adv-section-title {
   font-family: var(--font-serif);
   font-size: clamp(22px, 3.5vw, 32px);
   font-weight: 700;
+  text-align: center;
   color: var(--black);
   margin-bottom: 10px;
   line-height: 1.2;
@@ -3607,7 +3609,10 @@ body {
   color: var(--muted);
   line-height: 1.6;
   max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 32px;
+  text-align: center;
 }
 
 /* ── Free listing cards ─────────────────────────────────────── */
@@ -4034,12 +4039,26 @@ body {
   margin-top: 16px;
 }
 
+/* Submit button — white base, turns solid pink on hover/active */
+.sub-submit-btn {
+  background: var(--white) !important;
+  color: var(--pink-dark) !important;
+  border: 2px solid var(--pink) !important;
+  transition: background 0.18s, color 0.18s, border-color 0.18s !important;
+}
+.sub-submit-btn:hover,
+.sub-submit-btn:active {
+  background: var(--pink) !important;
+  color: var(--white) !important;
+  border-color: var(--pink) !important;
+}
+
 /* ── Success state ──────────────────────────────────────────── */
 .sub-success {
   max-width: 480px;
   margin: 60px auto;
   text-align: center;
-  padding: 0 var(--content-pad);
+  padding: 0 24px;
 }
 .sub-success-icon {
   width: 64px;
