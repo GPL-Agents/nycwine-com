@@ -244,8 +244,9 @@ export default async function handler(req, res) {
 
   try {
     const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API_KEY);
+    // Try the current free-tier model; fall back if unavailable
     const model = genAI.getGenerativeModel({
-      model:             'gemini-1.5-flash',
+      model:             'gemini-2.0-flash-lite',
       systemInstruction: systemPrompt,
       generationConfig:  { maxOutputTokens: 600, temperature: 0.7 },
     });
@@ -281,6 +282,7 @@ export default async function handler(req, res) {
 
   } catch (err) {
     console.error('[Concierge] Gemini API error:', err?.message || err);
+    console.error('[Concierge] Full error:', JSON.stringify(err, Object.getOwnPropertyNames(err)));
     return res.status(200).json({
       reply:   "Sorry, I'm having a moment — please try again! 🍷",
       options: DEFAULT_OPTIONS,

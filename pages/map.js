@@ -45,11 +45,16 @@ function haversineDistance(lat1, lng1, lat2, lng2) {
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
-async function geocodeQuery(query) {
+async function geocodeQuery(rawQuery) {
+  // Normalise intersections: "E 76th St and 3rd Ave" → "E 76th St & 3rd Ave"
+  let query = rawQuery
+    .replace(/\s+&\s+/g, ' & ')               // normalise existing &
+    .replace(/\s+and\s+/gi, ' & ');            // "and" → "&"
+
   // Bias towards NYC if no city/state specified
-  const biased = /new york|nyc|\bny\b/i.test(query)
-    ? query
-    : `${query}, New York, NY`;
+  const hasCity = /new york|nyc|\bny\b|\bbrooklyn\b|\bbronx\b|\bqueens\b|\bstaten island\b/i.test(query);
+  const biased  = hasCity ? query : `${query}, New York, NY`;
+
   try {
     const url = 'https://nominatim.openstreetmap.org/search?' +
       new URLSearchParams({ q: biased, format: 'json', limit: '1', countrycodes: 'us' });
@@ -380,7 +385,7 @@ export default function MapPage() {
                 <input
                   type="text"
                   className="map-search-input"
-                  placeholder="Enter address or intersection…"
+                  placeholder="Address, intersection, or neighborhood…"
                   value={searchInput}
                   onChange={e => { setSearchInput(e.target.value); setSearchError(''); }}
                   disabled={searching}
