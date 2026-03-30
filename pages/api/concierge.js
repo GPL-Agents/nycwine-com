@@ -2,22 +2,23 @@
 // ─────────────────────────────────────────────────────────────
 // NYC Wine Concierge — AI-powered API route.
 //
-// Uses Claude (Anthropic) with full RAG over site venue data:
+// Uses Google Gemini Flash with full RAG over site venue data:
 //   • wineries.json  (37 wineries, Long Island / Hamptons / North Fork)
 //   • wine-bars.json (115 wine bars across NYC boroughs)
 //   • wine-stores.json (335 wine stores)
 //   • events-cache.json (upcoming Eventbrite events)
 //
 // Jokes are handled locally (no API call needed).
-// All other questions go to Claude with the full data context.
+// All other questions go to Gemini with the full data context.
 //
-// Requires: ANTHROPIC_API_KEY in environment variables.
-// The @anthropic-ai/sdk package is installed via package.json.
+// Requires: GOOGLE_GEMINI_API_KEY in environment variables.
+// Free tier: 1,500 requests/day via aistudio.google.com
+// The @google/generative-ai package is installed via package.json.
 // ─────────────────────────────────────────────────────────────
 
-import Anthropic from '@anthropic-ai/sdk';
-import fs        from 'fs';
-import path      from 'path';
+import { GoogleGenerativeAI } from '@google/generative-ai';
+import fs   from 'fs';
+import path from 'path';
 
 // ── Site data — loaded once and cached at module level ────────
 let _siteData = null;
@@ -215,60 +216,59 @@ export default async function handler(req, res) {
   }
 
   // ── No API key — graceful fallback ─────────────────────────
-  if (!process.env.ANTHROPIC_API_KEY) {
+  if (!process.env.GOOGLE_GEMINI_API_KEY) {
     return res.status(200).json({
       reply: "I'm getting set up — check back very soon! In the meantime, explore the site using the navigation above. 🍷",
       options: DEFAULT_OPTIONS,
     });
   }
 
-  // ── Build Claude conversation ──────────────────────────────
+  // ── Build Gemini conversation ──────────────────────────────
   const data         = getSiteData();
   const systemPrompt = buildSystemPrompt(data);
 
-  // Convert message history to Claude format
-  const claudeMessages = [];
+  // Convert message history to Gemini format
+  // Gemini uses 'user' and 'model' (not 'assistant')
+  const geminiHistory = [];
   for (const msg of (history || [])) {
     if (msg.role === 'user') {
-      claudeMessages.push({ role: 'user', content: msg.text });
+      geminiHistory.push({ role: 'user',  parts: [{ text: msg.text }] });
     } else if (msg.role === 'bot' && msg.text && !msg.isJoke) {
-      // Pass back the bot's text as assistant turn (strip markdown for cleanliness)
-      claudeMessages.push({ role: 'assistant', content: msg.text });
+      geminiHistory.push({ role: 'model', parts: [{ text: msg.text }] });
     }
   }
-  claudeMessages.push({ role: 'user', content: message });
 
   try {
-    const client   = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
-    const response = await client.messages.create({
-      model:      'claude-haiku-4-5-20251001',
-      max_tokens: 600,
-      system:     systemPrompt,
-      messages:   claudeMessages,
+    const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API_KEY);
+    const model = genAI.getGenerativeModel({
+      model:             'gemini-1.5-flash',
+      systemInstruction: systemPrompt,
+      generationConfig:  { maxOutputTokens: 600, temperature: 0.7 },
     });
 
-    const raw = response.content[0]?.text || '';
+    const chat   = model.startChat({ history: geminiHistory });
+    const result = await chat.sendMessage(message);
+    const raw    = result.response.text();
 
-    // Parse Claude's JSON response — extract the object even if there's surrounding text
+    // Parse Gemini's JSON response — extract the object even if there's surrounding text
     let parsed = null;
     try {
       const match = raw.match(/\{[\s\S]*\}/);
       parsed = JSON.parse(match ? match[0] : raw);
     } catch {
-      // Claude didn't return valid JSON — use the raw text as reply
       parsed = { reply: raw, options: [] };
     }
 
     const reply   = parsed.reply   || raw;
     const rawOpts = Array.isArray(parsed.options) ? parsed.options : [];
 
-    // Normalise options — strings from Claude, tag "Make me laugh" with isJoke
+    // Normalise options — tag "Make me laugh" with isJoke
     const options = rawOpts.slice(0, 4).map(o => {
       const label = typeof o === 'string' ? o : (o.label || String(o));
       return { label, isJoke: label.trim().toLowerCase() === 'make me laugh' };
     });
 
-    // Always have 4 options — fill with defaults if Claude returned fewer
+    // Always have 4 options — fill with defaults if Gemini returned fewer
     while (options.length < 4) {
       options.push(DEFAULT_OPTIONS[options.length] || DEFAULT_OPTIONS[0]);
     }
@@ -276,7 +276,7 @@ export default async function handler(req, res) {
     return res.status(200).json({ reply, options });
 
   } catch (err) {
-    console.error('[Concierge] Claude API error:', err?.message || err);
+    console.error('[Concierge] Gemini API error:', err?.message || err);
     return res.status(200).json({
       reply:   "Sorry, I'm having a moment — please try again! 🍷",
       options: DEFAULT_OPTIONS,
