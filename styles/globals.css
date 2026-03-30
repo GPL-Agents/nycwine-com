@@ -2519,9 +2519,53 @@ body {
   border-radius: 12px !important;
   box-shadow: 0 4px 20px rgba(0,0,0,0.15) !important;
   padding: 0 !important;
+  overflow: visible !important;
 }
 .leaflet-popup-content { margin: 12px 14px !important; }
 .leaflet-popup-tip-container { display: none; }
+
+/* Close button — light pink circle in top-right corner */
+.leaflet-popup-close-button {
+  position: absolute !important;
+  top: -10px !important;
+  right: -10px !important;
+  width: 22px !important;
+  height: 22px !important;
+  border-radius: 50% !important;
+  background: var(--pink-light) !important;
+  color: var(--pink) !important;
+  font-size: 14px !important;
+  font-weight: 900 !important;
+  line-height: 22px !important;
+  text-align: center !important;
+  padding: 0 !important;
+  border: 2px solid white !important;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15) !important;
+}
+.leaflet-popup-close-button:hover {
+  background: var(--pink-muted) !important;
+  color: white !important;
+}
+
+/* Popup footer row — directions + website side by side */
+.mp-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-light);
+}
+.mp-dir {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--pink);
+  text-decoration: none;
+}
+.mp-dir:hover { color: var(--pink-dark); }
 
 /* Venue name tooltip on hover */
 .map-venue-tooltip {

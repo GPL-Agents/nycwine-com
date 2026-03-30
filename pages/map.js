@@ -103,13 +103,24 @@ function popupHtml(item, type) {
   const address = item.address || '';
   const hood    = item.neighborhood || item.region || item.borough || '';
   const site    = item.website || '';
+  // data-* attributes used by the delegated click handler below
+  const safeName = name.replace(/"/g, '&quot;');
+  const safeAddr = address.replace(/"/g, '&quot;');
   return `
     <div class="map-popup">
       <div class="mp-type" style="background:${cfg.color}">${cfg.emoji} ${cfg.label.replace(/s$/, '')}</div>
       <div class="mp-name">${name}</div>
-      ${hood    ? `<div class="mp-hood">${hood}</div>`            : ''}
-      ${address ? `<div class="mp-addr">${address}</div>`         : ''}
-      ${site    ? `<a class="mp-link" href="${site}" target="_blank" rel="noopener">Visit Website →</a>` : ''}
+      ${hood    ? `<div class="mp-hood">${hood}</div>`    : ''}
+      ${address ? `<div class="mp-addr">${address}</div>` : ''}
+      <div class="mp-footer">
+        <a class="mp-dir" href="#" data-name="${safeName}" data-addr="${safeAddr}">
+          <svg width="10" height="12" viewBox="0 0 11 14" fill="currentColor" aria-hidden="true">
+            <path d="M5.5 0C2.46 0 0 2.46 0 5.5 0 9.35 5.5 14 5.5 14S11 9.35 11 5.5C11 2.46 8.54 0 5.5 0zm0 7.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/>
+          </svg>
+          Directions
+        </a>
+        ${site ? `<a class="mp-link" href="${site}" target="_blank" rel="noopener">Website →</a>` : ''}
+      </div>
     </div>`;
 }
 
@@ -174,6 +185,21 @@ export default function MapPage() {
         maxZoom: 19,
       }).addTo(map);
       mapRef.current = map;
+
+      // Delegated handler for directions links inside popups
+      mapDivRef.current.addEventListener('click', function(e) {
+        const link = e.target.closest('.mp-dir');
+        if (!link) return;
+        e.preventDefault();
+        const name = link.dataset.name || '';
+        const addr = link.dataset.addr || '';
+        const q    = encodeURIComponent(`${name} ${addr}`);
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        const url  = isIOS
+          ? `https://maps.apple.com/?q=${q}`
+          : `https://www.google.com/maps/search/?api=1&query=${q}`;
+        window.open(url, '_blank', 'noopener,noreferrer');
+      });
 
       // Create one cluster group per category
       const groups = {};
