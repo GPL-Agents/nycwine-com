@@ -2203,6 +2203,14 @@ body {
    These rules only add/override what differs.
 ═══════════════════════════════════════ */
 
+/* Contain any child widget (Elfsight, iframes, etc.) so they can't
+   cause page-level horizontal scroll on mobile. The sticky <Header>
+   and <Footer> are siblings of <main>, not children, so they are
+   unaffected by this rule. */
+.social-page {
+  overflow-x: hidden;
+}
+
 /* Black ribbon instead of the news-page pink */
 .social-page .news-page-header,
 .social-page-header {
