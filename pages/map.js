@@ -366,6 +366,10 @@ export default function MapPage() {
   }
 
   function resetView() {
+    setUserLocation(null);
+    setRadius(null);
+    setSearchInput('');
+    setSearchError('');
     mapRef.current?.setView([40.7380, -73.9800], 12, { animate: true });
   }
 

@@ -8,8 +8,8 @@
     "address": "139 Sagg Rd, Sagaponack, NY 11962",
     "website": "https://wolffer.com",
     "featured": true,
-    "lat": 40.916163,
-    "lng": -72.389824
+    "lat": 40.945025,
+    "lng": -72.277522
   },
   {
     "id": 2,
@@ -20,8 +20,8 @@
     "address": "231 Montauk Hwy, Water Mill, NY 11976",
     "website": "https://www.duckwalk.com",
     "featured": true,
-    "lat": 40.91609,
-    "lng": -72.388009
+    "lat": 40.902831,
+    "lng": -72.366642
   },
   {
     "id": 3,
@@ -32,8 +32,8 @@
     "address": "1927 Scuttle Hole Rd, Bridgehampton, NY 11932",
     "website": "https://channingdaughters.com",
     "featured": true,
-    "lat": 40.925072,
-    "lng": -72.35337
+    "lat": 40.959545,
+    "lng": -72.309861
   },
   {
     "id": 4,
@@ -44,8 +44,8 @@
     "address": "150 Bergen Ave, Mattituck, NY 11952",
     "website": "https://macariwines.com",
     "featured": true,
-    "lat": 41.004029,
-    "lng": -72.448777
+    "lat": 40.9924,
+    "lng": -72.56813
   },
   {
     "id": 5,
@@ -56,8 +56,8 @@
     "address": "36225 Main Rd, Cutchogue, NY 11935",
     "website": "https://www.bedellcellars.com",
     "featured": true,
-    "lat": 41.000845,
-    "lng": -72.449468
+    "lat": 41.02887,
+    "lng": -72.468064
   },
   {
     "id": 6,
@@ -68,8 +68,8 @@
     "address": "39750 County Rd 48, Southold, NY 11971",
     "website": "https://sparklingpointe.com",
     "featured": true,
-    "lat": 41.003084,
-    "lng": -72.447979
+    "lat": 41.061645,
+    "lng": -72.444408
   },
   {
     "id": 7,
@@ -79,8 +79,8 @@
     "phone": "(631) 765-1100",
     "address": "39390 Route 25, Peconic, NY 11958",
     "website": "https://raphaelwine.com",
-    "lat": 41.002031,
-    "lng": -72.448506
+    "lat": 41.034687,
+    "lng": -72.460664
   },
   {
     "id": 8,
@@ -90,8 +90,8 @@
     "phone": "(631) 734-6200",
     "address": "37645 Main Rd, Peconic, NY 11958",
     "website": "https://pindar.net",
-    "lat": 41.003635,
-    "lng": -72.450738
+    "lat": 41.0385,
+    "lng": -72.463
   },
   {
     "id": 9,
@@ -101,8 +101,8 @@
     "phone": "(631) 722-8800",
     "address": "1074 Main Rd, Aquebogue, NY 11931",
     "website": "https://paumanok.com",
-    "lat": 40.954683,
-    "lng": -72.353696
+    "lat": 40.949176,
+    "lng": -72.60355
   },
   {
     "id": 10,
@@ -112,8 +112,8 @@
     "phone": "(631) 722-9463",
     "address": "5120 Sound Ave, Riverhead, NY 11901",
     "website": "https://palmervineyards.com",
-    "lat": 41.003989,
-    "lng": -72.448895
+    "lat": 40.968533,
+    "lng": -72.624515
   },
   {
     "id": 11,
@@ -123,8 +123,8 @@
     "phone": "(631) 477-6977",
     "address": "825 North Rd, Greenport, NY 11944",
     "website": "https://kontokostawinery.com",
-    "lat": 40.936496,
-    "lng": -72.483708
+    "lat": 41.119022,
+    "lng": -72.367989
   },
   {
     "id": 12,
@@ -134,8 +134,8 @@
     "phone": "(631) 734-8282",
     "address": "15975 County Rd 48, Cutchogue, NY 11935",
     "website": "https://sanninovineyard.com",
-    "lat": 41.003741,
-    "lng": -72.447983
+    "lat": 41.017283,
+    "lng": -72.511147
   },
   {
     "id": 13,
@@ -145,8 +145,8 @@
     "phone": "(631) 734-1100",
     "address": "22600 Main Rd, Cutchogue, NY 11935",
     "website": "https://liebcellars.com",
-    "lat": 41.003832,
-    "lng": -72.450955
+    "lat": 41.000643,
+    "lng": -72.500174
   },
   {
     "id": 14,
@@ -156,8 +156,8 @@
     "phone": "(631) 765-8929",
     "address": "13050 Oregon Rd, Cutchogue, NY 11935",
     "website": "https://coffeepotcellars.com",
-    "lat": 41.002804,
-    "lng": -72.449602
+    "lat": 41.036153,
+    "lng": -72.504314
   },
   {
     "id": 15,
@@ -167,8 +167,8 @@
     "phone": "(631) 734-5111",
     "address": "17150 Route 48, Cutchogue, NY 11935",
     "website": "https://castellodiborghese.com",
-    "lat": 41.004262,
-    "lng": -72.452049
+    "lat": 41.017396,
+    "lng": -72.506494
   },
   {
     "id": 16,
@@ -178,8 +178,8 @@
     "phone": "(631) 765-6188",
     "address": "44075 Main Rd, Peconic, NY 11958",
     "website": "https://ospreysdominion.com",
-    "lat": 41.002076,
-    "lng": -72.448763
+    "lat": 41.041131,
+    "lng": -72.474763
   },
   {
     "id": 17,
@@ -189,8 +189,8 @@
     "phone": "(631) 298-0075",
     "address": "6025 Sound Ave, Riverhead, NY 11901",
     "website": "https://rgnywine.com",
-    "lat": 41.001478,
-    "lng": -72.451839
+    "lat": 40.98228,
+    "lng": -72.589763
   },
   {
     "id": 18,
@@ -200,8 +200,8 @@
     "phone": "(631) 722-5256",
     "address": "1216 Main Rd, Jamesport, NY 11947",
     "website": "https://jamesportwines.com",
-    "lat": 41.003297,
-    "lng": -72.447643
+    "lat": 40.948611,
+    "lng": -72.597197
   },
   {
     "id": 19,
@@ -211,8 +211,8 @@
     "phone": "(631) 298-9463",
     "address": "715 Sound Ave, Mattituck, NY 11952",
     "website": "https://harbesvineyard.com",
-    "lat": 41.003254,
-    "lng": -72.447933
+    "lat": 40.986031,
+    "lng": -72.578312
   },
   {
     "id": 20,
@@ -222,8 +222,8 @@
     "phone": "(631) 804-0367",
     "address": "2000 Oregon Rd, Mattituck, NY 11952",
     "website": "https://shinnestatevineyards.com",
-    "lat": 41.004752,
-    "lng": -72.451215
+    "lat": 41.014396,
+    "lng": -72.532775
   },
   {
     "id": 21,
@@ -233,8 +233,8 @@
     "phone": "(631) 765-1100",
     "address": "2000 Oregon Rd, Mattituck, NY 11952",
     "website": "https://rosehillvineyards.com",
-    "lat": 41.004723,
-    "lng": -72.450091
+    "lat": 41.014396,
+    "lng": -72.532775
   },
   {
     "id": 22,
@@ -244,8 +244,8 @@
     "phone": "(631) 238-5801",
     "address": "1785 Main Rd, Jamesport, NY 11947",
     "website": "https://jasonsvineyard.com",
-    "lat": 41.004632,
-    "lng": -72.448767
+    "lat": 40.952659,
+    "lng": -72.575482
   },
   {
     "id": 23,
@@ -255,8 +255,8 @@
     "phone": "(631) 734-5791",
     "address": "34515 Main Rd, Cutchogue, NY 11935",
     "website": "https://pugliesevineyards.com",
-    "lat": 41.002294,
-    "lng": -72.451924
+    "lat": 41.02982,
+    "lng": -72.48015
   },
   {
     "id": 24,
@@ -266,8 +266,8 @@
     "phone": "(631) 722-3416",
     "address": "250 Manor Ln, Jamesport, NY 11947",
     "website": "https://terraviteny.com",
-    "lat": 41.005414,
-    "lng": -72.451796
+    "lat": 40.957295,
+    "lng": -72.585514
   },
   {
     "id": 25,
@@ -277,8 +277,8 @@
     "phone": "(631) 298-7987",
     "address": "46005 Main Rd, Southold, NY 11971",
     "website": "https://mattebella.com",
-    "lat": 41.005433,
-    "lng": -72.448199
+    "lat": 41.049132,
+    "lng": -72.444648
   },
   {
     "id": 26,
@@ -288,8 +288,8 @@
     "phone": "(631) 734-2888",
     "address": "28670 Main Rd, Cutchogue, NY 11935",
     "website": "https://suhrliev.com",
-    "lat": 41.004221,
-    "lng": -72.4476
+    "lat": 41.012144,
+    "lng": -72.484194
   },
   {
     "id": 27,
@@ -299,8 +299,8 @@
     "phone": "(631) 369-0100",
     "address": "2114 Sound Ave, Calverton, NY 11933",
     "website": "https://baitinghollowfarmvineyard.com",
-    "lat": 41.005436,
-    "lng": -72.448477
+    "lat": 40.924,
+    "lng": -72.768
   },
   {
     "id": 28,
@@ -310,8 +310,8 @@
     "phone": "(631) 734-4111",
     "address": "23005 Main Rd, Cutchogue, NY 11935",
     "website": "https://pellegrinivineyards.com",
-    "lat": 41.002429,
-    "lng": -72.448547
+    "lat": 41.001949,
+    "lng": -72.500134
   },
   {
     "id": 29,
@@ -321,8 +321,8 @@
     "phone": "(631) 722-4222",
     "address": "1935 Main Rd, Jamesport, NY 11947",
     "website": "https://clovispointwines.com",
-    "lat": 41.00067,
-    "lng": -72.449817
+    "lat": 40.946,
+    "lng": -72.584
   },
   {
     "id": 30,
@@ -332,8 +332,8 @@
     "phone": "(631) 298-0100",
     "address": "4362 Sound Ave, Laurel, NY 11948",
     "website": "https://evemvineyards.com",
-    "lat": 41.002874,
-    "lng": -72.449136
+    "lat": 40.969544,
+    "lng": -72.562034
   },
   {
     "id": 31,
@@ -343,8 +343,8 @@
     "phone": "(631) 722-3200",
     "address": "1785 Main Rd, Aquebogue, NY 11931",
     "website": "https://vineyardsataquebogue.com",
-    "lat": 40.954862,
-    "lng": -72.353877
+    "lat": 40.944544,
+    "lng": -72.627038
   },
   {
     "id": 32,
@@ -354,8 +354,8 @@
     "phone": "(631) 369-0100",
     "address": "6055 Sound Ave, Baiting Hollow, NY 11933",
     "website": "https://farrmwines.com",
-    "lat": 41.004712,
-    "lng": -72.447799
+    "lat": 40.956539,
+    "lng": -72.743661
   },
   {
     "id": 33,
@@ -365,8 +365,8 @@
     "phone": "(631) 727-4161",
     "address": "3543 Sound Ave, Riverhead, NY 11901",
     "website": "https://roanokevineyards.net",
-    "lat": 41.001142,
-    "lng": -72.451331
+    "lat": 40.968704,
+    "lng": -72.694801
   },
   {
     "id": 34,
@@ -376,8 +376,8 @@
     "phone": "(631) 994-0101",
     "address": "29 Norwood Rd, Northport, NY 11768",
     "website": "https://delvinovineyards.com",
-    "lat": 40.786725,
-    "lng": -73.133079
+    "lat": 40.892,
+    "lng": -73.343
   },
   {
     "id": 35,
@@ -387,8 +387,8 @@
     "phone": "(631) 530-8806",
     "address": "485 Edgewood Ave, St James, NY 11780",
     "website": "https://whispervineyards.com",
-    "lat": 40.789407,
-    "lng": -73.132924
+    "lat": 40.878,
+    "lng": -73.15
   },
   {
     "id": 36,
@@ -398,8 +398,8 @@
     "phone": "(631) 589-0027",
     "address": "299 Locust Ave, Sayville, NY 11782",
     "website": "https://loughlinvineyard.com",
-    "lat": 40.787707,
-    "lng": -73.137184
+    "lat": 40.741119,
+    "lng": -73.111863
   },
   {
     "id": 37,
@@ -409,7 +409,7 @@
     "phone": "(631) 647-7400",
     "address": "150 Bay Walk, Bay Shore, NY 11706",
     "website": "https://fireislandvines.com",
-    "lat": 40.790719,
-    "lng": -73.132953
+    "lat": 40.725099,
+    "lng": -73.245395
   }
 ]
