@@ -84,7 +84,7 @@ export default function BarsPage() {
   const [bars, setBars] = useState([]);
   const [borough, setBorough] = useState('All');
   const [search, setSearch] = useState('');
-  const [showCount, setShowCount] = useState(20);
+  const [showCount, setShowCount] = useState(25);
 
   useEffect(() => {
     fetch('/data/wine-bars.json')
@@ -210,7 +210,7 @@ export default function BarsPage() {
               {hasMore && (
                 <button
                   className="bar-see-all"
-                  onClick={() => setShowCount((c) => c + 20)}
+                  onClick={() => setShowCount((c) => c + 25)}
                   style={{ cursor: 'pointer', width: '100%', border: '1px solid var(--rose-muted)', borderRadius: 10, marginTop: 16 }}
                 >
                   Show more ({filtered.length - showCount} remaining)

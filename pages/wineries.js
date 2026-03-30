@@ -65,7 +65,7 @@ export default function WineriesPage() {
   const [wineries, setWineries] = useState([]);
   const [region, setRegion] = useState('All');
   const [search, setSearch] = useState('');
-  const [showCount, setShowCount] = useState(20);
+  const [showCount, setShowCount] = useState(25);
 
   useEffect(() => {
     fetch('/data/wineries.json')
@@ -190,7 +190,7 @@ export default function WineriesPage() {
               {hasMore && (
                 <button
                   className="bar-see-all"
-                  onClick={() => setShowCount((c) => c + 20)}
+                  onClick={() => setShowCount((c) => c + 25)}
                 >
                   Show more ({filtered.length - showCount} remaining)
                 </button>
