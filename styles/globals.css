@@ -3360,17 +3360,6 @@ body {
   flex: 0 0 300px;
   width: 300px;
   align-self: flex-start;
-  position: sticky;
-  /* Header (90px) + QuickNav (~56px) + small gap = ~152px */
-  top: 152px;
-  /* Cap height so sidebar never overflows the viewport;
-     content scrolls independently inside the card */
-  max-height: calc(100vh - 168px);
-  overflow-y: auto;
-  overflow-x: hidden;
-  /* Subtle scrollbar so it feels native */
-  scrollbar-width: thin;
-  scrollbar-color: var(--border) transparent;
 }
 
 /* Featured sidebar card container */
