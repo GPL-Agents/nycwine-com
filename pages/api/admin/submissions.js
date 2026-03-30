@@ -1,6 +1,6 @@
 // pages/api/admin/submissions.js
 // ─────────────────────────────────────────────────────────────
-// Admin API for reading and acting on flagged submissions.
+// Admin API — read and act on flagged submissions via Supabase.
 // Password-protected via ADMIN_PASSWORD env var.
 //
 // GET  /api/admin/submissions?pw=xxx         → list flagged
@@ -8,80 +8,48 @@
 //      Body: { pw, id, action: 'approve'|'reject' }
 // ─────────────────────────────────────────────────────────────
 
-import fs   from 'fs';
-import path from 'path';
+import { db } from '../../../lib/supabase';
 
-const DATA_DIR     = path.join(process.cwd(), 'public', 'data');
-const FLAG_FILE    = path.join(DATA_DIR, 'flagged-submissions.json');
-const SUB_FILE     = path.join(DATA_DIR, 'submitted-listings.json');
-const EVENTS_FILE  = path.join(DATA_DIR, 'submitted-events.json');
-const ADMIN_PW     = process.env.ADMIN_PASSWORD || 'nycwine-admin';
+const ADMIN_PW = process.env.ADMIN_PASSWORD || 'nycwine-admin';
 
-// File helpers
-function readJson(file) {
-  try {
-    if (fs.existsSync(file)) return JSON.parse(fs.readFileSync(file, 'utf8'));
-  } catch {}
-  return [];
-}
-function writeJson(file, data) {
-  fs.mkdirSync(DATA_DIR, { recursive: true });
-  fs.writeFileSync(file, JSON.stringify(data, null, 2), 'utf8');
-}
-
-// Append an approved event to submitted-events.json
-function publishEvent(submission) {
-  const events = readJson(EVENTS_FILE);
-  if (events.find((e) => e.id === `sub_${submission.id}`)) return; // already there
-  events.push({
-    id:           `sub_${submission.id}`,
-    title:        submission.name,
-    venue:        submission.venue        || null,
-    venueAddress: null,
-    date:         submission.date         || null,
-    time:         submission.time         || null,
-    price:        submission.price        || null,
-    description:  submission.description  || null,
-    url:          submission.url          || null,
-    image:        submission.image        || null,
-    source:       'NYCWine',
-    submittedAt:  submission.submittedAt,
+// Publish an approved event to submitted_events table
+async function publishEvent(submission) {
+  const d = submission.data || {};
+  await db.insert('submitted_events', {
+    id:            `sub_${submission.id}`,
+    title:         submission.name,
+    venue:         d.venue         || null,
+    venue_address: null,
+    date:          d.date          || null,
+    time:          d.time          || null,
+    price:         d.price         || null,
+    description:   d.description   || null,
+    url:           d.url           || null,
+    image:         d.image         || null,
+    source:        'NYCWine',
+    submitted_at:  submission.submitted_at,
   });
-  writeJson(EVENTS_FILE, events);
 }
 
-// Append an approved venue to its data file
-function publishVenue(submission) {
-  const fileMap = { bar: 'wine-bars.json', store: 'wine-stores.json', winery: 'wineries.json' };
-  const filename = fileMap[submission.type];
-  if (!filename) return;
-  const venueFile = path.join(DATA_DIR, filename);
-  const venues = readJson(venueFile);
-  if (venues.find((v) => v.name === submission.name && v.submittedAt === submission.submittedAt)) return;
-  venues.push({
-    name:         submission.name,
-    address:      submission.address      || null,
-    borough:      submission.borough      || null,
-    neighborhood: submission.neighborhood || null,
-    region:       submission.region       || null,
-    phone:        submission.phone        || null,
-    website:      submission.website      || null,
-    description:  submission.description  || null,
-    submittedAt:  submission.submittedAt,
-    source:       'submission',
-  });
-  writeJson(venueFile, venues);
-}
-
-export default function handler(req, res) {
+export default async function handler(req, res) {
+  // ── GET: list escalated submissions ──────────────────────────
   if (req.method === 'GET') {
     const pw = req.query.pw;
     if (pw !== ADMIN_PW) return res.status(401).json({ error: 'Unauthorized' });
 
-    const flagged = readJson(FLAG_FILE).filter((s) => s.status === 'reviewed-escalated');
-    return res.status(200).json(flagged);
+    try {
+      const rows = await db.select(
+        'submissions',
+        '?status=eq.reviewed-escalated&order=submitted_at.desc'
+      );
+      return res.status(200).json(rows || []);
+    } catch (err) {
+      console.error('Admin fetch error:', err);
+      return res.status(500).json({ error: 'Could not fetch submissions.' });
+    }
   }
 
+  // ── POST: approve or reject ───────────────────────────────────
   if (req.method === 'POST') {
     const { pw, id, action } = req.body || {};
     if (pw !== ADMIN_PW) return res.status(401).json({ error: 'Unauthorized' });
@@ -89,39 +57,42 @@ export default function handler(req, res) {
       return res.status(400).json({ error: 'id and action (approve|reject) required' });
     }
 
-    // Find in flagged list
-    const flagged = readJson(FLAG_FILE);
-    const idx = flagged.findIndex((s) => s.id === id);
-    if (idx === -1) return res.status(404).json({ error: 'Submission not found' });
-
-    const submission = flagged[idx];
-
-    if (action === 'approve') {
-      submission.status    = 'reviewed-posted';
-      submission.approvedAt = new Date().toISOString();
-      if (submission.type === 'event') {
-        publishEvent(submission);
-      } else {
-        publishVenue(submission);
+    try {
+      // Fetch the submission
+      const rows = await db.select('submissions', `?id=eq.${encodeURIComponent(id)}`);
+      if (!rows || rows.length === 0) {
+        return res.status(404).json({ error: 'Submission not found' });
       }
-    } else {
-      submission.status     = 'reviewed-rejected';
-      submission.rejectedAt = new Date().toISOString();
+      const submission = rows[0];
+
+      const now = new Date().toISOString();
+
+      if (action === 'approve') {
+        await db.update(
+          'submissions',
+          { status: 'reviewed-posted', approved_at: now },
+          `?id=eq.${encodeURIComponent(id)}`
+        );
+        // Publish to live feed if it's an event
+        if (submission.type === 'event') {
+          await publishEvent(submission);
+        }
+        // Venue types (bar/store/winery) need a redeploy to appear
+        // in static JSON files — this is a known limitation until
+        // a full CMS admin is built.
+      } else {
+        await db.update(
+          'submissions',
+          { status: 'reviewed-rejected', rejected_at: now },
+          `?id=eq.${encodeURIComponent(id)}`
+        );
+      }
+
+      return res.status(200).json({ ok: true, status: action === 'approve' ? 'reviewed-posted' : 'reviewed-rejected' });
+    } catch (err) {
+      console.error('Admin action error:', err);
+      return res.status(500).json({ error: 'Action failed.' });
     }
-
-    // Update flagged file (keep record but mark status)
-    flagged[idx] = submission;
-    writeJson(FLAG_FILE, flagged);
-
-    // Also update master submissions log
-    const allSubs = readJson(SUB_FILE);
-    const subIdx  = allSubs.findIndex((s) => s.id === id);
-    if (subIdx !== -1) {
-      allSubs[subIdx] = { ...allSubs[subIdx], ...submission };
-      writeJson(SUB_FILE, allSubs);
-    }
-
-    return res.status(200).json({ ok: true, status: submission.status });
   }
 
   return res.status(405).json({ error: 'Method not allowed' });

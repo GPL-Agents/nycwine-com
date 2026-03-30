@@ -506,27 +506,36 @@ function readCachedEvents() {
   return [];
 }
 
-// ── Read internally submitted events (from /api/submit) ───────
-// These are events submitted via the free listing form that
-// passed AI review. They always appear at the TOP of the feed
-// before any Eventbrite results.
-function readSubmittedEvents() {
+// ── Read internally submitted events from Supabase ────────────
+// These events passed AI review and always appear at the TOP
+// of the feed before any Eventbrite results.
+async function readSubmittedEvents() {
   try {
-    const filePath = path.join(process.cwd(), 'public', 'data', 'submitted-events.json');
-    if (fs.existsSync(filePath)) {
-      const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-      if (!Array.isArray(data)) return [];
-      return data.map((ev) => ({
-        ...ev,
-        day:         formatDay(ev.date),
-        month:       formatMonth(ev.date),
-        tag:         getTag(ev.title || ''),
-        dateDisplay: formatDateDisplay(ev.date),
-        source:      'NYCWine',
-      }));
-    }
-  } catch {}
-  return [];
+    const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const SUPABASE_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    if (!SUPABASE_URL || !SUPABASE_KEY) return [];
+
+    const res = await fetch(
+      `${SUPABASE_URL}/rest/v1/submitted_events?order=submitted_at.asc`,
+      { headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` } }
+    );
+    if (!res.ok) return [];
+    const data = await res.json();
+    if (!Array.isArray(data)) return [];
+
+    return data.map((ev) => ({
+      ...ev,
+      venueAddress: ev.venue_address || null,
+      day:          formatDay(ev.date),
+      month:        formatMonth(ev.date),
+      tag:          getTag(ev.title || ''),
+      dateDisplay:  formatDateDisplay(ev.date),
+      source:       'NYCWine',
+    }));
+  } catch (err) {
+    console.warn('Could not load submitted events from Supabase:', err.message);
+    return [];
+  }
 }
 
 // ── API Handler ───────────────────────────────────────────────
@@ -538,7 +547,7 @@ export default async function handler(req, res) {
 
   try {
     // ── Internally submitted events (always at top) ────────────
-    const submittedEvents = readSubmittedEvents();
+    const submittedEvents = await readSubmittedEvents();
 
     // ── External events from Eventbrite ───────────────────────
     let externalEvents = await scrapeEventbrite();

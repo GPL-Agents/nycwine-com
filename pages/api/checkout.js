@@ -11,8 +11,7 @@
 // Returns: { checkoutUrl }
 // ─────────────────────────────────────────────────────────────
 
-import fs   from 'fs';
-import path from 'path';
+import { db } from '../../lib/supabase';
 
 // ── Stripe price ID map (from env vars) ──────────────────────
 const PRICE_IDS = {
@@ -71,23 +70,6 @@ const TIER_LABELS = {
   annual:    '12 Months',
 };
 
-// ── Pending bookings log ──────────────────────────────────────
-const DATA_DIR       = path.join(process.cwd(), 'public', 'data');
-const BOOKINGS_FILE  = path.join(DATA_DIR, 'ad-bookings.json');
-
-function loadBookings() {
-  try {
-    if (fs.existsSync(BOOKINGS_FILE)) {
-      return JSON.parse(fs.readFileSync(BOOKINGS_FILE, 'utf8'));
-    }
-  } catch {}
-  return [];
-}
-
-function saveBookings(list) {
-  fs.mkdirSync(DATA_DIR, { recursive: true });
-  fs.writeFileSync(BOOKINGS_FILE, JSON.stringify(list, null, 2), 'utf8');
-}
 
 // ── Low-level Stripe REST helper (no npm package needed) ──────
 async function stripeRequest(endpoint, params) {
@@ -178,24 +160,29 @@ export default async function handler(req, res) {
     // 5. Create Checkout session via Stripe REST
     const session = await stripeRequest('/v1/checkout/sessions', params);
 
-    // 6. Log pending booking
-    const bookings = loadBookings();
-    bookings.push({
-      internalId:     sessionId,
-      stripeSessionId: session.id,
-      slotId,
-      tierKey,
-      startMonth,
-      advertiserName: advertiserName || null,
-      contactEmail,
-      websiteUrl:     websiteUrl    || null,
-      adImageUrl:     adImageUrl    || null,
-      logoUrl:        logoUrl       || null,
-      description:    description   || null,
-      status:         'pending_payment',
-      createdAt:      new Date().toISOString(),
-    });
-    saveBookings(bookings);
+    // 6. Log pending booking to Supabase
+    try {
+      await db.insert('ad_bookings', {
+        id:                sessionId,
+        stripe_session_id: session.id,
+        slot_id:           slotId,
+        tier_key:          tierKey,
+        start_month:       startMonth,
+        advertiser_name:   advertiserName || null,
+        contact_email:     contactEmail,
+        website_url:       websiteUrl     || null,
+        status:            'pending_payment',
+        created_at:        new Date().toISOString(),
+        data: {
+          adImageUrl:  adImageUrl   || null,
+          logoUrl:     logoUrl      || null,
+          description: description  || null,
+        },
+      });
+    } catch (err) {
+      // Non-fatal — Stripe session was created; log and continue
+      console.error('Supabase booking log error:', err);
+    }
 
     // 7. Return checkout URL to client
     return res.status(200).json({ checkoutUrl: session.url });
