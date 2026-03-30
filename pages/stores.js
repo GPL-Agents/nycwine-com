@@ -5,6 +5,7 @@
 // ─────────────────────────────────────────────────────────────
 
 import { useState, useEffect, useMemo } from 'react';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
 import Header from '../components/Header';
@@ -13,10 +14,18 @@ import MapLink from '../components/MapLink';
 import QuickNav from '../components/QuickNav';
 
 export default function StoresPage() {
+  const router = useRouter();
   const [stores, setStores] = useState([]);
   const [neighborhood, setNeighborhood] = useState('All');
   const [search, setSearch] = useState('');
   const [showCount, setShowCount] = useState(20);
+
+  // Pre-fill search from concierge navigation (?q=term)
+  useEffect(() => {
+    if (router.isReady && router.query.q) {
+      setSearch(decodeURIComponent(router.query.q));
+    }
+  }, [router.isReady, router.query.q]);
 
   useEffect(() => {
     fetch('/data/wine-stores.json')

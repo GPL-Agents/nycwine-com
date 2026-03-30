@@ -151,7 +151,18 @@ export default function MapPage() {
   const locationPinRef = useRef(null);   // the "you are here" marker
 
   const [mapReady,     setMapReady]     = useState(false);
-  const [filter,       setFilter]       = useState({ bars: true, stores: true, wineries: true });
+
+  // Support ?only=bars|stores|wineries from concierge navigation
+  const initialFilter = (() => {
+    if (typeof window === 'undefined') return { bars: true, stores: true, wineries: true };
+    const only = new URLSearchParams(window.location.search).get('only');
+    if (only && only in { bars: 1, stores: 1, wineries: 1 }) {
+      return { bars: only === 'bars', stores: only === 'stores', wineries: only === 'wineries' };
+    }
+    return { bars: true, stores: true, wineries: true };
+  })();
+
+  const [filter,       setFilter]       = useState(initialFilter);
   const [counts,       setCounts]       = useState({ bars: 0, stores: 0, wineries: 0 });
   const [userLocation, setUserLocation] = useState(null);  // { lat, lng, label }
   const [radius,       setRadius]       = useState(null);  // miles or null = all

@@ -11,6 +11,7 @@
 // ─────────────────────────────────────────────────────────────
 
 import { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/router';
 
 // ── Joke randomiser helpers ──────────────────────────────────
 // Total jokes in the API array — keep in sync with concierge.js
@@ -77,6 +78,19 @@ const GREETING = {
   ],
 };
 
+// ── Local navigation shortcuts (no API needed) ───────────────
+// These options navigate directly to the right page.
+const NEIGHBORHOOD_PICKER = {
+  role: 'bot',
+  text: "What part of Manhattan are you in? I'll show you the best shops nearby.",
+  options: [
+    { label: 'West Village / Chelsea',  isNav: true, navUrl: '/stores?q=west+village' },
+    { label: 'Midtown',                 isNav: true, navUrl: '/stores?q=midtown'       },
+    { label: 'Upper East Side',         isNav: true, navUrl: '/stores?q=upper+east'    },
+    { label: 'Upper West Side',         isNav: true, navUrl: '/stores?q=upper+west'    },
+  ],
+};
+
 // Emoji reactions the user can give to a joke
 const JOKE_RATINGS = [
   { emoji: '😐', label: 'Not funny'    },
@@ -86,6 +100,7 @@ const JOKE_RATINGS = [
 ];
 
 export default function ConciergeModal({ onClose }) {
+  const router                      = useRouter();
   const [messages, setMessages]     = useState([GREETING]);
   const [input, setInput]           = useState('');
   const [loading, setLoading]       = useState(false);
@@ -178,6 +193,45 @@ export default function ConciergeModal({ onClose }) {
       ]);
     } finally {
       setLoading(false);
+    }
+  }
+
+  // Handle option button clicks — intercept known nav actions locally,
+  // fall back to AI for everything else.
+  function handleOption(opt) {
+    if (loading) return;
+
+    // Direct nav: already has a destination URL (neighbourhood picker choices)
+    if (opt.isNav && opt.navUrl) {
+      router.push(opt.navUrl);
+      onClose();
+      return;
+    }
+
+    // Well-known shortcut actions
+    switch (opt.label) {
+      case 'Find me a wine bar':
+        router.push('/map?only=bars');
+        onClose();
+        return;
+
+      case 'NYC wine events this week':
+        router.push('/events');
+        onClose();
+        return;
+
+      case 'Recommend a wine shop':
+        // Show neighbourhood picker inline — no API call
+        setMessages(prev => [
+          ...prev,
+          { role: 'user', text: 'Recommend a wine shop' },
+          NEIGHBORHOOD_PICKER,
+        ]);
+        return;
+
+      default:
+        // Jokes + free-text AI fallback
+        sendMessage(opt.label, { isJoke: opt.isJoke });
     }
   }
 
@@ -323,7 +377,7 @@ export default function ConciergeModal({ onClose }) {
                         <button
                           key={j}
                           className={`concierge-choice${opt.isJoke ? ' concierge-choice-joke' : ''}`}
-                          onClick={() => sendMessage(opt.label, { isJoke: opt.isJoke })}
+                          onClick={() => handleOption(opt)}
                           disabled={loading}
                         >
                           {opt.label}
