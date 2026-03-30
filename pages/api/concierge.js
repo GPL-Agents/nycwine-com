@@ -127,15 +127,78 @@ const DEFAULT_RESPONSE = {
   ],
 };
 
+// ── Wine jokes — cycled in order via jokeIndex ───────────────
+// isJoke:true + jokeIndex in request → reply is jokes[jokeIndex % len]
+// Options are re-served after each joke so user can keep clicking.
+
+const JOKES = [
+  "Wine is just grape juice that got a little naughty and never apologized.",
+  "I don't need therapy… I just need a corkscrew and poor judgment.",
+  "Wine: because sometimes water just isn't risky enough.",
+  "I like my wine like I like my flirting… a little bold, slightly inappropriate, and best after dark.",
+  "Wine makes everything better… except texting. You'll totally regret that later.",
+  "I don't always drink wine… but when I do, my standards go down and my stories get better.",
+  "I told my wine it needed to be more open… now it's spilling everything.",
+  "Let's open a bottle and make pour decisions together.",
+  "Sip Happens!",
+  "I'm not saying wine is the answer… but it's worth a shot.",
+  "Wine improves with age… I improve with wine.",
+  "I only drink wine on days that end in 'y'… and occasionally during meetings.",
+  "Wine doesn't judge… it just quietly agrees with all your bad decisions.",
+  "Don't worry, you won't regret that last glass until the morning.",
+  "I came for one glass of wine… and stayed because my morals left early.",
+];
+
+// Re-presented after each joke so the user can keep going
+const JOKE_OPTIONS = [
+  { label: 'Find me a wine bar',       silly: false },
+  { label: 'Recommend a wine shop',    silly: false },
+  { label: 'NYC wine events this week',silly: false },
+  { label: 'Make me laugh',            silly: false, isJoke: true },
+];
+
+// ── Silly dead-end responses ─────────────────────────────────
+// For the placeholder silly options deeper in the flow tree.
+
+const SILLY_RESPONSES = [
+  "Ha! I love the enthusiasm 🦆 Unfortunately I left my duck sommelier certification at home. Want to try one of the serious options instead?",
+  "Truly a visionary request. The NYC wine scene just isn't ready for that… yet. How about I point you somewhere that actually exists?",
+  "Bold. Chaotic. I respect it. Sadly my expertise stops just short of that particular scenario. Pick a real option and I'll make it worth your while! 🍷",
+  "I consulted my wine oracle (a crumpled napkin from a Chelsea bar) and it said: 'ask something else.' So here we are.",
+  "If only! I've pitched that idea to three sommeliers and zero investors. Back to the wine at hand?",
+];
+
 // ── Handler ──────────────────────────────────────────────────
 export default function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { message } = req.body;
+  const { message, isSilly, isJoke, jokeIndex } = req.body;
   if (!message || typeof message !== 'string') {
     return res.status(400).json({ error: 'message required' });
+  }
+
+  // Joke option → cycle through JOKES list, re-serve options after
+  if (isJoke) {
+    const idx   = typeof jokeIndex === 'number' ? jokeIndex % JOKES.length : 0;
+    const reply = JOKES[idx];
+    return setTimeout(() => res.status(200).json({
+      reply,
+      options: JOKE_OPTIONS,
+      isJoke: true,
+      nextJokeIndex: idx + 1,
+    }), 450);
+  }
+
+  // Silly option (placeholder 4th options in sub-flows) → dead-end
+  if (isSilly) {
+    const reply = SILLY_RESPONSES[Math.floor(Math.random() * SILLY_RESPONSES.length)];
+    return setTimeout(() => res.status(200).json({
+      reply,
+      options: [],
+      isSillyDeadEnd: true,
+    }), 600);
   }
 
   const key = message.toLowerCase().trim();

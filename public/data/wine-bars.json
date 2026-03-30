@@ -10,7 +10,9 @@
     "website": "https://www.anaisbk.com/",
     "notes": "official website not surfaced cleanly",
     "logo": "https://images.squarespace-cdn.com/content/v1/62a0aa286b50441f3d9fc2d1/a1591594-769a-4f46-86c3-be3f6f12e668/Anais_logo.png?format=750w",
-    "featured": true
+    "featured": true,
+    "lat": 40.683297,
+    "lng": -73.983175
   },
   {
     "id": 2,
@@ -21,7 +23,9 @@
     "phone": "(347) 689-4658",
     "email": "info@bigtinybk.com",
     "website": "https://bigtinybk.com",
-    "notes": "French bistro + wine bar"
+    "notes": "French bistro + wine bar",
+    "lat": 40.676475,
+    "lng": -74.001084
   },
   {
     "id": 3,
@@ -32,7 +36,9 @@
     "phone": "",
     "email": "blackmountainwinehouse@gmail.com",
     "website": "https://blackmountainwinehouse.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.678782,
+    "lng": -73.998817
   },
   {
     "id": 4,
@@ -43,7 +49,9 @@
     "phone": "",
     "email": "",
     "website": "https://www.cherryontopnyc.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.704961,
+    "lng": -73.926565
   },
   {
     "id": 5,
@@ -54,7 +62,9 @@
     "phone": "(718) 963-1925",
     "email": "docwinebarbkparty@gmail.com",
     "website": "https://www.docwinebarbk.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.71441,
+    "lng": -73.965551
   },
   {
     "id": 6,
@@ -65,7 +75,9 @@
     "phone": "",
     "email": "",
     "website": "",
-    "notes": "official website not surfaced cleanly"
+    "notes": "official website not surfaced cleanly",
+    "lat": 40.688493,
+    "lng": -73.927373
   },
   {
     "id": 7,
@@ -76,7 +88,9 @@
     "phone": "(929) 337-6252",
     "email": "",
     "website": "https://www.judysbk.com",
-    "notes": "coffee by day, wine bar by night"
+    "notes": "coffee by day, wine bar by night",
+    "lat": 40.653433,
+    "lng": -74.004606
   },
   {
     "id": 8,
@@ -87,7 +101,9 @@
     "phone": "(917) 909-0434",
     "email": "",
     "website": "https://www.junebk.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.695049,
+    "lng": -73.990175
   },
   {
     "id": 9,
@@ -98,7 +114,9 @@
     "phone": "",
     "email": "",
     "website": "https://www.liseandvito.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.725602,
+    "lng": -73.949654
   },
   {
     "id": 10,
@@ -109,7 +127,9 @@
     "phone": "(718) 624-7900",
     "email": "",
     "website": "https://www.olympiawinebar.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.695847,
+    "lng": -73.992868
   },
   {
     "id": 11,
@@ -120,7 +140,9 @@
     "phone": "(718) 857-0101",
     "email": "",
     "website": "https://www.pdfnyc.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.678829,
+    "lng": -73.963109
   },
   {
     "id": 12,
@@ -133,7 +155,9 @@
     "website": "https://www.rhodorabk.com",
     "notes": "",
     "logo": "https://images.squarespace-cdn.com/content/v1/5d7bc8617e9d3f18cc755a50/1569435485360-2REA0K3DMQ8UHLDZGVA1/Logo-1.png",
-    "featured": true
+    "featured": true,
+    "lat": 40.694601,
+    "lng": -73.975023
   },
   {
     "id": 13,
@@ -144,7 +168,9 @@
     "phone": "(347) 987-3710",
     "email": "",
     "website": "https://www.saintjulivertbk.com",
-    "notes": "coastal seafood + wine program"
+    "notes": "coastal seafood + wine program",
+    "lat": 40.696586,
+    "lng": -73.991217
   },
   {
     "id": 14,
@@ -155,7 +181,9 @@
     "phone": "",
     "email": "",
     "website": "https://www.saucedbklyn.com",
-    "notes": "Brooklyn location"
+    "notes": "Brooklyn location",
+    "lat": 40.709964,
+    "lng": -73.953816
   },
   {
     "id": 15,
@@ -166,7 +194,9 @@
     "phone": "",
     "email": "",
     "website": "https://www.fourhorsemenbk.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.713737,
+    "lng": -73.951281
   },
   {
     "id": 16,
@@ -177,7 +207,9 @@
     "phone": "",
     "email": "",
     "website": "https://www.tenbellsbk.com",
-    "notes": "Bushwick location"
+    "notes": "Bushwick location",
+    "lat": 40.704536,
+    "lng": -73.923351
   },
   {
     "id": 17,
@@ -188,7 +220,9 @@
     "phone": "(347) 588-3955",
     "email": "",
     "website": "https://tipsygrapeny.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.694481,
+    "lng": -73.988034
   },
   {
     "id": 18,
@@ -199,7 +233,9 @@
     "phone": "",
     "email": "",
     "website": "https://www.whoopsiedaisybk.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.661193,
+    "lng": -73.95354
   },
   {
     "id": 19,
@@ -210,7 +246,9 @@
     "phone": "(929) 389-0807",
     "email": "",
     "website": "https://www.withothersbrooklyn.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.716447,
+    "lng": -73.962607
   },
   {
     "id": 20,
@@ -221,7 +259,9 @@
     "phone": "(212) 288-9463",
     "email": "",
     "website": "https://www.vanguard-nyc.com/",
-    "notes": "Two-location chain; UES location at 1372 1st Ave"
+    "notes": "Two-location chain; UES location at 1372 1st Ave",
+    "lat": 40.773209,
+    "lng": -73.961413
   },
   {
     "id": 21,
@@ -232,7 +272,9 @@
     "phone": "(212) 799-9463",
     "email": "",
     "website": "https://www.vanguard-nyc.com/",
-    "notes": "Two-location chain; UWS location at 189 Amsterdam Ave"
+    "notes": "Two-location chain; UWS location at 189 Amsterdam Ave",
+    "lat": 40.780423,
+    "lng": -73.984171
   },
   {
     "id": 22,
@@ -243,7 +285,9 @@
     "phone": "(646) 590-1859",
     "email": "",
     "website": "https://www.8thstwinecellar.com/",
-    "notes": "no clean official site surfaced"
+    "notes": "no clean official site surfaced",
+    "lat": 40.745139,
+    "lng": -73.998753
   },
   {
     "id": 23,
@@ -256,7 +300,9 @@
     "website": "https://aperitivobycarta.com",
     "logo": "https://aperitivobycarta.com/wp-content/uploads/2025/10/cropped-logoaperitivo.jpg",
     "featured": true,
-    "notes": ""
+    "notes": "",
+    "lat": 40.744399,
+    "lng": -73.999036
   },
   {
     "id": 24,
@@ -267,7 +313,9 @@
     "phone": "(212) 722-8959",
     "email": "",
     "website": "",
-    "notes": "[CLOSED]"
+    "notes": "[CLOSED]",
+    "lat": 40.789905,
+    "lng": -73.94551
   },
   {
     "id": 25,
@@ -278,7 +326,9 @@
     "phone": "(212) 554-1143",
     "email": "",
     "website": "http://www.aldosohmwinebar.com/",
-    "notes": ""
+    "notes": "",
+    "lat": 40.765578,
+    "lng": -73.986776
   },
   {
     "id": 26,
@@ -289,7 +339,9 @@
     "phone": "(212) 234-3084",
     "email": "",
     "website": "",
-    "notes": "official site not cleanly surfaced [CLOSED]"
+    "notes": "official site not cleanly surfaced [CLOSED]",
+    "lat": 40.824251,
+    "lng": -73.950052
   },
   {
     "id": 27,
@@ -300,7 +352,9 @@
     "phone": "(212) 255-5588",
     "email": "",
     "website": "",
-    "notes": "[CLOSED]"
+    "notes": "[CLOSED]",
+    "lat": 40.732735,
+    "lng": -74.003717
   },
   {
     "id": 28,
@@ -311,7 +365,9 @@
     "phone": "(212) 247-9191",
     "email": "",
     "website": "http://www.ardesia-ny.com/",
-    "notes": ""
+    "notes": "",
+    "lat": 40.76564,
+    "lng": -73.985554
   },
   {
     "id": 29,
@@ -322,7 +378,9 @@
     "phone": "(212) 945-4770",
     "email": "",
     "website": "https://www.aromakitchenandwinebar.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.777838,
+    "lng": -73.967534
   },
   {
     "id": 30,
@@ -333,7 +391,9 @@
     "phone": "(212) 714-2992",
     "email": "",
     "website": "https://ayzanyc.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.748917,
+    "lng": -73.997703
   },
   {
     "id": 31,
@@ -344,7 +404,9 @@
     "phone": "(646) 682-9062",
     "email": "",
     "website": "https://www.pocketbarnyc.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.767348,
+    "lng": -73.9854
   },
   {
     "id": 32,
@@ -355,7 +417,9 @@
     "phone": "(212) 253-2773",
     "email": "",
     "website": "https://www.casamononyc.com/private-events-venue/bar-jamon/",
-    "notes": "Spanish wine/tapas bar"
+    "notes": "Spanish wine/tapas bar",
+    "lat": 40.731985,
+    "lng": -73.988277
   },
   {
     "id": 33,
@@ -366,7 +430,9 @@
     "phone": "(212) 673-2424",
     "email": "",
     "website": "https://www.bibiwinebar.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.728114,
+    "lng": -73.97402
   },
   {
     "id": 34,
@@ -377,7 +443,9 @@
     "phone": "(212) 289-9004",
     "email": "",
     "website": "https://bocadocafenyc.com",
-    "notes": "wine-focused restaurant/bar"
+    "notes": "wine-focused restaurant/bar",
+    "lat": 40.778765,
+    "lng": -73.978686
   },
   {
     "id": 35,
@@ -388,7 +456,9 @@
     "phone": "(212) 535-3140",
     "email": "",
     "website": "https://www.mybonjour.net",
-    "notes": ""
+    "notes": "",
+    "lat": 40.777277,
+    "lng": -73.951961
   },
   {
     "id": 36,
@@ -399,7 +469,9 @@
     "phone": "(646) 476-2014",
     "email": "",
     "website": "https://c-di-palo.weeblyte.com/",
-    "notes": "address confirmed; official site unclear"
+    "notes": "address confirmed; official site unclear",
+    "lat": 40.718055,
+    "lng": -74.002985
   },
   {
     "id": 37,
@@ -410,7 +482,9 @@
     "phone": "(332) 323-1120",
     "email": "cheers@cartawinebar.com",
     "website": "https://cartawinebar.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.735782,
+    "lng": -74.006827
   },
   {
     "id": 38,
@@ -421,7 +495,9 @@
     "phone": "(212) 717-9190",
     "email": "",
     "website": "",
-    "notes": "no clean official site surfaced [CLOSED]"
+    "notes": "no clean official site surfaced [CLOSED]",
+    "lat": 40.778977,
+    "lng": -73.951322
   },
   {
     "id": 39,
@@ -432,7 +508,9 @@
     "phone": "(646) 270-2505",
     "email": "",
     "website": "",
-    "notes": "[CLOSED]"
+    "notes": "[CLOSED]",
+    "lat": 40.733773,
+    "lng": -73.989406
   },
   {
     "id": 40,
@@ -443,7 +521,9 @@
     "phone": "(646) 751-6033",
     "email": "",
     "website": "https://citywinery.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.745324,
+    "lng": -73.998967
   },
   {
     "id": 41,
@@ -454,7 +534,9 @@
     "phone": "(646) 751-6036",
     "email": "",
     "website": "https://citywinery.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.784082,
+    "lng": -73.974996
   },
   {
     "id": 42,
@@ -465,7 +547,9 @@
     "phone": "(917) 261-6791",
     "email": "",
     "website": "https://www.claudnyc.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.732123,
+    "lng": -73.987211
   },
   {
     "id": 43,
@@ -476,7 +560,9 @@
     "phone": "(646) 873-6071",
     "email": "",
     "website": "https://www.corkbuzz.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.731197,
+    "lng": -73.990603
   },
   {
     "id": 44,
@@ -487,7 +573,9 @@
     "phone": "(646) 692-6640",
     "email": "",
     "website": "",
-    "notes": "wine/tapas spot [CLOSED]"
+    "notes": "wine/tapas spot [CLOSED]",
+    "lat": 40.736388,
+    "lng": -74.005852
   },
   {
     "id": 45,
@@ -498,7 +586,9 @@
     "phone": "(212) 918-1330",
     "email": "",
     "website": "https://www.doscaminos.com",
-    "notes": "Times Square location"
+    "notes": "Times Square location",
+    "lat": 40.758655,
+    "lng": -73.994564
   },
   {
     "id": 46,
@@ -509,7 +599,9 @@
     "phone": "(212) 277-4300",
     "email": "",
     "website": "https://www.doscaminos.com",
-    "notes": "Hudson Street/SoHo area location categorized under wine bars"
+    "notes": "Hudson Street/SoHo area location categorized under wine bars",
+    "lat": 40.723748,
+    "lng": -73.997463
   },
   {
     "id": 47,
@@ -520,7 +612,9 @@
     "phone": "(332) 233-7205",
     "email": "",
     "website": "https://www.doscaminos.com",
-    "notes": "Lexington / Midtown East location"
+    "notes": "Lexington / Midtown East location",
+    "lat": 40.75936,
+    "lng": -73.965089
   },
   {
     "id": 48,
@@ -531,7 +625,9 @@
     "phone": "(212) 727-8765",
     "email": "",
     "website": "https://www.entwinenyc.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.731718,
+    "lng": -74.006492
   },
   {
     "id": 49,
@@ -542,7 +638,9 @@
     "phone": "(212) 785-5950",
     "email": "",
     "website": "https://www.felicerestaurants.com",
-    "notes": "Italian restaurant and wine bar"
+    "notes": "Italian restaurant and wine bar",
+    "lat": 40.711381,
+    "lng": -74.000854
   },
   {
     "id": 50,
@@ -553,7 +651,9 @@
     "phone": "(212) 227-7074",
     "email": "",
     "website": "https://www.gomikoreanwinebar.com/",
-    "notes": "no clean official site surfaced"
+    "notes": "no clean official site surfaced",
+    "lat": 40.715855,
+    "lng": -74.005996
   },
   {
     "id": 51,
@@ -564,7 +664,9 @@
     "phone": "(646) 852-6876",
     "email": "",
     "website": "",
-    "notes": ""
+    "notes": "",
+    "lat": 40.775284,
+    "lng": -73.967668
   },
   {
     "id": 52,
@@ -575,7 +677,9 @@
     "phone": "(212) 722-0490",
     "email": "",
     "website": "https://kaiawinebar.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.786007,
+    "lng": -73.970608
   },
   {
     "id": 53,
@@ -586,7 +690,9 @@
     "phone": "(212) 343-3660",
     "email": "reservation@compagnieflatiron.com",
     "website": "https://www.compagniedesvinssurnaturels.com/nyc-flat-iron",
-    "notes": ""
+    "notes": "",
+    "lat": 40.738534,
+    "lng": -73.983995
   },
   {
     "id": 54,
@@ -597,7 +703,9 @@
     "phone": "(212) 343-3664",
     "email": "",
     "website": "https://www.compagniewinebar.com/nyc",
-    "notes": "Centre Street / SoHo"
+    "notes": "Centre Street / SoHo",
+    "lat": 40.717558,
+    "lng": -74.005526
   },
   {
     "id": 55,
@@ -608,7 +716,9 @@
     "phone": "",
     "email": "",
     "website": "https://ledive.nyc",
-    "notes": ""
+    "notes": "",
+    "lat": 40.715469,
+    "lng": -73.984031
   },
   {
     "id": 56,
@@ -619,7 +729,9 @@
     "phone": "(917) 475-1212",
     "email": "",
     "website": "https://www.legrandtriage.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.780079,
+    "lng": -73.951983
   },
   {
     "id": 57,
@@ -630,7 +742,9 @@
     "phone": "(212) 799-2253",
     "email": "",
     "website": "",
-    "notes": "no clean official site surfaced [CLOSED]"
+    "notes": "no clean official site surfaced [CLOSED]",
+    "lat": 40.779403,
+    "lng": -73.983507
   },
   {
     "id": 58,
@@ -641,7 +755,9 @@
     "phone": "(212) 431-3900",
     "email": "",
     "website": "https://leanyc.com/",
-    "notes": "no clean official site surfaced"
+    "notes": "no clean official site surfaced",
+    "lat": 40.721563,
+    "lng": -74.003347
   },
   {
     "id": 59,
@@ -654,7 +770,9 @@
     "website": "https://www.leiwine.nyc/",
     "notes": "new Chinatown wine bar; official site not surfaced cleanly",
     "featured": true,
-    "logo": "https://images.squarespace-cdn.com/content/v1/681282bb6b86085cb558827c/ccbd06a3-ef50-4bc8-a53c-487f28b2a5e2/SECONDARYLOGO_LEI+Green.png"
+    "logo": "https://images.squarespace-cdn.com/content/v1/681282bb6b86085cb558827c/ccbd06a3-ef50-4bc8-a53c-487f28b2a5e2/SECONDARYLOGO_LEI+Green.png",
+    "lat": 40.718492,
+    "lng": -74.004505
   },
   {
     "id": 60,
@@ -665,7 +783,9 @@
     "phone": "(212) 343-7425",
     "email": "",
     "website": "https://www.lena-nyc.com",
-    "notes": "Lower East Side location"
+    "notes": "Lower East Side location",
+    "lat": 40.716245,
+    "lng": -73.988036
   },
   {
     "id": 61,
@@ -676,7 +796,9 @@
     "phone": "(917) 624-5166",
     "email": "",
     "website": "https://www.lena-nyc.com",
-    "notes": "West Village / Greenwich Village area location"
+    "notes": "West Village / Greenwich Village area location",
+    "lat": 40.747813,
+    "lng": -73.997503
   },
   {
     "id": 62,
@@ -687,7 +809,9 @@
     "phone": "(646) 678-5740",
     "email": "",
     "website": "https://localandvinenyc.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.720893,
+    "lng": -74.005048
   },
   {
     "id": 63,
@@ -698,7 +822,9 @@
     "phone": "(212) 475-5599",
     "email": "",
     "website": "https://www.loiswine.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.723903,
+    "lng": -73.976279
   },
   {
     "id": 64,
@@ -709,7 +835,9 @@
     "phone": "(212) 586-1201",
     "email": "",
     "website": "https://www.mediwinebar.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.762497,
+    "lng": -73.983955
   },
   {
     "id": 65,
@@ -720,7 +848,9 @@
     "phone": "(646) 907-1960",
     "email": "",
     "website": "https://www.estiatoriomilos.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.752494,
+    "lng": -73.995442
   },
   {
     "id": 66,
@@ -733,7 +863,9 @@
     "website": "https://musettewinebar.com",
     "notes": "",
     "logo": "https://static.spotapps.co/website_images/ab_websites/117051_website/logo.png",
-    "featured": true
+    "featured": true,
+    "lat": 40.812338,
+    "lng": -73.93901
   },
   {
     "id": 67,
@@ -744,7 +876,9 @@
     "phone": "",
     "email": "reservations@parcellewine.com",
     "website": "https://parcellewine.com",
-    "notes": "Chinatown / Dimes Square area location"
+    "notes": "Chinatown / Dimes Square area location",
+    "lat": 40.71759,
+    "lng": -73.984065
   },
   {
     "id": 68,
@@ -755,7 +889,9 @@
     "phone": "",
     "email": "reservations@parcellewine.com",
     "website": "https://parcellewine.com",
-    "notes": "Greenwich Village location"
+    "notes": "Greenwich Village location",
+    "lat": 40.723628,
+    "lng": -73.99817
   },
   {
     "id": 69,
@@ -766,7 +902,9 @@
     "phone": "",
     "email": "",
     "website": "https://www.penny-nyc.com",
-    "notes": "seafood spot with major wine program"
+    "notes": "seafood spot with major wine program",
+    "lat": 40.729546,
+    "lng": -73.987897
   },
   {
     "id": 70,
@@ -777,7 +915,9 @@
     "phone": "(212) 777-5684",
     "email": "",
     "website": "https://pierrelotiwinebar.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.733029,
+    "lng": -73.991058
   },
   {
     "id": 71,
@@ -788,7 +928,9 @@
     "phone": "(212) 755-5684",
     "email": "",
     "website": "https://pierrelotiwinebar.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.757776,
+    "lng": -73.964451
   },
   {
     "id": 72,
@@ -799,7 +941,9 @@
     "phone": "(212) 799-4140",
     "email": "",
     "website": "https://www.riposonyc.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.778225,
+    "lng": -73.980038
   },
   {
     "id": 73,
@@ -812,7 +956,9 @@
     "website": "https://www.rosciolinyc.com",
     "notes": "restaurant with strong wine focus",
     "logo": "https://images.squarespace-cdn.com/content/v1/691656a28c3867312e658fd6/f6995212-d6af-48dc-9f49-4cad06adbdf0/Roscioli_Logo_Cropped.png",
-    "featured": true
+    "featured": true,
+    "lat": 40.725316,
+    "lng": -73.999541
   },
   {
     "id": 74,
@@ -823,7 +969,9 @@
     "phone": "(212) 777-0855",
     "email": "",
     "website": "https://ruffian.nyc",
-    "notes": ""
+    "notes": "",
+    "lat": 40.726596,
+    "lng": -73.97425
   },
   {
     "id": 75,
@@ -834,7 +982,9 @@
     "phone": "(212) 732-0907",
     "email": "",
     "website": "https://www.santambroeus.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.778318,
+    "lng": -73.974213
   },
   {
     "id": 76,
@@ -845,7 +995,9 @@
     "phone": "(212) 604-9254",
     "email": "",
     "website": "https://www.santambroeus.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.736376,
+    "lng": -74.005151
   },
   {
     "id": 77,
@@ -856,7 +1008,9 @@
     "phone": "",
     "email": "",
     "website": "https://www.saucedbklyn.com",
-    "notes": "Manhattan location"
+    "notes": "Manhattan location",
+    "lat": 40.731391,
+    "lng": -73.989112
   },
   {
     "id": 78,
@@ -867,7 +1021,9 @@
     "phone": "(212) 988-2646",
     "email": "",
     "website": "https://www.serenasnyc.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.777036,
+    "lng": -73.975605
   },
   {
     "id": 79,
@@ -878,7 +1034,9 @@
     "phone": "(212) 541-9241",
     "email": "",
     "website": "",
-    "notes": ""
+    "notes": "",
+    "lat": 40.76409,
+    "lng": -73.985658
   },
   {
     "id": 80,
@@ -889,7 +1047,9 @@
     "phone": "(212) 234-6100",
     "email": "",
     "website": "",
-    "notes": ""
+    "notes": "",
+    "lat": 40.811951,
+    "lng": -73.938199
   },
   {
     "id": 81,
@@ -900,7 +1060,9 @@
     "phone": "(212) 933-9398",
     "email": "",
     "website": "https://www.skincontact.nyc",
-    "notes": ""
+    "notes": "",
+    "lat": 40.713555,
+    "lng": -73.985644
   },
   {
     "id": 82,
@@ -911,7 +1073,9 @@
     "phone": "(212) 888-8660",
     "email": "",
     "website": "https://www.sofiawinebar.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.756545,
+    "lng": -73.962673
   },
   {
     "id": 83,
@@ -922,7 +1086,9 @@
     "phone": "(917) 970-9090",
     "email": "",
     "website": "https://sttropezwinebar.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.735698,
+    "lng": -74.008046
   },
   {
     "id": 84,
@@ -933,7 +1099,9 @@
     "phone": "(212) 628-3000",
     "email": "",
     "website": "https://tandooroven.com",
-    "notes": "wine-friendly restaurant listed under wine bars"
+    "notes": "wine-friendly restaurant listed under wine bars",
+    "lat": 40.77689,
+    "lng": -73.949955
   },
   {
     "id": 85,
@@ -944,7 +1112,9 @@
     "phone": "(212) 717-9798",
     "email": "",
     "website": "https://www.elizabar.com/",
-    "notes": "Formerly Taste Restaurant & Wine Bar; now Eli's Table"
+    "notes": "Formerly Taste Restaurant & Wine Bar; now Eli's Table",
+    "lat": 40.776771,
+    "lng": -73.952638
   },
   {
     "id": 86,
@@ -955,7 +1125,9 @@
     "phone": "(212) 691-6000",
     "email": "",
     "website": "",
-    "notes": "[CLOSED] Confirmed closed March 2026"
+    "notes": "[CLOSED] Confirmed closed March 2026",
+    "lat": 40.736078,
+    "lng": -74.005545
   },
   {
     "id": 87,
@@ -966,7 +1138,9 @@
     "phone": "(212) 995-9463",
     "email": "",
     "website": "",
-    "notes": ""
+    "notes": "",
+    "lat": 40.715563,
+    "lng": -73.984877
   },
   {
     "id": 88,
@@ -977,7 +1151,9 @@
     "phone": "(212) 625-0900",
     "email": "",
     "website": "https://terrawinebar.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.721037,
+    "lng": -74.006748
   },
   {
     "id": 89,
@@ -988,7 +1164,9 @@
     "phone": "(212) 625-9463",
     "email": "",
     "website": "https://www.wineisterroir.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.717485,
+    "lng": -74.005545
   },
   {
     "id": 90,
@@ -999,7 +1177,9 @@
     "phone": "(212) 790-8867",
     "email": "",
     "website": "https://www.baccarathotels.com",
-    "notes": "wine/cocktail hotel bar"
+    "notes": "wine/cocktail hotel bar",
+    "lat": 40.764518,
+    "lng": -73.986265
   },
   {
     "id": 91,
@@ -1010,7 +1190,9 @@
     "phone": "(212) 777-7724",
     "email": "",
     "website": "https://www.theimmigrantnyc.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.732845,
+    "lng": -73.988333
   },
   {
     "id": 92,
@@ -1021,7 +1203,9 @@
     "phone": "(212) 645-9758",
     "email": "",
     "website": "",
-    "notes": "[SITE DOWN] Website non-functional March 2026"
+    "notes": "[SITE DOWN] Website non-functional March 2026",
+    "lat": 40.736321,
+    "lng": -74.007908
   },
   {
     "id": 93,
@@ -1032,7 +1216,9 @@
     "phone": "",
     "email": "info@tenbellsnyc.com",
     "website": "https://www.thetenbells.nyc",
-    "notes": "Lower East Side location"
+    "notes": "Lower East Side location",
+    "lat": 40.715213,
+    "lng": -73.987103
   },
   {
     "id": 94,
@@ -1043,7 +1229,9 @@
     "phone": "(212) 579-7970",
     "email": "",
     "website": "https://ilgustowinebar.com/",
-    "notes": "official site not cleanly surfaced"
+    "notes": "official site not cleanly surfaced",
+    "lat": 40.788808,
+    "lng": -73.979257
   },
   {
     "id": 95,
@@ -1054,7 +1242,9 @@
     "phone": "(212) 675-7749",
     "email": "",
     "website": "",
-    "notes": "[CLOSED]"
+    "notes": "[CLOSED]",
+    "lat": 40.744951,
+    "lng": -73.997957
   },
   {
     "id": 96,
@@ -1065,7 +1255,9 @@
     "phone": "(212) 614-2555",
     "email": "",
     "website": "",
-    "notes": "website not captured cleanly [CLOSED]"
+    "notes": "website not captured cleanly [CLOSED]",
+    "lat": 40.715309,
+    "lng": -73.987407
   },
   {
     "id": 97,
@@ -1076,7 +1268,9 @@
     "phone": "(212) 447-9463",
     "email": "",
     "website": "https://www.vanguard-nyc.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.778149,
+    "lng": -73.979784
   },
   {
     "id": 98,
@@ -1087,7 +1281,9 @@
     "phone": "(212) 335-0456",
     "email": "",
     "website": "https://vellawinebar.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.78219,
+    "lng": -73.965418
   },
   {
     "id": 99,
@@ -1100,7 +1296,9 @@
     "website": "https://www.vsvwinebars.com",
     "notes": "Riverside location",
     "featured": true,
-    "logo": "https://images.getbento.com/accounts/ad7ac5d6a757485b222dc1d5ec1aa933/media/images/24711logo2.png"
+    "logo": "https://images.getbento.com/accounts/ad7ac5d6a757485b222dc1d5ec1aa933/media/images/24711logo2.png",
+    "lat": 40.787252,
+    "lng": -73.980247
   },
   {
     "id": 100,
@@ -1111,7 +1309,9 @@
     "phone": "(646) 922-7700",
     "email": "",
     "website": "https://www.vsvwinebars.com/location/vin-sur-vingt-wine-bar-nomad/",
-    "notes": "NoMad location"
+    "notes": "NoMad location",
+    "lat": 40.753096,
+    "lng": -73.99542
   },
   {
     "id": 101,
@@ -1122,7 +1322,9 @@
     "phone": "(212) 988-0222",
     "email": "",
     "website": "",
-    "notes": "[CLOSED] Website non-functional March 2026"
+    "notes": "[CLOSED] Website non-functional March 2026",
+    "lat": 40.790604,
+    "lng": -73.964378
   },
   {
     "id": 102,
@@ -1133,7 +1335,9 @@
     "phone": "(646) 755-8538",
     "email": "",
     "website": "",
-    "notes": "[CLOSED]"
+    "notes": "[CLOSED]",
+    "lat": 40.788743,
+    "lng": -73.979668
   },
   {
     "id": 103,
@@ -1144,7 +1348,9 @@
     "phone": "(646) 964-5624",
     "email": "info@wildair.nyc",
     "website": "https://www.wildair.nyc",
-    "notes": ""
+    "notes": "",
+    "lat": 40.715628,
+    "lng": -73.987731
   },
   {
     "id": 104,
@@ -1155,7 +1361,9 @@
     "phone": "(212) 481-0197",
     "email": "",
     "website": "https://www.wine30nyc.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.745405,
+    "lng": -73.981007
   },
   {
     "id": 105,
@@ -1166,7 +1374,9 @@
     "phone": "(212) 725-3866",
     "email": "",
     "website": "",
-    "notes": "no clean official site surfaced"
+    "notes": "no clean official site surfaced",
+    "lat": 40.745295,
+    "lng": -73.976373
   },
   {
     "id": 106,
@@ -1177,7 +1387,9 @@
     "phone": "(212) 777-1608",
     "email": "",
     "website": "",
-    "notes": "[CLOSED]"
+    "notes": "[CLOSED]",
+    "lat": 40.730526,
+    "lng": -73.98778
   },
   {
     "id": 107,
@@ -1188,7 +1400,9 @@
     "phone": "(212) 633-9463",
     "email": "",
     "website": "https://www.wineescapenyc44.com/",
-    "notes": "no clean official site surfaced"
+    "notes": "no clean official site surfaced",
+    "lat": 40.746275,
+    "lng": -73.998085
   },
   {
     "id": 108,
@@ -1199,7 +1413,9 @@
     "phone": "(212) 226-3330",
     "email": "",
     "website": "",
-    "notes": "no clean official site surfaced [CLOSED]"
+    "notes": "no clean official site surfaced [CLOSED]",
+    "lat": 40.727987,
+    "lng": -73.995623
   },
   {
     "id": 109,
@@ -1210,7 +1426,9 @@
     "phone": "(646) 410-2658",
     "email": "",
     "website": "https://www.ziziwinebarnyc.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.779679,
+    "lng": -73.980808
   },
   {
     "id": 110,
@@ -1221,7 +1439,9 @@
     "phone": "(718) 928-6588",
     "email": "",
     "website": "https://addictivenyc.com",
-    "notes": "wine and tapas bar"
+    "notes": "wine and tapas bar",
+    "lat": 40.722677,
+    "lng": -73.798153
   },
   {
     "id": 111,
@@ -1234,7 +1454,9 @@
     "website": "https://www.elizabar.com/",
     "notes": "",
     "featured": true,
-    "logo": "https://www.elizabar.com/App_Themes/elizabar/images/logo.png"
+    "logo": "https://www.elizabar.com/App_Themes/elizabar/images/logo.png",
+    "lat": 40.780544,
+    "lng": -73.950404
   },
   {
     "id": 112,
@@ -1245,7 +1467,9 @@
     "phone": "(212) 353-8000",
     "email": "",
     "website": "https://www.kafananyc.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.726611,
+    "lng": -73.97416
   },
   {
     "id": 113,
@@ -1256,7 +1480,9 @@
     "phone": "(212) 580-3572",
     "email": "",
     "website": "https://chamberswine.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.711286,
+    "lng": -74.007379
   },
   {
     "id": 114,
@@ -1267,7 +1493,9 @@
     "phone": "(870) 600-3096",
     "email": "",
     "website": "https://tolo.nyc",
-    "notes": ""
+    "notes": "",
+    "lat": 40.715714,
+    "lng": -73.984536
   },
   {
     "id": 115,
@@ -1280,6 +1508,8 @@
     "website": "https://popinanyc.com",
     "notes": "",
     "featured": true,
-    "logo": "https://images.getbento.com/accounts/916807a92bd379a1b68c70cb275f7883/media/images/15262Popina_Logo_Unstacked.png"
+    "logo": "https://images.getbento.com/accounts/916807a92bd379a1b68c70cb275f7883/media/images/15262Popina_Logo_Unstacked.png",
+    "lat": 40.675887,
+    "lng": -73.997396
   }
 ]

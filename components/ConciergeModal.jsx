@@ -2,12 +2,12 @@
 // ─────────────────────────────────────────────────────────────
 // NYC Wine Concierge — guided chat widget.
 //
-// Each bot turn surfaces 4 choices (the 4th is always a silly wildcard).
-// Users can also type freely into the input at the bottom.
+// Each bot turn surfaces 4 choices. The 4th on the home screen is
+// "Make me laugh" which cycles through wine jokes + lets the user
+// rate each one with emoji reactions.
 //
 // State lives here; the parent (QuickNav) just passes onClose.
-// The real Claude API is wired through /api/concierge — swap the
-// mock logic there for production.
+// Real Claude API wired through /api/concierge.
 // ─────────────────────────────────────────────────────────────
 
 import { useState, useEffect, useRef } from 'react';
@@ -16,47 +16,62 @@ const GREETING = {
   role: 'bot',
   text: "Hi! I'm the NYC Wine Concierge 🍷 Your guide to wine bars, shops, events, and all things wine in New York City. How can I help you today?",
   options: [
-    { label: 'Find me a wine bar',            silly: false },
-    { label: 'Recommend a wine shop',          silly: false },
-    { label: 'NYC wine events this week',      silly: false },
-    { label: '🦆 [SILLY OPTION PLACEHOLDER]',  silly: true  },
+    { label: 'Find me a wine bar',        silly: false              },
+    { label: 'Recommend a wine shop',     silly: false              },
+    { label: 'NYC wine events this week', silly: false              },
+    { label: 'Make me laugh',             silly: false, isJoke: true },
   ],
 };
 
-export default function ConciergeModal({ onClose }) {
-  const [messages, setMessages]   = useState([GREETING]);
-  const [input, setInput]         = useState('');
-  const [loading, setLoading]     = useState(false);
-  const bottomRef                 = useRef(null);
-  const inputRef                  = useRef(null);
+// Emoji reactions the user can give to a joke
+const JOKE_RATINGS = [
+  { emoji: '😐', label: 'Not funny'    },
+  { emoji: '🙂', label: 'Smiling'      },
+  { emoji: '😄', label: 'Small laugh'  },
+  { emoji: '🤣', label: 'ROFL'         },
+];
 
-  // Scroll to bottom whenever messages change
+export default function ConciergeModal({ onClose }) {
+  const [messages, setMessages]     = useState([GREETING]);
+  const [input, setInput]           = useState('');
+  const [loading, setLoading]       = useState(false);
+  const [jokeIndex, setJokeIndex]   = useState(0);
+  // Map of message-index → rating emoji (for joke messages)
+  const [ratings, setRatings]       = useState({});
+  const bottomRef                   = useRef(null);
+  const inputRef                    = useRef(null);
+
+  // Scroll to bottom on new messages
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, loading]);
 
-  // Focus input when modal opens
+  // Auto-focus input on open
   useEffect(() => {
     const t = setTimeout(() => inputRef.current?.focus(), 120);
     return () => clearTimeout(t);
   }, []);
 
-  // Close on Escape key
+  // Close on Escape
   useEffect(() => {
     function onKey(e) { if (e.key === 'Escape') onClose(); }
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, [onClose]);
 
-  async function sendMessage(text) {
+  async function sendMessage(text, opts = {}) {
     const trimmed = text.trim();
     if (!trimmed || loading) return;
 
-    // Append user message
-    const userMsg = { role: 'user', text: trimmed };
-    setMessages(prev => [...prev, userMsg]);
+    const { isSilly = false, isJoke = false } = opts;
+
+    setMessages(prev => [...prev, { role: 'user', text: trimmed }]);
     setInput('');
     setLoading(true);
+
+    // Capture current jokeIndex before any state update
+    const currentJokeIndex = jokeIndex;
+    if (isJoke) setJokeIndex(prev => prev + 1);
 
     try {
       const res = await fetch('/api/concierge', {
@@ -64,6 +79,9 @@ export default function ConciergeModal({ onClose }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           message: trimmed,
+          isSilly,
+          isJoke,
+          jokeIndex: currentJokeIndex,
           history: messages,
         }),
       });
@@ -71,14 +89,20 @@ export default function ConciergeModal({ onClose }) {
       const data = await res.json();
       setMessages(prev => [
         ...prev,
-        { role: 'bot', text: data.reply, options: data.options || [] },
+        {
+          role:          'bot',
+          text:          data.reply,
+          options:       data.options || [],
+          isSillyDeadEnd:data.isSillyDeadEnd || false,
+          isJoke:        data.isJoke || false,
+        },
       ]);
     } catch {
       setMessages(prev => [
         ...prev,
         {
-          role: 'bot',
-          text: "Sorry, I'm having trouble connecting right now. Give me a moment and try again!",
+          role:    'bot',
+          text:    "Sorry, I'm having trouble connecting right now. Give me a moment and try again!",
           options: [],
         },
       ]);
@@ -92,8 +116,11 @@ export default function ConciergeModal({ onClose }) {
     sendMessage(input);
   }
 
+  function rateJoke(msgIndex, emoji) {
+    setRatings(prev => ({ ...prev, [msgIndex]: emoji }));
+  }
+
   return (
-    /* Overlay — click outside to close */
     <div
       className="concierge-overlay"
       role="dialog"
@@ -103,7 +130,7 @@ export default function ConciergeModal({ onClose }) {
     >
       <div className="concierge-modal" onClick={e => e.stopPropagation()}>
 
-        {/* ── Header ─────────────────────────────────────────── */}
+        {/* ── Header ──────────────────────────────────────────── */}
         <div className="concierge-modal-header">
           <img
             src="/images/concierge-avatar.png"
@@ -126,7 +153,7 @@ export default function ConciergeModal({ onClose }) {
           </button>
         </div>
 
-        {/* ── Message thread ─────────────────────────────────── */}
+        {/* ── Message thread ───────────────────────────────────── */}
         <div className="concierge-messages">
           {messages.map((msg, i) => {
             const isLastBot = msg.role === 'bot' && i === messages.length - 1 && !loading;
@@ -142,20 +169,59 @@ export default function ConciergeModal({ onClose }) {
                 <div className="concierge-row-inner">
                   <div className="concierge-bubble">{msg.text}</div>
 
-                  {/* 4-option choices — only shown on the latest bot message */}
+                  {/* Joke rating bar — shown on every joke message */}
+                  {msg.isJoke && (
+                    <div className="concierge-joke-rating">
+                      {JOKE_RATINGS.map(({ emoji, label }) => {
+                        const picked = ratings[i] === emoji;
+                        return (
+                          <button
+                            key={emoji}
+                            className={`cjr-btn${picked ? ' cjr-picked' : ''}`}
+                            onClick={() => rateJoke(i, emoji)}
+                            title={label}
+                            aria-label={label}
+                            aria-pressed={picked}
+                          >
+                            {emoji}
+                          </button>
+                        );
+                      })}
+                      {ratings[i] && (
+                        <span className="cjr-thanks">
+                          {ratings[i] === '🤣' ? 'Glad you loved it! 🍷' :
+                           ratings[i] === '😄' ? 'Ha, we\'ll take it!'   :
+                           ratings[i] === '🙂' ? 'A polite chuckle 😄'   :
+                                                  'Tough crowd… 😬'}
+                        </span>
+                      )}
+                    </div>
+                  )}
+
+                  {/* 4-option choices — latest bot message only */}
                   {msg.options && msg.options.length > 0 && isLastBot && (
                     <div className="concierge-choices">
                       {msg.options.map((opt, j) => (
                         <button
                           key={j}
-                          className={`concierge-choice${opt.silly ? ' concierge-choice-silly' : ''}`}
-                          onClick={() => sendMessage(opt.label)}
+                          className={`concierge-choice${opt.silly ? ' concierge-choice-silly' : ''}${opt.isJoke ? ' concierge-choice-joke' : ''}`}
+                          onClick={() => sendMessage(opt.label, { isSilly: opt.silly, isJoke: opt.isJoke })}
                           disabled={loading}
                         >
                           {opt.label}
                         </button>
                       ))}
                     </div>
+                  )}
+
+                  {/* Silly dead-end: nudge to restart */}
+                  {msg.isSillyDeadEnd && isLastBot && !loading && (
+                    <button
+                      className="concierge-restart-btn"
+                      onClick={() => setMessages([GREETING])}
+                    >
+                      ↩ Start over
+                    </button>
                   )}
                 </div>
               </div>
@@ -181,7 +247,7 @@ export default function ConciergeModal({ onClose }) {
           <div ref={bottomRef} />
         </div>
 
-        {/* ── Input bar ──────────────────────────────────────── */}
+        {/* ── Input bar ───────────────────────────────────────── */}
         <form className="concierge-input-bar" onSubmit={handleSubmit}>
           <input
             ref={inputRef}

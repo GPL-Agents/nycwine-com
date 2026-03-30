@@ -2311,7 +2311,8 @@ body {
    CONCIERGE — QuickNav button
 ═══════════════════════════════════════ */
 
-/* Push the button to the far right */
+/* Push the button to the far right — white/light pill so it reads
+   as interactive rather than matching the filled ribbon headers   */
 .qnav-concierge-btn {
   margin-left: auto;
   flex-shrink: 0;
@@ -2321,22 +2322,27 @@ body {
   padding: 4px 14px 4px 5px;
   border-radius: 20px;
   border: 1.5px solid var(--pink);
-  background: var(--pink);
-  color: white;
+  background: white;
+  color: var(--pink);
   font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.02em;
   cursor: pointer;
-  transition: background 0.18s, border-color 0.18s, box-shadow 0.18s;
-  box-shadow: 0 1px 6px rgba(236,64,122,0.25);
+  transition: background 0.18s, border-color 0.18s, color 0.18s, box-shadow 0.18s;
+  box-shadow: 0 1px 4px rgba(236,64,122,0.15);
   white-space: nowrap;
 }
-.qnav-concierge-btn:hover,
+.qnav-concierge-btn:hover {
+  background: var(--pink-light);
+  border-color: var(--pink);
+  color: var(--pink-dark);
+  box-shadow: 0 2px 8px rgba(236,64,122,0.20);
+}
 .qnav-concierge-btn.qnav-concierge-open {
-  background: var(--pink-dark);
+  background: var(--pink-light);
   border-color: var(--pink-dark);
-  box-shadow: 0 2px 10px rgba(194,24,91,0.30);
+  color: var(--pink-dark);
 }
 .qnav-concierge-avatar {
   width: 26px;
@@ -2350,38 +2356,212 @@ body {
   line-height: 1;
 }
 
-/* ── Concierge modal overlay ──────────────────────────────── */
+/* ═══════════════════════════════════════
+   MAP PAGE (/map)
+═══════════════════════════════════════ */
+.map-page { display: flex; flex-direction: column; }
+
+.map-page-header {
+  background: var(--black);
+  margin: 0;
+}
+.map-page-header .section-header-title { color: white; }
+
+/* Filter + control bar */
+.map-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px var(--content-pad);
+  background: white;
+  border-bottom: 1px solid var(--border-light);
+  flex-wrap: wrap;
+}
+.map-filter-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+.map-filter-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 1.5px solid var(--border);
+  background: white;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: all 0.18s;
+  white-space: nowrap;
+}
+.map-filter-pill:hover { border-color: var(--pink); color: var(--text); }
+.map-filter-active {
+  background: color-mix(in srgb, var(--pill-color) 12%, white);
+  border-color: var(--pill-color);
+  color: var(--pill-color);
+  font-weight: 600;
+}
+.mfp-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.mfp-count {
+  background: rgba(0,0,0,0.08);
+  border-radius: 10px;
+  padding: 1px 6px;
+  font-size: 10px;
+  font-weight: 600;
+  margin-left: 2px;
+}
+.map-action-btns { display: flex; gap: 8px; }
+.map-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1.5px solid var(--border);
+  background: white;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: all 0.18s;
+  white-space: nowrap;
+}
+.map-action-btn:hover { border-color: var(--pink); color: var(--pink); }
+
+/* Map container — fills remaining viewport height */
+.map-container {
+  position: relative;
+  flex: 1;
+  height: calc(100vh - 220px);
+  min-height: 420px;
+}
+.map-leaflet {
+  width: 100%;
+  height: 100%;
+}
+
+/* Loading overlay */
+.map-loading {
+  position: absolute;
+  inset: 0;
+  background: var(--grey-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  z-index: 1000;
+  font-size: 14px;
+  color: var(--muted);
+  font-family: var(--font-sans);
+}
+.map-loading-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--border);
+  border-top-color: var(--pink);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Leaflet popup card */
+.map-popup { font-family: var(--font-sans); min-width: 180px; }
+.mp-type {
+  display: inline-block;
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-bottom: 6px;
+  letter-spacing: 0.3px;
+}
+.mp-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 3px;
+  line-height: 1.3;
+}
+.mp-hood {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+.mp-addr {
+  font-size: 11px;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.mp-link {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--pink);
+  text-decoration: none;
+  margin-top: 4px;
+}
+.mp-link:hover { color: var(--pink-dark); }
+
+/* Override Leaflet popup chrome to match brand */
+.leaflet-popup-content-wrapper {
+  border-radius: 12px !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15) !important;
+  padding: 0 !important;
+}
+.leaflet-popup-content { margin: 12px 14px !important; }
+.leaflet-popup-tip-container { display: none; }
+
+@media (max-width: 600px) {
+  .map-container { height: calc(100vh - 240px); }
+  .map-controls { gap: 8px; padding: 8px 12px; }
+}
+
+/* ── Concierge modal overlay — centered ───────────────────── */
 .concierge-overlay {
   position: fixed;
   inset: 0;
   z-index: 200;
-  background: rgba(26,26,26,0.45);
-  backdrop-filter: blur(2px);
+  background: rgba(26,26,26,0.50);
+  backdrop-filter: blur(3px);
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  padding: 0 24px 24px 0;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
 }
 
 /* ── Modal window ─────────────────────────────────────────── */
 .concierge-modal {
-  width: 380px;
+  width: 480px;
   max-width: calc(100vw - 32px);
-  max-height: calc(100vh - 140px);
+  height: min(680px, calc(100vh - 80px));
   background: #fff;
-  border-radius: 16px;
+  border-radius: 18px;
   box-shadow:
-    0 24px 60px rgba(0,0,0,0.20),
-    0 4px 16px rgba(0,0,0,0.10);
+    0 32px 80px rgba(0,0,0,0.25),
+    0 6px 20px rgba(0,0,0,0.12);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  animation: concierge-slide-up 0.22s cubic-bezier(0.34,1.56,0.64,1) both;
+  animation: concierge-pop-in 0.24s cubic-bezier(0.34,1.46,0.64,1) both;
 }
 
-@keyframes concierge-slide-up {
-  from { opacity: 0; transform: translateY(24px) scale(0.97); }
-  to   { opacity: 1; transform: translateY(0)  scale(1);     }
+@keyframes concierge-pop-in {
+  from { opacity: 0; transform: scale(0.93); }
+  to   { opacity: 1; transform: scale(1);    }
 }
 
 /* ── Modal header ─────────────────────────────────────────── */
@@ -2575,6 +2755,25 @@ body {
   cursor: not-allowed;
 }
 
+/* Restart button shown after silly dead-end */
+.concierge-restart-btn {
+  align-self: flex-start;
+  background: none;
+  border: 1.5px dashed var(--border);
+  border-radius: 10px;
+  padding: 6px 12px;
+  font-size: 12px;
+  color: var(--muted);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: border-color 0.15s, color 0.15s;
+  margin-top: 2px;
+}
+.concierge-restart-btn:hover {
+  border-color: var(--pink);
+  color: var(--pink);
+}
+
 /* ── Input bar ────────────────────────────────────────────── */
 .concierge-input-bar {
   display: flex;
@@ -2627,7 +2826,7 @@ body {
   transform: none;
 }
 
-/* ── Mobile tweaks ────────────────────────────────────────── */
+/* ── Mobile tweaks — bottom-sheet on small screens ────────── */
 @media (max-width: 600px) {
   .concierge-overlay {
     align-items: flex-end;
@@ -2637,8 +2836,8 @@ body {
   .concierge-modal {
     width: 100%;
     max-width: 100%;
-    border-radius: 16px 16px 0 0;
-    max-height: 82vh;
+    border-radius: 18px 18px 0 0;
+    height: 82vh;
   }
   /* Hide label on very small screens, keep avatar icon */
   .qnav-concierge-label { display: none; }
