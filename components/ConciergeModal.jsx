@@ -82,12 +82,37 @@ const GREETING = {
 // These options navigate directly to the right page.
 const NEIGHBORHOOD_PICKER = {
   role: 'bot',
-  text: "What part of Manhattan are you in? I'll show you the best shops nearby.",
+  text: "What part of NYC are you in? I'll show you the best wine shops nearby.",
+  scrollable: true,
   options: [
-    { label: 'West Village / Chelsea',  isNav: true, navUrl: '/stores?q=west+village' },
-    { label: 'Midtown',                 isNav: true, navUrl: '/stores?q=midtown'       },
-    { label: 'Upper East Side',         isNav: true, navUrl: '/stores?q=upper+east'    },
-    { label: 'Upper West Side',         isNav: true, navUrl: '/stores?q=upper+west'    },
+    // ── Boroughs ──────────────────────────────────────────────
+    { label: 'Boroughs',                          isHeader: true },
+    { label: 'Manhattan',   isNav: true, navUrl: '/stores'                                              },
+    { label: 'Brooklyn',    isNav: true, navUrl: '/stores?q=brooklyn'                                  },
+    { label: 'Queens',      isNav: true, navUrl: '/stores?q=queens'                                    },
+    { label: 'The Bronx',   isNav: true, navUrl: '/stores?q=bronx'                                     },
+    { label: 'Staten Island', isNav: true, navUrl: '/stores?q=staten+island'                           },
+    // ── Manhattan Neighborhoods ────────────────────────────────
+    { label: 'Manhattan Neighborhoods',           isHeader: true },
+    { label: 'Battery Park City',         isNav: true, navUrl: '/stores?q=battery+park'                },
+    { label: 'Chelsea',                   isNav: true, navUrl: '/stores?q=chelsea'                     },
+    { label: 'East Harlem',               isNav: true, navUrl: '/stores?q=east+harlem'                 },
+    { label: 'East Village',              isNav: true, navUrl: '/stores?q=east+village'                },
+    { label: 'Financial District',        isNav: true, navUrl: '/stores?q=financial+district'          },
+    { label: 'Gramercy / Flatiron',       isNav: true, navUrl: '/stores?q=gramercy'                   },
+    { label: 'Hamilton Heights / Washington Heights', isNav: true, navUrl: '/stores?q=washington+heights' },
+    { label: 'Harlem',                    isNav: true, navUrl: '/stores?q=harlem'                      },
+    { label: 'Inwood',                    isNav: true, navUrl: '/stores?q=inwood'                      },
+    { label: 'Lower East Side',           isNav: true, navUrl: '/stores?q=lower+east+side'             },
+    { label: 'Midtown',                   isNav: true, navUrl: '/stores?q=midtown'                     },
+    { label: 'Midtown East',              isNav: true, navUrl: '/stores?q=midtown+east'                },
+    { label: 'Midtown West / Hell\'s Kitchen', isNav: true, navUrl: '/stores?q=hell%27s+kitchen'      },
+    { label: 'Murray Hill / Kips Bay',    isNav: true, navUrl: '/stores?q=murray+hill'                 },
+    { label: 'SoHo / NoHo',              isNav: true, navUrl: '/stores?q=soho'                        },
+    { label: 'Tribeca',                   isNav: true, navUrl: '/stores?q=tribeca'                     },
+    { label: 'Upper East Side',           isNav: true, navUrl: '/stores?q=upper+east+side'             },
+    { label: 'Upper West Side',           isNav: true, navUrl: '/stores?q=upper+west+side'             },
+    { label: 'West Village / Greenwich Village', isNav: true, navUrl: '/stores?q=west+village'        },
   ],
 };
 
@@ -372,16 +397,20 @@ export default function ConciergeModal({ onClose }) {
 
                   {/* 4-option choices — latest bot message only */}
                   {msg.options && msg.options.length > 0 && isLastBot && (
-                    <div className="concierge-choices">
+                    <div className={`concierge-choices${msg.scrollable ? ' concierge-choices-scroll' : ''}`}>
                       {msg.options.map((opt, j) => (
-                        <button
-                          key={j}
-                          className={`concierge-choice${opt.isJoke ? ' concierge-choice-joke' : ''}`}
-                          onClick={() => handleOption(opt)}
-                          disabled={loading}
-                        >
-                          {opt.label}
-                        </button>
+                        opt.isHeader
+                          ? <div key={j} className="concierge-choice-header">{opt.label}</div>
+                          : (
+                            <button
+                              key={j}
+                              className={`concierge-choice${opt.isJoke ? ' concierge-choice-joke' : ''}`}
+                              onClick={() => handleOption(opt)}
+                              disabled={loading}
+                            >
+                              {opt.label}
+                            </button>
+                          )
                       ))}
                     </div>
                   )}

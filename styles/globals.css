@@ -3029,6 +3029,29 @@ body {
   gap: 6px;
   width: 100%;
 }
+.concierge-choices-scroll {
+  max-height: 260px;
+  overflow-y: auto;
+  padding-right: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--pink-light) transparent;
+}
+.concierge-choices-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.concierge-choices-scroll::-webkit-scrollbar-thumb {
+  background: var(--pink-light);
+  border-radius: 4px;
+}
+.concierge-choice-header {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gray);
+  padding: 6px 4px 2px;
+  margin-top: 4px;
+}
 .concierge-choice {
   width: 100%;
   text-align: left;
