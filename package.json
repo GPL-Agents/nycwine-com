@@ -9,6 +9,7 @@
     "fetch-events": "node scripts/event-fetch.js"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.36.0",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",

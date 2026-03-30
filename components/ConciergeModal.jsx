@@ -30,6 +30,42 @@ function freshShuffle() {
   return shuffle([...Array(JOKE_COUNT).keys()]);
 }
 
+// ── Simple markdown renderer ──────────────────────────────────
+// Handles: **bold**, [text](url), bullet lines (•), newlines.
+// Returns an array of React-renderable nodes.
+function renderMarkdown(text) {
+  if (!text) return null;
+  const nodes = [];
+  const lines = text.split('\n');
+  lines.forEach((line, li) => {
+    if (li > 0) nodes.push(<br key={`br${li}`} />);
+    // Parse inline: **bold** and [label](href)
+    const parts = [];
+    const pattern = /(\*\*(.+?)\*\*|\[([^\]]+)\]\(([^)]+)\))/g;
+    let last = 0, m;
+    while ((m = pattern.exec(line)) !== null) {
+      if (m.index > last) parts.push(line.slice(last, m.index));
+      if (m[0].startsWith('**')) {
+        parts.push(<strong key={m.index}>{m[2]}</strong>);
+      } else {
+        const href  = m[4];
+        const isExt = href.startsWith('http');
+        parts.push(
+          <a key={m.index} href={href}
+             target={isExt ? '_blank' : undefined}
+             rel={isExt ? 'noopener noreferrer' : undefined}
+             style={{ color: 'var(--pink)', textDecoration: 'underline' }}
+          >{m[3]}</a>
+        );
+      }
+      last = m.index + m[0].length;
+    }
+    if (last < line.length) parts.push(line.slice(last));
+    nodes.push(<span key={`l${li}`}>{parts}</span>);
+  });
+  return nodes;
+}
+
 const GREETING = {
   role: 'bot',
   text: "Hi! I'm the NYC Wine Concierge 🍷 Your guide to wine bars, shops, events, and all things wine in New York City. How can I help you today?",
@@ -113,8 +149,9 @@ export default function ConciergeModal({ onClose }) {
         body: JSON.stringify({
           message: trimmed,
           isJoke,
-          jokeIndex: resolvedJokeIdx,   // actual joke index from shuffled deck
-          history: messages,
+          jokeIndex: resolvedJokeIdx,
+          // Send only role + text — keeps payload light, Claude doesn't need options arrays
+          history: messages.map(m => ({ role: m.role, text: m.text })),
         }),
       });
       if (!res.ok) throw new Error('API error');
@@ -212,7 +249,7 @@ export default function ConciergeModal({ onClose }) {
                   />
                 )}
                 <div className="concierge-row-inner">
-                  <div className="concierge-bubble">{msg.text}</div>
+                  <div className="concierge-bubble">{renderMarkdown(msg.text)}</div>
 
                   {/* Joke rating bar — shown on every joke message */}
                   {msg.isJoke && (
