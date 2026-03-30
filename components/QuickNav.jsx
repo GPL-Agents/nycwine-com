@@ -13,6 +13,10 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
+
+// Lazy-load the modal so it doesn't add to the initial bundle
+const ConciergeModal = dynamic(() => import('./ConciergeModal'), { ssr: false });
 
 const SECTIONS = [
   { id: 'sec-events',   label: 'Events',      cls: 'events',   href: '/events'   },
@@ -27,6 +31,7 @@ export default function QuickNav() {
   const router = useRouter();
   const isHome = router.pathname === '/';
   const [activeId, setActiveId] = useState('sec-events');
+  const [conciergeOpen, setConciergeOpen] = useState(false);
 
   // On the homepage, track which section is visible via IntersectionObserver.
   useEffect(() => {
@@ -80,39 +85,61 @@ export default function QuickNav() {
   }
 
   return (
-    <nav className="quick-nav" aria-label="Jump to section">
-      {SECTIONS.map((s) => {
-        const active = isActive(s);
-        if (isHome) {
-          // Homepage: scroll behaviour
+    <>
+      <nav className="quick-nav" aria-label="Jump to section">
+        {SECTIONS.map((s) => {
+          const active = isActive(s);
+          if (isHome) {
+            // Homepage: scroll behaviour
+            return (
+              <a
+                key={s.id}
+                className={`qnav-pill ${s.cls}${active ? ' qnav-active' : ''}`}
+                href={`#${s.id}`}
+                onClick={(e) => { e.preventDefault(); scrollTo(s.id); }}
+              >
+                {s.label}
+              </a>
+            );
+          }
+          // All other pages (and Social on any page): navigate to href
           return (
             <a
               key={s.id}
               className={`qnav-pill ${s.cls}${active ? ' qnav-active' : ''}`}
-              href={`#${s.id}`}
-              onClick={(e) => { e.preventDefault(); scrollTo(s.id); }}
+              href={s.href}
             >
               {s.label}
             </a>
           );
-        }
-        // All other pages (and Social on any page): navigate to href
-        return (
-          <a
-            key={s.id}
-            className={`qnav-pill ${s.cls}${active ? ' qnav-active' : ''}`}
-            href={s.href}
-          >
-            {s.label}
-          </a>
-        );
-      })}
-      <a
-        className={`qnav-pill map${router.pathname === '/map' ? ' qnav-active' : ''}`}
-        href="/map"
-      >
-        Map
-      </a>
-    </nav>
+        })}
+        <a
+          className={`qnav-pill map${router.pathname === '/map' ? ' qnav-active' : ''}`}
+          href="/map"
+        >
+          Map
+        </a>
+
+        {/* ── Concierge button — far right ─────────────────── */}
+        <button
+          className={`qnav-concierge-btn${conciergeOpen ? ' qnav-concierge-open' : ''}`}
+          onClick={() => setConciergeOpen(o => !o)}
+          aria-label="Open NYC Wine Concierge"
+          aria-expanded={conciergeOpen}
+        >
+          <img
+            src="/images/concierge-avatar.png"
+            alt=""
+            className="qnav-concierge-avatar"
+          />
+          <span className="qnav-concierge-label">Concierge</span>
+        </button>
+      </nav>
+
+      {/* Modal rendered outside the nav so z-index stacking is clean */}
+      {conciergeOpen && (
+        <ConciergeModal onClose={() => setConciergeOpen(false)} />
+      )}
+    </>
   );
 }

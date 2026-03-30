@@ -2305,3 +2305,342 @@ body {
     transform: scale(0.66);
   }
 }
+
+
+/* ═══════════════════════════════════════
+   CONCIERGE — QuickNav button
+═══════════════════════════════════════ */
+
+/* Push the button to the far right */
+.qnav-concierge-btn {
+  margin-left: auto;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 14px 4px 5px;
+  border-radius: 20px;
+  border: 1.5px solid var(--pink);
+  background: var(--pink);
+  color: white;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background 0.18s, border-color 0.18s, box-shadow 0.18s;
+  box-shadow: 0 1px 6px rgba(236,64,122,0.25);
+  white-space: nowrap;
+}
+.qnav-concierge-btn:hover,
+.qnav-concierge-btn.qnav-concierge-open {
+  background: var(--pink-dark);
+  border-color: var(--pink-dark);
+  box-shadow: 0 2px 10px rgba(194,24,91,0.30);
+}
+.qnav-concierge-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid rgba(255,255,255,0.55);
+  flex-shrink: 0;
+}
+.qnav-concierge-label {
+  line-height: 1;
+}
+
+/* ── Concierge modal overlay ──────────────────────────────── */
+.concierge-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(26,26,26,0.45);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 0 24px 24px 0;
+}
+
+/* ── Modal window ─────────────────────────────────────────── */
+.concierge-modal {
+  width: 380px;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 140px);
+  background: #fff;
+  border-radius: 16px;
+  box-shadow:
+    0 24px 60px rgba(0,0,0,0.20),
+    0 4px 16px rgba(0,0,0,0.10);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: concierge-slide-up 0.22s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+
+@keyframes concierge-slide-up {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)  scale(1);     }
+}
+
+/* ── Modal header ─────────────────────────────────────────── */
+.concierge-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--black);
+  flex-shrink: 0;
+}
+.concierge-modal-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(236,64,122,0.7);
+  flex-shrink: 0;
+}
+.concierge-modal-title {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.concierge-modal-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+  line-height: 1.2;
+  font-family: var(--font-sans);
+}
+.concierge-modal-status {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.6);
+  font-family: var(--font-sans);
+}
+.concierge-online-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4caf50;
+  flex-shrink: 0;
+}
+.concierge-modal-close {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.55);
+  font-size: 15px;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: color 0.15s, background 0.15s;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.concierge-modal-close:hover {
+  color: white;
+  background: rgba(255,255,255,0.12);
+}
+
+/* ── Messages area ────────────────────────────────────────── */
+.concierge-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 14px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: var(--grey-bg);
+  scroll-behavior: smooth;
+}
+.concierge-messages::-webkit-scrollbar { width: 4px; }
+.concierge-messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* ── Message row ──────────────────────────────────────────── */
+.concierge-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+.concierge-row-user {
+  flex-direction: row-reverse;
+}
+.concierge-row-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1.5px solid var(--border);
+  margin-top: 2px;
+}
+.concierge-row-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 88%;
+}
+.concierge-row-user .concierge-row-inner {
+  align-items: flex-end;
+}
+
+/* ── Chat bubble ──────────────────────────────────────────── */
+.concierge-bubble {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px 14px 14px 4px;
+  padding: 10px 13px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text);
+  font-family: var(--font-sans);
+  white-space: pre-line;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+.concierge-row-user .concierge-bubble {
+  background: var(--pink);
+  border-color: var(--pink);
+  color: white;
+  border-radius: 14px 14px 4px 14px;
+}
+
+/* ── Typing indicator ─────────────────────────────────────── */
+.concierge-typing {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 16px;
+}
+.concierge-typing span {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--border);
+  animation: concierge-dot-bounce 1.2s infinite ease-in-out;
+}
+.concierge-typing span:nth-child(2) { animation-delay: 0.18s; }
+.concierge-typing span:nth-child(3) { animation-delay: 0.36s; }
+@keyframes concierge-dot-bounce {
+  0%, 80%, 100% { transform: scale(1);    opacity: 0.5; }
+  40%            { transform: scale(1.4); opacity: 1;   }
+}
+
+/* ── Choice buttons ───────────────────────────────────────── */
+.concierge-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+.concierge-choice {
+  width: 100%;
+  text-align: left;
+  background: white;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--black);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+  font-family: var(--font-sans);
+  line-height: 1.3;
+}
+.concierge-choice:hover:not(:disabled) {
+  border-color: var(--pink);
+  background: var(--pink-light);
+  color: var(--pink-dark);
+}
+/* Silly option — slightly differentiated, still readable */
+.concierge-choice-silly {
+  border-style: dashed;
+  color: var(--muted);
+  font-style: italic;
+}
+.concierge-choice-silly:hover:not(:disabled) {
+  border-color: var(--pink);
+  background: #fff9fb;
+  color: var(--pink-dark);
+  font-style: italic;
+}
+.concierge-choice:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ── Input bar ────────────────────────────────────────────── */
+.concierge-input-bar {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  border-top: 1px solid var(--border-light);
+  background: white;
+  flex-shrink: 0;
+}
+.concierge-input {
+  flex: 1;
+  border: 1.5px solid var(--border);
+  border-radius: 22px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-family: var(--font-sans);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  background: var(--grey-bg);
+}
+.concierge-input:focus {
+  border-color: var(--pink);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(236,64,122,0.10);
+}
+.concierge-input::placeholder { color: var(--muted); }
+.concierge-input:disabled { opacity: 0.6; }
+.concierge-send {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: var(--pink);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s, transform 0.15s;
+}
+.concierge-send:hover:not(:disabled) {
+  background: var(--pink-dark);
+  transform: scale(1.06);
+}
+.concierge-send:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Mobile tweaks ────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .concierge-overlay {
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0;
+  }
+  .concierge-modal {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 16px 16px 0 0;
+    max-height: 82vh;
+  }
+  /* Hide label on very small screens, keep avatar icon */
+  .qnav-concierge-label { display: none; }
+  .qnav-concierge-btn   { padding: 4px 8px 4px 5px; }
+}
