@@ -133,7 +133,7 @@ export default async function handler(req, res) {
     await db.insert('submissions', row);
   } catch (err) {
     console.error('Supabase insert error:', err);
-    return res.status(500).json({ error: 'Could not save submission.' });
+    return res.status(500).json({ error: 'Could not save submission.', detail: err.message });
   }
 
   // 5. If approved, publish to the live feed / venue list

@@ -53,7 +53,7 @@ export default function SubmitPage() {
         body:    JSON.stringify({ type, ...form }),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Submission failed');
+      if (!res.ok) throw new Error(data.detail || data.error || 'Submission failed');
       setStatus('success');
     } catch (err) {
       setErrMsg(err.message);
@@ -133,10 +133,10 @@ export default function SubmitPage() {
                 <input className="sub-input" value={form.venue||''} onChange={e=>set('venue',e.target.value)} required placeholder="Name and address of the venue" />
               </Field>
               <div className="sub-row">
-                <Field label="Event Date" required>
+                <Field label="Event Start Date" required>
                   <input className="sub-input" type="date" value={form.date||''} onChange={e=>set('date',e.target.value)} required />
                 </Field>
-                <Field label="End Date" hint="If multi-day">
+                <Field label="End Date (if multi-day)">
                   <input className="sub-input" type="date" value={form.endDate||''} onChange={e=>set('endDate',e.target.value)} />
                 </Field>
               </div>
@@ -152,10 +152,10 @@ export default function SubmitPage() {
                 <textarea className="sub-textarea" value={form.description||''} onChange={e=>set('description',e.target.value)} required rows={4} placeholder="Tell us about the event — wines featured, format, what to expect…" />
               </Field>
               <Field label="Tickets / Event URL" required hint="Where people can learn more or buy tickets">
-                <input className="sub-input" type="url" value={form.url||''} onChange={e=>set('url',e.target.value)} required placeholder="https://" />
+                <input className="sub-input" type="url" value={form.url||''} onChange={e=>{e.target.setCustomValidity('');set('url',e.target.value)}} onInvalid={e=>e.target.setCustomValidity('Please enter a URL starting with "https://"')} required placeholder="https://" />
               </Field>
               <Field label="Event Image URL" hint="A photo or banner for the event (hosted image URL)">
-                <input className="sub-input" type="url" value={form.image||''} onChange={e=>set('image',e.target.value)} placeholder="https://" />
+                <input className="sub-input" type="url" value={form.image||''} onChange={e=>{e.target.setCustomValidity('');set('image',e.target.value)}} onInvalid={e=>e.target.setCustomValidity('Please enter a URL starting with "https://"')} placeholder="https://" />
               </Field>
             </>)}
 
@@ -183,7 +183,7 @@ export default function SubmitPage() {
                   <input className="sub-input" type="tel" value={form.phone||''} onChange={e=>set('phone',e.target.value)} placeholder="(212) 555-0100" />
                 </Field>
                 <Field label="Website URL" required>
-                  <input className="sub-input" type="url" value={form.website||''} onChange={e=>set('website',e.target.value)} required placeholder="https://" />
+                  <input className="sub-input" type="url" value={form.website||''} onChange={e=>{e.target.setCustomValidity('');set('website',e.target.value)}} onInvalid={e=>e.target.setCustomValidity('Please enter a URL starting with "https://"')} required placeholder="https://" />
                 </Field>
               </div>
               <Field label="Brief Description" hint="1–2 sentences about the bar's style or specialty">
@@ -208,7 +208,7 @@ export default function SubmitPage() {
                 </Field>
               </div>
               <Field label="Website URL" required>
-                <input className="sub-input" type="url" value={form.website||''} onChange={e=>set('website',e.target.value)} required placeholder="https://" />
+                <input className="sub-input" type="url" value={form.website||''} onChange={e=>{e.target.setCustomValidity('');set('website',e.target.value)}} onInvalid={e=>e.target.setCustomValidity('Please enter a URL starting with "https://"')} required placeholder="https://" />
               </Field>
               <Field label="Brief Description" hint="Optional — specialty, focus, or what makes the store stand out">
                 <textarea className="sub-textarea" value={form.description||''} onChange={e=>set('description',e.target.value)} rows={3} placeholder="Family-owned shop specialising in Italian and natural wines…" />
@@ -235,7 +235,7 @@ export default function SubmitPage() {
                 </Field>
               </div>
               <Field label="Website URL" required>
-                <input className="sub-input" type="url" value={form.website||''} onChange={e=>set('website',e.target.value)} required placeholder="https://" />
+                <input className="sub-input" type="url" value={form.website||''} onChange={e=>{e.target.setCustomValidity('');set('website',e.target.value)}} onInvalid={e=>e.target.setCustomValidity('Please enter a URL starting with "https://"')} required placeholder="https://" />
               </Field>
               <Field label="Brief Description" hint="Varietals, style, tasting room hours, etc.">
                 <textarea className="sub-textarea" value={form.description||''} onChange={e=>set('description',e.target.value)} rows={3} placeholder="North Fork estate known for Merlot and Cabernet Franc, tasting room open weekends…" />
