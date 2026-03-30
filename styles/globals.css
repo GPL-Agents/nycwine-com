@@ -159,6 +159,7 @@ body {
 ═══════════════════════════════════════ */
 .quick-nav {
   display: flex;
+  align-items: center;
   gap: 8px;
   padding: 10px var(--content-pad);
   overflow-x: auto;
@@ -2359,7 +2360,7 @@ body {
 /* ═══════════════════════════════════════
    MAP PAGE (/map)
 ═══════════════════════════════════════ */
-.map-page { display: flex; flex-direction: column; }
+.map-page { display: flex; flex-direction: column; min-height: calc(100vh - 144px); }
 
 .map-page-header {
   background: var(--black);
@@ -2440,7 +2441,6 @@ body {
 .map-container {
   position: relative;
   flex: 1;
-  height: calc(100vh - 220px);
   min-height: 420px;
 }
 .map-leaflet {
@@ -2523,7 +2523,7 @@ body {
 .leaflet-popup-tip-container { display: none; }
 
 @media (max-width: 600px) {
-  .map-container { height: calc(100vh - 260px); }
+  .map-page { min-height: calc(100vh - 120px); }
 }
 
 /* ── Map location search bar ──────────────────────────────── */

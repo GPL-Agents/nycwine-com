@@ -229,11 +229,15 @@ export default async function handler(req, res) {
 
   // Convert message history to Gemini format
   // Gemini uses 'user' and 'model' (not 'assistant')
+  // IMPORTANT: Gemini requires history to start with a 'user' role message.
+  // Skip any bot messages that appear before the first user message.
   const geminiHistory = [];
+  let hasSeenUser = false;
   for (const msg of (history || [])) {
     if (msg.role === 'user') {
+      hasSeenUser = true;
       geminiHistory.push({ role: 'user',  parts: [{ text: msg.text }] });
-    } else if (msg.role === 'bot' && msg.text && !msg.isJoke) {
+    } else if (msg.role === 'bot' && hasSeenUser && msg.text && !msg.isJoke) {
       geminiHistory.push({ role: 'model', parts: [{ text: msg.text }] });
     }
   }
