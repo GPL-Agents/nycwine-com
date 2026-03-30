@@ -2601,8 +2601,8 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
-  flex: 1;
-  min-width: 0;
+  flex: none;
+  width: 280px;
 }
 
 .map-search-input-wrap {
@@ -2694,15 +2694,23 @@ body {
 /* Loading state while geolocating — no animation, just muted appearance */
 .map-geo-loading { opacity: 0.65; }
 
-/* ── Active location banner ───────────────────────────────── */
-.map-location-active {
+/* ── Inline location + radius — sits right of My Location button ── */
+.map-location-inline {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 6px var(--content-pad);
-  background: color-mix(in srgb, #1976d2 8%, white);
-  border-bottom: 1px solid color-mix(in srgb, #1976d2 20%, white);
+  gap: 8px;
+  flex: 1;
   flex-wrap: wrap;
+  min-width: 0;
+}
+
+.map-location-sep {
+  display: block;
+  width: 1px;
+  height: 20px;
+  background: var(--border);
+  flex-shrink: 0;
+  margin: 0 2px;
 }
 
 .map-location-label {
@@ -2712,8 +2720,7 @@ body {
   font-size: 12px;
   font-weight: 500;
   color: #1565c0;
-  flex: 1;
-  min-width: 0;
+  white-space: nowrap;
 }
 
 .map-location-dot-inline {
@@ -2763,10 +2770,9 @@ body {
 
 /* ── Search error message ─────────────────────────────────── */
 .map-search-error {
-  width: 100%;
   font-size: 12px;
   color: #c62828;
-  padding: 2px 0 0 2px;
+  white-space: nowrap;
 }
 
 /* ── Map filter row (category pills + Reset View) ─────────── */
@@ -2827,11 +2833,12 @@ body {
 }
 
 @media (max-width: 600px) {
-  .map-location-row { flex-direction: column; align-items: stretch; gap: 6px; }
-  .map-search-form  { width: 100%; }
-  .map-geo-btn      { justify-content: center; }
-  .map-location-active { flex-direction: column; align-items: flex-start; gap: 6px; }
-  .map-filter-row   { gap: 6px; }
+  .map-location-row    { flex-direction: column; align-items: stretch; gap: 6px; }
+  .map-search-form     { width: 100%; }
+  .map-geo-btn         { justify-content: center; }
+  .map-location-inline { flex-wrap: wrap; }
+  .map-location-sep    { display: none; }
+  .map-filter-row      { gap: 6px; }
 }
 
 /* ── Concierge modal overlay — centered ───────────────────── */

@@ -402,11 +402,10 @@ export default function MapPage() {
         {/* ── Controls ─────────────────────────────────────────── */}
         <div className="map-controls">
 
-          {/* Row 1 — location search */}
+          {/* Row 1 — search + location inline */}
           <div className="map-location-row">
             <form className="map-search-form" onSubmit={handleSearch}>
               <div className="map-search-input-wrap">
-                {/* Pin icon */}
                 <svg className="map-search-icon" width="15" height="15" viewBox="0 0 24 24"
                      fill="none" stroke="currentColor" strokeWidth="2.2"
                      strokeLinecap="round" strokeLinejoin="round">
@@ -416,7 +415,7 @@ export default function MapPage() {
                 <input
                   type="text"
                   className="map-search-input"
-                  placeholder="Address, intersection, or neighborhood…"
+                  placeholder="Address or neighborhood…"
                   value={searchInput}
                   onChange={e => { setSearchInput(e.target.value); setSearchError(''); }}
                   disabled={searching}
@@ -454,38 +453,39 @@ export default function MapPage() {
                 </>
               )}
             </button>
-          </div>
 
-          {/* Location label + radius pills — shown when location is set */}
-          {userLocation && (
-            <div className="map-location-active">
-              <span className="map-location-label">
-                <span className="map-location-dot-inline" />
-                {userLocation.label}
-              </span>
-              <div className="map-radius-pills">
-                <span className="map-radius-label">Within:</span>
-                {RADIUS_OPTIONS.map(opt => (
+            {/* Location label + radius pills — inline to the right of My Location */}
+            {userLocation && (
+              <div className="map-location-inline">
+                <span className="map-location-sep" />
+                <span className="map-location-label">
+                  <span className="map-location-dot-inline" />
+                  {userLocation.label}
+                </span>
+                <div className="map-radius-pills">
+                  <span className="map-radius-label">Within:</span>
+                  {RADIUS_OPTIONS.map(opt => (
+                    <button
+                      key={opt.value}
+                      className={`map-radius-pill${radius === opt.value ? ' map-radius-active' : ''}`}
+                      onClick={() => setRadius(radius === opt.value ? null : opt.value)}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
                   <button
-                    key={opt.value}
-                    className={`map-radius-pill${radius === opt.value ? ' map-radius-active' : ''}`}
-                    onClick={() => setRadius(radius === opt.value ? null : opt.value)}
+                    className={`map-radius-pill${radius === null ? ' map-radius-active' : ''}`}
+                    onClick={() => setRadius(null)}
                   >
-                    {opt.label}
+                    All
                   </button>
-                ))}
-                <button
-                  className={`map-radius-pill${radius === null ? ' map-radius-active' : ''}`}
-                  onClick={() => setRadius(null)}
-                >
-                  All
-                </button>
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
-          {/* Error message */}
-          {searchError && <div className="map-search-error">{searchError}</div>}
+            {/* Error message — inline */}
+            {searchError && <span className="map-search-error">{searchError}</span>}
+          </div>
 
           {/* Row 2 — category filters */}
           <div className="map-filter-row">
