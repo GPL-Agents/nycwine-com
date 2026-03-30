@@ -3889,7 +3889,9 @@ body {
   padding: 32px var(--content-pad);
 }
 .sub-section {
-  margin-bottom: 32px;
+  max-width: 740px;
+  margin: 0 auto 32px;
+  padding: 32px var(--content-pad) 0;
 }
 .sub-section-title {
   font-family: var(--font-serif);
