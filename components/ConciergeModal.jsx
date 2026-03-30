@@ -79,42 +79,59 @@ const GREETING = {
 };
 
 // ── Local navigation shortcuts (no API needed) ───────────────
-// These options navigate directly to the right page.
-const NEIGHBORHOOD_PICKER = {
+
+// Step 1 — ask which borough
+const BOROUGH_PICKER = {
   role: 'bot',
-  text: "What part of NYC are you in? I'll show you the best wine shops nearby.",
-  scrollable: true,
+  text: "What part of NYC are you in?",
   options: [
-    // ── Boroughs ──────────────────────────────────────────────
-    { label: 'Boroughs',                          isHeader: true },
-    { label: 'Manhattan',   isNav: true, navUrl: '/stores'                                              },
-    { label: 'Brooklyn',    isNav: true, navUrl: '/stores?q=brooklyn'                                  },
-    { label: 'Queens',      isNav: true, navUrl: '/stores?q=queens'                                    },
-    { label: 'The Bronx',   isNav: true, navUrl: '/stores?q=bronx'                                     },
-    { label: 'Staten Island', isNav: true, navUrl: '/stores?q=staten+island'                           },
-    // ── Manhattan Neighborhoods ────────────────────────────────
-    { label: 'Manhattan Neighborhoods',           isHeader: true },
-    { label: 'Battery Park City',         isNav: true, navUrl: '/stores?q=battery+park'                },
-    { label: 'Chelsea',                   isNav: true, navUrl: '/stores?q=chelsea'                     },
-    { label: 'East Harlem',               isNav: true, navUrl: '/stores?q=east+harlem'                 },
-    { label: 'East Village',              isNav: true, navUrl: '/stores?q=east+village'                },
-    { label: 'Financial District',        isNav: true, navUrl: '/stores?q=financial+district'          },
-    { label: 'Gramercy / Flatiron',       isNav: true, navUrl: '/stores?q=gramercy'                   },
-    { label: 'Hamilton Heights / Washington Heights', isNav: true, navUrl: '/stores?q=washington+heights' },
-    { label: 'Harlem',                    isNav: true, navUrl: '/stores?q=harlem'                      },
-    { label: 'Inwood',                    isNav: true, navUrl: '/stores?q=inwood'                      },
-    { label: 'Lower East Side',           isNav: true, navUrl: '/stores?q=lower+east+side'             },
-    { label: 'Midtown',                   isNav: true, navUrl: '/stores?q=midtown'                     },
-    { label: 'Midtown East',              isNav: true, navUrl: '/stores?q=midtown+east'                },
-    { label: 'Midtown West / Hell\'s Kitchen', isNav: true, navUrl: '/stores?q=hell%27s+kitchen'      },
-    { label: 'Murray Hill / Kips Bay',    isNav: true, navUrl: '/stores?q=murray+hill'                 },
-    { label: 'SoHo / NoHo',              isNav: true, navUrl: '/stores?q=soho'                        },
-    { label: 'Tribeca',                   isNav: true, navUrl: '/stores?q=tribeca'                     },
-    { label: 'Upper East Side',           isNav: true, navUrl: '/stores?q=upper+east+side'             },
-    { label: 'Upper West Side',           isNav: true, navUrl: '/stores?q=upper+west+side'             },
-    { label: 'West Village / Greenwich Village', isNav: true, navUrl: '/stores?q=west+village'        },
+    { label: 'Manhattan',    isBorough: true },
+    { label: 'Brooklyn',     isBorough: true },
+    { label: 'Queens',       isBorough: true },
+    { label: 'The Bronx',    isBorough: true },
+    { label: 'Staten Island', isBorough: true },
   ],
 };
+
+// Step 2 — Manhattan neighbourhood list (scrollable)
+const MANHATTAN_NEIGHBORHOODS = {
+  role: 'bot',
+  text: "Which neighborhood in Manhattan?",
+  scrollable: true,
+  options: [
+    { label: 'Battery Park City',                    isNav: true, navUrl: '/stores?q=battery+park'       },
+    { label: 'Chelsea',                              isNav: true, navUrl: '/stores?q=chelsea'             },
+    { label: 'East Harlem',                          isNav: true, navUrl: '/stores?q=east+harlem'         },
+    { label: 'East Village',                         isNav: true, navUrl: '/stores?q=east+village'        },
+    { label: 'Financial District',                   isNav: true, navUrl: '/stores?q=financial+district'  },
+    { label: 'Gramercy / Flatiron',                  isNav: true, navUrl: '/stores?q=gramercy'            },
+    { label: 'Hamilton Heights / Washington Heights', isNav: true, navUrl: '/stores?q=washington+heights' },
+    { label: 'Harlem',                               isNav: true, navUrl: '/stores?q=harlem'              },
+    { label: 'Inwood',                               isNav: true, navUrl: '/stores?q=inwood'              },
+    { label: 'Lower East Side',                      isNav: true, navUrl: '/stores?q=lower+east+side'     },
+    { label: 'Midtown',                              isNav: true, navUrl: '/stores?q=midtown'             },
+    { label: 'Midtown East',                         isNav: true, navUrl: '/stores?q=midtown+east'        },
+    { label: "Midtown West / Hell's Kitchen",        isNav: true, navUrl: '/stores?q=hell%27s+kitchen'    },
+    { label: 'Murray Hill / Kips Bay',               isNav: true, navUrl: '/stores?q=murray+hill'         },
+    { label: 'SoHo / NoHo',                         isNav: true, navUrl: '/stores?q=soho'                },
+    { label: 'Tribeca',                              isNav: true, navUrl: '/stores?q=tribeca'             },
+    { label: 'Upper East Side',                      isNav: true, navUrl: '/stores?q=upper+east+side'     },
+    { label: 'Upper West Side',                      isNav: true, navUrl: '/stores?q=upper+west+side'     },
+    { label: 'West Village / Greenwich Village',     isNav: true, navUrl: '/stores?q=west+village'        },
+  ],
+};
+
+// Step 2 — non-Manhattan boroughs (store data is Manhattan-focused for now)
+function boroughFallback(borough) {
+  return {
+    role: 'bot',
+    text: `Our wine store directory is Manhattan-focused for now — ${borough} coverage is coming soon! In the meantime, want to browse Manhattan neighborhoods or see the full store list?`,
+    options: [
+      { label: 'Browse Manhattan neighborhoods', isBorough: true, borough: 'manhattan' },
+      { label: 'Show all wine stores',           isNav: true, navUrl: '/stores'        },
+    ],
+  };
+}
 
 // Emoji reactions the user can give to a joke
 const JOKE_RATINGS = [
@@ -226,10 +243,26 @@ export default function ConciergeModal({ onClose }) {
   function handleOption(opt) {
     if (loading) return;
 
-    // Direct nav: already has a destination URL (neighbourhood picker choices)
+    // Direct nav: destination URL already known
     if (opt.isNav && opt.navUrl) {
       router.push(opt.navUrl);
       onClose();
+      return;
+    }
+
+    // Borough selected — show neighbourhood list for that borough
+    if (opt.isBorough) {
+      const boroughLabel = opt.borough || opt.label; // normalise
+      const isManhattan  = /manhattan/i.test(boroughLabel);
+      const nextMsg      = isManhattan
+        ? MANHATTAN_NEIGHBORHOODS
+        : boroughFallback(opt.label);
+
+      setMessages(prev => [
+        ...prev,
+        { role: 'user', text: opt.label },
+        nextMsg,
+      ]);
       return;
     }
 
@@ -246,11 +279,11 @@ export default function ConciergeModal({ onClose }) {
         return;
 
       case 'Recommend a wine shop':
-        // Show neighbourhood picker inline — no API call
+        // Step 1 — ask which borough
         setMessages(prev => [
           ...prev,
           { role: 'user', text: 'Recommend a wine shop' },
-          NEIGHBORHOOD_PICKER,
+          BOROUGH_PICKER,
         ]);
         return;
 
