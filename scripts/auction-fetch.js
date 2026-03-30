@@ -51,15 +51,34 @@ async function main() {
   console.log('=== NYCWine Auction Fetch ===');
   console.log(`Date: ${new Date().toISOString()}`);
 
+  // Helper: keep existing cache and exit cleanly (no GH Actions failure notification)
+  function keepExistingCache(reason) {
+    console.warn(`⚠ ${reason} — keeping existing cache, no changes written.`);
+    try {
+      const existing = JSON.parse(fs.readFileSync(OUTPUT_PATH, 'utf8'));
+      existing.fetchedAt = new Date().toISOString();
+      existing.fetchWarning = reason;
+      fs.writeFileSync(OUTPUT_PATH, JSON.stringify(existing, null, 2));
+      console.log('  Updated fetchedAt timestamp on existing cache.');
+    } catch { /* no cache file yet — that's fine */ }
+    process.exit(0); // exit 0 so GitHub Actions doesn't flag a failure
+  }
+
   try {
-    const res = await fetch(SOURCE_URL, {
-      headers: HEADERS,
-      signal: AbortSignal.timeout(15000),
-    });
+    let res;
+    try {
+      res = await fetch(SOURCE_URL, {
+        headers: HEADERS,
+        signal: AbortSignal.timeout(15000),
+      });
+    } catch (networkErr) {
+      keepExistingCache(`Network error fetching ${SOURCE_URL}: ${networkErr.message}`);
+      return;
+    }
 
     if (!res.ok) {
-      console.error(`HTTP ${res.status}`);
-      process.exit(1);
+      keepExistingCache(`HTTP ${res.status} from ${SOURCE_URL} (site may be blocking server-side fetches)`);
+      return;
     }
 
     const html = await res.text();
@@ -176,8 +195,8 @@ async function main() {
     unique.forEach(a => console.log(`  ${a.status.padEnd(8)} ${a.title} — ${a.dates}`));
 
   } catch (err) {
-    console.error('Fetch error:', err.message);
-    process.exit(1);
+    // Unexpected error — keep cache and exit cleanly
+    keepExistingCache(`Unexpected error: ${err.message}`);
   }
 }
 

@@ -2,6 +2,7 @@
 
 import Head from 'next/head';
 import Header from '../components/Header';
+import QuickNav from '../components/QuickNav';
 import Footer from '../components/Footer';
 
 export default function PrivacyPage() {
@@ -13,6 +14,7 @@ export default function PrivacyPage() {
       </Head>
 
       <Header />
+      <QuickNav />
 
       <main className="stores-page">
         <div className="stores-page-header">

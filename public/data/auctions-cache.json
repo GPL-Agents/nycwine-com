@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-03-25T13:00:00Z",
+  "fetchedAt": "2026-03-30T13:11:05.491Z",
   "source": "Acker Wines",
   "sourceUrl": "https://www.ackerwines.com/wine-auctions/",
   "auctions": [
@@ -48,5 +48,6 @@
       "status": "upcoming",
       "image": null
     }
-  ]
+  ],
+  "fetchWarning": "Network error fetching https://www.ackerwines.com/wine-auctions/: fetch failed"
 }

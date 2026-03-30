@@ -2357,6 +2357,22 @@ body {
   line-height: 1;
 }
 
+/* On mobile the Concierge button becomes a fixed floating action button
+   (bottom-right corner). This pulls it out of the flex flow so it no longer
+   contributes to the nav bar's width — eliminating the page-level
+   horizontal scroll that appeared after it was added to the nav. */
+@media (max-width: 600px) {
+  .qnav-concierge-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 16px;
+    margin-left: 0;
+    z-index: 200;
+    padding: 8px 14px 8px 8px;
+    box-shadow: 0 4px 20px rgba(236, 64, 122, 0.35);
+  }
+}
+
 /* ═══════════════════════════════════════
    MAP PAGE (/map)
 ═══════════════════════════════════════ */

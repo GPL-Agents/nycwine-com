@@ -7,6 +7,11 @@
 
 ## 📅 Session Log
 
+### March 30, 2026
+- **Auction fetch failures fixed:** Acker Wines blocks server-side fetches from GitHub Actions IP ranges. Script now catches network/HTTP errors gracefully — logs a warning, updates `fetchedAt` on the existing cache, and exits with code 0. No more GitHub Actions failure emails. Existing auction data stays in place.
+- **Mobile horizontal scroll fixed:** Concierge button in the QuickNav was using `margin-left: auto` which forced the flex container wider than the viewport on mobile (≤ 600px). Fix: new `@media (max-width: 600px)` rule makes `.qnav-concierge-btn` `position: fixed` — a floating action button in the bottom-right corner. Removed from the flex flow, so the pill nav scrolls normally with no page-level horizontal scroll.
+- **About & Privacy pages:** Added `<QuickNav />` to both `pages/about.js` and `pages/privacy.js`. Previously missing the sticky pill nav bar.
+
 ### March 28, 2026
 - Project folder created; site confirmed live
 - Task tracker created and established as source of truth

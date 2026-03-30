@@ -5,6 +5,7 @@
 
 import Head from 'next/head';
 import Header from '../components/Header';
+import QuickNav from '../components/QuickNav';
 import Footer from '../components/Footer';
 
 export default function AboutPage() {
@@ -19,6 +20,7 @@ export default function AboutPage() {
       </Head>
 
       <Header />
+      <QuickNav />
 
       <main className="about-page">
         {/* Hero image */}
