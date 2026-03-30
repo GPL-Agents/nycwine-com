@@ -12,6 +12,24 @@
 
 import { useState, useEffect, useRef } from 'react';
 
+// ── Joke randomiser helpers ──────────────────────────────────
+// Total jokes in the API array — keep in sync with concierge.js
+const JOKE_COUNT = 28;
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// Fresh random deck every time the modal is mounted
+function freshShuffle() {
+  return shuffle([...Array(JOKE_COUNT).keys()]);
+}
+
 const GREETING = {
   role: 'bot',
   text: "Hi! I'm the NYC Wine Concierge 🍷 Your guide to wine bars, shops, events, and all things wine in New York City. How can I help you today?",
@@ -35,7 +53,9 @@ export default function ConciergeModal({ onClose }) {
   const [messages, setMessages]     = useState([GREETING]);
   const [input, setInput]           = useState('');
   const [loading, setLoading]       = useState(false);
-  const [jokeIndex, setJokeIndex]   = useState(0);
+  // Shuffled joke deck — randomised fresh on every mount
+  const [jokePos,   setJokePos]     = useState(0);
+  const [jokeOrder, setJokeOrder]   = useState(freshShuffle);
   // Map of message-index → { emoji, totals }
   const [ratings, setRatings]       = useState({});
   const bottomRef                   = useRef(null);
@@ -69,9 +89,22 @@ export default function ConciergeModal({ onClose }) {
     setInput('');
     setLoading(true);
 
-    // Capture current jokeIndex before any state update
-    const currentJokeIndex = jokeIndex;
-    if (isJoke) setJokeIndex(prev => prev + 1);
+    // Resolve which joke to show from the shuffled deck
+    let resolvedJokeIdx = 0;
+    if (isJoke) {
+      resolvedJokeIdx = jokeOrder[jokePos];
+      const nextPos   = jokePos + 1;
+
+      if (nextPos >= jokeOrder.length) {
+        // Deck exhausted — reshuffle, ensuring the new first ≠ the last shown
+        let next = freshShuffle();
+        while (next[0] === resolvedJokeIdx) next = freshShuffle();
+        setJokeOrder(next);
+        setJokePos(0);
+      } else {
+        setJokePos(nextPos);
+      }
+    }
 
     try {
       const res = await fetch('/api/concierge', {
@@ -80,7 +113,7 @@ export default function ConciergeModal({ onClose }) {
         body: JSON.stringify({
           message: trimmed,
           isJoke,
-          jokeIndex: currentJokeIndex,
+          jokeIndex: resolvedJokeIdx,   // actual joke index from shuffled deck
           history: messages,
         }),
       });

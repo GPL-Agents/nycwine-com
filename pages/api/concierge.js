@@ -498,16 +498,17 @@ export default function handler(req, res) {
     return res.status(400).json({ error: 'message required' });
   }
 
-  // Joke option → cycle through JOKES list, re-serve options after
+  // Joke option — jokeIndex is already the resolved shuffled index from the client
   if (isJoke) {
-    const idx   = typeof jokeIndex === 'number' ? jokeIndex % JOKES.length : 0;
+    const idx   = (typeof jokeIndex === 'number' && jokeIndex >= 0 && jokeIndex < JOKES.length)
+                  ? jokeIndex
+                  : 0;
     const reply = JOKES[idx];
     return setTimeout(() => res.status(200).json({
       reply,
       options: JOKE_OPTIONS,
-      isJoke: true,
-      jokeIdx: idx,           // which joke index this is (for vote lookup)
-      nextJokeIndex: idx + 1,
+      isJoke:  true,
+      jokeIdx: idx,   // returned so the client can key vote storage correctly
     }), 450);
   }
 

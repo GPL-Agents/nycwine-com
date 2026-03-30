@@ -2367,15 +2367,12 @@ body {
 }
 .map-page-header .section-header-title { color: white; }
 
-/* Filter + control bar */
+/* Control bar — stacks all rows vertically */
 .map-controls {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px var(--content-pad);
+  flex-direction: column;
   background: white;
   border-bottom: 1px solid var(--border-light);
-  flex-wrap: wrap;
 }
 .map-filter-pills {
   display: flex;
@@ -2526,8 +2523,7 @@ body {
 .leaflet-popup-tip-container { display: none; }
 
 @media (max-width: 600px) {
-  .map-container { height: calc(100vh - 240px); }
-  .map-controls { gap: 8px; padding: 8px 12px; }
+  .map-container { height: calc(100vh - 260px); }
 }
 
 /* ── Map location search bar ──────────────────────────────── */
@@ -2720,9 +2716,21 @@ body {
   gap: 10px;
   padding: 8px var(--content-pad);
   background: white;
-  border-bottom: 1px solid var(--border-light);
   flex-wrap: wrap;
 }
+
+/* Pin icon inside the search input */
+.map-search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  pointer-events: none;
+  flex-shrink: 0;
+}
+/* Indent input text to clear the icon */
+.map-search-input { padding-left: 30px; }
 
 /* ── "You are here" pulsing blue dot marker ───────────────── */
 .map-you-are-here {
