@@ -3299,7 +3299,6 @@ body {
     border-radius: 18px 18px 0 0;
     height: 82vh;
   }
-  /* Hide label on very small screens, keep avatar icon */
-  .qnav-concierge-label { display: none; }
-  .qnav-concierge-btn   { padding: 4px 8px 4px 5px; }
+  /* Label stays visible — button is fixed/floating so there's room for it */
+  .qnav-concierge-label { display: block; }
 }
