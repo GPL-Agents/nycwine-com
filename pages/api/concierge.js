@@ -172,7 +172,7 @@ const JOKES = [
   "I came for one glass… now I live here and know the bartender's zodiac sign.",
   "I dress like I have my life together… then order whatever's cheapest by the glass.",
   "I'm not high maintenance… I just have strong opinions about orange wine.",
-  "I'm not avoiding my problems… I'm pairing them with a chilled red.",
+  "I'm not avoiding my problems… I'm pairing them with a chilled Sancerre.",
   "If it's not a cute wine bar in the West Village, I'm not coming.",
   "I don't need closure… I need a table, a bottle, and my friends texting 'where are you.'",
 ];
@@ -246,7 +246,7 @@ export default async function handler(req, res) {
     const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API_KEY);
     // Try the current free-tier model; fall back if unavailable
     const model = genAI.getGenerativeModel({
-      model:             'gemini-2.0-flash-lite',
+      model:             'gemini-1.5-flash',
       systemInstruction: systemPrompt,
       generationConfig:  { maxOutputTokens: 600, temperature: 0.7 },
     });
@@ -281,10 +281,9 @@ export default async function handler(req, res) {
     return res.status(200).json({ reply, options });
 
   } catch (err) {
-    const errMsg = err?.message || String(err);
-    console.error('[Concierge] Gemini API error:', errMsg);
+    console.error('[Concierge] Gemini API error:', err?.message || String(err));
     return res.status(200).json({
-      reply:   `DEBUG ERROR: ${errMsg}`,
+      reply:   "Sorry, I'm having a moment — try again in a few seconds! 🍷",
       options: DEFAULT_OPTIONS,
     });
   }
