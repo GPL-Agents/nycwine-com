@@ -281,9 +281,10 @@ export default async function handler(req, res) {
     return res.status(200).json({ reply, options });
 
   } catch (err) {
-    console.error('[Concierge] Gemini API error:', err?.message || String(err));
+    const errMsg = err?.message || String(err);
+    console.error('[Concierge] Gemini API error:', errMsg);
     return res.status(200).json({
-      reply:   "Sorry, I'm having a moment — try again in a few seconds! 🍷",
+      reply:   `DEBUG: ${errMsg}`,
       options: DEFAULT_OPTIONS,
     });
   }
