@@ -33,6 +33,16 @@ export default function QuickNav() {
   const [activeId, setActiveId] = useState('sec-events');
   const [conciergeOpen, setConciergeOpen] = useState(false);
 
+  // Auto-launch Concierge on first-ever visit (localStorage flag)
+  useEffect(() => {
+    if (localStorage.getItem('nycwine_visited')) return;
+    const t = setTimeout(() => {
+      setConciergeOpen(true);
+      localStorage.setItem('nycwine_visited', '1');
+    }, 1200);
+    return () => clearTimeout(t);
+  }, []);
+
   // On the homepage, track which section is visible via IntersectionObserver.
   useEffect(() => {
     if (!isHome) return;

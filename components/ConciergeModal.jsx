@@ -16,10 +16,10 @@ const GREETING = {
   role: 'bot',
   text: "Hi! I'm the NYC Wine Concierge 🍷 Your guide to wine bars, shops, events, and all things wine in New York City. How can I help you today?",
   options: [
-    { label: 'Find me a wine bar',        silly: false              },
-    { label: 'Recommend a wine shop',     silly: false              },
-    { label: 'NYC wine events this week', silly: false              },
-    { label: 'Make me laugh',             silly: false, isJoke: true },
+    { label: 'Find me a wine bar'                    },
+    { label: 'Recommend a wine shop'                 },
+    { label: 'NYC wine events this week'             },
+    { label: 'Make me laugh',         isJoke: true   },
   ],
 };
 
@@ -36,7 +36,7 @@ export default function ConciergeModal({ onClose }) {
   const [input, setInput]           = useState('');
   const [loading, setLoading]       = useState(false);
   const [jokeIndex, setJokeIndex]   = useState(0);
-  // Map of message-index → rating emoji (for joke messages)
+  // Map of message-index → { emoji, totals }
   const [ratings, setRatings]       = useState({});
   const bottomRef                   = useRef(null);
   const inputRef                    = useRef(null);
@@ -63,7 +63,7 @@ export default function ConciergeModal({ onClose }) {
     const trimmed = text.trim();
     if (!trimmed || loading) return;
 
-    const { isSilly = false, isJoke = false } = opts;
+    const { isJoke = false } = opts;
 
     setMessages(prev => [...prev, { role: 'user', text: trimmed }]);
     setInput('');
@@ -79,7 +79,6 @@ export default function ConciergeModal({ onClose }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           message: trimmed,
-          isSilly,
           isJoke,
           jokeIndex: currentJokeIndex,
           history: messages,
@@ -95,6 +94,7 @@ export default function ConciergeModal({ onClose }) {
           options:       data.options || [],
           isSillyDeadEnd:data.isSillyDeadEnd || false,
           isJoke:        data.isJoke || false,
+          jokeIdx:       typeof data.jokeIdx === 'number' ? data.jokeIdx : null,
         },
       ]);
     } catch {
@@ -116,8 +116,20 @@ export default function ConciergeModal({ onClose }) {
     sendMessage(input);
   }
 
-  function rateJoke(msgIndex, emoji) {
-    setRatings(prev => ({ ...prev, [msgIndex]: emoji }));
+  async function rateJoke(msgIndex, emoji, jokeIdx) {
+    // Optimistically mark emoji chosen
+    setRatings(prev => ({ ...prev, [msgIndex]: { emoji, totals: null } }));
+    try {
+      const res = await fetch('/api/joke-votes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ jokeIdx, emoji }),
+      });
+      if (res.ok) {
+        const totals = await res.json();
+        setRatings(prev => ({ ...prev, [msgIndex]: { emoji, totals } }));
+      }
+    } catch { /* non-fatal */ }
   }
 
   return (
@@ -172,29 +184,65 @@ export default function ConciergeModal({ onClose }) {
                   {/* Joke rating bar — shown on every joke message */}
                   {msg.isJoke && (
                     <div className="concierge-joke-rating">
-                      {JOKE_RATINGS.map(({ emoji, label }) => {
-                        const picked = ratings[i] === emoji;
+                      {/* Emoji buttons — disabled once voted */}
+                      <div className="cjr-buttons">
+                        {JOKE_RATINGS.map(({ emoji, label }) => {
+                          const voted  = !!ratings[i];
+                          const picked = ratings[i]?.emoji === emoji;
+                          return (
+                            <button
+                              key={emoji}
+                              className={`cjr-btn${picked ? ' cjr-picked' : ''}${voted && !picked ? ' cjr-dim' : ''}`}
+                              onClick={() => !voted && rateJoke(i, emoji, msg.jokeIdx)}
+                              title={label}
+                              aria-label={label}
+                              aria-pressed={picked}
+                              disabled={voted}
+                            >
+                              {emoji}
+                            </button>
+                          );
+                        })}
+                        {!ratings[i] && (
+                          <span className="cjr-prompt">Rate this joke</span>
+                        )}
+                      </div>
+
+                      {/* Results — shown after voting */}
+                      {ratings[i] && (() => {
+                        const { emoji: myEmoji, totals } = ratings[i];
+                        const quip =
+                          myEmoji === '🤣' ? 'Glad you loved it! 🍷' :
+                          myEmoji === '😄' ? "Ha, we'll take it!"     :
+                          myEmoji === '🙂' ? 'A polite chuckle 😄'    :
+                                             'Tough crowd… 😬';
+                        const total = totals ? Object.values(totals).reduce((a,b)=>a+b,0) : 0;
                         return (
-                          <button
-                            key={emoji}
-                            className={`cjr-btn${picked ? ' cjr-picked' : ''}`}
-                            onClick={() => rateJoke(i, emoji)}
-                            title={label}
-                            aria-label={label}
-                            aria-pressed={picked}
-                          >
-                            {emoji}
-                          </button>
+                          <div className="cjr-results">
+                            <span className="cjr-quip">{quip}</span>
+                            {totals && total > 0 && (
+                              <div className="cjr-bars">
+                                {JOKE_RATINGS.map(({ emoji }) => {
+                                  const count = totals[emoji] || 0;
+                                  const pct   = Math.round((count / total) * 100);
+                                  return (
+                                    <div key={emoji} className="cjr-bar-row">
+                                      <span className="cjr-bar-emoji">{emoji}</span>
+                                      <div className="cjr-bar-track">
+                                        <div
+                                          className="cjr-bar-fill"
+                                          style={{ width: `${pct}%` }}
+                                        />
+                                      </div>
+                                      <span className="cjr-bar-pct">{pct}%</span>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            )}
+                          </div>
                         );
-                      })}
-                      {ratings[i] && (
-                        <span className="cjr-thanks">
-                          {ratings[i] === '🤣' ? 'Glad you loved it! 🍷' :
-                           ratings[i] === '😄' ? 'Ha, we\'ll take it!'   :
-                           ratings[i] === '🙂' ? 'A polite chuckle 😄'   :
-                                                  'Tough crowd… 😬'}
-                        </span>
-                      )}
+                      })()}
                     </div>
                   )}
 
@@ -204,8 +252,8 @@ export default function ConciergeModal({ onClose }) {
                       {msg.options.map((opt, j) => (
                         <button
                           key={j}
-                          className={`concierge-choice${opt.silly ? ' concierge-choice-silly' : ''}${opt.isJoke ? ' concierge-choice-joke' : ''}`}
-                          onClick={() => sendMessage(opt.label, { isSilly: opt.silly, isJoke: opt.isJoke })}
+                          className={`concierge-choice${opt.isJoke ? ' concierge-choice-joke' : ''}`}
+                          onClick={() => sendMessage(opt.label, { isJoke: opt.isJoke })}
                           disabled={loading}
                         >
                           {opt.label}
@@ -214,8 +262,8 @@ export default function ConciergeModal({ onClose }) {
                     </div>
                   )}
 
-                  {/* Silly dead-end: nudge to restart */}
-                  {msg.isSillyDeadEnd && isLastBot && !loading && (
+                  {/* Start over button — shown on the last bot message if the conversation has gone deep */}
+                  {isLastBot && messages.length > 3 && !loading && (
                     <button
                       className="concierge-restart-btn"
                       onClick={() => setMessages([GREETING])}

@@ -2530,6 +2530,242 @@ body {
   .map-controls { gap: 8px; padding: 8px 12px; }
 }
 
+/* ── Map location search bar ──────────────────────────────── */
+.map-location-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px var(--content-pad);
+  background: var(--grey-bg);
+  border-bottom: 1px solid var(--border-light);
+  flex-wrap: wrap;
+}
+
+.map-search-form {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.map-search-input-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.map-search-input {
+  width: 100%;
+  padding: 7px 32px 7px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  font-size: 13px;
+  font-family: var(--font-sans);
+  color: var(--text);
+  background: white;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.map-search-input:focus {
+  border-color: var(--pink);
+  box-shadow: 0 0 0 3px rgba(236,64,122,0.10);
+}
+.map-search-input::placeholder { color: var(--muted); }
+
+.map-search-clear {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border: none;
+  background: var(--border);
+  color: var(--muted);
+  border-radius: 50%;
+  font-size: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+  transition: background 0.15s, color 0.15s;
+}
+.map-search-clear:hover {
+  background: var(--pink);
+  color: white;
+}
+
+.map-search-btn {
+  padding: 7px 14px;
+  border-radius: 20px;
+  border: 1.5px solid var(--pink);
+  background: var(--pink);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, border-color 0.15s;
+  flex-shrink: 0;
+}
+.map-search-btn:hover { background: var(--pink-dark); border-color: var(--pink-dark); }
+.map-search-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.map-geo-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 13px;
+  border-radius: 20px;
+  border: 1.5px solid var(--border);
+  background: white;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: border-color 0.15s, color 0.15s;
+}
+.map-geo-btn:hover { border-color: var(--pink); color: var(--pink); }
+.map-geo-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Spinning icon state while geolocating */
+.map-geo-loading { animation: spin 0.8s linear infinite; display: inline-block; }
+
+/* ── Active location banner ───────────────────────────────── */
+.map-location-active {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px var(--content-pad);
+  background: color-mix(in srgb, #1976d2 8%, white);
+  border-bottom: 1px solid color-mix(in srgb, #1976d2 20%, white);
+  flex-wrap: wrap;
+}
+
+.map-location-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #1565c0;
+  flex: 1;
+  min-width: 0;
+}
+
+.map-location-dot-inline {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #1976d2;
+  flex-shrink: 0;
+  animation: location-pulse 1.8s ease-in-out infinite;
+}
+
+.map-radius-pills {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.map-radius-label {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.map-radius-pill {
+  padding: 3px 10px;
+  border-radius: 12px;
+  border: 1.5px solid var(--border);
+  background: white;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s;
+}
+.map-radius-pill:hover { border-color: #1976d2; color: #1976d2; }
+.map-radius-active {
+  background: #1976d2;
+  border-color: #1976d2;
+  color: white;
+  font-weight: 600;
+}
+.map-radius-active:hover { color: white; }
+
+/* ── Search error message ─────────────────────────────────── */
+.map-search-error {
+  width: 100%;
+  font-size: 12px;
+  color: #c62828;
+  padding: 2px 0 0 2px;
+}
+
+/* ── Map filter row (category pills + Reset View) ─────────── */
+.map-filter-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px var(--content-pad);
+  background: white;
+  border-bottom: 1px solid var(--border-light);
+  flex-wrap: wrap;
+}
+
+/* ── "You are here" pulsing blue dot marker ───────────────── */
+.map-you-are-here {
+  position: relative;
+  width: 22px;
+  height: 22px;
+}
+
+.mld-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(25,118,210,0.25);
+  animation: location-pulse 1.8s ease-in-out infinite;
+}
+
+.mld-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #1976d2;
+  border: 2.5px solid white;
+  box-shadow: 0 2px 6px rgba(25,118,210,0.5);
+  z-index: 1;
+}
+
+@keyframes location-pulse {
+  0%, 100% { transform: scale(1);   opacity: 0.6; }
+  50%       { transform: scale(1.7); opacity: 0;   }
+}
+
+@media (max-width: 600px) {
+  .map-location-row { flex-direction: column; align-items: stretch; gap: 6px; }
+  .map-search-form  { width: 100%; }
+  .map-geo-btn      { justify-content: center; }
+  .map-location-active { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .map-filter-row   { gap: 6px; }
+}
+
 /* ── Concierge modal overlay — centered ───────────────────── */
 .concierge-overlay {
   position: fixed;
@@ -2753,6 +2989,116 @@ body {
 .concierge-choice:disabled {
   opacity: 0.45;
   cursor: not-allowed;
+}
+
+/* ── Joke rating system ───────────────────────────────────── */
+.concierge-joke-rating {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+.cjr-buttons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.cjr-prompt {
+  font-size: 11px;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  margin-left: 4px;
+}
+.cjr-btn {
+  background: white;
+  border: 1.5px solid var(--border);
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.cjr-btn:hover:not(:disabled) {
+  transform: scale(1.2);
+  border-color: var(--pink);
+  box-shadow: 0 2px 8px rgba(236,64,122,0.2);
+}
+.cjr-btn.cjr-picked {
+  border-color: var(--pink);
+  background: var(--pink-light);
+  transform: scale(1.18);
+  box-shadow: 0 2px 8px rgba(236,64,122,0.25);
+}
+.cjr-btn.cjr-dim {
+  opacity: 0.35;
+}
+.cjr-btn:disabled { cursor: default; }
+
+/* Results panel */
+.cjr-results {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.cjr-quip {
+  font-size: 11.5px;
+  font-style: italic;
+  color: var(--muted);
+  font-family: var(--font-sans);
+}
+.cjr-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: var(--grey-bg);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+.cjr-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.cjr-bar-emoji { font-size: 14px; width: 20px; flex-shrink: 0; }
+.cjr-bar-track {
+  flex: 1;
+  height: 7px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.cjr-bar-fill {
+  height: 100%;
+  background: var(--pink);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+  min-width: 2px;
+}
+.cjr-bar-pct {
+  font-size: 10px;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  width: 28px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* "Make me laugh" choice — subtle playful style */
+.concierge-choice-joke {
+  border-style: solid;
+  color: var(--text);
+  font-style: normal;
+}
+.concierge-choice-joke:hover:not(:disabled) {
+  border-color: var(--pink);
+  background: var(--pink-light);
+  color: var(--pink-dark);
 }
 
 /* Restart button shown after silly dead-end */
