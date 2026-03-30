@@ -137,6 +137,17 @@ async function main() {
           dates = isoDates.map(d => formatDate(d)).join(' – ');
         }
 
+        // Store ISO end date so the sidebar can filter stale-cache past entries
+        // even when the weekly fetch is blocked by the source site.
+        let endDateIso = null;
+        const endRaw = allDates.length > 0
+          ? allDates[allDates.length - 1]
+          : (isoDates.length > 0 ? isoDates[isoDates.length - 1] : null);
+        if (endRaw) {
+          const d = new Date(endRaw);
+          if (!isNaN(d)) endDateIso = d.toISOString().split('T')[0];
+        }
+
         const location = extractLocation(title + ' ' + block.slice(0, 500));
         const status = allDates.length > 0
           ? determineStatus(allDates[0], allDates[allDates.length - 1])
@@ -149,6 +160,7 @@ async function main() {
           title,
           type,
           dates,
+          endDateIso,
           location,
           url: SOURCE_URL,
           status: isWeb && status === 'upcoming' ? 'open' : status,

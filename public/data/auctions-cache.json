@@ -2,29 +2,13 @@
   "fetchedAt": "2026-03-30T13:11:05.491Z",
   "source": "Acker Wines",
   "sourceUrl": "https://www.ackerwines.com/wine-auctions/",
+  "fetchWarning": "Network error fetching https://www.ackerwines.com/wine-auctions/: fetch failed",
   "auctions": [
-    {
-      "title": "Weekly Web Auction",
-      "type": "web",
-      "dates": "Mon, Mar 23 – Sun, Mar 29",
-      "location": "Online",
-      "url": "https://www.ackerwines.com/wine-auctions/",
-      "status": "open",
-      "image": "https://www.ackerwines.com/wp-content/uploads/2021/11/lot595.jpg"
-    },
-    {
-      "title": "La Paulée March Delaware",
-      "type": "live",
-      "dates": "Thu–Sat, Mar 26–28",
-      "location": "Delaware",
-      "url": "https://www.ackerwines.com/wine-auctions/",
-      "status": "live",
-      "image": "https://www.ackerwines.com/wp-content/uploads/2026/03/Domaine.jpg"
-    },
     {
       "title": "April Hong Kong",
       "type": "live",
       "dates": "Sat, Apr 11",
+      "endDateIso": "2026-04-11",
       "location": "Hong Kong",
       "url": "https://www.ackerwines.com/wine-auctions/",
       "status": "upcoming",
@@ -34,6 +18,7 @@
       "title": "April Delaware",
       "type": "live",
       "dates": "Sat, Apr 25",
+      "endDateIso": "2026-04-25",
       "location": "Delaware",
       "url": "https://www.ackerwines.com/wine-auctions/",
       "status": "upcoming",
@@ -43,11 +28,11 @@
       "title": "May Swiss",
       "type": "live",
       "dates": "Sat, May 9",
+      "endDateIso": "2026-05-09",
       "location": "Switzerland",
       "url": "https://www.ackerwines.com/wine-auctions/",
       "status": "upcoming",
       "image": null
     }
-  ],
-  "fetchWarning": "Network error fetching https://www.ackerwines.com/wine-auctions/: fetch failed"
+  ]
 }

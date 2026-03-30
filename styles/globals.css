@@ -162,19 +162,31 @@ body {
   align-items: center;
   gap: 8px;
   padding: 10px var(--content-pad);
-  overflow-x: auto;
-  scrollbar-width: none;
   background: white;
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 90px;
   z-index: 49;
+  /* overflow is intentionally NOT set here — clipping lives on .qnav-pills-row
+     so the Concierge button is always visible outside the scroll area */
 }
 @media (max-width: 800px) {
   /* Header still has min-height: 90px even without the ad */
   .quick-nav { top: 90px; }
 }
-.quick-nav::-webkit-scrollbar { display: none; }
+
+/* Scrollable pills sub-container — horizontal scroll stays here,
+   never bleeds out to the nav or the page */
+.qnav-pills-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex: 1;        /* takes all available width left of the Concierge button */
+  min-width: 0;   /* allows flex child to shrink below content size */
+}
+.qnav-pills-row::-webkit-scrollbar { display: none; }
 
 .qnav-pill {
   border-radius: 20px;
@@ -2357,21 +2369,9 @@ body {
   line-height: 1;
 }
 
-/* On mobile the Concierge button becomes a fixed floating action button
-   (bottom-right corner). This pulls it out of the flex flow so it no longer
-   contributes to the nav bar's width — eliminating the page-level
-   horizontal scroll that appeared after it was added to the nav. */
-@media (max-width: 600px) {
-  .qnav-concierge-btn {
-    position: fixed;
-    bottom: 24px;
-    right: 16px;
-    margin-left: 0;
-    z-index: 200;
-    padding: 8px 14px 8px 8px;
-    box-shadow: 0 4px 20px rgba(236, 64, 122, 0.35);
-  }
-}
+/* No mobile override needed — the Concierge button sits outside the
+   scrollable .qnav-pills-row so it's always visible at the right edge
+   of the nav bar on every screen size. */
 
 /* ═══════════════════════════════════════
    MAP PAGE (/map)
@@ -3299,6 +3299,5 @@ body {
     border-radius: 18px 18px 0 0;
     height: 82vh;
   }
-  /* Label stays visible — button is fixed/floating so there's room for it */
-  .qnav-concierge-label { display: block; }
+  /* Concierge label — visible at all sizes (button lives outside scroll area) */
 }

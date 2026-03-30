@@ -15,7 +15,18 @@ export default function AuctionsSidebar() {
     fetch('/data/auctions-cache.json')
       .then((res) => res.json())
       .then((data) => {
-        if (data.auctions) setAuctions(data.auctions);
+        if (data.auctions) {
+          // Filter out any auctions whose end date has already passed.
+          // This guards against stale cache entries when the weekly fetch
+          // is blocked by the source site.
+          const today = new Date();
+          today.setHours(0, 0, 0, 0);
+          const current = data.auctions.filter((a) => {
+            if (!a.endDateIso) return true; // no date info → show it
+            return new Date(a.endDateIso) >= today;
+          });
+          setAuctions(current);
+        }
         if (data.source) setSource({ name: data.source, url: data.sourceUrl });
       })
       .catch(() => {});

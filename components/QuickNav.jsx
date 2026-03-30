@@ -97,40 +97,43 @@ export default function QuickNav() {
   return (
     <>
       <nav className="quick-nav" aria-label="Jump to section">
-        {SECTIONS.map((s) => {
-          const active = isActive(s);
-          if (isHome) {
-            // Homepage: scroll behaviour
+        {/* ── Scrollable pills — contained in their own row ── */}
+        <div className="qnav-pills-row">
+          {SECTIONS.map((s) => {
+            const active = isActive(s);
+            if (isHome) {
+              // Homepage: scroll behaviour
+              return (
+                <a
+                  key={s.id}
+                  className={`qnav-pill ${s.cls}${active ? ' qnav-active' : ''}`}
+                  href={`#${s.id}`}
+                  onClick={(e) => { e.preventDefault(); scrollTo(s.id); }}
+                >
+                  {s.label}
+                </a>
+              );
+            }
+            // All other pages: navigate to href
             return (
               <a
                 key={s.id}
                 className={`qnav-pill ${s.cls}${active ? ' qnav-active' : ''}`}
-                href={`#${s.id}`}
-                onClick={(e) => { e.preventDefault(); scrollTo(s.id); }}
+                href={s.href}
               >
                 {s.label}
               </a>
             );
-          }
-          // All other pages (and Social on any page): navigate to href
-          return (
-            <a
-              key={s.id}
-              className={`qnav-pill ${s.cls}${active ? ' qnav-active' : ''}`}
-              href={s.href}
-            >
-              {s.label}
-            </a>
-          );
-        })}
-        <a
-          className={`qnav-pill map${router.pathname === '/map' ? ' qnav-active' : ''}`}
-          href="/map"
-        >
-          Map
-        </a>
+          })}
+          <a
+            className={`qnav-pill map${router.pathname === '/map' ? ' qnav-active' : ''}`}
+            href="/map"
+          >
+            Map
+          </a>
+        </div>
 
-        {/* ── Concierge button — far right ─────────────────── */}
+        {/* ── Concierge button — pinned right, outside the scroll area ── */}
         <button
           className={`qnav-concierge-btn${conciergeOpen ? ' qnav-concierge-open' : ''}`}
           onClick={() => setConciergeOpen(o => !o)}
