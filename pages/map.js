@@ -166,7 +166,12 @@ export default function MapPage() {
   const [counts,       setCounts]       = useState({ bars: 0, stores: 0, wineries: 0 });
   const [userLocation, setUserLocation] = useState(null);  // { lat, lng, label }
   const [radius,       setRadius]       = useState(null);  // miles or null = all
-  const [searchInput,  setSearchInput]  = useState('');
+
+  // Pre-fill search from concierge ?near= param
+  const nearParam = typeof window !== 'undefined'
+    ? new URLSearchParams(window.location.search).get('near') || ''
+    : '';
+  const [searchInput,  setSearchInput]  = useState(nearParam);
   const [searching,    setSearching]    = useState(false);
   const [searchError,  setSearchError]  = useState('');
   const [geoLoading,   setGeoLoading]   = useState(false);
@@ -327,6 +332,22 @@ export default function MapPage() {
     locationPinRef.current = pin;
     map.setView([userLocation.lat, userLocation.lng], 14, { animate: true });
   }, [userLocation]);
+
+  // ── Auto-geocode ?near= param from concierge ─────────────────
+  useEffect(() => {
+    if (!mapReady || !nearParam) return;
+    (async () => {
+      setSearching(true);
+      const result = await geocodeQuery(nearParam);
+      setSearching(false);
+      if (result) {
+        setUserLocation(result);
+        if (!radius) setRadius(1);
+      } else {
+        setSearchError('Address not found — try a street name, intersection, or neighborhood.');
+      }
+    })();
+  }, [mapReady]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ── Address search ────────────────────────────────────────────
   async function handleSearch(e) {

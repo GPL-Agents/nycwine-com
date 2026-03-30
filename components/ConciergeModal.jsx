@@ -146,6 +146,9 @@ export default function ConciergeModal({ onClose }) {
   const [messages, setMessages]     = useState([GREETING]);
   const [input, setInput]           = useState('');
   const [loading, setLoading]       = useState(false);
+  // Tracks whether the next typed message should be treated as a location
+  // for a specific nav action ('wine-bar-location' | null)
+  const [pendingAction, setPendingAction] = useState(null);
   // Shuffled joke deck — randomised fresh on every mount
   const [jokePos,   setJokePos]     = useState(0);
   const [jokeOrder, setJokeOrder]   = useState(freshShuffle);
@@ -269,8 +272,12 @@ export default function ConciergeModal({ onClose }) {
     // Well-known shortcut actions
     switch (opt.label) {
       case 'Find me a wine bar':
-        router.push('/map?only=bars');
-        onClose();
+        setMessages(prev => [
+          ...prev,
+          { role: 'user', text: 'Find me a wine bar' },
+          { role: 'bot', text: 'Near what address, intersection, or neighborhood?', options: [] },
+        ]);
+        setPendingAction('wine-bar-location');
         return;
 
       case 'NYC wine events this week':
@@ -295,7 +302,20 @@ export default function ConciergeModal({ onClose }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    sendMessage(input);
+    const trimmed = input.trim();
+    if (!trimmed) return;
+
+    // Intercept typed reply for pending nav actions
+    if (pendingAction === 'wine-bar-location') {
+      setPendingAction(null);
+      setMessages(prev => [...prev, { role: 'user', text: trimmed }]);
+      setInput('');
+      router.push(`/map?only=bars&near=${encodeURIComponent(trimmed)}`);
+      onClose();
+      return;
+    }
+
+    sendMessage(trimmed);
   }
 
   async function rateJoke(msgIndex, emoji, jokeIdx) {
@@ -487,7 +507,9 @@ export default function ConciergeModal({ onClose }) {
             ref={inputRef}
             type="text"
             className="concierge-input"
-            placeholder="Or type your question…"
+            placeholder={pendingAction === 'wine-bar-location'
+              ? 'Type an address, intersection, or neighborhood…'
+              : 'Or type your question…'}
             value={input}
             onChange={e => setInput(e.target.value)}
             disabled={loading}
