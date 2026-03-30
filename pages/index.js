@@ -31,6 +31,8 @@ export default function Home() {
         <meta name="description" content="Discover wine events, tastings, and the best wine stores and bars in New York City. Your source for everything wine in NYC." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+        <link rel="apple-touch-icon" href="/favicon-512.png" />
       </Head>
 
       {/* ── Sticky site chrome ───────────────────────────── */}

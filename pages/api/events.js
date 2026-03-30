@@ -506,6 +506,29 @@ function readCachedEvents() {
   return [];
 }
 
+// ── Read internally submitted events (from /api/submit) ───────
+// These are events submitted via the free listing form that
+// passed AI review. They always appear at the TOP of the feed
+// before any Eventbrite results.
+function readSubmittedEvents() {
+  try {
+    const filePath = path.join(process.cwd(), 'public', 'data', 'submitted-events.json');
+    if (fs.existsSync(filePath)) {
+      const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+      if (!Array.isArray(data)) return [];
+      return data.map((ev) => ({
+        ...ev,
+        day:         formatDay(ev.date),
+        month:       formatMonth(ev.date),
+        tag:         getTag(ev.title || ''),
+        dateDisplay: formatDateDisplay(ev.date),
+        source:      'NYCWine',
+      }));
+    }
+  } catch {}
+  return [];
+}
+
 // ── API Handler ───────────────────────────────────────────────
 export default async function handler(req, res) {
   // Return in-memory cached data if fresh
@@ -514,13 +537,19 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Try live scrape first
-    let events = await scrapeEventbrite();
+    // ── Internally submitted events (always at top) ────────────
+    const submittedEvents = readSubmittedEvents();
+
+    // ── External events from Eventbrite ───────────────────────
+    let externalEvents = await scrapeEventbrite();
 
     // If scrape returned nothing, fall back to cached file
-    if (events.length === 0) {
-      events = readCachedEvents();
+    if (externalEvents.length === 0) {
+      externalEvents = readCachedEvents();
     }
+
+    // ── Merge: submitted first, external fills remaining slots ─
+    let events = [...submittedEvents, ...externalEvents];
 
     // Remove past events — only show today or future
     // Use parseLocal so UTC servers don't accidentally filter events
@@ -532,13 +561,22 @@ export default async function handler(req, res) {
       return evDate ? evDate >= startOfToday : true;
     });
 
-    // Sort by date (events with dates first, then undated)
-    events.sort((a, b) => {
+    // Sort submitted events by date among themselves; keep them
+    // before external events regardless of date so our own
+    // listings always lead the feed.
+    const submitted = events.filter((ev) => ev.source === 'NYCWine');
+    const external  = events.filter((ev) => ev.source !== 'NYCWine');
+
+    const sortByDate = (arr) => arr.sort((a, b) => {
       if (!a.date && !b.date) return 0;
       if (!a.date) return 1;
       if (!b.date) return -1;
       return new Date(a.date) - new Date(b.date);
     });
+
+    sortByDate(submitted);
+    sortByDate(external);
+    events = [...submitted, ...external];
 
     // Add IDs and color cycling
     events = events.slice(0, 30).map((ev, i) => ({

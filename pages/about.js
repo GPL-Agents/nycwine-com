@@ -96,7 +96,8 @@ export default function AboutPage() {
             <p>
               Have a question, suggestion, or want to collaborate? Reach us at{' '}
               <a href="mailto:sommelier@nycwine.com">sommelier@nycwine.com</a>{' '}
-              or find us on social media.
+              or find us on social media.{' '}
+              <a href="/advertise">Visit the Advertise page</a> now to list your event, wine bar, wine store, or winery for free!
             </p>
           </div>
         </div>

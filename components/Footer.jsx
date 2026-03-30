@@ -22,6 +22,8 @@ export default function Footer() {
         <a href="/social">Social</a>
         <span className="footer-dot">&middot;</span>
         <a href="/privacy">Privacy</a>
+        <span className="footer-dot">&middot;</span>
+        <a href="/advertise" className="footer-advertise-link">Advertise</a>
       </nav>
       <div className="footer-copy">&copy; {year} Metropolitan Vintners, LLC &nbsp;&mdash;&nbsp; New York, USA &nbsp;&mdash;&nbsp; All rights reserved</div>
     </footer>

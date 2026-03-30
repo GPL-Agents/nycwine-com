@@ -20,6 +20,11 @@
 # misc
 .DS_Store
 *.pem
+
+# credentials — never commit
+credentials-nycwine.txt
+*credentials*.txt
+advertise-preview.html
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
