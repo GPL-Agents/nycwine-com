@@ -13,12 +13,14 @@
 //
 // Requires: GOOGLE_GEMINI_API_KEY in environment variables.
 // Free tier: 1,500 requests/day via aistudio.google.com
-// The @google/generative-ai package is installed via package.json.
+// Uses native fetch against the Gemini v1 REST API — no SDK needed.
 // ─────────────────────────────────────────────────────────────
 
-import { GoogleGenAI } from '@google/genai';
 import fs   from 'fs';
 import path from 'path';
+
+const GEMINI_MODEL = 'gemini-2.0-flash';
+const GEMINI_URL   = `https://generativelanguage.googleapis.com/v1/models/${GEMINI_MODEL}:generateContent`;
 
 // ── Site data — loaded once and cached at module level ────────
 let _siteData = null;
@@ -243,19 +245,31 @@ export default async function handler(req, res) {
   }
 
   try {
-    const ai   = new GoogleGenAI({ apiKey: process.env.GOOGLE_GEMINI_API_KEY });
-    const chat = ai.chats.create({
-      model:   'gemini-2.0-flash',
-      history: geminiHistory,
-      config:  {
-        systemInstruction: systemPrompt,
-        maxOutputTokens:   600,
-        temperature:       0.7,
-      },
+    // Build the full contents array: history + current message
+    const contents = [
+      ...geminiHistory,
+      { role: 'user', parts: [{ text: message }] },
+    ];
+
+    const body = {
+      systemInstruction: { parts: [{ text: systemPrompt }] },
+      contents,
+      generationConfig: { maxOutputTokens: 600, temperature: 0.7 },
+    };
+
+    const resp = await fetch(`${GEMINI_URL}?key=${process.env.GOOGLE_GEMINI_API_KEY}`, {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(body),
     });
 
-    const result = await chat.sendMessage({ message });
-    const raw    = result.text;
+    if (!resp.ok) {
+      const errText = await resp.text();
+      throw new Error(`Gemini ${resp.status}: ${errText}`);
+    }
+
+    const json = await resp.json();
+    const raw  = json.candidates?.[0]?.content?.parts?.[0]?.text ?? '';
 
     // Parse Gemini's JSON response — extract the object even if there's surrounding text
     let parsed = null;
@@ -283,10 +297,9 @@ export default async function handler(req, res) {
     return res.status(200).json({ reply, options });
 
   } catch (err) {
-    const errMsg = err?.message || String(err);
-    console.error('[Concierge] Gemini API error:', errMsg);
+    console.error('[Concierge] Gemini API error:', err?.message || String(err));
     return res.status(200).json({
-      reply:   `DEBUG: ${errMsg}`,
+      reply:   "Sorry, I'm having a moment — try again in a few seconds! 🍷",
       options: DEFAULT_OPTIONS,
     });
   }
