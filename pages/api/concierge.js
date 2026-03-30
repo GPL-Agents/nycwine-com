@@ -20,7 +20,7 @@ import fs   from 'fs';
 import path from 'path';
 
 const GEMINI_MODEL = 'gemini-2.0-flash';
-const GEMINI_URL   = `https://generativelanguage.googleapis.com/v1/models/${GEMINI_MODEL}:generateContent`;
+const GEMINI_URL   = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
 
 // ── Site data — loaded once and cached at module level ────────
 let _siteData = null;
