@@ -141,7 +141,7 @@ export default function QuickNav() {
           aria-expanded={conciergeOpen}
         >
           <img
-            src="/images/concierge-avatar.png"
+            src="/images/concierge-avatar2.png"
             alt=""
             className="qnav-concierge-avatar"
           />

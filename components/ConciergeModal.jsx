@@ -347,7 +347,7 @@ export default function ConciergeModal({ onClose }) {
         {/* ── Header ──────────────────────────────────────────── */}
         <div className="concierge-modal-header">
           <img
-            src="/images/concierge-avatar.png"
+            src="/images/concierge-avatar2.png"
             alt="Concierge"
             className="concierge-modal-avatar"
           />
@@ -375,7 +375,7 @@ export default function ConciergeModal({ onClose }) {
               <div key={i} className={`concierge-row concierge-row-${msg.role}`}>
                 {msg.role === 'bot' && (
                   <img
-                    src="/images/concierge-avatar.png"
+                    src="/images/concierge-avatar2.png"
                     alt=""
                     className="concierge-row-avatar"
                   />
@@ -486,7 +486,7 @@ export default function ConciergeModal({ onClose }) {
           {loading && (
             <div className="concierge-row concierge-row-bot">
               <img
-                src="/images/concierge-avatar.png"
+                src="/images/concierge-avatar2.png"
                 alt=""
                 className="concierge-row-avatar"
               />
