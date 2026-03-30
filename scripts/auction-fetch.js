@@ -87,17 +87,22 @@ async function main() {
     const auctions = [];
 
     // Pattern 1: Structured auction cards with dates
-    // Look for auction sections with titles and date information
-    // Acker uses a pattern: TYPE header, TITLE, DATE(s), DESCRIPTION
-    const auctionBlocks = html.split(/LIVE AUCTION OF FINE & RARE WINE|GLOBAL WEB AUCTION/i).slice(1);
+    // Acker page structure: each auction is preceded by its type header
+    // (LIVE AUCTION OF FINE & RARE WINE or GLOBAL WEB AUCTION) followed
+    // by the auction title, dates, description, and a lot image.
+    // We split on the type headers and process each block independently.
+    const auctionBlocks = html.split(/LIVE AUCTION OF FINE &amp; RARE WINE|LIVE AUCTION OF FINE & RARE WINE|GLOBAL WEB AUCTION/i).slice(1);
 
     for (const block of auctionBlocks) {
-      // Extract title — usually the first large heading
+      // Extract title — the named auction title (e.g. "APRIL HONG KONG", "WEEKLY WEB AUCTION")
+      // On Acker's page this appears as an <h2> or <h3> shortly after the type header
       const titleMatch = block.match(/<h[23][^>]*>([\s\S]*?)<\/h[23]>/i)
         || block.match(/"auction[^"]*title[^"]*"[^>]*>([\s\S]*?)</i);
 
-      // Extract image — look for jpg/png in the block
-      const imgMatch = block.match(/<img[^>]+src=["']([^"']+\.(?:jpg|jpeg|png|webp))[^"']*["']/i)
+      // Extract image — find the FIRST content image in the block (skip logos/icons/svgs).
+      // Use a stricter pattern: must be a wp-content upload or similar real photo URL.
+      const imgMatch = block.match(/<img[^>]+src=["']((?:https?:\/\/)?[^"']+\/(?:wp-content|uploads)\/[^"']+\.(?:jpg|jpeg|png|webp))[^"']*["']/i)
+        || block.match(/<img[^>]+src=["']([^"']+\.(?:jpg|jpeg|png|webp))[^"']*["'][^>]*(?:width=["']\d{2,4}["']|height=["']\d{2,4}["'])[^>]*>/i)
         || block.match(/url\(["']?([^"')]+\.(?:jpg|jpeg|png|webp))[^"')]*["']?\)/i);
       const image = imgMatch ? imgMatch[1] : null;
 
