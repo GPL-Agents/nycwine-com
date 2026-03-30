@@ -21,29 +21,47 @@ const PRICE_IDS = {
     quarterly: process.env.STRIPE_PRICE_HEADER_QUARTERLY,
     annual:    process.env.STRIPE_PRICE_HEADER_ANNUAL,
   },
-  featured: {
-    monthly:   process.env.STRIPE_PRICE_FEATURED_MONTHLY,
-    quarterly: process.env.STRIPE_PRICE_FEATURED_QUARTERLY,
-    annual:    process.env.STRIPE_PRICE_FEATURED_ANNUAL,
+  event: {
+    monthly:   process.env.STRIPE_PRICE_EVENT_MONTHLY,
+    quarterly: process.env.STRIPE_PRICE_EVENT_QUARTERLY,
+    annual:    process.env.STRIPE_PRICE_EVENT_ANNUAL,
   },
-  acker: {
-    monthly:   process.env.STRIPE_PRICE_ACKER_MONTHLY,
-    quarterly: process.env.STRIPE_PRICE_ACKER_QUARTERLY,
-    annual:    process.env.STRIPE_PRICE_ACKER_ANNUAL,
+  bar: {
+    monthly:   process.env.STRIPE_PRICE_BAR_MONTHLY,
+    quarterly: process.env.STRIPE_PRICE_BAR_QUARTERLY,
+    annual:    process.env.STRIPE_PRICE_BAR_ANNUAL,
   },
-  borghese: {
-    monthly:   process.env.STRIPE_PRICE_BORGHESE_MONTHLY,
-    quarterly: process.env.STRIPE_PRICE_BORGHESE_QUARTERLY,
-    annual:    process.env.STRIPE_PRICE_BORGHESE_ANNUAL,
+  store: {
+    monthly:   process.env.STRIPE_PRICE_STORE_MONTHLY,
+    quarterly: process.env.STRIPE_PRICE_STORE_QUARTERLY,
+    annual:    process.env.STRIPE_PRICE_STORE_ANNUAL,
+  },
+  winery: {
+    monthly:   process.env.STRIPE_PRICE_WINERY_MONTHLY,
+    quarterly: process.env.STRIPE_PRICE_WINERY_QUARTERLY,
+    annual:    process.env.STRIPE_PRICE_WINERY_ANNUAL,
+  },
+  sidebar: {
+    monthly:   process.env.STRIPE_PRICE_SIDEBAR_MONTHLY,
+    quarterly: process.env.STRIPE_PRICE_SIDEBAR_QUARTERLY,
+    annual:    process.env.STRIPE_PRICE_SIDEBAR_ANNUAL,
+  },
+  social: {
+    monthly:   process.env.STRIPE_PRICE_SOCIAL_MONTHLY,
+    quarterly: process.env.STRIPE_PRICE_SOCIAL_QUARTERLY,
+    annual:    process.env.STRIPE_PRICE_SOCIAL_ANNUAL,
   },
 };
 
 // ── Slot display names ────────────────────────────────────────
 const SLOT_NAMES = {
-  header:   'Header Banner Ad',
-  featured: 'Featured Venue or Event',
-  acker:    'Auction Sidebar Ad',
-  borghese: 'Social Page Ad',
+  header:  'Header Banner Ad',
+  event:   'Featured Event',
+  bar:     'Featured Wine Bar',
+  store:   'Featured Wine Store',
+  winery:  'Featured Winery',
+  sidebar: 'Events Sidebar Ad',
+  social:  'Social Page Ad',
 };
 
 // ── Tier display info ─────────────────────────────────────────
