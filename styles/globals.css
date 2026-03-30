@@ -2362,7 +2362,7 @@ body {
   height: 26px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--pink);
+  border: 1.5px solid var(--pink);
   flex-shrink: 0;
 }
 .qnav-concierge-label {
