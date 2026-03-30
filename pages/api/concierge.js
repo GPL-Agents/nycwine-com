@@ -16,7 +16,7 @@
 // The @google/generative-ai package is installed via package.json.
 // ─────────────────────────────────────────────────────────────
 
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { GoogleGenAI } from '@google/genai';
 import fs   from 'fs';
 import path from 'path';
 
@@ -243,17 +243,19 @@ export default async function handler(req, res) {
   }
 
   try {
-    const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API_KEY);
-    // Try the current free-tier model; fall back if unavailable
-    const model = genAI.getGenerativeModel({
-      model:             'gemini-1.5-flash',
-      systemInstruction: systemPrompt,
-      generationConfig:  { maxOutputTokens: 600, temperature: 0.7 },
+    const ai   = new GoogleGenAI({ apiKey: process.env.GOOGLE_GEMINI_API_KEY });
+    const chat = ai.chats.create({
+      model:   'gemini-2.0-flash',
+      history: geminiHistory,
+      config:  {
+        systemInstruction: systemPrompt,
+        maxOutputTokens:   600,
+        temperature:       0.7,
+      },
     });
 
-    const chat   = model.startChat({ history: geminiHistory });
-    const result = await chat.sendMessage(message);
-    const raw    = result.response.text();
+    const result = await chat.sendMessage({ message });
+    const raw    = result.text;
 
     // Parse Gemini's JSON response — extract the object even if there's surrounding text
     let parsed = null;
@@ -281,10 +283,9 @@ export default async function handler(req, res) {
     return res.status(200).json({ reply, options });
 
   } catch (err) {
-    const errMsg = err?.message || String(err);
-    console.error('[Concierge] Gemini API error:', errMsg);
+    console.error('[Concierge] Gemini API error:', err?.message || String(err));
     return res.status(200).json({
-      reply:   `DEBUG: ${errMsg}`,
+      reply:   "Sorry, I'm having a moment — try again in a few seconds! 🍷",
       options: DEFAULT_OPTIONS,
     });
   }
