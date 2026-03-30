@@ -93,12 +93,14 @@ export default function SubmitPage() {
 
       <main className="sub-page">
         <div className="sub-header">
-          <Link href="/advertise" className="sub-back">← Advertise</Link>
-          <h1 className="sub-title">Submit a Free Listing</h1>
-          <p className="sub-subtitle">
-            Add your venue or event to NYCWine.com at no cost. No account needed —
-            just fill in the details and provide a contact email.
-          </p>
+          <div className="sub-header-inner">
+            <Link href="/advertise" className="sub-back">← Advertise</Link>
+            <h1 className="sub-title">Submit a Free Listing</h1>
+            <p className="sub-subtitle">
+              Add your venue or event to NYCWine.com at no cost. No account needed —
+              just fill in the details and provide a contact email.
+            </p>
+          </div>
         </div>
 
         {/* Step 1 — choose type */}
