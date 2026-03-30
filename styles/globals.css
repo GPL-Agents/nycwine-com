@@ -2261,22 +2261,27 @@ body {
   width: 300px;
 }
 
-/* Facebook post embed — scale 500px iframe to fit 280px inner width
-   (sidebar 300px - any wrapper padding = ~280px usable)
-   Scale: 280 / 500 = 0.56  →  height: 648 × 0.56 ≈ 363px         */
+/* Facebook post embed — scale 500px iframe to fit sidebar width.
+   The iframe is position:absolute so its 500px layout box never
+   bleeds into the page width on mobile (transform alone doesn't
+   reduce layout size — it only changes visual rendering).        */
 .social-page-fb-wrap {
+  position: relative;
+  width: 100%;
   overflow: hidden;
   border-radius: 10px;
   border: 1px solid var(--border-light);
   background: #fff;
-  height: 363px;
+  height: 363px;   /* 648 × 0.56 ≈ 363 */
   margin-bottom: 20px;
 }
 .social-page-fb-wrap iframe {
-  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 500px;
   transform-origin: top left;
   transform: scale(0.56);
-  width: 500px !important;
   pointer-events: auto;
 }
 
@@ -2286,7 +2291,7 @@ body {
     flex: none;
   }
   .social-page-fb-wrap {
-    height: 430px;
+    height: 430px;   /* 648 × 0.66 ≈ 428 */
   }
   .social-page-fb-wrap iframe {
     transform: scale(0.66);
