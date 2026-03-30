@@ -3493,8 +3493,8 @@ body {
 .adv-btn-primary {
   display: inline-block;
   padding: 12px 24px;
-  background: var(--pink);
-  color: var(--white);
+  background: var(--pink-light);
+  color: var(--pink-dark);
   font-family: var(--font-sans);
   font-size: 15px;
   font-weight: 600;
@@ -3502,10 +3502,10 @@ body {
   text-decoration: none;
   border: none;
   cursor: pointer;
-  transition: background 0.18s;
+  transition: background 0.18s, color 0.18s;
   white-space: nowrap;
 }
-.adv-btn-primary:hover { background: var(--pink-dark); color: var(--white); }
+.adv-btn-primary:hover { background: var(--pink); color: var(--white); }
 
 .adv-btn-secondary {
   display: inline-block;
@@ -3806,16 +3806,16 @@ body {
 .adv-slot-cta {
   display: inline-block;
   padding: 11px 22px;
-  background: var(--pink);
-  color: var(--white);
+  background: var(--pink-light);
+  color: var(--pink-dark);
   font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 700;
   border-radius: 6px;
   text-decoration: none;
-  transition: background 0.18s;
+  transition: background 0.18s, color 0.18s;
 }
-.adv-slot-cta:hover { background: var(--pink-dark); }
+.adv-slot-cta:hover { background: var(--pink); color: var(--white); }
 
 /* ── FAQ ────────────────────────────────────────────────────── */
 .adv-faq-title {
