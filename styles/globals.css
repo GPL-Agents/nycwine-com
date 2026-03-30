@@ -2523,6 +2523,21 @@ body {
 .leaflet-popup-content { margin: 12px 14px !important; }
 .leaflet-popup-tip-container { display: none; }
 
+/* Venue name tooltip on hover */
+.map-venue-tooltip {
+  background: rgba(26, 26, 26, 0.88) !important;
+  border: none !important;
+  border-radius: 6px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25) !important;
+  color: #fff !important;
+  font-family: var(--font-sans) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  padding: 4px 9px !important;
+  white-space: nowrap !important;
+}
+.map-venue-tooltip::before { display: none !important; }
+
 @media (max-width: 600px) {
   .map-page { min-height: calc(100vh - 120px); }
 }

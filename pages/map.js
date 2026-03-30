@@ -211,6 +211,7 @@ export default function MapPage() {
         for (const item of items) {
           if (!item.lat || !item.lng) continue;
           const m = L.marker([item.lat, item.lng], { icon });
+          m.bindTooltip(item.name || '', { direction: 'top', offset: [0, -28], className: 'map-venue-tooltip' });
           m.bindPopup(popupHtml(item, key), { maxWidth: 260 });
           groups[key].addLayer(m);
           newCounts[key]++;
@@ -250,6 +251,7 @@ export default function MapPage() {
           if (dist > radiusMiles) continue;
         }
         const m = L.marker([item.lat, item.lng], { icon });
+        m.bindTooltip(item.name || '', { direction: 'top', offset: [0, -28], className: 'map-venue-tooltip' });
         m.bindPopup(popupHtml(item, key), { maxWidth: 260 });
         groups[key].addLayer(m);
         newCounts[key]++;
