@@ -21,10 +21,11 @@
 .DS_Store
 *.pem
 
-# credentials — never commit
+# credentials & one-off scripts — never commit
 credentials-nycwine.txt
 *credentials*.txt
 advertise-preview.html
+scripts/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
