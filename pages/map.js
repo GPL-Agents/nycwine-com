@@ -487,7 +487,7 @@ export default function MapPage() {
             {searchError && <span className="map-search-error">{searchError}</span>}
           </div>
 
-          {/* Row 2 — category filters */}
+          {/* Row 2 — category filters + reset */}
           <div className="map-filter-row">
             <div className="map-filter-pills">
               {Object.entries(LAYERS).map(([key, cfg]) => (
@@ -502,15 +502,15 @@ export default function MapPage() {
                   {mapReady && <span className="mfp-count">{counts[key]}</span>}
                 </button>
               ))}
+              <button className="map-action-btn" onClick={resetView} title="Reset map view">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                  <path d="M3 3v5h5"/>
+                </svg>
+                Reset View
+              </button>
             </div>
-            <button className="map-action-btn" onClick={resetView} title="Reset map view">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                   strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
-                <path d="M3 3v5h5"/>
-              </svg>
-              Reset View
-            </button>
           </div>
 
         </div>
