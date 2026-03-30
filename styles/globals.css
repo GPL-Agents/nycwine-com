@@ -2018,7 +2018,7 @@ body {
 .bar-visit-btn:hover { background: var(--pink-muted); color: white; }
 
 /* ── Bars standalone page (/bars) ────────────────────────── */
-.bars-page { padding: 6px var(--content-pad) 24px; }
+.bars-page { padding: 0 var(--content-pad) 24px; }
 .bars-page-header { margin-bottom: 6px; }
 .bars-page-title { font-family: var(--font-serif); font-size: 28px; font-weight: 700; color: var(--black); }
 .bars-page-subtitle { font-size: 14px; color: var(--muted); margin-top: 4px; }
@@ -3300,4 +3300,163 @@ body {
     height: 82vh;
   }
   /* Concierge label — visible at all sizes (button lives outside scroll area) */
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   DIRECTORY PAGES — two-column layout (bars / stores / wineries)
+   Mirrors the news-page-layout pattern with a featured sidebar.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Pink ribbon header — matches news-page-header / events style */
+.dir-page-header {
+  background: var(--pink);
+  padding: 14px var(--content-pad);
+  /* Bleed full-width when inside a padded page container */
+  margin-left: calc(-1 * var(--content-pad));
+  margin-right: calc(-1 * var(--content-pad));
+  padding-left: var(--content-pad);
+  padding-right: var(--content-pad);
+}
+.dir-page-header .section-header-title { color: white; }
+
+/* Outer wrapper: search controls above the two-column body */
+.dir-page-controls {
+  display: flex;
+  gap: 10px;
+  padding: 12px 0 6px;
+  flex-wrap: wrap;
+}
+.dir-page-controls input[type="search"],
+.dir-page-controls select {
+  flex: 1;
+  min-width: 160px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+  color: var(--black);
+}
+.dir-page-count {
+  font-size: 13px;
+  color: var(--muted);
+  padding: 4px 0 8px;
+}
+
+/* Two-column layout */
+.dir-page-layout {
+  display: flex;
+  gap: 24px;
+  padding: 8px 0;
+  align-items: flex-start;
+}
+.dir-page-main {
+  flex: 2;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.dir-page-sidebar {
+  flex: 0 0 300px;
+  width: 300px;
+  align-self: flex-start;
+  position: sticky;
+  top: 80px;
+}
+
+/* Featured sidebar card container */
+.dir-featured-sidebar {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 14px rgba(45,41,38,0.07);
+}
+.dir-featured-heading {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--black);
+  padding: 12px 16px;
+  border-bottom: 2px solid var(--pink);
+  letter-spacing: 0.01em;
+}
+
+/* Individual featured card */
+.dir-featured-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid var(--border-light);
+  transition: background 0.15s;
+}
+.dir-featured-card:last-of-type { border-bottom: none; }
+.dir-featured-card:hover { background: var(--cream); }
+
+/* Logo / image display — taller than news sidebar, shows logo on white */
+.dir-featured-logo-wrap {
+  width: 100%;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fafafa;
+  border-bottom: 1px solid var(--border-light);
+  padding: 12px 16px;
+  overflow: hidden;
+}
+.dir-featured-logo-wrap img {
+  max-width: 100%;
+  max-height: 60px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Text body */
+.dir-featured-body {
+  padding: 10px 14px 12px;
+}
+.dir-featured-meta {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--pink);
+  margin-bottom: 3px;
+}
+.dir-featured-name {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--black);
+  margin-bottom: 4px;
+}
+.dir-featured-address {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* "via …" attribution at the bottom */
+.dir-featured-credit {
+  display: block;
+  padding: 8px 16px;
+  font-size: 11px;
+  color: var(--muted);
+  border-top: 1px solid var(--border-light);
+  text-align: right;
+  text-decoration: none;
+}
+.dir-featured-credit:hover { color: var(--pink); }
+
+/* Responsive: stack at 820px */
+@media (max-width: 820px) {
+  .dir-page-layout { flex-direction: column; }
+  .dir-page-sidebar { position: static; width: 100%; flex: none; }
+  .dir-featured-sidebar { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+  .dir-featured-heading { grid-column: 1 / -1; }
+  .dir-featured-credit { grid-column: 1 / -1; }
+  .dir-featured-logo-wrap { height: 70px; }
 }

@@ -87,6 +87,27 @@ function makeVenueIcon(L, color) {
   });
 }
 
+// Larger featured pin — gold star badge on a bigger map-pin shape.
+// Used for items with featured: true in the JSON data.
+function makeFeaturedIcon(L, color) {
+  return L.divIcon({
+    className: '',
+    html: `<svg width="32" height="42" viewBox="0 0 32 42" xmlns="http://www.w3.org/2000/svg">
+      <!-- Drop shadow -->
+      <ellipse cx="16" cy="41" rx="7" ry="2" fill="rgba(0,0,0,0.18)"/>
+      <!-- Pin body -->
+      <path d="M16 1C9.37 1 4 6.37 4 13c0 9.5 12 27 12 27S28 22.5 28 13C28 6.37 22.63 1 16 1z"
+            fill="${color}" stroke="white" stroke-width="2"/>
+      <!-- Gold star -->
+      <text x="16" y="17" text-anchor="middle" dominant-baseline="middle"
+            font-size="11" fill="#FFD700" font-family="sans-serif">★</text>
+    </svg>`,
+    iconSize:     [32, 42],
+    iconAnchor:   [16, 42],
+    popupAnchor:  [0, -43],
+  });
+}
+
 function makeLocationIcon(L) {
   return L.divIcon({
     className: 'map-you-are-here',
@@ -106,9 +127,12 @@ function popupHtml(item, type) {
   // data-* attributes used by the delegated click handler below
   const safeName = name.replace(/"/g, '&quot;');
   const safeAddr = address.replace(/"/g, '&quot;');
+  const featuredBadge = item.featured
+    ? `<span style="display:inline-block;background:#ec407a;color:white;font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px;margin-left:6px;letter-spacing:0.04em;">★ Featured</span>`
+    : '';
   return `
     <div class="map-popup">
-      <div class="mp-type" style="background:${cfg.color}">${cfg.emoji} ${cfg.singular}</div>
+      <div class="mp-type" style="background:${cfg.color}">${cfg.emoji} ${cfg.singular}${featuredBadge}</div>
       <div class="mp-name">${name}</div>
       ${hood    ? `<div class="mp-hood">${hood}</div>`    : ''}
       ${address ? `<div class="mp-addr">${address}</div>` : ''}
@@ -248,12 +272,14 @@ export default function MapPage() {
       // Initial render — no location filter
       const newCounts = { bars: 0, stores: 0, wineries: 0 };
       for (const key of Object.keys(LAYERS)) {
-        const icon  = makeVenueIcon(L, LAYERS[key].color);
+        const baseIcon     = makeVenueIcon(L, LAYERS[key].color);
+        const featuredIcon = makeFeaturedIcon(L, LAYERS[key].color);
         const items = dataRef.current[key];
         for (const item of items) {
           if (!item.lat || !item.lng) continue;
-          const m = L.marker([item.lat, item.lng], { icon });
-          m.bindTooltip(item.name || '', { direction: 'top', offset: [0, -28], className: 'map-venue-tooltip' });
+          const icon = item.featured ? featuredIcon : baseIcon;
+          const m = L.marker([item.lat, item.lng], { icon, zIndexOffset: item.featured ? 1000 : 0 });
+          m.bindTooltip(item.name || '', { direction: 'top', offset: [0, item.featured ? -40 : -28], className: 'map-venue-tooltip' });
           m.bindPopup(popupHtml(item, key), { maxWidth: 260 });
           groups[key].addLayer(m);
           newCounts[key]++;
@@ -284,7 +310,8 @@ export default function MapPage() {
       map.removeLayer(groups[key]);
       if (!activeFilter[key]) continue;
 
-      const icon  = makeVenueIcon(L, LAYERS[key].color);
+      const baseIcon     = makeVenueIcon(L, LAYERS[key].color);
+      const featuredIcon = makeFeaturedIcon(L, LAYERS[key].color);
       const items = data[key] || [];
       for (const item of items) {
         if (!item.lat || !item.lng) continue;
@@ -292,8 +319,9 @@ export default function MapPage() {
           const dist = haversineDistance(location.lat, location.lng, item.lat, item.lng);
           if (dist > radiusMiles) continue;
         }
-        const m = L.marker([item.lat, item.lng], { icon });
-        m.bindTooltip(item.name || '', { direction: 'top', offset: [0, -28], className: 'map-venue-tooltip' });
+        const icon = item.featured ? featuredIcon : baseIcon;
+        const m = L.marker([item.lat, item.lng], { icon, zIndexOffset: item.featured ? 1000 : 0 });
+        m.bindTooltip(item.name || '', { direction: 'top', offset: [0, item.featured ? -40 : -28], className: 'map-venue-tooltip' });
         m.bindPopup(popupHtml(item, key), { maxWidth: 260 });
         groups[key].addLayer(m);
         newCounts[key]++;
