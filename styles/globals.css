@@ -2845,7 +2845,7 @@ body {
 .concierge-overlay {
   position: fixed;
   inset: 0;
-  z-index: 200;
+  z-index: 2000;
   background: rgba(26,26,26,0.50);
   backdrop-filter: blur(3px);
   display: flex;
