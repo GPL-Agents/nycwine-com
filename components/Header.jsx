@@ -23,7 +23,7 @@ export default function Header() {
           alt="NYCWine.com"
           width={140}
           height={65}
-          style={{ height: '47px', width: 'auto', objectFit: 'contain' }}
+          style={{ height: '62px', width: 'auto', objectFit: 'contain' }}
           priority
         />
       </a>
