@@ -2618,7 +2618,7 @@ body {
   align-items: center;
   gap: 6px;
   flex: none;
-  width: 280px;
+  width: 560px;
 }
 
 .map-search-input-wrap {
@@ -2674,17 +2674,18 @@ body {
   padding: 7px 14px;
   border-radius: 20px;
   border: 1.5px solid var(--pink);
-  background: var(--pink);
-  color: white;
+  background: var(--pink-light);
+  color: var(--pink-dark);
   font-size: 12px;
   font-weight: 600;
   font-family: var(--font-sans);
   cursor: pointer;
   white-space: nowrap;
-  transition: background 0.15s, border-color 0.15s;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
   flex-shrink: 0;
 }
-.map-search-btn:hover { background: var(--pink-dark); border-color: var(--pink-dark); }
+.map-search-btn:hover,
+.map-search-btn:active { background: var(--pink); color: var(--white); border-color: var(--pink); }
 .map-search-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
 .map-geo-btn {
