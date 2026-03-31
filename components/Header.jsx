@@ -18,14 +18,27 @@ export default function Header() {
   return (
     <header className="site-header">
       <a href="/" aria-label="NYCWine.com home" className="logo-frame">
-        <Image
-          src="/nycwine-logo-tagline.png"
-          alt="NYCWine.com"
-          width={140}
-          height={65}
-          style={{ height: '62px', width: 'auto', objectFit: 'contain' }}
-          priority
-        />
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3px' }}>
+          {/* width/height must match actual PNG dimensions so Next.js serves full resolution on Retina */}
+          <Image
+            src="/nycwine-logo.png"
+            alt="NYCWine.com"
+            width={1013}
+            height={304}
+            style={{ height: '44px', width: 'auto', objectFit: 'contain' }}
+            priority
+          />
+          <span style={{
+            fontFamily: "'DM Sans', -apple-system, 'Helvetica Neue', Arial, sans-serif",
+            fontStyle: 'italic',
+            fontWeight: 400,
+            fontSize: '12px',
+            color: '#e91e8c',
+            letterSpacing: '0.12em',
+            lineHeight: 1,
+            whiteSpace: 'nowrap',
+          }}>Uncork the City</span>
+        </div>
       </a>
 
       {/* Search input — navigates to /search?q=... on Enter */}
