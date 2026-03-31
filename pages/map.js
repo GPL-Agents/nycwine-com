@@ -98,9 +98,9 @@ function makeFeaturedIcon(L, color) {
       <!-- Pin body -->
       <path d="M16 1C9.37 1 4 6.37 4 13c0 9.5 12 27 12 27S28 22.5 28 13C28 6.37 22.63 1 16 1z"
             fill="${color}" stroke="white" stroke-width="2"/>
-      <!-- Gold star -->
-      <text x="16" y="17" text-anchor="middle" dominant-baseline="middle"
-            font-size="11" fill="#FFD700" font-family="sans-serif">★</text>
+      <!-- White star -->
+      <text x="16" y="17.5" text-anchor="middle" dominant-baseline="middle"
+            font-size="15" fill="white" font-weight="bold" font-family="sans-serif">★</text>
     </svg>`,
     iconSize:     [32, 42],
     iconAnchor:   [16, 42],

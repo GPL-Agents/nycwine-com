@@ -3,8 +3,9 @@
 // Admin API — read and act on flagged submissions via Supabase.
 // Password-protected via ADMIN_PASSWORD env var.
 //
-// GET  /api/admin/submissions?pw=xxx         → list flagged
-// POST /api/admin/submissions                → approve or reject
+// GET  /api/admin/submissions?pw=xxx          → list flagged (escalated only)
+// GET  /api/admin/submissions?pw=xxx&all=true → full review log (last 100)
+// POST /api/admin/submissions                 → approve or reject
 //      Body: { pw, id, action: 'approve'|'reject' }
 // ─────────────────────────────────────────────────────────────
 
@@ -32,16 +33,18 @@ async function publishEvent(submission) {
 }
 
 export default async function handler(req, res) {
-  // ── GET: list escalated submissions ──────────────────────────
+  // ── GET: list submissions ─────────────────────────────────────
   if (req.method === 'GET') {
     const pw = req.query.pw;
     if (pw !== ADMIN_PW) return res.status(401).json({ error: 'Unauthorized' });
 
+    const allLogs = req.query.all === 'true';
+
     try {
-      const rows = await db.select(
-        'submissions',
-        '?status=eq.reviewed-escalated&order=submitted_at.desc'
-      );
+      const query = allLogs
+        ? '?order=submitted_at.desc&limit=100'
+        : '?status=eq.reviewed-escalated&order=submitted_at.desc';
+      const rows = await db.select('submissions', query);
       return res.status(200).json(rows || []);
     } catch (err) {
       console.error('Admin fetch error:', err);
@@ -77,9 +80,6 @@ export default async function handler(req, res) {
         if (submission.type === 'event') {
           await publishEvent(submission);
         }
-        // Venue types (bar/store/winery) need a redeploy to appear
-        // in static JSON files — this is a known limitation until
-        // a full CMS admin is built.
       } else {
         await db.update(
           'submissions',
