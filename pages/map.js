@@ -245,7 +245,8 @@ export default function MapPage() {
       const groups = {};
       for (const key of Object.keys(LAYERS)) {
         groups[key] = L.markerClusterGroup({
-          maxClusterRadius: 50,
+          maxClusterRadius: 30,
+          disableClusteringAtZoom: 13,
           iconCreateFunction: cluster => {
             const color = LAYERS[key].color;
             const n     = cluster.getChildCount();
