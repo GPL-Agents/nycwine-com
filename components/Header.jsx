@@ -18,7 +18,7 @@ export default function Header() {
   return (
     <header className="site-header">
       <a href="/" aria-label="NYCWine.com home" className="logo-frame">
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1px' }}>
           {/* width/height must match actual PNG dimensions so Next.js serves full resolution on Retina */}
           <Image
             src="/nycwine-logo.png"
@@ -31,7 +31,7 @@ export default function Header() {
           <span style={{
             fontFamily: "'DM Sans', -apple-system, 'Helvetica Neue', Arial, sans-serif",
             fontStyle: 'italic',
-            fontWeight: 400,
+            fontWeight: 700,
             fontSize: '12px',
             color: '#e91e8c',
             letterSpacing: '0.12em',
