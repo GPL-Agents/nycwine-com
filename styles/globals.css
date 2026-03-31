@@ -3857,8 +3857,8 @@ body {
 ═══════════════════════════════════════════════════════════════ */
 
 .sub-page {
-  min-height: 60vh;
-  padding-bottom: 60px;
+  min-height: 0;
+  padding-bottom: 32px;
 }
 .sub-header {
   background: var(--pink);
@@ -3868,6 +3868,7 @@ body {
   max-width: 740px;
   margin: 0 auto;
   padding: 0 24px;
+  text-align: center;
 }
 .sub-back {
   display: inline-block;
@@ -3912,6 +3913,7 @@ body {
   margin-bottom: 16px;
   padding-bottom: 8px;
   border-bottom: 2px solid var(--pink);
+  text-align: center;
 }
 .sub-required {
   color: var(--pink);
@@ -3920,11 +3922,13 @@ body {
 
 /* ── Type selector cards ────────────────────────────────────── */
 .sub-type-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 12px;
 }
 .sub-type-card {
+  flex: 0 0 150px;
   border: 2px solid var(--border);
   border-radius: 10px;
   padding: 16px 12px;
