@@ -11,6 +11,11 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
+        {/* Favicon — all pages */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+        <link rel="apple-touch-icon" href="/favicon-512.png" />
+
         {/* Google AdSense — site ownership verification */}
         <meta name="google-adsense-account" content="ca-pub-6782277104310503" />
 
