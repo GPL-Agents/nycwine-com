@@ -3490,7 +3490,7 @@ body {
   font-weight: 600;
   border-radius: 6px;
   text-decoration: none;
-  border: none;
+  border: 2px solid var(--pink-dark);
   cursor: pointer;
   transition: background 0.18s, color 0.18s;
   white-space: nowrap;
@@ -3810,7 +3810,7 @@ body {
   font-weight: 700;
   border-radius: 6px;
   text-decoration: none;
-  border: none;
+  border: 2px solid var(--pink-dark);
   transition: background 0.18s, color 0.18s;
 }
 .adv-slot-cta:hover { background: var(--pink-muted); color: var(--white); }
