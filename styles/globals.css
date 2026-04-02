@@ -90,7 +90,7 @@ body {
   align-items: center;
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 1100;
 }
 
 .logo-frame {
@@ -170,7 +170,7 @@ body {
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 90px;
-  z-index: 49;
+  z-index: 1099;
   /* overflow is intentionally NOT set here — clipping lives on .qnav-pills-row
      so the Concierge button is always visible outside the scroll area */
 }
@@ -2400,7 +2400,7 @@ body {
 /* ═══════════════════════════════════════
    MAP PAGE (/map)
 ═══════════════════════════════════════ */
-.map-page { display: flex; flex-direction: column; min-height: calc(100vh - 144px); }
+.map-page { display: flex; flex-direction: column; height: calc(100vh - 144px); overflow: hidden; }
 
 .map-page-header {
   background: var(--black);
@@ -2522,12 +2522,11 @@ body {
   color: white;
 }
 
-/* Map container — fills remaining viewport height */
+/* Map container — fills all remaining height in .map-page */
 .map-container {
   position: relative;
   flex: 1;
-  min-height: 420px;
-  max-height: calc(100vh - 310px);
+  min-height: 0;
 }
 .map-leaflet {
   position: absolute;
@@ -2678,7 +2677,7 @@ body {
 .map-venue-tooltip::before { display: none !important; }
 
 @media (max-width: 600px) {
-  .map-page { min-height: calc(100vh - 120px); }
+  .map-page { height: calc(100vh - 120px); }
 }
 
 /* ── Map location search bar ──────────────────────────────── */
