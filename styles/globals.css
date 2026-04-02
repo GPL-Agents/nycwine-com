@@ -2437,12 +2437,18 @@ body {
   transition: all 0.18s;
   white-space: nowrap;
 }
-.map-filter-pill:hover { border-color: var(--pink); color: var(--text); }
+.map-filter-pill:hover {
+  background: #f0f0f0;
+  color: var(--text);
+}
 .map-filter-active {
   background: color-mix(in srgb, var(--pill-color) 12%, white);
   border-color: var(--pill-color);
   color: var(--pill-color);
   font-weight: 600;
+}
+.map-filter-active:hover {
+  background: color-mix(in srgb, var(--pill-color) 22%, white);
 }
 .mfp-dot {
   width: 9px;
