@@ -187,6 +187,11 @@ export default function BarsPage() {
                         <a href={`tel:${bar.phone}`}>{bar.phone}</a>
                       </div>
                     )}
+                    {bar.email && (
+                      <div className="bar-email">
+                        <a href={`mailto:${bar.email}`}>{bar.email}</a>
+                      </div>
+                    )}
                   </div>
                   {bar.website && (
                     <a
