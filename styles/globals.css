@@ -1304,7 +1304,7 @@ body {
   background: white;
   transition: border-color 0.15s, box-shadow 0.15s;
 }
-.store-card:hover { border-color: var(--rose-muted); box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.store-card:hover { border-color: var(--rose); box-shadow: 0 4px 14px rgba(236, 64, 122, 0.18); }
 /* Left column: icon + Visit link stacked */
 .store-card-left {
   flex-shrink: 0;
@@ -1965,7 +1965,7 @@ body {
   background: white;
   transition: border-color 0.15s, box-shadow 0.15s;
 }
-.bar-card:hover { border-color: var(--rose-muted); box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.bar-card:hover { border-color: var(--rose); box-shadow: 0 4px 14px rgba(236, 64, 122, 0.18); }
 /* Left column: icon + Visit link stacked */
 .bar-card-left {
   flex-shrink: 0;
