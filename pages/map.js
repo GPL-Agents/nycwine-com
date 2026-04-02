@@ -46,20 +46,30 @@ function haversineDistance(lat1, lng1, lat2, lng2) {
 }
 
 async function geocodeQuery(rawQuery) {
-  // Normalise intersections: "E 76th St and 3rd Ave" → "E 76th St & 3rd Ave"
-  let query = rawQuery
-    .replace(/\s+&\s+/g, ' & ')               // normalise existing &
-    .replace(/\s+and\s+/gi, ' & ');            // "and" → "&"
+  const query = rawQuery.trim();
 
-  // Bias towards NYC if no city/state specified
+  // ── 1. NYC Planning Geosearch (best for NYC addresses & intersections) ──
+  try {
+    const url = 'https://geosearch.planninglabs.nyc/v2/search?' +
+      new URLSearchParams({ text: query, size: '1' });
+    const res  = await fetch(url);
+    const data = await res.json();
+    if (data.features && data.features.length > 0) {
+      const f = data.features[0];
+      const [lng, lat] = f.geometry.coordinates;
+      const label = f.properties.label || query;
+      return { lat, lng, label: label.split(',').slice(0, 3).join(', ') };
+    }
+  } catch { /* fall through */ }
+
+  // ── 2. Nominatim fallback (broader coverage) ────────────────────────────
   const hasCity = /new york|nyc|\bny\b|\bbrooklyn\b|\bbronx\b|\bqueens\b|\bstaten island\b/i.test(query);
   const biased  = hasCity ? query : `${query}, New York, NY`;
-
   try {
     const url = 'https://nominatim.openstreetmap.org/search?' +
       new URLSearchParams({ q: biased, format: 'json', limit: '1', countrycodes: 'us' });
     const res  = await fetch(url, {
-      headers: { 'User-Agent': 'NYCWine.com map search (educational project)' },
+      headers: { 'User-Agent': 'NYCWine.com/2.0 map search' },
     });
     const data = await res.json();
     if (data.length > 0) {
@@ -70,6 +80,7 @@ async function geocodeQuery(rawQuery) {
       };
     }
   } catch { /* network error */ }
+
   return null;
 }
 
