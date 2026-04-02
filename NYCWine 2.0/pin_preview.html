@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>NYCWine Map Pin Options</title>
+<style>
+  body { font-family: Arial, sans-serif; background: #f5f5f5; padding: 30px; color: #1a1a1a; }
+  h1 { font-size: 22px; margin-bottom: 4px; }
+  h2 { font-size: 15px; font-weight: 700; color: #555; text-transform: uppercase; letter-spacing: 0.1em; margin: 32px 0 16px; border-bottom: 2px solid #ddd; padding-bottom: 6px; }
+  .row { display: flex; gap: 40px; align-items: flex-end; flex-wrap: wrap; margin-bottom: 8px; }
+  .pin-group { text-align: center; }
+  .pin-label { font-size: 12px; color: #888; margin-top: 8px; }
+  .pin-sublabel { font-size: 11px; color: #aaa; }
+  .category-label { font-size: 13px; font-weight: 700; margin-bottom: 12px; color: #333; }
+  .section { background: white; border-radius: 8px; padding: 24px 28px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+  .note { font-size: 13px; color: #e53935; background: #fff3f3; border-left: 3px solid #e53935; padding: 8px 12px; margin-bottom: 16px; border-radius: 2px; }
+  .good { font-size: 13px; color: #2e7d32; background: #f1f8f1; border-left: 3px solid #2e7d32; padding: 8px 12px; margin-bottom: 16px; border-radius: 2px; }
+  .cols { display: flex; gap: 40px; }
+  .col { flex: 1; }
+</style>
+</head>
+<body>
+
+<h1>NYCWine.com — Map Pin Options</h1>
+<p style="color:#888;font-size:13px;margin-bottom:24px;">Preview before any live changes. Shown at 3× actual size.</p>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- CURRENT STATE                                          -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="section">
+  <h2>Current Pins — Issues</h2>
+  <div class="note">Icons are hard to read: the wine bar icon (pink) disappears into the pink pin. The featured pin is only slightly bigger with a small gold star — doesn't stand out enough.</div>
+  <div class="row">
+    <div class="pin-group">
+      <svg width="56" height="76" viewBox="0 0 28 38" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="14" cy="37" rx="6" ry="1.8" fill="rgba(0,0,0,0.18)"/>
+        <path d="M14 1C7.37 1 2 6.37 2 13c0 9.5 12 24 12 24S26 22.5 26 13C26 6.37 20.63 1 14 1z" fill="#ec407a" stroke="white" stroke-width="2"/>
+        <circle cx="14" cy="13" r="9" fill="white"/>
+        <image href="https://www.nycwine.com/images/icons/icon-wine-bar.png" x="5" y="4" width="18" height="18"/>
+      </svg>
+      <div class="pin-label">Wine Bar</div>
+      <div class="pin-sublabel" style="color:#e53935;">Icon lost in pink</div>
+    </div>
+    <div class="pin-group">
+      <svg width="56" height="76" viewBox="0 0 28 38" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="14" cy="37" rx="6" ry="1.8" fill="rgba(0,0,0,0.18)"/>
+        <path d="M14 1C7.37 1 2 6.37 2 13c0 9.5 12 24 12 24S26 22.5 26 13C26 6.37 20.63 1 14 1z" fill="#1a1a1a" stroke="white" stroke-width="2"/>
+        <circle cx="14" cy="13" r="9" fill="white"/>
+        <image href="https://www.nycwine.com/images/icons/icon-wine-store.png" x="5" y="4" width="18" height="18"/>
+      </svg>
+      <div class="pin-label">Wine Store</div>
+      <div class="pin-sublabel" style="color:#888;">OK but icon complex</div>
+    </div>
+    <div class="pin-group">
+      <svg width="56" height="76" viewBox="0 0 28 38" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="14" cy="37" rx="6" ry="1.8" fill="rgba(0,0,0,0.18)"/>
+        <path d="M14 1C7.37 1 2 6.37 2 13c0 9.5 12 24 12 24S26 22.5 26 13C26 6.37 20.63 1 14 1z" fill="#7c3aed" stroke="white" stroke-width="2"/>
+        <circle cx="14" cy="13" r="9" fill="white"/>
+        <image href="https://www.nycwine.com/images/icons/icon-winery.png" x="5" y="4" width="18" height="18"/>
+      </svg>
+      <div class="pin-label">Winery</div>
+      <div class="pin-sublabel" style="color:#888;">OK but icon complex</div>
+    </div>
+    <div style="width:1px;background:#ddd;margin:0 10px;"></div>
+    <div class="pin-group">
+      <svg width="76" height="100" viewBox="0 0 38 50" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="19" cy="49" rx="8" ry="2.2" fill="rgba(0,0,0,0.20)"/>
+        <path d="M19 1C10.72 1 4 7.72 4 16c0 12 15 33 15 33S34 28 34 16C34 7.72 27.28 1 19 1z" fill="#ec407a" stroke="white" stroke-width="2.2"/>
+        <circle cx="19" cy="16" r="11" fill="white"/>
+        <image href="https://www.nycwine.com/images/icons/icon-wine-bar.png" x="8" y="5" width="22" height="22"/>
+        <circle cx="31" cy="7" r="7" fill="#FFB800" stroke="white" stroke-width="1.8"/>
+        <text x="31" y="7.5" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="white" font-weight="bold">★</text>
+      </svg>
+      <div class="pin-label">Featured Bar</div>
+      <div class="pin-sublabel" style="color:#e53935;">Star barely visible</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- OPTION A — WHITE SILHOUETTE ICONS                      -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="section">
+  <h2>Option A — Simple White Icons on Colored Pin</h2>
+  <div class="good">Clean white silhouette icons (wine glass, bottle, grapes) on the colored pin — no white circle background needed. High contrast, instantly readable.</div>
+
+  <div class="cols">
+    <div class="col">
+      <div class="category-label">Regular Pins</div>
+      <div class="row">
+
+        <!-- Wine Bar — wine glass -->
+        <div class="pin-group">
+          <svg width="56" height="76" viewBox="0 0 28 38" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="14" cy="37" rx="6" ry="1.8" fill="rgba(0,0,0,0.18)"/>
+            <path d="M14 1C7.37 1 2 6.37 2 13c0 9.5 12 24 12 24S26 22.5 26 13C26 6.37 20.63 1 14 1z" fill="#ec407a" stroke="white" stroke-width="2"/>
+            <!-- Wine glass icon -->
+            <path d="M9 5 L19 5 Q20 10 14 14 Q8 10 9 5 Z" fill="white"/>
+            <rect x="13" y="14" width="2" height="4" fill="white"/>
+            <rect x="10" y="18" width="8" height="1.5" rx="0.8" fill="white"/>
+          </svg>
+          <div class="pin-label">Wine Bar</div>
+          <div class="pin-sublabel">🍷 wine glass</div>
+        </div>
+
+        <!-- Wine Store — bottle -->
+        <div class="pin-group">
+          <svg width="56" height="76" viewBox="0 0 28 38" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="14" cy="37" rx="6" ry="1.8" fill="rgba(0,0,0,0.18)"/>
+            <path d="M14 1C7.37 1 2 6.37 2 13c0 9.5 12 24 12 24S26 22.5 26 13C26 6.37 20.63 1 14 1z" fill="#1a1a1a" stroke="white" stroke-width="2"/>
+            <!-- Bottle icon -->
+            <rect x="11.5" y="4" width="5" height="3.5" rx="1" fill="white"/>
+            <path d="M10.5 7.5 Q9 9.5 9 11 L9 21 Q9 22 10 22 L18 22 Q19 22 19 21 L19 11 Q19 9.5 17.5 7.5 Z" fill="white"/>
+            <rect x="12" y="4" width="4" height="1.5" rx="0.5" fill="white"/>
+          </svg>
+          <div class="pin-label">Wine Store</div>
+          <div class="pin-sublabel">🍾 bottle</div>
+        </div>
+
+        <!-- Winery — grapes -->
+        <div class="pin-group">
+          <svg width="56" height="76" viewBox="0 0 28 38" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="14" cy="37" rx="6" ry="1.8" fill="rgba(0,0,0,0.18)"/>
+            <path d="M14 1C7.37 1 2 6.37 2 13c0 9.5 12 24 12 24S26 22.5 26 13C26 6.37 20.63 1 14 1z" fill="#7c3aed" stroke="white" stroke-width="2"/>
+            <!-- Grapes icon -->
+            <circle cx="14" cy="6.5" r="2.2" fill="white"/>
+            <circle cx="10.5" cy="9.5" r="2.2" fill="white"/>
+            <circle cx="17.5" cy="9.5" r="2.2" fill="white"/>
+            <circle cx="12" cy="13" r="2.2" fill="white"/>
+            <circle cx="16" cy="13" r="2.2" fill="white"/>
+            <circle cx="14" cy="16.5" r="2.2" fill="white"/>
+            <!-- Stem -->
+            <line x1="14" y1="4.5" x2="14" y2="3" stroke="white" stroke-width="1.2"/>
+          </svg>
+          <div class="pin-label">Winery</div>
+          <div class="pin-sublabel">🍇 grapes</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="category-label">Featured Pins — Option A1: Gold Pin + Larger</div>
+      <div class="row">
+        <div class="pin-group">
+          <svg width="84" height="110" viewBox="0 0 42 55" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="21" cy="54" rx="9" ry="2.5" fill="rgba(0,0,0,0.22)"/>
+            <path d="M21 1C12 1 5 8 5 17c0 13 16 37 16 37S37 30 37 17C37 8 30 1 21 1z" fill="#FFB800" stroke="white" stroke-width="2.5"/>
+            <path d="M13 8 L29 8 Q31 15 21 20 Q11 15 13 8 Z" fill="white"/>
+            <rect x="19.5" y="20" width="3" height="5.5" fill="white"/>
+            <rect x="15" y="25.5" width="12" height="2" rx="1" fill="white"/>
+          </svg>
+          <div class="pin-label">Featured Bar</div>
+          <div class="pin-sublabel">Gold pin, larger</div>
+        </div>
+        <div class="pin-group">
+          <svg width="84" height="110" viewBox="0 0 42 55" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="21" cy="54" rx="9" ry="2.5" fill="rgba(0,0,0,0.22)"/>
+            <path d="M21 1C12 1 5 8 5 17c0 13 16 37 16 37S37 30 37 17C37 8 30 1 21 1z" fill="#FFB800" stroke="white" stroke-width="2.5"/>
+            <rect x="17.5" y="5.5" width="7" height="5" rx="1.5" fill="white"/>
+            <path d="M15.5 10.5 Q13 13 13 15 L13 30 Q13 31.5 14.5 31.5 L27.5 31.5 Q29 31.5 29 30 L29 15 Q29 13 26.5 10.5 Z" fill="white"/>
+            <rect x="18" y="5.5" width="6" height="2.5" rx="0.8" fill="white"/>
+          </svg>
+          <div class="pin-label">Featured Store</div>
+          <div class="pin-sublabel">Gold pin, larger</div>
+        </div>
+        <div class="pin-group">
+          <svg width="84" height="110" viewBox="0 0 42 55" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="21" cy="54" rx="9" ry="2.5" fill="rgba(0,0,0,0.22)"/>
+            <path d="M21 1C12 1 5 8 5 17c0 13 16 37 16 37S37 30 37 17C37 8 30 1 21 1z" fill="#FFB800" stroke="white" stroke-width="2.5"/>
+            <circle cx="21" cy="9" r="3.2" fill="white"/>
+            <circle cx="15" cy="14" r="3.2" fill="white"/>
+            <circle cx="27" cy="14" r="3.2" fill="white"/>
+            <circle cx="18" cy="20" r="3.2" fill="white"/>
+            <circle cx="24" cy="20" r="3.2" fill="white"/>
+            <circle cx="21" cy="26" r="3.2" fill="white"/>
+            <line x1="21" y1="6.5" x2="21" y2="4.5" stroke="white" stroke-width="1.8"/>
+          </svg>
+          <div class="pin-label">Featured Winery</div>
+          <div class="pin-sublabel">Gold pin, larger</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- OPTION B — DARK ICONS ON WHITE CIRCLE                  -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="section">
+  <h2>Option B — Dark Icons on White Circle (High Contrast)</h2>
+  <div class="good">Dark charcoal icons on a white circle background — maximum readability. Pin color still identifies category clearly.</div>
+
+  <div class="cols">
+    <div class="col">
+      <div class="category-label">Regular Pins</div>
+      <div class="row">
+
+        <div class="pin-group">
+          <svg width="56" height="76" viewBox="0 0 28 38" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="14" cy="37" rx="6" ry="1.8" fill="rgba(0,0,0,0.18)"/>
+            <path d="M14 1C7.37 1 2 6.37 2 13c0 9.5 12 24 12 24S26 22.5 26 13C26 6.37 20.63 1 14 1z" fill="#ec407a" stroke="white" stroke-width="2"/>
+            <circle cx="14" cy="13" r="9" fill="white"/>
+            <path d="M9 8 L19 8 Q20 13 14 17 Q8 13 9 8 Z" fill="#1a1a1a"/>
+            <rect x="13" y="17" width="2" height="3.5" fill="#1a1a1a"/>
+            <rect x="10.5" y="20.5" width="7" height="1.5" rx="0.8" fill="#1a1a1a"/>
+          </svg>
+          <div class="pin-label">Wine Bar</div>
+          <div class="pin-sublabel">Dark icon, white bg</div>
+        </div>
+
+        <div class="pin-group">
+          <svg width="56" height="76" viewBox="0 0 28 38" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="14" cy="37" rx="6" ry="1.8" fill="rgba(0,0,0,0.18)"/>
+            <path d="M14 1C7.37 1 2 6.37 2 13c0 9.5 12 24 12 24S26 22.5 26 13C26 6.37 20.63 1 14 1z" fill="#1a1a1a" stroke="white" stroke-width="2"/>
+            <circle cx="14" cy="13" r="9" fill="white"/>
+            <rect x="12" y="6" width="4" height="3" rx="0.8" fill="#1a1a1a"/>
+            <path d="M11 9 Q10 10.5 10 12 L10 20 Q10 21 11 21 L17 21 Q18 21 18 20 L18 12 Q18 10.5 17 9 Z" fill="#1a1a1a"/>
+            <rect x="12.5" y="6" width="3" height="1.5" rx="0.5" fill="#1a1a1a"/>
+          </svg>
+          <div class="pin-label">Wine Store</div>
+          <div class="pin-sublabel">Dark icon, white bg</div>
+        </div>
+
+        <div class="pin-group">
+          <svg width="56" height="76" viewBox="0 0 28 38" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="14" cy="37" rx="6" ry="1.8" fill="rgba(0,0,0,0.18)"/>
+            <path d="M14 1C7.37 1 2 6.37 2 13c0 9.5 12 24 12 24S26 22.5 26 13C26 6.37 20.63 1 14 1z" fill="#7c3aed" stroke="white" stroke-width="2"/>
+            <circle cx="14" cy="13" r="9" fill="white"/>
+            <circle cx="14" cy="7.5" r="2" fill="#1a1a1a"/>
+            <circle cx="10.5" cy="10.5" r="2" fill="#1a1a1a"/>
+            <circle cx="17.5" cy="10.5" r="2" fill="#1a1a1a"/>
+            <circle cx="12" cy="14" r="2" fill="#1a1a1a"/>
+            <circle cx="16" cy="14" r="2" fill="#1a1a1a"/>
+            <circle cx="14" cy="17.5" r="2" fill="#1a1a1a"/>
+          </svg>
+          <div class="pin-label">Winery</div>
+          <div class="pin-sublabel">Dark icon, white bg</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="category-label">Featured Pins — Option B1: Category Color + Gold Ring + Larger</div>
+      <div class="row">
+        <div class="pin-group">
+          <svg width="84" height="110" viewBox="0 0 42 55" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="21" cy="54" rx="9" ry="2.5" fill="rgba(0,0,0,0.25)"/>
+            <path d="M21 1C12 1 5 8 5 17c0 13 16 37 16 37S37 30 37 17C37 8 30 1 21 1z" fill="#ec407a" stroke="#FFB800" stroke-width="3.5"/>
+            <circle cx="21" cy="17" r="12" fill="white"/>
+            <path d="M13 11 L29 11 Q31 18 21 23 Q11 18 13 11 Z" fill="#1a1a1a"/>
+            <rect x="19.5" y="23" width="3" height="5" fill="#1a1a1a"/>
+            <rect x="15.5" y="28" width="11" height="2" rx="1" fill="#1a1a1a"/>
+          </svg>
+          <div class="pin-label">Featured Bar</div>
+          <div class="pin-sublabel">Gold border ring</div>
+        </div>
+        <div class="pin-group">
+          <svg width="84" height="110" viewBox="0 0 42 55" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="21" cy="54" rx="9" ry="2.5" fill="rgba(0,0,0,0.25)"/>
+            <path d="M21 1C12 1 5 8 5 17c0 13 16 37 16 37S37 30 37 17C37 8 30 1 21 1z" fill="#1a1a1a" stroke="#FFB800" stroke-width="3.5"/>
+            <circle cx="21" cy="17" r="12" fill="white"/>
+            <rect x="18" y="8" width="6" height="4.5" rx="1.2" fill="#1a1a1a"/>
+            <path d="M16 12.5 Q14 15 14 17 L14 27 Q14 28.5 15.5 28.5 L26.5 28.5 Q28 28.5 28 27 L28 17 Q28 15 26 12.5 Z" fill="#1a1a1a"/>
+            <rect x="18.5" y="8" width="5" height="2.2" rx="0.8" fill="#1a1a1a"/>
+          </svg>
+          <div class="pin-label">Featured Store</div>
+          <div class="pin-sublabel">Gold border ring</div>
+        </div>
+        <div class="pin-group">
+          <svg width="84" height="110" viewBox="0 0 42 55" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="21" cy="54" rx="9" ry="2.5" fill="rgba(0,0,0,0.25)"/>
+            <path d="M21 1C12 1 5 8 5 17c0 13 16 37 16 37S37 30 37 17C37 8 30 1 21 1z" fill="#7c3aed" stroke="#FFB800" stroke-width="3.5"/>
+            <circle cx="21" cy="17" r="12" fill="white"/>
+            <circle cx="21" cy="10" r="3" fill="#1a1a1a"/>
+            <circle cx="15.5" cy="15" r="3" fill="#1a1a1a"/>
+            <circle cx="26.5" cy="15" r="3" fill="#1a1a1a"/>
+            <circle cx="18" cy="21" r="3" fill="#1a1a1a"/>
+            <circle cx="24" cy="21" r="3" fill="#1a1a1a"/>
+            <line x1="21" y1="7.5" x2="21" y2="5" stroke="#1a1a1a" stroke-width="1.8"/>
+          </svg>
+          <div class="pin-label">Featured Winery</div>
+          <div class="pin-sublabel">Gold border ring</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- OPTION C — MONOCHROME (ALL BLACK) + COLORED ICON       -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="section">
+  <h2>Option C — Black Pin, Category-Colored Icon</h2>
+  <div class="good">All pins are black (clean, professional) — the icon inside carries the category color. Very modern, clean look on the map.</div>
+
+  <div class="cols">
+    <div class="col">
+      <div class="category-label">Regular Pins</div>
+      <div class="row">
+        <div class="pin-group">
+          <svg width="56" height="76" viewBox="0 0 28 38" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="14" cy="37" rx="6" ry="1.8" fill="rgba(0,0,0,0.18)"/>
+            <path d="M14 1C7.37 1 2 6.37 2 13c0 9.5 12 24 12 24S26 22.5 26 13C26 6.37 20.63 1 14 1z" fill="#1a1a1a" stroke="white" stroke-width="2"/>
+            <circle cx="14" cy="13" r="9" fill="white"/>
+            <path d="M9 8 L19 8 Q20 13 14 17 Q8 13 9 8 Z" fill="#ec407a"/>
+            <rect x="13" y="17" width="2" height="3.5" fill="#ec407a"/>
+            <rect x="10.5" y="20.5" width="7" height="1.5" rx="0.8" fill="#ec407a"/>
+          </svg>
+          <div class="pin-label">Wine Bar</div>
+          <div class="pin-sublabel">Pink glass, black pin</div>
+        </div>
+        <div class="pin-group">
+          <svg width="56" height="76" viewBox="0 0 28 38" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="14" cy="37" rx="6" ry="1.8" fill="rgba(0,0,0,0.18)"/>
+            <path d="M14 1C7.37 1 2 6.37 2 13c0 9.5 12 24 12 24S26 22.5 26 13C26 6.37 20.63 1 14 1z" fill="#1a1a1a" stroke="white" stroke-width="2"/>
+            <circle cx="14" cy="13" r="9" fill="white"/>
+            <rect x="12" y="6" width="4" height="3" rx="0.8" fill="#555"/>
+            <path d="M11 9 Q10 10.5 10 12 L10 20 Q10 21 11 21 L17 21 Q18 21 18 20 L18 12 Q18 10.5 17 9 Z" fill="#555"/>
+            <rect x="12.5" y="6" width="3" height="1.5" rx="0.5" fill="#555"/>
+          </svg>
+          <div class="pin-label">Wine Store</div>
+          <div class="pin-sublabel">Dark bottle, black pin</div>
+        </div>
+        <div class="pin-group">
+          <svg width="56" height="76" viewBox="0 0 28 38" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="14" cy="37" rx="6" ry="1.8" fill="rgba(0,0,0,0.18)"/>
+            <path d="M14 1C7.37 1 2 6.37 2 13c0 9.5 12 24 12 24S26 22.5 26 13C26 6.37 20.63 1 14 1z" fill="#1a1a1a" stroke="white" stroke-width="2"/>
+            <circle cx="14" cy="13" r="9" fill="white"/>
+            <circle cx="14" cy="7.5" r="2" fill="#7c3aed"/>
+            <circle cx="10.5" cy="10.5" r="2" fill="#7c3aed"/>
+            <circle cx="17.5" cy="10.5" r="2" fill="#7c3aed"/>
+            <circle cx="12" cy="14" r="2" fill="#7c3aed"/>
+            <circle cx="16" cy="14" r="2" fill="#7c3aed"/>
+            <circle cx="14" cy="17.5" r="2" fill="#7c3aed"/>
+          </svg>
+          <div class="pin-label">Winery</div>
+          <div class="pin-sublabel">Purple grapes, black pin</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="category-label">Featured Pins — Option C1: White Pin + Category Color Icon + Gold Star Badge</div>
+      <div class="row">
+        <div class="pin-group">
+          <svg width="84" height="110" viewBox="0 0 42 55" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="21" cy="54" rx="9" ry="2.5" fill="rgba(0,0,0,0.25)"/>
+            <path d="M21 1C12 1 5 8 5 17c0 13 16 37 16 37S37 30 37 17C37 8 30 1 21 1z" fill="white" stroke="#ec407a" stroke-width="3"/>
+            <circle cx="21" cy="17" r="12" fill="#fce4ec"/>
+            <path d="M13 11 L29 11 Q31 18 21 23 Q11 18 13 11 Z" fill="#ec407a"/>
+            <rect x="19.5" y="23" width="3" height="5" fill="#ec407a"/>
+            <rect x="15.5" y="28" width="11" height="2" rx="1" fill="#ec407a"/>
+            <!-- Gold star badge -->
+            <circle cx="34" cy="8" r="8" fill="#FFB800" stroke="white" stroke-width="2"/>
+            <text x="34" y="8.5" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="white" font-weight="bold">★</text>
+          </svg>
+          <div class="pin-label">Featured Bar</div>
+          <div class="pin-sublabel">White pin, pink icon, star</div>
+        </div>
+        <div class="pin-group">
+          <svg width="84" height="110" viewBox="0 0 42 55" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="21" cy="54" rx="9" ry="2.5" fill="rgba(0,0,0,0.25)"/>
+            <path d="M21 1C12 1 5 8 5 17c0 13 16 37 16 37S37 30 37 17C37 8 30 1 21 1z" fill="white" stroke="#1a1a1a" stroke-width="3"/>
+            <circle cx="21" cy="17" r="12" fill="#f5f5f5"/>
+            <rect x="18" y="8" width="6" height="4.5" rx="1.2" fill="#1a1a1a"/>
+            <path d="M16 12.5 Q14 15 14 17 L14 27 Q14 28.5 15.5 28.5 L26.5 28.5 Q28 28.5 28 27 L28 17 Q28 15 26 12.5 Z" fill="#1a1a1a"/>
+            <rect x="18.5" y="8" width="5" height="2.2" rx="0.8" fill="#1a1a1a"/>
+            <circle cx="34" cy="8" r="8" fill="#FFB800" stroke="white" stroke-width="2"/>
+            <text x="34" y="8.5" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="white" font-weight="bold">★</text>
+          </svg>
+          <div class="pin-label">Featured Store</div>
+          <div class="pin-sublabel">White pin, dark icon, star</div>
+        </div>
+        <div class="pin-group">
+          <svg width="84" height="110" viewBox="0 0 42 55" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="21" cy="54" rx="9" ry="2.5" fill="rgba(0,0,0,0.25)"/>
+            <path d="M21 1C12 1 5 8 5 17c0 13 16 37 16 37S37 30 37 17C37 8 30 1 21 1z" fill="white" stroke="#7c3aed" stroke-width="3"/>
+            <circle cx="21" cy="17" r="12" fill="#f3e5f5"/>
+            <circle cx="21" cy="10" r="3" fill="#7c3aed"/>
+            <circle cx="15.5" cy="15" r="3" fill="#7c3aed"/>
+            <circle cx="26.5" cy="15" r="3" fill="#7c3aed"/>
+            <circle cx="18" cy="21" r="3" fill="#7c3aed"/>
+            <circle cx="24" cy="21" r="3" fill="#7c3aed"/>
+            <line x1="21" y1="7.5" x2="21" y2="5" stroke="#7c3aed" stroke-width="1.8"/>
+            <circle cx="34" cy="8" r="8" fill="#FFB800" stroke="white" stroke-width="2"/>
+            <text x="34" y="8.5" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="white" font-weight="bold">★</text>
+          </svg>
+          <div class="pin-label">Featured Winery</div>
+          <div class="pin-sublabel">White pin, purple icon, star</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- OPTION D — EMOJI ICONS, CLIPPED TO WHITE CIRCLE       -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="section">
+  <h2>Option D — Emoji Icons, Fully Inside White Circle</h2>
+  <div class="good">🍷 wine glass · 🛒 shopping cart · 🍇 grapes — full color, clipped to the white circle, instantly recognizable at any size.</div>
+
+  <!-- helper: each pin is a 56×76 div, pin SVG behind, emoji div on top -->
+  <style>
+    .epin { position:relative; display:inline-block; width:56px; height:76px; vertical-align:bottom; }
+    .epin svg { position:absolute; top:0; left:0; }
+    .epin .emoji { position:absolute; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:50%; font-size:17px; line-height:1; }
+
+    .efpin { position:relative; display:inline-block; width:84px; height:110px; vertical-align:bottom; }
+    .efpin svg { position:absolute; top:0; left:0; }
+    .efpin .emoji { position:absolute; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:50%; line-height:1; }
+  </style>
+
+  <div class="cols">
+    <div class="col">
+      <div class="category-label">Regular Pins</div>
+      <div class="row">
+
+        <!-- Wine Bar -->
+        <div class="pin-group">
+          <div class="epin">
+            <svg width="56" height="76" viewBox="0 0 28 38" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="14" cy="37" rx="6" ry="1.8" fill="rgba(0,0,0,0.18)"/>
+              <path d="M14 1C7.37 1 2 6.37 2 13c0 9.5 12 24 12 24S26 22.5 26 13C26 6.37 20.63 1 14 1z" fill="#ec407a" stroke="white" stroke-width="2"/>
+              <circle cx="14" cy="13" r="9" fill="white"/>
+            </svg>
+            <!-- Circle center at 28px from left, 26px from top (scale 2×); diameter 36px -->
+            <div class="emoji" style="width:34px;height:34px;left:11px;top:9px;font-size:18px;">🍷</div>
+          </div>
+          <div class="pin-label">Wine Bar</div>
+          <div class="pin-sublabel">🍷 pink pin</div>
+        </div>
+
+        <!-- Wine Store -->
+        <div class="pin-group">
+          <div class="epin">
+            <svg width="56" height="76" viewBox="0 0 28 38" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="14" cy="37" rx="6" ry="1.8" fill="rgba(0,0,0,0.18)"/>
+              <path d="M14 1C7.37 1 2 6.37 2 13c0 9.5 12 24 12 24S26 22.5 26 13C26 6.37 20.63 1 14 1z" fill="#1a1a1a" stroke="white" stroke-width="2"/>
+              <circle cx="14" cy="13" r="9" fill="white"/>
+            </svg>
+            <div class="emoji" style="width:34px;height:34px;left:11px;top:9px;font-size:18px;">🛒</div>
+          </div>
+          <div class="pin-label">Wine Store</div>
+          <div class="pin-sublabel">🛒 black pin</div>
+        </div>
+
+        <!-- Winery -->
+        <div class="pin-group">
+          <div class="epin">
+            <svg width="56" height="76" viewBox="0 0 28 38" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="14" cy="37" rx="6" ry="1.8" fill="rgba(0,0,0,0.18)"/>
+              <path d="M14 1C7.37 1 2 6.37 2 13c0 9.5 12 24 12 24S26 22.5 26 13C26 6.37 20.63 1 14 1z" fill="#7c3aed" stroke="white" stroke-width="2"/>
+              <circle cx="14" cy="13" r="9" fill="white"/>
+            </svg>
+            <div class="emoji" style="width:34px;height:34px;left:11px;top:9px;font-size:18px;">🍇</div>
+          </div>
+          <div class="pin-label">Winery</div>
+          <div class="pin-sublabel">🍇 purple pin</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="category-label">Featured Pins — Gold pin + full-color emoji + ★</div>
+      <div class="row">
+
+        <!-- Featured Bar — gold -->
+        <div class="pin-group">
+          <div class="efpin">
+            <svg width="84" height="110" viewBox="0 0 42 55" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="21" cy="54" rx="9" ry="2.5" fill="rgba(0,0,0,0.25)"/>
+              <path d="M21 1C12 1 5 8 5 17c0 13 16 37 16 37S37 30 37 17C37 8 30 1 21 1z" fill="#FFB800" stroke="white" stroke-width="2.5"/>
+              <circle cx="21" cy="17" r="12" fill="white"/>
+            </svg>
+            <!-- circle center: 42px, 34px at 2x scale; r=12 → 24px diameter -->
+            <div class="emoji" style="width:46px;height:46px;left:19px;top:11px;font-size:26px;">🍷</div>
+          </div>
+          <div class="pin-label">Featured Bar</div>
+          <div class="pin-sublabel">Gold + 🍷</div>
+        </div>
+
+        <!-- Featured Store — gold -->
+        <div class="pin-group">
+          <div class="efpin">
+            <svg width="84" height="110" viewBox="0 0 42 55" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="21" cy="54" rx="9" ry="2.5" fill="rgba(0,0,0,0.25)"/>
+              <path d="M21 1C12 1 5 8 5 17c0 13 16 37 16 37S37 30 37 17C37 8 30 1 21 1z" fill="#FFB800" stroke="white" stroke-width="2.5"/>
+              <circle cx="21" cy="17" r="12" fill="white"/>
+            </svg>
+            <div class="emoji" style="width:46px;height:46px;left:19px;top:11px;font-size:26px;">🛒</div>
+          </div>
+          <div class="pin-label">Featured Store</div>
+          <div class="pin-sublabel">Gold + 🛒</div>
+        </div>
+
+        <!-- Featured Winery — gold -->
+        <div class="pin-group">
+          <div class="efpin">
+            <svg width="84" height="110" viewBox="0 0 42 55" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="21" cy="54" rx="9" ry="2.5" fill="rgba(0,0,0,0.25)"/>
+              <path d="M21 1C12 1 5 8 5 17c0 13 16 37 16 37S37 30 37 17C37 8 30 1 21 1z" fill="#FFB800" stroke="white" stroke-width="2.5"/>
+              <circle cx="21" cy="17" r="12" fill="white"/>
+            </svg>
+            <div class="emoji" style="width:46px;height:46px;left:19px;top:11px;font-size:26px;">🍇</div>
+          </div>
+          <div class="pin-label">Featured Winery</div>
+          <div class="pin-sublabel">Gold + 🍇</div>
+        </div>
+
+      </div>
+
+      <br>
+      <div class="category-label" style="margin-top:16px;">Featured Alt — Category color + emoji + gold ★ badge</div>
+      <div class="row">
+
+        <div class="pin-group">
+          <div class="efpin">
+            <svg width="84" height="110" viewBox="0 0 42 55" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="21" cy="54" rx="9" ry="2.5" fill="rgba(0,0,0,0.25)"/>
+              <path d="M21 1C12 1 5 8 5 17c0 13 16 37 16 37S37 30 37 17C37 8 30 1 21 1z" fill="#ec407a" stroke="white" stroke-width="2.5"/>
+              <circle cx="21" cy="17" r="12" fill="white"/>
+              <circle cx="35" cy="8" r="8" fill="#FFB800" stroke="white" stroke-width="2"/>
+              <text x="35" y="8.5" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="white" font-weight="bold">★</text>
+            </svg>
+            <div class="emoji" style="width:46px;height:46px;left:19px;top:11px;font-size:26px;">🍷</div>
+          </div>
+          <div class="pin-label">Featured Bar</div>
+          <div class="pin-sublabel">Pink + 🍷 + ★</div>
+        </div>
+
+        <div class="pin-group">
+          <div class="efpin">
+            <svg width="84" height="110" viewBox="0 0 42 55" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="21" cy="54" rx="9" ry="2.5" fill="rgba(0,0,0,0.25)"/>
+              <path d="M21 1C12 1 5 8 5 17c0 13 16 37 16 37S37 30 37 17C37 8 30 1 21 1z" fill="#1a1a1a" stroke="white" stroke-width="2.5"/>
+              <circle cx="21" cy="17" r="12" fill="white"/>
+              <circle cx="35" cy="8" r="8" fill="#FFB800" stroke="white" stroke-width="2"/>
+              <text x="35" y="8.5" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="white" font-weight="bold">★</text>
+            </svg>
+            <div class="emoji" style="width:46px;height:46px;left:19px;top:11px;font-size:26px;">🛒</div>
+          </div>
+          <div class="pin-label">Featured Store</div>
+          <div class="pin-sublabel">Black + 🛒 + ★</div>
+        </div>
+
+        <div class="pin-group">
+          <div class="efpin">
+            <svg width="84" height="110" viewBox="0 0 42 55" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="21" cy="54" rx="9" ry="2.5" fill="rgba(0,0,0,0.25)"/>
+              <path d="M21 1C12 1 5 8 5 17c0 13 16 37 16 37S37 30 37 17C37 8 30 1 21 1z" fill="#7c3aed" stroke="white" stroke-width="2.5"/>
+              <circle cx="21" cy="17" r="12" fill="white"/>
+              <circle cx="35" cy="8" r="8" fill="#FFB800" stroke="white" stroke-width="2"/>
+              <text x="35" y="8.5" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="white" font-weight="bold">★</text>
+            </svg>
+            <div class="emoji" style="width:46px;height:46px;left:19px;top:11px;font-size:26px;">🍇</div>
+          </div>
+          <div class="pin-label">Featured Winery</div>
+          <div class="pin-sublabel">Purple + 🍇 + ★</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<p style="color:#aaa;font-size:12px;margin-top:24px;">No live changes have been made. Reply with your preferred option to proceed.</p>
+
+</body>
+</html>

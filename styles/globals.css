@@ -2477,6 +2477,24 @@ body {
 }
 .map-action-btn:hover { border-color: var(--pink); color: var(--pink); }
 
+/* Featured legend badge */
+.map-featured-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px 4px 6px;
+  border: 1.5px solid #FFB800;
+  border-radius: 20px;
+  background: #fffbf0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #7a6000;
+  white-space: nowrap;
+  cursor: default;
+}
+.map-featured-legend-pin { display: flex; align-items: center; }
+.map-featured-legend-label { line-height: 1; }
+
 /* Map container — fills remaining viewport height */
 .map-container {
   position: relative;

@@ -1,14 +1,18 @@
 [
   {
     "id": 1,
-    "name": "Anaïs Wine Bar",
+    "name": "Ana\u00efs Wine Bar",
     "address": "196 Bergen St, Brooklyn, NY, 11217",
     "borough": "Brooklyn",
-    "neighborhood": "Brooklyn",
+    "neighborhood": "Boerum Hill",
     "phone": "",
-    "email": "",
-    "website": "",
-    "notes": "official website not surfaced cleanly"
+    "email": "hello@anaisbk.com",
+    "website": "https://www.anaisbk.com/",
+    "notes": "official website not surfaced cleanly",
+    "logo": "https://images.squarespace-cdn.com/content/v1/62a0aa286b50441f3d9fc2d1/a1591594-769a-4f46-86c3-be3f6f12e668/Anais_logo.png?format=750w",
+    "featured": true,
+    "lat": 40.684821,
+    "lng": -73.986126
   },
   {
     "id": 2,
@@ -19,7 +23,9 @@
     "phone": "(347) 689-4658",
     "email": "info@bigtinybk.com",
     "website": "https://bigtinybk.com",
-    "notes": "French bistro + wine bar"
+    "notes": "French bistro + wine bar",
+    "lat": 40.683476,
+    "lng": -73.992848
   },
   {
     "id": 3,
@@ -30,7 +36,9 @@
     "phone": "",
     "email": "blackmountainwinehouse@gmail.com",
     "website": "https://blackmountainwinehouse.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.680902,
+    "lng": -73.991513
   },
   {
     "id": 4,
@@ -39,9 +47,11 @@
     "borough": "Brooklyn",
     "neighborhood": "Brooklyn",
     "phone": "",
-    "email": "",
+    "email": "cherryontopbk@gmail.com",
     "website": "https://www.cherryontopnyc.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.70491,
+    "lng": -73.921354
   },
   {
     "id": 5,
@@ -52,7 +62,9 @@
     "phone": "(718) 963-1925",
     "email": "docwinebarbkparty@gmail.com",
     "website": "https://www.docwinebarbk.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.71974,
+    "lng": -73.960401
   },
   {
     "id": 6,
@@ -61,9 +73,11 @@
     "borough": "Brooklyn",
     "neighborhood": "Brooklyn",
     "phone": "",
-    "email": "",
+    "email": "frogwinebar@gmail.com",
     "website": "",
-    "notes": "official website not surfaced cleanly"
+    "notes": "official website not surfaced cleanly",
+    "lat": 40.684837,
+    "lng": -73.938633
   },
   {
     "id": 7,
@@ -74,7 +88,9 @@
     "phone": "(929) 337-6252",
     "email": "",
     "website": "https://www.judysbk.com",
-    "notes": "coffee by day, wine bar by night"
+    "notes": "coffee by day, wine bar by night",
+    "lat": 40.650399,
+    "lng": -74.005191
   },
   {
     "id": 8,
@@ -83,9 +99,11 @@
     "borough": "Brooklyn",
     "neighborhood": "Brooklyn",
     "phone": "(917) 909-0434",
-    "email": "",
+    "email": "hello@junebk.com",
     "website": "https://www.junebk.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.686073,
+    "lng": -73.993879
   },
   {
     "id": 9,
@@ -96,7 +114,9 @@
     "phone": "",
     "email": "",
     "website": "https://www.liseandvito.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.724383,
+    "lng": -73.948418
   },
   {
     "id": 10,
@@ -107,29 +127,37 @@
     "phone": "(718) 624-7900",
     "email": "",
     "website": "https://www.olympiawinebar.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.703283,
+    "lng": -73.986878
   },
   {
     "id": 11,
-    "name": "Place des Fêtes",
+    "name": "Place des F\u00eates",
     "address": "212 Greene Ave, Brooklyn, NY, 11238",
     "borough": "Brooklyn",
     "neighborhood": "Brooklyn",
     "phone": "(718) 857-0101",
-    "email": "",
+    "email": "info@pdfnyc.com",
     "website": "https://www.pdfnyc.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.686824,
+    "lng": -73.962876
   },
   {
     "id": 12,
     "name": "Rhodora Wine Bar",
     "address": "197 Adelphi St, Brooklyn, NY, 11205",
     "borough": "Brooklyn",
-    "neighborhood": "Brooklyn",
+    "neighborhood": "Fort Greene",
     "phone": "",
     "email": "hello@rhodorabk.com",
     "website": "https://www.rhodorabk.com",
-    "notes": ""
+    "notes": "",
+    "logo": "https://images.squarespace-cdn.com/content/v1/5d7bc8617e9d3f18cc755a50/1569435485360-2REA0K3DMQ8UHLDZGVA1/Logo-1.png",
+    "featured": true,
+    "lat": 40.69176,
+    "lng": -73.971369
   },
   {
     "id": 13,
@@ -140,7 +168,9 @@
     "phone": "(347) 987-3710",
     "email": "",
     "website": "https://www.saintjulivertbk.com",
-    "notes": "coastal seafood + wine program"
+    "notes": "coastal seafood + wine program",
+    "lat": 40.687898,
+    "lng": -73.995707
   },
   {
     "id": 14,
@@ -149,9 +179,11 @@
     "borough": "Brooklyn",
     "neighborhood": "Brooklyn",
     "phone": "",
-    "email": "",
+    "email": "hello@saucedbklyn.com",
     "website": "https://www.saucedbklyn.com",
-    "notes": "Brooklyn location"
+    "notes": "Brooklyn location",
+    "lat": 40.712635,
+    "lng": -73.962266
   },
   {
     "id": 15,
@@ -160,9 +192,11 @@
     "borough": "Brooklyn",
     "neighborhood": "Brooklyn",
     "phone": "",
-    "email": "",
+    "email": "info@fourhorsemenbk.com",
     "website": "https://www.fourhorsemenbk.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.713168,
+    "lng": -73.957246
   },
   {
     "id": 16,
@@ -171,9 +205,11 @@
     "borough": "Brooklyn",
     "neighborhood": "Brooklyn",
     "phone": "",
-    "email": "",
+    "email": "info@tenbellsnyc.com",
     "website": "https://www.tenbellsbk.com",
-    "notes": "Bushwick location"
+    "notes": "Bushwick location",
+    "lat": 40.704675,
+    "lng": -73.923876
   },
   {
     "id": 17,
@@ -182,9 +218,11 @@
     "borough": "Brooklyn",
     "neighborhood": "Brooklyn",
     "phone": "(347) 588-3955",
-    "email": "",
+    "email": "info@tipsygrapeny.com",
     "website": "https://tipsygrapeny.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.687998,
+    "lng": -73.989866
   },
   {
     "id": 18,
@@ -195,7 +233,9 @@
     "phone": "",
     "email": "",
     "website": "https://www.whoopsiedaisybk.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.668691,
+    "lng": -73.953165
   },
   {
     "id": 19,
@@ -204,31 +244,37 @@
     "borough": "Brooklyn",
     "neighborhood": "Brooklyn",
     "phone": "(929) 389-0807",
-    "email": "",
+    "email": "hello@withothersbk.com",
     "website": "https://www.withothersbrooklyn.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.712816,
+    "lng": -73.96257
   },
   {
     "id": 20,
-    "name": "1372 1st",
+    "name": "Vanguard Wine Bar (UES)",
     "address": "1372 1st Ave, New York, NY, 10021",
     "borough": "Manhattan",
     "neighborhood": "Manhattan",
     "phone": "(212) 288-9463",
     "email": "",
-    "website": "",
-    "notes": "official website not available"
+    "website": "https://www.vanguard-nyc.com/",
+    "notes": "Two-location chain; UES location at 1372 1st Ave",
+    "lat": 40.768536,
+    "lng": -73.955072
   },
   {
     "id": 21,
-    "name": "189 Amsterdam Avenue Wine Bar Corp",
+    "name": "Vanguard Wine Bar (UWS)",
     "address": "189 Amsterdam Ave, New York, NY, 10023",
     "borough": "Manhattan",
     "neighborhood": "Manhattan",
     "phone": "(212) 799-9463",
     "email": "",
-    "website": "",
-    "notes": "official website not available"
+    "website": "https://www.vanguard-nyc.com/",
+    "notes": "Two-location chain; UWS location at 189 Amsterdam Ave",
+    "lat": 40.776146,
+    "lng": -73.982826
   },
   {
     "id": 22,
@@ -238,19 +284,25 @@
     "neighborhood": "Manhattan",
     "phone": "(646) 590-1859",
     "email": "",
-    "website": "",
-    "notes": "no clean official site surfaced"
+    "website": "https://www.8thstwinecellar.com/",
+    "notes": "no clean official site surfaced",
+    "lat": 40.732684,
+    "lng": -73.997947
   },
   {
     "id": 23,
     "name": "APERITIVO by CARTA",
     "address": "101 W 10th St, New York, NY, 10011",
     "borough": "Manhattan",
-    "neighborhood": "Manhattan",
+    "neighborhood": "West Village",
     "phone": "(929) 248-6685",
     "email": "info@aperitivobycarta.com",
     "website": "https://aperitivobycarta.com",
-    "notes": ""
+    "logo": "https://aperitivobycarta.com/wp-content/uploads/2025/10/cropped-logoaperitivo.jpg",
+    "featured": true,
+    "notes": "",
+    "lat": 40.734947,
+    "lng": -73.998908
   },
   {
     "id": 24,
@@ -261,7 +313,9 @@
     "phone": "(212) 722-8959",
     "email": "",
     "website": "",
-    "notes": ""
+    "notes": "[CLOSED]",
+    "lat": 40.786769,
+    "lng": -73.950651
   },
   {
     "id": 25,
@@ -270,9 +324,11 @@
     "borough": "Manhattan",
     "neighborhood": "Manhattan",
     "phone": "(212) 554-1143",
-    "email": "",
+    "email": "office@aldosohm.com",
     "website": "http://www.aldosohmwinebar.com/",
-    "notes": ""
+    "notes": "",
+    "lat": 40.761705,
+    "lng": -73.981791
   },
   {
     "id": 26,
@@ -283,7 +339,9 @@
     "phone": "(212) 234-3084",
     "email": "",
     "website": "",
-    "notes": "official site not cleanly surfaced"
+    "notes": "official site not cleanly surfaced [CLOSED]",
+    "lat": 40.825279,
+    "lng": -73.950887
   },
   {
     "id": 27,
@@ -293,8 +351,10 @@
     "neighborhood": "Manhattan",
     "phone": "(212) 255-5588",
     "email": "",
-    "website": "https://aras.org",
-    "notes": ""
+    "website": "",
+    "notes": "[CLOSED]",
+    "lat": 40.740342,
+    "lng": -74.005506
   },
   {
     "id": 28,
@@ -303,9 +363,11 @@
     "borough": "Manhattan",
     "neighborhood": "Manhattan",
     "phone": "(212) 247-9191",
-    "email": "",
+    "email": "info@ardesia-ny.com",
     "website": "http://www.ardesia-ny.com/",
-    "notes": ""
+    "notes": "",
+    "lat": 40.765983,
+    "lng": -73.991902
   },
   {
     "id": 29,
@@ -316,7 +378,9 @@
     "phone": "(212) 945-4770",
     "email": "",
     "website": "https://www.aromakitchenandwinebar.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.71267,
+    "lng": -74.01654
   },
   {
     "id": 30,
@@ -325,9 +389,11 @@
     "borough": "Manhattan",
     "neighborhood": "Manhattan",
     "phone": "(212) 714-2992",
-    "email": "",
+    "email": "info@ayzanyc.com",
     "website": "https://ayzanyc.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.747121,
+    "lng": -73.986661
   },
   {
     "id": 31,
@@ -338,18 +404,22 @@
     "phone": "(646) 682-9062",
     "email": "",
     "website": "https://www.pocketbarnyc.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.763855,
+    "lng": -73.99203
   },
   {
     "id": 32,
-    "name": "Bar Jamón",
+    "name": "Bar Jam\u00f3n",
     "address": "52 Irving Pl, New York, NY, 10003",
     "borough": "Manhattan",
     "neighborhood": "Manhattan",
     "phone": "(212) 253-2773",
     "email": "",
     "website": "https://www.casamononyc.com/private-events-venue/bar-jamon/",
-    "notes": "Spanish wine/tapas bar"
+    "notes": "Spanish wine/tapas bar",
+    "lat": 40.735869,
+    "lng": -73.987026
   },
   {
     "id": 33,
@@ -358,9 +428,11 @@
     "borough": "Manhattan",
     "neighborhood": "Manhattan",
     "phone": "(212) 673-2424",
-    "email": "",
+    "email": "info@bibiwinebar.com",
     "website": "https://www.bibiwinebar.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.723902,
+    "lng": -73.983558
   },
   {
     "id": 34,
@@ -371,7 +443,9 @@
     "phone": "(212) 289-9004",
     "email": "",
     "website": "https://bocadocafenyc.com",
-    "notes": "wine-focused restaurant/bar"
+    "notes": "wine-focused restaurant/bar",
+    "lat": 40.78028,
+    "lng": -73.954783
   },
   {
     "id": 35,
@@ -382,7 +456,9 @@
     "phone": "(212) 535-3140",
     "email": "",
     "website": "https://www.mybonjour.net",
-    "notes": ""
+    "notes": "",
+    "lat": 40.775555,
+    "lng": -73.953748
   },
   {
     "id": 36,
@@ -393,7 +469,9 @@
     "phone": "(646) 476-2014",
     "email": "",
     "website": "https://c-di-palo.weeblyte.com/",
-    "notes": "address confirmed; official site unclear"
+    "notes": "address confirmed; official site unclear",
+    "lat": 40.719326,
+    "lng": -73.996558
   },
   {
     "id": 37,
@@ -404,7 +482,9 @@
     "phone": "(332) 323-1120",
     "email": "cheers@cartawinebar.com",
     "website": "https://cartawinebar.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.729506,
+    "lng": -74.003985
   },
   {
     "id": 38,
@@ -415,7 +495,9 @@
     "phone": "(212) 717-9190",
     "email": "",
     "website": "",
-    "notes": "no clean official site surfaced"
+    "notes": "no clean official site surfaced [CLOSED]",
+    "lat": 40.774759,
+    "lng": -73.954804
   },
   {
     "id": 39,
@@ -426,7 +508,9 @@
     "phone": "(646) 270-2505",
     "email": "",
     "website": "",
-    "notes": ""
+    "notes": "[CLOSED]",
+    "lat": 40.725673,
+    "lng": -73.989414
   },
   {
     "id": 40,
@@ -437,7 +521,9 @@
     "phone": "(646) 751-6033",
     "email": "",
     "website": "https://citywinery.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.74344,
+    "lng": -74.009904
   },
   {
     "id": 41,
@@ -448,7 +534,9 @@
     "phone": "(646) 751-6036",
     "email": "",
     "website": "https://citywinery.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.758333,
+    "lng": -73.979734
   },
   {
     "id": 42,
@@ -457,9 +545,11 @@
     "borough": "Manhattan",
     "neighborhood": "Manhattan",
     "phone": "(917) 261-6791",
-    "email": "",
+    "email": "info@claudnyc.com",
     "website": "https://www.claudnyc.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.730815,
+    "lng": -73.989728
   },
   {
     "id": 43,
@@ -470,7 +560,9 @@
     "phone": "(646) 873-6071",
     "email": "",
     "website": "https://www.corkbuzz.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.735105,
+    "lng": -73.993126
   },
   {
     "id": 44,
@@ -481,7 +573,9 @@
     "phone": "(646) 692-6640",
     "email": "",
     "website": "",
-    "notes": "wine/tapas spot"
+    "notes": "wine/tapas spot [CLOSED]",
+    "lat": 40.734493,
+    "lng": -74.002624
   },
   {
     "id": 45,
@@ -492,7 +586,9 @@
     "phone": "(212) 918-1330",
     "email": "",
     "website": "https://www.doscaminos.com",
-    "notes": "Times Square location"
+    "notes": "Times Square location",
+    "lat": 40.759398,
+    "lng": -73.985569
   },
   {
     "id": 46,
@@ -503,7 +599,9 @@
     "phone": "(212) 277-4300",
     "email": "",
     "website": "https://www.doscaminos.com",
-    "notes": "Hudson Street/SoHo area location categorized under wine bars"
+    "notes": "Hudson Street/SoHo area location categorized under wine bars",
+    "lat": 40.726612,
+    "lng": -73.999893
   },
   {
     "id": 47,
@@ -514,7 +612,9 @@
     "phone": "(332) 233-7205",
     "email": "",
     "website": "https://www.doscaminos.com",
-    "notes": "Lexington / Midtown East location"
+    "notes": "Lexington / Midtown East location",
+    "lat": 40.755856,
+    "lng": -73.97017
   },
   {
     "id": 48,
@@ -525,7 +625,9 @@
     "phone": "(212) 727-8765",
     "email": "",
     "website": "https://www.entwinenyc.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.737403,
+    "lng": -74.007983
   },
   {
     "id": 49,
@@ -536,7 +638,9 @@
     "phone": "(212) 785-5950",
     "email": "",
     "website": "https://www.felicerestaurants.com",
-    "notes": "Italian restaurant and wine bar"
+    "notes": "Italian restaurant and wine bar",
+    "lat": 40.707895,
+    "lng": -74.007147
   },
   {
     "id": 50,
@@ -545,9 +649,11 @@
     "borough": "Manhattan",
     "neighborhood": "Manhattan",
     "phone": "(212) 227-7074",
-    "email": "",
-    "website": "",
-    "notes": "no clean official site surfaced"
+    "email": "gominyc@gmail.com",
+    "website": "https://www.gomikoreanwinebar.com/",
+    "notes": "no clean official site surfaced",
+    "lat": 40.71461,
+    "lng": -74.00968
   },
   {
     "id": 51,
@@ -558,7 +664,9 @@
     "phone": "(646) 852-6876",
     "email": "",
     "website": "",
-    "notes": ""
+    "notes": "",
+    "lat": 40.780222,
+    "lng": -73.950418
   },
   {
     "id": 52,
@@ -567,9 +675,11 @@
     "borough": "Manhattan",
     "neighborhood": "Manhattan",
     "phone": "(212) 722-0490",
-    "email": "",
+    "email": "info@kaiawinebar.com",
     "website": "https://kaiawinebar.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.781926,
+    "lng": -73.952054
   },
   {
     "id": 53,
@@ -580,7 +690,9 @@
     "phone": "(212) 343-3660",
     "email": "reservation@compagnieflatiron.com",
     "website": "https://www.compagniedesvinssurnaturels.com/nyc-flat-iron",
-    "notes": ""
+    "notes": "",
+    "lat": 40.742494,
+    "lng": -73.990351
   },
   {
     "id": 54,
@@ -589,9 +701,11 @@
     "borough": "Manhattan",
     "neighborhood": "Manhattan",
     "phone": "(212) 343-3664",
-    "email": "",
+    "email": "reservation@compagnienyc.com",
     "website": "https://www.compagniewinebar.com/nyc",
-    "notes": "Centre Street / SoHo"
+    "notes": "Centre Street / SoHo",
+    "lat": 40.72052,
+    "lng": -73.998202
   },
   {
     "id": 55,
@@ -600,9 +714,11 @@
     "borough": "Manhattan",
     "neighborhood": "Manhattan",
     "phone": "",
-    "email": "",
+    "email": "info@ledivenyc.com",
     "website": "https://ledive.nyc",
-    "notes": ""
+    "notes": "",
+    "lat": 40.714806,
+    "lng": -73.990924
   },
   {
     "id": 56,
@@ -613,7 +729,9 @@
     "phone": "(917) 475-1212",
     "email": "",
     "website": "https://www.legrandtriage.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.77726,
+    "lng": -73.94954
   },
   {
     "id": 57,
@@ -624,7 +742,9 @@
     "phone": "(212) 799-2253",
     "email": "",
     "website": "",
-    "notes": "no clean official site surfaced"
+    "notes": "no clean official site surfaced [CLOSED]",
+    "lat": 40.777467,
+    "lng": -73.981541
   },
   {
     "id": 58,
@@ -633,20 +753,26 @@
     "borough": "Manhattan",
     "neighborhood": "Manhattan",
     "phone": "(212) 431-3900",
-    "email": "",
-    "website": "",
-    "notes": "no clean official site surfaced"
+    "email": "info@leanyc.com",
+    "website": "https://leanyc.com/",
+    "notes": "no clean official site surfaced",
+    "lat": 40.723286,
+    "lng": -74.004409
   },
   {
     "id": 59,
     "name": "Lei Wine Bar",
     "address": "15-17 Doyers St, New York, NY, 10013",
     "borough": "Manhattan",
-    "neighborhood": "Manhattan",
+    "neighborhood": "Chinatown",
     "phone": "",
-    "email": "",
-    "website": "",
-    "notes": "new Chinatown wine bar; official site not surfaced cleanly"
+    "email": "info@leinyc.com",
+    "website": "https://www.leiwine.nyc/",
+    "notes": "new Chinatown wine bar; official site not surfaced cleanly",
+    "featured": true,
+    "logo": "https://images.squarespace-cdn.com/content/v1/681282bb6b86085cb558827c/ccbd06a3-ef50-4bc8-a53c-487f28b2a5e2/SECONDARYLOGO_LEI+Green.png",
+    "lat": 40.714608,
+    "lng": -73.998269
   },
   {
     "id": 60,
@@ -657,7 +783,9 @@
     "phone": "(212) 343-7425",
     "email": "",
     "website": "https://www.lena-nyc.com",
-    "notes": "Lower East Side location"
+    "notes": "Lower East Side location",
+    "lat": 40.719113,
+    "lng": -73.991746
   },
   {
     "id": 61,
@@ -668,7 +796,9 @@
     "phone": "(917) 624-5166",
     "email": "",
     "website": "https://www.lena-nyc.com",
-    "notes": "West Village / Greenwich Village area location"
+    "notes": "West Village / Greenwich Village area location",
+    "lat": 40.7325,
+    "lng": -73.99659
   },
   {
     "id": 62,
@@ -679,7 +809,9 @@
     "phone": "(646) 678-5740",
     "email": "",
     "website": "https://localandvinenyc.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.725281,
+    "lng": -74.007391
   },
   {
     "id": 63,
@@ -690,7 +822,9 @@
     "phone": "(212) 475-5599",
     "email": "",
     "website": "https://www.loiswine.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.723752,
+    "lng": -73.978793
   },
   {
     "id": 64,
@@ -701,7 +835,9 @@
     "phone": "(212) 586-1201",
     "email": "",
     "website": "https://www.mediwinebar.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.765874,
+    "lng": -73.987515
   },
   {
     "id": 65,
@@ -712,18 +848,24 @@
     "phone": "(646) 907-1960",
     "email": "",
     "website": "https://www.estiatoriomilos.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.752494,
+    "lng": -73.995442
   },
   {
     "id": 66,
     "name": "Musette Wine Bar",
     "address": "420 Malcolm X Blvd, New York, NY, 10037",
     "borough": "Manhattan",
-    "neighborhood": "Manhattan",
+    "neighborhood": "Harlem",
     "phone": "(646) 707-3271",
     "email": "contact@musettewinebar.com",
     "website": "https://musettewinebar.com",
-    "notes": ""
+    "notes": "",
+    "logo": "https://static.spotapps.co/website_images/ab_websites/117051_website/logo.png",
+    "featured": true,
+    "lat": 40.811508,
+    "lng": -73.942279
   },
   {
     "id": 67,
@@ -734,7 +876,9 @@
     "phone": "",
     "email": "reservations@parcellewine.com",
     "website": "https://parcellewine.com",
-    "notes": "Chinatown / Dimes Square area location"
+    "notes": "Chinatown / Dimes Square area location",
+    "lat": 40.714376,
+    "lng": -73.991156
   },
   {
     "id": 68,
@@ -745,7 +889,9 @@
     "phone": "",
     "email": "reservations@parcellewine.com",
     "website": "https://parcellewine.com",
-    "notes": "Greenwich Village location"
+    "notes": "Greenwich Village location",
+    "lat": 40.728215,
+    "lng": -74.001808
   },
   {
     "id": 69,
@@ -754,9 +900,11 @@
     "borough": "Manhattan",
     "neighborhood": "Manhattan",
     "phone": "",
-    "email": "",
+    "email": "info@pennynyc.com",
     "website": "https://www.penny-nyc.com",
-    "notes": "seafood spot with major wine program"
+    "notes": "seafood spot with major wine program",
+    "lat": 40.730815,
+    "lng": -73.989728
   },
   {
     "id": 70,
@@ -767,7 +915,9 @@
     "phone": "(212) 777-5684",
     "email": "",
     "website": "https://pierrelotiwinebar.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.73616,
+    "lng": -73.987527
   },
   {
     "id": 71,
@@ -778,7 +928,9 @@
     "phone": "(212) 755-5684",
     "email": "",
     "website": "https://pierrelotiwinebar.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.755936,
+    "lng": -73.967446
   },
   {
     "id": 72,
@@ -789,18 +941,24 @@
     "phone": "(212) 799-4140",
     "email": "",
     "website": "https://www.riposonyc.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.776997,
+    "lng": -73.978489
   },
   {
     "id": 73,
     "name": "Roscioli NYC",
     "address": "43 MacDougal St, New York, NY, 10012",
     "borough": "Manhattan",
-    "neighborhood": "Manhattan",
+    "neighborhood": "Greenwich Village",
     "phone": "",
     "email": "ciao@rosciolinyc.com",
     "website": "https://www.rosciolinyc.com",
-    "notes": "restaurant with strong wine focus"
+    "notes": "restaurant with strong wine focus",
+    "logo": "https://images.squarespace-cdn.com/content/v1/691656a28c3867312e658fd6/f6995212-d6af-48dc-9f49-4cad06adbdf0/Roscioli_Logo_Cropped.png",
+    "featured": true,
+    "lat": 40.727761,
+    "lng": -74.002608
   },
   {
     "id": 74,
@@ -809,9 +967,11 @@
     "borough": "Manhattan",
     "neighborhood": "Manhattan",
     "phone": "(212) 777-0855",
-    "email": "",
+    "email": "ruffianbar@gmail.com",
     "website": "https://ruffian.nyc",
-    "notes": ""
+    "notes": "",
+    "lat": 40.726504,
+    "lng": -73.984043
   },
   {
     "id": 75,
@@ -822,7 +982,9 @@
     "phone": "(212) 732-0907",
     "email": "",
     "website": "https://www.santambroeus.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.713995,
+    "lng": -74.015877
   },
   {
     "id": 76,
@@ -833,7 +995,9 @@
     "phone": "(212) 604-9254",
     "email": "",
     "website": "https://www.santambroeus.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.735415,
+    "lng": -74.003136
   },
   {
     "id": 77,
@@ -842,9 +1006,11 @@
     "borough": "Manhattan",
     "neighborhood": "Manhattan",
     "phone": "",
-    "email": "",
+    "email": "hello@saucedbklyn.com",
     "website": "https://www.saucedbklyn.com",
-    "notes": "Manhattan location"
+    "notes": "Manhattan location",
+    "lat": 40.725462,
+    "lng": -73.990296
   },
   {
     "id": 78,
@@ -855,7 +1021,9 @@
     "phone": "(212) 988-2646",
     "email": "",
     "website": "https://www.serenasnyc.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.765221,
+    "lng": -73.960634
   },
   {
     "id": 79,
@@ -866,7 +1034,9 @@
     "phone": "(212) 541-9241",
     "email": "",
     "website": "",
-    "notes": ""
+    "notes": "",
+    "lat": 40.764089,
+    "lng": -73.988099
   },
   {
     "id": 80,
@@ -877,7 +1047,9 @@
     "phone": "(212) 234-6100",
     "email": "",
     "website": "",
-    "notes": ""
+    "notes": "",
+    "lat": 40.810673,
+    "lng": -73.93947
   },
   {
     "id": 81,
@@ -886,9 +1058,11 @@
     "borough": "Manhattan",
     "neighborhood": "Manhattan",
     "phone": "(212) 933-9398",
-    "email": "",
+    "email": "info@skincontactnyc.com",
     "website": "https://www.skincontact.nyc",
-    "notes": ""
+    "notes": "",
+    "lat": 40.717684,
+    "lng": -73.990224
   },
   {
     "id": 82,
@@ -897,9 +1071,11 @@
     "borough": "Manhattan",
     "neighborhood": "Manhattan",
     "phone": "(212) 888-8660",
-    "email": "",
+    "email": "sofiawinebar@gmail.com",
     "website": "https://www.sofiawinebar.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.754941,
+    "lng": -73.969202
   },
   {
     "id": 83,
@@ -908,9 +1084,11 @@
     "borough": "Manhattan",
     "neighborhood": "Manhattan",
     "phone": "(917) 970-9090",
-    "email": "",
+    "email": "st.tropezwinebar@gmail.com",
     "website": "https://sttropezwinebar.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.736986,
+    "lng": -74.003908
   },
   {
     "id": 84,
@@ -921,18 +1099,22 @@
     "phone": "(212) 628-3000",
     "email": "",
     "website": "https://tandooroven.com",
-    "notes": "wine-friendly restaurant listed under wine bars"
+    "notes": "wine-friendly restaurant listed under wine bars",
+    "lat": 40.777148,
+    "lng": -73.955638
   },
   {
     "id": 85,
-    "name": "Taste Restaurant & Wine Bar",
+    "name": "Eli's Table (fka Taste)",
     "address": "1413 3rd Ave, New York, NY, 10028",
     "borough": "Manhattan",
     "neighborhood": "Manhattan",
     "phone": "(212) 717-9798",
     "email": "",
-    "website": "",
-    "notes": ""
+    "website": "https://www.elizabar.com/",
+    "notes": "Formerly Taste Restaurant & Wine Bar; now Eli's Table",
+    "lat": 40.774978,
+    "lng": -73.956253
   },
   {
     "id": 86,
@@ -943,7 +1125,9 @@
     "phone": "(212) 691-6000",
     "email": "",
     "website": "",
-    "notes": ""
+    "notes": "[CLOSED] Confirmed closed March 2026",
+    "lat": 40.729938,
+    "lng": -74.003161
   },
   {
     "id": 87,
@@ -954,7 +1138,9 @@
     "phone": "(212) 995-9463",
     "email": "",
     "website": "",
-    "notes": ""
+    "notes": "",
+    "lat": 40.721934,
+    "lng": -73.986665
   },
   {
     "id": 88,
@@ -963,9 +1149,11 @@
     "borough": "Manhattan",
     "neighborhood": "Manhattan",
     "phone": "(212) 625-0900",
-    "email": "",
+    "email": "info@terrawinebar.com",
     "website": "https://terrawinebar.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.719221,
+    "lng": -74.006022
   },
   {
     "id": 89,
@@ -974,9 +1162,11 @@
     "borough": "Manhattan",
     "neighborhood": "Manhattan",
     "phone": "(212) 625-9463",
-    "email": "",
+    "email": "info@wineisterroir.com",
     "website": "https://www.wineisterroir.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.718919,
+    "lng": -74.009968
   },
   {
     "id": 90,
@@ -987,7 +1177,9 @@
     "phone": "(212) 790-8867",
     "email": "",
     "website": "https://www.baccarathotels.com",
-    "notes": "wine/cocktail hotel bar"
+    "notes": "wine/cocktail hotel bar",
+    "lat": 40.761866,
+    "lng": -73.978156
   },
   {
     "id": 91,
@@ -998,7 +1190,9 @@
     "phone": "(212) 777-7724",
     "email": "",
     "website": "https://www.theimmigrantnyc.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.728582,
+    "lng": -73.985367
   },
   {
     "id": 92,
@@ -1009,7 +1203,9 @@
     "phone": "(212) 645-9758",
     "email": "",
     "website": "",
-    "notes": "no clean official site surfaced"
+    "notes": "[SITE DOWN] Website non-functional March 2026",
+    "lat": 40.734978,
+    "lng": -74.00804
   },
   {
     "id": 93,
@@ -1020,7 +1216,9 @@
     "phone": "",
     "email": "info@tenbellsnyc.com",
     "website": "https://www.thetenbells.nyc",
-    "notes": "Lower East Side location"
+    "notes": "Lower East Side location",
+    "lat": 40.717828,
+    "lng": -73.989852
   },
   {
     "id": 94,
@@ -1030,8 +1228,10 @@
     "neighborhood": "Manhattan",
     "phone": "(212) 579-7970",
     "email": "",
-    "website": "",
-    "notes": "official site not cleanly surfaced"
+    "website": "https://ilgustowinebar.com/",
+    "notes": "official site not cleanly surfaced",
+    "lat": 40.789269,
+    "lng": -73.969618
   },
   {
     "id": 95,
@@ -1042,7 +1242,9 @@
     "phone": "(212) 675-7749",
     "email": "",
     "website": "",
-    "notes": ""
+    "notes": "[CLOSED]",
+    "lat": 40.743418,
+    "lng": -73.999498
   },
   {
     "id": 96,
@@ -1053,7 +1255,9 @@
     "phone": "(212) 614-2555",
     "email": "",
     "website": "",
-    "notes": "website not captured cleanly"
+    "notes": "website not captured cleanly [CLOSED]",
+    "lat": 40.714985,
+    "lng": -73.978972
   },
   {
     "id": 97,
@@ -1064,7 +1268,9 @@
     "phone": "(212) 447-9463",
     "email": "",
     "website": "https://www.vanguard-nyc.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.776146,
+    "lng": -73.982826
   },
   {
     "id": 98,
@@ -1075,18 +1281,24 @@
     "phone": "(212) 335-0456",
     "email": "",
     "website": "https://vellawinebar.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.772038,
+    "lng": -73.955652
   },
   {
     "id": 99,
     "name": "Vin Sur Vingt",
     "address": "100 Riverside Blvd, New York, NY, 10069",
     "borough": "Manhattan",
-    "neighborhood": "Manhattan",
+    "neighborhood": "Upper West Side",
     "phone": "(646) 779-9683",
     "email": "",
     "website": "https://www.vsvwinebars.com",
-    "notes": "Riverside location"
+    "notes": "Riverside location",
+    "featured": true,
+    "logo": "https://images.getbento.com/accounts/ad7ac5d6a757485b222dc1d5ec1aa933/media/images/24711logo2.png",
+    "lat": 40.775738,
+    "lng": -73.98955
   },
   {
     "id": 100,
@@ -1097,7 +1309,9 @@
     "phone": "(646) 922-7700",
     "email": "",
     "website": "https://www.vsvwinebars.com/location/vin-sur-vingt-wine-bar-nomad/",
-    "notes": "NoMad location"
+    "notes": "NoMad location",
+    "lat": 40.743939,
+    "lng": -73.988677
   },
   {
     "id": 101,
@@ -1108,7 +1322,9 @@
     "phone": "(212) 988-0222",
     "email": "",
     "website": "",
-    "notes": "wine shop / bar format"
+    "notes": "[CLOSED] Website non-functional March 2026",
+    "lat": 40.763718,
+    "lng": -73.966777
   },
   {
     "id": 102,
@@ -1119,7 +1335,9 @@
     "phone": "(646) 755-8538",
     "email": "",
     "website": "",
-    "notes": ""
+    "notes": "[CLOSED]",
+    "lat": 40.783828,
+    "lng": -73.977475
   },
   {
     "id": 103,
@@ -1130,7 +1348,9 @@
     "phone": "(646) 964-5624",
     "email": "info@wildair.nyc",
     "website": "https://www.wildair.nyc",
-    "notes": ""
+    "notes": "",
+    "lat": 40.720069,
+    "lng": -73.989086
   },
   {
     "id": 104,
@@ -1141,7 +1361,9 @@
     "phone": "(212) 481-0197",
     "email": "",
     "website": "https://www.wine30nyc.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.744995,
+    "lng": -73.983714
   },
   {
     "id": 105,
@@ -1152,7 +1374,9 @@
     "phone": "(212) 725-3866",
     "email": "",
     "website": "",
-    "notes": "no clean official site surfaced"
+    "notes": "no clean official site surfaced",
+    "lat": 40.746734,
+    "lng": -73.979959
   },
   {
     "id": 106,
@@ -1163,7 +1387,9 @@
     "phone": "(212) 777-1608",
     "email": "",
     "website": "",
-    "notes": ""
+    "notes": "[CLOSED]",
+    "lat": 40.726191,
+    "lng": -73.990039
   },
   {
     "id": 107,
@@ -1173,8 +1399,10 @@
     "neighborhood": "Manhattan",
     "phone": "(212) 633-9463",
     "email": "",
-    "website": "",
-    "notes": "no clean official site surfaced"
+    "website": "https://www.wineescapenyc44.com/",
+    "notes": "no clean official site surfaced",
+    "lat": 40.747007,
+    "lng": -74.001421
   },
   {
     "id": 108,
@@ -1185,7 +1413,9 @@
     "phone": "(212) 226-3330",
     "email": "",
     "website": "",
-    "notes": "no clean official site surfaced"
+    "notes": "no clean official site surfaced [CLOSED]",
+    "lat": 40.722508,
+    "lng": -73.995374
   },
   {
     "id": 109,
@@ -1196,7 +1426,9 @@
     "phone": "(646) 410-2658",
     "email": "",
     "website": "https://www.ziziwinebarnyc.com",
-    "notes": ""
+    "notes": "",
+    "lat": 40.77589,
+    "lng": -73.981637
   },
   {
     "id": 110,
@@ -1207,6 +1439,516 @@
     "phone": "(718) 928-6588",
     "email": "",
     "website": "https://addictivenyc.com",
-    "notes": "wine and tapas bar"
+    "notes": "wine and tapas bar",
+    "lat": 40.756341,
+    "lng": -73.880624
+  },
+  {
+    "id": 111,
+    "name": "Eli's Table",
+    "address": "1411 3rd Ave, New York, NY 10028",
+    "borough": "Manhattan",
+    "neighborhood": "Upper East Side",
+    "phone": "(212) 717-9798",
+    "email": "",
+    "website": "https://www.elizabar.com/",
+    "notes": "",
+    "featured": true,
+    "logo": "https://www.elizabar.com/App_Themes/elizabar/images/logo.png",
+    "lat": 40.774978,
+    "lng": -73.956253
+  },
+  {
+    "id": 112,
+    "name": "Kafana",
+    "address": "116 Loisaida Ave, New York, NY 10009",
+    "borough": "Manhattan",
+    "neighborhood": "Manhattan",
+    "phone": "(212) 353-8000",
+    "email": "",
+    "website": "https://www.kafananyc.com",
+    "notes": "",
+    "lat": 40.724287,
+    "lng": -73.978412
+  },
+  {
+    "id": 113,
+    "name": "Chambers",
+    "address": "94 Chambers St, New York, NY 10007",
+    "borough": "Manhattan",
+    "neighborhood": "Manhattan",
+    "phone": "(212) 580-3572",
+    "email": "info@chambers.nyc",
+    "website": "https://chamberswine.com",
+    "notes": "",
+    "lat": 40.714551,
+    "lng": -74.007581
+  },
+  {
+    "id": 114,
+    "name": "Tolo",
+    "address": "28 Canal St, New York, NY 10002",
+    "borough": "Manhattan",
+    "neighborhood": "Manhattan",
+    "phone": "(870) 600-3096",
+    "email": "info@tolonyc.com",
+    "website": "https://tolo.nyc",
+    "notes": "",
+    "lat": 40.714328,
+    "lng": -73.990512
+  },
+  {
+    "id": 115,
+    "name": "Popina",
+    "address": "127 Columbia Street, Brooklyn, NY 11231",
+    "borough": "Brooklyn",
+    "neighborhood": "Red Hook",
+    "phone": "(718) 222-1901",
+    "email": "info@popinanyc.com",
+    "website": "https://popinanyc.com",
+    "notes": "",
+    "featured": true,
+    "logo": "https://images.getbento.com/accounts/916807a92bd379a1b68c70cb275f7883/media/images/15262Popina_Logo_Unstacked.png",
+    "lat": 40.687311,
+    "lng": -74.001328
+  },
+  {
+    "name": "Stars",
+    "address": "79 E 3rd St, New York, NY, 10003",
+    "borough": "Manhattan",
+    "neighborhood": "East Village",
+    "phone": "",
+    "email": "info@stars-ny.com",
+    "website": "https://starsnyc.com",
+    "notes": "",
+    "lat": 40.7261,
+    "lng": -73.985,
+    "id": 116
+  },
+  {
+    "name": "Bar Florine",
+    "address": "Upper East Side, New York, NY",
+    "borough": "Manhattan",
+    "neighborhood": "Upper East Side",
+    "phone": "(212) 466-6679",
+    "email": "party@bar-florine.com",
+    "website": "https://barflorine.com",
+    "notes": "",
+    "lat": 40.7748,
+    "lng": -73.954,
+    "id": 117
+  },
+  {
+    "name": "Plus de Vin",
+    "address": "Clinton Hill, Brooklyn, NY",
+    "borough": "Brooklyn",
+    "neighborhood": "Clinton Hill",
+    "phone": "(718) 857-0101",
+    "email": "info@plusdevin.com",
+    "website": "https://plusdevin.com",
+    "notes": "",
+    "lat": 40.6895,
+    "lng": -73.9596,
+    "id": 118
+  },
+  {
+    "name": "Anfora",
+    "address": "West Village, New York, NY, 10014",
+    "borough": "Manhattan",
+    "neighborhood": "West Village",
+    "phone": "(212) 518-2722",
+    "email": "info@anforanyc.com",
+    "website": "https://anforanyc.com",
+    "notes": "",
+    "lat": 40.7348,
+    "lng": -74.0059,
+    "id": 119
+  },
+  {
+    "name": "Lelabar",
+    "address": "West Village, New York, NY, 10014",
+    "borough": "Manhattan",
+    "neighborhood": "West Village",
+    "phone": "(212) 206-0594",
+    "email": "info@lelabar.com",
+    "website": "https://lelabar.com",
+    "notes": "",
+    "lat": 40.734,
+    "lng": -74.0042,
+    "id": 120
+  },
+  {
+    "name": "Have & Meyer",
+    "address": "Williamsburg, Brooklyn, NY, 11211",
+    "borough": "Brooklyn",
+    "neighborhood": "Williamsburg",
+    "phone": "(718) 419-0722",
+    "email": "info@haveandmeyer.com",
+    "website": "https://haveandmeyer.com",
+    "notes": "",
+    "lat": 40.7138,
+    "lng": -73.9612,
+    "id": 121
+  },
+  {
+    "name": "L'Accolade",
+    "address": "West Village, New York, NY, 10014",
+    "borough": "Manhattan",
+    "neighborhood": "West Village",
+    "phone": "(917) 409-1407",
+    "email": "info@accolade-ny.com",
+    "website": "https://accolade-ny.com",
+    "notes": "",
+    "lat": 40.7355,
+    "lng": -74.0029,
+    "id": 122
+  },
+  {
+    "name": "The Fly",
+    "address": "Bed-Stuy, Brooklyn, NY, 11216",
+    "borough": "Brooklyn",
+    "neighborhood": "Bed-Stuy",
+    "phone": "(347) 405-5300",
+    "email": "hello@theflybrooklyn.com",
+    "website": "https://theflybrooklyn.com",
+    "notes": "",
+    "lat": 40.6841,
+    "lng": -73.9406,
+    "id": 123
+  },
+  {
+    "name": "Temperance",
+    "address": "West Village, New York, NY, 10014",
+    "borough": "Manhattan",
+    "neighborhood": "West Village",
+    "phone": "(646) 438-9334",
+    "email": "hello@temperancenyc.com",
+    "website": "https://temperancenyc.com",
+    "notes": "Formerly noted as closed; verify current status",
+    "lat": 40.7349,
+    "lng": -74.0031,
+    "id": 124
+  },
+  {
+    "name": "St. Jardim",
+    "address": "West Village, New York, NY, 10014",
+    "borough": "Manhattan",
+    "neighborhood": "West Village",
+    "phone": "(917) 938-5829",
+    "email": "hello@stjardimnyc.com",
+    "website": "https://stjardimnyc.com",
+    "notes": "",
+    "lat": 40.7359,
+    "lng": -74.0025,
+    "id": 125
+  },
+  {
+    "name": "Bibliotheque",
+    "address": "SoHo, New York, NY, 10012",
+    "borough": "Manhattan",
+    "neighborhood": "SoHo",
+    "phone": "(646) 454-9411",
+    "email": "info@bibliothequenyc.com",
+    "website": "https://bibliothequenyc.com",
+    "notes": "",
+    "lat": 40.7235,
+    "lng": -74.0015,
+    "id": 126
+  },
+  {
+    "name": "The Punchdown",
+    "address": "Clinton Hill, Brooklyn, NY, 11238",
+    "borough": "Brooklyn",
+    "neighborhood": "Clinton Hill",
+    "phone": "(510) 788-7410",
+    "email": "info@punchdownwine.com",
+    "website": "https://punchdownwine.com",
+    "notes": "",
+    "lat": 40.6895,
+    "lng": -73.9596,
+    "id": 127
+  },
+  {
+    "name": "Arvine",
+    "address": "West Village, New York, NY, 10014",
+    "borough": "Manhattan",
+    "neighborhood": "West Village",
+    "phone": "(212) 255-0800",
+    "email": "info@arvinenyc.com",
+    "website": "https://arvinenyc.com",
+    "notes": "",
+    "lat": 40.7347,
+    "lng": -74.0038,
+    "id": 128
+  },
+  {
+    "name": "Noreetuh",
+    "address": "East Village, New York, NY, 10009",
+    "borough": "Manhattan",
+    "neighborhood": "East Village",
+    "phone": "(646) 892-3050",
+    "email": "info@noreetuh.com",
+    "website": "https://noreetuh.com",
+    "notes": "Hawaiian cuisine with notable wine program",
+    "lat": 40.7275,
+    "lng": -73.9835,
+    "id": 129
+  },
+  {
+    "name": "Bar B\u00eate",
+    "address": "Carroll Gardens, Brooklyn, NY, 11231",
+    "borough": "Brooklyn",
+    "neighborhood": "Carroll Gardens",
+    "phone": "(347) 844-9950",
+    "email": "info@barbete.com",
+    "website": "https://barbete.com",
+    "notes": "",
+    "lat": 40.6806,
+    "lng": -73.9995,
+    "id": 130
+  },
+  {
+    "name": "il Buco",
+    "address": "47 Bond St, New York, NY, 10012",
+    "borough": "Manhattan",
+    "neighborhood": "NoHo",
+    "phone": "(212) 533-1932",
+    "email": "info@ilbuco.com",
+    "website": "https://ilbuco.com",
+    "notes": "Italian, wood-burning oven, curated wine list",
+    "lat": 40.7265,
+    "lng": -73.9949,
+    "id": 131
+  },
+  {
+    "name": "Peasant",
+    "address": "194 Elizabeth St, New York, NY, 10012",
+    "borough": "Manhattan",
+    "neighborhood": "Nolita",
+    "phone": "(212) 965-9511",
+    "email": "info@peasantnyc.com",
+    "website": "https://peasantnyc.com",
+    "notes": "Italian, wood-burning oven, curated wine list",
+    "lat": 40.7224,
+    "lng": -73.9959,
+    "id": 132
+  },
+  {
+    "name": "Borgo",
+    "address": "Flatiron, New York, NY, 10010",
+    "borough": "Manhattan",
+    "neighborhood": "Flatiron",
+    "phone": "(212) 229-2336",
+    "email": "info@borgonyc.com",
+    "website": "https://borgonyc.com",
+    "notes": "",
+    "lat": 40.7411,
+    "lng": -73.9897,
+    "id": 133
+  },
+  {
+    "name": "L'Appartement 4F",
+    "address": "Brooklyn Heights, Brooklyn, NY, 11201",
+    "borough": "Brooklyn",
+    "neighborhood": "Brooklyn Heights",
+    "phone": "(718) 858-1510",
+    "email": "hello@lappartement4f.com",
+    "website": "https://lappartement4f.com",
+    "notes": "French wine bar",
+    "lat": 40.6958,
+    "lng": -73.9936,
+    "id": 134
+  },
+  {
+    "name": "Ops",
+    "address": "346 Himrod St, Brooklyn, NY, 11237",
+    "borough": "Brooklyn",
+    "neighborhood": "Bushwick",
+    "phone": "(718) 386-4009",
+    "email": "hello@ops-nyc.com",
+    "website": "https://ops-nyc.com",
+    "notes": "Natural wine & pizza",
+    "lat": 40.7059,
+    "lng": -73.9262,
+    "id": 135
+  },
+  {
+    "name": "Bar Tizio",
+    "address": "Chelsea, New York, NY, 10011",
+    "borough": "Manhattan",
+    "neighborhood": "Chelsea",
+    "phone": "(212) 255-5563",
+    "email": "info@bartizio.com",
+    "website": "https://bartizio.com",
+    "notes": "",
+    "lat": 40.7433,
+    "lng": -74.0013,
+    "id": 136
+  },
+  {
+    "name": "Saint Urban",
+    "address": "Upper West Side, New York, NY, 10024",
+    "borough": "Manhattan",
+    "neighborhood": "Upper West Side",
+    "phone": "(212) 229-2336",
+    "email": "hello@sainturbannyc.com",
+    "website": "https://sainturbannyc.com",
+    "notes": "",
+    "lat": 40.7831,
+    "lng": -73.9812,
+    "id": 137
+  },
+  {
+    "name": "Smithereens",
+    "address": "East Village, New York, NY, 10009",
+    "borough": "Manhattan",
+    "neighborhood": "East Village",
+    "phone": "(646) 559-0520",
+    "email": "hello@smithereensnyc.com",
+    "website": "https://smithereensnyc.com",
+    "notes": "",
+    "lat": 40.7268,
+    "lng": -73.9843,
+    "id": 138
+  },
+  {
+    "name": "Entre Nous",
+    "address": "Clinton Hill, Brooklyn, NY, 11238",
+    "borough": "Brooklyn",
+    "neighborhood": "Clinton Hill",
+    "phone": "",
+    "email": "info@entrenousbk.com",
+    "website": "https://entrenoubsk.com",
+    "notes": "",
+    "lat": 40.6897,
+    "lng": -73.9609,
+    "id": 139
+  },
+  {
+    "name": "Somm Time",
+    "address": "Midtown East, New York, NY, 10022",
+    "borough": "Manhattan",
+    "neighborhood": "Midtown East",
+    "phone": "(212) 510-8515",
+    "email": "rustmaria1977@gmail.com",
+    "website": "https://sommtime.com",
+    "notes": "",
+    "lat": 40.7553,
+    "lng": -73.9697,
+    "id": 140
+  },
+  {
+    "name": "Rude Mouth",
+    "address": "Williamsburg, Brooklyn, NY, 11211",
+    "borough": "Brooklyn",
+    "neighborhood": "Williamsburg",
+    "phone": "(347) 689-4977",
+    "email": "rudemouthbk@gmail.com",
+    "website": "https://rudemouth.com",
+    "notes": "",
+    "lat": 40.7148,
+    "lng": -73.9588,
+    "id": 141
+  },
+  {
+    "name": "Maison Premiere",
+    "address": "298 Bedford Ave, Brooklyn, NY, 11211",
+    "borough": "Brooklyn",
+    "neighborhood": "Williamsburg",
+    "phone": "(347) 335-0446",
+    "email": "info@maisonpremiere.com",
+    "website": "https://maisonpremiere.com",
+    "notes": "Oyster bar & cocktails with strong wine program",
+    "lat": 40.7099,
+    "lng": -73.9594,
+    "id": 142
+  },
+  {
+    "id": 143,
+    "name": "Am\u00e9lie Wine Bar",
+    "address": "West Village, New York, NY",
+    "borough": "Manhattan",
+    "neighborhood": "West Village",
+    "phone": "(212) 533-2962",
+    "email": "nyc@ameliewinebar.com",
+    "website": "https://ameliewinebar.com",
+    "notes": ""
+  },
+  {
+    "id": 144,
+    "name": "Buceo 95",
+    "address": "Upper West Side, New York, NY",
+    "borough": "Manhattan",
+    "neighborhood": "Upper West Side",
+    "phone": "(212) 662-7010",
+    "email": "info@buceo95.com",
+    "website": "https://buceo95.com",
+    "notes": ""
+  },
+  {
+    "id": 145,
+    "name": "DiVin Wine Bar",
+    "address": "East Village, New York, NY",
+    "borough": "Manhattan",
+    "neighborhood": "East Village",
+    "phone": "(646) 998-3036",
+    "email": "info@divinwinebar.com",
+    "website": "https://divinwinebar.com",
+    "notes": ""
+  },
+  {
+    "id": 146,
+    "name": "Jadis",
+    "address": "Lower East Side, New York, NY",
+    "borough": "Manhattan",
+    "neighborhood": "Lower East Side",
+    "phone": "(212) 254-1675",
+    "email": "info@jadisnyc.com",
+    "website": "https://jadisnyc.com",
+    "notes": ""
+  },
+  {
+    "id": 147,
+    "name": "The Lavaux Wine Bar",
+    "address": "West Village, New York, NY",
+    "borough": "Manhattan",
+    "neighborhood": "West Village",
+    "phone": "(646) 692-3328",
+    "email": "info@thelavauxwinebar.com",
+    "website": "https://thelavauxwinebar.com",
+    "notes": ""
+  },
+  {
+    "id": 148,
+    "name": "Rake Wine Bar",
+    "address": "East Village, New York, NY",
+    "borough": "Manhattan",
+    "neighborhood": "East Village",
+    "phone": "(646) 429-8833",
+    "email": "contact@rakewinebar.com",
+    "website": "https://rakewinebar.com",
+    "notes": ""
+  },
+  {
+    "id": 149,
+    "name": "Shmon\u00e9 Wine",
+    "address": "Greenwich Village, New York, NY",
+    "borough": "Manhattan",
+    "neighborhood": "Greenwich Village",
+    "phone": "(646) 438-9815",
+    "email": "contact@shmonenyc.com",
+    "website": "https://shmonenyc.com",
+    "notes": ""
+  },
+  {
+    "id": 150,
+    "name": "Tinto Tapas Restaurant & Wine Bar",
+    "address": "Inwood, New York, NY",
+    "borough": "Manhattan",
+    "neighborhood": "Inwood",
+    "phone": "(212) 933-1803",
+    "email": "tinto.nyc.info@gmail.com",
+    "website": "https://tintonyc.com",
+    "notes": ""
   }
 ]
