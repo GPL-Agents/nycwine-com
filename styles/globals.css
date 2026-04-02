@@ -2429,15 +2429,6 @@ body {
   flex-shrink: 0;
 }
 
-/* Row 2: filter pills + location info + reset */
-.map-header-bottom {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px var(--content-pad) 10px;
-  flex-wrap: wrap;
-  border-top: 1px solid rgba(255,255,255,0.1);
-}
 .map-filter-pills {
   display: flex;
   gap: 8px;
@@ -2506,43 +2497,6 @@ body {
 }
 .map-action-btn:hover { border-color: var(--pink); color: var(--pink); }
 
-/* ── Dark-background overrides for pills inside the black ribbon ── */
-.map-header-bottom .map-filter-pill {
-  background: rgba(255,255,255,0.1);
-  border-color: rgba(255,255,255,0.22);
-  color: rgba(255,255,255,0.75);
-}
-.map-header-bottom .map-filter-pill:hover {
-  background: rgba(255,255,255,0.18);
-  color: white;
-}
-.map-header-bottom .map-filter-active {
-  background: white;
-  color: var(--pill-color);
-  border-color: white;
-}
-.map-header-bottom .map-filter-active:hover {
-  background: rgba(255,255,255,0.9);
-}
-.map-header-bottom .map-featured-pill-active {
-  background: #FFB800;
-  border-color: #FFB800;
-  color: white;
-}
-.map-header-bottom .map-featured-pill-active:hover {
-  background: #e5a600;
-  border-color: #e5a600;
-}
-.map-header-bottom .map-action-btn {
-  background: rgba(255,255,255,0.1);
-  border-color: rgba(255,255,255,0.22);
-  color: rgba(255,255,255,0.75);
-}
-.map-header-bottom .map-action-btn:hover {
-  background: rgba(255,255,255,0.18);
-  border-color: rgba(255,255,255,0.45);
-  color: white;
-}
 
 /* Featured legend badge */
 .map-featured-pill { gap: 5px; }
@@ -2562,7 +2516,7 @@ body {
   position: relative;
   flex: 1;
   min-height: 420px;
-  max-height: calc(100vh - 220px);
+  max-height: calc(100vh - 310px);
 }
 .map-leaflet {
   position: absolute;
@@ -2903,6 +2857,7 @@ body {
   gap: 10px;
   padding: 8px var(--content-pad);
   background: white;
+  border-bottom: 1px solid var(--border-light);
   flex-wrap: wrap;
 }
 
@@ -2958,7 +2913,7 @@ body {
   .map-header-title    { font-size: 16px; }
   .map-search-form     { width: 100%; order: 2; }
   .map-geo-btn         { justify-content: center; order: 3; width: 100%; }
-  .map-header-bottom   { gap: 6px; }
+  .map-filter-row      { gap: 6px; }
   .map-location-inline { flex-wrap: wrap; }
   .map-location-sep    { display: none; }
 }
