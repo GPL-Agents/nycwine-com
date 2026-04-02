@@ -195,6 +195,7 @@ export default function MapPage() {
   })();
 
   const [filter,       setFilter]       = useState(initialFilter);
+  const [featuredOnly, setFeaturedOnly] = useState(false);
   const [counts,       setCounts]       = useState({ bars: 0, stores: 0, wineries: 0 });
   const [userLocation, setUserLocation] = useState(null);  // { lat, lng, label }
   const [radius,       setRadius]       = useState(null);  // miles or null = all
@@ -306,7 +307,7 @@ export default function MapPage() {
   }, []);
 
   // ── Rebuild markers whenever filter / location / radius changes ──
-  const rebuildMarkers = useCallback((activeFilter, location, radiusMiles) => {
+  const rebuildMarkers = useCallback((activeFilter, location, radiusMiles, featuredOnly) => {
     const L      = window.L;
     const map    = mapRef.current;
     const groups = clusterRefs.current;
@@ -324,6 +325,7 @@ export default function MapPage() {
       const items = data[key] || [];
       for (const item of items) {
         if (!item.lat || !item.lng) continue;
+        if (featuredOnly && !item.featured) continue;
         if (location && radiusMiles) {
           const dist = haversineDistance(location.lat, location.lng, item.lat, item.lng);
           if (dist > radiusMiles) continue;
@@ -345,8 +347,8 @@ export default function MapPage() {
   useEffect(() => {
     if (isFirstRender.current) { isFirstRender.current = false; return; }
     if (!mapReady) return;
-    rebuildMarkers(filter, userLocation, radius);
-  }, [filter, userLocation, radius, mapReady, rebuildMarkers]);
+    rebuildMarkers(filter, userLocation, radius, featuredOnly);
+  }, [filter, userLocation, radius, featuredOnly, mapReady, rebuildMarkers]);
 
   // ── Drop / update location pin on map ────────────────────────
   useEffect(() => {
@@ -460,19 +462,16 @@ export default function MapPage() {
 
       <main className="map-page">
 
-        {/* ── Ribbon ───────────────────────────────────────────── */}
-        <div className="section-header map-page-header">
-          <div className="section-header-title">
-            <img src="/images/icons/icon-map.png" className="ribbon-icon" alt="" aria-hidden="true" />
-            NYC Wine Map
-          </div>
-        </div>
+        {/* ── Header ribbon — title + search + filters (all black) ── */}
+        <div className="map-page-header">
 
-        {/* ── Controls ─────────────────────────────────────────── */}
-        <div className="map-controls">
+          {/* Row 1 — title + search + my location */}
+          <div className="map-header-top">
+            <div className="map-header-title">
+              <img src="/images/icons/icon-map.png" className="ribbon-icon" alt="" aria-hidden="true" />
+              NYC Wine Map
+            </div>
 
-          {/* Row 1 — search + location inline */}
-          <div className="map-location-row">
             <form className="map-search-form" onSubmit={handleSearch}>
               <div className="map-search-input-wrap">
                 <svg className="map-search-icon" width="15" height="15" viewBox="0 0 24 24"
@@ -523,7 +522,40 @@ export default function MapPage() {
               )}
             </button>
 
-            {/* Location label + radius pills — inline to the right of My Location */}
+            {searchError && <span className="map-search-error">{searchError}</span>}
+          </div>
+
+          {/* Row 2 — category filters + location info + reset */}
+          <div className="map-header-bottom">
+            <div className="map-filter-pills">
+              {Object.entries(LAYERS).map(([key, cfg]) => (
+                <button
+                  key={key}
+                  className={`map-filter-pill${filter[key] ? ' map-filter-active' : ''}`}
+                  style={filter[key] ? { '--pill-color': cfg.color } : {}}
+                  onClick={() => toggleLayer(key)}
+                >
+                  <span className="mfp-dot" style={{ background: cfg.color }} />
+                  {cfg.label}
+                  {mapReady && <span className="mfp-count">{counts[key]}</span>}
+                </button>
+              ))}
+
+              {/* Featured filter pill */}
+              <button
+                className={`map-filter-pill map-featured-pill${featuredOnly ? ' map-featured-pill-active' : ''}`}
+                onClick={() => setFeaturedOnly(prev => !prev)}
+                title="Show featured venues only"
+              >
+                <svg width="14" height="14" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" style={{display:'block',flexShrink:0}}>
+                  <circle cx="9" cy="9" r="9" fill={featuredOnly ? '#FFB800' : 'rgba(255,255,255,0.4)'} stroke="white" strokeWidth="1.5"/>
+                  <text x="9" y="9.5" textAnchor="middle" dominantBaseline="middle"
+                        fontSize="11" fill="white" fontWeight="bold" fontFamily="sans-serif">★</text>
+                </svg>
+                Featured
+              </button>
+            </div>
+
             {userLocation && (
               <div className="map-location-inline">
                 <span className="map-location-sep" />
@@ -552,47 +584,14 @@ export default function MapPage() {
               </div>
             )}
 
-            {/* Error message — inline */}
-            {searchError && <span className="map-search-error">{searchError}</span>}
-          </div>
-
-          {/* Row 2 — category filters + reset + featured legend */}
-          <div className="map-filter-row">
-            <div className="map-filter-pills">
-              {Object.entries(LAYERS).map(([key, cfg]) => (
-                <button
-                  key={key}
-                  className={`map-filter-pill${filter[key] ? ' map-filter-active' : ''}`}
-                  style={filter[key] ? { '--pill-color': cfg.color } : {}}
-                  onClick={() => toggleLayer(key)}
-                >
-                  <span className="mfp-dot" style={{ background: cfg.color }} />
-                  {cfg.label}
-                  {mapReady && <span className="mfp-count">{counts[key]}</span>}
-                </button>
-              ))}
-
-              {/* Featured legend */}
-              <span className="map-featured-legend" title="Featured venues are highlighted partners">
-                <span className="map-featured-legend-pin">
-                  <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" style={{display:'block'}}>
-                    <circle cx="9" cy="9" r="9" fill="#FFB800" stroke="white" strokeWidth="1.5"/>
-                    <text x="9" y="9.5" textAnchor="middle" dominantBaseline="middle"
-                          fontSize="11" fill="white" fontWeight="bold" fontFamily="sans-serif">★</text>
-                  </svg>
-                </span>
-                <span className="map-featured-legend-label">= Featured</span>
-              </span>
-
-              <button className="map-action-btn" onClick={resetView} title="Reset map view">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                     strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
-                  <path d="M3 3v5h5"/>
-                </svg>
-                Reset View
-              </button>
-            </div>
+            <button className="map-action-btn" onClick={resetView} title="Reset map view">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                <path d="M3 3v5h5"/>
+              </svg>
+              Reset View
+            </button>
           </div>
 
         </div>
