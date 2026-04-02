@@ -76,21 +76,17 @@ async function geocodeQuery(rawQuery) {
 function makeVenueIcon(L, color, emoji) {
   return L.divIcon({
     className: '',
-    html: `
-      <div style="position:relative;width:28px;height:38px;">
-        <svg width="28" height="38" viewBox="0 0 28 38" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:0;left:0;">
-          <ellipse cx="14" cy="37" rx="6" ry="1.8" fill="rgba(0,0,0,0.18)"/>
-          <path d="M14 1C7.37 1 2 6.37 2 13c0 9.5 12 24 12 24S26 22.5 26 13C26 6.37 20.63 1 14 1z"
-                fill="${color}" stroke="white" stroke-width="2"/>
-          <circle cx="14" cy="13" r="9" fill="white"/>
-        </svg>
-        <div style="position:absolute;top:4px;left:5px;width:18px;height:18px;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:12px;line-height:1;">
-          ${emoji}
-        </div>
-      </div>`,
-    iconSize:     [28, 38],
-    iconAnchor:   [14, 38],
-    popupAnchor:  [0, -39],
+    html: `<svg width="28" height="38" viewBox="0 0 28 38" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="14" cy="37" rx="6" ry="1.8" fill="rgba(0,0,0,0.18)"/>
+      <path d="M14 1C7.37 1 2 6.37 2 13c0 9.5 12 24 12 24S26 22.5 26 13C26 6.37 20.63 1 14 1z"
+            fill="${color}" stroke="white" stroke-width="2"/>
+      <circle cx="14" cy="13" r="9" fill="white"/>
+      <text x="14" y="14" text-anchor="middle" dominant-baseline="middle"
+            font-size="11" font-family="Apple Color Emoji,Segoe UI Emoji,Noto Color Emoji,sans-serif">${emoji}</text>
+    </svg>`,
+    iconSize:    [28, 38],
+    iconAnchor:  [14, 38],
+    popupAnchor: [0, -39],
   });
 }
 
@@ -99,24 +95,20 @@ function makeVenueIcon(L, color, emoji) {
 function makeFeaturedIcon(L, color, emoji) {
   return L.divIcon({
     className: '',
-    html: `
-      <div style="position:relative;width:38px;height:50px;">
-        <svg width="38" height="50" viewBox="0 0 38 50" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:0;left:0;">
-          <ellipse cx="19" cy="49" rx="8" ry="2.2" fill="rgba(0,0,0,0.20)"/>
-          <path d="M19 1C10.72 1 4 7.72 4 16c0 12 15 33 15 33S34 28 34 16C34 7.72 27.28 1 19 1z"
-                fill="${color}" stroke="white" stroke-width="2.2"/>
-          <circle cx="19" cy="16" r="11" fill="white"/>
-          <circle cx="31" cy="7" r="7" fill="#FFB800" stroke="white" stroke-width="1.8"/>
-          <text x="31" y="7.5" text-anchor="middle" dominant-baseline="middle"
-                font-size="9" fill="white" font-weight="bold" font-family="sans-serif">★</text>
-        </svg>
-        <div style="position:absolute;top:5px;left:8px;width:22px;height:22px;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:14px;line-height:1;">
-          ${emoji}
-        </div>
-      </div>`,
-    iconSize:     [38, 50],
-    iconAnchor:   [19, 50],
-    popupAnchor:  [0, -51],
+    html: `<svg width="38" height="50" viewBox="0 0 38 50" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="19" cy="49" rx="8" ry="2.2" fill="rgba(0,0,0,0.20)"/>
+      <path d="M19 1C10.72 1 4 7.72 4 16c0 12 15 33 15 33S34 28 34 16C34 7.72 27.28 1 19 1z"
+            fill="${color}" stroke="white" stroke-width="2.2"/>
+      <circle cx="19" cy="16" r="11" fill="white"/>
+      <circle cx="31" cy="7" r="7" fill="#FFB800" stroke="white" stroke-width="1.8"/>
+      <text x="31" y="7.5" text-anchor="middle" dominant-baseline="middle"
+            font-size="9" fill="white" font-weight="bold" font-family="sans-serif">★</text>
+      <text x="19" y="17" text-anchor="middle" dominant-baseline="middle"
+            font-size="14" font-family="Apple Color Emoji,Segoe UI Emoji,Noto Color Emoji,sans-serif">${emoji}</text>
+    </svg>`,
+    iconSize:    [38, 50],
+    iconAnchor:  [19, 50],
+    popupAnchor: [0, -51],
   });
 }
 
