@@ -208,7 +208,7 @@ body {
   font-family: var(--font-sans);
   letter-spacing: 0.02em;
 }
-.qnav-pill:hover { border-color: var(--rose); color: var(--rose); }
+.qnav-pill:hover { border-color: var(--rose-muted); color: var(--rose); background: #fdf0f5; }
 .qnav-pill.events,
 .qnav-pill.social,
 .qnav-pill.news,
@@ -315,19 +315,27 @@ body {
 }
 /* Default active (All pill) */
 .epill.active { background: var(--rose); color: white; border-color: var(--rose); }
+/* Default hover (All pill — lightens toward rose-light) */
+.epill:hover:not(.active) { background: var(--rose-light); border-color: var(--rose-muted); }
 
 /* Color-coded filter pills — match event card tag colors */
 .epill[data-filter="Tasting"]        { border-color: #ef9a9a; color: #c62828; background: #fce4ec; }
+.epill[data-filter="Tasting"]:hover:not(.active) { background: #fef0f4; border-color: #ef9a9a; }
 .epill[data-filter="Tasting"].active { background: #c62828; color: white; border-color: #c62828; }
 .epill[data-filter="Class"]          { border-color: #90caf9; color: #1565c0; background: #e3f2fd; }
+.epill[data-filter="Class"]:hover:not(.active) { background: #eef6fe; border-color: #90caf9; }
 .epill[data-filter="Class"].active   { background: #1565c0; color: white; border-color: #1565c0; }
 .epill[data-filter="Dinner"]         { border-color: #ffcc80; color: #e65100; background: #fff3e0; }
+.epill[data-filter="Dinner"]:hover:not(.active) { background: #fff8ed; border-color: #ffcc80; }
 .epill[data-filter="Dinner"].active  { background: #e65100; color: white; border-color: #e65100; }
 .epill[data-filter="Event"]          { border-color: #ce93d8; color: #7b1fa2; background: #f3e5f5; }
+.epill[data-filter="Event"]:hover:not(.active) { background: #f9f0fc; border-color: #ce93d8; }
 .epill[data-filter="Event"].active   { background: #7b1fa2; color: white; border-color: #7b1fa2; }
 .epill[data-filter="Festival"]       { border-color: #a5d6a7; color: #2e7d32; background: #e8f5e9; }
+.epill[data-filter="Festival"]:hover:not(.active) { background: #f0f9f1; border-color: #a5d6a7; }
 .epill[data-filter="Festival"].active{ background: #2e7d32; color: white; border-color: #2e7d32; }
 .epill[data-filter="Auctions"]        { border-color: #ffd54f; color: #8d6e00; background: #fffde7; }
+.epill[data-filter="Auctions"]:hover:not(.active) { background: #fffef3; border-color: #ffd54f; }
 .epill[data-filter="Auctions"].active { background: #f9a825; color: white; border-color: #f9a825; }
 
 /* Event cards */
@@ -1024,7 +1032,7 @@ body {
   font-family: var(--font-sans);
   transition: all 0.2s ease;
 }
-.news-tab:hover { background: var(--rose-light); }
+.news-tab:hover:not(.active) { background: var(--rose-light); border-color: var(--rose-muted); }
 .news-tab.active { background: var(--rose); color: white; border-color: var(--rose); }
 
 .news-cards { padding: 0; }
