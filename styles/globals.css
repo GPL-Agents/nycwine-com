@@ -208,7 +208,6 @@ body {
   font-family: var(--font-sans);
   letter-spacing: 0.02em;
 }
-.qnav-pill:hover { border-color: var(--rose-muted); color: var(--rose); background: #fdf0f5; }
 .qnav-pill.events,
 .qnav-pill.social,
 .qnav-pill.news,
@@ -216,6 +215,15 @@ body {
 .qnav-pill.bars,
 .qnav-pill.wineries,
 .qnav-pill.map      { border-color: var(--border); color: var(--text); background: white; }
+/* Hover — must come after the named-class rules so specificity wins */
+.qnav-pill:hover,
+.qnav-pill.events:hover,
+.qnav-pill.social:hover,
+.qnav-pill.news:hover,
+.qnav-pill.stores:hover,
+.qnav-pill.bars:hover,
+.qnav-pill.wineries:hover,
+.qnav-pill.map:hover    { border-color: var(--rose-muted); color: var(--rose); background: #fdf0f5; }
 .qnav-pill.qnav-active { border-color: var(--rose-muted); color: var(--rose); background: var(--rose-light); }
 
 /* ═══════════════════════════════════════
