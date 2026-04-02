@@ -315,8 +315,8 @@ export default function MapPage() {
       map.removeLayer(groups[key]);
       if (!activeFilter[key]) continue;
 
-      const baseIcon     = makeVenueIcon(L, LAYERS[key].color, LAYERS[key].icon);
-      const featuredIcon = makeFeaturedIcon(L, LAYERS[key].color, LAYERS[key].icon);
+      const baseIcon     = makeVenueIcon(L, LAYERS[key].color, LAYERS[key].emoji);
+      const featuredIcon = makeFeaturedIcon(L, LAYERS[key].color, LAYERS[key].emoji);
       const items = data[key] || [];
       for (const item of items) {
         if (!item.lat || !item.lng) continue;
