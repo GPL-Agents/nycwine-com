@@ -21,9 +21,9 @@ import QuickNav from '../components/QuickNav';
 
 // ── Layer config ──────────────────────────────────────────────
 const LAYERS = {
-  bars:     { label: 'Wine Bars',   singular: 'Wine Bar',  color: '#ec407a', emoji: '🍷' },
-  stores:   { label: 'Wine Stores', singular: 'Wine Store', color: '#1a1a1a', emoji: '🛒' },
-  wineries: { label: 'Wineries',    singular: 'Winery',    color: '#7c3aed', emoji: '🍇' },
+  bars:     { label: 'Wine Bars',   singular: 'Wine Bar',  color: '#ec407a', emoji: '🍷', icon: '/images/icons/icon-wine-bar.png'   },
+  stores:   { label: 'Wine Stores', singular: 'Wine Store', color: '#1a1a1a', emoji: '🛒', icon: '/images/icons/icon-wine-store.png' },
+  wineries: { label: 'Wineries',    singular: 'Winery',    color: '#7c3aed', emoji: '🍇', icon: '/images/icons/icon-winery.png'     },
 };
 
 const RADIUS_OPTIONS = [
@@ -73,38 +73,49 @@ async function geocodeQuery(rawQuery) {
   return null;
 }
 
-function makeVenueIcon(L, color) {
+function makeVenueIcon(L, color, iconPath) {
   return L.divIcon({
     className: '',
-    html: `<svg width="22" height="30" viewBox="0 0 22 30" xmlns="http://www.w3.org/2000/svg">
-      <path d="M11 1C5.48 1 1 5.48 1 11c0 7.5 10 18.5 10 18.5S21 18.5 21 11C21 5.48 16.52 1 11 1z"
-            fill="${color}" stroke="white" stroke-width="1.8"/>
-      <circle cx="11" cy="11" r="4.5" fill="white" opacity="0.25"/>
+    html: `<svg width="28" height="38" viewBox="0 0 28 38" xmlns="http://www.w3.org/2000/svg">
+      <!-- Drop shadow -->
+      <ellipse cx="14" cy="37" rx="6" ry="1.8" fill="rgba(0,0,0,0.18)"/>
+      <!-- Pin body -->
+      <path d="M14 1C7.37 1 2 6.37 2 13c0 9.5 12 24 12 24S26 22.5 26 13C26 6.37 20.63 1 14 1z"
+            fill="${color}" stroke="white" stroke-width="2"/>
+      <!-- White circle background for icon -->
+      <circle cx="14" cy="13" r="9" fill="white"/>
+      <!-- Category icon -->
+      <image href="${iconPath}" x="5" y="4" width="18" height="18" preserveAspectRatio="xMidYMid meet"/>
     </svg>`,
-    iconSize:     [22, 30],
-    iconAnchor:   [11, 30],
-    popupAnchor:  [0, -31],
+    iconSize:     [28, 38],
+    iconAnchor:   [14, 38],
+    popupAnchor:  [0, -39],
   });
 }
 
-// Larger featured pin — gold star badge on a bigger map-pin shape.
+// Larger featured pin — gold star badge + category icon on a bigger map-pin shape.
 // Used for items with featured: true in the JSON data.
-function makeFeaturedIcon(L, color) {
+function makeFeaturedIcon(L, color, iconPath) {
   return L.divIcon({
     className: '',
-    html: `<svg width="32" height="42" viewBox="0 0 32 42" xmlns="http://www.w3.org/2000/svg">
+    html: `<svg width="38" height="50" viewBox="0 0 38 50" xmlns="http://www.w3.org/2000/svg">
       <!-- Drop shadow -->
-      <ellipse cx="16" cy="41" rx="7" ry="2" fill="rgba(0,0,0,0.18)"/>
+      <ellipse cx="19" cy="49" rx="8" ry="2.2" fill="rgba(0,0,0,0.20)"/>
       <!-- Pin body -->
-      <path d="M16 1C9.37 1 4 6.37 4 13c0 9.5 12 27 12 27S28 22.5 28 13C28 6.37 22.63 1 16 1z"
-            fill="${color}" stroke="white" stroke-width="2"/>
-      <!-- White star -->
-      <text x="16" y="17.5" text-anchor="middle" dominant-baseline="middle"
-            font-size="15" fill="white" font-weight="bold" font-family="sans-serif">★</text>
+      <path d="M19 1C10.72 1 4 7.72 4 16c0 12 15 33 15 33S34 28 34 16C34 7.72 27.28 1 19 1z"
+            fill="${color}" stroke="white" stroke-width="2.2"/>
+      <!-- White circle background for icon -->
+      <circle cx="19" cy="16" r="11" fill="white"/>
+      <!-- Category icon -->
+      <image href="${iconPath}" x="8" y="5" width="22" height="22" preserveAspectRatio="xMidYMid meet"/>
+      <!-- Gold star badge (top-right corner of pin) -->
+      <circle cx="31" cy="7" r="7" fill="#FFB800" stroke="white" stroke-width="1.8"/>
+      <text x="31" y="7.5" text-anchor="middle" dominant-baseline="middle"
+            font-size="9" fill="white" font-weight="bold" font-family="sans-serif">★</text>
     </svg>`,
-    iconSize:     [32, 42],
-    iconAnchor:   [16, 42],
-    popupAnchor:  [0, -43],
+    iconSize:     [38, 50],
+    iconAnchor:   [19, 50],
+    popupAnchor:  [0, -51],
   });
 }
 
@@ -273,8 +284,8 @@ export default function MapPage() {
       // Initial render — no location filter
       const newCounts = { bars: 0, stores: 0, wineries: 0 };
       for (const key of Object.keys(LAYERS)) {
-        const baseIcon     = makeVenueIcon(L, LAYERS[key].color);
-        const featuredIcon = makeFeaturedIcon(L, LAYERS[key].color);
+        const baseIcon     = makeVenueIcon(L, LAYERS[key].color, LAYERS[key].icon);
+        const featuredIcon = makeFeaturedIcon(L, LAYERS[key].color, LAYERS[key].icon);
         const items = dataRef.current[key];
         for (const item of items) {
           if (!item.lat || !item.lng) continue;
@@ -311,8 +322,8 @@ export default function MapPage() {
       map.removeLayer(groups[key]);
       if (!activeFilter[key]) continue;
 
-      const baseIcon     = makeVenueIcon(L, LAYERS[key].color);
-      const featuredIcon = makeFeaturedIcon(L, LAYERS[key].color);
+      const baseIcon     = makeVenueIcon(L, LAYERS[key].color, LAYERS[key].icon);
+      const featuredIcon = makeFeaturedIcon(L, LAYERS[key].color, LAYERS[key].icon);
       const items = data[key] || [];
       for (const item of items) {
         if (!item.lat || !item.lng) continue;
