@@ -1248,14 +1248,16 @@ body {
   gap: 6px;
   padding: 7px 14px;
   border-radius: 20px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--rose-muted);
   background: white;
   cursor: pointer;
   font-family: var(--font-sans);
   transition: all 0.2s;
   font-size: 12px;
 }
-.hood-chip:hover { border-color: var(--rose-muted); }
+.hood-chip:hover { background: var(--pink-muted); border-color: var(--pink-muted); }
+.hood-chip:hover .hood-name { color: white; }
+.hood-chip:hover .hood-count { color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.15); }
 .hood-chip.active { background: var(--pink); border-color: var(--pink); }
 .hood-chip.active .hood-name { color: white; }
 .hood-chip.active .hood-count { color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.15); }
@@ -1907,14 +1909,16 @@ body {
   gap: 6px;
   padding: 7px 14px;
   border-radius: 20px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--rose-muted);
   background: white;
   cursor: pointer;
   font-family: var(--font-sans);
   transition: all 0.2s;
   font-size: 12px;
 }
-.borough-chip:hover { border-color: var(--rose-muted); }
+.borough-chip:hover { background: var(--pink-muted); border-color: var(--pink-muted); }
+.borough-chip:hover .borough-name { color: white; }
+.borough-chip:hover .borough-count { color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.15); }
 .borough-chip.active { background: var(--pink); border-color: var(--pink); }
 .borough-chip.active .borough-name { color: white; }
 .borough-chip.active .borough-count { color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.15); }
