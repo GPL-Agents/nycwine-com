@@ -2400,7 +2400,11 @@ body {
 /* ═══════════════════════════════════════
    MAP PAGE (/map)
 ═══════════════════════════════════════ */
-.map-page { display: flex; flex-direction: column; }
+.map-page {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 195px); /* 140px nav + 55px footer peek */
+}
 
 .map-page-header {
   background: var(--black);
@@ -2525,17 +2529,15 @@ body {
   color: white;
 }
 
-/* Map container — fills remaining viewport height */
+/* Map container — fills remaining height of map-page flex column */
 .map-container {
   position: relative;
   flex: 1;
   min-height: 0;
-  max-height: calc(100vh - 310px);
 }
 .map-leaflet {
   position: absolute;
   inset: 0;
-  min-height: 420px;
 }
 
 /* Loading overlay */
@@ -2798,7 +2800,7 @@ body {
   display: block;
   width: 1px;
   height: 20px;
-  background: rgba(255,255,255,0.2);
+  background: var(--border);
   flex-shrink: 0;
   margin: 0 2px;
 }
@@ -2809,7 +2811,7 @@ body {
   gap: 6px;
   font-size: 12px;
   font-weight: 500;
-  color: rgba(255,255,255,0.8);
+  color: #1565c0;
   white-space: nowrap;
 }
 
@@ -2831,7 +2833,7 @@ body {
 
 .map-radius-label {
   font-size: 11px;
-  color: rgba(255,255,255,0.55);
+  color: var(--muted);
   font-weight: 500;
   white-space: nowrap;
 }
@@ -2839,9 +2841,9 @@ body {
 .map-radius-pill {
   padding: 3px 10px;
   border-radius: 12px;
-  border: 1.5px solid rgba(255,255,255,0.25);
-  background: rgba(255,255,255,0.1);
-  color: rgba(255,255,255,0.75);
+  border: 1.5px solid var(--border);
+  background: white;
+  color: var(--muted);
   font-size: 11px;
   font-weight: 500;
   font-family: var(--font-sans);
@@ -2849,7 +2851,7 @@ body {
   white-space: nowrap;
   transition: all 0.15s;
 }
-.map-radius-pill:hover { border-color: rgba(255,255,255,0.5); color: white; }
+.map-radius-pill:hover { border-color: #1976d2; color: #1976d2; }
 .map-radius-active {
   background: #1976d2;
   border-color: #1976d2;
@@ -2863,6 +2865,7 @@ body {
   font-size: 12px;
   color: #ff8a80;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 /* ── Map filter row (category pills + Reset View) ─────────── */
