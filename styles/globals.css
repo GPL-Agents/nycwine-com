@@ -2499,16 +2499,27 @@ body {
 
 
 /* Featured legend badge */
-.map-featured-pill { gap: 5px; }
-.map-featured-pill-active {
+.map-featured-pill {
   background: #fffbf0;
   border-color: #FFB800;
   color: #7a6000;
   font-weight: 600;
+  gap: 6px;
 }
-.map-featured-pill-active:hover {
+.map-featured-pill:hover {
   background: #fff3cd;
   border-color: #FFB800;
+  color: #5a4500;
+}
+.map-featured-pill-active {
+  background: #FFB800;
+  border-color: #FFB800;
+  color: white;
+}
+.map-featured-pill-active:hover {
+  background: #e5a600;
+  border-color: #e5a600;
+  color: white;
 }
 
 /* Map container — fills remaining viewport height */
@@ -2676,7 +2687,7 @@ body {
   align-items: center;
   gap: 6px;
   flex: none;
-  width: 280px;
+  width: 420px;
 }
 
 .map-search-input-wrap {

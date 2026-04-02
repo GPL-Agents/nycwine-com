@@ -560,12 +560,22 @@ export default function MapPage() {
               onClick={() => setFeaturedOnly(prev => !prev)}
               title="Show featured venues only"
             >
-              <svg width="14" height="14" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" style={{display:'block',flexShrink:0}}>
-                <circle cx="9" cy="9" r="9" fill={featuredOnly ? '#FFB800' : '#ccc'} stroke="white" strokeWidth="1.5"/>
+              <svg width="20" height="20" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" style={{display:'block',flexShrink:0}}>
+                <circle cx="9" cy="9" r="9" fill={featuredOnly ? 'white' : '#FFB800'} stroke={featuredOnly ? 'rgba(255,255,255,0.6)' : '#e5a600'} strokeWidth="1"/>
                 <text x="9" y="9.5" textAnchor="middle" dominantBaseline="middle"
-                      fontSize="11" fill="white" fontWeight="bold" fontFamily="sans-serif">★</text>
+                      fontSize="11" fill={featuredOnly ? '#FFB800' : 'white'} fontWeight="bold" fontFamily="sans-serif">★</text>
               </svg>
               Featured
+            </button>
+
+            {/* Reset View — kept next to Featured */}
+            <button className="map-action-btn" onClick={resetView} title="Reset map view">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                <path d="M3 3v5h5"/>
+              </svg>
+              Reset View
             </button>
           </div>
 
@@ -597,14 +607,6 @@ export default function MapPage() {
             </div>
           )}
 
-          <button className="map-action-btn" onClick={resetView} title="Reset map view">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                 strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
-              <path d="M3 3v5h5"/>
-            </svg>
-            Reset View
-          </button>
         </div>
 
         {/* ── Map canvas ───────────────────────────────────────── */}
