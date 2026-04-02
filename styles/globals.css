@@ -2400,13 +2400,16 @@ body {
 /* ═══════════════════════════════════════
    MAP PAGE (/map)
 ═══════════════════════════════════════ */
-.map-page { display: flex; flex-direction: column; height: calc(100vh - 144px); overflow: hidden; }
+.map-page { display: flex; flex-direction: column; }
 
 .map-page-header {
   background: var(--black);
   display: flex;
   flex-direction: column;
   margin: 0;
+  position: sticky;
+  top: 140px;
+  z-index: 800;
 }
 
 /* Row 1: title + search + my location */
@@ -2522,11 +2525,12 @@ body {
   color: white;
 }
 
-/* Map container — fills all remaining height in .map-page */
+/* Map container — fills remaining viewport height */
 .map-container {
   position: relative;
   flex: 1;
   min-height: 0;
+  max-height: calc(100vh - 310px);
 }
 .map-leaflet {
   position: absolute;
@@ -2677,7 +2681,8 @@ body {
 .map-venue-tooltip::before { display: none !important; }
 
 @media (max-width: 600px) {
-  .map-page { height: calc(100vh - 120px); }
+  .map-page-header { top: 120px; }
+  .map-filter-row  { top: 175px; }
 }
 
 /* ── Map location search bar ──────────────────────────────── */
@@ -2869,6 +2874,9 @@ body {
   background: white;
   border-bottom: 1px solid var(--border-light);
   flex-wrap: wrap;
+  position: sticky;
+  top: 195px;
+  z-index: 799;
 }
 
 /* Pin icon inside the search input */
