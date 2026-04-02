@@ -128,6 +128,8 @@ function popupHtml(item, type) {
   const address = item.address || '';
   const hood    = item.neighborhood || item.region || item.borough || '';
   const site    = item.website || '';
+  const phone   = item.phone   || '';
+  const email   = item.email   || '';
   // data-* attributes used by the delegated click handler below
   const safeName = name.replace(/"/g, '&quot;');
   const safeAddr = address.replace(/"/g, '&quot;');
@@ -140,6 +142,8 @@ function popupHtml(item, type) {
       <div class="mp-name">${name}</div>
       ${hood    ? `<div class="mp-hood">${hood}</div>`    : ''}
       ${address ? `<div class="mp-addr">${address}</div>` : ''}
+      ${phone   ? `<a class="mp-contact" href="tel:${phone}">📞 ${phone}</a>` : ''}
+      ${email   ? `<a class="mp-contact" href="mailto:${email}">✉️ ${email}</a>` : ''}
       <div class="mp-footer">
         <a class="mp-dir" href="#" data-name="${safeName}" data-addr="${safeAddr}">
           <svg width="10" height="12" viewBox="0 0 11 14" fill="currentColor" aria-hidden="true">
@@ -571,14 +575,10 @@ export default function MapPage() {
               {/* Featured legend */}
               <span className="map-featured-legend" title="Featured venues are highlighted partners">
                 <span className="map-featured-legend-pin">
-                  <svg width="18" height="24" viewBox="0 0 38 50" xmlns="http://www.w3.org/2000/svg" style={{display:'block'}}>
-                    <path d="M19 1C10.72 1 4 7.72 4 16c0 12 15 33 15 33S34 28 34 16C34 7.72 27.28 1 19 1z"
-                          fill="#ec407a" stroke="white" strokeWidth="2.2"/>
-                    <circle cx="19" cy="16" r="11" fill="white"/>
-                    <circle cx="31" cy="7" r="7" fill="#FFB800" stroke="white" strokeWidth="1.8"/>
-                    <text x="31" y="8" textAnchor="middle" dominantBaseline="middle"
-                          fontSize="9" fill="white" fontWeight="bold" fontFamily="sans-serif">★</text>
-                    <text x="19" y="19" textAnchor="middle" dominantBaseline="middle" fontSize="12">🍷</text>
+                  <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" style={{display:'block'}}>
+                    <circle cx="9" cy="9" r="9" fill="#FFB800" stroke="white" strokeWidth="1.5"/>
+                    <text x="9" y="9.5" textAnchor="middle" dominantBaseline="middle"
+                          fontSize="11" fill="white" fontWeight="bold" fontFamily="sans-serif">★</text>
                   </svg>
                 </span>
                 <span className="map-featured-legend-label">= Featured</span>

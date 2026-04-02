@@ -2500,6 +2500,7 @@ body {
   position: relative;
   flex: 1;
   min-height: 420px;
+  max-height: calc(100vh - 300px);
 }
 .map-leaflet {
   position: absolute;
@@ -2559,9 +2560,18 @@ body {
 .mp-addr {
   font-size: 11px;
   color: var(--text);
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   line-height: 1.4;
 }
+.mp-contact {
+  display: block;
+  font-size: 11px;
+  color: var(--pink);
+  text-decoration: none;
+  margin-bottom: 2px;
+  line-height: 1.4;
+}
+.mp-contact:last-of-type { margin-bottom: 8px; }
 .mp-link {
   display: inline-block;
   font-size: 12px;
