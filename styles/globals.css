@@ -3560,6 +3560,44 @@ body {
   min-height: 60vh;
 }
 
+/* ── Media Kit download bar ─────────────────────────────────── */
+.adv-mediakit-bar {
+  background: #fce4ec;
+  border-bottom: 1px solid #f48fb1;
+  padding: 11px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.adv-mediakit-bar-text {
+  font-size: 14px;
+  color: #c2185b;
+}
+.adv-mediakit-bar-sub {
+  font-weight: 400;
+  color: #666;
+}
+.adv-mediakit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  background: var(--pink);
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.adv-mediakit-btn:hover {
+  background: var(--pink-dark);
+  color: #fff;
+}
+
 /* ── Shared buttons ─────────────────────────────────────────── */
 .adv-btn-primary {
   display: inline-block;
