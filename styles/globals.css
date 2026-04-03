@@ -3584,7 +3584,7 @@ body {
   align-items: center;
   gap: 6px;
   padding: 8px 18px;
-  background: var(--pink);
+  background: #1a1a1a;
   color: #fff;
   font-weight: 700;
   font-size: 13px;
@@ -3594,7 +3594,7 @@ body {
   white-space: nowrap;
 }
 .adv-mediakit-btn:hover {
-  background: var(--pink-dark);
+  background: #333;
   color: #fff;
 }
 
