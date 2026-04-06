@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-03-30T14:00:00.000Z",
+  "fetchedAt": "2026-04-06T08:22:21.550Z",
   "source": "Acker Wines",
   "sourceUrl": "https://www.ackerwines.com/wine-auctions/",
   "auctions": [
@@ -33,5 +33,6 @@
       "status": "upcoming",
       "image": "https://www.ackerwines.com/wp-content/uploads/2021/10/RedWine-1.jpg"
     }
-  ]
+  ],
+  "fetchWarning": "HTTP 403 from https://www.ackerwines.com/wine-auctions/ (site may be blocking server-side fetches)"
 }
