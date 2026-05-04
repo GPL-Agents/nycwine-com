@@ -1,47 +1,5 @@
 [
   {
-    "title": "Wine & Cheese Crash Course",
-    "venue": "Murray's Cheese Shop",
-    "date": "2026-05-03T14:30:00-04:00",
-    "dateDisplay": "Sun, May 3, 6:30 PM",
-    "day": "3",
-    "month": "May · Sun",
-    "tag": "Class",
-    "url": "https://www.eventbrite.com/e/wine-cheese-crash-course-tickets-1980647931280",
-    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F527958269%2F141392852881%2F1%2Foriginal.20230602-161544?w=480&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=8e33669ae069aef8fddf26d209077476",
-    "source": "Eventbrite",
-    "id": 7,
-    "color": "c2"
-  },
-  {
-    "title": "May the 4th Special: The Dark Side vs. The Light",
-    "venue": "Zizi Wine Bar",
-    "date": "2026-05-04T18:15:00-04:00",
-    "dateDisplay": "Mon, May 4, 10:15 PM",
-    "day": "4",
-    "month": "May · Mon",
-    "tag": "Event",
-    "url": "https://www.eventbrite.com/e/may-the-4th-special-the-dark-side-vs-the-light-tickets-1987621020979",
-    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1182334162%2F428656297934%2F1%2Foriginal.20260416-155917?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=be01aeabc531ff48624c121276093da1",
-    "source": "Eventbrite",
-    "id": 15,
-    "color": "c5"
-  },
-  {
-    "title": "Mother's Day Wine Around",
-    "venue": "Eataly NYC Flatiron",
-    "date": "2026-05-06T18:00:00-04:00",
-    "dateDisplay": "Wed, May 6, 10:00 PM",
-    "day": "6",
-    "month": "May · Wed",
-    "tag": "Event",
-    "url": "https://www.eventbrite.com/e/mothers-day-wine-around-tickets-1986908458686",
-    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1181604981%2F2330507047293%2F1%2Foriginal.20260407-155412?w=480&auto=format%2Ccompress&q=75&sharp=10&s=d9907285de1aeb581ba9ee117c32005f",
-    "source": "Eventbrite",
-    "id": 22,
-    "color": "c2"
-  },
-  {
     "title": "On Cloud Wine X Kaia Wine Bar: Sips of South Africa Wine Tasting",
     "venue": "Kaia South African Farmhouse Restaurant",
     "date": "2026-05-07T18:00:00-04:00",
@@ -52,8 +10,8 @@
     "url": "https://www.eventbrite.com/e/on-cloud-wine-x-kaia-wine-bar-sips-of-south-africa-wine-tasting-tickets-1988417253532",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1183241413%2F2699172933441%2F1%2Foriginal.20260428-162908?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.457&fp-y=0.485&s=5e8f1e69984334910edc501a181461f1",
     "source": "Eventbrite",
-    "id": 12,
-    "color": "c2"
+    "id": 13,
+    "color": "c3"
   },
   {
     "title": "Wine 101: Sicily",
@@ -66,8 +24,8 @@
     "url": "https://www.eventbrite.com/e/wine-101-sicily-tickets-1988130821807",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1182916844%2F2998469796884%2F1%2Foriginal.png?w=480&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C940%2C470&s=597f9783e46c70e9113749a67904fd75",
     "source": "Eventbrite",
-    "id": 8,
-    "color": "c3"
+    "id": 9,
+    "color": "c4"
   },
   {
     "title": "Wine, Explained: A Guided Tasting with Demby's Supper Club",
@@ -108,8 +66,8 @@
     "url": "https://www.eventbrite.com/e/french-cheese-wine-tasting-tickets-1984804905903",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F486197379%2F141392852881%2F1%2Foriginal.20230405-175849?w=480&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C83%2C4724%2C2362&s=c69a0050e92690903beef7e146f0f64f",
     "source": "Eventbrite",
-    "id": 14,
-    "color": "c4"
+    "id": 15,
+    "color": "c5"
   },
   {
     "title": "TASTING TRADITION: Celebrating AAPI Wine & Spirits",
@@ -178,8 +136,8 @@
     "url": "https://www.eventbrite.com/e/tour-of-bordeaux-wine-tasting-tickets-1984147957954",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1183356150%2F2927394388511%2F1%2Foriginal.20260429-174400?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.506&fp-y=0.473&s=3b0fa64300b17ccf42d1f98ca9605e5e",
     "source": "Eventbrite",
-    "id": 11,
-    "color": "c1"
+    "id": 12,
+    "color": "c2"
   },
   {
     "title": "Wine & Bites: Roman Pairings",
@@ -196,18 +154,18 @@
     "color": "c3"
   },
   {
-    "title": "Wine Night LGBTQ Networking: The Captivating Wines of Portugal - NYC",
-    "venue": "Le Du's Wines",
-    "date": "2026-05-14T18:30:00-04:00",
-    "dateDisplay": "Thu, May 14, 10:30 PM",
+    "title": "NYCxDESIGN Festival Opening Party",
+    "venue": "Halo Twenty Eight",
+    "date": "2026-05-14T18:00:00-04:00",
+    "dateDisplay": "Thu, May 14, 10:00 PM",
     "day": "14",
     "month": "May · Thu",
-    "tag": "Event",
-    "url": "https://www.eventbrite.com/e/wine-night-lgbtq-networking-the-captivating-wines-of-portugal-nyc-tickets-1984486643973",
-    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1173851394%2F767898029763%2F1%2Foriginal.20260102-181352?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.505&fp-y=0.084&s=ab68456a406ca39777186402095033f3",
+    "tag": "Festival",
+    "url": "https://www.eventbrite.com/e/nycxdesign-festival-opening-party-tickets-1985335015475",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1183272602%2F1841772335843%2F1%2Foriginal.20260428-211123?w=480&auto=format%2Ccompress&q=75&sharp=10&s=a88a625d9cf6fedb690d2118c0a87fb5",
     "source": "Eventbrite",
-    "id": 2,
-    "color": "c2"
+    "id": 24,
+    "color": "c4"
   },
   {
     "title": "SAKE-CON NYC 2026 Spring",
@@ -238,20 +196,6 @@
     "color": "c1"
   },
   {
-    "title": "Beginner Crochet & Sip at Bakery by Textbook",
-    "venue": "Bakery by Textbook",
-    "date": "2026-05-16T18:00:00-04:00",
-    "dateDisplay": "Sat, May 16, 10:00 PM",
-    "day": "16",
-    "month": "May · Sat",
-    "tag": "Event",
-    "url": "https://www.eventbrite.com/e/beginner-crochet-sip-at-bakery-by-textbook-tickets-1988034719362",
-    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1182815201%2F2990163712462%2F1%2Foriginal.20260422-200021?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.616&fp-y=0.487&s=63832f78f390725eed3e1c07d6ae0400",
-    "source": "Eventbrite",
-    "id": 24,
-    "color": "c4"
-  },
-  {
     "title": "Creative Wine Painting Event",
     "venue": "34-18 Northern Blvd room 102",
     "date": "2026-05-17T14:45:00-04:00",
@@ -262,8 +206,8 @@
     "url": "https://www.eventbrite.com/e/creative-wine-painting-event-tickets-1988140999248",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1182934935%2F242842268323%2F1%2Foriginal.20260424-031958?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=c6f84b6109da3759ae37ad784494ca40",
     "source": "Eventbrite",
-    "id": 6,
-    "color": "c1"
+    "id": 7,
+    "color": "c2"
   },
   {
     "title": "Cosmic Wines: A Tasting of Biodynamic Wines",
@@ -278,6 +222,20 @@
     "source": "Eventbrite",
     "id": 4,
     "color": "c4"
+  },
+  {
+    "title": "Cosmic Wines",
+    "venue": "Hudson Local",
+    "date": "2026-05-20T18:00:00-04:00",
+    "dateDisplay": "Wed, May 20, 10:00 PM",
+    "day": "20",
+    "month": "May · Wed",
+    "tag": "Event",
+    "url": "https://www.eventbrite.com/e/cosmic-wines-tickets-1988644227417",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1183545609%2F3000675066464%2F1%2Foriginal.20260501-190722?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=c1677e27c392b135a321e99df65e66be",
+    "source": "Eventbrite",
+    "id": 6,
+    "color": "c1"
   },
   {
     "title": "$20 OFF Around-the-World Cheese & Wine Tasting",
@@ -304,8 +262,8 @@
     "url": "https://www.eventbrite.com/e/wine-dinner-campania-tickets-1985394157370",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1082824583%2F2330507047293%2F1%2Foriginal.20250728-165554?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=4c2dd1c6fbb70f0bea09c84cb6b45a68",
     "source": "Eventbrite",
-    "id": 13,
-    "color": "c3"
+    "id": 14,
+    "color": "c4"
   },
   {
     "title": "$20 OFF Blush Wine and Cheese: Rosé All \"Whey!\"",
@@ -332,8 +290,8 @@
     "url": "https://www.eventbrite.com/e/bass-wine-rum-rooftop-tickets-1988684015424",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1183597910%2F196773787622%2F1%2Foriginal.20260502-171234?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.489&fp-y=0.74&s=b70b5ac00c2b3e8cd7ea3aca93dc2a6c",
     "source": "Eventbrite",
-    "id": 1,
-    "color": "c1"
+    "id": 2,
+    "color": "c2"
   },
   {
     "title": "$20 OFF Spanish Cheese & Wine Tasting",
@@ -350,6 +308,34 @@
     "color": "c4"
   },
   {
+    "title": "VIP Wine Dinner – Wines of Argentina",
+    "venue": "Rafele",
+    "date": "2026-05-28T18:30:00-04:00",
+    "dateDisplay": "Thu, May 28, 10:30 PM",
+    "day": "28",
+    "month": "May · Thu",
+    "tag": "Dinner",
+    "url": "https://www.eventbrite.com/e/vip-wine-dinner-wines-of-argentina-tickets-1988649049841",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1183555842%2F48689215320%2F1%2Foriginal.20260501-212048?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=a2483d2082af1d9e75f435c79693263c",
+    "source": "Eventbrite",
+    "id": 8,
+    "color": "c3"
+  },
+  {
+    "title": "French Social Night - Wine is Blind",
+    "venue": "407 Broome St",
+    "date": "2026-05-28T18:30:00-04:00",
+    "dateDisplay": "Thu, May 28, 10:30 PM",
+    "day": "28",
+    "month": "May · Thu",
+    "tag": "Event",
+    "url": "https://www.eventbrite.com/e/french-social-night-wine-is-blind-tickets-1987456578126",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1183376413%2F2998626018836%2F1%2Foriginal.20260429-210332?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.489&fp-y=0.658&s=59fec1545e33b0437e93c41c5199e7fb",
+    "source": "Eventbrite",
+    "id": 22,
+    "color": "c2"
+  },
+  {
     "title": "Brooklyn Wine Fest",
     "venue": "Brooklyn Navy Yard Building 77",
     "date": "2026-05-30T13:00:00-04:00",
@@ -360,8 +346,8 @@
     "url": "https://www.eventbrite.com/e/brooklyn-wine-fest-tickets-1984055274736",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F981980493%2F258699274776%2F1%2Foriginal.20250312-163128?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.0852272727273&fp-y=0.188741721854&s=80b72898463db22ce971828b52c74619",
     "source": "Eventbrite",
-    "id": 9,
-    "color": "c4"
+    "id": 10,
+    "color": "c5"
   },
   {
     "title": "Wine Tasting NYC: Spring Rosé Experience (4 Wines + Brunch Bites)",
@@ -402,8 +388,8 @@
     "url": "https://www.eventbrite.com/e/women-in-wine-festival-part-2-presented-by-no-wine-left-behind-tickets-1986688046427",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1181700435%2F1965939584683%2F1%2Foriginal.20260408-154359?crop=focalpoint&fit=crop&w=480&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=8cf9093dd0ae851d5d09d75a79fc1185",
     "source": "Eventbrite",
-    "id": 10,
-    "color": "c5"
+    "id": 11,
+    "color": "c1"
   },
   {
     "title": "Summertime Cheese & Wine Tasting",
@@ -418,5 +404,19 @@
     "source": "Eventbrite",
     "id": 29,
     "color": "c4"
+  },
+  {
+    "title": "Wine Night Lgbtq Networking The Captivating Wines Of Portugal Nyc",
+    "venue": null,
+    "date": null,
+    "dateDisplay": null,
+    "day": "—",
+    "month": "Upcoming",
+    "tag": "Event",
+    "url": "https://www.eventbrite.com/e/wine-night-lgbtq-networking-the-captivating-wines-of-portugal-nyc-tickets-1984486643973",
+    "image": null,
+    "source": "Eventbrite",
+    "id": 1,
+    "color": "c1"
   }
 ]
