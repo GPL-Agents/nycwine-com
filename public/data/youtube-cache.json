@@ -1,0 +1,7 @@
+{
+  "fetchedAt": "2026-05-06T02:37:55.544Z",
+  "source": "YouTube",
+  "sourceUrl": "https://www.youtube.com/results?search_query=NYC+wine",
+  "videos": [],
+  "fetchWarning": "YOUTUBE_API_KEY not set in environment"
+}

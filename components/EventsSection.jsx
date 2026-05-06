@@ -10,7 +10,7 @@
 // ─────────────────────────────────────────────────────────────
 
 import { useState, useEffect, useRef } from 'react';
-import AuctionsSidebar from './AuctionsSidebar';
+import WineVideosSidebar from './WineVideosSidebar';
 
 // TODO: Uncomment MultiplexAd once Google AdSense is approved
 // function MultiplexAd() {
@@ -42,7 +42,7 @@ import AuctionsSidebar from './AuctionsSidebar';
 //   );
 // }
 
-const FILTERS = ['All', 'Tasting', 'Class', 'Dinner', 'Event', 'Festival', 'Auctions'];
+const FILTERS = ['All', 'Tasting', 'Class', 'Dinner', 'Event', 'Festival'];
 
 export default function EventsSection() {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -104,15 +104,8 @@ export default function EventsSection() {
         <a href="/events" className="event-view-all">View All →</a>
       </div>
 
-      {/* Auctions view — shown instead of cards when filter is active */}
-      {activeFilter === 'Auctions' && (
-        <div className="event-auctions-panel">
-          <AuctionsSidebar />
-        </div>
-      )}
-
       {/* Horizontal card scroll */}
-      <div className={`event-cards-scroll${activeFilter === 'Auctions' ? ' hidden' : ''}`}>
+      <div className="event-cards-scroll">
         {loading && (
           <div className="event-card">
             <div className="event-card-header c1">
@@ -190,8 +183,8 @@ export default function EventsSection() {
         ))}
       </div>
 
-      {/* List view + multiplex ad — side by side on desktop */}
-      {listEvents.length > 0 && activeFilter !== 'Auctions' && (
+      {/* List view + sidebar — side by side on desktop */}
+      {listEvents.length > 0 && (
         <div className="event-list-row">
           <div className="event-list">
             <div className="event-list-title">More coming up</div>
@@ -225,8 +218,8 @@ export default function EventsSection() {
             ))}
           </div>
           <div className="event-sidebar">
-            <AuctionsSidebar />
-            {/* Acker Wines ad below auctions */}
+            <WineVideosSidebar />
+            {/* Acker Wines ad below videos */}
             <a
               href="https://www.ackerwines.com"
               target="_blank"

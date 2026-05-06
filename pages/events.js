@@ -1,7 +1,7 @@
 // pages/events.js
 // ─────────────────────────────────────────────────────────────
-// Full events page — all upcoming wine events + auctions sidebar.
-// Fetches from /api/events and /data/auctions-cache.json.
+// Full events page — all upcoming wine events + videos sidebar.
+// Fetches from /api/events and /data/youtube-cache.json.
 // ─────────────────────────────────────────────────────────────
 
 import Head from 'next/head';
@@ -9,7 +9,7 @@ import Link from 'next/link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import QuickNav from '../components/QuickNav';
-import AuctionsSidebar from '../components/AuctionsSidebar';
+import WineVideosSidebar from '../components/WineVideosSidebar';
 import { useState, useEffect } from 'react';
 
 // Inline map opener for use inside <a> cards (avoids nested <a> tags)
@@ -184,8 +184,8 @@ export default function EventsPage() {
                 <div className="map-btn-overlay">Maps &amp; Directions</div>
               </div>
             </Link>
-            <AuctionsSidebar />
-            {/* Acker Wines ad below auctions */}
+            <WineVideosSidebar />
+            {/* Acker Wines ad below videos */}
             <a
               href="https://www.ackerwines.com"
               target="_blank"
