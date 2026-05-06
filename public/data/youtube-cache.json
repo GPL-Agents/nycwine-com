@@ -1,7 +1,187 @@
 {
-  "fetchedAt": "2026-05-06T02:37:55.544Z",
+  "fetchedAt": "2026-05-06T03:14:09.140Z",
   "source": "YouTube",
   "sourceUrl": "https://www.youtube.com/results?search_query=NYC+wine",
-  "videos": [],
-  "fetchWarning": "YOUTUBE_API_KEY not set in environment"
+  "videos": [
+    {
+      "videoId": "RXsDxS4pRAw",
+      "title": "NYC's Sauced Has the Blueprint for a New Kind of Wine Bar | I Know a Place",
+      "channelTitle": "InsideHook",
+      "publishedAt": "2025-11-10T12:01:02Z",
+      "publishedRelative": "5mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/RXsDxS4pRAw/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=RXsDxS4pRAw"
+    },
+    {
+      "videoId": "MHVbUIkVO5s",
+      "title": "The wine bar serving incredible food in NYC #foodie #nyc #food",
+      "channelTitle": "Kaitlyn Lavery",
+      "publishedAt": "2024-06-19T00:00:15Z",
+      "publishedRelative": "1y ago",
+      "thumbnail": "https://i.ytimg.com/vi/MHVbUIkVO5s/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=MHVbUIkVO5s"
+    },
+    {
+      "videoId": "AtPw7J9jjd0",
+      "title": "My fav wine bars in NYC right now! #nyc #brooklyn #newyorkcity #shorts",
+      "channelTitle": "Caleb Thill",
+      "publishedAt": "2025-03-11T15:00:17Z",
+      "publishedRelative": "1y ago",
+      "thumbnail": "https://i.ytimg.com/vi/AtPw7J9jjd0/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=AtPw7J9jjd0"
+    },
+    {
+      "videoId": "ld3HHlg5xvY",
+      "title": "NYC’s Best Wine Bars 🍷",
+      "channelTitle": "VinePair",
+      "publishedAt": "2025-07-29T19:08:31Z",
+      "publishedRelative": "9mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/ld3HHlg5xvY/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=ld3HHlg5xvY"
+    },
+    {
+      "videoId": "YEH9-ZYs5GU",
+      "title": "I’ll take my wine from a window my day.🍷 #williamsburg #brooklyn #nyc #wine",
+      "channelTitle": "Don’t Sit Home",
+      "publishedAt": "2025-07-23T02:33:04Z",
+      "publishedRelative": "9mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/YEH9-ZYs5GU/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=YEH9-ZYs5GU"
+    },
+    {
+      "videoId": "kQQL7_-V75g",
+      "title": "The Best Places To Drink Wine In NYC: A Night Out With SWURL Episode 01",
+      "channelTitle": "SWURL",
+      "publishedAt": "2025-11-17T16:01:17Z",
+      "publishedRelative": "5mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/kQQL7_-V75g/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=kQQL7_-V75g"
+    },
+    {
+      "videoId": "nGMWS7FeD8c",
+      "title": "Mercante Wines in NYC #wine #food",
+      "channelTitle": "vinofiamma",
+      "publishedAt": "2024-07-12T03:50:20Z",
+      "publishedRelative": "1y ago",
+      "thumbnail": "https://i.ytimg.com/vi/nGMWS7FeD8c/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=nGMWS7FeD8c"
+    },
+    {
+      "videoId": "_b9J3_vbZms",
+      "title": "The real tea on the founder's room at ZZ's #carbone #finedining #nyc #wine #caviar #membersclub",
+      "channelTitle": "The VIP List",
+      "publishedAt": "2025-01-13T00:01:05Z",
+      "publishedRelative": "1y ago",
+      "thumbnail": "https://i.ytimg.com/vi/_b9J3_vbZms/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=_b9J3_vbZms"
+    },
+    {
+      "videoId": "0sAH89wIBDo",
+      "title": "A Master Sommelier's Hidden Pasta & Wine Spots In NYC | The Wine Show",
+      "channelTitle": "Munchies",
+      "publishedAt": "2026-01-21T17:00:05Z",
+      "publishedRelative": "3mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/0sAH89wIBDo/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=0sAH89wIBDo"
+    },
+    {
+      "videoId": "8QRUBFiCKpo",
+      "title": "Manhattan Wine Auction 2025",
+      "channelTitle": "VOX Productions",
+      "publishedAt": "2025-07-21T20:48:34Z",
+      "publishedRelative": "9mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/8QRUBFiCKpo/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=8QRUBFiCKpo"
+    },
+    {
+      "videoId": "L8r6vIjfpOk",
+      "title": "Everything ordered was incredible #winebar #nyc",
+      "channelTitle": "Stephan Fisher",
+      "publishedAt": "2025-05-20T01:22:16Z",
+      "publishedRelative": "11mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/L8r6vIjfpOk/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=L8r6vIjfpOk"
+    },
+    {
+      "videoId": "O5RMe9RXz44",
+      "title": "Review: WMF Manhattan Wine Cooler - Keep Your Wine Chilled Without Ice!",
+      "channelTitle": "Product Reviews For Everyday",
+      "publishedAt": "2025-10-07T22:19:56Z",
+      "publishedRelative": "6mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/O5RMe9RXz44/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=O5RMe9RXz44"
+    },
+    {
+      "videoId": "xMcaDhbeXos",
+      "title": "18th annual NYC Wine and Food Festival held at the South Street Seaport",
+      "channelTitle": "CBS New York",
+      "publishedAt": "2025-10-19T23:24:31Z",
+      "publishedRelative": "6mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/xMcaDhbeXos/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=xMcaDhbeXos"
+    },
+    {
+      "videoId": "1_0st43j2jk",
+      "title": "Enjoy a movie at this cozy and intimate wine bar & bookstore!",
+      "channelTitle": "Picture Perfect Luis",
+      "publishedAt": "2025-02-21T15:58:36Z",
+      "publishedRelative": "1y ago",
+      "thumbnail": "https://i.ytimg.com/vi/1_0st43j2jk/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=1_0st43j2jk"
+    },
+    {
+      "videoId": "mfwYBgqTM9Q",
+      "title": "The perfect wine & tapas bar in NYC 🍷",
+      "channelTitle": "good.eats.v",
+      "publishedAt": "2025-05-26T22:18:55Z",
+      "publishedRelative": "11mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/mfwYBgqTM9Q/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=mfwYBgqTM9Q"
+    },
+    {
+      "videoId": "3GO5G9p26bg",
+      "title": "Where do NYC's BEST sommeliers drink wine?",
+      "channelTitle": "VinePair",
+      "publishedAt": "2025-08-28T17:07:36Z",
+      "publishedRelative": "8mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/3GO5G9p26bg/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=3GO5G9p26bg"
+    },
+    {
+      "videoId": "aUmhTo79TIs",
+      "title": "NYC Restaurant Review - Aldo Sohm Wine Bar | W 51st St",
+      "channelTitle": "MarshW13 Food & Wine",
+      "publishedAt": "2024-05-12T05:52:03Z",
+      "publishedRelative": "1y ago",
+      "thumbnail": "https://i.ytimg.com/vi/aUmhTo79TIs/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=aUmhTo79TIs"
+    },
+    {
+      "videoId": "e7UUaw98oLM",
+      "title": "2024 Manhattan Wine Auction",
+      "channelTitle": "VOX Productions",
+      "publishedAt": "2024-07-04T21:03:14Z",
+      "publishedRelative": "1y ago",
+      "thumbnail": "https://i.ytimg.com/vi/e7UUaw98oLM/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=e7UUaw98oLM"
+    },
+    {
+      "videoId": "FFoykcD1CX0",
+      "title": "⁠@FoodNetwork 2024 NYC Wine and Food Festival Blue Moon Burger Bash #burger #food #festival",
+      "channelTitle": "DIY With Ya Boy Mike 101",
+      "publishedAt": "2024-10-19T03:19:21Z",
+      "publishedRelative": "1y ago",
+      "thumbnail": "https://i.ytimg.com/vi/FFoykcD1CX0/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=FFoykcD1CX0"
+    },
+    {
+      "videoId": "HPnBijrtkts",
+      "title": "NYC Wine and Food Festival",
+      "channelTitle": "Friends, After 40 Podcast",
+      "publishedAt": "2024-11-16T18:51:29Z",
+      "publishedRelative": "1y ago",
+      "thumbnail": "https://i.ytimg.com/vi/HPnBijrtkts/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=HPnBijrtkts"
+    }
+  ]
 }
