@@ -4495,4 +4495,9 @@ body {
   margin-top: 10px;
 }
 
-/* ── Responsive ──────────────�
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .buy-slot-grid { grid-template-columns: 1fr 1fr; }
+  .buy-tier-row  { flex-direction: column; }
+  .adv-pricing-row { gap: 8px; }
+}
