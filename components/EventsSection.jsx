@@ -233,4 +233,9 @@ export default function EventsSection() {
           <div className="event-sidebar">
             <WineVideosSidebar />
           </div>
-       
+        </div>
+      )}
+
+    </section>
+  );
+}
