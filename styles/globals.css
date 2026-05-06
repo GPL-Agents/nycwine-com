@@ -4486,4 +4486,37 @@ body {
   font-weight: 700;
   color: var(--black);
   border-top: 2px solid var(--border);
-  margin-top: 4px
+  margin-top: 4px;
+}
+.buy-summary-renew {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 20px;
+  margin-top: 4px;
+}
+.buy-checkout-btn {
+  width: 100%;
+  text-align: center;
+  font-size: 17px;
+  padding: 16px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+}
+.buy-checkout-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.buy-stripe-note {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .buy-slot-grid { grid-template-columns: 1fr 1fr; }
+  .buy-tier-row  { flex-direction: column; }
+  .adv-pricing-row { gap: 8px; }
+}
