@@ -216,26 +216,21 @@ export default function EventsSection() {
                   <div className="event-row-arrow">&rsaquo;</div>
                 </a>
             ))}
-          </div>
-          <div className="event-sidebar">
-            <WineVideosSidebar />
-            {/* Acker Wines ad below videos */}
+            {/* Acker Wines ad — beneath the events list, full column width */}
             <a
               href="https://www.ackerwines.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="sidebar-ad-link"
+              className="event-list-ad-link"
             >
               <img
                 src="/images/acker.ad.new.png"
                 alt="Acker Wines — Top 10 World's Most Iconic Wine Shops — 160 W 72nd St, NYC"
-                className="sidebar-ad-img"
+                className="event-list-ad-img"
               />
             </a>
           </div>
-        </div>
-      )}
-
-    </section>
-  );
-}
+          <div className="event-sidebar">
+            <WineVideosSidebar />
+          </div>
+       
