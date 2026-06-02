@@ -4536,7 +4536,7 @@ body {
 .blog-page {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 16px 60px;
+  padding: 20px 16px 60px;
 }
 
 .blog-page-header {
@@ -4926,7 +4926,6 @@ body {
 }
 /* Blog sidebar promo image */
 .blog-sidebar-image {
-  margin-top: 20px;
   margin-bottom: 16px;
   border-radius: 10px;
   overflow: hidden;
