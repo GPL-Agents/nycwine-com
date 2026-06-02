@@ -214,6 +214,7 @@ body {
 .qnav-pill.stores,
 .qnav-pill.bars,
 .qnav-pill.wineries,
+.qnav-pill.blog,
 .qnav-pill.map      { border-color: var(--border); color: var(--text); background: white; }
 /* Hover — must come after the named-class rules so specificity wins */
 .qnav-pill:hover,
@@ -223,8 +224,11 @@ body {
 .qnav-pill.stores:hover,
 .qnav-pill.bars:hover,
 .qnav-pill.wineries:hover,
+.qnav-pill.blog:hover,
 .qnav-pill.map:hover    { border-color: var(--rose-muted); color: var(--rose); background: #fdf0f5; }
-.qnav-pill.qnav-active { border-color: var(--rose-muted); color: var(--rose); background: var(--rose-light); }
+/* Active pill: filled pink, white text - applied universally */
+.qnav-pill.qnav-active { background: var(--pink); color: white; border-color: var(--pink); font-weight: 600; }
+.qnav-pill.qnav-active:hover { background: var(--pink-dark); border-color: var(--pink-dark); color: white; }
 
 /* ═══════════════════════════════════════
    SECTION HEADERS (shared pattern)
