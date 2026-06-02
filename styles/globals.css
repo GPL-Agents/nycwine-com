@@ -4547,7 +4547,7 @@ body {
 .blog-page-hero {
   background: var(--pink);
   padding: 18px var(--content-pad) 16px;
-  margin: 0 -16px 20px;
+  text-align: left;
 }
 .blog-page-hero-title {
   font-family: var(--font-serif);
