@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* ═══════════════════════════════════════
-   CSS VARIABLES — NYCWine Brand Palette
+   CSS VARIABLES -- NYCWine Brand Palette
    Vibrant pink, crisp white, clean black.
    Matches the established NYCWine.com brand.
 ═══════════════════════════════════════ */
@@ -73,7 +73,7 @@ body {
    HEADER
 ═══════════════════════════════════════ */
 .site-header {
-  /* Wine glass watermark — single tile 160×86px, brick stagger built in.
+  /* Wine glass watermark -- single tile 160×86px, brick stagger built in.
      Row 1 (y=21.5): Bordeaux red wine glass + white wine glass.
      Row 2 (y=64.5): Burgundy balloon glass + champagne flute.
      All 4 icons safely inside tile bounds (no edge clipping). */
@@ -125,7 +125,7 @@ body {
 @media (max-width: 800px) {
   .header-ad-link { display: none; }
   /* On mobile the image is too short to fill the header from the top,
-     so anchor it to the bottom instead — any gap hides above the logo. */
+     so anchor it to the bottom instead -- any gap hides above the logo. */
   .site-header {
     gap: 12px;
   }
@@ -146,7 +146,7 @@ body {
 .header-search:focus { box-shadow: 0 1px 6px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04), inset 0 0 0 2px var(--pink); }
 .header-search::placeholder { color: var(--muted); }
 
-/* Leaderboard banner ad — sits between nav and content */
+/* Leaderboard banner ad -- sits between nav and content */
 .leaderboard-ad {
   max-width: var(--max-content);
   margin: 0 auto;
@@ -171,7 +171,7 @@ body {
   position: sticky;
   top: 90px;
   z-index: 1099;
-  /* overflow is intentionally NOT set here — clipping lives on .qnav-pills-row
+  /* overflow is intentionally NOT set here -- clipping lives on .qnav-pills-row
      so the Concierge button is always visible outside the scroll area */
 }
 @media (max-width: 800px) {
@@ -179,7 +179,7 @@ body {
   .quick-nav { top: 90px; }
 }
 
-/* Scrollable pills sub-container — horizontal scroll stays here,
+/* Scrollable pills sub-container -- horizontal scroll stays here,
    never bleeds out to the nav or the page */
 .qnav-pills-row {
   display: flex;
@@ -216,7 +216,7 @@ body {
 .qnav-pill.wineries,
 .qnav-pill.blog,
 .qnav-pill.map      { border-color: var(--border); color: var(--text); background: white; }
-/* Hover — must come after the named-class rules so specificity wins */
+/* Hover -- must come after the named-class rules so specificity wins */
 .qnav-pill:hover,
 .qnav-pill.events:hover,
 .qnav-pill.social:hover,
@@ -327,10 +327,10 @@ body {
 }
 /* Default active (All pill) */
 .epill.active { background: var(--rose); color: white; border-color: var(--rose); }
-/* Default hover (All pill — lightens toward rose-light) */
+/* Default hover (All pill -- lightens toward rose-light) */
 .epill:hover:not(.active) { background: var(--rose-light); border-color: var(--rose-muted); }
 
-/* Color-coded filter pills — match event card tag colors */
+/* Color-coded filter pills -- match event card tag colors */
 .epill[data-filter="Tasting"]        { border-color: #ef9a9a; color: #c62828; background: #fce4ec; }
 .epill[data-filter="Tasting"]:hover:not(.active) { background: #fef0f4; border-color: #ef9a9a; }
 .epill[data-filter="Tasting"].active { background: #c62828; color: white; border-color: #c62828; }
@@ -408,7 +408,7 @@ body {
 .event-card-tag[data-tag="Festival"] { background: #e8f5e9; color: #2e7d32; }
 .event-card-price { font-size: 11px; color: var(--burgundy); font-weight: 600; float: right; margin-top: 8px; }
 
-/* Event list + multiplex ad — side by side on desktop */
+/* Event list + multiplex ad -- side by side on desktop */
 .event-list-row {
   display: flex;
   gap: 24px;
@@ -426,7 +426,7 @@ body {
   top: 120px; /* below sticky header + nav */
   min-height: 200px;
 }
-/* Wine Videos sidebar — pulls from YouTube Data API */
+/* Wine Videos sidebar -- pulls from YouTube Data API */
 .videos-sidebar {
   background: white;
   border: 1px solid var(--border, #e0ddd8);
@@ -483,7 +483,7 @@ body {
   color: var(--muted, #999);
   padding: 12px 0;
 }
-/* Empty state — keeps the slot filled if cache has zero videos */
+/* Empty state -- keeps the slot filled if cache has zero videos */
 .videos-empty {
   display: flex;
   align-items: center;
@@ -512,7 +512,7 @@ body {
 .videos-empty-text { line-height: 1.3; }
 .videos-empty-title { font-size: 13px; font-weight: 600; color: var(--black); }
 .videos-empty-sub   { font-size: 11px; color: var(--pink, #e91e63); margin-top: 2px; }
-/* Video list — vertical cards, slightly compact thumbs to fit 4 in similar space */
+/* Video list -- vertical cards, slightly compact thumbs to fit 4 in similar space */
 .videos-list {
   display: flex;
   flex-direction: column;
@@ -777,7 +777,7 @@ body {
   min-height: 120px;
 }
 
-/* Banner-style Acker ad — placed under the homepage events list (left column) */
+/* Banner-style Acker ad -- placed under the homepage events list (left column) */
 .event-list-ad-link {
   display: block;
   margin-top: 20px;
@@ -796,7 +796,7 @@ body {
   height: auto;
 }
 
-/* Sidebar image ad (legacy — used on /events page sidebar) */
+/* Sidebar image ad (legacy -- used on /events page sidebar) */
 .sidebar-ad-link {
   display: block;
   margin-top: 16px;
@@ -904,7 +904,7 @@ body {
 .scs-title { font-family: var(--font-serif); font-size: 14px; font-weight: 500; color: var(--muted); font-style: italic; }
 .scs-text { font-size: 11px; color: var(--muted); margin-top: 6px; line-height: 1.5; max-width: 200px; }
 
-/* Reddit card carousel — wrapper with arrow buttons */
+/* Reddit card carousel -- wrapper with arrow buttons */
 .reddit-carousel-wrap {
   position: relative;
 }
@@ -935,7 +935,7 @@ body {
 .reddit-arrow-left  { left: 6px; }
 .reddit-arrow-right { right: 6px; }
 
-/* Reddit card carousel — single scrollable row */
+/* Reddit card carousel -- single scrollable row */
 .reddit-carousel {
   display: flex;
   flex-direction: row;
@@ -1045,7 +1045,7 @@ body {
 ═══════════════════════════════════════ */
 .news-section { background: white; border-top: 1px solid var(--border); }
 
-/* Pink ribbon — label only, no scrolling text */
+/* Pink ribbon -- label only, no scrolling text */
 .news-ticker {
   background: var(--pink);
   padding: 12px var(--content-pad);
@@ -1077,7 +1077,7 @@ body {
 
 /* Two-column layout: news list + featured venues sidebar
    Mirrors .social-links-row so the sidebar aligns under the Borghese ad.
-   No max-width/margin:auto here — padding alone aligns it to match .social-grid. */
+   No max-width/margin:auto here -- padding alone aligns it to match .social-grid. */
 .news-layout {
   display: grid;
   grid-template-columns: 1fr 280px;
@@ -1094,7 +1094,7 @@ body {
   padding: 0 20px;
 }
 
-/* Inside news-main — no horizontal padding here, parent containers handle it */
+/* Inside news-main -- no horizontal padding here, parent containers handle it */
 .news-source-tabs {
   display: flex;
   flex-wrap: wrap;
@@ -1158,7 +1158,7 @@ body {
 .news-card-snippet { font-size: 12px; color: var(--muted); line-height: 1.5; margin-top: 4px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .news-card-date   { font-size: 11px; color: var(--muted); margin-top: 6px; }
 
-/* In-feed ad inside news list — matches card spacing */
+/* In-feed ad inside news list -- matches card spacing */
 .news-card-ad {
   padding: 8px 0;
   border-bottom: 1px solid var(--border-light);
@@ -1421,7 +1421,7 @@ body {
   transition: all 0.15s;
 }
 .store-card-link:hover { background: var(--pink-muted); color: white; }
-/* Button text stays fixed — tooltip on card handles the "Visit Website" message */
+/* Button text stays fixed -- tooltip on card handles the "Visit Website" message */
 .store-card-link .visit-default { display: inline; }
 .store-card-link .visit-hover   { display: none; }
 /* Store visit button (used on /stores page) */
@@ -1616,7 +1616,7 @@ body {
 }
 
 /* ═══════════════════════════════════════
-   MAP LINK — pin icon on venue addresses
+   MAP LINK -- pin icon on venue addresses
 ═══════════════════════════════════════ */
 .map-link {
   display: inline-flex;
@@ -1692,7 +1692,7 @@ body {
   padding-right: var(--content-pad);
 }
 
-/* Pink ribbon header — matches events page style */
+/* Pink ribbon header -- matches events page style */
 .news-page-header {
   background: var(--pink);
   padding: 14px var(--content-pad);
@@ -2083,7 +2083,7 @@ body {
   transition: all 0.15s;
 }
 .bar-card-link:hover { background: var(--pink-muted); color: white; }
-/* Button text stays fixed — tooltip on card handles the "Visit Website" message */
+/* Button text stays fixed -- tooltip on card handles the "Visit Website" message */
 .bar-card-link .visit-default { display: inline; }
 .bar-card-link .visit-hover   { display: none; }
 
@@ -2352,7 +2352,7 @@ body {
    The news-page wrapper already applies var(--content-pad)
    horizontally. Strip SocialSection's own internal horizontal
    padding so content doesn't double-indent.
-   Also hide SocialSection's own black ribbon — the page has one.
+   Also hide SocialSection's own black ribbon -- the page has one.
 ─────────────────────────────────────────────────────────────── */
 .social-page .social-section {
   background: transparent;
@@ -2368,7 +2368,7 @@ body {
 .social-page .social-links-row {
   padding-left: 0;
   padding-right: 0;
-  /* Collapse to single column — ad moved to right sidebar */
+  /* Collapse to single column -- ad moved to right sidebar */
   grid-template-columns: 1fr;
 }
 /* Hide the in-line ad sidebar; Borghese ad lives in the right sidebar instead */
@@ -2386,10 +2386,10 @@ body {
   width: 300px;
 }
 
-/* Facebook post embed — scale 500px iframe to fit sidebar width.
+/* Facebook post embed -- scale 500px iframe to fit sidebar width.
    The iframe is position:absolute so its 500px layout box never
    bleeds into the page width on mobile (transform alone doesn't
-   reduce layout size — it only changes visual rendering).        */
+   reduce layout size -- it only changes visual rendering).        */
 .social-page-fb-wrap {
   position: relative;
   width: 100%;
@@ -2425,10 +2425,10 @@ body {
 
 
 /* ═══════════════════════════════════════
-   CONCIERGE — QuickNav button
+   CONCIERGE -- QuickNav button
 ═══════════════════════════════════════ */
 
-/* Push the button to the far right — white/light pill so it reads
+/* Push the button to the far right -- white/light pill so it reads
    as interactive rather than matching the filled ribbon headers   */
 .qnav-concierge-btn {
   margin-left: auto;
@@ -2473,7 +2473,7 @@ body {
   line-height: 1;
 }
 
-/* No mobile override needed — the Concierge button sits outside the
+/* No mobile override needed -- the Concierge button sits outside the
    scrollable .qnav-pills-row so it's always visible at the right edge
    of the nav bar on every screen size. */
 
@@ -2609,7 +2609,7 @@ body {
   color: white;
 }
 
-/* Map container — fills remaining height of map-page flex column */
+/* Map container -- fills remaining height of map-page flex column */
 .map-container {
   position: relative;
   flex: 1;
@@ -2704,7 +2704,7 @@ body {
 .leaflet-popup-content { margin: 12px 14px !important; }
 .leaflet-popup-tip-container { display: none; }
 
-/* Close button — light pink circle in top-right corner */
+/* Close button -- light pink circle in top-right corner */
 .leaflet-popup-close-button {
   position: absolute !important;
   top: -10px !important;
@@ -2727,7 +2727,7 @@ body {
   color: white !important;
 }
 
-/* Popup footer row — directions + website side by side */
+/* Popup footer row -- directions + website side by side */
 .mp-footer {
   display: flex;
   align-items: center;
@@ -2863,10 +2863,10 @@ body {
 .map-geo-btn:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.18); color: white; }
 .map-geo-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
-/* Loading state while geolocating — no animation, just muted appearance */
+/* Loading state while geolocating -- no animation, just muted appearance */
 .map-geo-loading { opacity: 0.65; }
 
-/* ── Inline location + radius — sits right of My Location button ── */
+/* ── Inline location + radius -- sits right of My Location button ── */
 .map-location-inline {
   display: flex;
   align-items: center;
@@ -3019,7 +3019,7 @@ body {
   .map-location-sep    { display: none; }
 }
 
-/* ── Concierge modal overlay — centered ───────────────────── */
+/* ── Concierge modal overlay -- centered ───────────────────── */
 .concierge-overlay {
   position: fixed;
   inset: 0;
@@ -3250,7 +3250,7 @@ body {
   background: var(--pink-light);
   color: var(--pink-dark);
 }
-/* Silly option — slightly differentiated, still readable */
+/* Silly option -- slightly differentiated, still readable */
 .concierge-choice-silly {
   border-style: dashed;
   color: var(--muted);
@@ -3365,7 +3365,7 @@ body {
   flex-shrink: 0;
 }
 
-/* "Make me laugh" choice — subtle playful style */
+/* "Make me laugh" choice -- subtle playful style */
 .concierge-choice-joke {
   border-style: solid;
   color: var(--text);
@@ -3448,7 +3448,7 @@ body {
   transform: none;
 }
 
-/* ── Mobile tweaks — bottom-sheet on small screens ────────── */
+/* ── Mobile tweaks -- bottom-sheet on small screens ────────── */
 @media (max-width: 600px) {
   .concierge-overlay {
     align-items: flex-end;
@@ -3461,15 +3461,15 @@ body {
     border-radius: 18px 18px 0 0;
     height: 82vh;
   }
-  /* Concierge label — visible at all sizes (button lives outside scroll area) */
+  /* Concierge label -- visible at all sizes (button lives outside scroll area) */
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   DIRECTORY PAGES — two-column layout (bars / stores / wineries)
+   DIRECTORY PAGES -- two-column layout (bars / stores / wineries)
    Mirrors the news-page-layout pattern with a featured sidebar.
    ═══════════════════════════════════════════════════════════════ */
 
-/* Pink ribbon header — matches news-page-header / events style */
+/* Pink ribbon header -- matches news-page-header / events style */
 .dir-page-header {
   background: var(--pink);
   padding: 14px var(--content-pad);
@@ -3553,7 +3553,7 @@ body {
 .dir-featured-card:last-of-type { border-bottom: none; }
 .dir-featured-card:hover { background: var(--cream); }
 
-/* Logo / image display — taller than news sidebar, shows logo on white */
+/* Logo / image display -- taller than news sidebar, shows logo on white */
 .dir-featured-logo-wrap {
   width: 100%;
   height: 90px;
@@ -3611,7 +3611,7 @@ body {
 }
 .dir-featured-credit:hover { color: var(--pink); }
 
-/* Responsive: stack at 820px — no sticky needed when stacked */
+/* Responsive: stack at 820px -- no sticky needed when stacked */
 @media (max-width: 820px) {
   .dir-page-layout { flex-direction: column; }
   .dir-page-sidebar {
@@ -3633,7 +3633,7 @@ body {
 
 /* ═══════════════════════════════════════════════════════════════
    ADVERTISE PAGE  (adv-*)
-   pages/advertise.js — pricing & free-listing info page
+   pages/advertise.js -- pricing & free-listing info page
 ═══════════════════════════════════════════════════════════════ */
 
 .adv-page {
@@ -4246,7 +4246,7 @@ body {
   margin-top: 16px;
 }
 
-/* Submit button — white base, turns solid pink on hover/active */
+/* Submit button -- white base, turns solid pink on hover/active */
 .sub-submit-btn {
   background: var(--white) !important;
   color: var(--pink-dark) !important;
@@ -4541,9 +4541,27 @@ body {
 
 .blog-page-header {
   margin-bottom: 8px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
+}
+
+/* Blog page pink ribbon hero */
+.blog-page-hero {
+  background: var(--pink);
+  padding: 18px var(--content-pad) 16px;
+  margin: 0 -16px 20px;
+}
+.blog-page-hero-title {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+.blog-page-hero-subtitle {
+  font-size: 13px;
+  color: rgba(255,255,255,0.85);
+  margin: 4px 0 0;
+  line-height: 1.5;
 }
 
 .blog-page-subtitle {
