@@ -4546,22 +4546,10 @@ body {
 /* Blog page pink ribbon hero */
 .blog-page-hero {
   background: var(--pink);
-  padding: 18px var(--content-pad) 16px;
-  text-align: left;
-}
-.blog-page-hero-title {
-  font-family: var(--font-serif);
-  font-size: 22px;
-  font-weight: 700;
-  color: white;
-  letter-spacing: 0.02em;
-  margin: 0;
-}
-.blog-page-hero-subtitle {
-  font-size: 13px;
-  color: rgba(255,255,255,0.85);
-  margin: 4px 0 0;
-  line-height: 1.5;
+  padding: 12px var(--content-pad);
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .blog-page-subtitle {
