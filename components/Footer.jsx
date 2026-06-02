@@ -29,7 +29,7 @@ export default function Footer() {
         <span className="footer-dot">&middot;</span>
         <a href="/advertise" className="footer-advertise-link">Advertise</a>
       </nav>
-      <div className="footer-copy">&copy; {year} Metropolitan Vintners, LLC &nbsp;&mdash;&nbsp; New York, USA &nbsp;&mdash;&nbsp; All rights reserved</div>
+      <div className="footer-copy">&copy; {year} Metropolitan Vintners, LLC  |  New York, USA  |  All rights reserved</div>
     </footer>
   );
 }
