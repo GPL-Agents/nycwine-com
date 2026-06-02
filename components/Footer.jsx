@@ -25,6 +25,8 @@ export default function Footer() {
         <span className="footer-dot">&middot;</span>
         <a href="/map">Map</a>
         <span className="footer-dot">&middot;</span>
+        <a href="/blog">Blog</a>
+        <span className="footer-dot">&middot;</span>
         <a href="/privacy">Privacy</a>
         <span className="footer-dot">&middot;</span>
         <a href="/advertise" className="footer-advertise-link">Advertise</a>
