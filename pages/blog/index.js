@@ -41,14 +41,14 @@ export default function BlogIndex() {
       <Header />
       <QuickNav />
 
-      <main className="blog-page">
+      <main>
         <div className="blog-page-hero">
           <h1 className="blog-page-hero-title">NYC Wine Blog</h1>
           <p className="blog-page-hero-subtitle">
             Weekly guides to events, new openings, tasting notes, and everything happening in the NYC wine scene.
           </p>
         </div>
-
+        <div className="blog-page">
         <div className="blog-page-layout">
           <div className="blog-post-list">
             {loading && <div className="blog-page-msg">Loading posts…</div>}
@@ -100,7 +100,7 @@ export default function BlogIndex() {
             </div>
           </aside>
         </div>
-      </main>
+      </div></main>
 
       <Footer />
     </>
