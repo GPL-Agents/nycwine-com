@@ -63,7 +63,7 @@ export default function AdvertiseSuccessPage() {
             </div>
 
             <p style={{ margin: '0 0 6px', fontSize: 15 }}>
-              Pay <strong>@{VENMO_HANDLE}</strong> on Venmo{totalFormatted ? ` &mdash; $${totalFormatted}` : ''}.
+              Pay <strong>@{VENMO_HANDLE}</strong> on Venmo{totalFormatted ? ` — $${totalFormatted}` : ''}.
             </p>
             <p style={{ margin: '0 0 18px', fontSize: 13, color: 'var(--muted)' }}>
               Use the button below or search <strong>@{VENMO_HANDLE}</strong> in the Venmo app.
