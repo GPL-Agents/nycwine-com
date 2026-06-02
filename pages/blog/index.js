@@ -43,10 +43,8 @@ export default function BlogIndex() {
 
       <main>
         <div className="blog-page-hero">
-          <h1 className="blog-page-hero-title">NYC Wine Blog</h1>
-          <p className="blog-page-hero-subtitle">
-            Weekly guides to events, new openings, tasting notes, and everything happening in the NYC wine scene.
-          </p>
+          <img src="/images/icons/icon-news.png" className="ribbon-icon" alt="" aria-hidden="true" />
+          <span className="ticker-badge">NYC Wine Blog</span>
         </div>
         <div className="blog-page">
         <div className="blog-page-layout">
