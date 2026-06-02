@@ -1,6 +1,6 @@
 // pages/blog/index.js
 // ─────────────────────────────────────────────────────────────
-// Blog listing page — all posts, newest first.
+// Blog listing page -- all posts, newest first.
 // Mirrors the layout pattern of news.js and events.js.
 // ─────────────────────────────────────────────────────────────
 
@@ -31,10 +31,10 @@ export default function BlogIndex() {
   return (
     <>
       <Head>
-        <title>Blog — NYC Wine Events, Bars &amp; Tastings | NYCWine.com</title>
+        <title>Blog -- NYC Wine Events, Bars &amp; Tastings | NYCWine.com</title>
         <meta
           name="description"
-          content="The NYCWine.com blog — weekly guides to wine events, new bar openings, tasting tips, and everything happening in the New York City wine scene."
+          content="The NYCWine.com blog -- weekly guides to wine events, new bar openings, tasting tips, and everything happening in the New York City wine scene."
         />
       </Head>
 
@@ -42,12 +42,9 @@ export default function BlogIndex() {
       <QuickNav />
 
       <main className="blog-page">
-        <div className="section-header blog-page-header">
-          <div className="section-header-title">
-            <img src="/images/icons/icon-news.png" className="ribbon-icon" alt="" aria-hidden="true" />
-            NYC Wine Blog
-          </div>
-          <p className="blog-page-subtitle">
+        <div className="blog-page-hero">
+          <h1 className="blog-page-hero-title">NYC Wine Blog</h1>
+          <p className="blog-page-hero-subtitle">
             Weekly guides to events, new openings, tasting notes, and everything happening in the NYC wine scene.
           </p>
         </div>
@@ -57,7 +54,7 @@ export default function BlogIndex() {
             {loading && <div className="blog-page-msg">Loading posts…</div>}
             {error && <div className="blog-page-msg">Unable to load posts right now. Please try again later.</div>}
             {!loading && !error && posts.length === 0 && (
-              <div className="blog-page-msg">No posts yet — check back soon!</div>
+              <div className="blog-page-msg">No posts yet -- check back soon!</div>
             )}
             {posts.map((post) => (
               <Link key={post.slug} href={`/blog/${post.slug}`} className="blog-card">
@@ -90,7 +87,7 @@ export default function BlogIndex() {
             <div className="blog-sidebar-widget">
               <div className="blog-sidebar-heading">About This Blog</div>
               <p className="blog-sidebar-text">
-                NYCWine.com is your go-to source for the New York City wine scene — events, bar openings, tasting picks, and insider tips, published weekly.
+                NYCWine.com is your go-to source for the New York City wine scene -- events, bar openings, tasting picks, and insider tips, published weekly.
               </p>
             </div>
             <div className="blog-sidebar-widget">
