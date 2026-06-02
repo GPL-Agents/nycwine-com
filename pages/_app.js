@@ -19,6 +19,9 @@ export default function App({ Component, pageProps }) {
         {/* Google AdSense — site ownership verification */}
         <meta name="google-adsense-account" content="ca-pub-6782277104310503" />
 
+        {/* Pinterest — site ownership verification */}
+        <meta name="p:domain_verify" content="61a0857fd3a5d8fee61ad9821e902761" />
+
         {/* Google Fonts — Playfair Display (editorial serif) + DM Sans (clean body) */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
