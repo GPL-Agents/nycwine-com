@@ -82,6 +82,9 @@ export default function BlogIndex() {
 
           {/* Sidebar */}
           <aside className="blog-page-sidebar">
+            <div className="blog-sidebar-image">
+              <img src="/images/nycwine-blogging.png" alt="NYC Wine Blog" className="blog-sidebar-promo-img" />
+            </div>
             <div className="blog-sidebar-widget">
               <div className="blog-sidebar-heading">About This Blog</div>
               <p className="blog-sidebar-text">
