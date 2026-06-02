@@ -4541,6 +4541,9 @@ body {
 
 .blog-page-header {
   margin-bottom: 8px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
 }
 
 .blog-page-subtitle {
@@ -4914,18 +4917,4 @@ body {
 
 .blog-back-link:hover {
   text-decoration: underline;
-}
-
-/* â”€â”€ QuickNav Blog pill â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-
-.qnav-pill.blog {
-  background: linear-gradient(135deg, #6a1b9a 0%, #c2185b 100%);
-  color: #fff;
-  font-weight: 700;
-}
-
-.qnav-pill.blog.qnav-active,
-.qnav-pill.blog:hover {
-  background: linear-gradient(135deg, #4a148c 0%, #880e4f 100%);
-  opacity: 1;
 }
