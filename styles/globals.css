@@ -4536,7 +4536,7 @@ body {
 .blog-page {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 16px 60px;
+  padding: 20px 16px 60px;
 }
 
 .blog-page-header {
@@ -4923,4 +4923,16 @@ body {
 
 .blog-back-link:hover {
   text-decoration: underline;
+}
+/* Blog sidebar promo image */
+.blog-sidebar-image {
+  margin-bottom: 16px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(45,41,38,0.10);
+}
+.blog-sidebar-promo-img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
