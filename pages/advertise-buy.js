@@ -341,7 +341,7 @@ export default function AdvertiseBuyPage() {
                 className="adv-btn-primary adv-btn-large buy-checkout-btn"
                 disabled={status === 'submitting'}
               >
-                {status === 'submitting' ? 'Redirecting to Stripe…' : `Pay $${total.toLocaleString('en-US', { minimumFractionDigits: 2 })} & Book Placement →`}
+                {status === 'submitting' ? 'Submitting...' : 'Submit Order →'}
               </button>
               <p className="buy-stripe-note">We’ll send a Venmo payment request to your email within a few hours. Your placement goes live once payment is confirmed.</p>
             </div>
