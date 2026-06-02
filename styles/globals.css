@@ -4926,6 +4926,7 @@ body {
 }
 /* Blog sidebar promo image */
 .blog-sidebar-image {
+  margin-top: 20px;
   margin-bottom: 16px;
   border-radius: 10px;
   overflow: hidden;
