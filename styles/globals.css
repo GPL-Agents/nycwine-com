@@ -2397,8 +2397,8 @@ body {
   border-radius: 10px;
   border: 1px solid var(--border-light);
   background: #fff;
-  height: 420px;   /* 750 × 0.56 = 420 */
-  margin-bottom: 20px;
+  height: 385px;   /* trimmed to end just below the Like/Comment bar */
+  margin-bottom: 0;  /* sidebar gap already provides spacing */
 }
 .social-page-fb-wrap iframe {
   position: absolute;
@@ -2416,7 +2416,7 @@ body {
     flex: none;
   }
   .social-page-fb-wrap {
-    height: 495px;   /* 750 × 0.66 = 495 */
+    height: 455px;   /* 385 ÷ 0.56 × 0.66 ≈ 455 */
   }
   .social-page-fb-wrap iframe {
     transform: scale(0.66);
