@@ -22,10 +22,10 @@ const SECTIONS = [
   { id: 'sec-events',   label: 'Events',      cls: 'events',   href: '/events'   },
   { id: 'sec-social',   label: 'Social',      cls: 'social',   href: '/social'   },
   { id: 'sec-news',     label: 'News',        cls: 'news',     href: '/news'     },
+  { id: 'sec-blog',     label: 'Blog',        cls: 'blog',     href: '/blog',     alwaysNavigate: true },
   { id: 'sec-bars',     label: 'Wine Bars',   cls: 'bars',     href: '/bars'     },
   { id: 'sec-stores',   label: 'Wine Stores', cls: 'stores',   href: '/stores'   },
   { id: 'sec-wineries', label: 'Wineries',    cls: 'wineries', href: '/wineries' },
-  { id: 'sec-blog',     label: 'Blog',        cls: 'blog',     href: '/blog',     alwaysNavigate: true },
 ];
 
 export default function QuickNav() {
