@@ -2,6 +2,7 @@
 // ─────────────────────────────────────────────────────────────
 // Free listing submission handler.
 // Validates → AI review → saves to Supabase → publishes if approved.
+// Auto-derives logo URLs from submitted website URLs via Clearbit.
 //
 // POST /api/submit
 // Body: { type, name, contactEmail, ...fields }
@@ -22,6 +23,17 @@ function validate(body) {
     try { new URL(body.url); } catch { return 'Event URL is not valid.'; }
   }
   return null;
+}
+
+// ── Auto-derive logo URL from a website URL via Clearbit ─────
+function deriveLogoUrl(url) {
+  if (!url) return null;
+  try {
+    const parsed = new URL(url);
+    return `https://logo.clearbit.com/${parsed.hostname}`;
+  } catch {
+    return null;
+  }
 }
 
 // ── Claude AI review ──────────────────────────────────────────
@@ -100,6 +112,11 @@ export default async function handler(req, res) {
                : review.verdict === 'reject'   ? 'reviewed-rejected'
                :                                 'reviewed-escalated';
 
+  // Auto-derive logo from website/URL for all listing types
+  const logoUrl = body.type === 'event'
+    ? (body.image || deriveLogoUrl(body.url))
+    : deriveLogoUrl(body.website);
+
   // 4. Save to Supabase submissions table
   const row = {
     id,
@@ -126,6 +143,7 @@ export default async function handler(req, res) {
       image:        body.image        || null,
       phone:        body.phone        || null,
       website:      body.website      || null,
+      logoUrl,                                    // auto-derived from website/URL
     },
   };
 
@@ -150,7 +168,7 @@ export default async function handler(req, res) {
           price:         body.price        || null,
           description:   body.description  || null,
           url:           body.url          || null,
-          image:         body.image        || null,
+          image:         logoUrl || body.image || null,
           source:        'NYCWine',
           submitted_at:  now,
         });

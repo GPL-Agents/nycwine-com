@@ -5,13 +5,123 @@
 // Checkout to pay. No account required.
 // ─────────────────────────────────────────────────────────────
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Header from '../components/Header';
 import QuickNav from '../components/QuickNav';
 import Footer from '../components/Footer';
+
+// ── ImageUpload component ─────────────────────────────────────
+// Handles file selection, client-side validation, server upload,
+// and returns the public URL via callback.
+function ImageUpload({ label, hint, accept, currentUrl, onUploaded, slotSize }) {
+  const inputRef = useRef(null);
+  const [phase, setPhase] = useState('idle'); // idle | reading | uploading | done | error
+  const [preview, setPreview] = useState(currentUrl || '');
+  const [msg, setMsg] = useState('');
+
+  async function handleFile(e) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    // Client-side validation
+    const allowed = ['image/png','image/jpeg','image/gif','image/webp'];
+    if (!allowed.includes(file.type)) {
+      setMsg('Only PNG, JPEG, GIF, and WebP images are accepted.');
+      setPhase('error');
+      return;
+    }
+    if (file.size > 5 * 1024 * 1024) {
+      setMsg('Image must be under 5 MB.');
+      setPhase('error');
+      return;
+    }
+
+    // Read as data URL
+    setPhase('reading');
+    setMsg('');
+    const reader = new FileReader();
+    reader.onload = async (ev) => {
+      const dataUrl = ev.target.result;
+      setPreview(dataUrl);
+
+      // Upload to server
+      setPhase('uploading');
+      try {
+        const res = await fetch('/api/upload-ad-image', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ file: dataUrl }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Upload failed');
+        onUploaded(data.url);
+        setPhase('done');
+        setMsg('Uploaded successfully.');
+      } catch (err) {
+        setPhase('error');
+        setMsg(err.message);
+      }
+    };
+    reader.onerror = () => {
+      setPhase('error');
+      setMsg('Could not read file.');
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function handleRemove() {
+    setPreview('');
+    setPhase('idle');
+    setMsg('');
+    onUploaded('');
+    if (inputRef.current) inputRef.current.value = '';
+  }
+
+  return (
+    <div className="sub-field">
+      <label className="sub-label">{label}<span className="sub-required">*</span></label>
+      <div className="sub-hint">{hint}</div>
+
+      {preview && (
+        <div style={{ marginBottom: 10 }}>
+          <img src={preview} alt="Preview" style={{
+            maxWidth: 280, maxHeight: 120, borderRadius: 6,
+            border: '1px solid var(--border)', background: 'var(--surface)'
+          }} />
+          {phase === 'done' && (
+            <button type="button" onClick={handleRemove}
+              style={{ display: 'block', marginTop: 6, fontSize: 13, color: 'var(--pink)', background: 'none', border: 'none', cursor: 'pointer' }}>
+              Remove
+            </button>
+          )}
+        </div>
+      )}
+
+      <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+        <input
+          ref={inputRef}
+          type="file"
+          accept={accept || 'image/png,image/jpeg,image/gif,image/webp'}
+          onChange={handleFile}
+          disabled={phase === 'reading' || phase === 'uploading'}
+          style={{ fontSize: 14 }}
+        />
+        {phase === 'reading' && <span style={{ fontSize: 13, color: 'var(--muted)' }}>Reading file...</span>}
+        {phase === 'uploading' && <span style={{ fontSize: 13, color: 'var(--muted)' }}>Uploading...</span>}
+        {phase === 'done' && <span style={{ fontSize: 13, color: 'green' }}>✓</span>}
+      </div>
+
+      {msg && (
+        <div style={{ fontSize: 13, marginTop: 4, color: phase === 'error' ? 'var(--pink)' : 'green' }}>
+          {msg}
+        </div>
+      )}
+    </div>
+  );
+}
 
 // ── Slot & pricing config (mirrors advertise.js) ─────────────
 const AD_SLOTS = {
@@ -128,7 +238,7 @@ export default function AdvertiseBuyPage() {
     setErrMsg('');
 
     try {
-      const res = await fetch('/api/checkout', {
+      const res = await fetch('/api/submit-order', {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body:    JSON.stringify({
@@ -144,9 +254,13 @@ export default function AdvertiseBuyPage() {
         }),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Could not start checkout');
-      // Redirect to Stripe Checkout
-      window.location.href = data.checkoutUrl;
+      if (!res.ok) throw new Error(data.error || 'Could not submit order');
+      router.push(
+        '/advertise-success?orderId=' + encodeURIComponent(data.orderId) +
+        '&total=' + encodeURIComponent(data.total) +
+        '&slot=' + encodeURIComponent(data.slotName) +
+        '&start=' + encodeURIComponent(data.startMonth)
+      );
     } catch (err) {
       setErrMsg(err.message);
       setStatus('error');
@@ -266,29 +380,33 @@ export default function AdvertiseBuyPage() {
                 <input className="sub-input" type="url" value={form.websiteUrl||''} onChange={e=>set('websiteUrl',e.target.value)} required placeholder="https://yourbusiness.com" />
               </div>
 
-              {/* Banner ad slots need an image URL */}
-              {(slotId === 'header' || slotId === 'acker' || slotId === 'borghese') && (
-                <div className="sub-field">
-                  <label className="sub-label">Ad Image URL<span className="sub-required">*</span></label>
-                  <div className="sub-hint">
-                    Host your ad image somewhere (e.g. your website, Dropbox, Google Drive public link) and paste the URL here.
-                    Size required: {slot.size}.
-                  </div>
-                  <input className="sub-input" type="url" value={form.adImageUrl||''} onChange={e=>set('adImageUrl',e.target.value)} required placeholder="https://yourbusiness.com/ad-image.jpg" />
-                </div>
+              {/* ── Banner ad slots need an image upload ── */}
+              {(slotId === 'header' || slotId === 'sidebar' || slotId === 'social') && (
+                <ImageUpload
+                  label="Ad Image"
+                  hint={`Upload your banner ad image. Required size: ${slot.size}. PNG, JPEG, or WebP under 5 MB.`}
+                  currentUrl={form.adImageUrl}
+                  onUploaded={(url) => set('adImageUrl', url)}
+                  slotSize={slot.size}
+                />
               )}
 
-              {/* Featured placement needs logo + description */}
-              {slotId === 'featured' && (<>
-                <div className="sub-field">
-                  <label className="sub-label">Logo URL<span className="sub-required">*</span></label>
-                  <div className="sub-hint">Your logo hosted online — we&apos;ll display it on the featured card.</div>
-                  <input className="sub-input" type="url" value={form.logoUrl||''} onChange={e=>set('logoUrl',e.target.value)} required placeholder="https://yourbusiness.com/logo.png" />
-                </div>
-                <div className="sub-field">
-                  <label className="sub-label">Short Description</label>
-                  <div className="sub-hint">1–2 sentences shown below your name on the featured card.</div>
-                  <textarea className="sub-textarea" value={form.description||''} onChange={e=>set('description',e.target.value)} rows={2} placeholder="Award-winning Hamptons winery known for its Rosé and summer tastings…" />
+              {/* ── Featured listing slots need logo + description ── */}
+              {(slotId === 'event' || slotId === 'bar' || slotId === 'store' || slotId === 'winery') && (<>
+                <div className="sub-row">
+                  <div className="sub-field" style={{ flex: 1 }}>
+                    <ImageUpload
+                      label="Logo"
+                      hint="Upload your business logo. We&apos;ll display it on the featured card. PNG or JPEG under 5 MB."
+                      currentUrl={form.logoUrl}
+                      onUploaded={(url) => set('logoUrl', url)}
+                    />
+                  </div>
+                  <div className="sub-field" style={{ flex: 1 }}>
+                    <label className="sub-label">Short Description</label>
+                    <div className="sub-hint">1–2 sentences shown below your name on the featured card.</div>
+                    <textarea className="sub-textarea" value={form.description||''} onChange={e=>set('description',e.target.value)} rows={2} placeholder="Award-winning Hamptons winery known for its Rosé and summer tastings…" />
+                  </div>
                 </div>
               </>)}
 
@@ -339,9 +457,7 @@ export default function AdvertiseBuyPage() {
               >
                 {status === 'submitting' ? 'Redirecting to Stripe…' : `Pay $${total.toLocaleString('en-US', { minimumFractionDigits: 2 })} & Book Placement →`}
               </button>
-              <p className="buy-stripe-note">
-                🔒 Secure checkout powered by Stripe. Cancel anytime from your billing portal.
-              </p>
+              <p className="buy-stripe-note">We’ll send a Venmo payment request to your email within a few hours. Your placement goes live once payment is confirmed.</p>
             </div>
           )}
 
