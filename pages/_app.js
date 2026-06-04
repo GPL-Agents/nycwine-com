@@ -31,6 +31,20 @@ export default function App({ Component, pageProps }) {
         />
       </Head>
 
+      {/* Google Analytics 4 */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-L27LZ1EKHZ"
+        strategy="afterInteractive"
+      />
+      <Script id="ga4-init" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-L27LZ1EKHZ');
+        `}
+      </Script>
+
       {/* Google AdSense */}
       <Script
         async
