@@ -2397,7 +2397,7 @@ body {
   border-radius: 10px;
   border: 1px solid var(--border-light);
   background: #fff;
-  height: 363px;   /* 648 × 0.56 ≈ 363 */
+  height: 420px;   /* 750 × 0.56 = 420 */
   margin-bottom: 20px;
 }
 .social-page-fb-wrap iframe {
@@ -2416,7 +2416,7 @@ body {
     flex: none;
   }
   .social-page-fb-wrap {
-    height: 430px;   /* 648 × 0.66 ≈ 428 */
+    height: 495px;   /* 750 × 0.66 = 495 */
   }
   .social-page-fb-wrap iframe {
     transform: scale(0.66);
