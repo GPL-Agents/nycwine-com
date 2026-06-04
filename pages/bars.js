@@ -138,6 +138,16 @@ export default function BarsPage() {
           </div>
         </div>
 
+        {/* Editorial intro */}
+        <div className="dir-page-intro">
+          <p>
+            New York City has more wine bars per square mile than almost anywhere in America, and no two pour alike. Natural wine dens in Bed-Stuy, old-school Italian enotecas in the Village, sommelier-run tasting rooms in Midtown, and neighborhood spots where the list changes weekly -- the city's wine bar scene rewards exploring beyond your usual corner.
+          </p>
+          <p>
+            We maintain this directory by hand, covering all five boroughs. Use the search and borough filter to find a bar near you, or browse the featured picks our team keeps current. Know a spot we're missing? <a href="/submit">Tell us about it</a>.
+          </p>
+        </div>
+
         {/* Search & filter controls */}
         <div className="dir-page-controls">
           <input

@@ -126,6 +126,16 @@ export default function StoresPage() {
           </div>
         </div>
 
+        {/* Editorial intro */}
+        <div className="dir-page-intro">
+          <p>
+            Buying wine in New York is its own sport. The city's shops range from century-old institutions with deep Burgundy cellars to tiny storefronts specializing in natural, low-intervention bottles you won't find anywhere else. Many offer free tastings, same-day delivery, and staff who actually drink what they sell.
+          </p>
+          <p>
+            This directory covers wine shops across Manhattan, searchable by name, address, or neighborhood. If you're hunting a specific bottle or just want a shop worth wandering into, start here -- and check our <a href="/blog">blog</a> for our latest picks.
+          </p>
+        </div>
+
         {/* Search & filter controls */}
         <div className="dir-page-controls">
           <input

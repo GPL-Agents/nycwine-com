@@ -118,6 +118,16 @@ export default function WineriesPage() {
           </div>
         </div>
 
+        {/* Editorial intro */}
+        <div className="dir-page-intro">
+          <p>
+            You don't have to fly to Napa for a tasting room. Within a few hours of the city, Long Island's North Fork turns out serious merlot and sparkling wine, the Hudson Valley's historic estates pour everything from cabernet franc to hybrid varieties, and the Finger Lakes produce some of the best riesling in the country.
+          </p>
+          <p>
+            This directory collects wineries within day-trip or weekend range of NYC, searchable by name, region, or address. Most offer tastings and tours -- check each winery's site for hours and reservations before you go.
+          </p>
+        </div>
+
         {/* Search & filter controls */}
         <div className="dir-page-controls">
           <input

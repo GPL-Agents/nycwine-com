@@ -1,12 +1,15 @@
 // pages/blog/index.js
 // ─────────────────────────────────────────────────────────────
 // Blog listing page -- all posts, newest first.
+// Statically generated (getStaticProps) so crawlers see the
+// full post list in the HTML -- important for SEO / AdSense.
 // Mirrors the layout pattern of news.js and events.js.
 // ─────────────────────────────────────────────────────────────
 
 import Head from 'next/head';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import path from 'path';
+import fs from 'fs';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import QuickNav from '../../components/QuickNav';
@@ -16,17 +19,7 @@ function formatDate(dateStr) {
   return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 }
 
-export default function BlogIndex() {
-  const [posts, setPosts]   = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError]   = useState(false);
-
-  useEffect(() => {
-    fetch('/api/blog')
-      .then((r) => { if (!r.ok) throw new Error(); return r.json(); })
-      .then((data) => { setPosts(data); setLoading(false); })
-      .catch(() => { setError(true); setLoading(false); });
-  }, []);
+export default function BlogIndex({ posts }) {
 
   return (
     <>
@@ -49,9 +42,7 @@ export default function BlogIndex() {
         <div className="blog-page">
         <div className="blog-page-layout">
           <div className="blog-post-list">
-            {loading && <div className="blog-page-msg">Loading posts…</div>}
-            {error && <div className="blog-page-msg">Unable to load posts right now. Please try again later.</div>}
-            {!loading && !error && posts.length === 0 && (
+            {posts.length === 0 && (
               <div className="blog-page-msg">No posts yet -- check back soon!</div>
             )}
             {posts.map((post) => (
@@ -106,4 +97,21 @@ export default function BlogIndex() {
       <Footer />
     </>
   );
+}
+
+// Read posts from data/blog-posts.json at build time so the
+// full list is present in the rendered HTML.
+export async function getStaticProps() {
+  const dataPath = path.join(process.cwd(), 'data', 'blog-posts.json');
+  let posts = [];
+  try {
+    posts = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+  } catch {
+    posts = [];
+  }
+  posts = posts
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .map(({ content, ...rest }) => rest); // strip body -- list view only
+
+  return { props: { posts } };
 }

@@ -15,6 +15,9 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
+import path from 'path';
+import fs from 'fs';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import QuickNav from '../components/QuickNav';
@@ -186,7 +189,7 @@ function loadScript(src) {
 }
 
 // ── Page ──────────────────────────────────────────────────────
-export default function MapPage() {
+export default function MapPage({ venueCounts }) {
   const mapDivRef      = useRef(null);
   const mapRef         = useRef(null);
   const clusterRefs    = useRef({});
@@ -620,9 +623,60 @@ export default function MapPage() {
           <div ref={mapDivRef} className="map-leaflet" />
         </div>
 
+        {/* ── About the map — crawlable editorial content ──────── */}
+        <section className="map-about">
+          <h2>About the NYC Wine Map</h2>
+          <p>
+            This map plots {venueCounts.bars} wine bars, {venueCounts.stores} wine
+            stores, and {venueCounts.wineries} wineries in and around New York
+            City -- every venue researched, geocoded, and maintained by the
+            NYCWine.com team. Wine bars span all five boroughs, from natural wine
+            spots in Brooklyn to classic enotecas in Manhattan. The store layer
+            covers shops across Manhattan, and the winery layer reaches
+            day-trip-worthy producers on Long Island's North Fork, in the Hudson
+            Valley, and beyond.
+          </p>
+          <p>
+            To use it: search any address, intersection, or neighborhood to drop
+            a pin, or tap My Location, then filter to venues within a half mile
+            up to five miles. Toggle the category pills to show just bars,
+            stores, or wineries, and use the gold star filter to see our
+            featured picks. Every pin opens with the venue's address, phone, and
+            website, plus one-tap directions.
+          </p>
+          <p>
+            Prefer browsing a list? See the full directories of{' '}
+            <Link href="/bars">wine bars</Link>,{' '}
+            <Link href="/stores">wine stores</Link>, and{' '}
+            <Link href="/wineries">wineries</Link>. Spot something out of date
+            or missing? <Link href="/submit">Let us know</Link> -- the map is
+            updated regularly.
+          </p>
+        </section>
+
       </main>
 
       <Footer />
     </>
   );
+}
+
+// Count venues at build time so the page ships with real,
+// crawlable text about what the map contains.
+export async function getStaticProps() {
+  const counts = { bars: 0, stores: 0, wineries: 0 };
+  const files = {
+    bars:     'wine-bars.json',
+    stores:   'wine-stores.json',
+    wineries: 'wineries.json',
+  };
+  for (const [key, file] of Object.entries(files)) {
+    try {
+      const data = JSON.parse(
+        fs.readFileSync(path.join(process.cwd(), 'public', 'data', file), 'utf8')
+      );
+      counts[key] = data.length;
+    } catch { /* leave at 0 */ }
+  }
+  return { props: { venueCounts: counts } };
 }

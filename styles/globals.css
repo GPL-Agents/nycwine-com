@@ -3524,6 +3524,45 @@ body {
   align-self: flex-start;
 }
 
+/* About section below the interactive map */
+.map-about {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 28px 20px 36px;
+}
+.map-about h2 {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  color: var(--black);
+  margin: 0 0 12px;
+}
+.map-about p {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--muted, #6b625c);
+  margin: 0 0 12px;
+}
+.map-about a {
+  color: var(--pink, #e3447f);
+  text-decoration: underline;
+}
+
+/* Editorial intro below directory page ribbon */
+.dir-page-intro {
+  max-width: 760px;
+  padding: 4px 0 8px;
+}
+.dir-page-intro p {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--muted, #6b625c);
+  margin: 0 0 10px;
+}
+.dir-page-intro a {
+  color: var(--pink, #e3447f);
+  text-decoration: underline;
+}
+
 /* Map banner above featured sidebar */
 .dir-map-banner {
   display: block;
