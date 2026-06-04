@@ -3524,6 +3524,25 @@ body {
   align-self: flex-start;
 }
 
+/* Map banner above featured sidebar */
+.dir-map-banner {
+  display: block;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 14px rgba(45,41,38,0.07);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.dir-map-banner:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 18px rgba(45,41,38,0.14);
+}
+.dir-map-banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* Featured sidebar card container */
 .dir-featured-sidebar {
   background: white;

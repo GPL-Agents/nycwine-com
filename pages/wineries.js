@@ -116,13 +116,6 @@ export default function WineriesPage() {
             <img src="/images/icons/icon-winery.png" className="ribbon-icon" alt="" aria-hidden="true" />
             Wineries Near NYC
           </div>
-          <Link href="/map">
-            <img
-              src="/images/maps3button.png"
-              alt="Maps & Directions"
-              style={{ height: '28px', width: 'auto', cursor: 'pointer', borderRadius: '6px', display: 'block' }}
-            />
-          </Link>
         </div>
 
         {/* Search & filter controls */}
@@ -200,6 +193,9 @@ export default function WineriesPage() {
 
           {/* Featured sidebar */}
           <div className="dir-page-sidebar">
+            <Link href="/map" className="dir-map-banner">
+              <img src="/images/maps3button.png" alt="Interactive Maps & Directions" />
+            </Link>
             <div className="dir-featured-sidebar">
               <div className="dir-featured-heading">Featured Wineries</div>
               {FEATURED_WINERIES.map((winery, i) => (

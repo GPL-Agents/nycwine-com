@@ -124,13 +124,6 @@ export default function StoresPage() {
             <img src="/images/icons/icon-wine-store.png" className="ribbon-icon" alt="" aria-hidden="true" />
             NYC Wine Stores
           </div>
-          <Link href="/map">
-            <img
-              src="/images/maps3button.png"
-              alt="Maps & Directions"
-              style={{ height: '28px', width: 'auto', cursor: 'pointer', borderRadius: '6px', display: 'block' }}
-            />
-          </Link>
         </div>
 
         {/* Search & filter controls */}
@@ -209,6 +202,9 @@ export default function StoresPage() {
 
           {/* Featured sidebar */}
           <div className="dir-page-sidebar">
+            <Link href="/map" className="dir-map-banner">
+              <img src="/images/maps3button.png" alt="Interactive Maps & Directions" />
+            </Link>
             <div className="dir-featured-sidebar">
               <div className="dir-featured-heading">Featured Wine Stores</div>
               {FEATURED_STORES.map((store, i) => (
