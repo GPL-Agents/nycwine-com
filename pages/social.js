@@ -71,9 +71,9 @@ export default function SocialPage() {
             {/* Facebook post embed — scaled to fit 280px sidebar */}
             <div className="social-page-fb-wrap">
               <iframe
-                src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FNYCWine%2Fposts%2Fpfbid03dm8LGaHA1iA5axEbo4LtMwsMtHVmFnzejQTeRmTAnszJtGnz3yxptSqqXGLxs4Ql&show_text=true&width=500"
+                src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FNYCWine%2Fposts%2Fpfbid02AgMTfUvigU74ue37CtAzurExaQ4SmWha8UpvQK2iDsM9ZrZk31fBkfkmtxDuPxbBl&show_text=true&width=500"
                 width="500"
-                height="648"
+                height="615"
                 style={{ border: 'none', overflow: 'hidden' }}
                 scrolling="no"
                 frameBorder="0"
