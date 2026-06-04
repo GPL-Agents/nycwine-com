@@ -1,17 +1,20 @@
 // pages/api/admin/submissions.js
-// ─────────────────────────────────────────────────────────────
-// Admin API — read and act on flagged submissions via Supabase.
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// Admin API -- read and act on flagged submissions via Supabase.
 // Password-protected via ADMIN_PASSWORD env var.
 //
-// GET  /api/admin/submissions?pw=xxx          → list flagged (escalated only)
-// GET  /api/admin/submissions?pw=xxx&all=true → full review log (last 100)
-// POST /api/admin/submissions                 → approve or reject
+// GET  /api/admin/submissions?pw=xxx          -> list flagged (escalated only)
+// GET  /api/admin/submissions?pw=xxx&all=true -> full review log (last 100)
+// GET  /api/admin/submissions?key=<CRON_API_KEY>&type=ad_order&status=pending_payment
+//      -> list pending payment ad orders (for cron job)
+// POST /api/admin/submissions                 -> approve or reject
 //      Body: { pw, id, action: 'approve'|'reject' }
-// ─────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 import { db } from '../../../lib/supabase';
 
-const ADMIN_PW = process.env.ADMIN_PASSWORD || 'nycwine-admin';
+const ADMIN_PW  = process.env.ADMIN_PASSWORD  || 'nycwine-admin';
+const CRON_KEY  = process.env.CRON_API_KEY    || 'nycwine-cron-2026';
 
 // Publish an approved event to submitted_events table
 async function publishEvent(submission) {
@@ -32,18 +35,39 @@ async function publishEvent(submission) {
   });
 }
 
-export default async function handler(req, res) {
-  // ── GET: list submissions ─────────────────────────────────────
-  if (req.method === 'GET') {
-    const pw = req.query.pw;
-    if (pw !== ADMIN_PW) return res.status(401).json({ error: 'Unauthorized' });
+function buildFilterQuery(params) {
+  // If type and status are provided, build a filter query for ad order checks
+  if (params.type) {
+    let q = `?type=eq.${encodeURIComponent(params.type)}`;
+    q += `&order=submitted_at.desc`;
+    if (params.status) {
+      q += `&status=eq.${encodeURIComponent(params.status)}`;
+    }
+    return q;
+  }
+  // Default: escalated reviews
+  return '?status=eq.reviewed-escalated&order=submitted_at.desc';
+}
 
-    const allLogs = req.query.all === 'true';
+export default async function handler(req, res) {
+  // -- GET: list submissions -----------------------------------------
+  if (req.method === 'GET') {
+    // Two auth paths: password (admin) or API key (cron)
+    const pw  = req.query.pw;
+    const key = req.query.key;
+    const authenticated = (pw === ADMIN_PW) || (key === CRON_KEY);
+    if (!authenticated) return res.status(401).json({ error: 'Unauthorized' });
+
+    // Determine query scope
+    let query;
+    if (pw === ADMIN_PW && req.query.all === 'true') {
+      // Admin full view
+      query = '?order=submitted_at.desc&limit=100';
+    } else {
+      query = buildFilterQuery(req.query);
+    }
 
     try {
-      const query = allLogs
-        ? '?order=submitted_at.desc&limit=100'
-        : '?status=eq.reviewed-escalated&order=submitted_at.desc';
       const rows = await db.select('submissions', query);
       return res.status(200).json(rows || []);
     } catch (err) {
@@ -52,7 +76,7 @@ export default async function handler(req, res) {
     }
   }
 
-  // ── POST: approve or reject ───────────────────────────────────
+  // -- POST: approve or reject ---------------------------------------
   if (req.method === 'POST') {
     const { pw, id, action } = req.body || {};
     if (pw !== ADMIN_PW) return res.status(401).json({ error: 'Unauthorized' });
