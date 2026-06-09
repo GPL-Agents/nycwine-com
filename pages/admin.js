@@ -1,27 +1,25 @@
 // pages/admin.js
-// ─────────────────────────────────────────────────────────────
 // Admin panel for reviewing flagged submissions + AI review log.
 // Password is set via ADMIN_PASSWORD env var (default: nycwine-admin).
-// ─────────────────────────────────────────────────────────────
 
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 
 const TYPE_LABELS = {
-  event:   '🎉 Event',
-  bar:     '🍷 Wine Bar',
-  store:   '🛒 Wine Store',
-  winery:  '🍇 Winery',
+  event:   ' Event',
+  bar:     ' Wine Bar',
+  store:   ' Wine Store',
+  winery:  ' Winery',
 };
 
 const VERDICT_STYLES = {
-  'reviewed-posted':    { bg: '#e8f5e9', color: '#2e7d32', label: '✓ Auto-approved' },
-  'reviewed-rejected':  { bg: '#ffebee', color: '#c62828', label: '✗ Auto-rejected' },
-  'reviewed-escalated': { bg: '#fff8e1', color: '#e65100', label: '⚑ Escalated' },
+  'reviewed-posted':    { bg: '#e8f5e9', color: '#2e7d32', label: ' Auto-approved' },
+  'reviewed-rejected':  { bg: '#ffebee', color: '#c62828', label: ' Auto-rejected' },
+  'reviewed-escalated': { bg: '#fff8e1', color: '#e65100', label: ' Escalated' },
 };
 
-// ── Login screen ─────────────────────────────────────────────
+// --- Login screen -----------------------------------------
 function LoginScreen({ onLogin }) {
   const [pw, setPw]     = useState('');
   const [err, setErr]   = useState('');
@@ -43,7 +41,7 @@ function LoginScreen({ onLogin }) {
   return (
     <div style={styles.loginWrap}>
       <div style={styles.loginBox}>
-        <div style={styles.loginLogo}>🍷</div>
+        <div style={styles.loginLogo}>ðŸ·</div>
         <h1 style={styles.loginTitle}>NYCWine Admin</h1>
         <form onSubmit={handleSubmit} style={styles.loginForm}>
           <input
@@ -56,7 +54,7 @@ function LoginScreen({ onLogin }) {
           />
           {err && <div style={styles.loginErr}>{err}</div>}
           <button type="submit" disabled={busy} style={styles.loginBtn}>
-            {busy ? 'Checking…' : 'Sign In →'}
+            {busy ? 'Checking...' : 'Sign In â†’'}
           </button>
         </form>
       </div>
@@ -64,10 +62,81 @@ function LoginScreen({ onLogin }) {
   );
 }
 
-// ── Flagged submission card (needs human review) ──────────────
+// --- Editable field ----------------------------------------
+function EditField({ label, value, onChange, multiline }) {
+  if (multiline) {
+    return (
+      <div style={styles.editField}>
+        <label style={styles.editLabel}>{label}</label>
+        <textarea
+          value={value || ''}
+          onChange={(e) => onChange(e.target.value)}
+          style={styles.editInputMultiline}
+          rows={3}
+        />
+      </div>
+    );
+  }
+  return (
+    <div style={styles.editField}>
+      <label style={styles.editLabel}>{label}</label>
+      <input
+        type="text"
+        value={value || ''}
+        onChange={(e) => onChange(e.target.value)}
+        style={styles.editInput}
+      />
+    </div>
+  );
+}
+
+// --- Flagged submission card (needs human review) ---------
 function SubmissionCard({ sub, pw, onAction }) {
   const [busy, setBusy] = useState(false);
+  const [saving, setSaving] = useState(false);
   const [done, setDone] = useState(null);
+  const [editing, setEditing] = useState(false);
+  const [editData, setEditData] = useState({});
+
+  const fields = ['address', 'venue', 'date', 'website', 'url', 'description', 'phone', 'contact_email', 'neighborhood'];
+
+  function startEditing() {
+    setEditData({
+      address:      sub.data?.address || '',
+      venue:        sub.data?.venue || '',
+      date:         sub.data?.date || '',
+      website:      sub.data?.website || '',
+      url:          sub.data?.url || '',
+      description:  sub.data?.description || '',
+      phone:        sub.data?.phone || '',
+      neighborhood: sub.data?.neighborhood || '',
+      contact_email: sub.contact_email || '',
+    });
+    setEditing(true);
+  }
+
+  function updateField(key, val) {
+    setEditData((prev) => ({ ...prev, [key]: val }));
+  }
+
+  async function saveEdits() {
+    setSaving(true);
+    // Build the data object (exclude contact_email - it's a top-level field)
+    const { contact_email, ...dataFields } = editData;
+    const res = await fetch('/api/admin/submissions', {
+      method:  'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({
+        pw,
+        id: sub.id,
+        data: dataFields,
+      }),
+    });
+    if (res.ok) {
+      setEditing(false);
+    }
+    setSaving(false);
+  }
 
   async function act(action) {
     setBusy(true);
@@ -87,13 +156,64 @@ function SubmissionCard({ sub, pw, onAction }) {
     return (
       <div style={{ ...styles.card, opacity: 0.5 }}>
         <span style={{ color: done === 'approve' ? '#2e7d32' : '#c62828', fontWeight: 700 }}>
-          {done === 'approve' ? '✓ Approved' : '✗ Rejected'}
+          {done === 'approve' ? 'âœ“ Approved' : 'âœ— Rejected'}
         </span>
-        {' — '}{sub.name}
+        {' â€” '}{sub.name}
       </div>
     );
   }
 
+  // --- Edit mode ------------------------------------------
+  if (editing) {
+    return (
+      <div style={{ ...styles.card, borderColor: '#ec407a', borderWidth: 2 }}>
+        <div style={styles.cardHeader}>
+          <span style={styles.typeBadge}>{TYPE_LABELS[sub.type] || sub.type}</span>
+          <span style={{ ...styles.cardDate, color: '#ec407a', fontWeight: 700 }}>âœï¸ Editing</span>
+        </div>
+
+        <div style={styles.cardName}>{sub.name}</div>
+        <div style={styles.editGrid}>
+          {fields.map((key) => {
+            const labelMap = {
+              address: 'Address', venue: 'Venue', date: 'Date',
+              website: 'Website', url: 'URL', description: 'Description',
+              phone: 'Phone', neighborhood: 'Neighborhood', contact_email: 'Contact Email',
+            };
+            if (editData[key] === undefined) return null;
+            return (
+              <EditField
+                key={key}
+                label={labelMap[key] || key}
+                value={editData[key]}
+                onChange={(v) => updateField(key, v)}
+                multiline={key === 'description'}
+              />
+            );
+          })}
+        </div>
+
+        <div style={styles.cardActions}>
+          <button
+            onClick={saveEdits}
+            disabled={saving}
+            style={{ ...styles.actionBtn, background: '#ec407a', color: '#fff' }}
+          >
+            {saving ? 'Saving...' : 'ðŸ’¾ Save'}
+          </button>
+          <button
+            onClick={() => setEditing(false)}
+            disabled={saving}
+            style={{ ...styles.actionBtn, background: '#f5f5f5', color: '#666' }}
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // --- View mode (default) ---------------------------------
   return (
     <div style={styles.card}>
       <div style={styles.cardHeader}>
@@ -109,6 +229,7 @@ function SubmissionCard({ sub, pw, onAction }) {
         {sub.data?.date        && <div><strong>Date:</strong> {sub.data.date}</div>}
         {sub.data?.website     && <div><strong>Website:</strong> <a href={sub.data.website} target="_blank" rel="noreferrer" style={{ color: '#ec407a' }}>{sub.data.website}</a></div>}
         {sub.data?.url         && <div><strong>URL:</strong> <a href={sub.data.url} target="_blank" rel="noreferrer" style={{ color: '#ec407a' }}>{sub.data.url}</a></div>}
+        {sub.data?.phone       && <div><strong>Phone:</strong> {sub.data.phone}</div>}
         {sub.data?.description && <div><strong>Description:</strong> {sub.data.description}</div>}
         {sub.contact_email     && <div><strong>Contact:</strong> {sub.contact_email}</div>}
       </div>
@@ -122,18 +243,22 @@ function SubmissionCard({ sub, pw, onAction }) {
       <div style={styles.cardActions}>
         <button onClick={() => act('approve')} disabled={busy}
           style={{ ...styles.actionBtn, ...styles.approveBtn }}>
-          {busy ? '…' : '✓ Approve'}
+          {busy ? '...' : 'âœ“ Approve'}
         </button>
         <button onClick={() => act('reject')} disabled={busy}
           style={{ ...styles.actionBtn, ...styles.rejectBtn }}>
-          {busy ? '…' : '✗ Reject'}
+          {busy ? '...' : 'âœ— Reject'}
+        </button>
+        <button onClick={startEditing} disabled={busy}
+          style={{ ...styles.actionBtn, background: '#e3f2fd', color: '#1565c0' }}>
+          âœï¸ Edit
         </button>
       </div>
     </div>
   );
 }
 
-// ── Compact log row ───────────────────────────────────────────
+// --- Compact log row ---------------------------------------
 function LogRow({ sub }) {
   const vs = VERDICT_STYLES[sub.status] || { bg: '#f5f5f5', color: '#555', label: sub.status };
   return (
@@ -143,7 +268,7 @@ function LogRow({ sub }) {
       <span style={{ ...styles.logVerdict, background: vs.bg, color: vs.color }}>{vs.label}</span>
       {sub.ai_reason && (
         <span style={styles.logReason} title={sub.ai_reason}>
-          {sub.ai_reason.length > 80 ? sub.ai_reason.slice(0, 80) + '…' : sub.ai_reason}
+          {sub.ai_reason.length > 80 ? sub.ai_reason.slice(0, 80) + '...' : sub.ai_reason}
         </span>
       )}
       <span style={styles.logDate}>{new Date(sub.submitted_at).toLocaleDateString()}</span>
@@ -151,13 +276,13 @@ function LogRow({ sub }) {
   );
 }
 
-// ── Main admin page ───────────────────────────────────────────
+// --- Main admin page ---------------------------------------
 export default function AdminPage() {
   const [pw, setPw]           = useState(null);
   const [subs, setSubs]       = useState([]);
   const [allLogs, setAllLogs] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [tab, setTab]         = useState('flagged'); // 'flagged' | 'log'
+  const [tab, setTab]         = useState('flagged');
 
   async function loadSubs(password) {
     setLoading(true);
@@ -181,7 +306,7 @@ export default function AdminPage() {
 
   if (!pw) return (
     <>
-      <Head><title>Admin — NYCWine</title><meta name="robots" content="noindex" /></Head>
+      <Head><title>Admin - NYCWine</title><meta name="robots" content="noindex" /></Head>
       <LoginScreen onLogin={handleLogin} />
     </>
   );
@@ -190,16 +315,15 @@ export default function AdminPage() {
 
   return (
     <>
-      <Head><title>Admin — NYCWine</title><meta name="robots" content="noindex" /></Head>
+      <Head><title>Admin - NYCWine</title><meta name="robots" content="noindex" /></Head>
       <div style={styles.page}>
         <div style={styles.topBar}>
           <div style={styles.topBarInner}>
-            <span style={styles.topBarTitle}>🍷 NYCWine Admin</span>
-            <Link href="/" style={styles.topBarLink}>← Back to site</Link>
+            <span style={styles.topBarTitle}>ðŸ· NYCWine Admin</span>
+            <Link href="/" style={styles.topBarLink}>â† Back to site</Link>
           </div>
         </div>
 
-        {/* Tab bar */}
         <div style={styles.tabBar}>
           <button
             onClick={() => setTab('flagged')}
@@ -217,14 +341,13 @@ export default function AdminPage() {
         </div>
 
         <div style={styles.content}>
-          {loading && <p style={{ color: '#888' }}>Loading…</p>}
+          {loading && <p style={{ color: '#888' }}>Loading...</p>}
 
-          {/* ── Flagged tab ─────────────────────────────── */}
           {!loading && tab === 'flagged' && (
             <>
               {pending.length === 0 ? (
                 <div style={styles.emptyState}>
-                  <div style={{ fontSize: 40, marginBottom: 12 }}>✓</div>
+                  <div style={{ fontSize: 40, marginBottom: 12 }}>âœ…</div>
                   <div style={{ fontSize: 16, fontWeight: 700, marginBottom: 6 }}>All clear</div>
                   <div style={{ color: '#888' }}>No submissions need review right now.</div>
                 </div>
@@ -236,7 +359,6 @@ export default function AdminPage() {
             </>
           )}
 
-          {/* ── AI Review Log tab ───────────────────────── */}
           {!loading && tab === 'log' && (
             <>
               <p style={styles.logHelp}>
@@ -260,7 +382,7 @@ export default function AdminPage() {
   );
 }
 
-// ── Inline styles ─────────────────────────────────────────────
+// --- Inline styles -----------------------------------------
 const styles = {
   loginWrap: {
     minHeight: '100vh', display: 'flex', alignItems: 'center',
@@ -335,13 +457,25 @@ const styles = {
     borderRadius: 6, padding: '8px 12px',
     fontSize: 13, color: '#5d4037', marginBottom: 14,
   },
-  cardActions: { display: 'flex', gap: 10 },
+  cardActions: { display: 'flex', gap: 10, flexWrap: 'wrap' },
   actionBtn: {
     padding: '9px 22px', border: 'none', borderRadius: 6,
     fontSize: 14, fontWeight: 700, cursor: 'pointer',
   },
   approveBtn: { background: '#e8f5e9', color: '#2e7d32' },
   rejectBtn:  { background: '#ffebee', color: '#c62828' },
+  editGrid: { display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 14 },
+  editField: { display: 'flex', flexDirection: 'column', gap: 3 },
+  editLabel: { fontSize: 12, fontWeight: 700, color: '#666', textTransform: 'uppercase' },
+  editInput: {
+    height: 36, padding: '0 10px', border: '1.5px solid #e0e0e0',
+    borderRadius: 5, fontSize: 14, outline: 'none',
+  },
+  editInputMultiline: {
+    padding: '8px 10px', border: '1.5px solid #e0e0e0',
+    borderRadius: 5, fontSize: 14, outline: 'none', resize: 'vertical',
+    fontFamily: 'inherit', lineHeight: 1.5,
+  },
   logHelp: { fontSize: 13, color: '#666', marginBottom: 16 },
   logTable: {
     background: '#fff', border: '1px solid #e0e0e0',
