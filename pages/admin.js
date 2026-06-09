@@ -158,7 +158,7 @@ function SubmissionCard({ sub, pw, onAction }) {
         <span style={{ color: done === 'approve' ? '#2e7d32' : '#c62828', fontWeight: 700 }}>
           {done === 'approve' ? 'Approved' : 'Rejected'}
         </span>
-        {' â€” '}{sub.name}
+        {'  -  '}{sub.name}
       </div>
     );
   }
@@ -347,7 +347,7 @@ export default function AdminPage() {
             <>
               {pending.length === 0 ? (
                 <div style={styles.emptyState}>
-                  <div style={{ fontSize: 40, marginBottom: 12 }}>âœ…</div>
+                  <div style={{ fontSize: 40, marginBottom: 12 }}>â…</div>
                   <div style={{ fontSize: 16, fontWeight: 700, marginBottom: 6 }}>All clear</div>
                   <div style={{ color: '#888' }}>No submissions need review right now.</div>
                 </div>
