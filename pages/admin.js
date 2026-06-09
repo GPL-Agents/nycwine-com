@@ -156,7 +156,7 @@ function SubmissionCard({ sub, pw, onAction }) {
     return (
       <div style={{ ...styles.card, opacity: 0.5 }}>
         <span style={{ color: done === 'approve' ? '#2e7d32' : '#c62828', fontWeight: 700 }}>
-          {done === 'approve' ? ' Approved' : ' Rejected'}
+          {done === 'approve' ? 'Approved' : 'Rejected'}
         </span>
         {' â€” '}{sub.name}
       </div>
@@ -169,7 +169,7 @@ function SubmissionCard({ sub, pw, onAction }) {
       <div style={{ ...styles.card, borderColor: '#ec407a', borderWidth: 2 }}>
         <div style={styles.cardHeader}>
           <span style={styles.typeBadge}>{TYPE_LABELS[sub.type] || sub.type}</span>
-          <span style={{ ...styles.cardDate, color: '#ec407a', fontWeight: 700 }}> Editing</span>
+          <span style={{ ...styles.cardDate, color: '#ec407a', fontWeight: 700 }}>Editing</span>
         </div>
 
         <div style={styles.cardName}>{sub.name}</div>
@@ -199,7 +199,7 @@ function SubmissionCard({ sub, pw, onAction }) {
             disabled={saving}
             style={{ ...styles.actionBtn, background: '#ec407a', color: '#fff' }}
           >
-            {saving ? 'Saving...' : ' Save'}
+            {saving ? 'Saving...' : 'Save'}
           </button>
           <button
             onClick={() => setEditing(false)}
@@ -243,11 +243,11 @@ function SubmissionCard({ sub, pw, onAction }) {
       <div style={styles.cardActions}>
         <button onClick={() => act('approve')} disabled={busy}
           style={{ ...styles.actionBtn, ...styles.approveBtn }}>
-          {busy ? '...' : ' Approve'}
+          {busy ? '...' : 'Approve'}
         </button>
         <button onClick={() => act('reject')} disabled={busy}
           style={{ ...styles.actionBtn, ...styles.rejectBtn }}>
-          {busy ? '...' : ' Reject'}
+          {busy ? '...' : 'Reject'}
         </button>
         <button onClick={startEditing} disabled={busy}
           style={{ ...styles.actionBtn, background: '#e3f2fd', color: '#1565c0' }}>
