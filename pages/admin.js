@@ -41,7 +41,7 @@ function LoginScreen({ onLogin }) {
   return (
     <div style={styles.loginWrap}>
       <div style={styles.loginBox}>
-        <div style={styles.loginLogo}>ðŸ·</div>
+        <div style={styles.loginLogo}>NYCW</div>
         <h1 style={styles.loginTitle}>NYCWine Admin</h1>
         <form onSubmit={handleSubmit} style={styles.loginForm}>
           <input
@@ -54,7 +54,7 @@ function LoginScreen({ onLogin }) {
           />
           {err && <div style={styles.loginErr}>{err}</div>}
           <button type="submit" disabled={busy} style={styles.loginBtn}>
-            {busy ? 'Checking...' : 'Sign In â†’'}
+            {busy ? 'Checking...' : 'Sign In ->'}
           </button>
         </form>
       </div>
@@ -156,7 +156,7 @@ function SubmissionCard({ sub, pw, onAction }) {
     return (
       <div style={{ ...styles.card, opacity: 0.5 }}>
         <span style={{ color: done === 'approve' ? '#2e7d32' : '#c62828', fontWeight: 700 }}>
-          {done === 'approve' ? 'âœ“ Approved' : 'âœ— Rejected'}
+          {done === 'approve' ? ' Approved' : ' Rejected'}
         </span>
         {' â€” '}{sub.name}
       </div>
@@ -169,7 +169,7 @@ function SubmissionCard({ sub, pw, onAction }) {
       <div style={{ ...styles.card, borderColor: '#ec407a', borderWidth: 2 }}>
         <div style={styles.cardHeader}>
           <span style={styles.typeBadge}>{TYPE_LABELS[sub.type] || sub.type}</span>
-          <span style={{ ...styles.cardDate, color: '#ec407a', fontWeight: 700 }}>âœï¸ Editing</span>
+          <span style={{ ...styles.cardDate, color: '#ec407a', fontWeight: 700 }}> Editing</span>
         </div>
 
         <div style={styles.cardName}>{sub.name}</div>
@@ -199,7 +199,7 @@ function SubmissionCard({ sub, pw, onAction }) {
             disabled={saving}
             style={{ ...styles.actionBtn, background: '#ec407a', color: '#fff' }}
           >
-            {saving ? 'Saving...' : 'ðŸ’¾ Save'}
+            {saving ? 'Saving...' : ' Save'}
           </button>
           <button
             onClick={() => setEditing(false)}
@@ -243,15 +243,15 @@ function SubmissionCard({ sub, pw, onAction }) {
       <div style={styles.cardActions}>
         <button onClick={() => act('approve')} disabled={busy}
           style={{ ...styles.actionBtn, ...styles.approveBtn }}>
-          {busy ? '...' : 'âœ“ Approve'}
+          {busy ? '...' : ' Approve'}
         </button>
         <button onClick={() => act('reject')} disabled={busy}
           style={{ ...styles.actionBtn, ...styles.rejectBtn }}>
-          {busy ? '...' : 'âœ— Reject'}
+          {busy ? '...' : ' Reject'}
         </button>
         <button onClick={startEditing} disabled={busy}
           style={{ ...styles.actionBtn, background: '#e3f2fd', color: '#1565c0' }}>
-          âœï¸ Edit
+           Edit
         </button>
       </div>
     </div>
@@ -319,8 +319,8 @@ export default function AdminPage() {
       <div style={styles.page}>
         <div style={styles.topBar}>
           <div style={styles.topBarInner}>
-            <span style={styles.topBarTitle}>ðŸ· NYCWine Admin</span>
-            <Link href="/" style={styles.topBarLink}>â† Back to site</Link>
+            <span style={styles.topBarTitle}>NYCW NYCWine Admin</span>
+            <Link href="/" style={styles.topBarLink}> Back to site</Link>
           </div>
         </div>
 
