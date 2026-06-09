@@ -41,7 +41,7 @@ function LoginScreen({ onLogin }) {
   return (
     <div style={styles.loginWrap}>
       <div style={styles.loginBox}>
-        <div style={styles.loginLogo}>ðŸ·</div>
+        <div style={styles.loginLogo}>NYCW</div>
         <h1 style={styles.loginTitle}>NYCWine Admin</h1>
         <form onSubmit={handleSubmit} style={styles.loginForm}>
           <input
@@ -54,7 +54,7 @@ function LoginScreen({ onLogin }) {
           />
           {err && <div style={styles.loginErr}>{err}</div>}
           <button type="submit" disabled={busy} style={styles.loginBtn}>
-            {busy ? 'Checking...' : 'Sign In â†’'}
+            {busy ? 'Checking...' : 'Sign In ->'}
           </button>
         </form>
       </div>
@@ -121,7 +121,6 @@ function SubmissionCard({ sub, pw, onAction }) {
 
   async function saveEdits() {
     setSaving(true);
-    // Build the data object (exclude contact_email - it's a top-level field)
     const { contact_email, ...dataFields } = editData;
     const res = await fetch('/api/admin/submissions', {
       method:  'PATCH',
@@ -156,9 +155,9 @@ function SubmissionCard({ sub, pw, onAction }) {
     return (
       <div style={{ ...styles.card, opacity: 0.5 }}>
         <span style={{ color: done === 'approve' ? '#2e7d32' : '#c62828', fontWeight: 700 }}>
-          {done === 'approve' ? 'âœ“ Approved' : 'âœ— Rejected'}
+          {done === 'approve' ? '[OK] Approved' : '[X] Rejected'}
         </span>
-        {' â€” '}{sub.name}
+        {' - '}{sub.name}
       </div>
     );
   }
@@ -169,7 +168,7 @@ function SubmissionCard({ sub, pw, onAction }) {
       <div style={{ ...styles.card, borderColor: '#ec407a', borderWidth: 2 }}>
         <div style={styles.cardHeader}>
           <span style={styles.typeBadge}>{TYPE_LABELS[sub.type] || sub.type}</span>
-          <span style={{ ...styles.cardDate, color: '#ec407a', fontWeight: 700 }}>âœï¸ Editing</span>
+          <span style={{ ...styles.cardDate, color: '#ec407a', fontWeight: 700 }}>* Editing</span>
         </div>
 
         <div style={styles.cardName}>{sub.name}</div>
@@ -199,7 +198,7 @@ function SubmissionCard({ sub, pw, onAction }) {
             disabled={saving}
             style={{ ...styles.actionBtn, background: '#ec407a', color: '#fff' }}
           >
-            {saving ? 'Saving...' : 'ðŸ’¾ Save'}
+            {saving ? 'Saving...' : '[save] Save'}
           </button>
           <button
             onClick={() => setEditing(false)}
@@ -243,15 +242,15 @@ function SubmissionCard({ sub, pw, onAction }) {
       <div style={styles.cardActions}>
         <button onClick={() => act('approve')} disabled={busy}
           style={{ ...styles.actionBtn, ...styles.approveBtn }}>
-          {busy ? '...' : 'âœ“ Approve'}
+          {busy ? '...' : '[OK] Approve'}
         </button>
         <button onClick={() => act('reject')} disabled={busy}
           style={{ ...styles.actionBtn, ...styles.rejectBtn }}>
-          {busy ? '...' : 'âœ— Reject'}
+          {busy ? '...' : '[X] Reject'}
         </button>
         <button onClick={startEditing} disabled={busy}
           style={{ ...styles.actionBtn, background: '#e3f2fd', color: '#1565c0' }}>
-          âœï¸ Edit
+          [edit] Edit
         </button>
       </div>
     </div>
@@ -319,8 +318,8 @@ export default function AdminPage() {
       <div style={styles.page}>
         <div style={styles.topBar}>
           <div style={styles.topBarInner}>
-            <span style={styles.topBarTitle}>ðŸ· NYCWine Admin</span>
-            <Link href="/" style={styles.topBarLink}>â† Back to site</Link>
+            <span style={styles.topBarTitle}>NYCWine Admin</span>
+            <Link href="/" style={styles.topBarLink}><-- Back to site</Link>
           </div>
         </div>
 
@@ -347,7 +346,7 @@ export default function AdminPage() {
             <>
               {pending.length === 0 ? (
                 <div style={styles.emptyState}>
-                  <div style={{ fontSize: 40, marginBottom: 12 }}>âœ…</div>
+                  <div style={{ fontSize: 24, fontWeight: 700, marginBottom: 12 }}>[OK]</div>
                   <div style={{ fontSize: 16, fontWeight: 700, marginBottom: 6 }}>All clear</div>
                   <div style={{ color: '#888' }}>No submissions need review right now.</div>
                 </div>
@@ -394,7 +393,7 @@ const styles = {
     padding: '40px 36px', width: '100%', maxWidth: 380,
     textAlign: 'center', boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
   },
-  loginLogo:  { fontSize: 40, marginBottom: 10 },
+  loginLogo:  { fontSize: 40, marginBottom: 10, fontWeight: 700 },
   loginTitle: { fontSize: 22, fontWeight: 700, marginBottom: 24, color: '#1a1a1a' },
   loginForm:  { display: 'flex', flexDirection: 'column', gap: 12 },
   loginInput: {
