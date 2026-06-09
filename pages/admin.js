@@ -320,7 +320,7 @@ export default function AdminPage() {
         <div style={styles.topBar}>
           <div style={styles.topBarInner}>
             <span style={styles.topBarTitle}>NYCW NYCWine Admin</span>
-            <Link href="/" style={styles.topBarLink}> Back to site</Link>
+            <Link href="/" style={styles.topBarLink}>Back to site</Link>
           </div>
         </div>
 
