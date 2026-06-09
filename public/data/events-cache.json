@@ -42,6 +42,34 @@
     "color": "c3"
   },
   {
+    "title": "FINALS WATCH PARTY AT SPIN NY MIDTOWN. LETS GO NEW YORK!!!",
+    "venue": "SPIN Midtown",
+    "date": "2026-06-10T20:30:00-04:00",
+    "dateDisplay": "Thu, Jun 11, 12:30 AM",
+    "day": "11",
+    "month": "Jun · Thu",
+    "tag": "Event",
+    "url": "https://www.eventbrite.com/e/finals-watch-party-at-spin-ny-midtown-lets-go-new-york-tickets-1991119785879",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1185282191%2F312035277498%2F1%2Foriginal.20260523-170233?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=01a3cf097f08a24fdecb21e23878ac3e",
+    "source": "Eventbrite",
+    "id": 25,
+    "color": "c5"
+  },
+  {
+    "title": "Urbani Caviar Tasting - Urbani Truffle Lab NYC",
+    "venue": "Urbani Truffles USA Inc",
+    "date": "2026-06-11T18:00:00-04:00",
+    "dateDisplay": "Thu, Jun 11, 10:00 PM",
+    "day": "11",
+    "month": "Jun · Thu",
+    "tag": "Tasting",
+    "url": "https://www.eventbrite.com/e/urbani-caviar-tasting-urbani-truffle-lab-nyc-tickets-1989098311595",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1182268525%2F175409797248%2F1%2Foriginal.20260415-202159?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=f164ee187bc74f5d37451751628b2574",
+    "source": "Eventbrite",
+    "id": 26,
+    "color": "c1"
+  },
+  {
     "title": "Free Wine Tasting – Explore the Vibrant Wines of: Provence, Rioja & Basque",
     "venue": "Millesima USA LLC",
     "date": "2026-06-12T17:00:00-04:00",
@@ -52,8 +80,8 @@
     "url": "https://www.eventbrite.com/e/free-wine-tasting-explore-the-vibrant-wines-of-provence-rioja-basque-tickets-1990645894457",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1185704998%2F2181949613973%2F1%2Foriginal.20260529-145803?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=aed041d81f5484301ee1aca192375a4d",
     "source": "Eventbrite",
-    "id": 19,
-    "color": "c4"
+    "id": 20,
+    "color": "c5"
   },
   {
     "title": "Wine, Explained: A Guided Tasting with Demby's Supper Club",
@@ -66,8 +94,8 @@
     "url": "https://www.eventbrite.com/e/wine-explained-a-guided-tasting-with-dembys-supper-club-tickets-1989923676283",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1185039459%2F2997903110655%2F1%2Foriginal.20260520-141639?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.918&fp-y=0.361&s=21de3de359c028d04a0e1d6f9d00c46a",
     "source": "Eventbrite",
-    "id": 9,
-    "color": "c4"
+    "id": 10,
+    "color": "c5"
   },
   {
     "title": "USA vs. Paraguay | Live Soccer · Five Iron Golf Grand Central· June 12",
@@ -108,8 +136,8 @@
     "url": "https://www.eventbrite.com/e/50-off-for-art-wine-therapy-tickets-1987458535982",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1182179792%2F134196138065%2F1%2Foriginal.20260414-213956?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.505&fp-y=0.207&s=9e2f3c9c6e3dee893effbf71fe8a4b2c",
     "source": "Eventbrite",
-    "id": 11,
-    "color": "c1"
+    "id": 12,
+    "color": "c2"
   },
   {
     "title": "Collecting and Investing in Fine Wine",
@@ -178,8 +206,8 @@
     "url": "https://www.eventbrite.com/e/wax-wine-candle-making-tickets-1991022091673",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1186118925%2F404228368073%2F1%2Foriginal.20260604-013409?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=2ff841301c5ac419d30b4833f939d67e",
     "source": "Eventbrite",
-    "id": 8,
-    "color": "c3"
+    "id": 9,
+    "color": "c4"
   },
   {
     "title": "Rhône in White – An Experiential White Wine Event",
@@ -208,20 +236,6 @@
     "source": "Eventbrite",
     "id": 7,
     "color": "c2"
-  },
-  {
-    "title": "USA vs. Australia | Live Soccer · Five Iron Golf Grand Central · June 19",
-    "venue": "Five Iron Golf",
-    "date": "2026-06-19T15:00:00-04:00",
-    "dateDisplay": "Fri, Jun 19, 7:00 PM",
-    "day": "19",
-    "month": "Jun · Fri",
-    "tag": "Event",
-    "url": "https://www.eventbrite.com/e/usa-vs-australia-live-soccer-five-iron-golf-grand-central-june-19-tickets-1986848229539",
-    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1181533569%2F2037280439263%2F1%2Foriginal.20260406-194513?w=940&auto=format%2Ccompress&q=75&sharp=10&s=f22def2697b4111d3ee094f6e4eb73ee",
-    "source": "Eventbrite",
-    "id": 25,
-    "color": "c5"
   },
   {
     "title": "Mediterranean Cheese & Wine Tasting",
@@ -304,8 +318,8 @@
     "url": "https://www.eventbrite.com/e/vine-on-the-skyline-wine-tasting-experience-tickets-1989800694441",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1185818172%2F309741633598%2F1%2Foriginal.20260531-205212?w=940&auto=format%2Ccompress&q=75&sharp=10&s=a03e9b0c524b9cae70bbf0d1e469a976",
     "source": "Eventbrite",
-    "id": 12,
-    "color": "c2"
+    "id": 11,
+    "color": "c1"
   },
   {
     "title": "Miami's only 5-star July 4th Megayacht Experience",
@@ -322,20 +336,6 @@
     "color": "c2"
   },
   {
-    "title": "July 4th Fireworks Cruise NYC 2026 - America’s 250th Birthday Yacht Party",
-    "venue": "Pier 78 at Hudson River Park",
-    "date": "2026-07-04T18:00:00-04:00",
-    "dateDisplay": "Sat, Jul 4, 10:00 PM",
-    "day": "4",
-    "month": "Jul · Sat",
-    "tag": "Event",
-    "url": "https://www.eventbrite.com/e/july-4th-fireworks-cruise-nyc-2026-americas-250th-birthday-yacht-party-tickets-1990702635170",
-    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1185777216%2F190353750759%2F1%2Foriginal.20260530-210554?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=b44f94c065bb1dd469307f79360e91fb",
-    "source": "Eventbrite",
-    "id": 26,
-    "color": "c1"
-  },
-  {
     "title": "French Cheese & Wine Tasting",
     "venue": "Murray's Cheese Shop",
     "date": "2026-07-11T17:30:00-04:00",
@@ -346,8 +346,8 @@
     "url": "https://www.eventbrite.com/e/french-cheese-wine-tasting-tickets-1988348031487",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F486197379%2F141392852881%2F1%2Foriginal.20230405-175849?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C83%2C4724%2C2362&s=189e2e03aa6a59f7e3a8bc8144348581",
     "source": "Eventbrite",
-    "id": 10,
-    "color": "c5"
+    "id": 8,
+    "color": "c3"
   },
   {
     "title": "Wine Dinner: Liguria",
@@ -416,7 +416,7 @@
     "url": "https://www.eventbrite.com/e/walk-wine-tickets-1988967417086",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1183982634%2F615485820583%2F1%2Foriginal.20260507-023229?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.265&fp-y=0.075&s=e479ced59a7ad300689e06845e743e92",
     "source": "Eventbrite",
-    "id": 20,
-    "color": "c5"
+    "id": 19,
+    "color": "c4"
   }
 ]
