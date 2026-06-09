@@ -74,7 +74,8 @@ export default async function handler(req, res) {
   // -- POST: approve or reject ---------------------------------------
   if (req.method === 'POST') {
     const { pw, id, action } = req.body || {};
-    if (pw !== ADMIN_PW) return res.status(401).json({ error: 'Unauthorized' });
+    const authenticatedPatch = (pw === ADMIN_PW) || (key === CRON_KEY);
+    if (!authenticatedPatch) return res.status(401).json({ error: 'Unauthorized' });
     if (!id || !['approve', 'reject'].includes(action)) {
       return res.status(400).json({ error: 'id and action (approve|reject) required' });
     }
@@ -115,7 +116,9 @@ export default async function handler(req, res) {
   // -- PATCH: update submission data (fix typos, etc.) ---------------
   if (req.method === 'PATCH') {
     const { pw, id, data } = req.body || {};
-    if (pw !== ADMIN_PW) return res.status(401).json({ error: 'Unauthorized' });
+    const key = req.query.key;
+    const authenticatedPatch = (pw === ADMIN_PW) || (key === CRON_KEY);
+    if (!authenticatedPatch) return res.status(401).json({ error: 'Unauthorized' });
     if (!id || !data) {
       return res.status(400).json({ error: 'id and data (object with fields to merge) required' });
     }
