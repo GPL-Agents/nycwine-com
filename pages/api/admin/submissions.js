@@ -1,15 +1,15 @@
 // pages/api/admin/submissions.js
-// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // Admin API -- read and act on flagged submissions via Supabase.
 // Password-protected via ADMIN_PASSWORD env var.
 //
-// GET  /api/admin/submissions?pw=xxx          -> list flagged (escalated only)
-// GET  /api/admin/submissions?pw=xxx&all=true -> full review log (last 100)
-// GET  /api/admin/submissions?key=<CRON_API_KEY>&type=ad_order&status=pending_payment
-//      -> list pending payment ad orders (for cron job)
-// POST /api/admin/submissions                 -> approve or reject
-//      Body: { pw, id, action: 'approve'|'reject' }
-// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// GET   /api/admin/submissions?pw=xxx          -> list flagged (escalated only)
+// GET   /api/admin/submissions?pw=xxx&all=true -> full review log (last 100)
+// GET   /api/admin/submissions?key=<CRON_API_KEY>&type=ad_order&status=pending_payment
+//       -> list pending payment ad orders (for cron job)
+// POST  /api/admin/submissions                 -> approve or reject
+//       Body: { pw, id, action: 'approve'|'reject' }
+// PATCH /api/admin/submissions                 -> update submission data
+//       Body: { pw, id, data: { ...fields to merge into data } }
 
 import { db } from '../../../lib/supabase';
 
@@ -36,7 +36,6 @@ async function publishEvent(submission) {
 }
 
 function buildFilterQuery(params) {
-  // If type and status are provided, build a filter query for ad order checks
   if (params.type) {
     let q = `?type=eq.${encodeURIComponent(params.type)}`;
     q += `&order=submitted_at.desc`;
@@ -45,23 +44,19 @@ function buildFilterQuery(params) {
     }
     return q;
   }
-  // Default: escalated reviews
   return '?status=eq.reviewed-escalated&order=submitted_at.desc';
 }
 
 export default async function handler(req, res) {
   // -- GET: list submissions -----------------------------------------
   if (req.method === 'GET') {
-    // Two auth paths: password (admin) or API key (cron)
     const pw  = req.query.pw;
     const key = req.query.key;
     const authenticated = (pw === ADMIN_PW) || (key === CRON_KEY);
     if (!authenticated) return res.status(401).json({ error: 'Unauthorized' });
 
-    // Determine query scope
     let query;
     if (pw === ADMIN_PW && req.query.all === 'true') {
-      // Admin full view
       query = '?order=submitted_at.desc&limit=100';
     } else {
       query = buildFilterQuery(req.query);
@@ -85,7 +80,6 @@ export default async function handler(req, res) {
     }
 
     try {
-      // Fetch the submission
       const rows = await db.select('submissions', `?id=eq.${encodeURIComponent(id)}`);
       if (!rows || rows.length === 0) {
         return res.status(404).json({ error: 'Submission not found' });
@@ -100,7 +94,6 @@ export default async function handler(req, res) {
           { status: 'reviewed-posted', approved_at: now },
           `?id=eq.${encodeURIComponent(id)}`
         );
-        // Publish to live feed if it's an event
         if (submission.type === 'event') {
           await publishEvent(submission);
         }
@@ -116,6 +109,35 @@ export default async function handler(req, res) {
     } catch (err) {
       console.error('Admin action error:', err);
       return res.status(500).json({ error: 'Action failed.' });
+    }
+  }
+
+  // -- PATCH: update submission data (fix typos, etc.) ---------------
+  if (req.method === 'PATCH') {
+    const { pw, id, data } = req.body || {};
+    if (pw !== ADMIN_PW) return res.status(401).json({ error: 'Unauthorized' });
+    if (!id || !data) {
+      return res.status(400).json({ error: 'id and data (object with fields to merge) required' });
+    }
+
+    try {
+      const rows = await db.select('submissions', `?id=eq.${encodeURIComponent(id)}`);
+      if (!rows || rows.length === 0) {
+        return res.status(404).json({ error: 'Submission not found' });
+      }
+
+      const existing = rows[0];
+      const mergedData = { ...(existing.data || {}), ...data };
+      await db.update(
+        'submissions',
+        { data: mergedData },
+        `?id=eq.${encodeURIComponent(id)}`
+      );
+
+      return res.status(200).json({ ok: true, message: 'Data updated' });
+    } catch (err) {
+      console.error('Admin PATCH error:', err);
+      return res.status(500).json({ error: 'Update failed.' });
     }
   }
 
