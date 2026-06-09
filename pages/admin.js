@@ -498,4 +498,3 @@ const styles = {
   logReason:  { color: '#666', fontSize: 12, flex: '2 1 200px', minWidth: 0 },
   logDate:    { color: '#aaa', fontSize: 11, whiteSpace: 'nowrap' },
 };
-
