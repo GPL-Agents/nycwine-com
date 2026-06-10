@@ -319,7 +319,7 @@ export default function AdminPage() {
       <div style={styles.page}>
         <div style={styles.topBar}>
           <div style={styles.topBarInner}>
-            <span style={styles.topBarTitle}>NYCW NYCWine Admin</span>
+            <span style={styles.topBarTitle}>NYCWine Admin</span>
             <Link href="/" style={styles.topBarLink}>Back to site</Link>
           </div>
         </div>
