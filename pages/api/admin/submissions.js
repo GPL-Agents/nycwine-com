@@ -2,13 +2,15 @@
 // Admin API -- read and act on flagged submissions via Supabase.
 // Password-protected via ADMIN_PASSWORD env var.
 //
-// GET   /api/admin/submissions?pw=xxx          -> list flagged (escalated only)
-// GET   /api/admin/submissions?pw=xxx&all=true -> full review log (last 100)
+// GET   /api/admin/submissions?pw=xxx           -> list flagged (escalated only)
+// GET   /api/admin/submissions?pw=xxx&all=true  -> full review log (last 100)
+// GET   /api/admin/submissions?key=<CRON_API_KEY>&all=true
+//       -> all submissions (last 100, for cron job)
 // GET   /api/admin/submissions?key=<CRON_API_KEY>&type=ad_order&status=pending_payment
-//       -> list pending payment ad orders (for cron job)
-// POST  /api/admin/submissions                 -> approve or reject
+//       -> list pending payment ad orders
+// POST  /api/admin/submissions                  -> approve or reject
 //       Body: { pw, id, action: 'approve'|'reject' }
-// PATCH /api/admin/submissions                 -> update submission data
+// PATCH /api/admin/submissions                  -> update submission data
 //       Body: { pw, id, data: { ...fields to merge into data } }
 
 import { db } from '../../../lib/supabase';
@@ -56,7 +58,7 @@ export default async function handler(req, res) {
     if (!authenticated) return res.status(401).json({ error: 'Unauthorized' });
 
     let query;
-    if (pw === ADMIN_PW && req.query.all === 'true') {
+    if (req.query.all === 'true' && authenticated) {
       query = '?order=submitted_at.desc&limit=100';
     } else {
       query = buildFilterQuery(req.query);
@@ -74,6 +76,7 @@ export default async function handler(req, res) {
   // -- POST: approve or reject ---------------------------------------
   if (req.method === 'POST') {
     const { pw, id, action } = req.body || {};
+    const key = req.query.key;
     const authenticatedPatch = (pw === ADMIN_PW) || (key === CRON_KEY);
     if (!authenticatedPatch) return res.status(401).json({ error: 'Unauthorized' });
     if (!id || !['approve', 'reject'].includes(action)) {
