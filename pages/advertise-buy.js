@@ -238,7 +238,7 @@ export default function AdvertiseBuyPage() {
     setErrMsg('');
 
     try {
-      const res = await fetch('/api/submit-order', {
+      const res = await fetch('/api/checkout', {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body:    JSON.stringify({
@@ -254,13 +254,9 @@ export default function AdvertiseBuyPage() {
         }),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Could not submit order');
-      router.push(
-        '/advertise-success?orderId=' + encodeURIComponent(data.orderId) +
-        '&total=' + encodeURIComponent(data.total) +
-        '&slot=' + encodeURIComponent(data.slotName) +
-        '&start=' + encodeURIComponent(data.startMonth)
-      );
+      if (!res.ok) throw new Error(data.error || 'Could not create checkout session');
+      // Redirect to Stripe Checkout hosted payment page
+      window.location.href = data.checkoutUrl;
     } catch (err) {
       setErrMsg(err.message);
       setStatus('error');
@@ -457,7 +453,7 @@ export default function AdvertiseBuyPage() {
               >
                 {status === 'submitting' ? 'Redirecting to Stripe…' : `Pay $${total.toLocaleString('en-US', { minimumFractionDigits: 2 })} & Book Placement →`}
               </button>
-              <p className="buy-stripe-note">We’ll send a Venmo payment request to your email within a few hours. Your placement goes live once payment is confirmed.</p>
+              <p className="buy-stripe-note">You’ll be redirected to Stripe Checkout to pay securely by credit or debit card. Your placement goes live after payment is confirmed.</p>
             </div>
           )}
 
