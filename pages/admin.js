@@ -41,7 +41,7 @@ function LoginScreen({ onLogin }) {
   return (
     <div style={styles.loginWrap}>
       <div style={styles.loginBox}>
-        <div style={styles.loginLogo}>NYCW</div>
+        <div style={styles.loginLogo}>NYCWine</div>
         <h1 style={styles.loginTitle}>NYCWine Admin</h1>
         <form onSubmit={handleSubmit} style={styles.loginForm}>
           <input
@@ -347,7 +347,7 @@ export default function AdminPage() {
             <>
               {pending.length === 0 ? (
                 <div style={styles.emptyState}>
-                  <div style={{ fontSize: 40, marginBottom: 12 }}>â…</div>
+                  <div style={{ fontSize: 40, marginBottom: 12 }}>✅</div>
                   <div style={{ fontSize: 16, fontWeight: 700, marginBottom: 6 }}>All clear</div>
                   <div style={{ color: '#888' }}>No submissions need review right now.</div>
                 </div>
