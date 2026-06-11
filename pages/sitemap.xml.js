@@ -40,7 +40,15 @@ function generateSitemap(posts) {
   </url>`
   );
 
-  const blogUrls = posts.map(
+  // Dedupe by slug, keeping the most recent date for each.
+  const bySlug = new Map();
+  for (const post of posts) {
+    const existing = bySlug.get(post.slug);
+    if (!existing || post.date > existing.date) bySlug.set(post.slug, post);
+  }
+  const uniquePosts = [...bySlug.values()];
+
+  const blogUrls = uniquePosts.map(
     (post) => `  <url>
     <loc>${SITE_URL}/blog/${post.slug}</loc>
     <lastmod>${post.date}</lastmod>

@@ -5,12 +5,23 @@
 
 import Head from 'next/head';
 import Script from 'next/script';
+import { useRouter } from 'next/router';
 import '../styles/globals.css';
 
+const SITE_URL = 'https://www.nycwine.com';
+
 export default function App({ Component, pageProps }) {
+  const router = useRouter();
+  // Canonical URL: strip query string / hash, drop trailing slash (except home)
+  const cleanPath = router.asPath.split('?')[0].split('#')[0].replace(/\/$/, '');
+  const canonicalUrl = `${SITE_URL}${cleanPath || '/'}`;
+
   return (
     <>
       <Head>
+        {/* Canonical URL — pages can override with their own key="canonical" */}
+        <link rel="canonical" href={canonicalUrl} key="canonical" />
+
         {/* Favicon — all pages */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />

@@ -30,6 +30,41 @@ export default function Home() {
         <title>NYCWine.com - Wine Events &amp; News, Wine Bars, Wine Stores and Wineries</title>
         <meta name="description" content="Discover wine events, tastings, and the best wine stores and bars in New York City. Your source for everything wine in NYC." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* Structured data: WebSite + Organization */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@graph': [
+                {
+                  '@type': 'WebSite',
+                  '@id': 'https://www.nycwine.com/#website',
+                  url: 'https://www.nycwine.com/',
+                  name: 'NYCWine.com',
+                  description:
+                    'Wine events, news, wine bars, wine stores, and wineries in New York City.',
+                  potentialAction: {
+                    '@type': 'SearchAction',
+                    target: {
+                      '@type': 'EntryPoint',
+                      urlTemplate: 'https://www.nycwine.com/search?q={search_term_string}',
+                    },
+                    'query-input': 'required name=search_term_string',
+                  },
+                },
+                {
+                  '@type': 'Organization',
+                  '@id': 'https://www.nycwine.com/#organization',
+                  name: 'NYCWine.com',
+                  legalName: 'Metropolitan Vintners, LLC',
+                  url: 'https://www.nycwine.com/',
+                  logo: 'https://www.nycwine.com/nycwine-logo.png',
+                },
+              ],
+            }),
+          }}
+        />
       </Head>
 
       {/* ── Sticky site chrome ───────────────────────────── */}

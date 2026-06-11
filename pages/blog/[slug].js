@@ -33,6 +33,35 @@ export default function BlogPost({ post, relatedPosts }) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.excerpt} />
+        {/* Structured data: Article */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Article',
+              headline: post.title,
+              description: post.excerpt,
+              datePublished: post.date,
+              dateModified: post.date,
+              image: post.image || 'https://www.nycwine.com/nycwine-logo.png',
+              mainEntityOfPage: `https://www.nycwine.com/blog/${post.slug}`,
+              author: {
+                '@type': 'Organization',
+                name: post.author || 'NYCWine.com',
+                url: 'https://www.nycwine.com',
+              },
+              publisher: {
+                '@type': 'Organization',
+                name: 'NYCWine.com',
+                logo: {
+                  '@type': 'ImageObject',
+                  url: 'https://www.nycwine.com/nycwine-logo.png',
+                },
+              },
+            }),
+          }}
+        />
       </Head>
 
       <Header />
