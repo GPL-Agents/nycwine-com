@@ -1818,6 +1818,9 @@ body {
 .footer-links a:hover { color: white; }
 .footer-dot { color: rgba(255,255,255,0.25); }
 .footer-copy { color: rgba(255,255,255,0.35); font-size: 11px; }
+.footer-powered-by { color: rgba(255,255,255,0.35); font-size: 11px; margin-top: 8px; }
+.footer-powered-by a { color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.15s; }
+.footer-powered-by a:hover { color: white; }
 
 /* ═══════════════════════════════════════
    STORES PAGE (full directory)
@@ -4982,15 +4985,4 @@ body {
 .blog-back-link:hover {
   text-decoration: underline;
 }
-/* Blog sidebar promo image */
-.blog-sidebar-image {
-  margin-bottom: 16px;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 2px 12px rgba(45,41,38,0.10);
-}
-.blog-sidebar-promo-img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
+/* Blo

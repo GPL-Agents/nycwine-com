@@ -1,0 +1,7 @@
+# robots.txt for nycwine.com
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api/
+
+Sitemap: https://www.nycwine.com/sitemap.xml

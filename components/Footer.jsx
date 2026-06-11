@@ -32,6 +32,12 @@ export default function Footer() {
         <a href="/advertise" className="footer-advertise-link">Advertise</a>
       </nav>
       <div className="footer-copy">&copy; {year} Metropolitan Vintners, LLC  |  New York, USA  |  All rights reserved</div>
+      <div className="footer-powered-by">
+        Powered by{' '}
+        <a href="https://www.futureinsites.com" target="_blank" rel="noopener noreferrer">
+          FutureInSites
+        </a>
+      </div>
     </footer>
   );
 }
