@@ -1,76 +1,28 @@
 {
-  "wine": [
+  "wine": [],
+  "nyc": [
     {
-      "title": "Chappellet Cabernet Sauvignon 2020",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1u53vht/chappellet_cabernet_sauvignon_2020/",
-      "score": 1,
-      "comments": 0,
-      "ago": "11h ago"
-    },
-    {
-      "title": "1987 Sterling Vineyards Reserve",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1u52vgr/1987_sterling_vineyards_reserve/",
-      "score": 1,
-      "comments": 0,
-      "ago": "12h ago"
-    },
-    {
-      "title": "Random Wine Facts You Learned Recently That Surprised You",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1u50plp/random_wine_facts_you_learned_recently_that/",
-      "score": 1,
-      "comments": 0,
-      "ago": "13h ago"
-    },
-    {
-      "title": "Celebrating the USA’s strong World Cup opener: 2020 Argyle Chardonnay Blanc de Blancs (and summer night accoutrements)",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1u4v1p6/celebrating_the_usas_strong_world_cup_opener_2020/",
-      "score": 1,
-      "comments": 0,
-      "ago": "17h ago"
-    },
-    {
-      "title": "Stuhlmuller Reserve Chardonnay 2022, Alexander Valley",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1u4uku1/stuhlmuller_reserve_chardonnay_2022_alexander/",
-      "score": 1,
-      "comments": 0,
-      "ago": "18h ago"
-    },
-    {
-      "title": "Trip to Bordeaux; our experience!",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1u4p66j/trip_to_bordeaux_our_experience/",
+      "title": "Tatiana by Kwame Onwuachi, the reservation I’d been chasing",
+      "subreddit": "r/FoodNYC",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1u5mg1w/tatiana_by_kwame_onwuachi_the_reservation_id_been/",
       "score": 1,
       "comments": 0,
       "ago": "22h ago"
     },
     {
-      "title": "First time trying a Kirkland wine and I am blown the f*ck away",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1u4gunu/first_time_trying_a_kirkland_wine_and_i_am_blown/",
-      "score": 1,
-      "comments": 0,
-      "ago": "Yesterday"
-    },
-    {
-      "title": "Great Wines With Friends 🍷",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1u4e8km/great_wines_with_friends/",
+      "title": "Weird experience at Theodora, spilled wine turned into a negotiation",
+      "subreddit": "r/FoodNYC",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1u4vse1/weird_experience_at_theodora_spilled_wine_turned/",
       "score": 1,
       "comments": 0,
       "ago": "Yesterday"
     }
   ],
-  "nyc": [],
-  "fetchedAt": "2026-06-14T10:02:48.811Z",
+  "fetchedAt": "2026-06-15T12:47:53.505Z",
   "stats": {
-    "winePostsFound": 8,
-    "nycPostsFound": 0,
-    "totalCandidatesWine": 25,
+    "winePostsFound": 0,
+    "nycPostsFound": 2,
+    "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
 }
