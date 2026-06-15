@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-08T12:20:23.291Z",
+  "fetchedAt": "2026-06-15T13:44:56.907Z",
   "source": "YouTube",
   "sourceUrl": "https://www.youtube.com/results?search_query=NYC+wine",
   "videos": [
@@ -8,7 +8,7 @@
       "title": "NYC's Sauced Has the Blueprint for a New Kind of Wine Bar | I Know a Place",
       "channelTitle": "InsideHook",
       "publishedAt": "2025-11-10T12:01:02Z",
-      "publishedRelative": "6mo ago",
+      "publishedRelative": "7mo ago",
       "thumbnail": "https://i.ytimg.com/vi/RXsDxS4pRAw/mqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=RXsDxS4pRAw"
     },
@@ -22,6 +22,15 @@
       "url": "https://www.youtube.com/watch?v=MHVbUIkVO5s"
     },
     {
+      "videoId": "ld3HHlg5xvY",
+      "title": "NYC’s Best Wine Bars 🍷",
+      "channelTitle": "VinePair",
+      "publishedAt": "2025-07-29T19:08:31Z",
+      "publishedRelative": "10mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/ld3HHlg5xvY/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=ld3HHlg5xvY"
+    },
+    {
       "videoId": "YEH9-ZYs5GU",
       "title": "I’ll take my wine from a window my day.🍷 #williamsburg #brooklyn #nyc #wine",
       "channelTitle": "Don’t Sit Home",
@@ -29,15 +38,6 @@
       "publishedRelative": "10mo ago",
       "thumbnail": "https://i.ytimg.com/vi/YEH9-ZYs5GU/mqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=YEH9-ZYs5GU"
-    },
-    {
-      "videoId": "YdLgAmedSq4",
-      "title": "The Man Behind Manhattan’s Most Extraordinary Wine Cellar — Eli Zabar",
-      "channelTitle": "Clos & Monopole",
-      "publishedAt": "2025-06-16T08:42:55Z",
-      "publishedRelative": "11mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/YdLgAmedSq4/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=YdLgAmedSq4"
     },
     {
       "videoId": "AtPw7J9jjd0",
@@ -49,58 +49,13 @@
       "url": "https://www.youtube.com/watch?v=AtPw7J9jjd0"
     },
     {
-      "videoId": "ld3HHlg5xvY",
-      "title": "NYC’s Best Wine Bars 🍷",
-      "channelTitle": "VinePair",
-      "publishedAt": "2025-07-29T19:08:31Z",
-      "publishedRelative": "10mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/ld3HHlg5xvY/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=ld3HHlg5xvY"
-    },
-    {
-      "videoId": "kQQL7_-V75g",
-      "title": "The Best Places To Drink Wine In NYC: A Night Out With SWURL Episode 01",
-      "channelTitle": "SWURL",
-      "publishedAt": "2025-11-17T16:01:17Z",
-      "publishedRelative": "6mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/kQQL7_-V75g/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=kQQL7_-V75g"
-    },
-    {
-      "videoId": "nGMWS7FeD8c",
-      "title": "Mercante Wines in NYC #wine #food",
-      "channelTitle": "vinofiamma",
-      "publishedAt": "2024-07-12T03:50:20Z",
+      "videoId": "_b9J3_vbZms",
+      "title": "The real tea on the founder's room at ZZ's #carbone #finedining #nyc #wine #caviar #membersclub",
+      "channelTitle": "The VIP List",
+      "publishedAt": "2025-01-13T00:01:05Z",
       "publishedRelative": "1y ago",
-      "thumbnail": "https://i.ytimg.com/vi/nGMWS7FeD8c/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=nGMWS7FeD8c"
-    },
-    {
-      "videoId": "mfwYBgqTM9Q",
-      "title": "The perfect wine & tapas bar in NYC 🍷",
-      "channelTitle": "good.eats.v",
-      "publishedAt": "2025-05-26T22:18:55Z",
-      "publishedRelative": "1y ago",
-      "thumbnail": "https://i.ytimg.com/vi/mfwYBgqTM9Q/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=mfwYBgqTM9Q"
-    },
-    {
-      "videoId": "3GO5G9p26bg",
-      "title": "Where do NYC's BEST sommeliers drink wine?",
-      "channelTitle": "VinePair",
-      "publishedAt": "2025-08-28T17:07:36Z",
-      "publishedRelative": "9mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/3GO5G9p26bg/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=3GO5G9p26bg"
-    },
-    {
-      "videoId": "8QRUBFiCKpo",
-      "title": "Manhattan Wine Auction 2025",
-      "channelTitle": "VOX Productions",
-      "publishedAt": "2025-07-21T20:48:34Z",
-      "publishedRelative": "10mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/8QRUBFiCKpo/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=8QRUBFiCKpo"
+      "thumbnail": "https://i.ytimg.com/vi/_b9J3_vbZms/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=_b9J3_vbZms"
     },
     {
       "videoId": "O5RMe9RXz44",
@@ -112,6 +67,69 @@
       "url": "https://www.youtube.com/watch?v=O5RMe9RXz44"
     },
     {
+      "videoId": "nGMWS7FeD8c",
+      "title": "Mercante Wines in NYC #wine #food",
+      "channelTitle": "vinofiamma",
+      "publishedAt": "2024-07-12T03:50:20Z",
+      "publishedRelative": "1y ago",
+      "thumbnail": "https://i.ytimg.com/vi/nGMWS7FeD8c/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=nGMWS7FeD8c"
+    },
+    {
+      "videoId": "0sAH89wIBDo",
+      "title": "A Master Sommelier's Hidden Pasta & Wine Spots In NYC | The Wine Show",
+      "channelTitle": "Munchies",
+      "publishedAt": "2026-01-21T17:00:05Z",
+      "publishedRelative": "4mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/0sAH89wIBDo/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=0sAH89wIBDo"
+    },
+    {
+      "videoId": "YdLgAmedSq4",
+      "title": "The Man Behind Manhattan’s Most Extraordinary Wine Cellar — Eli Zabar",
+      "channelTitle": "Clos & Monopole",
+      "publishedAt": "2025-06-16T08:42:55Z",
+      "publishedRelative": "11mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/YdLgAmedSq4/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=YdLgAmedSq4"
+    },
+    {
+      "videoId": "8QRUBFiCKpo",
+      "title": "Manhattan Wine Auction 2025",
+      "channelTitle": "VOX Productions",
+      "publishedAt": "2025-07-21T20:48:34Z",
+      "publishedRelative": "10mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/8QRUBFiCKpo/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=8QRUBFiCKpo"
+    },
+    {
+      "videoId": "kQQL7_-V75g",
+      "title": "The Best Places To Drink Wine In NYC: A Night Out With SWURL Episode 01",
+      "channelTitle": "SWURL",
+      "publishedAt": "2025-11-17T16:01:17Z",
+      "publishedRelative": "6mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/kQQL7_-V75g/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=kQQL7_-V75g"
+    },
+    {
+      "videoId": "3GO5G9p26bg",
+      "title": "Where do NYC's BEST sommeliers drink wine?",
+      "channelTitle": "VinePair",
+      "publishedAt": "2025-08-28T17:07:36Z",
+      "publishedRelative": "9mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/3GO5G9p26bg/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=3GO5G9p26bg"
+    },
+    {
+      "videoId": "fzOA7Fvdfcs",
+      "title": "The BEST Bars in NYC RIGHT NOW",
+      "channelTitle": "VinePair",
+      "publishedAt": "2025-09-04T16:28:08Z",
+      "publishedRelative": "9mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/fzOA7Fvdfcs/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=fzOA7Fvdfcs"
+    },
+    {
       "videoId": "OnTwaowAgVs",
       "title": "New York City Wine & Food Festival | October 15-19, 2025",
       "channelTitle": "New York City Wine & Food Festival",
@@ -119,24 +137,6 @@
       "publishedRelative": "9mo ago",
       "thumbnail": "https://i.ytimg.com/vi/OnTwaowAgVs/mqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=OnTwaowAgVs"
-    },
-    {
-      "videoId": "78ZZkCN32OM",
-      "title": "The best bites from NYC Wine & Food Festival’s ‘Steak & Whiskey’ event | New York, NY",
-      "channelTitle": "Eric Hammer",
-      "publishedAt": "2024-10-25T18:36:42Z",
-      "publishedRelative": "1y ago",
-      "thumbnail": "https://i.ytimg.com/vi/78ZZkCN32OM/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=78ZZkCN32OM"
-    },
-    {
-      "videoId": "h669Av8geEg",
-      "title": "The best wine in NYC 🍷",
-      "channelTitle": "VinePair",
-      "publishedAt": "2025-04-08T16:47:09Z",
-      "publishedRelative": "1y ago",
-      "thumbnail": "https://i.ytimg.com/vi/h669Av8geEg/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=h669Av8geEg"
     },
     {
       "videoId": "xMcaDhbeXos",
@@ -148,33 +148,6 @@
       "url": "https://www.youtube.com/watch?v=xMcaDhbeXos"
     },
     {
-      "videoId": "_b9J3_vbZms",
-      "title": "The real tea on the founder's room at ZZ's #carbone #finedining #nyc #wine #caviar #membersclub",
-      "channelTitle": "The VIP List",
-      "publishedAt": "2025-01-13T00:01:05Z",
-      "publishedRelative": "1y ago",
-      "thumbnail": "https://i.ytimg.com/vi/_b9J3_vbZms/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=_b9J3_vbZms"
-    },
-    {
-      "videoId": "e7UUaw98oLM",
-      "title": "2024 Manhattan Wine Auction",
-      "channelTitle": "VOX Productions",
-      "publishedAt": "2024-07-04T21:03:14Z",
-      "publishedRelative": "1y ago",
-      "thumbnail": "https://i.ytimg.com/vi/e7UUaw98oLM/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=e7UUaw98oLM"
-    },
-    {
-      "videoId": "d1dBphlt2lQ",
-      "title": "A taste of NYC Wine and Food Festival",
-      "channelTitle": "PIX11 News",
-      "publishedAt": "2025-07-28T15:29:28Z",
-      "publishedRelative": "10mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/d1dBphlt2lQ/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=d1dBphlt2lQ"
-    },
-    {
       "videoId": "1_0st43j2jk",
       "title": "Enjoy a movie at this cozy and intimate wine bar & bookstore!",
       "channelTitle": "Picture Perfect Luis",
@@ -182,6 +155,33 @@
       "publishedRelative": "1y ago",
       "thumbnail": "https://i.ytimg.com/vi/1_0st43j2jk/mqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=1_0st43j2jk"
+    },
+    {
+      "videoId": "Ku4NUOMA0h0",
+      "title": "15 of the Best Wine Bar Snacks in NYC",
+      "channelTitle": "Unique Gift Presentations",
+      "publishedAt": "2026-03-11T14:29:14Z",
+      "publishedRelative": "3mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/Ku4NUOMA0h0/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=Ku4NUOMA0h0"
+    },
+    {
+      "videoId": "FkPa_bxMFH0",
+      "title": "#brooklyn #nyc #wine #winetasting #winefestival",
+      "channelTitle": "Somewhere On Long Island",
+      "publishedAt": "2024-06-24T16:24:26Z",
+      "publishedRelative": "1y ago",
+      "thumbnail": "https://i.ytimg.com/vi/FkPa_bxMFH0/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=FkPa_bxMFH0"
+    },
+    {
+      "videoId": "L8r6vIjfpOk",
+      "title": "Everything ordered was incredible #winebar #nyc",
+      "channelTitle": "Stephan Fisher",
+      "publishedAt": "2025-05-20T01:22:16Z",
+      "publishedRelative": "1y ago",
+      "thumbnail": "https://i.ytimg.com/vi/L8r6vIjfpOk/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=L8r6vIjfpOk"
     }
   ]
 }
