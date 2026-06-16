@@ -373,7 +373,7 @@ export default function AdvertiseBuyPage() {
               <div className="sub-field">
                 <label className="sub-label">Your Website URL<span className="sub-required">*</span></label>
                 <div className="sub-hint">Where the ad should link to when clicked.</div>
-                <input className="sub-input" type="url" value={form.websiteUrl||''} onChange={e=>set('websiteUrl',e.target.value)} required placeholder="https://yourbusiness.com" />
+                <input className="sub-input" type="url" value={form.websiteUrl||''} onChange={e=>set('websiteUrl',e.target.value)} required placeholder="https://yourbusiness.com" title="Please enter a full URL including https:// (e.g. https://yourbusiness.com)" />
               </div>
 
               {/* ── Banner ad slots need an image upload ── */}

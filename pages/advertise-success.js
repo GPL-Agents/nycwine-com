@@ -27,7 +27,7 @@ export default function AdvertiseSuccessPage() {
 
       <main className="sub-page">
         <div className="sub-success" style={{ marginTop: 80, marginBottom: 80 }}>
-          <div className="sub-success-icon">âœ…</div>
+          <div className="sub-success-icon">✅</div>
           <h1 className="sub-success-title">Payment confirmed!</h1>
           <p style={{ fontSize: 16, marginBottom: 16, color: 'var(--muted)' }}>
             Your advertising placement has been booked.
@@ -40,7 +40,7 @@ export default function AdvertiseSuccessPage() {
             <div style={{ fontWeight: 700, fontSize: 16, marginBottom: 14 }}>
               What happens next
             </div>
-            <ul style={{ margin: 0, paddingLeft: 20, lineHeight: 2, fontSize: 14 }}>
+            <ul style={{ margin: 0, paddingLeft: 20, lineHeight: 1.7, fontSize: 14 }}>
               <li>A confirmation email will be sent to the address you provided</li>
               <li>Your ad will go live at the start of the month you selected</li>
               <li>We&apos;ll review your creative assets and reach out if anything needs adjusting</li>
@@ -49,8 +49,7 @@ export default function AdvertiseSuccessPage() {
           </div>
 
           <p style={{ fontSize: 14, color: 'var(--muted)' }}>
-            Your subscription renews automatically until cancelled.
-            You can cancel anytime through Stripe.
+            Your ad placement renews automatically until cancelled. To cancel, email <a href="mailto:sommelier@nycwine.com" style={{ color: 'var(--pink)' }}>sommelier@nycwine.com</a>.
           </p>
 
           <div className="sub-success-links" style={{ marginTop: 24 }}>
