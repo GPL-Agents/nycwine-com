@@ -1,20 +1,76 @@
 {
-  "wine": [],
-  "nyc": [
+  "wine": [
     {
-      "title": "FYI Rezdora does complimentary lambrusco for solo diners",
-      "subreddit": "r/FoodNYC",
-      "url": "https://www.reddit.com/r/FoodNYC/comments/1u7xbmg/fyi_rezdora_does_complimentary_lambrusco_for_solo/",
+      "title": "Continuation of Burgundy and California Burgundy with Piemonte (part 2/2)",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1u9ul1k/continuation_of_burgundy_and_california_burgundy/",
+      "score": 1,
+      "comments": 0,
+      "ago": "4h ago"
+    },
+    {
+      "title": "Hungarian wine as a gift.",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1u9u6yr/hungarian_wine_as_a_gift/",
+      "score": 1,
+      "comments": 0,
+      "ago": "4h ago"
+    },
+    {
+      "title": "What’s a good bottle of wine to take to a business owner for a new opening?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1u9p2n5/whats_a_good_bottle_of_wine_to_take_to_a_business/",
+      "score": 1,
+      "comments": 0,
+      "ago": "9h ago"
+    },
+    {
+      "title": "Willamette Visit - Wine Driver vs Rideshare",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1u9mqoc/willamette_visit_wine_driver_vs_rideshare/",
+      "score": 1,
+      "comments": 0,
+      "ago": "10h ago"
+    },
+    {
+      "title": "Wine recs from this Italian wine list?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1u9j2hb/wine_recs_from_this_italian_wine_list/",
+      "score": 1,
+      "comments": 0,
+      "ago": "13h ago"
+    },
+    {
+      "title": "Napa Merlot for my Merlot Thursday. Join us with your own Merlot. Let's bring Merlot back!",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1u9g43w/napa_merlot_for_my_merlot_thursday_join_us_with/",
+      "score": 1,
+      "comments": 0,
+      "ago": "15h ago"
+    },
+    {
+      "title": "Wine Bars near Ontario California Airport",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1u9cj0v/wine_bars_near_ontario_california_airport/",
+      "score": 1,
+      "comments": 0,
+      "ago": "17h ago"
+    },
+    {
+      "title": "Theme: a few of my all-time fave wines for sub-$50",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1u920km/theme_a_few_of_my_alltime_fave_wines_for_sub50/",
       "score": 1,
       "comments": 0,
       "ago": "Yesterday"
     }
   ],
-  "fetchedAt": "2026-06-18T10:53:10.056Z",
+  "nyc": [],
+  "fetchedAt": "2026-06-19T11:03:46.760Z",
   "stats": {
-    "winePostsFound": 0,
-    "nycPostsFound": 1,
-    "totalCandidatesWine": 0,
+    "winePostsFound": 8,
+    "nycPostsFound": 0,
+    "totalCandidatesWine": 25,
     "totalCandidatesNyc": 25
   }
 }
