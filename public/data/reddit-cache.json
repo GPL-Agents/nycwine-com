@@ -1,100 +1,11 @@
 {
-  "wine": [
-    {
-      "title": "Accessible Burgundy",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uaq2o9/accessible_burgundy/",
-      "score": 1,
-      "comments": 0,
-      "ago": "2h ago"
-    },
-    {
-      "title": "What makes Algarve wine tasting different from other wine regions in Portugal?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uannev/what_makes_algarve_wine_tasting_different_from/",
-      "score": 1,
-      "comments": 0,
-      "ago": "4h ago"
-    },
-    {
-      "title": "Athens wine bars and shops",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uakw22/athens_wine_bars_and_shops/",
-      "score": 1,
-      "comments": 0,
-      "ago": "7h ago"
-    },
-    {
-      "title": "An absolute great value Chianti Lornano Chianti Classico",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uaicrl/an_absolute_great_value_chianti_lornano_chianti/",
-      "score": 1,
-      "comments": 0,
-      "ago": "9h ago"
-    },
-    {
-      "title": "What's wrong with this wine?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uaghr9/whats_wrong_with_this_wine/",
-      "score": 1,
-      "comments": 0,
-      "ago": "10h ago"
-    },
-    {
-      "title": "Midsummer wines",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uaeg4g/midsummer_wines/",
-      "score": 1,
-      "comments": 0,
-      "ago": "12h ago"
-    },
-    {
-      "title": "Food and Wine Classic in Aspen",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uacp6p/food_and_wine_classic_in_aspen/",
-      "score": 1,
-      "comments": 0,
-      "ago": "13h ago"
-    },
-    {
-      "title": "Single Vineyard Chardonnay from Monterey County",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1ua67uk/single_vineyard_chardonnay_from_monterey_county/",
-      "score": 1,
-      "comments": 0,
-      "ago": "17h ago"
-    },
-    {
-      "title": "First class Etihad lounge wine list. What should I be drinking???",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1ua3iu3/first_class_etihad_lounge_wine_list_what_should_i/",
-      "score": 1,
-      "comments": 0,
-      "ago": "19h ago"
-    },
-    {
-      "title": "I hosted a tasting of Chinon and Loire Cabernet Franc",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1ua1z6g/i_hosted_a_tasting_of_chinon_and_loire_cabernet/",
-      "score": 1,
-      "comments": 0,
-      "ago": "20h ago"
-    },
-    {
-      "title": "ORANGE WINES – TWO TOP TENS FOR THE PRICE OF ONE",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1ua11og/orange_wines_two_top_tens_for_the_price_of_one/",
-      "score": 1,
-      "comments": 0,
-      "ago": "21h ago"
-    }
-  ],
+  "wine": [],
   "nyc": [],
-  "fetchedAt": "2026-06-20T09:48:42.702Z",
+  "fetchedAt": "2026-06-21T10:09:25.414Z",
   "stats": {
-    "winePostsFound": 11,
+    "winePostsFound": 0,
     "nycPostsFound": 0,
-    "totalCandidatesWine": 25,
-    "totalCandidatesNyc": 25
+    "totalCandidatesWine": 0,
+    "totalCandidatesNyc": 0
   }
 }
