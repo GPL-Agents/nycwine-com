@@ -1,11 +1,68 @@
 {
-  "wine": [],
+  "wine": [
+    {
+      "title": "Verona wine tasting",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1uchfk0/verona_wine_tasting/",
+      "score": 1,
+      "comments": 0,
+      "ago": "1h ago"
+    },
+    {
+      "title": "Drank this amazing biologic Nebbiolo wine !!",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1uchfj5/drank_this_amazing_biologic_nebbiolo_wine/",
+      "score": 1,
+      "comments": 0,
+      "ago": "1h ago"
+    },
+    {
+      "title": "Great wine in a club.",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1uccoc9/great_wine_in_a_club/",
+      "score": 1,
+      "comments": 0,
+      "ago": "6h ago"
+    },
+    {
+      "title": "Wine pairings for a summer birthday dinner. 3 courses, guest of honor prefers reds but open to anything. Help me make it special!",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1uca1g0/wine_pairings_for_a_summer_birthday_dinner_3/",
+      "score": 1,
+      "comments": 0,
+      "ago": "8h ago"
+    },
+    {
+      "title": "A real Barolo",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1uc8hlz/a_real_barolo/",
+      "score": 1,
+      "comments": 0,
+      "ago": "9h ago"
+    },
+    {
+      "title": "I found a 2003 bottle of red wine under a staircase",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1uc40fe/i_found_a_2003_bottle_of_red_wine_under_a/",
+      "score": 1,
+      "comments": 0,
+      "ago": "13h ago"
+    },
+    {
+      "title": "Taittinger Prelude Grands crus Brut - amazing champagne 🍾 to celebrate our engagement, but I need to step my glass game",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1uc0692/taittinger_prelude_grands_crus_brut_amazing/",
+      "score": 1,
+      "comments": 0,
+      "ago": "16h ago"
+    }
+  ],
   "nyc": [],
-  "fetchedAt": "2026-06-21T10:09:25.414Z",
+  "fetchedAt": "2026-06-22T12:31:50.032Z",
   "stats": {
-    "winePostsFound": 0,
+    "winePostsFound": 7,
     "nycPostsFound": 0,
-    "totalCandidatesWine": 0,
-    "totalCandidatesNyc": 0
+    "totalCandidatesWine": 25,
+    "totalCandidatesNyc": 25
   }
 }
