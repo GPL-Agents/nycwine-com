@@ -1,108 +1,11 @@
 {
-  "wine": [
-    {
-      "title": "What is the impact of the European heat dome on vineyards?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1ue8l38/what_is_the_impact_of_the_european_heat_dome_on/",
-      "score": 1,
-      "comments": 0,
-      "ago": "Just now"
-    },
-    {
-      "title": "Worth dipping the toes for 20 euros barolo?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1ue7tx2/worth_dipping_the_toes_for_20_euros_barolo/",
-      "score": 1,
-      "comments": 0,
-      "ago": "1h ago"
-    },
-    {
-      "title": "Is it me or my area or has wine got more expensive in the last week or two?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1ue2em7/is_it_me_or_my_area_or_has_wine_got_more/",
-      "score": 1,
-      "comments": 0,
-      "ago": "6h ago"
-    },
-    {
-      "title": "Hollow leg cuvée wine",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1ue0a3n/hollow_leg_cuvée_wine/",
-      "score": 1,
-      "comments": 0,
-      "ago": "8h ago"
-    },
-    {
-      "title": "Trader Joe’s sparkling Blanc tea wine",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1ue0080/trader_joes_sparkling_blanc_tea_wine/",
-      "score": 1,
-      "comments": 0,
-      "ago": "8h ago"
-    },
-    {
-      "title": "Parras De La Fuente Mexico Latin America's oldest wine region: Trip report",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1udxwkb/parras_de_la_fuente_mexico_latin_americas_oldest/",
-      "score": 1,
-      "comments": 0,
-      "ago": "9h ago"
-    },
-    {
-      "title": "Ramey Wine Cellars Annum Cabernet Sauvignon 2018, Napa Valley",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1udw798/ramey_wine_cellars_annum_cabernet_sauvignon_2018/",
-      "score": 1,
-      "comments": 0,
-      "ago": "11h ago"
-    },
-    {
-      "title": "Barolo Single Vineyard (Clay vs Sand) Elio Grasso",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1udpit2/barolo_single_vineyard_clay_vs_sand_elio_grasso/",
-      "score": 1,
-      "comments": 0,
-      "ago": "15h ago"
-    },
-    {
-      "title": "Solena Wine Review",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1udi89t/solena_wine_review/",
-      "score": 1,
-      "comments": 0,
-      "ago": "19h ago"
-    },
-    {
-      "title": "Barberesco Single Vineyard (Basarin) 2021 vs 2023",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1ud96uu/barberesco_single_vineyard_basarin_2021_vs_2023/",
-      "score": 1,
-      "comments": 0,
-      "ago": "Yesterday"
-    },
-    {
-      "title": "Drank this wine last weekend and oh my god",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1ud1u3h/drank_this_wine_last_weekend_and_oh_my_god/",
-      "score": 1,
-      "comments": 0,
-      "ago": "Yesterday"
-    },
-    {
-      "title": "Villa Antinori Winery in San Casciano in Val Di Pesa is a MUST !",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1ucyzvk/villa_antinori_winery_in_san_casciano_in_val_di/",
-      "score": 1,
-      "comments": 0,
-      "ago": "Yesterday"
-    }
-  ],
+  "wine": [],
   "nyc": [],
-  "fetchedAt": "2026-06-24T09:56:26.606Z",
+  "fetchedAt": "2026-06-25T09:51:05.990Z",
   "stats": {
-    "winePostsFound": 12,
+    "winePostsFound": 0,
     "nycPostsFound": 0,
-    "totalCandidatesWine": 25,
+    "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
 }
