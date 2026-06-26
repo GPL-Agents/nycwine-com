@@ -2,10 +2,12 @@
 // Admin API -- read and act on flagged submissions via Supabase.
 // Password-protected via ADMIN_PASSWORD env var.
 //
-// GET   /api/admin/submissions?pw=xxx           -> list flagged (escalated only)
-// GET   /api/admin/submissions?pw=xxx&all=true  -> full review log (last 100)
+// GET   /api/admin/submissions?pw=xxx                                     -> list flagged (escalated only)
+// GET   /api/admin/submissions?pw=xxx&all=true                            -> full review log (last 100)
 // GET   /api/admin/submissions?key=<CRON_API_KEY>&all=true
 //       -> all submissions (last 100, for cron job)
+// GET   /api/admin/submissions?key=<CRON_API_KEY>&all=true&hide_processed=true
+//       -> all unprocessed submissions (excludes reviewed-posted and reviewed-rejected)
 // GET   /api/admin/submissions?key=<CRON_API_KEY>&type=ad_order&status=pending_payment
 //       -> list pending payment ad orders
 // POST  /api/admin/submissions                  -> approve or reject
@@ -22,7 +24,7 @@ const CRON_KEY  = process.env.CRON_API_KEY    || 'nycwine-cron-2026';
 async function publishEvent(submission) {
   const d = submission.data || {};
   await db.insert('submitted_events', {
-    id:            `sub_${submission.id}`,
+    id:            \sub_\\,
     title:         submission.name,
     venue:         d.venue         || null,
     venue_address: null,
@@ -39,10 +41,10 @@ async function publishEvent(submission) {
 
 function buildFilterQuery(params) {
   if (params.type) {
-    let q = `?type=eq.${encodeURIComponent(params.type)}`;
-    q += `&order=submitted_at.desc`;
+    let q = \?type=eq.\\;
+    q += '&order=submitted_at.desc';
     if (params.status) {
-      q += `&status=eq.${encodeURIComponent(params.status)}`;
+      q += \&status=eq.\\;
     }
     return q;
   }
@@ -62,6 +64,11 @@ export default async function handler(req, res) {
       query = '?order=submitted_at.desc&limit=100';
     } else {
       query = buildFilterQuery(req.query);
+    }
+
+    // Exclude processed items when hide_processed=true (cron uses this to skip old reviewed-posted/rejected)
+    if (req.query.hide_processed === 'true') {
+      query += '&status=neq.reviewed-posted&status=neq.reviewed-rejected';
     }
 
     try {
@@ -84,7 +91,7 @@ export default async function handler(req, res) {
     }
 
     try {
-      const rows = await db.select('submissions', `?id=eq.${encodeURIComponent(id)}`);
+      const rows = await db.select('submissions', \?id=eq.\\);
       if (!rows || rows.length === 0) {
         return res.status(404).json({ error: 'Submission not found' });
       }
@@ -96,7 +103,7 @@ export default async function handler(req, res) {
         await db.update(
           'submissions',
           { status: 'reviewed-posted', approved_at: now },
-          `?id=eq.${encodeURIComponent(id)}`
+          \?id=eq.\\
         );
         if (submission.type === 'event') {
           await publishEvent(submission);
@@ -105,7 +112,7 @@ export default async function handler(req, res) {
         await db.update(
           'submissions',
           { status: 'reviewed-rejected', rejected_at: now },
-          `?id=eq.${encodeURIComponent(id)}`
+          \?id=eq.\\
         );
       }
 
@@ -127,7 +134,7 @@ export default async function handler(req, res) {
     }
 
     try {
-      const rows = await db.select('submissions', `?id=eq.${encodeURIComponent(id)}`);
+      const rows = await db.select('submissions', \?id=eq.\\);
       if (!rows || rows.length === 0) {
         return res.status(404).json({ error: 'Submission not found' });
       }
@@ -137,7 +144,7 @@ export default async function handler(req, res) {
       await db.update(
         'submissions',
         { data: mergedData },
-        `?id=eq.${encodeURIComponent(id)}`
+        \?id=eq.\\
       );
 
       return res.status(200).json({ ok: true, message: 'Data updated' });
