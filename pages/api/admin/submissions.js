@@ -24,7 +24,7 @@ const CRON_KEY  = process.env.CRON_API_KEY    || 'nycwine-cron-2026';
 async function publishEvent(submission) {
   const d = submission.data || {};
   await db.insert('submitted_events', {
-    id:            \sub_\\,
+    id:            `sub_${submission.id}`,
     title:         submission.name,
     venue:         d.venue         || null,
     venue_address: null,
@@ -41,10 +41,10 @@ async function publishEvent(submission) {
 
 function buildFilterQuery(params) {
   if (params.type) {
-    let q = \?type=eq.\\;
+    let q = `?type=eq.${encodeURIComponent(params.type)}`;
     q += '&order=submitted_at.desc';
     if (params.status) {
-      q += \&status=eq.\\;
+      q += `&status=eq.${encodeURIComponent(params.status)}`;
     }
     return q;
   }
@@ -91,7 +91,7 @@ export default async function handler(req, res) {
     }
 
     try {
-      const rows = await db.select('submissions', \?id=eq.\\);
+      const rows = await db.select('submissions', `?id=eq.${encodeURIComponent(id)}`);
       if (!rows || rows.length === 0) {
         return res.status(404).json({ error: 'Submission not found' });
       }
@@ -103,7 +103,7 @@ export default async function handler(req, res) {
         await db.update(
           'submissions',
           { status: 'reviewed-posted', approved_at: now },
-          \?id=eq.\\
+          `?id=eq.${encodeURIComponent(id)}`
         );
         if (submission.type === 'event') {
           await publishEvent(submission);
@@ -112,7 +112,7 @@ export default async function handler(req, res) {
         await db.update(
           'submissions',
           { status: 'reviewed-rejected', rejected_at: now },
-          \?id=eq.\\
+          `?id=eq.${encodeURIComponent(id)}`
         );
       }
 
@@ -134,7 +134,7 @@ export default async function handler(req, res) {
     }
 
     try {
-      const rows = await db.select('submissions', \?id=eq.\\);
+      const rows = await db.select('submissions', `?id=eq.${encodeURIComponent(id)}`);
       if (!rows || rows.length === 0) {
         return res.status(404).json({ error: 'Submission not found' });
       }
@@ -144,7 +144,7 @@ export default async function handler(req, res) {
       await db.update(
         'submissions',
         { data: mergedData },
-        \?id=eq.\\
+        `?id=eq.${encodeURIComponent(id)}`
       );
 
       return res.status(200).json({ ok: true, message: 'Data updated' });
