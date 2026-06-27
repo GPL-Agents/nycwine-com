@@ -1,116 +1,43 @@
 {
   "wine": [
     {
-      "title": "NV Bonanza The Vinekeeper Napa Valley Cabernet Sauvignon",
+      "title": "20 year old Chardonnay - any advice",
       "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1ufo7ds/nv_bonanza_the_vinekeeper_napa_valley_cabernet/",
-      "score": 87,
-      "comments": 0,
-      "ago": "11h ago"
-    },
-    {
-      "title": "Japanese wine #7 Heritage from Iwanohara Vineyard",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1ufzzgw/japanese_wine_7_heritage_from_iwanohara_vineyard/",
+      "url": "https://www.reddit.com/r/wine/comments/1ugv2sf/20_year_old_chardonnay_any_advice/",
       "score": 1,
       "comments": 0,
       "ago": "2h ago"
     },
     {
-      "title": "Wine Business Concept",
+      "title": "Where does industry go for a low key gls of wine after work in Miami ??",
       "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1ufx7jx/wine_business_concept/",
+      "url": "https://www.reddit.com/r/wine/comments/1ugsofp/where_does_industry_go_for_a_low_key_gls_of_wine/",
       "score": 1,
       "comments": 0,
       "ago": "4h ago"
     },
     {
-      "title": "2023 Kono Marlborough Sauvignon Blanc",
+      "title": "One of the most amazing wines I have ever been lucky enough to try",
       "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1ufvkk5/2023_kono_marlborough_sauvignon_blanc/",
+      "url": "https://www.reddit.com/r/wine/comments/1ugmkve/one_of_the_most_amazing_wines_i_have_ever_been/",
       "score": 1,
       "comments": 0,
-      "ago": "6h ago"
+      "ago": "9h ago"
     },
     {
-      "title": "Haul from a local wine store having a liquidation sale",
+      "title": "Which Wineries Have Felt Like a Pilgrimage?",
       "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1ufvfry/haul_from_a_local_wine_store_having_a_liquidation/",
-      "score": 1,
-      "comments": 0,
-      "ago": "6h ago"
-    },
-    {
-      "title": "Begginer looking for easy wine",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1ufte9o/begginer_looking_for_easy_wine/",
-      "score": 1,
-      "comments": 0,
-      "ago": "8h ago"
-    },
-    {
-      "title": "First bottle of \"fine wine\" after hundreds of $20 bottles",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1ufsne3/first_bottle_of_fine_wine_after_hundreds_of_20/",
-      "score": 1,
-      "comments": 0,
-      "ago": "8h ago"
-    },
-    {
-      "title": "This is the wine list I get to work off of for a while. What would you grab first? What would you avoid?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1ufp5px/this_is_the_wine_list_i_get_to_work_off_of_for_a/",
+      "url": "https://www.reddit.com/r/wine/comments/1ugjy16/which_wineries_have_felt_like_a_pilgrimage/",
       "score": 1,
       "comments": 0,
       "ago": "11h ago"
-    },
-    {
-      "title": "AC Wines and Spirits - Manzanilla Vieja 'La Celada'",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1ufld8k/ac_wines_and_spirits_manzanilla_vieja_la_celada/",
-      "score": 1,
-      "comments": 0,
-      "ago": "13h ago"
-    },
-    {
-      "title": "My Merlot Thursday for this week is a Rosé. Join us with your own Merlot",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1ufjlzg/my_merlot_thursday_for_this_week_is_a_rosé_join/",
-      "score": 1,
-      "comments": 0,
-      "ago": "14h ago"
-    },
-    {
-      "title": "Methuselah of Prestige Cuvée Rosé Champagne",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1ufi39i/methuselah_of_prestige_cuvée_rosé_champagne/",
-      "score": 1,
-      "comments": 0,
-      "ago": "15h ago"
-    },
-    {
-      "title": "Best finger foods to serve with wine? Need recommendations",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1ufh7ie/best_finger_foods_to_serve_with_wine_need/",
-      "score": 1,
-      "comments": 0,
-      "ago": "16h ago"
     }
   ],
-  "nyc": [
-    {
-      "title": "2018 Grgich Hills Merlot, half bottle",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1ufgpge/2018_grgich_hills_merlot_half_bottle/",
-      "score": 90,
-      "comments": 0,
-      "ago": "16h ago"
-    }
-  ],
-  "fetchedAt": "2026-06-26T09:57:52.116Z",
+  "nyc": [],
+  "fetchedAt": "2026-06-27T09:11:13.253Z",
   "stats": {
-    "winePostsFound": 12,
-    "nycPostsFound": 1,
+    "winePostsFound": 4,
+    "nycPostsFound": 0,
     "totalCandidatesWine": 25,
     "totalCandidatesNyc": 25
   }
