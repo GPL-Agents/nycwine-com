@@ -1,76 +1,11 @@
 {
-  "wine": [
-    {
-      "title": "Where burgundy gets its name",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uhrnii/where_burgundy_gets_its_name/",
-      "score": 1,
-      "comments": 0,
-      "ago": "1h ago"
-    },
-    {
-      "title": "Malbec, Cabernet Sauvignon or Bonarda.....which one do you reach for most often?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uho18p/malbec_cabernet_sauvignon_or_bonardawhich_one_do/",
-      "score": 1,
-      "comments": 0,
-      "ago": "4h ago"
-    },
-    {
-      "title": "Oregon Does Good: Dusky Goose Chardonnay",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uhneyk/oregon_does_good_dusky_goose_chardonnay/",
-      "score": 1,
-      "comments": 0,
-      "ago": "5h ago"
-    },
-    {
-      "title": "Brovia Barolo 2018",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uhkhms/brovia_barolo_2018/",
-      "score": 1,
-      "comments": 0,
-      "ago": "7h ago"
-    },
-    {
-      "title": "Any recommendations for good and readily available wine in the Peloponesse region of Greece?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uhkcy0/any_recommendations_for_good_and_readily/",
-      "score": 1,
-      "comments": 0,
-      "ago": "7h ago"
-    },
-    {
-      "title": "Wine from the Azores",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uhhi0f/wine_from_the_azores/",
-      "score": 1,
-      "comments": 0,
-      "ago": "10h ago"
-    },
-    {
-      "title": "Fabulous wine from Friuli -Venezia Giulia -Collio DOC from Zuani Vigne.",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uhdjfx/fabulous_wine_from_friuli_venezia_giulia_collio/",
-      "score": 1,
-      "comments": 0,
-      "ago": "12h ago"
-    },
-    {
-      "title": "Burgundy journey continues",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uh0cg6/burgundy_journey_continues/",
-      "score": 1,
-      "comments": 0,
-      "ago": "22h ago"
-    }
-  ],
+  "wine": [],
   "nyc": [],
-  "fetchedAt": "2026-06-28T09:40:40.739Z",
+  "fetchedAt": "2026-06-29T11:31:03.591Z",
   "stats": {
-    "winePostsFound": 8,
+    "winePostsFound": 0,
     "nycPostsFound": 0,
-    "totalCandidatesWine": 25,
+    "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
 }
