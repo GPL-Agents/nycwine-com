@@ -1,84 +1,20 @@
 {
-  "wine": [
+  "wine": [],
+  "nyc": [
     {
-      "title": "What's the biggest mistake you made when you first started drinking red wine?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1ujjqqk/whats_the_biggest_mistake_you_made_when_you_first/",
-      "score": 1,
-      "comments": 0,
-      "ago": "1h ago"
-    },
-    {
-      "title": "When did Total Wine turn into a scummy scammer?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uj7vxw/when_did_total_wine_turn_into_a_scummy_scammer/",
-      "score": 1,
-      "comments": 0,
-      "ago": "11h ago"
-    },
-    {
-      "title": "Clos du Val Estate Cabernet Franc 2023, Stags Leap District",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uj4uiz/clos_du_val_estate_cabernet_franc_2023_stags_leap/",
+      "title": "Need dinner rec similar to Lei Wine Bar, The Four Horsemen, and Bridges:",
+      "subreddit": "r/FoodNYC",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1uk15j9/need_dinner_rec_similar_to_lei_wine_bar_the_four/",
       "score": 1,
       "comments": 0,
       "ago": "13h ago"
-    },
-    {
-      "title": "Favorite wineries in Sonoma?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uj17x3/favorite_wineries_in_sonoma/",
-      "score": 1,
-      "comments": 0,
-      "ago": "15h ago"
-    },
-    {
-      "title": "SF Wine Tasting Meetup - Bottle of Choice",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uixs9b/sf_wine_tasting_meetup_bottle_of_choice/",
-      "score": 1,
-      "comments": 0,
-      "ago": "17h ago"
-    },
-    {
-      "title": "Alexander Valley Chardonnay",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uixpbo/alexander_valley_chardonnay/",
-      "score": 1,
-      "comments": 0,
-      "ago": "17h ago"
-    },
-    {
-      "title": "Lebanon wine",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uivbly/lebanon_wine/",
-      "score": 1,
-      "comments": 0,
-      "ago": "18h ago"
-    },
-    {
-      "title": "What's one wine under $25 that completely exceeded your expectations?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uipgmo/whats_one_wine_under_25_that_completely_exceeded/",
-      "score": 1,
-      "comments": 0,
-      "ago": "22h ago"
-    },
-    {
-      "title": "My favorite wine shop in Kansai area Japan",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uiizzh/my_favorite_wine_shop_in_kansai_area_japan/",
-      "score": 1,
-      "comments": 0,
-      "ago": "Yesterday"
     }
   ],
-  "nyc": [],
-  "fetchedAt": "2026-06-30T10:06:26.867Z",
+  "fetchedAt": "2026-07-01T10:29:22.169Z",
   "stats": {
-    "winePostsFound": 9,
-    "nycPostsFound": 0,
-    "totalCandidatesWine": 25,
+    "winePostsFound": 0,
+    "nycPostsFound": 1,
+    "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
 }
