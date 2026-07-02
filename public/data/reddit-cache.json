@@ -1,20 +1,76 @@
 {
-  "wine": [],
-  "nyc": [
+  "wine": [
     {
-      "title": "Need dinner rec similar to Lei Wine Bar, The Four Horsemen, and Bridges:",
-      "subreddit": "r/FoodNYC",
-      "url": "https://www.reddit.com/r/FoodNYC/comments/1uk15j9/need_dinner_rec_similar_to_lei_wine_bar_the_four/",
+      "title": "40th Birthday Wine",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1ul6qt0/40th_birthday_wine/",
+      "score": 100,
+      "comments": 0,
+      "ago": "6h ago"
+    },
+    {
+      "title": "A great wine to serve at a party?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1ul7gug/a_great_wine_to_serve_at_a_party/",
       "score": 1,
       "comments": 0,
-      "ago": "13h ago"
+      "ago": "5h ago"
+    },
+    {
+      "title": "What is this wine accessory?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1ul5okg/what_is_this_wine_accessory/",
+      "score": 1,
+      "comments": 0,
+      "ago": "7h ago"
+    },
+    {
+      "title": "There's nothing better than exploring Mendoza and enjoying a good wine.",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1ul20rk/theres_nothing_better_than_exploring_mendoza_and/",
+      "score": 1,
+      "comments": 0,
+      "ago": "9h ago"
+    },
+    {
+      "title": "Any insight with this wine? Want to open it soon",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1ul1btq/any_insight_with_this_wine_want_to_open_it_soon/",
+      "score": 1,
+      "comments": 0,
+      "ago": "10h ago"
+    },
+    {
+      "title": "Winemaker dinners: Are they worth it?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1ukvrxp/winemaker_dinners_are_they_worth_it/",
+      "score": 1,
+      "comments": 0,
+      "ago": "14h ago"
+    },
+    {
+      "title": "Decanting in 100°F heat.",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1ukure0/decanting_in_100f_heat/",
+      "score": 1,
+      "comments": 0,
+      "ago": "14h ago"
+    },
+    {
+      "title": "Seghesio Montafi Ranch Vineyard Zinfandel 2022, Russian River Valley",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1uks3iy/seghesio_montafi_ranch_vineyard_zinfandel_2022/",
+      "score": 1,
+      "comments": 0,
+      "ago": "16h ago"
     }
   ],
-  "fetchedAt": "2026-07-01T10:29:22.169Z",
+  "nyc": [],
+  "fetchedAt": "2026-07-02T09:42:29.367Z",
   "stats": {
-    "winePostsFound": 0,
-    "nycPostsFound": 1,
-    "totalCandidatesWine": 0,
+    "winePostsFound": 8,
+    "nycPostsFound": 0,
+    "totalCandidatesWine": 25,
     "totalCandidatesNyc": 25
   }
 }
