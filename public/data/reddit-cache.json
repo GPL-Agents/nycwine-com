@@ -1,60 +1,11 @@
 {
-  "wine": [
-    {
-      "title": "how to get into wine with a very small budget",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1un3gji/how_to_get_into_wine_with_a_very_small_budget/",
-      "score": 1,
-      "comments": 0,
-      "ago": "Just now"
-    },
-    {
-      "title": "2014 Chateau la Dorgonne L'expression Du Terroir Rouge (Luberon)",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1un08hi/2014_chateau_la_dorgonne_lexpression_du_terroir/",
-      "score": 1,
-      "comments": 0,
-      "ago": "3h ago"
-    },
-    {
-      "title": "Cat bottle wine",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1umwd3c/cat_bottle_wine/",
-      "score": 1,
-      "comments": 0,
-      "ago": "7h ago"
-    },
-    {
-      "title": "Kermit Lynch alternative wine club",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1umneit/kermit_lynch_alternative_wine_club/",
-      "score": 1,
-      "comments": 0,
-      "ago": "13h ago"
-    },
-    {
-      "title": "Europe: what are some of your local wines that never get exported or exposed to visitors or tourists?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1umhrrp/europe_what_are_some_of_your_local_wines_that/",
-      "score": 1,
-      "comments": 0,
-      "ago": "17h ago"
-    },
-    {
-      "title": "Wine list this evening",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1um0mcf/wine_list_this_evening/",
-      "score": 1,
-      "comments": 0,
-      "ago": "Yesterday"
-    }
-  ],
+  "wine": [],
   "nyc": [],
-  "fetchedAt": "2026-07-04T09:04:38.079Z",
+  "fetchedAt": "2026-07-05T09:26:42.003Z",
   "stats": {
-    "winePostsFound": 6,
+    "winePostsFound": 0,
     "nycPostsFound": 0,
-    "totalCandidatesWine": 25,
+    "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
 }
