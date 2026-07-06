@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-29T12:22:23.035Z",
+  "fetchedAt": "2026-07-06T11:53:33.423Z",
   "source": "YouTube",
   "sourceUrl": "https://www.youtube.com/results?search_query=NYC+wine",
   "videos": [
@@ -31,15 +31,6 @@
       "url": "https://www.youtube.com/watch?v=AtPw7J9jjd0"
     },
     {
-      "videoId": "kQQL7_-V75g",
-      "title": "The Best Places To Drink Wine In NYC: A Night Out With SWURL Episode 01",
-      "channelTitle": "SWURL",
-      "publishedAt": "2025-11-17T16:01:17Z",
-      "publishedRelative": "7mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/kQQL7_-V75g/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=kQQL7_-V75g"
-    },
-    {
       "videoId": "YEH9-ZYs5GU",
       "title": "I’ll take my wine from a window my day.🍷 #williamsburg #brooklyn #nyc #wine",
       "channelTitle": "Don’t Sit Home",
@@ -47,6 +38,15 @@
       "publishedRelative": "11mo ago",
       "thumbnail": "https://i.ytimg.com/vi/YEH9-ZYs5GU/mqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=YEH9-ZYs5GU"
+    },
+    {
+      "videoId": "kQQL7_-V75g",
+      "title": "The Best Places To Drink Wine In NYC: A Night Out With SWURL Episode 01",
+      "channelTitle": "SWURL",
+      "publishedAt": "2025-11-17T16:01:17Z",
+      "publishedRelative": "7mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/kQQL7_-V75g/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=kQQL7_-V75g"
     },
     {
       "videoId": "nGMWS7FeD8c",
@@ -89,7 +89,7 @@
       "title": "New York City Wine & Food Festival | October 15-19, 2025",
       "channelTitle": "New York City Wine & Food Festival",
       "publishedAt": "2025-09-03T20:44:28Z",
-      "publishedRelative": "9mo ago",
+      "publishedRelative": "10mo ago",
       "thumbnail": "https://i.ytimg.com/vi/OnTwaowAgVs/mqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=OnTwaowAgVs"
     },
@@ -103,15 +103,6 @@
       "url": "https://www.youtube.com/watch?v=O5RMe9RXz44"
     },
     {
-      "videoId": "xMcaDhbeXos",
-      "title": "18th annual NYC Wine and Food Festival held at the South Street Seaport",
-      "channelTitle": "CBS New York",
-      "publishedAt": "2025-10-19T23:24:31Z",
-      "publishedRelative": "8mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/xMcaDhbeXos/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=xMcaDhbeXos"
-    },
-    {
       "videoId": "YdLgAmedSq4",
       "title": "The Man Behind Manhattan’s Most Extraordinary Wine Cellar — Eli Zabar",
       "channelTitle": "Clos & Monopole",
@@ -119,6 +110,15 @@
       "publishedRelative": "1y ago",
       "thumbnail": "https://i.ytimg.com/vi/YdLgAmedSq4/mqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=YdLgAmedSq4"
+    },
+    {
+      "videoId": "xMcaDhbeXos",
+      "title": "18th annual NYC Wine and Food Festival held at the South Street Seaport",
+      "channelTitle": "CBS New York",
+      "publishedAt": "2025-10-19T23:24:31Z",
+      "publishedRelative": "8mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/xMcaDhbeXos/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=xMcaDhbeXos"
     },
     {
       "videoId": "L8r6vIjfpOk",
@@ -130,15 +130,6 @@
       "url": "https://www.youtube.com/watch?v=L8r6vIjfpOk"
     },
     {
-      "videoId": "Ku4NUOMA0h0",
-      "title": "15 of the Best Wine Bar Snacks in NYC",
-      "channelTitle": "Unique Gift Presentations",
-      "publishedAt": "2026-03-11T14:29:14Z",
-      "publishedRelative": "3mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/Ku4NUOMA0h0/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=Ku4NUOMA0h0"
-    },
-    {
       "videoId": "3GO5G9p26bg",
       "title": "Where do NYC's BEST sommeliers drink wine?",
       "channelTitle": "VinePair",
@@ -148,31 +139,22 @@
       "url": "https://www.youtube.com/watch?v=3GO5G9p26bg"
     },
     {
-      "videoId": "e7UUaw98oLM",
-      "title": "2024 Manhattan Wine Auction",
-      "channelTitle": "VOX Productions",
-      "publishedAt": "2024-07-04T21:03:14Z",
-      "publishedRelative": "1y ago",
-      "thumbnail": "https://i.ytimg.com/vi/e7UUaw98oLM/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=e7UUaw98oLM"
-    },
-    {
       "videoId": "fzOA7Fvdfcs",
       "title": "The BEST Bars in NYC RIGHT NOW",
       "channelTitle": "VinePair",
       "publishedAt": "2025-09-04T16:28:08Z",
-      "publishedRelative": "9mo ago",
+      "publishedRelative": "10mo ago",
       "thumbnail": "https://i.ytimg.com/vi/fzOA7Fvdfcs/mqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=fzOA7Fvdfcs"
     },
     {
-      "videoId": "i_i-4smUdn0",
-      "title": "NYC Wine & Dining Experience #ayzanyc",
-      "channelTitle": "Ayza Wine & Chocolate Bar",
-      "publishedAt": "2026-04-21T08:42:49Z",
-      "publishedRelative": "2mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/i_i-4smUdn0/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=i_i-4smUdn0"
+      "videoId": "Ku4NUOMA0h0",
+      "title": "15 of the Best Wine Bar Snacks in NYC",
+      "channelTitle": "Unique Gift Presentations",
+      "publishedAt": "2026-03-11T14:29:14Z",
+      "publishedRelative": "3mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/Ku4NUOMA0h0/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=Ku4NUOMA0h0"
     },
     {
       "videoId": "78ZZkCN32OM",
@@ -182,6 +164,24 @@
       "publishedRelative": "1y ago",
       "thumbnail": "https://i.ytimg.com/vi/78ZZkCN32OM/mqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=78ZZkCN32OM"
+    },
+    {
+      "videoId": "dW3LuXo4XZE",
+      "title": "In NYC for Work? A World-Class Wine Bar You Can Expense | I Know A Place",
+      "channelTitle": "InsideHook",
+      "publishedAt": "2025-12-30T12:01:16Z",
+      "publishedRelative": "6mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/dW3LuXo4XZE/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=dW3LuXo4XZE"
+    },
+    {
+      "videoId": "XcnXFFTomi4",
+      "title": "Food Network NYC Wine & Food Festival Vlog 🎥",
+      "channelTitle": "Amber Wooters",
+      "publishedAt": "2025-10-20T20:00:31Z",
+      "publishedRelative": "8mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/XcnXFFTomi4/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=XcnXFFTomi4"
     }
   ]
 }
