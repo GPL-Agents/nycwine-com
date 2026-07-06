@@ -1,11 +1,92 @@
 {
-  "wine": [],
+  "wine": [
+    {
+      "title": "WineEP London Krug Vertical one space left",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1uos2qi/wineep_london_krug_vertical_one_space_left/",
+      "score": 1,
+      "comments": 0,
+      "ago": "2h ago"
+    },
+    {
+      "title": "what's a wine you'll recommend to a beginner?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1uopcf9/whats_a_wine_youll_recommend_to_a_beginner/",
+      "score": 1,
+      "comments": 0,
+      "ago": "4h ago"
+    },
+    {
+      "title": "Which Algarve vineyards are best for couples looking for a wine experience?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1uonrtm/which_algarve_vineyards_are_best_for_couples/",
+      "score": 1,
+      "comments": 0,
+      "ago": "6h ago"
+    },
+    {
+      "title": "2022 Ex Nihilo Pinot Noir",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1uok0t5/2022_ex_nihilo_pinot_noir/",
+      "score": 1,
+      "comments": 0,
+      "ago": "9h ago"
+    },
+    {
+      "title": "Baja wines",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1uoiwey/baja_wines/",
+      "score": 1,
+      "comments": 0,
+      "ago": "10h ago"
+    },
+    {
+      "title": "Birthday wine/ sparlingwine/ champagne selection",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1uoey2x/birthday_wine_sparlingwine_champagne_selection/",
+      "score": 1,
+      "comments": 0,
+      "ago": "13h ago"
+    },
+    {
+      "title": "2019 Von Winning Sauvignon Blanc I",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1uoepf5/2019_von_winning_sauvignon_blanc_i/",
+      "score": 1,
+      "comments": 0,
+      "ago": "13h ago"
+    },
+    {
+      "title": "2024 Kuentz Bas Pinot Noir",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1uodjpz/2024_kuentz_bas_pinot_noir/",
+      "score": 1,
+      "comments": 0,
+      "ago": "14h ago"
+    },
+    {
+      "title": "Hermann Ludes. Thörnicher Ritsch. \"Monster.” Riesling. Kabinett FEI herb 2021",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1uo88s9/hermann_ludes_thörnicher_ritsch_monster_riesling/",
+      "score": 1,
+      "comments": 0,
+      "ago": "17h ago"
+    },
+    {
+      "title": "Can I have ONE glass of wine at the end of the day for the rest of my life?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1unu2p0/can_i_have_one_glass_of_wine_at_the_end_of_the/",
+      "score": 1,
+      "comments": 0,
+      "ago": "Yesterday"
+    }
+  ],
   "nyc": [],
-  "fetchedAt": "2026-07-05T09:26:42.003Z",
+  "fetchedAt": "2026-07-06T11:11:28.520Z",
   "stats": {
-    "winePostsFound": 0,
+    "winePostsFound": 10,
     "nycPostsFound": 0,
-    "totalCandidatesWine": 0,
+    "totalCandidatesWine": 25,
     "totalCandidatesNyc": 25
   }
 }
