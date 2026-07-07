@@ -14,6 +14,7 @@ import Header from '../components/Header';
 import QuickNav from '../components/QuickNav';
 import EventsSection from '../components/EventsSection';
 import SocialSection from '../components/SocialSection';
+import BlogSection from '../components/BlogSection';
 import NewsSection from '../components/NewsSection';
 import StoresSection from '../components/StoresSection';
 import WineBarsSection from '../components/WineBarsSection';
@@ -81,6 +82,8 @@ export default function Home() {
 
         <SocialSection />
         {/* <AdUnit slot="after-social" /> */}
+
+        <BlogSection />
 
         <NewsSection />
         {/* <AdUnit slot="after-news" /> */}
