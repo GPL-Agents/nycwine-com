@@ -20,6 +20,7 @@ export default function BlogSection() {
 
       {/* Pink ribbon */}
       <div className="blog-ribbon">
+        <img src="/images/icons/icon-news.png" className="ribbon-icon" alt="" aria-hidden="true" />
         <span className="ticker-badge">From the Blog</span>
         <a href="/blog" className="blog-ribbon-view-all">All Posts →</a>
       </div>
