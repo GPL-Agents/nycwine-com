@@ -1,90 +1,82 @@
 {
   "wine": [
     {
-      "title": "Did you know that English & Welsh sparkling wine has relied on imported bottles until now?",
+      "title": "2022 Stag's Leap Wine Cellars \"FAY\" Cabernet Sauvignon",
       "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uqmru3/did_you_know_that_english_welsh_sparkling_wine/",
-      "score": 1,
+      "url": "https://www.reddit.com/r/wine/comments/1ur9w3e/2022_stags_leap_wine_cellars_fay_cabernet/",
+      "score": 94,
       "comments": 0,
-      "ago": "Just now"
+      "ago": "10h ago"
     },
     {
       "title": "3 wines 3 reviews",
       "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uqivg7/3_wines_3_reviews/",
+      "url": "https://www.reddit.com/r/wine/comments/1urf3jl/3_wines_3_reviews/",
       "score": 1,
       "comments": 0,
-      "ago": "4h ago"
+      "ago": "6h ago"
     },
     {
-      "title": "Needing advice for blind wine tasting organisation",
+      "title": "What’s everyone’s general perception of Rioja wine? For us non connoisseurs, what do you think of the brands out there??",
       "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uqhncb/needing_advice_for_blind_wine_tasting_organisation/",
-      "score": 1,
-      "comments": 0,
-      "ago": "5h ago"
-    },
-    {
-      "title": "Virginia wines top French competition in Paris",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uqafi7/virginia_wines_top_french_competition_in_paris/",
+      "url": "https://www.reddit.com/r/wine/comments/1ur9t90/whats_everyones_general_perception_of_rioja_wine/",
       "score": 1,
       "comments": 0,
       "ago": "10h ago"
     },
     {
-      "title": "Poetic Justice Beckstoffer Vineyard 2004",
+      "title": "Kamil Barczentewicz Riesling (2023)",
       "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uq960i/poetic_justice_beckstoffer_vineyard_2004/",
-      "score": 1,
-      "comments": 0,
-      "ago": "11h ago"
-    },
-    {
-      "title": "Shipping wine from Germany to Ireland",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uq7j5b/shipping_wine_from_germany_to_ireland/",
+      "url": "https://www.reddit.com/r/wine/comments/1ur740a/kamil_barczentewicz_riesling_2023/",
       "score": 1,
       "comments": 0,
       "ago": "12h ago"
     },
     {
-      "title": "Dry Creek Vineyard Spencer's Hill Petite Sirah 2021",
+      "title": "My heat wave red wine pairing",
       "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uq0i2x/dry_creek_vineyard_spencers_hill_petite_sirah_2021/",
+      "url": "https://www.reddit.com/r/wine/comments/1ur51tx/my_heat_wave_red_wine_pairing/",
       "score": 1,
       "comments": 0,
-      "ago": "16h ago"
+      "ago": "13h ago"
     },
     {
-      "title": "Michelin Burgundy rankings",
+      "title": "Single Vineyard Napa Chardonnay",
       "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uptirw/michelin_burgundy_rankings/",
+      "url": "https://www.reddit.com/r/wine/comments/1uqvoii/single_vineyard_napa_chardonnay/",
       "score": 1,
       "comments": 0,
-      "ago": "20h ago"
+      "ago": "18h ago"
     },
     {
-      "title": "Bordeaux recommendations",
+      "title": "Sudden Need for Champagne!",
       "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uplist/bordeaux_recommendations/",
+      "url": "https://www.reddit.com/r/wine/comments/1uquwji/sudden_need_for_champagne/",
       "score": 1,
       "comments": 0,
-      "ago": "Yesterday"
+      "ago": "19h ago"
     },
     {
-      "title": "2006 Don Melchor Cabernet Sauvignon",
+      "title": "2006 Culler Sawi Vineyard Syrah",
       "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uphrel/2006_don_melchor_cabernet_sauvignon/",
+      "url": "https://www.reddit.com/r/wine/comments/1uqtt7u/2006_culler_sawi_vineyard_syrah/",
+      "score": 1,
+      "comments": 0,
+      "ago": "19h ago"
+    },
+    {
+      "title": "Did you know that English & Welsh sparkling wine has relied on imported bottles until now?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1uqmru3/did_you_know_that_english_welsh_sparkling_wine/",
       "score": 1,
       "comments": 0,
       "ago": "Yesterday"
     }
   ],
   "nyc": [],
-  "fetchedAt": "2026-07-08T09:05:46.128Z",
+  "fetchedAt": "2026-07-09T10:03:14.253Z",
   "stats": {
-    "winePostsFound": 10,
+    "winePostsFound": 9,
     "nycPostsFound": 0,
     "totalCandidatesWine": 25,
     "totalCandidatesNyc": 25
