@@ -1,100 +1,11 @@
 {
-  "wine": [
-    {
-      "title": "Restaurants with great wine list in Epernay",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1usi5n4/restaurants_with_great_wine_list_in_epernay/",
-      "score": 1,
-      "comments": 0,
-      "ago": "Just now"
-    },
-    {
-      "title": "Complete wine novice and I lucked into a bottle of Opus One 2022: What should I do with it?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1usd3ve/complete_wine_novice_and_i_lucked_into_a_bottle/",
-      "score": 1,
-      "comments": 0,
-      "ago": "5h ago"
-    },
-    {
-      "title": "How to decant before a dinner reservation",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uscnce/how_to_decant_before_a_dinner_reservation/",
-      "score": 1,
-      "comments": 0,
-      "ago": "6h ago"
-    },
-    {
-      "title": "best wine fridge: is a closet that holds steady worse than a unit that cycles?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1usc5im/best_wine_fridge_is_a_closet_that_holds_steady/",
-      "score": 1,
-      "comments": 0,
-      "ago": "6h ago"
-    },
-    {
-      "title": "Terre à Terre Cabernet Franc",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1usb1zo/terre_à_terre_cabernet_franc/",
-      "score": 1,
-      "comments": 0,
-      "ago": "7h ago"
-    },
-    {
-      "title": "Wine by the Glass in Philadelphia",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1us9dbe/wine_by_the_glass_in_philadelphia/",
-      "score": 1,
-      "comments": 0,
-      "ago": "8h ago"
-    },
-    {
-      "title": "Who is going to join us for Merlot Thursday?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1us3okw/who_is_going_to_join_us_for_merlot_thursday/",
-      "score": 1,
-      "comments": 0,
-      "ago": "12h ago"
-    },
-    {
-      "title": "100 Gallons Finished Wine",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1us2c7w/100_gallons_finished_wine/",
-      "score": 1,
-      "comments": 0,
-      "ago": "13h ago"
-    },
-    {
-      "title": "Our wine list - feedback welcome",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1us0e1v/our_wine_list_feedback_welcome/",
-      "score": 1,
-      "comments": 0,
-      "ago": "14h ago"
-    },
-    {
-      "title": "Anyone had Finca Flichman Malbec Dedicado Microterroir Gravel & Stone Mendoza 2021? Last bottle has it for $19 and looks like that’s a nice deal.",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uryhhk/anyone_had_finca_flichman_malbec_dedicado/",
-      "score": 1,
-      "comments": 0,
-      "ago": "15h ago"
-    },
-    {
-      "title": "Iron Horse Vineyards Ocean Reserve Blanc de Blancs 2020, Green Valley",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1urvpmg/iron_horse_vineyards_ocean_reserve_blanc_de/",
-      "score": 1,
-      "comments": 0,
-      "ago": "17h ago"
-    }
-  ],
+  "wine": [],
   "nyc": [],
-  "fetchedAt": "2026-07-10T09:59:22.661Z",
+  "fetchedAt": "2026-07-11T08:19:09.876Z",
   "stats": {
-    "winePostsFound": 11,
+    "winePostsFound": 0,
     "nycPostsFound": 0,
-    "totalCandidatesWine": 25,
+    "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
 }
