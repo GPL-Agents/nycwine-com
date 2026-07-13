@@ -1,11 +1,11 @@
 {
   "wine": [],
   "nyc": [],
-  "fetchedAt": "2026-07-07T10:05:35.918Z",
+  "fetchedAt": "2026-07-13T09:52:59.610Z",
   "stats": {
     "winePostsFound": 0,
     "nycPostsFound": 0,
     "totalCandidatesWine": 0,
-    "totalCandidatesNyc": 25
+    "totalCandidatesNyc": 0
   }
 }
