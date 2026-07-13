@@ -167,7 +167,7 @@ export default function EventsSection() {
             )}
             <div className="event-card-body">
               <div className="event-card-name">{ev.title}</div>
-              {ev.venue && ev.venue !== 'NYC' && (
+              {ev.venue && (
                 <div className="event-card-venue">
                   {ev.venue}
                   {ev.venueAddress && (
@@ -203,7 +203,7 @@ export default function EventsSection() {
                   </div>
                   <div className="event-row-info">
                     <div className="event-row-name">{ev.title}</div>
-                    {ev.venue && ev.venue !== 'NYC' && (
+                    {ev.venue && (
                       <div className="event-row-venue">
                         {ev.venue}
                         {ev.venueAddress && (

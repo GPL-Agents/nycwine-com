@@ -304,9 +304,11 @@ async function fetchEventDetails(url) {
               }
             }
 
+            const organizerName = item.organizer?.name?.trim() || null;
             return {
               title: item.name || null,
               venue,
+              organizer: organizerName && !organizerName.toLowerCase().includes('eventbrite') ? organizerName : null,
               date: item.startDate || null,
               image: typeof item.image === 'string' ? item.image : (Array.isArray(item.image) ? item.image[0] : null),
               description: item.description ? item.description.substring(0, 200) : null,
@@ -469,16 +471,19 @@ async function scrapeEventbrite() {
     // Use sanitizeVenue to discard bare city names (e.g. "New York City")
     // Fall back to 'NYC' so there's always some location shown
     const title = detail?.title || partial?.title || slugTitle || 'Wine Event';
-    const rawVenue = sanitizeVenue(detail?.venue) || sanitizeVenue(partial?.venue) || 'NYC';
+    const rawVenue = sanitizeVenue(detail?.venue) || sanitizeVenue(partial?.venue) || null;
+    const organizer = detail?.organizer || null;
     const date = detail?.date || partial?.date || null;
     const image = fixImageUrl(detail?.image || partial?.image || null);
 
     // Enrich venue with address/name from our wine bar + store databases
-    const enriched = enrichVenueFromDB(rawVenue);
+    // Fall back to organizer name ("by Liz's Book Bar") when no venue found
+    const enriched = rawVenue ? enrichVenueFromDB(rawVenue) : { venue: null, venueAddress: null };
+    const displayVenue = enriched.venue || organizer || null;
 
     allEvents.push({
       title,
-      venue: enriched.venue,
+      venue: displayVenue,
       venueAddress: enriched.venueAddress || null,
       date,
       dateDisplay: formatDateDisplay(date),
