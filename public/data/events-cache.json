@@ -1,1 +1,67 @@
-[]
+[
+  {
+    "title": "Bastille Day at Le Du's Wines",
+    "venue": "Le Du's Wines",
+    "venueAddress": "600 Washington St, New York, NY 10014",
+    "date": "2026-07-14T18:00:00-04:00",
+    "day": "14",
+    "month": "Jul · Tue",
+    "dateDisplay": "Tue, Jul 14, 6:00 PM",
+    "tag": "Tasting",
+    "url": "https://www.leduwines.com",
+    "image": null,
+    "source": "NYCWine"
+  },
+  {
+    "title": "Free Saturday Wine Tasting at Le Du's Wines",
+    "venue": "Le Du's Wines",
+    "venueAddress": "600 Washington St, New York, NY 10014",
+    "date": "2026-07-18T14:00:00-04:00",
+    "day": "18",
+    "month": "Jul · Sat",
+    "dateDisplay": "Sat, Jul 18, 2:00 PM",
+    "tag": "Tasting",
+    "url": "https://www.leduwines.com",
+    "image": null,
+    "source": "NYCWine"
+  },
+  {
+    "title": "Free Saturday Wine Tasting at Le Du's Wines",
+    "venue": "Le Du's Wines",
+    "venueAddress": "600 Washington St, New York, NY 10014",
+    "date": "2026-07-25T14:00:00-04:00",
+    "day": "25",
+    "month": "Jul · Sat",
+    "dateDisplay": "Sat, Jul 25, 2:00 PM",
+    "tag": "Tasting",
+    "url": "https://www.leduwines.com",
+    "image": null,
+    "source": "NYCWine"
+  },
+  {
+    "title": "Free Saturday Wine Tasting at Le Du's Wines",
+    "venue": "Le Du's Wines",
+    "venueAddress": "600 Washington St, New York, NY 10014",
+    "date": "2026-08-01T14:00:00-04:00",
+    "day": "1",
+    "month": "Aug · Sat",
+    "dateDisplay": "Sat, Aug 1, 2:00 PM",
+    "tag": "Tasting",
+    "url": "https://www.leduwines.com",
+    "image": null,
+    "source": "NYCWine"
+  },
+  {
+    "title": "Free Saturday Wine Tasting at Le Du's Wines",
+    "venue": "Le Du's Wines",
+    "venueAddress": "600 Washington St, New York, NY 10014",
+    "date": "2026-08-08T14:00:00-04:00",
+    "day": "8",
+    "month": "Aug · Sat",
+    "dateDisplay": "Sat, Aug 8, 2:00 PM",
+    "tag": "Tasting",
+    "url": "https://www.leduwines.com",
+    "image": null,
+    "source": "NYCWine"
+  }
+]

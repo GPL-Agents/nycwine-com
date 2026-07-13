@@ -555,12 +555,14 @@ export default async function handler(req, res) {
     const submittedEvents = await readSubmittedEvents();
 
     // ── External events from Eventbrite ───────────────────────
-    let externalEvents = await scrapeEventbrite();
+    const scrapedEvents = await scrapeEventbrite();
+    const cachedEvents = readCachedEvents().map(ev => ({
+      ...ev,
+      source: 'NYCWine',
+    }));
 
-    // If scrape returned nothing, fall back to cached file
-    if (externalEvents.length === 0) {
-      externalEvents = readCachedEvents();
-    }
+    // Merge: cached events first, then Eventbrite scraped events
+    let externalEvents = [...cachedEvents, ...scrapedEvents];
 
     // ── Merge: submitted first, external fills remaining slots ─
     let events = [...submittedEvents, ...externalEvents];
