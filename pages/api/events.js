@@ -512,8 +512,8 @@ function readCachedEvents() {
 }
 
 // ── Read internally submitted events from Supabase ────────────
-// These events passed AI review and always appear at the TOP
-// of the feed before any Eventbrite results.
+// These events passed AI review and are merged into the feed
+// sorted together with Eventbrite results by date.
 async function readSubmittedEvents() {
   try {
     const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -551,7 +551,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    // ── Internally submitted events (always at top) ────────────
+    // ── Internally submitted events ────────────────────────────
     const submittedEvents = await readSubmittedEvents();
 
     // ── External events from Eventbrite ───────────────────────
@@ -564,7 +564,7 @@ export default async function handler(req, res) {
     // Merge: cached events first, then Eventbrite scraped events
     let externalEvents = [...cachedEvents, ...scrapedEvents];
 
-    // ── Merge: submitted first, external fills remaining slots ─
+    // ── Merge all events together (sorted by date below) ──
     let events = [...submittedEvents, ...externalEvents];
 
     // Remove past events — only show today or future
@@ -577,22 +577,13 @@ export default async function handler(req, res) {
       return evDate ? evDate >= startOfToday : true;
     });
 
-    // Sort submitted events by date among themselves; keep them
-    // before external events regardless of date so our own
-    // listings always lead the feed.
-    const submitted = events.filter((ev) => ev.source === 'NYCWine');
-    const external  = events.filter((ev) => ev.source !== 'NYCWine');
-
-    const sortByDate = (arr) => arr.sort((a, b) => {
+    // Sort all events together by date (earliest first)
+    events.sort((a, b) => {
       if (!a.date && !b.date) return 0;
       if (!a.date) return 1;
       if (!b.date) return -1;
       return new Date(a.date) - new Date(b.date);
     });
-
-    sortByDate(submitted);
-    sortByDate(external);
-    events = [...submitted, ...external];
 
     // Add IDs and color cycling
     events = events.slice(0, 30).map((ev, i) => ({
