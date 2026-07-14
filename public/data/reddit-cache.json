@@ -1,11 +1,92 @@
 {
-  "wine": [],
+  "wine": [
+    {
+      "title": "Rooftop Bar Wine List- Don't look too close (descriptions etc.) Going to pitch this list (size and selections) to a corporate hotel rooftop bar. They currently do not have a bottle program but are in high rent area. Needs to be mainstream so the corporate cards swipe. thoughts?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1uvyg97/rooftop_bar_wine_list_dont_look_too_close/",
+      "score": 1,
+      "comments": 0,
+      "ago": "4h ago"
+    },
+    {
+      "title": "Need help with a gift for family that likes wine.",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1uvybo9/need_help_with_a_gift_for_family_that_likes_wine/",
+      "score": 1,
+      "comments": 0,
+      "ago": "4h ago"
+    },
+    {
+      "title": "Cheap wine suggestions?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1uvy0b2/cheap_wine_suggestions/",
+      "score": 1,
+      "comments": 0,
+      "ago": "4h ago"
+    },
+    {
+      "title": "NC's Biltmore's 2023 Cabernet Sauvignon is better than I expected it to be, but probably because it's West Coast grapes.",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1uvx18z/ncs_biltmores_2023_cabernet_sauvignon_is_better/",
+      "score": 1,
+      "comments": 0,
+      "ago": "5h ago"
+    },
+    {
+      "title": "Favorite dim sum wine?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1uvwwit/favorite_dim_sum_wine/",
+      "score": 1,
+      "comments": 0,
+      "ago": "5h ago"
+    },
+    {
+      "title": "ISO: Wine key with a non-serrated knife AND double hinge",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1uvvuv1/iso_wine_key_with_a_nonserrated_knife_and_double/",
+      "score": 1,
+      "comments": 0,
+      "ago": "6h ago"
+    },
+    {
+      "title": "Aadland Moody Spring Mountain District Cabernet Sauvignon 2023",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1uvozyw/aadland_moody_spring_mountain_district_cabernet/",
+      "score": 1,
+      "comments": 0,
+      "ago": "11h ago"
+    },
+    {
+      "title": "Last Bottle forgot the Cool Pack and wines are very possible cooked",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1uvo6py/last_bottle_forgot_the_cool_pack_and_wines_are/",
+      "score": 1,
+      "comments": 0,
+      "ago": "11h ago"
+    },
+    {
+      "title": "This Rosé baking in the sun 💀",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1uvnsi2/this_rosé_baking_in_the_sun/",
+      "score": 1,
+      "comments": 0,
+      "ago": "11h ago"
+    },
+    {
+      "title": "Billecart-Salmon Le Rosé with seared tuna steak and lemon pasta",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1uvgtwj/billecartsalmon_le_rosé_with_seared_tuna_steak/",
+      "score": 1,
+      "comments": 0,
+      "ago": "15h ago"
+    }
+  ],
   "nyc": [],
-  "fetchedAt": "2026-07-13T09:52:59.610Z",
+  "fetchedAt": "2026-07-14T08:35:09.515Z",
   "stats": {
-    "winePostsFound": 0,
+    "winePostsFound": 10,
     "nycPostsFound": 0,
-    "totalCandidatesWine": 0,
-    "totalCandidatesNyc": 0
+    "totalCandidatesWine": 25,
+    "totalCandidatesNyc": 25
   }
 }
