@@ -1,92 +1,11 @@
 {
-  "wine": [
-    {
-      "title": "‘79 Chalone Pinot Noir",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uzn865/79_chalone_pinot_noir/",
-      "score": 1,
-      "comments": 0,
-      "ago": "2h ago"
-    },
-    {
-      "title": "Reductive Australian Chardonnay",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uzlnre/reductive_australian_chardonnay/",
-      "score": 1,
-      "comments": 0,
-      "ago": "4h ago"
-    },
-    {
-      "title": "Wine storage: average temperature as well as variations",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uzkyap/wine_storage_average_temperature_as_well_as/",
-      "score": 1,
-      "comments": 0,
-      "ago": "4h ago"
-    },
-    {
-      "title": "1987 Dunn Vineyards Howell Mountain",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uzhsny/1987_dunn_vineyards_howell_mountain/",
-      "score": 1,
-      "comments": 0,
-      "ago": "7h ago"
-    },
-    {
-      "title": "Aging Swiss Wine",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uzfwk1/aging_swiss_wine/",
-      "score": 1,
-      "comments": 0,
-      "ago": "8h ago"
-    },
-    {
-      "title": "Moon Mountain Cabernet Sauvignon",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uze4dy/moon_mountain_cabernet_sauvignon/",
-      "score": 1,
-      "comments": 0,
-      "ago": "9h ago"
-    },
-    {
-      "title": "Taking a bath + drinking red wine = extreme happiness!",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uz7xka/taking_a_bath_drinking_red_wine_extreme_happiness/",
-      "score": 1,
-      "comments": 0,
-      "ago": "13h ago"
-    },
-    {
-      "title": "Buttonwood Winery in Los Olivos - they've changed (not for the better)",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uz76nh/buttonwood_winery_in_los_olivos_theyve_changed/",
-      "score": 1,
-      "comments": 0,
-      "ago": "14h ago"
-    },
-    {
-      "title": "Weeklong trip to local winery - How to keep wine safe?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uz6l7g/weeklong_trip_to_local_winery_how_to_keep_wine/",
-      "score": 1,
-      "comments": 0,
-      "ago": "14h ago"
-    },
-    {
-      "title": "Dry Creek Vineyard Historic Blocks Zinfandel 2021",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1uz4z2t/dry_creek_vineyard_historic_blocks_zinfandel_2021/",
-      "score": 1,
-      "comments": 0,
-      "ago": "15h ago"
-    }
-  ],
+  "wine": [],
   "nyc": [],
-  "fetchedAt": "2026-07-18T08:18:21.244Z",
+  "fetchedAt": "2026-07-19T08:42:01.906Z",
   "stats": {
-    "winePostsFound": 10,
+    "winePostsFound": 0,
     "nycPostsFound": 0,
-    "totalCandidatesWine": 25,
-    "totalCandidatesNyc": 25
+    "totalCandidatesWine": 0,
+    "totalCandidatesNyc": 0
   }
 }
