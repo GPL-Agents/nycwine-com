@@ -1,76 +1,11 @@
 {
-  "wine": [
-    {
-      "title": "Morgan Winery Twelve Clones Pinot Noir 2018, Santa Lucia Highlands",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1v15m4e/morgan_winery_twelve_clones_pinot_noir_2018_santa/",
-      "score": 1,
-      "comments": 0,
-      "ago": "9h ago"
-    },
-    {
-      "title": "Spain vs. Argentina – which country has more iconic wines? 🏆",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1v0zstw/spain_vs_argentina_which_country_has_more_iconic/",
-      "score": 1,
-      "comments": 0,
-      "ago": "14h ago"
-    },
-    {
-      "title": "2021 Monsanto Chianti Classico Riserva",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1v0yd1o/2021_monsanto_chianti_classico_riserva/",
-      "score": 1,
-      "comments": 0,
-      "ago": "15h ago"
-    },
-    {
-      "title": "Is this even wine?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1v0y6i3/is_this_even_wine/",
-      "score": 1,
-      "comments": 0,
-      "ago": "15h ago"
-    },
-    {
-      "title": "Von Winning Forster Riesling 2020, Pfaltz, Germany",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1v0x8uc/von_winning_forster_riesling_2020_pfaltz_germany/",
-      "score": 1,
-      "comments": 0,
-      "ago": "15h ago"
-    },
-    {
-      "title": "Red Wine Suggestions",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1v0vjd6/red_wine_suggestions/",
-      "score": 1,
-      "comments": 0,
-      "ago": "16h ago"
-    },
-    {
-      "title": "Where Has Aged Mosel Riesling Been All My Life? It’s Quickly Becoming My Favorite Food Wine",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1v0qyfw/where_has_aged_mosel_riesling_been_all_my_life/",
-      "score": 1,
-      "comments": 0,
-      "ago": "19h ago"
-    },
-    {
-      "title": "Emmanuel Brochet \"Rosé de Saignée\" 1er Cru Extra Brut R19 (2019)",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1v08b6l/emmanuel_brochet_rosé_de_saignée_1er_cru_extra/",
-      "score": 1,
-      "comments": 0,
-      "ago": "Yesterday"
-    }
-  ],
+  "wine": [],
   "nyc": [],
-  "fetchedAt": "2026-07-20T09:40:49.354Z",
+  "fetchedAt": "2026-07-21T09:08:10.280Z",
   "stats": {
-    "winePostsFound": 8,
+    "winePostsFound": 0,
     "nycPostsFound": 0,
-    "totalCandidatesWine": 25,
+    "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
 }
