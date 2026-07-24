@@ -1,19 +1,10 @@
 {
   "wine": [],
-  "nyc": [
-    {
-      "title": "Minetta Tavern in Greenwich Village - July 2026 for Lunch Menu",
-      "subreddit": "r/FoodNYC",
-      "url": "https://www.reddit.com/r/FoodNYC/comments/1v2md3h/minetta_tavern_in_greenwich_village_july_2026_for/",
-      "score": 1,
-      "comments": 0,
-      "ago": "Yesterday"
-    }
-  ],
-  "fetchedAt": "2026-07-23T09:06:33.213Z",
+  "nyc": [],
+  "fetchedAt": "2026-07-24T09:02:52.912Z",
   "stats": {
     "winePostsFound": 0,
-    "nycPostsFound": 1,
+    "nycPostsFound": 0,
     "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
