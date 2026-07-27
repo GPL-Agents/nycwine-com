@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-20T10:38:28.569Z",
+  "fetchedAt": "2026-07-27T11:00:12.945Z",
   "source": "YouTube",
   "sourceUrl": "https://www.youtube.com/results?search_query=NYC+wine",
   "videos": [
@@ -13,15 +13,6 @@
       "url": "https://www.youtube.com/watch?v=AtPw7J9jjd0"
     },
     {
-      "videoId": "8QRUBFiCKpo",
-      "title": "Manhattan Wine Auction 2025",
-      "channelTitle": "VOX Productions",
-      "publishedAt": "2025-07-21T20:48:34Z",
-      "publishedRelative": "11mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/8QRUBFiCKpo/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=8QRUBFiCKpo"
-    },
-    {
       "videoId": "DAs6-f70x5A",
       "title": "Only Georgian Restaurant Participating in New York City Wine and Food Festival 2025! #nycwff",
       "channelTitle": "Chito Gvrito NYC",
@@ -31,6 +22,15 @@
       "url": "https://www.youtube.com/watch?v=DAs6-f70x5A"
     },
     {
+      "videoId": "8QRUBFiCKpo",
+      "title": "Manhattan Wine Auction 2025",
+      "channelTitle": "VOX Productions",
+      "publishedAt": "2025-07-21T20:48:34Z",
+      "publishedRelative": "1y ago",
+      "thumbnail": "https://i.ytimg.com/vi/8QRUBFiCKpo/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=8QRUBFiCKpo"
+    },
+    {
       "videoId": "kQQL7_-V75g",
       "title": "The Best Places To Drink Wine In NYC: A Night Out With SWURL Episode 01",
       "channelTitle": "SWURL",
@@ -38,6 +38,15 @@
       "publishedRelative": "8mo ago",
       "thumbnail": "https://i.ytimg.com/vi/kQQL7_-V75g/mqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=kQQL7_-V75g"
+    },
+    {
+      "videoId": "RXsDxS4pRAw",
+      "title": "NYC's Sauced Has the Blueprint for a New Kind of Wine Bar | I Know a Place",
+      "channelTitle": "InsideHook",
+      "publishedAt": "2025-11-10T12:01:02Z",
+      "publishedRelative": "8mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/RXsDxS4pRAw/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=RXsDxS4pRAw"
     },
     {
       "videoId": "Hl5XNBEBDoo",
@@ -53,27 +62,9 @@
       "title": "BEST WINE BAR IN NYC? INTERVIEW WITH @supervinobros",
       "channelTitle": "Beli App",
       "publishedAt": "2025-09-20T14:00:24Z",
-      "publishedRelative": "9mo ago",
+      "publishedRelative": "10mo ago",
       "thumbnail": "https://i.ytimg.com/vi/6sdbfdz8564/mqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=6sdbfdz8564"
-    },
-    {
-      "videoId": "RXsDxS4pRAw",
-      "title": "NYC's Sauced Has the Blueprint for a New Kind of Wine Bar | I Know a Place",
-      "channelTitle": "InsideHook",
-      "publishedAt": "2025-11-10T12:01:02Z",
-      "publishedRelative": "8mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/RXsDxS4pRAw/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=RXsDxS4pRAw"
-    },
-    {
-      "videoId": "1_0st43j2jk",
-      "title": "Enjoy a movie at this cozy and intimate wine bar & bookstore!",
-      "channelTitle": "Picture Perfect Luis",
-      "publishedAt": "2025-02-21T15:58:36Z",
-      "publishedRelative": "1y ago",
-      "thumbnail": "https://i.ytimg.com/vi/1_0st43j2jk/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=1_0st43j2jk"
     },
     {
       "videoId": "ocRGisyE9Vs",
@@ -85,49 +76,22 @@
       "url": "https://www.youtube.com/watch?v=ocRGisyE9Vs"
     },
     {
-      "videoId": "161jG-QQTJg",
-      "title": "NYC Wine expo 2024 🍷💕🗽#wine #winelovers #winetasting",
-      "channelTitle": "Ella Adelson",
-      "publishedAt": "2024-11-22T18:19:14Z",
+      "videoId": "1_0st43j2jk",
+      "title": "Enjoy a movie at this cozy and intimate wine bar & bookstore!",
+      "channelTitle": "Picture Perfect Luis",
+      "publishedAt": "2025-02-21T15:58:36Z",
       "publishedRelative": "1y ago",
-      "thumbnail": "https://i.ytimg.com/vi/161jG-QQTJg/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=161jG-QQTJg"
+      "thumbnail": "https://i.ytimg.com/vi/1_0st43j2jk/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=1_0st43j2jk"
     },
     {
       "videoId": "YEH9-ZYs5GU",
       "title": "I’ll take my wine from a window my day.🍷 #williamsburg #brooklyn #nyc #wine",
       "channelTitle": "Don’t Sit Home",
       "publishedAt": "2025-07-23T02:33:04Z",
-      "publishedRelative": "11mo ago",
+      "publishedRelative": "1y ago",
       "thumbnail": "https://i.ytimg.com/vi/YEH9-ZYs5GU/mqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=YEH9-ZYs5GU"
-    },
-    {
-      "videoId": "kXn2oHhzJ-U",
-      "title": "New York City Wine and Food Festival ( NYCWFF ) Preview",
-      "channelTitle": "FoodPhone",
-      "publishedAt": "2025-10-15T06:07:43Z",
-      "publishedRelative": "9mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/kXn2oHhzJ-U/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=kXn2oHhzJ-U"
-    },
-    {
-      "videoId": "NFxn81bpt2s",
-      "title": "High Notes NYC By Fine Wine Series (2025)",
-      "channelTitle": "Fine Wine Series",
-      "publishedAt": "2025-04-09T17:44:27Z",
-      "publishedRelative": "1y ago",
-      "thumbnail": "https://i.ytimg.com/vi/NFxn81bpt2s/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=NFxn81bpt2s"
-    },
-    {
-      "videoId": "HPnBijrtkts",
-      "title": "NYC Wine and Food Festival",
-      "channelTitle": "Friends, After 40 Podcast",
-      "publishedAt": "2024-11-16T18:51:29Z",
-      "publishedRelative": "1y ago",
-      "thumbnail": "https://i.ytimg.com/vi/HPnBijrtkts/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=HPnBijrtkts"
     },
     {
       "videoId": "OnTwaowAgVs",
@@ -139,31 +103,49 @@
       "url": "https://www.youtube.com/watch?v=OnTwaowAgVs"
     },
     {
-      "videoId": "bDSKh0mGSZs",
-      "title": "slow weekends in NYC (wine nights, shopping in soho, eating out)",
-      "channelTitle": "Sarah Roh",
-      "publishedAt": "2025-11-18T18:00:45Z",
-      "publishedRelative": "8mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/bDSKh0mGSZs/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=bDSKh0mGSZs"
+      "videoId": "161jG-QQTJg",
+      "title": "NYC Wine expo 2024 🍷💕🗽#wine #winelovers #winetasting",
+      "channelTitle": "Ella Adelson",
+      "publishedAt": "2024-11-22T18:19:14Z",
+      "publishedRelative": "1y ago",
+      "thumbnail": "https://i.ytimg.com/vi/161jG-QQTJg/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=161jG-QQTJg"
     },
     {
-      "videoId": "zVWuXJiFGvg",
-      "title": "📍Same Same Wine Bar #nycfood #nyceats #winebar",
-      "channelTitle": "Delaney Ager",
-      "publishedAt": "2025-12-16T12:38:56Z",
-      "publishedRelative": "7mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/zVWuXJiFGvg/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=zVWuXJiFGvg"
+      "videoId": "HPnBijrtkts",
+      "title": "NYC Wine and Food Festival",
+      "channelTitle": "Friends, After 40 Podcast",
+      "publishedAt": "2024-11-16T18:51:29Z",
+      "publishedRelative": "1y ago",
+      "thumbnail": "https://i.ytimg.com/vi/HPnBijrtkts/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=HPnBijrtkts"
     },
     {
       "videoId": "xMcaDhbeXos",
       "title": "18th annual NYC Wine and Food Festival held at the South Street Seaport",
       "channelTitle": "CBS New York",
       "publishedAt": "2025-10-19T23:24:31Z",
-      "publishedRelative": "8mo ago",
+      "publishedRelative": "9mo ago",
       "thumbnail": "https://i.ytimg.com/vi/xMcaDhbeXos/mqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=xMcaDhbeXos"
+    },
+    {
+      "videoId": "NFxn81bpt2s",
+      "title": "High Notes NYC By Fine Wine Series (2025)",
+      "channelTitle": "Fine Wine Series",
+      "publishedAt": "2025-04-09T17:44:27Z",
+      "publishedRelative": "1y ago",
+      "thumbnail": "https://i.ytimg.com/vi/NFxn81bpt2s/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=NFxn81bpt2s"
+    },
+    {
+      "videoId": "kXn2oHhzJ-U",
+      "title": "New York City Wine and Food Festival ( NYCWFF ) Preview",
+      "channelTitle": "FoodPhone",
+      "publishedAt": "2025-10-15T06:07:43Z",
+      "publishedRelative": "9mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/kXn2oHhzJ-U/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=kXn2oHhzJ-U"
     },
     {
       "videoId": "oTiRtCDfQjI",
@@ -175,13 +157,31 @@
       "url": "https://www.youtube.com/watch?v=oTiRtCDfQjI"
     },
     {
-      "videoId": "XcnXFFTomi4",
-      "title": "Food Network NYC Wine & Food Festival Vlog 🎥",
-      "channelTitle": "Amber Wooters",
-      "publishedAt": "2025-10-20T20:00:31Z",
-      "publishedRelative": "8mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/XcnXFFTomi4/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=XcnXFFTomi4"
+      "videoId": "0cZRj4IcY0A",
+      "title": "How a 27-Year-Old Immigrant Built a NYC Wine Bar From Nothing | Mamali NYC",
+      "channelTitle": "WOW Brand",
+      "publishedAt": "2026-05-28T20:19:08Z",
+      "publishedRelative": "1mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/0cZRj4IcY0A/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=0cZRj4IcY0A"
+    },
+    {
+      "videoId": "eleUl4CpwLk",
+      "title": "december day in my life — brooklyn wine bar & content creation q&a",
+      "channelTitle": "Chiara Lucia",
+      "publishedAt": "2025-12-22T14:21:59Z",
+      "publishedRelative": "7mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/eleUl4CpwLk/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=eleUl4CpwLk"
+    },
+    {
+      "videoId": "nw9FmYzcQqA",
+      "title": "Wine Window 🍷 in #timessquare ??#nyc #wine #nycvlog #newyork #winelovers #winelover #newyorkcity",
+      "channelTitle": "Trips and Sips",
+      "publishedAt": "2025-10-11T01:01:01Z",
+      "publishedRelative": "9mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/nw9FmYzcQqA/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=nw9FmYzcQqA"
     }
   ]
 }
