@@ -1,84 +1,11 @@
 {
-  "wine": [
-    {
-      "title": "NV Piper-Heidsieck Champagne Cuvée Brut",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1v7di4h/nv_piperheidsieck_champagne_cuvée_brut/",
-      "score": 90,
-      "comments": 0,
-      "ago": "14h ago"
-    },
-    {
-      "title": "(Accessible) Portuguese wine from Germany?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1v7vz5n/accessible_portuguese_wine_from_germany/",
-      "score": 1,
-      "comments": 0,
-      "ago": "Just now"
-    },
-    {
-      "title": "Is the 2026 vintage a total write-off for most of Bordeaux?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1v7v6e3/is_the_2026_vintage_a_total_writeoff_for_most_of/",
-      "score": 1,
-      "comments": 0,
-      "ago": "1h ago"
-    },
-    {
-      "title": "Brett discussion in fine wine: JL Chave Saint Joseph 2021",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1v7umsa/brett_discussion_in_fine_wine_jl_chave_saint/",
-      "score": 1,
-      "comments": 0,
-      "ago": "1h ago"
-    },
-    {
-      "title": "Late July / Early August Summer wines (summer reading list)",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1v7rt7p/late_july_early_august_summer_wines_summer/",
-      "score": 1,
-      "comments": 0,
-      "ago": "4h ago"
-    },
-    {
-      "title": "What's your favorite kind of wine?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1v7ppgq/whats_your_favorite_kind_of_wine/",
-      "score": 1,
-      "comments": 0,
-      "ago": "6h ago"
-    },
-    {
-      "title": "Blind Pinot Noir Tasting",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1v7poju/blind_pinot_noir_tasting/",
-      "score": 1,
-      "comments": 0,
-      "ago": "6h ago"
-    },
-    {
-      "title": "Anyone know anything about this bottle? Not even sure if it is wine or not, hence why I ask. Lmk thanks!",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1v7hucp/anyone_know_anything_about_this_bottle_not_even/",
-      "score": 1,
-      "comments": 0,
-      "ago": "12h ago"
-    },
-    {
-      "title": "Best wine documentaries/films/books",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1v7fnrz/best_wine_documentariesfilmsbooks/",
-      "score": 1,
-      "comments": 0,
-      "ago": "13h ago"
-    }
-  ],
+  "wine": [],
   "nyc": [],
-  "fetchedAt": "2026-07-27T10:25:43.778Z",
+  "fetchedAt": "2026-07-28T09:16:36.962Z",
   "stats": {
-    "winePostsFound": 9,
+    "winePostsFound": 0,
     "nycPostsFound": 0,
-    "totalCandidatesWine": 25,
+    "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
 }
