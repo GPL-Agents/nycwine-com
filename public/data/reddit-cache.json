@@ -1,76 +1,11 @@
 {
-  "wine": [
-    {
-      "title": "House Clearance Wine #3 - 2007 Chilean Sauvignon Blanc",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vangi4/house_clearance_wine_3_2007_chilean_sauvignon/",
-      "score": 1,
-      "comments": 0,
-      "ago": "Just now"
-    },
-    {
-      "title": "What wine unexpectedly became your I need a good day bottle?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vajst1/what_wine_unexpectedly_became_your_i_need_a_good/",
-      "score": 1,
-      "comments": 0,
-      "ago": "4h ago"
-    },
-    {
-      "title": "South Australian wines — need help picking 5 to take home to the UK",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vaixe4/south_australian_wines_need_help_picking_5_to/",
-      "score": 1,
-      "comments": 0,
-      "ago": "5h ago"
-    },
-    {
-      "title": "Value of different wine glasses?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vaf4vd/value_of_different_wine_glasses/",
-      "score": 1,
-      "comments": 0,
-      "ago": "7h ago"
-    },
-    {
-      "title": "1997 Duckhorn Napa Valley Merlot",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vabwf6/1997_duckhorn_napa_valley_merlot/",
-      "score": 1,
-      "comments": 0,
-      "ago": "10h ago"
-    },
-    {
-      "title": "2014 Roagna Barolo ‘Pira’",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1va7b6l/2014_roagna_barolo_pira/",
-      "score": 1,
-      "comments": 0,
-      "ago": "13h ago"
-    },
-    {
-      "title": "Bordeaux Fires",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1va44ff/bordeaux_fires/",
-      "score": 1,
-      "comments": 0,
-      "ago": "15h ago"
-    },
-    {
-      "title": "Riesling Tasting Note, What Is It?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1v9yet6/riesling_tasting_note_what_is_it/",
-      "score": 1,
-      "comments": 0,
-      "ago": "18h ago"
-    }
-  ],
+  "wine": [],
   "nyc": [],
-  "fetchedAt": "2026-07-30T09:13:00.491Z",
+  "fetchedAt": "2026-07-31T09:23:21.333Z",
   "stats": {
-    "winePostsFound": 8,
+    "winePostsFound": 0,
     "nycPostsFound": 0,
-    "totalCandidatesWine": 25,
+    "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
 }
