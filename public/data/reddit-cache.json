@@ -1,19 +1,10 @@
 {
   "wine": [],
-  "nyc": [
-    {
-      "title": "A Comparison of (mostly French) Restaurant Week Meals",
-      "subreddit": "r/FoodNYC",
-      "url": "https://www.reddit.com/r/FoodNYC/comments/1vc167i/a_comparison_of_mostly_french_restaurant_week/",
-      "score": 1,
-      "comments": 0,
-      "ago": "12h ago"
-    }
-  ],
-  "fetchedAt": "2026-08-01T08:39:35.494Z",
+  "nyc": [],
+  "fetchedAt": "2026-08-02T08:42:55.452Z",
   "stats": {
     "winePostsFound": 0,
-    "nycPostsFound": 1,
+    "nycPostsFound": 0,
     "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
