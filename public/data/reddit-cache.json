@@ -1,10 +1,19 @@
 {
   "wine": [],
-  "nyc": [],
-  "fetchedAt": "2026-08-02T08:42:55.452Z",
+  "nyc": [
+    {
+      "title": "63 Clinton - LES, NYC (July 2026). This place does not miss.",
+      "subreddit": "r/FoodNYC",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1ve1avs/63_clinton_les_nyc_july_2026_this_place_does_not/",
+      "score": 1,
+      "comments": 0,
+      "ago": "7h ago"
+    }
+  ],
+  "fetchedAt": "2026-08-03T10:12:20.196Z",
   "stats": {
     "winePostsFound": 0,
-    "nycPostsFound": 0,
+    "nycPostsFound": 1,
     "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
