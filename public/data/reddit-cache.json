@@ -1,20 +1,84 @@
 {
-  "wine": [],
-  "nyc": [
+  "wine": [
     {
-      "title": "63 Clinton - LES, NYC (July 2026). This place does not miss.",
-      "subreddit": "r/FoodNYC",
-      "url": "https://www.reddit.com/r/FoodNYC/comments/1ve1avs/63_clinton_les_nyc_july_2026_this_place_does_not/",
+      "title": "2018 Failla Occidental Ridge Pinot Noir",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1ve1hkn/2018_failla_occidental_ridge_pinot_noir/",
+      "score": 94,
+      "comments": 0,
+      "ago": "Yesterday"
+    },
+    {
+      "title": "2024 Lethbridge Chardonnay - Geelong, VIC, AUSTRALIA",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1vf386m/2024_lethbridge_chardonnay_geelong_vic_australia/",
       "score": 1,
       "comments": 0,
-      "ago": "7h ago"
+      "ago": "2h ago"
+    },
+    {
+      "title": "Bitter lemon, nutty and pine... I fell in love with this wine tonight 💕",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1vf0p8c/bitter_lemon_nutty_and_pine_i_fell_in_love_with/",
+      "score": 1,
+      "comments": 0,
+      "ago": "4h ago"
+    },
+    {
+      "title": "Studying for the Master of Wine exam — curious how producers think about [terroir/style/philosophy]",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1vervb1/studying_for_the_master_of_wine_exam_curious_how/",
+      "score": 1,
+      "comments": 0,
+      "ago": "11h ago"
+    },
+    {
+      "title": "Studying for the Master of Wine exam — looking for producers worldwide willing to chat about their winemaking philosophy, wine business and viticulture",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1vermwk/studying_for_the_master_of_wine_exam_looking_for/",
+      "score": 1,
+      "comments": 0,
+      "ago": "11h ago"
+    },
+    {
+      "title": "Seghesio Family Vineyards Cortina Zinfandel 2023, Dry Creek Valley",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1veoomv/seghesio_family_vineyards_cortina_zinfandel_2023/",
+      "score": 1,
+      "comments": 0,
+      "ago": "13h ago"
+    },
+    {
+      "title": "Winebid domain expired",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1vebtdq/winebid_domain_expired/",
+      "score": 1,
+      "comments": 0,
+      "ago": "21h ago"
+    },
+    {
+      "title": "2009 Grosset Polish Hill Riesling 🇦🇺",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1veaoh2/2009_grosset_polish_hill_riesling/",
+      "score": 1,
+      "comments": 0,
+      "ago": "21h ago"
+    },
+    {
+      "title": "Burgundy on a rainy day",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1vdo6xq/burgundy_on_a_rainy_day/",
+      "score": 1,
+      "comments": 0,
+      "ago": "Yesterday"
     }
   ],
-  "fetchedAt": "2026-08-03T10:12:20.196Z",
+  "nyc": [],
+  "fetchedAt": "2026-08-04T09:19:39.493Z",
   "stats": {
-    "winePostsFound": 0,
-    "nycPostsFound": 1,
-    "totalCandidatesWine": 0,
+    "winePostsFound": 9,
+    "nycPostsFound": 0,
+    "totalCandidatesWine": 25,
     "totalCandidatesNyc": 25
   }
 }
