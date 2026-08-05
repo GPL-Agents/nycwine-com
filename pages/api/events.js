@@ -564,6 +564,15 @@ export default async function handler(req, res) {
     // Merge: cached events first, then Eventbrite scraped events
     let externalEvents = [...cachedEvents, ...scrapedEvents];
 
+    // ── Curated events win over scraped duplicates ────────────────
+    // If a submitted (curated) event shares a URL with a scraped/cached
+    // Eventbrite event, drop the external copy -- the curated entry has
+    // the better title, price, description, and image.
+    const curatedUrls = new Set(submittedEvents.map((ev) => ev.url).filter(Boolean));
+    if (curatedUrls.size > 0) {
+      externalEvents = externalEvents.filter((ev) => !ev.url || !curatedUrls.has(ev.url));
+    }
+
     // ── Merge all events together (sorted by date below) ──
     let events = [...submittedEvents, ...externalEvents];
 
