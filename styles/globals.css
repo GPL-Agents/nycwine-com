@@ -4775,6 +4775,11 @@ body {
   display: block;
 }
 
+.blog-card-img {
+  height: 220px;
+  overflow: hidden;
+}
+
 .blog-card-body {
   padding: 20px 24px 24px;
 }
