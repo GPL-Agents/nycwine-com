@@ -18,6 +18,29 @@ const HEADERS = {
 
 const COLORS = ['c1', 'c2', 'c3', 'c4', 'c5'];
 
+// ── Junk event filter (mirrors pages/api/events.js) ────────────
+const BLOCKED_EVENT_URLS = new Set([
+  // Placeholder listing: shell organizer (no name, 0 events, unverified),
+  // no real image, generic title "Wine Tasting" (removed 2026-08-06)
+  'https://www.eventbrite.com/e/wine-tasting-tickets-1992952904787',
+]);
+
+// Eventbrite default logo image when a listing has no image
+const EB_LOGO_IMAGE_RE = /cdn\.evbstatic\.com\/[^"']*\/logos\//i;
+
+// Generic placeholder titles that carry no event identity
+const PLACEHOLDER_TITLE_RE = /^(wine tasting|wine tasting event|wine tasing|wine tsting|wine event|wine sampling|tasting|test event|test|testing|event|bla|tbd|tba)$/i;
+
+function isJunkEvent(ev) {
+  if (!ev || !ev.url) return false; // never drop events without a URL
+  if (BLOCKED_EVENT_URLS.has(ev.url)) return true;
+  const img = ev.image || '';
+  if (EB_LOGO_IMAGE_RE.test(img)) return true; // default logo = no real image
+  const t = (ev.title || '').trim();
+  if (PLACEHOLDER_TITLE_RE.test(t) && t.length <= 30 && !ev.venue && !ev.venueAddress) return true;
+  return false;
+}
+
 // ─── FIX 1: Normalize dates without timezone to Eastern time ───
 function normalizeDate(dateStr) {
   if (!dateStr) return null;
@@ -232,7 +255,7 @@ async function main() {
   console.log(`\n  Found ${eventUrls.length} unique event URLs`);
 
   // Step 2: Fetch details for each event (with rate limiting)
-  const allEvents = [];
+  let allEvents = [];
   let colorIdx = 0;
 
   for (const url of eventUrls.slice(0, 30)) { // limit to 30 events
@@ -293,6 +316,14 @@ async function main() {
     if (!b.date) return -1;
     return new Date(normalizeDate(a.date)) - new Date(normalizeDate(b.date));
   });
+
+  // ── Drop junk/placeholder events (no real image, shell listings) ──
+  // Same rules as pages/api/events.js -- keep the two in sync.
+  const before = allEvents.length;
+  allEvents = allEvents.filter((ev) => !isJunkEvent(ev));
+  if (allEvents.length < before) {
+    console.log(`Filtered ${before - allEvents.length} junk/placeholder event(s)`);
+  }
 
   // Write cache file
   const outputPath = path.join(__dirname, '..', 'public', 'data', 'events-cache.json');

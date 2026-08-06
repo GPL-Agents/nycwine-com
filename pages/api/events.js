@@ -176,6 +176,38 @@ function sanitizeVenue(v) {
   return trimmed;
 }
 
+// ── Junk event filter ─────────────────────────────────────────
+// Exclude placeholder/spam Eventbrite listings without blocking
+// legitimate events. Signals, strongest first:
+//   1. Explicit blocklist (manually removed events)
+//   2. Eventbrite's default orange-logo image -- means the listing
+//      has NO real event image (virtually all real events do)
+//   3. Generic placeholder title ("Wine Tasting", "test") AND no
+//      venue/address at all -- nothing real to show
+// A generic title alone does NOT block when the event has a real
+// venue + address (could be legitimate).
+const BLOCKED_EVENT_URLS = new Set([
+  // Placeholder listing: shell organizer (no name, 0 events, unverified),
+  // no real image, generic title "Wine Tasting" (removed 2026-08-06)
+  'https://www.eventbrite.com/e/wine-tasting-tickets-1992952904787',
+]);
+
+// Eventbrite default logo image when a listing has no image
+const EB_LOGO_IMAGE_RE = /cdn\.evbstatic\.com\/[^"']*\/logos\//i;
+
+// Generic placeholder titles that carry no event identity
+const PLACEHOLDER_TITLE_RE = /^(wine tasting|wine tasting event|wine tasing|wine tsting|wine event|wine sampling|tasting|test event|test|testing|event|bla|tbd|tba)$/i;
+
+function isJunkEvent(ev) {
+  if (!ev || !ev.url) return false; // never drop events without a URL
+  if (BLOCKED_EVENT_URLS.has(ev.url)) return true;
+  const img = ev.image || '';
+  if (EB_LOGO_IMAGE_RE.test(img)) return true; // default logo = no real image
+  const t = (ev.title || '').trim();
+  if (PLACEHOLDER_TITLE_RE.test(t) && t.length <= 30 && !ev.venue && !ev.venueAddress) return true;
+  return false;
+}
+
 // ── Date helpers ──────────────────────────────────────────────
 // Parse the LOCAL time components from an ISO string like
 // "2026-05-01T18:30:00-04:00" without converting to UTC.
@@ -616,6 +648,9 @@ export default async function handler(req, res) {
     if (curatedUrls.size > 0) {
       externalEvents = externalEvents.filter((ev) => !ev.url || !curatedUrls.has(ev.url));
     }
+
+    // ── Drop junk/placeholder events (no real image, shell listings) ──
+    externalEvents = externalEvents.filter((ev) => !isJunkEvent(ev));
 
     // ── Merge all events together (sorted by date below) ──
     let events = [...submittedEvents, ...externalEvents];

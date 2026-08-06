@@ -152,25 +152,6 @@
     "color": "c3"
   },
   {
-    "title": "Wine Tasting",
-    "venue": "30 Vandam St",
-    "venueAddress": "30 Vandam Street, New York, NY 10013",
-    "venueCity": "New York",
-    "venueState": "NY",
-    "geoLat": "40.7261643",
-    "geoLng": "-74.0049849",
-    "date": "2026-08-10T10:00:00-04:00",
-    "dateDisplay": "Mon, Aug 10, 10:00 AM",
-    "day": "10",
-    "month": "Aug · Mon",
-    "tag": "Tasting",
-    "url": "https://www.eventbrite.com/e/wine-tasting-tickets-1992952904787",
-    "image": "https://cdn.evbstatic.com/s3-build/perm_001/6ce389/django/images/logos/eb_orange_on_white_1200x630.png",
-    "source": "Eventbrite",
-    "id": 13,
-    "color": "c3"
-  },
-  {
     "title": "The Cloud One Hotel 6th Floor Wine Bar Wine Tasting",
     "venue": "The Cloud One Hotel New York-Downtown",
     "venueAddress": "133 Greenwich Street, New York, NY",
