@@ -594,6 +594,20 @@ export default async function handler(req, res) {
     // Merge: cached events first, then Eventbrite scraped events
     let externalEvents = [...cachedEvents, ...scrapedEvents];
 
+    // ── Dedupe external events by URL ───────────────────────────
+    // Cached + freshly scraped events come from the same Eventbrite
+    // searches, so the same event can appear twice. Keep the LAST
+    // occurrence (the fresh scraped copy), drop earlier cached dupes.
+    const dedupMap = new Map();
+    for (const ev of externalEvents) {
+      if (!ev.url) {
+        dedupMap.set(`__nourl_${dedupMap.size}`, ev);
+      } else {
+        dedupMap.set(ev.url, ev); // later entry overwrites earlier
+      }
+    }
+    externalEvents = [...dedupMap.values()];
+
     // ── Curated events win over scraped duplicates ────────────────
     // If a submitted (curated) event shares a URL with a scraped/cached
     // Eventbrite event, drop the external copy -- the curated entry has
