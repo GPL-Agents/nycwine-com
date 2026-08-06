@@ -152,7 +152,7 @@ export default function EventsPage() {
                         <div className="events-page-card-venue">
                           {ev.venue}
                           {ev.venueAddress && (
-                            <span className="event-card-venue-addr"> · {ev.venueAddress.split(',')[0]}</span>
+                            <span className="event-card-venue-addr"> · {ev.venueAddress}</span>
                           )}
                           {ev.venueAddress && (
                             <EventMapBtn venue={ev.venue} address={ev.venueAddress} />

@@ -235,7 +235,7 @@ function getTag(title) {
   return 'Event';
 }
 
-// ── Fetch a single Eventbrite event page for JSON-LD data ─────
+// ── Fetch a single Eventbrite event page ─────────────────────
 async function fetchEventDetails(url) {
   try {
     const controller = new AbortController();
@@ -250,7 +250,47 @@ async function fetchEventDetails(url) {
     if (!response.ok) return null;
     const html = await response.text();
 
-    // Extract JSON-LD
+    let venue = null;
+    let organizer = null;
+    let title = null;
+    let date = null;
+    let image = null;
+    let description = null;
+    let address = null;
+    let geo = null;
+
+    // ── 1. __NEXT_DATA__ (current Eventbrite pages) ────────────
+    // Eventbrite's newer pages embed event details (name, venue,
+    // full postal address, geo, start time) in the Next.js payload
+    // at props.pageProps.context.basicInfo.
+    const ndMatch = html.match(/<script id="__NEXT_DATA__" type="application\/json">([\s\S]*?)<\/script>/);
+    if (ndMatch) {
+      try {
+        const nd = JSON.parse(ndMatch[1]);
+        const bi = nd.props?.pageProps?.context?.basicInfo;
+        if (bi) {
+          if (bi.name) title = bi.name;
+          const v = bi.venue;
+          if (v && v.name) venue = sanitizeVenue(v.name);
+          if (v && v.address) {
+            const a = v.address;
+            const lines = a.localizedMultiLineAddressDisplay || [];
+            const zipMatch = (lines[1] || '').match(/(\d{5}(?:-\d{4})?)/);
+            address = {
+              street: lines[0] || null,
+              city: a.city || null,
+              state: a.region || null,
+              zip: zipMatch ? zipMatch[1] : null,
+            };
+            if (a.latitude && a.longitude) {
+              geo = { latitude: a.latitude, longitude: a.longitude };
+            }
+          }
+        }
+      } catch { /* skip bad JSON */ }
+    }
+
+    // ── 2. JSON-LD (older pages / extra fields) ────────────────
     const jsonLdMatches = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
     for (const match of jsonLdMatches) {
       try {
@@ -258,103 +298,64 @@ async function fetchEventDetails(url) {
         const items = Array.isArray(data) ? data : data['@graph'] || [data];
         for (const item of items) {
           if (item['@type'] && (item['@type'] === 'Event' || item['@type'].includes('Event') || item['@type'].includes('Festival'))) {
-            // Try multiple sources for venue name
-            let venue = null;
-
-            // 1. location.name — the most reliable source
-            if (item.location?.name) venue = sanitizeVenue(item.location.name);
-
-            // 2. location.address.name — sometimes has venue
-            if (!venue && item.location?.address?.name) venue = sanitizeVenue(item.location.address.name);
-
-            // 3. streetAddress signals a real venue even if name is city-only
-            //    Build "Name, Neighborhood" from address parts
+            if (!title && item.name) title = item.name;
+            if (!venue) {
+              if (item.location?.name) venue = sanitizeVenue(item.location.name);
+              else if (item.location?.address?.name) venue = sanitizeVenue(item.location.address.name);
+            }
             if (!venue && item.location?.address?.streetAddress) {
               const street = item.location.address.streetAddress.trim();
-              const locality = item.location.address.addressLocality || '';
-              // Use organizer as proxy for venue name + address
-              const locName = item.location?.name || '';
-              if (sanitizeVenue(locName)) {
-                venue = sanitizeVenue(locName);
-              } else {
-                // Show street address as venue hint (e.g. "123 W 72nd St")
-                venue = street.length > 3 ? street : null;
-              }
+              if (street.length > 3) venue = street;
             }
-
-            // 4. organizer name as last resort (often the venue for self-hosted events)
-            if (!venue && item.organizer?.name) {
+            if (!organizer && item.organizer?.name) {
               const org = item.organizer.name.trim();
-              if (!org.toLowerCase().includes('eventbrite') && org.length > 3) {
-                venue = org;
-              }
+              if (!org.toLowerCase().includes('eventbrite') && org.length > 3) organizer = org;
             }
-
-            // 5. Extract venue from description ("at The Venue Name")
-            if (!venue && item.description) {
-              const m = item.description.match(/(?:at|@)\s+((?:[A-Z][A-Za-z0-9''.\-]*(?:\s*[&]\s*[A-Z][A-Za-z0-9''.\-]*)*(?:\s+[A-Z][A-Za-z0-9''.\-]*(?:\s*[&]\s*[A-Z][A-Za-z0-9''.\-]*)*)*))/);
-              if (m) {
-                let v = m[1].trim()
-                  .replace(/\s+(for|in|on|from|with|this|where|featuring|doors|tickets)\b.*/i, '')
-                  .replace(/[.,;:]+$/, '')
-                  .trim();
-                if (v.length > 3 && !v.toLowerCase().includes('eventbrite')) {
-                  venue = sanitizeVenue(v) || v;
-                }
-              }
+            if (!date && item.startDate) date = item.startDate;
+            if (!image) {
+              image = typeof item.image === 'string' ? item.image : (Array.isArray(item.image) ? item.image[0] : null);
             }
-
-            const organizerName = item.organizer?.name?.trim() || null;
-            return {
-              title: item.name || null,
-              venue,
-              organizer: organizerName && !organizerName.toLowerCase().includes('eventbrite') ? organizerName : null,
-              date: item.startDate || null,
-              image: typeof item.image === 'string' ? item.image : (Array.isArray(item.image) ? item.image[0] : null),
-              description: item.description ? item.description.substring(0, 200) : null,
-            };
+            if (!description && item.description) description = item.description.substring(0, 200);
+            if (!address && item.location?.address) {
+              const addr = item.location.address;
+              address = {
+                street: addr.streetAddress || null,
+                city: addr.addressLocality || null,
+                state: addr.addressRegion || null,
+                zip: addr.postalCode || null,
+              };
+            }
+            if (!geo && item.location?.geo) {
+              geo = { latitude: item.location.geo.latitude, longitude: item.location.geo.longitude };
+            }
           }
         }
       } catch { /* skip bad JSON */ }
     }
 
-    // Fallback: try to extract date from meta tags or page content
-    const dateMatch = html.match(/<meta[^>]+property="event:start_time"[^>]+content="([^"]+)"/i)
-      || html.match(/<time[^>]+datetime="([^"]+)"/i)
-      || html.match(/"startDate"\s*:\s*"([^"]+)"/);
-    const imgMatch = html.match(/<meta[^>]+property="og:image"[^>]+content="([^"]+)"/i);
-    const venueMatch = html.match(/<meta[^>]+property="event:location"[^>]+content="([^"]+)"/i);
-
-    // Try HTML structure for venue if meta tags didn't find it
-    let htmlVenue = null;
-    if (!venueMatch) {
-      const htmlVenueMatch = html.match(
-        /<(?:h[2-3]|div|section|span)[^>]*class="[^"]*(?:venue|location-info)[^"]*"[^>]*>\s*([^<]+)/i
-      );
-      if (htmlVenueMatch) {
-        htmlVenue = htmlVenueMatch[1].trim();
-      }
-      if (!htmlVenue) {
-        const structuredMatch = html.match(
-          /<(?:div|section|p)[^>]*data-testid="[^"]*location[^"]*"[^>]*>\s*([^<]+)/i
-        );
-        if (structuredMatch) {
-          htmlVenue = structuredMatch[1].trim();
-        }
-      }
+    // ── 3. Meta/HTML fallback ──────────────────────────────────
+    if (!date) {
+      const dateMatch = html.match(/<meta[^>]+property="event:start_time"[^>]+content="([^"]+)"/i)
+        || html.match(/<time[^>]+datetime="([^"]+)"/i)
+        || html.match(/"startDate"\s*:\s*"([^"]+)"/);
+      if (dateMatch) date = dateMatch[1];
+    }
+    if (!image) {
+      const imgMatch = html.match(/<meta[^>]+property="og:image"[^>]+content="([^"]+)"/i);
+      if (imgMatch) image = imgMatch[1];
+    }
+    if (!title) {
+      const ogTitle = html.match(/<meta[^>]+property="og:title"[^>]+content="([^"]+)"/i);
+      if (ogTitle) title = ogTitle[1].replace(/&#x27;|&#39;|&amp;/g, "'");
+    }
+    if (!venue && !address) {
+      const venueMatch = html.match(/<meta[^>]+property="event:location"[^>]+content="([^"]+)"/i);
+      if (venueMatch) venue = sanitizeVenue(venueMatch[1]);
     }
 
-    if (dateMatch || imgMatch) {
-      return {
-        title: null,
-        venue: venueMatch ? venueMatch[1] : htmlVenue,
-        date: dateMatch ? dateMatch[1] : null,
-        image: imgMatch ? imgMatch[1] : null,
-        description: null,
-      };
-    }
+    if (!title && !venue && !date && !image) return null;
 
-    return null;
+    return { title, venue, organizer, date, image, description, address, geo };
   } catch {
     return null;
   }
@@ -401,6 +402,12 @@ async function scrapeEventbrite() {
                     title: item.name || null,
                     venue: sanitizeVenue(rawVenue),
                     city: item.location?.address?.addressLocality || null,
+                    address: {
+                      street: item.location?.address?.streetAddress || null,
+                      city: item.location?.address?.addressLocality || null,
+                      state: item.location?.address?.addressRegion || null,
+                      zip: item.location?.address?.postalCode || null,
+                    },
                     date: item.startDate,
                     image: typeof item.image === 'string' ? item.image : (Array.isArray(item.image) ? item.image[0] : null),
                   },
@@ -481,10 +488,33 @@ async function scrapeEventbrite() {
     const enriched = rawVenue ? enrichVenueFromDB(rawVenue) : { venue: null, venueAddress: null };
     const displayVenue = enriched.venue || organizer || null;
 
+    // Full address: prefer Eventbrite JSON-LD (street/city/state/zip),
+    // fall back to the venue DB enrichment.
+    const ebAddr = (detail && detail.address) || (partial && partial.address) || null;
+    const ebStreet = ebAddr?.street || null;
+    const ebCity = ebAddr?.city || null;
+    const ebState = ebAddr?.state || null;
+    const ebZip = ebAddr?.zip || null;
+    const hasEbLocation = ebStreet || ebCity;
+
+    let venueAddress = null;
+    if (hasEbLocation) {
+      const cityState = [ebCity, ebState].filter(Boolean).join(', ');
+      const secondLine = ebZip && cityState ? `${cityState} ${ebZip}` : (cityState || ebZip || '');
+      venueAddress = [ebStreet, secondLine].filter(Boolean).join(', ') || null;
+    } else if (enriched.venueAddress) {
+      venueAddress = enriched.venueAddress;
+    }
+    const geo = (detail && detail.geo) || null;
+
     allEvents.push({
       title,
       venue: displayVenue,
-      venueAddress: enriched.venueAddress || null,
+      venueAddress,
+      venueCity: ebCity || null,
+      venueState: ebState || null,
+      geoLat: geo && geo.latitude ? geo.latitude : null,
+      geoLng: geo && geo.longitude ? geo.longitude : null,
       date,
       dateDisplay: formatDateDisplay(date),
       day: formatDay(date),
