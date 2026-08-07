@@ -1,92 +1,28 @@
 {
-  "wine": [
+  "wine": [],
+  "nyc": [
     {
-      "title": "Wine Conservation at 25 °C (77 °F)",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vgy3u9/wine_conservation_at_25_c_77_f/",
-      "score": 1,
-      "comments": 0,
-      "ago": "1h ago"
-    },
-    {
-      "title": "Needing recommendations because I’m new to wine",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vgtswn/needing_recommendations_because_im_new_to_wine/",
-      "score": 1,
-      "comments": 0,
-      "ago": "5h ago"
-    },
-    {
-      "title": "Inexpensive Wine Chiller Recommendation?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vgq5kf/inexpensive_wine_chiller_recommendation/",
+      "title": "Ambassador’s Clubhouse NYC Review 8.4.26: Delicious!",
+      "subreddit": "r/FoodNYC",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1vhlop0/ambassadors_clubhouse_nyc_review_8426_delicious/",
       "score": 1,
       "comments": 0,
       "ago": "7h ago"
     },
     {
-      "title": "How much does a wine sales rep actually sell for? Salary? Commission?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vgpssb/how_much_does_a_wine_sales_rep_actually_sell_for/",
+      "title": "Where to buy inexpensive non-alcoholic wine, now that Trader Joes is out of stock?",
+      "subreddit": "r/FoodNYC",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1vh36k9/where_to_buy_inexpensive_nonalcoholic_wine_now/",
       "score": 1,
       "comments": 0,
-      "ago": "8h ago"
-    },
-    {
-      "title": "Some Really Gouges Wine :)",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vgoe7n/some_really_gouges_wine/",
-      "score": 1,
-      "comments": 0,
-      "ago": "9h ago"
-    },
-    {
-      "title": "Marcassin Pinot Noir",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vgl1kc/marcassin_pinot_noir/",
-      "score": 1,
-      "comments": 0,
-      "ago": "11h ago"
-    },
-    {
-      "title": "Peay allocation... which Pinot Noirs to purchase?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vgjtn0/peay_allocation_which_pinot_noirs_to_purchase/",
-      "score": 1,
-      "comments": 0,
-      "ago": "12h ago"
-    },
-    {
-      "title": "Best red wine for sangria?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vgeu8r/best_red_wine_for_sangria/",
-      "score": 1,
-      "comments": 0,
-      "ago": "15h ago"
-    },
-    {
-      "title": "Famille Moussé 100 Ans Hommage à Cuisles Extra Brut Champagne",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vg9o1d/famille_moussé_100_ans_hommage_à_cuisles_extra/",
-      "score": 1,
-      "comments": 0,
-      "ago": "18h ago"
-    },
-    {
-      "title": "Kenyan Banana Wine",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vg721j/kenyan_banana_wine/",
-      "score": 1,
-      "comments": 0,
-      "ago": "20h ago"
+      "ago": "19h ago"
     }
   ],
-  "nyc": [],
-  "fetchedAt": "2026-08-06T09:20:42.940Z",
+  "fetchedAt": "2026-08-07T07:51:46.552Z",
   "stats": {
-    "winePostsFound": 10,
-    "nycPostsFound": 0,
-    "totalCandidatesWine": 25,
+    "winePostsFound": 0,
+    "nycPostsFound": 2,
+    "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
 }
