@@ -1,28 +1,76 @@
 {
-  "wine": [],
-  "nyc": [
+  "wine": [
     {
-      "title": "Ambassador’s Clubhouse NYC Review 8.4.26: Delicious!",
-      "subreddit": "r/FoodNYC",
-      "url": "https://www.reddit.com/r/FoodNYC/comments/1vhlop0/ambassadors_clubhouse_nyc_review_8426_delicious/",
+      "title": "What type of Luigi Bormioli wine glass is this? Around 18cm/7.2in tall.",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1viojwf/what_type_of_luigi_bormioli_wine_glass_is_this/",
       "score": 1,
       "comments": 0,
-      "ago": "7h ago"
+      "ago": "Just now"
     },
     {
-      "title": "Where to buy inexpensive non-alcoholic wine, now that Trader Joes is out of stock?",
-      "subreddit": "r/FoodNYC",
-      "url": "https://www.reddit.com/r/FoodNYC/comments/1vh36k9/where_to_buy_inexpensive_nonalcoholic_wine_now/",
+      "title": "Rudolf Fürst, \"Astheimer\" Chardonnay (Franken, Germany) 2022",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1vioflb/rudolf_fürst_astheimer_chardonnay_franken_germany/",
       "score": 1,
       "comments": 0,
-      "ago": "19h ago"
+      "ago": "1h ago"
+    },
+    {
+      "title": "For those that own wineries - what events/special nights bring in the most people?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1vikhoj/for_those_that_own_wineries_what_eventsspecial/",
+      "score": 1,
+      "comments": 0,
+      "ago": "4h ago"
+    },
+    {
+      "title": "Pls help me find this wine",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1vi96gh/pls_help_me_find_this_wine/",
+      "score": 1,
+      "comments": 0,
+      "ago": "12h ago"
+    },
+    {
+      "title": "Don’t own a pet but Pet Mode came in clutch. When the air breaks and it’s 106F/41C out you got to think on your feet. Tesla wine fridge. Note the pet name.",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1vi5way/dont_own_a_pet_but_pet_mode_came_in_clutch_when/",
+      "score": 1,
+      "comments": 0,
+      "ago": "14h ago"
+    },
+    {
+      "title": "Cakebread Cellars Napa Valley Chardonnay 2016",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1vi5gqo/cakebread_cellars_napa_valley_chardonnay_2016/",
+      "score": 1,
+      "comments": 0,
+      "ago": "14h ago"
+    },
+    {
+      "title": "I've been tasked with cataloguing my step-dad's wine cellar",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1vhvm1x/ive_been_tasked_with_cataloguing_my_stepdads_wine/",
+      "score": 1,
+      "comments": 0,
+      "ago": "22h ago"
+    },
+    {
+      "title": "2017 Grivot Vosne-Romanée and 2015 Aubert UV Vineyard.",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1vho0ni/2017_grivot_vosneromanée_and_2015_aubert_uv/",
+      "score": 1,
+      "comments": 0,
+      "ago": "Yesterday"
     }
   ],
-  "fetchedAt": "2026-08-07T07:51:46.552Z",
+  "nyc": [],
+  "fetchedAt": "2026-08-08T07:28:19.096Z",
   "stats": {
-    "winePostsFound": 0,
-    "nycPostsFound": 2,
-    "totalCandidatesWine": 0,
+    "winePostsFound": 8,
+    "nycPostsFound": 0,
+    "totalCandidatesWine": 25,
     "totalCandidatesNyc": 25
   }
 }
