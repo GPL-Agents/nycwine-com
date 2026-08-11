@@ -1,100 +1,11 @@
 {
-  "wine": [
-    {
-      "title": "2018 Rivers-Marie Silver Eagle Vineyard Pinot Noir",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vk14yi/2018_riversmarie_silver_eagle_vineyard_pinot_noir/",
-      "score": 91,
-      "comments": 0,
-      "ago": "11h ago"
-    },
-    {
-      "title": "Best place to get custom wine bags in bulk? Any recommendations? Tyia :)",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vke6wl/best_place_to_get_custom_wine_bags_in_bulk_any/",
-      "score": 1,
-      "comments": 0,
-      "ago": "Just now"
-    },
-    {
-      "title": "1997 Wine that shouldn't have made it to 2026 but somehow did.",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vkd2mu/1997_wine_that_shouldnt_have_made_it_to_2026_but/",
-      "score": 1,
-      "comments": 0,
-      "ago": "1h ago"
-    },
-    {
-      "title": "Heading to Dr. Konstantin Frank & Hermann J. Wiemer Vineyard in the Finger Lakes for a quick trip.",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vk7d1o/heading_to_dr_konstantin_frank_hermann_j_wiemer/",
-      "score": 1,
-      "comments": 0,
-      "ago": "6h ago"
-    },
-    {
-      "title": "2024 Maison Barboulot Cabernet-Syra",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vk6b7j/2024_maison_barboulot_cabernetsyra/",
-      "score": 1,
-      "comments": 0,
-      "ago": "7h ago"
-    },
-    {
-      "title": "2017 Sequoia Grove Rutherford Bench Reserve Cabernet Sauvignon",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vk5n0v/2017_sequoia_grove_rutherford_bench_reserve/",
-      "score": 1,
-      "comments": 0,
-      "ago": "7h ago"
-    },
-    {
-      "title": "Nickolaihof 2002 riesling vinothek fullung",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vk1fpi/nickolaihof_2002_riesling_vinothek_fullung/",
-      "score": 1,
-      "comments": 0,
-      "ago": "11h ago"
-    },
-    {
-      "title": "Emrich-Schönleber Riesling Trocken “Mineral” 2023",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vk0dx6/emrichschönleber_riesling_trocken_mineral_2023/",
-      "score": 1,
-      "comments": 0,
-      "ago": "11h ago"
-    },
-    {
-      "title": "Looking for wine tasting groups — Milan, Toulouse, Barcelona (late Aug)",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vjyhxl/looking_for_wine_tasting_groups_milan_toulouse/",
-      "score": 1,
-      "comments": 0,
-      "ago": "12h ago"
-    },
-    {
-      "title": "Historic Riesling",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vjy2cb/historic_riesling/",
-      "score": 1,
-      "comments": 0,
-      "ago": "13h ago"
-    },
-    {
-      "title": "Worst wine I’ve ever had in my entire life. Vomit worthy.",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vjezn5/worst_wine_ive_ever_had_in_my_entire_life_vomit/",
-      "score": 1,
-      "comments": 0,
-      "ago": "Yesterday"
-    }
-  ],
+  "wine": [],
   "nyc": [],
-  "fetchedAt": "2026-08-10T08:13:07.301Z",
+  "fetchedAt": "2026-08-11T07:45:10.232Z",
   "stats": {
-    "winePostsFound": 11,
+    "winePostsFound": 0,
     "nycPostsFound": 0,
-    "totalCandidatesWine": 25,
+    "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
 }
