@@ -1,10 +1,19 @@
 {
   "wine": [],
-  "nyc": [],
-  "fetchedAt": "2026-08-11T07:45:10.232Z",
+  "nyc": [
+    {
+      "title": "After looking at every menu on restaurant week I felt like Chazz palminteri had great choices from appetizers, entrees and desserts",
+      "subreddit": "r/FoodNYC",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1vlltkg/after_looking_at_every_menu_on_restaurant_week_i/",
+      "score": 1,
+      "comments": 0,
+      "ago": "15h ago"
+    }
+  ],
+  "fetchedAt": "2026-08-12T07:58:58.123Z",
   "stats": {
     "winePostsFound": 0,
-    "nycPostsFound": 0,
+    "nycPostsFound": 1,
     "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
