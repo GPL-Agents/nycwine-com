@@ -1,11 +1,84 @@
 {
-  "wine": [],
+  "wine": [
+    {
+      "title": "What is the point of aged wine?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1vplmla/what_is_the_point_of_aged_wine/",
+      "score": 1,
+      "comments": 0,
+      "ago": "4h ago"
+    },
+    {
+      "title": "Papa roc red blend, 60% tannat and 40% Cabernet Sauvignon. It’s pretty good even room temp",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1vpldnz/papa_roc_red_blend_60_tannat_and_40_cabernet/",
+      "score": 1,
+      "comments": 0,
+      "ago": "4h ago"
+    },
+    {
+      "title": "2023 Barnett Vineyards Merlot",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1vpkeqk/2023_barnett_vineyards_merlot/",
+      "score": 1,
+      "comments": 0,
+      "ago": "5h ago"
+    },
+    {
+      "title": "My first Hirsch Pinot Noir",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1vpk2it/my_first_hirsch_pinot_noir/",
+      "score": 1,
+      "comments": 0,
+      "ago": "5h ago"
+    },
+    {
+      "title": "1996 Cakebread Cabernet",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1vpfiuy/1996_cakebread_cabernet/",
+      "score": 1,
+      "comments": 0,
+      "ago": "9h ago"
+    },
+    {
+      "title": "Castello di Amorosa Melanson Vineyard Cabernet Sauvignon 2021, Napa Valley",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1vpdx6t/castello_di_amorosa_melanson_vineyard_cabernet/",
+      "score": 1,
+      "comments": 0,
+      "ago": "10h ago"
+    },
+    {
+      "title": "Chateau Musar rosé 2020",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1vpd7rs/chateau_musar_rosé_2020/",
+      "score": 1,
+      "comments": 0,
+      "ago": "10h ago"
+    },
+    {
+      "title": "What are your telltale signs of a good/bad wine bar?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1vp814b/what_are_your_telltale_signs_of_a_goodbad_wine_bar/",
+      "score": 1,
+      "comments": 0,
+      "ago": "14h ago"
+    },
+    {
+      "title": "outcome of a pasta and wine pairing project",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1voqavd/outcome_of_a_pasta_and_wine_pairing_project/",
+      "score": 1,
+      "comments": 0,
+      "ago": "Yesterday"
+    }
+  ],
   "nyc": [],
-  "fetchedAt": "2026-08-15T07:06:17.368Z",
+  "fetchedAt": "2026-08-16T07:08:16.282Z",
   "stats": {
-    "winePostsFound": 0,
+    "winePostsFound": 9,
     "nycPostsFound": 0,
-    "totalCandidatesWine": 0,
-    "totalCandidatesNyc": 0
+    "totalCandidatesWine": 25,
+    "totalCandidatesNyc": 25
   }
 }
