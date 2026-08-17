@@ -1659,6 +1659,58 @@ body {
   background-position: center;
   background-color: var(--cream);
 }
+
+/* --- Fallback tile for events with no image -------------------------------
+   Events submitted straight to NYCWine (Le Du's Saturday tastings, etc.)
+   carry no image, so events.js used to omit the image column entirely and
+   those cards rendered noticeably narrower than the Eventbrite ones.
+   This tile fills the same 140px column with a branded panel instead:
+   a soft pink wash, the wine-glass icon, and the event's tag. No image
+   file is fetched, so it can never 404 and it needs no new assets. */
+.events-page-card-img-fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background-image: linear-gradient(150deg, #fdf3f7 0%, #f7e4ee 55%, #f2d7e6 100%);
+  border-right: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle diagonal sheen so a column of these does not read as flat blocks. */
+.events-page-card-img-fallback::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0) 45%);
+  pointer-events: none;
+}
+
+.event-fallback-icon {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  opacity: 0.85;
+}
+
+.event-fallback-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--pink);
+  opacity: 0.9;
+  text-align: center;
+  line-height: 1.2;
+  padding: 0 6px;
+}
+
+@media (max-width: 600px) {
+  .event-fallback-icon { width: 26px; height: 26px; }
+  .event-fallback-label { font-size: 9px; }
+}
 .events-page-card-info {
   display: flex;
   flex: 1;

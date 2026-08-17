@@ -43,9 +43,22 @@ function EventMapBtn({ venue, address }) {
 
 const FILTERS = ['All', 'Tasting', 'Class', 'Dinner', 'Event', 'Festival', 'Auctions'];
 
+// Keep in sync with the copy in pages/api/events.js.
+// Two things matter here, both of which were broken:
+//   1. Scraped URLs arrive HTML-escaped (&amp;w=940). Eventbrite's image
+//      endpoint answers HTTP 400 for those, so decode entities first.
+//   2. The _next/image unwrap has to run BEFORE the absolute-URL shortcut.
+//      Eventbrite proxy URLs are absolute, so returning early on
+//      startsWith('https://') made the unwrap branch unreachable.
 function fixImageUrl(url) {
   if (!url) return null;
-  if (url.startsWith('https://')) return url;
+
+  url = url
+    .replace(/&amp;/g, '&')
+    .replace(/&#38;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#x2F;/gi, '/');
+
   if (url.includes('_next/image') && url.includes('url=')) {
     try {
       const match = url.match(/url=([^&]+)/);
@@ -55,6 +68,7 @@ function fixImageUrl(url) {
       }
     } catch { /* fall through */ }
   }
+  if (url.startsWith('https://')) return url;
   if (url.startsWith('/')) return `https://www.eventbrite.com${url}`;
   return url;
 }
@@ -135,11 +149,27 @@ export default function EventsPage() {
                   target={ev.url ? '_blank' : undefined}
                   rel={ev.url ? 'noopener noreferrer' : undefined}
                 >
-                  {img && (
+                  {img ? (
                     <div
                       className="events-page-card-img"
                       style={{ backgroundImage: `url(${img})` }}
                     />
+                  ) : (
+                    /* Events submitted directly to NYCWine have no image.
+                       Render a branded tile rather than dropping the column,
+                       which left those cards visibly narrower than the rest. */
+                    <div
+                      className="events-page-card-img events-page-card-img-fallback"
+                      data-tag={ev.tag}
+                      aria-hidden="true"
+                    >
+                      <img
+                        src="/images/icons/icon-wine-events.png"
+                        alt=""
+                        className="event-fallback-icon"
+                      />
+                      <span className="event-fallback-label">{ev.tag}</span>
+                    </div>
                   )}
                   <div className="events-page-card-info">
                     <div className="events-page-card-date">

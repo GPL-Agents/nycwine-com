@@ -138,7 +138,20 @@ const COLORS = ['c1', 'c2', 'c3', 'c4', 'c5'];
 // path must stay percent-encoded for img.evbuc.com to work).
 function fixImageUrl(url) {
   if (!url) return null;
-  if (url.startsWith('https://')) return url;  // already absolute
+
+  // Scraped og:image / JSON-LD values arrive HTML-escaped, e.g.
+  //   ...&s=6eff9153&amp;w=940&amp;q=75
+  // Eventbrite's image endpoint returns HTTP 400 for those, because it
+  // sees a param called "amp;w" instead of "w". Decode entities first.
+  url = url
+    .replace(/&amp;/g, '&')
+    .replace(/&#38;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#x2F;/gi, '/');
+
+  // Unwrap BEFORE the absolute-URL shortcut below. Eventbrite's proxy URLs
+  // are themselves absolute (https://www.eventbrite.com/e/_next/image?...),
+  // so checking startsWith('https://') first made this branch unreachable.
   if (url.includes('_next/image') && url.includes('url=')) {
     try {
       const match = url.match(/url=([^&]+)/);
@@ -148,6 +161,7 @@ function fixImageUrl(url) {
       }
     } catch { /* fall through */ }
   }
+  if (url.startsWith('https://')) return url;  // already absolute
   if (url.startsWith('/')) return `https://www.eventbrite.com${url}`;
   return url;
 }
