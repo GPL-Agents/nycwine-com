@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-10T09:05:01.081Z",
+  "fetchedAt": "2026-08-17T08:29:21.883Z",
   "source": "YouTube",
   "sourceUrl": "https://www.youtube.com/results?search_query=NYC+wine",
   "videos": [
@@ -26,18 +26,9 @@
       "title": "Only Georgian Restaurant Participating in New York City Wine and Food Festival 2025! #nycwff",
       "channelTitle": "Chito Gvrito NYC",
       "publishedAt": "2025-10-11T19:33:52Z",
-      "publishedRelative": "9mo ago",
+      "publishedRelative": "10mo ago",
       "thumbnail": "https://i.ytimg.com/vi/DAs6-f70x5A/mqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=DAs6-f70x5A"
-    },
-    {
-      "videoId": "RXsDxS4pRAw",
-      "title": "NYC's Sauced Has the Blueprint for a New Kind of Wine Bar | I Know a Place",
-      "channelTitle": "InsideHook",
-      "publishedAt": "2025-11-10T12:01:02Z",
-      "publishedRelative": "8mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/RXsDxS4pRAw/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=RXsDxS4pRAw"
     },
     {
       "videoId": "8QRUBFiCKpo",
@@ -49,6 +40,15 @@
       "url": "https://www.youtube.com/watch?v=8QRUBFiCKpo"
     },
     {
+      "videoId": "RXsDxS4pRAw",
+      "title": "NYC's Sauced Has the Blueprint for a New Kind of Wine Bar | I Know a Place",
+      "channelTitle": "InsideHook",
+      "publishedAt": "2025-11-10T12:01:02Z",
+      "publishedRelative": "9mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/RXsDxS4pRAw/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=RXsDxS4pRAw"
+    },
+    {
       "videoId": "6sdbfdz8564",
       "title": "BEST WINE BAR IN NYC? INTERVIEW WITH @supervinobros",
       "channelTitle": "Beli App",
@@ -58,22 +58,22 @@
       "url": "https://www.youtube.com/watch?v=6sdbfdz8564"
     },
     {
-      "videoId": "dW3LuXo4XZE",
-      "title": "In NYC for Work? A World-Class Wine Bar You Can Expense | I Know A Place",
-      "channelTitle": "InsideHook",
-      "publishedAt": "2025-12-30T12:01:16Z",
-      "publishedRelative": "7mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/dW3LuXo4XZE/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=dW3LuXo4XZE"
-    },
-    {
       "videoId": "Hl5XNBEBDoo",
       "title": "Manhattan Wine Auction Installation",
       "channelTitle": "Manhattan Beach Education Foundation",
       "publishedAt": "2026-06-15T22:20:24Z",
-      "publishedRelative": "1mo ago",
+      "publishedRelative": "2mo ago",
       "thumbnail": "https://i.ytimg.com/vi/Hl5XNBEBDoo/mqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=Hl5XNBEBDoo"
+    },
+    {
+      "videoId": "OnTwaowAgVs",
+      "title": "New York City Wine & Food Festival | October 15-19, 2025",
+      "channelTitle": "New York City Wine & Food Festival",
+      "publishedAt": "2025-09-03T20:44:28Z",
+      "publishedRelative": "11mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/OnTwaowAgVs/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=OnTwaowAgVs"
     },
     {
       "videoId": "ocRGisyE9Vs",
@@ -85,6 +85,15 @@
       "url": "https://www.youtube.com/watch?v=ocRGisyE9Vs"
     },
     {
+      "videoId": "dW3LuXo4XZE",
+      "title": "In NYC for Work? A World-Class Wine Bar You Can Expense | I Know A Place",
+      "channelTitle": "InsideHook",
+      "publishedAt": "2025-12-30T12:01:16Z",
+      "publishedRelative": "7mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/dW3LuXo4XZE/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=dW3LuXo4XZE"
+    },
+    {
       "videoId": "1_0st43j2jk",
       "title": "Enjoy a movie at this cozy and intimate wine bar & bookstore!",
       "channelTitle": "Picture Perfect Luis",
@@ -92,15 +101,6 @@
       "publishedRelative": "1y ago",
       "thumbnail": "https://i.ytimg.com/vi/1_0st43j2jk/mqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=1_0st43j2jk"
-    },
-    {
-      "videoId": "OnTwaowAgVs",
-      "title": "New York City Wine & Food Festival | October 15-19, 2025",
-      "channelTitle": "New York City Wine & Food Festival",
-      "publishedAt": "2025-09-03T20:44:28Z",
-      "publishedRelative": "11mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/OnTwaowAgVs/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=OnTwaowAgVs"
     },
     {
       "videoId": "YEH9-ZYs5GU",
@@ -121,13 +121,13 @@
       "url": "https://www.youtube.com/watch?v=xMcaDhbeXos"
     },
     {
-      "videoId": "HPnBijrtkts",
-      "title": "NYC Wine and Food Festival",
-      "channelTitle": "Friends, After 40 Podcast",
-      "publishedAt": "2024-11-16T18:51:29Z",
-      "publishedRelative": "1y ago",
-      "thumbnail": "https://i.ytimg.com/vi/HPnBijrtkts/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=HPnBijrtkts"
+      "videoId": "kXn2oHhzJ-U",
+      "title": "New York City Wine and Food Festival ( NYCWFF ) Preview",
+      "channelTitle": "FoodPhone",
+      "publishedAt": "2025-10-15T06:07:43Z",
+      "publishedRelative": "10mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/kXn2oHhzJ-U/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=kXn2oHhzJ-U"
     },
     {
       "videoId": "161jG-QQTJg",
@@ -148,22 +148,22 @@
       "url": "https://www.youtube.com/watch?v=0cZRj4IcY0A"
     },
     {
-      "videoId": "kXn2oHhzJ-U",
-      "title": "New York City Wine and Food Festival ( NYCWFF ) Preview",
-      "channelTitle": "FoodPhone",
-      "publishedAt": "2025-10-15T06:07:43Z",
-      "publishedRelative": "9mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/kXn2oHhzJ-U/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=kXn2oHhzJ-U"
+      "videoId": "NFxn81bpt2s",
+      "title": "High Notes NYC By Fine Wine Series (2025)",
+      "channelTitle": "Fine Wine Series",
+      "publishedAt": "2025-04-09T17:44:27Z",
+      "publishedRelative": "1y ago",
+      "thumbnail": "https://i.ytimg.com/vi/NFxn81bpt2s/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=NFxn81bpt2s"
     },
     {
-      "videoId": "pqS8zL8W5bo",
-      "title": "The Hottest \"Break The Mold\" Wine Bar Is On This Hidden Chinatown Street | I Know A Place",
-      "channelTitle": "InsideHook",
-      "publishedAt": "2026-03-31T13:00:00Z",
-      "publishedRelative": "4mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/pqS8zL8W5bo/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=pqS8zL8W5bo"
+      "videoId": "Ku4NUOMA0h0",
+      "title": "15 of the Best Wine Bar Snacks in NYC",
+      "channelTitle": "Unique Gift Presentations",
+      "publishedAt": "2026-03-11T14:29:14Z",
+      "publishedRelative": "5mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/Ku4NUOMA0h0/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=Ku4NUOMA0h0"
     },
     {
       "videoId": "eleUl4CpwLk",
@@ -175,13 +175,13 @@
       "url": "https://www.youtube.com/watch?v=eleUl4CpwLk"
     },
     {
-      "videoId": "nw9FmYzcQqA",
-      "title": "Wine Window 🍷 in #timessquare ??#nyc #wine #nycvlog #newyork #winelovers #winelover #newyorkcity",
-      "channelTitle": "Trips and Sips",
-      "publishedAt": "2025-10-11T01:01:01Z",
-      "publishedRelative": "9mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/nw9FmYzcQqA/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=nw9FmYzcQqA"
+      "videoId": "L8r6vIjfpOk",
+      "title": "Everything ordered was incredible #winebar #nyc",
+      "channelTitle": "Stephan Fisher",
+      "publishedAt": "2025-05-20T01:22:16Z",
+      "publishedRelative": "1y ago",
+      "thumbnail": "https://i.ytimg.com/vi/L8r6vIjfpOk/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=L8r6vIjfpOk"
     }
   ]
 }
