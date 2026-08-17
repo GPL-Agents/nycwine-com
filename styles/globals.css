@@ -4780,6 +4780,27 @@ body {
   overflow: hidden;
 }
 
+/* --- Blog listing page: image framing ------------------------------------
+   The shared .blog-card-img rule above uses a fixed 220px band with
+   object-position:top. On the /blog listing the card is ~1030px wide, so
+   that band is a ~4.7:1 slot and crops a 3:2 source photo down to roughly
+   the top 32% of its height -- which is why several posts showed only sky
+   or only a dark lower band.
+
+   Here we give the listing cards a 16:9 box and center the crop, so a 3:2
+   photo shows ~85% of its height with the subject in frame. Scoped to
+   .blog-post-list so the homepage BlogSection cards are unaffected.
+   To make the band shorter, change 16 / 9 to e.g. 5 / 2. */
+.blog-post-list .blog-card-img {
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
+.blog-post-list .blog-card-img img {
+  height: 100%;
+  object-position: center center;
+}
+
 .blog-card-body {
   padding: 20px 24px 24px;
 }
