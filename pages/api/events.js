@@ -128,6 +128,39 @@ function enrichVenueFromDB(venue) {
   return { venue, venueAddress: null };
 }
 
+// ── Venue logo lookup (placeholder tile only) ─────────────────
+// Deliberately separate from enrichVenueFromDB: this returns nothing but a
+// logo path, so it cannot alter a venue name, address, or any event image.
+// It exists only to fill the placeholder tile shown for events that have no
+// image of their own.
+//
+// Accent-insensitive on purpose. The curated feed sends "Le Dû's Wines" while
+// public/data/wine-stores.json stores "Le Du's Wines", so a plain comparison
+// misses -- which is exactly why the logo never appeared.
+function foldName(s) {
+  return (s || '')
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')  // Dû -> Du
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')                        // drop ' . , & etc.
+    .trim();
+}
+
+function venueLogoFor(venueName) {
+  const q = foldName(venueName);
+  if (!q) return null;
+  const { all } = loadVenueDB();
+
+  let fuzzy = null;
+  for (const v of all) {
+    if (!v.logo) continue;
+    const n = foldName(v.name);
+    if (!n) continue;
+    if (n === q) return v.logo;                          // exact wins outright
+    if (!fuzzy && (q.includes(n) || n.includes(q))) fuzzy = v.logo;
+  }
+  return fuzzy;
+}
+
 // ── Color cycling for cards without images ────────────────────
 const COLORS = ['c1', 'c2', 'c3', 'c4', 'c5'];
 
@@ -611,6 +644,11 @@ async function readSubmittedEvents() {
       month:        formatMonth(ev.date),
       tag:          getTag(ev.title || ''),
       dateDisplay:  formatDateDisplay(ev.date),
+      // Curated events carry no image, so they render the placeholder tile.
+      // Look up the venue's own logo (already stored in public/data/*.json)
+      // to put inside that tile. This only ever feeds the placeholder --
+      // no event that has its own image is affected.
+      venueLogo:    venueLogoFor(ev.venue),
       source:       'NYCWine',
     }));
   } catch (err) {

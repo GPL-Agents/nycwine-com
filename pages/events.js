@@ -155,18 +155,28 @@ export default function EventsPage() {
                       style={{ backgroundImage: `url(${img})` }}
                     />
                   ) : (
-                    /* Events submitted directly to NYCWine have no image.
-                       Render a branded tile rather than dropping the column,
-                       which left those cards visibly narrower than the rest. */
+                    /* Events submitted directly to NYCWine have no image of
+                       their own, so they fall back to this tile. Inside it we
+                       prefer the venue's real logo (ev.venueLogo, from
+                       public/data/*.json) and drop back to the generic
+                       wine-glass icon only when the venue has no logo on file.
+                       If the logo URL fails to load we swap to the generic
+                       icon at runtime rather than showing a broken image. */
                     <div
-                      className="events-page-card-img events-page-card-img-fallback"
+                      className={`events-page-card-img events-page-card-img-fallback${
+                        ev.venueLogo ? ' has-venue-logo' : ''
+                      }`}
                       data-tag={ev.tag}
-                      aria-hidden="true"
                     >
                       <img
-                        src="/images/icons/icon-wine-events.png"
-                        alt=""
-                        className="event-fallback-icon"
+                        src={ev.venueLogo || '/images/icons/icon-wine-events.png'}
+                        alt={ev.venueLogo ? `${ev.venue} logo` : ''}
+                        className={ev.venueLogo ? 'event-venue-logo' : 'event-fallback-icon'}
+                        loading="lazy"
+                        onError={(e) => {
+                          e.target.src = '/images/icons/icon-wine-events.png';
+                          e.target.className = 'event-fallback-icon';
+                        }}
                       />
                       <span className="event-fallback-label">{ev.tag}</span>
                     </div>
