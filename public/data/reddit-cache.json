@@ -1,101 +1,20 @@
 {
-  "wine": [
-    {
-      "title": "Heavy pours of shitty wine abroad!",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vv48kk/heavy_pours_of_shitty_wine_abroad/",
-      "score": 1,
-      "comments": 0,
-      "ago": "1h ago"
-    },
-    {
-      "title": "Suggestions for Starter Glassware? Riedel Wine Friendly vs Zwiesel Echo / Glas Pure Red",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vv3vpu/suggestions_for_starter_glassware_riedel_wine/",
-      "score": 1,
-      "comments": 0,
-      "ago": "1h ago"
-    },
-    {
-      "title": "Col Solare Cabernet Sauvignon 2021",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vuzi71/col_solare_cabernet_sauvignon_2021/",
-      "score": 1,
-      "comments": 0,
-      "ago": "5h ago"
-    },
-    {
-      "title": "Kalin Cellars Potter Valley 1998 Chardonnay.",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vuyn7k/kalin_cellars_potter_valley_1998_chardonnay/",
-      "score": 1,
-      "comments": 0,
-      "ago": "5h ago"
-    },
-    {
-      "title": "I fear my Pinot Noir awakening has started.",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vuwslj/i_fear_my_pinot_noir_awakening_has_started/",
-      "score": 1,
-      "comments": 0,
-      "ago": "7h ago"
-    },
-    {
-      "title": "Harvest 2026 Bordeaux",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vuuddd/harvest_2026_bordeaux/",
-      "score": 1,
-      "comments": 0,
-      "ago": "8h ago"
-    },
-    {
-      "title": "Got my first premium bottle of wine",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vup1jb/got_my_first_premium_bottle_of_wine/",
-      "score": 1,
-      "comments": 0,
-      "ago": "12h ago"
-    },
-    {
-      "title": "Wine pairing with vegan mushroom stroganoff",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vun4dh/wine_pairing_with_vegan_mushroom_stroganoff/",
-      "score": 1,
-      "comments": 0,
-      "ago": "13h ago"
-    },
-    {
-      "title": "Oregon Chardonnay Triple Threat",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vukck4/oregon_chardonnay_triple_threat/",
-      "score": 1,
-      "comments": 0,
-      "ago": "15h ago"
-    },
-    {
-      "title": "thoughts on english wine?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vu9jzp/thoughts_on_english_wine/",
-      "score": 1,
-      "comments": 0,
-      "ago": "23h ago"
-    }
-  ],
+  "wine": [],
   "nyc": [
     {
-      "title": "Wine stores make me question my sanity",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1vuzmgn/wine_stores_make_me_question_my_sanity/",
+      "title": "Gramercy Tavern Restaurant Week is the most worth it.",
+      "subreddit": "r/FoodNYC",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1vuyxno/gramercy_tavern_restaurant_week_is_the_most_worth/",
       "score": 1,
       "comments": 0,
-      "ago": "5h ago"
+      "ago": "Yesterday"
     }
   ],
-  "fetchedAt": "2026-08-22T07:09:01.930Z",
+  "fetchedAt": "2026-08-23T07:10:08.679Z",
   "stats": {
-    "winePostsFound": 10,
+    "winePostsFound": 0,
     "nycPostsFound": 1,
-    "totalCandidatesWine": 25,
+    "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
 }
