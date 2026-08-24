@@ -1,19 +1,10 @@
 {
   "wine": [],
-  "nyc": [
-    {
-      "title": "Gramercy Tavern Restaurant Week is the most worth it.",
-      "subreddit": "r/FoodNYC",
-      "url": "https://www.reddit.com/r/FoodNYC/comments/1vuyxno/gramercy_tavern_restaurant_week_is_the_most_worth/",
-      "score": 1,
-      "comments": 0,
-      "ago": "Yesterday"
-    }
-  ],
-  "fetchedAt": "2026-08-23T07:10:08.679Z",
+  "nyc": [],
+  "fetchedAt": "2026-08-24T07:36:19.614Z",
   "stats": {
     "winePostsFound": 0,
-    "nycPostsFound": 1,
+    "nycPostsFound": 0,
     "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
