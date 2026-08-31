@@ -111,6 +111,75 @@ export default function SocialSection() {
       .catch(() => setLoading(false));
   }, []);
 
+  // ── Dedupe Elfsight Instagram widget (2026-08-31, v2) ──────────
+  // The widget pulls from multiple overlapping sources (account +
+  // hashtags), so the same post can render once per matching source.
+  // Remove a post tile ONLY when a DIFFERENT tile with the same
+  // Instagram permalink already exists. A single tile often contains
+  // several links to its own post (image + caption) -- those are left
+  // untouched (that's the bug that wiped the feed this morning).
+  // Logic unit-tested in tmp/dedupe-test.js against jsdom fixtures.
+  useEffect(() => {
+    const WIDGET_SELECTOR = '.elfsight-app-5c219adb-d249-478a-a3da-e1d087a08843';
+
+    const dedupe = () => {
+      const root = document.querySelector(WIDGET_SELECTOR);
+      if (!root) return;
+
+      // Gather instagram anchors from light DOM + any shadow roots.
+      const collect = (scope) => {
+        let anchors = Array.from(scope.querySelectorAll('a[href*="instagram.com"]'));
+        scope.querySelectorAll('*').forEach((el) => {
+          if (el.shadowRoot) anchors = anchors.concat(collect(el.shadowRoot));
+        });
+        return anchors;
+      };
+
+      const seen = new Map(); // permalink key -> kept tile element
+
+      collect(root).forEach((a) => {
+        const m = (a.getAttribute('href') || '').match(/instagram\.com\/(p|reel|tv)\/([A-Za-z0-9_-]+)/);
+        if (!m) return;
+        const key = m[1] + '/' + m[2];
+
+        // Tile = post container. Elfsight IG feed tiles ARE anchors
+        // (eapps-instagram-feed-posts-item); Social Feed tiles are divs
+        // (eapps-social-feed-item). Fall back to the anchor itself.
+        const tile = a.closest('[class*="item"]') || a;
+
+        if (seen.has(key)) {
+          const keptTile = seen.get(key);
+          // Safety: same tile, tile nested inside kept tile, or kept
+          // tile nested inside this tile => not a true duplicate.
+          if (keptTile === tile || keptTile.contains(a) || tile.contains(keptTile)) return;
+          tile.remove();
+        } else {
+          seen.set(key, tile);
+        }
+      });
+    };
+
+    // Run after the lazy widget has had time to render, and keep
+    // watching in case Elfsight appends more posts (load-more).
+    const timers = [800, 2000, 4000, 8000].map((t) => setTimeout(dedupe, t));
+
+    let observer = null;
+    const obsTimer = setInterval(() => {
+      const root = document.querySelector(WIDGET_SELECTOR);
+      if (root) {
+        observer = new MutationObserver(() => dedupe());
+        observer.observe(root, { childList: true, subtree: true });
+        clearInterval(obsTimer);
+      }
+    }, 500);
+
+    return () => {
+      timers.forEach(clearTimeout);
+      clearInterval(obsTimer);
+      if (observer) observer.disconnect();
+    };
+  }, []);
+
   return (
     <section className="social-section" id="sec-social">
 
