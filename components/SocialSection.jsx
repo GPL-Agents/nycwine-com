@@ -163,6 +163,12 @@ export default function SocialSection() {
     // watching in case Elfsight appends more posts (load-more).
     const timers = [800, 2000, 4000, 8000].map((t) => setTimeout(dedupe, t));
 
+    // Periodic sweep for the first 60s: the widget is lazy-loaded
+    // (data-elfsight-app-lazy), so posts may render after the timers
+    // above have already fired. Dedupe is idempotent, so re-running is
+    // harmless -- a no-op when nothing needs removing.
+    const sweeps = [12, 20, 30, 45, 60].map((t) => setTimeout(dedupe, t * 1000));
+
     let observer = null;
     const obsTimer = setInterval(() => {
       const root = document.querySelector(WIDGET_SELECTOR);
@@ -175,6 +181,7 @@ export default function SocialSection() {
 
     return () => {
       timers.forEach(clearTimeout);
+      sweeps.forEach(clearTimeout);
       clearInterval(obsTimer);
       if (observer) observer.disconnect();
     };
