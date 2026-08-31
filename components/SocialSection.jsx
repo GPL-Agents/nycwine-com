@@ -111,6 +111,70 @@ export default function SocialSection() {
       .catch(() => setLoading(false));
   }, []);
 
+  // ── Dedupe Elfsight Instagram widget (2026-08-31) ─────────────
+  // The Elfsight feed is configured with multiple overlapping sources
+  // (account + hashtags), so the same post can render once per matching
+  // source. Strip duplicates by Instagram permalink after the widget
+  // renders, and keep watching so lazy-loaded / "load more" posts are
+  // deduped too.
+  useEffect(() => {
+    const WIDGET_SELECTOR = '.elfsight-app-5c219adb-d249-478a-a3da-e1d087a08843';
+
+    const dedupe = () => {
+      const root = document.querySelector(WIDGET_SELECTOR);
+      if (!root) return;
+
+      // Some Elfsight builds render inside a shadow root; collect all
+      // instagram anchors from both the light DOM and any shadow roots.
+      const collectAnchors = (scope) => {
+        let anchors = Array.from(scope.querySelectorAll('a[href*="instagram.com"]'));
+        scope.querySelectorAll('*').forEach((el) => {
+          if (el.shadowRoot) {
+            anchors = anchors.concat(collectAnchors(el.shadowRoot));
+          }
+        });
+        return anchors;
+      };
+
+      const seen = new Set();
+      collectAnchors(root).forEach((a) => {
+        const href = a.getAttribute('href') || '';
+        const m = href.match(/instagram\.com\/(p|reel|tv)\/([A-Za-z0-9_-]+)/);
+        if (!m) return;
+        const key = m[1] + '/' + m[2];
+
+        if (seen.has(key)) {
+          // Remove the duplicate post. Elfsight item anchors carry
+          // "item"/"post" classes; fall back to the anchor itself.
+          const item = a.closest('[class*="item"], [class*="post"]') || a;
+          if (item && item.parentNode) item.remove();
+        } else {
+          seen.add(key);
+        }
+      });
+    };
+
+    // Run after the widget has had time to render (it loads lazily).
+    const timers = [800, 2000, 4000, 8000].map((t) => setTimeout(dedupe, t));
+
+    // Keep watching the container in case Elfsight appends more posts.
+    let observer = null;
+    const obsTimer = setInterval(() => {
+      const root = document.querySelector(WIDGET_SELECTOR);
+      if (root) {
+        observer = new MutationObserver(() => dedupe());
+        observer.observe(root, { childList: true, subtree: true });
+        clearInterval(obsTimer);
+      }
+    }, 500);
+
+    return () => {
+      timers.forEach(clearTimeout);
+      clearInterval(obsTimer);
+      if (observer) observer.disconnect();
+    };
+  }, []);
+
   return (
     <section className="social-section" id="sec-social">
 
