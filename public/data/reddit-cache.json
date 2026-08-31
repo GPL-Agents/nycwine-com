@@ -1,19 +1,10 @@
 {
   "wine": [],
-  "nyc": [
-    {
-      "title": "Looking for recommendations for a group birthday dinner",
-      "subreddit": "r/FoodNYC",
-      "url": "https://www.reddit.com/r/FoodNYC/comments/1w1ycd2/looking_for_recommendations_for_a_group_birthday/",
-      "score": 1,
-      "comments": 0,
-      "ago": "14h ago"
-    }
-  ],
-  "fetchedAt": "2026-08-30T12:07:12.718Z",
+  "nyc": [],
+  "fetchedAt": "2026-08-31T14:16:10.859Z",
   "stats": {
     "winePostsFound": 0,
-    "nycPostsFound": 1,
+    "nycPostsFound": 0,
     "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
