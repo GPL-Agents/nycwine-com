@@ -10,7 +10,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import QuickNav from '../components/QuickNav';
 import WineVideosSidebar from '../components/WineVideosSidebar';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 // Inline map opener for use inside <a> cards (avoids nested <a> tags)
 function EventMapBtn({ venue, address }) {
@@ -42,6 +42,37 @@ function EventMapBtn({ venue, address }) {
 }
 
 const FILTERS = ['All', 'Tasting', 'Class', 'Dinner', 'Event', 'Festival', 'Auctions'];
+
+// AdSense multiplex ad (unit: Right Side Events) — sidebar slot where the
+// static Acker banner used to be.
+function SidebarMultiplexAd() {
+  const adRef = useRef(null);
+  const pushed = useRef(false);
+
+  useEffect(() => {
+    if (!pushed.current && adRef.current && typeof window !== 'undefined') {
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+        pushed.current = true;
+      } catch (e) {
+        console.warn('AdSense push error:', e);
+      }
+    }
+  }, []);
+
+  return (
+    <div className="sidebar-ad-link">
+      <ins
+        className="adsbygoogle"
+        style={{ display: 'block' }}
+        data-ad-format="autorelaxed"
+        data-ad-client="ca-pub-6782277104310503"
+        data-ad-slot="1265745785"
+        ref={adRef}
+      />
+    </div>
+  );
+}
 
 // Keep in sync with the copy in pages/api/events.js.
 // Two things matter here, both of which were broken:
@@ -225,19 +256,8 @@ export default function EventsPage() {
               </div>
             </Link>
             <WineVideosSidebar />
-            {/* Acker Wines ad below videos */}
-            <a
-              href="https://www.ackerwines.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="sidebar-ad-link"
-            >
-              <img
-                src="/images/acker.ad.events.png"
-                alt="Acker Wines — Top 10 World's Most Iconic Wine Shops — 160 W 72nd St, NYC"
-                className="sidebar-ad-img"
-              />
-            </a>
+            {/* AdSense multiplex ad (Right Side Events) below videos */}
+            <SidebarMultiplexAd />
           </div>
         </div>
       </main>

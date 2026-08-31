@@ -12,35 +12,36 @@
 import { useState, useEffect, useRef } from 'react';
 import WineVideosSidebar from './WineVideosSidebar';
 
-// TODO: Uncomment MultiplexAd once Google AdSense is approved
-// function MultiplexAd() {
-//   const adRef = useRef(null);
-//   const pushed = useRef(false);
-//
-//   useEffect(() => {
-//     if (!pushed.current && adRef.current && typeof window !== 'undefined') {
-//       try {
-//         (window.adsbygoogle = window.adsbygoogle || []).push({});
-//         pushed.current = true;
-//       } catch (e) {
-//         console.warn('AdSense push error:', e);
-//       }
-//     }
-//   }, []);
-//
-//   return (
-//     <div className="event-multiplex-ad">
-//       <ins
-//         className="adsbygoogle"
-//         style={{ display: 'block' }}
-//         data-ad-format="autorelaxed"
-//         data-ad-client="ca-pub-6782277104310503"
-//         data-ad-slot="1265745785"
-//         ref={adRef}
-//       />
-//     </div>
-//   );
-// }
+// Multiplex ad (AdSense unit: Right Side Events) — rendered below the
+// events list where the static Acker banner used to be.
+function MultiplexAd() {
+  const adRef = useRef(null);
+  const pushed = useRef(false);
+
+  useEffect(() => {
+    if (!pushed.current && adRef.current && typeof window !== 'undefined') {
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+        pushed.current = true;
+      } catch (e) {
+        console.warn('AdSense push error:', e);
+      }
+    }
+  }, []);
+
+  return (
+    <div className="event-multiplex-ad">
+      <ins
+        className="adsbygoogle"
+        style={{ display: 'block' }}
+        data-ad-format="autorelaxed"
+        data-ad-client="ca-pub-6782277104310503"
+        data-ad-slot="1265745785"
+        ref={adRef}
+      />
+    </div>
+  );
+}
 
 const FILTERS = ['All', 'Tasting', 'Class', 'Dinner', 'Event', 'Festival'];
 
@@ -216,19 +217,8 @@ export default function EventsSection() {
                   <div className="event-row-arrow">&rsaquo;</div>
                 </a>
             ))}
-            {/* Acker Wines ad — beneath the events list, full column width */}
-            <a
-              href="https://www.ackerwines.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="event-list-ad-link"
-            >
-              <img
-                src="/images/acker.ad.new.png"
-                alt="Acker Wines — Top 10 World's Most Iconic Wine Shops — 160 W 72nd St, NYC"
-                className="event-list-ad-img"
-              />
-            </a>
+            {/* AdSense multiplex ad (Right Side Events) — beneath the events list, full column width */}
+            <MultiplexAd />
           </div>
           <div className="event-sidebar">
             <WineVideosSidebar />
