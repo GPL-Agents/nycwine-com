@@ -1,17 +1,17 @@
 // pages/map.js
-// Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+// ─────────────────────────────────────────────────────────────
 // Interactive NYC Wine Map
 //
-// Layers:  Ã°Å¸ÂÂ· Wine Bars (#ec407a) Ã‚Â· Ã°Å¸â€ºâ€™ Wine Stores (#1a1a1a) Ã‚Â· Ã°Å¸Ââ€¡ Wineries (#7c3aed)
+// Layers:  🍷 Wine Bars (#ec407a) · 🛒 Wine Stores (#1a1a1a) · 🍇 Wineries (#7c3aed)
 //
 // Location features:
-//   Ã¢â‚¬Â¢ Address / intersection search  Ã¢â€ â€™ geocoded via Nominatim (browser-side)
-//   Ã¢â‚¬Â¢ "My Location" button           Ã¢â€ â€™ browser Geolocation API
-//   Ã¢â‚¬Â¢ Distance radius filter         Ã¢â€ â€™ 0.5 mi / 1 mi / 2 mi / All
-//   Ã¢â‚¬Â¢ Pulsing blue "you are here" dot on the map
+//   • Address / intersection search  → geocoded via Nominatim (browser-side)
+//   • "My Location" button           → browser Geolocation API
+//   • Distance radius filter         → 0.5 mi / 1 mi / 2 mi / All
+//   • Pulsing blue "you are here" dot on the map
 //
 // Leaflet + MarkerCluster loaded from CDN (avoids SSR window errors).
-// Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+// ─────────────────────────────────────────────────────────────
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import Head from 'next/head';
@@ -22,21 +22,21 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import QuickNav from '../components/QuickNav';
 
-// Ã¢â€â‚¬Ã¢â€â‚¬ Layer config Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+// ── Layer config ──────────────────────────────────────────────
 const LAYERS = {
-  bars:     { label: 'Wine Bars',   singular: 'Wine Bar',  color: '#ec407a', emoji: 'Ã°Å¸ÂÂ·' },
-  stores:   { label: 'Wine Stores', singular: 'Wine Store', color: '#1a1a1a', emoji: 'Ã°Å¸â€ºâ€™' },
-  wineries: { label: 'Wineries',    singular: 'Winery',    color: '#7c3aed', emoji: 'Ã°Å¸Ââ€¡' },
+  bars:     { label: 'Wine Bars',   singular: 'Wine Bar',  color: '#ec407a', emoji: '🍷' },
+  stores:   { label: 'Wine Stores', singular: 'Wine Store', color: '#1a1a1a', emoji: '🛒' },
+  wineries: { label: 'Wineries',    singular: 'Winery',    color: '#7c3aed', emoji: '🍇' },
 };
 
 const RADIUS_OPTIONS = [
-  { value: 0.5, label: 'Ã‚Â½ mi' },
+  { value: 0.5, label: '½ mi' },
   { value: 1,   label: '1 mi' },
   { value: 2,   label: '2 mi' },
   { value: 5,   label: '5 mi' },
 ];
 
-// Ã¢â€â‚¬Ã¢â€â‚¬ Utilities Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+// ── Utilities ─────────────────────────────────────────────────
 function haversineDistance(lat1, lng1, lat2, lng2) {
   const R    = 3958.8; // miles
   const dLat = (lat2 - lat1) * Math.PI / 180;
@@ -51,7 +51,7 @@ function haversineDistance(lat1, lng1, lat2, lng2) {
 async function geocodeQuery(rawQuery) {
   const query = rawQuery.trim();
 
-  // Ã¢â€â‚¬Ã¢â€â‚¬ 1. NYC Planning Geosearch (best for NYC addresses & intersections) Ã¢â€â‚¬Ã¢â€â‚¬
+  // ── 1. NYC Planning Geosearch (best for NYC addresses & intersections) ──
   try {
     const url = 'https://geosearch.planninglabs.nyc/v2/search?' +
       new URLSearchParams({ text: query, size: '1' });
@@ -65,7 +65,7 @@ async function geocodeQuery(rawQuery) {
     }
   } catch { /* fall through */ }
 
-  // Ã¢â€â‚¬Ã¢â€â‚¬ 2. Nominatim fallback (broader coverage) Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+  // ── 2. Nominatim fallback (broader coverage) ────────────────────────────
   const hasCity = /new york|nyc|\bny\b|\bbrooklyn\b|\bbronx\b|\bqueens\b|\bstaten island\b/i.test(query);
   const biased  = hasCity ? query : `${query}, New York, NY`;
   try {
@@ -104,7 +104,7 @@ function makeVenueIcon(L, color, emoji) {
   });
 }
 
-// Larger featured pin Ã¢â‚¬â€ category color + emoji + gold Ã¢Ëœâ€¦ badge top-right.
+// Larger featured pin — category color + emoji + gold ★ badge top-right.
 // Used for items with featured: true in the JSON data.
 function makeFeaturedIcon(L, color, emoji) {
   return L.divIcon({
@@ -116,7 +116,7 @@ function makeFeaturedIcon(L, color, emoji) {
       <circle cx="19" cy="16" r="11" fill="white"/>
       <circle cx="31" cy="7" r="7" fill="#FFB800" stroke="white" stroke-width="1.8"/>
       <text x="31" y="7.5" text-anchor="middle" dominant-baseline="middle"
-            font-size="9" fill="white" font-weight="bold" font-family="sans-serif">Ã¢Ëœâ€¦</text>
+            font-size="9" fill="white" font-weight="bold" font-family="sans-serif">★</text>
       <text x="19" y="17" text-anchor="middle" dominant-baseline="middle"
             font-size="14" font-family="Apple Color Emoji,Segoe UI Emoji,Noto Color Emoji,sans-serif">${emoji}</text>
     </svg>`,
@@ -148,7 +148,7 @@ function popupHtml(item, type) {
   const safeName = name.replace(/"/g, '&quot;');
   const safeAddr = address.replace(/"/g, '&quot;');
   const featuredBadge = item.featured
-    ? `<span style="display:inline-block;background:#ec407a;color:white;font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px;margin-left:6px;letter-spacing:0.04em;">Ã¢Ëœâ€¦ Featured</span>`
+    ? `<span style="display:inline-block;background:#ec407a;color:white;font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px;margin-left:6px;letter-spacing:0.04em;">★ Featured</span>`
     : '';
   return `
     <div class="map-popup">
@@ -156,8 +156,8 @@ function popupHtml(item, type) {
       <div class="mp-name">${name}</div>
       ${hood    ? `<div class="mp-hood">${hood}</div>`    : ''}
       ${address ? `<div class="mp-addr">${address}</div>` : ''}
-      ${phone   ? `<a class="mp-contact" href="tel:${phone}">Ã°Å¸â€œÅ¾ ${phone}</a>` : ''}
-      ${email   ? `<a class="mp-contact" href="mailto:${email}">Ã¢Å“â€°Ã¯Â¸Â ${email}</a>` : ''}
+      ${phone   ? `<a class="mp-contact" href="tel:${phone}">📞 ${phone}</a>` : ''}
+      ${email   ? `<a class="mp-contact" href="mailto:${email}">✉️ ${email}</a>` : ''}
       <div class="mp-footer">
         <a class="mp-dir" href="#" data-name="${safeName}" data-addr="${safeAddr}">
           <svg width="10" height="12" viewBox="0 0 11 14" fill="currentColor" aria-hidden="true">
@@ -165,7 +165,7 @@ function popupHtml(item, type) {
           </svg>
           Directions
         </a>
-        ${site ? `<a class="mp-link" href="${site}" target="_blank" rel="noopener">Website Ã¢â€ â€™</a>` : ''}
+        ${site ? `<a class="mp-link" href="${site}" target="_blank" rel="noopener">Website →</a>` : ''}
       </div>
     </div>`;
 }
@@ -188,7 +188,7 @@ function loadScript(src) {
   });
 }
 
-// Ã¢â€â‚¬Ã¢â€â‚¬ Page Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+// ── Page ──────────────────────────────────────────────────────
 export default function MapPage({ venueCounts }) {
   const mapDivRef      = useRef(null);
   const mapWrapRef     = useRef(null);   // .map-container wrapper (fullscreen target)
@@ -225,7 +225,7 @@ export default function MapPage({ venueCounts }) {
   const [searchError,  setSearchError]  = useState('');
   const [geoLoading,   setGeoLoading]   = useState(false);
 
-  // Ã¢â€â‚¬Ã¢â€â‚¬ Init map Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+  // ── Init map ─────────────────────────────────────────────────
   useEffect(() => {
     let destroyed = false;
     async function init() {
@@ -246,7 +246,7 @@ export default function MapPage({ venueCounts }) {
 
       const map = L.map(mapDivRef.current, { center: [40.7380, -73.9800], zoom: 12, minZoom: 10 });
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: 'Ã‚Â© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
         maxZoom: 19,
       }).addTo(map);
       mapRef.current = map;
@@ -295,7 +295,7 @@ export default function MapPage({ venueCounts }) {
 
       dataRef.current = { bars, stores, wineries };
 
-      // Initial render Ã¢â‚¬â€ no location filter
+      // Initial render — no location filter
       const newCounts = { bars: 0, stores: 0, wineries: 0 };
       for (const key of Object.keys(LAYERS)) {
         const baseIcon     = makeVenueIcon(L, LAYERS[key].color, LAYERS[key].emoji);
@@ -352,7 +352,7 @@ export default function MapPage({ venueCounts }) {
     }
   }
 
-  // Ã¢â€â‚¬Ã¢â€â‚¬ Rebuild markers whenever filter / location / radius changes Ã¢â€â‚¬Ã¢â€â‚¬
+  // ── Rebuild markers whenever filter / location / radius changes ──
   const rebuildMarkers = useCallback((activeFilter, location, radiusMiles, featuredOnly) => {
     const L      = window.L;
     const map    = mapRef.current;
@@ -388,7 +388,7 @@ export default function MapPage({ venueCounts }) {
     setCounts(newCounts);
   }, []);
 
-  // Run rebuild whenever filter/location/radius changes (skip on first mount Ã¢â‚¬â€ init handles it)
+  // Run rebuild whenever filter/location/radius changes (skip on first mount — init handles it)
   const isFirstRender = useRef(true);
   useEffect(() => {
     if (isFirstRender.current) { isFirstRender.current = false; return; }
@@ -396,7 +396,7 @@ export default function MapPage({ venueCounts }) {
     rebuildMarkers(filter, userLocation, radius, featuredOnly);
   }, [filter, userLocation, radius, featuredOnly, mapReady, rebuildMarkers]);
 
-  // Ã¢â€â‚¬Ã¢â€â‚¬ Drop / update location pin on map Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+  // ── Drop / update location pin on map ────────────────────────
   useEffect(() => {
     const L   = window.L;
     const map = mapRef.current;
@@ -412,13 +412,13 @@ export default function MapPage({ venueCounts }) {
     const pin = L.marker([userLocation.lat, userLocation.lng], {
       icon:      makeLocationIcon(L),
       zIndexOffset: 1000,
-    }).bindPopup(`<div class="map-popup"><div class="mp-name">Ã°Å¸â€œÂ ${userLocation.label}</div></div>`);
+    }).bindPopup(`<div class="map-popup"><div class="mp-name">📍 ${userLocation.label}</div></div>`);
     pin.addTo(map);
     locationPinRef.current = pin;
     map.setView([userLocation.lat, userLocation.lng], 14, { animate: true });
   }, [userLocation]);
 
-  // Ã¢â€â‚¬Ã¢â€â‚¬ Auto-geocode ?near= param from concierge Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+  // ── Auto-geocode ?near= param from concierge ─────────────────
   useEffect(() => {
     if (!mapReady || !nearParam) return;
     (async () => {
@@ -429,12 +429,12 @@ export default function MapPage({ venueCounts }) {
         setUserLocation(result);
         if (!radius) setRadius(1);
       } else {
-        setSearchError('Address not found Ã¢â‚¬â€ try a street name, intersection, or neighborhood.');
+        setSearchError('Address not found — try a street name, intersection, or neighborhood.');
       }
     })();
   }, [mapReady]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Ã¢â€â‚¬Ã¢â€â‚¬ Address search Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+  // ── Address search ────────────────────────────────────────────
   async function handleSearch(e) {
     e.preventDefault();
     const q = searchInput.trim();
@@ -447,11 +447,11 @@ export default function MapPage({ venueCounts }) {
       setUserLocation(result);
       if (!radius) setRadius(1); // default to 1 mi on first search
     } else {
-      setSearchError('Address not found Ã¢â‚¬â€ try a street name, intersection, or neighborhood.');
+      setSearchError('Address not found — try a street name, intersection, or neighborhood.');
     }
   }
 
-  // Ã¢â€â‚¬Ã¢â€â‚¬ Geolocation Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+  // ── Geolocation ───────────────────────────────────────────────
   function handleGeoLocate() {
     if (!navigator.geolocation) {
       setSearchError('Your browser doesn\'t support location sharing.');
@@ -473,7 +473,7 @@ export default function MapPage({ venueCounts }) {
     );
   }
 
-  // Ã¢â€â‚¬Ã¢â€â‚¬ Clear location Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+  // ── Clear location ────────────────────────────────────────────
   function clearLocation() {
     setUserLocation(null);
     setRadius(null);
@@ -490,7 +490,7 @@ export default function MapPage({ venueCounts }) {
     mapRef.current?.setView([40.7380, -73.9800], 12, { animate: true });
   }
 
-  // Ã¢â€â‚¬Ã¢â€â‚¬ Toggle category filter Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+  // ── Toggle category filter ────────────────────────────────────
   function toggleLayer(key) {
     setFilter(prev => ({ ...prev, [key]: !prev[key] }));
   }
@@ -498,7 +498,7 @@ export default function MapPage({ venueCounts }) {
   return (
     <>
       <Head>
-        <title>Interactive Wine Map Ã¢â‚¬â€ NYCWine.com</title>
+        <title>Interactive Wine Map — NYCWine.com</title>
         <meta name="description"
           content="Find NYC wine bars, wine stores, and wineries near you on an interactive map." />
       </Head>
@@ -508,10 +508,10 @@ export default function MapPage({ venueCounts }) {
 
       <main className="map-page">
 
-        {/* Ã¢â€â‚¬Ã¢â€â‚¬ Header ribbon Ã¢â‚¬â€ title + search + filters (all black) Ã¢â€â‚¬Ã¢â€â‚¬ */}
+        {/* ── Header ribbon — title + search + filters (all black) ── */}
         <div className="map-page-header">
 
-          {/* Row 1 Ã¢â‚¬â€ title + search + my location */}
+          {/* Row 1 — title + search + my location */}
           <div className="map-header-top">
             <div className="map-header-title">
               <img src="/images/icons/icon-map.png" className="ribbon-icon" alt="" aria-hidden="true" />
@@ -529,18 +529,18 @@ export default function MapPage({ venueCounts }) {
                 <input
                   type="text"
                   className="map-search-input"
-                  placeholder="Address or neighborhoodÃ¢â‚¬Â¦"
+                  placeholder="Address or neighborhood…"
                   value={searchInput}
                   onChange={e => { setSearchInput(e.target.value); setSearchError(''); }}
                   disabled={searching}
                 />
                 {(searchInput || userLocation) && (
                   <button type="button" className="map-search-clear" onClick={clearLocation}
-                          aria-label="Clear">Ã¢Å“â€¢</button>
+                          aria-label="Clear">✕</button>
                 )}
               </div>
               <button type="submit" className="map-search-btn" disabled={!searchInput.trim() || searching}>
-                {searching ? 'Ã¢â‚¬Â¦' : 'Search'}
+                {searching ? '…' : 'Search'}
               </button>
             </form>
 
@@ -552,8 +552,8 @@ export default function MapPage({ venueCounts }) {
             >
               {geoLoading ? (
                 <>
-                  <span style={{ fontSize: 15 }}>Ã¢ÂÂ³</span>
-                  Finding youÃ¢â‚¬Â¦
+                  <span style={{ fontSize: 15 }}>⏳</span>
+                  Finding you…
                 </>
               ) : (
                 <>
@@ -573,7 +573,7 @@ export default function MapPage({ venueCounts }) {
 
         </div>
 
-        {/* Ã¢â€â‚¬Ã¢â€â‚¬ White pill ribbon Ã¢â‚¬â€ category filters + reset Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */}
+        {/* ── White pill ribbon — category filters + reset ─────── */}
         <div className="map-filter-row">
           <div className="map-filter-pills">
             {Object.entries(LAYERS).map(([key, cfg]) => (
@@ -598,12 +598,12 @@ export default function MapPage({ venueCounts }) {
               <svg width="20" height="20" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" style={{display:'block',flexShrink:0}}>
                 <circle cx="9" cy="9" r="9" fill={featuredOnly ? 'white' : '#FFB800'} stroke={featuredOnly ? 'rgba(255,255,255,0.6)' : '#e5a600'} strokeWidth="1"/>
                 <text x="9" y="9.5" textAnchor="middle" dominantBaseline="middle"
-                      fontSize="11" fill={featuredOnly ? '#FFB800' : 'white'} fontWeight="bold" fontFamily="sans-serif">Ã¢Ëœâ€¦</text>
+                      fontSize="11" fill={featuredOnly ? '#FFB800' : 'white'} fontWeight="bold" fontFamily="sans-serif">★</text>
               </svg>
               Featured
             </button>
 
-            {/* Reset View Ã¢â‚¬â€ kept next to Featured */}
+            {/* Reset View — kept next to Featured */}
             <button className="map-action-btn" onClick={resetView} title="Reset map view">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                    strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -644,12 +644,12 @@ export default function MapPage({ venueCounts }) {
 
         </div>
 
-        {/* Ã¢â€â‚¬Ã¢â€â‚¬ Map canvas Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */}
+        {/* ── Map canvas ───────────────────────────────────────── */}
         <div className="map-container" ref={mapWrapRef}>
           {!mapReady && (
             <div className="map-loading">
               <div className="map-loading-spinner" />
-              <span>Loading mapÃ¢â‚¬Â¦</span>
+              <span>Loading map…</span>
             </div>
           )}
           <div ref={mapDivRef} className="map-leaflet" />
@@ -674,7 +674,7 @@ export default function MapPage({ venueCounts }) {
           </button>
         </div>
 
-        {/* Ã¢â€â‚¬Ã¢â€â‚¬ About the map Ã¢â‚¬â€ crawlable editorial content Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */}
+        {/* ── About the map — crawlable editorial content ──────── */}
         <section className="map-about">
           <h2>About the NYC Wine Map</h2>
           <p>
