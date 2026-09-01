@@ -780,7 +780,8 @@ body {
 /* Banner-style Acker ad -- placed under the homepage events list (left column) */
 /* AdSense multiplex ad under the homepage events list (replaces static Acker banner) */
 .event-multiplex-ad {
-  display: block;
+  display: flex;
+  justify-content: center;
   margin-top: 20px;
   border-radius: 10px;
   overflow: hidden;

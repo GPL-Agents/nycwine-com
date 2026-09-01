@@ -12,8 +12,8 @@
 import { useState, useEffect, useRef } from 'react';
 import WineVideosSidebar from './WineVideosSidebar';
 
-// Multiplex ad (AdSense unit: Right Side Events) — rendered below the
-// events list where the static Acker banner used to be.
+// Fixed 336×280 display ad (AdSense unit) — rendered below the events
+// list where the static Acker banner used to be.
 function MultiplexAd() {
   const adRef = useRef(null);
   const pushed = useRef(false);
@@ -33,10 +33,9 @@ function MultiplexAd() {
     <div className="event-multiplex-ad">
       <ins
         className="adsbygoogle"
-        style={{ display: 'block' }}
-        data-ad-format="autorelaxed"
+        style={{ display: 'inline-block', width: 336, height: 280 }}
         data-ad-client="ca-pub-6782277104310503"
-        data-ad-slot="1265745785"
+        data-ad-slot="1714918171"
         ref={adRef}
       />
     </div>
