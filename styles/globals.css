@@ -2790,11 +2790,14 @@ body {
   color: white;
 }
 
-/* Map container -- fills remaining height of map-page flex column */
+/* Map container -- fills remaining height of map-page flex column.
+   min-height guarantees the map real pixels even when the About section
+   below it is taller than the viewport (regression f1e5919 removed the
+   420px guard from .map-leaflet, collapsing the map on short screens). */
 .map-container {
   position: relative;
   flex: 1;
-  min-height: 0;
+  min-height: 420px;
 }
 .map-leaflet {
   position: absolute;
