@@ -732,7 +732,7 @@ body {
 /* Social links + ad sidebar layout */
 .social-links-row {
   display: grid;
-  grid-template-columns: 1fr 280px;
+  grid-template-columns: 1fr 300px;
   gap: 24px;
   grid-column: 1 / -1;
 }
@@ -743,7 +743,7 @@ body {
   gap: 10px;
 }
 .social-ad-sidebar {
-  max-width: 280px;
+  max-width: 300px;
   display: flex;
   overflow: hidden;
   flex-direction: column;
