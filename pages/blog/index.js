@@ -1,10 +1,10 @@
 // pages/blog/index.js
-// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─────────────────────────────────────────────────────────────
 // Blog listing page -- all posts, newest first.
 // Statically generated (getStaticProps) so crawlers see the
 // full post list in the HTML -- important for SEO / AdSense.
 // Mirrors the layout pattern of news.js and events.js.
-// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─────────────────────────────────────────────────────────────
 
 import Head from 'next/head';
 import Link from 'next/link';
@@ -66,7 +66,7 @@ export default function BlogIndex({ posts }) {
                   </div>
                   <h2 className="blog-card-title">{post.title}</h2>
                   <p className="blog-card-excerpt">{post.excerpt}</p>
-                  <span className="blog-card-read-more">Read more â†’</span>
+                  <span className="blog-card-read-more">Read more →</span>
                 </div>
               </Link>
             ))}

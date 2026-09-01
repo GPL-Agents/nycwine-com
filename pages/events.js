@@ -1,8 +1,8 @@
 // pages/events.js
-// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-// Full events page â€” all upcoming wine events + videos sidebar.
+// ─────────────────────────────────────────────────────────────
+// Full events page — all upcoming wine events + videos sidebar.
 // Fetches from /api/events and /data/youtube-cache.json.
-// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─────────────────────────────────────────────────────────────
 
 import Head from 'next/head';
 import Link from 'next/link';
@@ -90,8 +90,8 @@ export default function EventsPage() {
   return (
     <>
       <Head>
-        <title>Wine Events in NYC â€” Tastings, Classes & Dinners | NYCWine.com</title>
-        <meta name="description" content="Find upcoming wine events in New York City â€” tastings, classes, dinners, festivals, and auctions." />
+        <title>Wine Events in NYC — Tastings, Classes & Dinners | NYCWine.com</title>
+        <meta name="description" content="Find upcoming wine events in New York City — tastings, classes, dinners, festivals, and auctions." />
       </Head>
 
       <Header />
@@ -124,7 +124,7 @@ export default function EventsPage() {
         <div className="events-page-layout">
           <div className="events-page-list">
             {loading && (
-              <div className="events-page-msg">Loading eventsâ€¦</div>
+              <div className="events-page-msg">Loading events…</div>
             )}
             {!loading && filtered.length === 0 && (
               <div className="events-page-msg">
@@ -186,7 +186,7 @@ export default function EventsPage() {
                         <div className="events-page-card-venue">
                           {ev.venue}
                           {ev.venueAddress && (
-                            <span className="event-card-venue-addr"> Â· {ev.venueAddress}</span>
+                            <span className="event-card-venue-addr"> · {ev.venueAddress}</span>
                           )}
                           {ev.venueAddress && (
                             <EventMapBtn venue={ev.venue} address={ev.venueAddress} />
@@ -207,7 +207,7 @@ export default function EventsPage() {
 
           {/* Auctions sidebar */}
           <div className="events-page-sidebar">
-            {/* Map button â€” above auctions */}
+            {/* Map button — above auctions */}
             <Link href="/map">
               <div style={{ position: 'relative', display: 'block', marginBottom: '16px' }} className="map-btn-wrap">
                 <img
