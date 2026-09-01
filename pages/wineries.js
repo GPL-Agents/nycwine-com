@@ -11,6 +11,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import MapLink from '../components/MapLink';
 import QuickNav from '../components/QuickNav';
+import SidebarVerticalAd from '../components/SidebarVerticalAd';
 
 const REGIONS = ['Hamptons', 'North Fork', 'Long Island (North Shore)', 'Long Island (South Shore)'];
 
@@ -232,6 +233,7 @@ export default function WineriesPage() {
                 </a>
               ))}
             </div>
+            <SidebarVerticalAd />
           </div>
 
         </div>

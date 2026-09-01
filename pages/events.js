@@ -1,8 +1,8 @@
 // pages/events.js
-// ─────────────────────────────────────────────────────────────
-// Full events page — all upcoming wine events + videos sidebar.
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// Full events page â€” all upcoming wine events + videos sidebar.
 // Fetches from /api/events and /data/youtube-cache.json.
-// ─────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 import Head from 'next/head';
 import Link from 'next/link';
@@ -10,7 +10,8 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import QuickNav from '../components/QuickNav';
 import WineVideosSidebar from '../components/WineVideosSidebar';
-import { useState, useEffect, useRef } from 'react';
+import SidebarVerticalAd from '../components/SidebarVerticalAd';
+import { useState, useEffect } from 'react';
 
 // Inline map opener for use inside <a> cards (avoids nested <a> tags)
 function EventMapBtn({ venue, address }) {
@@ -43,44 +44,6 @@ function EventMapBtn({ venue, address }) {
 
 const FILTERS = ['All', 'Tasting', 'Class', 'Dinner', 'Event', 'Festival', 'Auctions'];
 
-// AdSense multiplex ad (unit: Right Side Events) — sidebar slot where the
-// static Acker banner used to be.
-function SidebarMultiplexAd() {
-  const adRef = useRef(null);
-  const pushed = useRef(false);
-
-  useEffect(() => {
-    if (!pushed.current && adRef.current && typeof window !== 'undefined') {
-      try {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-        pushed.current = true;
-      } catch (e) {
-        console.warn('AdSense push error:', e);
-      }
-    }
-  }, []);
-
-  return (
-    <div className="sidebar-ad-link">
-      <ins
-        className="adsbygoogle"
-        style={{ display: 'block' }}
-        data-ad-format="autorelaxed"
-        data-ad-client="ca-pub-6782277104310503"
-        data-ad-slot="1265745785"
-        ref={adRef}
-      />
-    </div>
-  );
-}
-
-// Keep in sync with the copy in pages/api/events.js.
-// Two things matter here, both of which were broken:
-//   1. Scraped URLs arrive HTML-escaped (&amp;w=940). Eventbrite's image
-//      endpoint answers HTTP 400 for those, so decode entities first.
-//   2. The _next/image unwrap has to run BEFORE the absolute-URL shortcut.
-//      Eventbrite proxy URLs are absolute, so returning early on
-//      startsWith('https://') made the unwrap branch unreachable.
 function fixImageUrl(url) {
   if (!url) return null;
 
@@ -127,8 +90,8 @@ export default function EventsPage() {
   return (
     <>
       <Head>
-        <title>Wine Events in NYC — Tastings, Classes & Dinners | NYCWine.com</title>
-        <meta name="description" content="Find upcoming wine events in New York City — tastings, classes, dinners, festivals, and auctions." />
+        <title>Wine Events in NYC â€” Tastings, Classes & Dinners | NYCWine.com</title>
+        <meta name="description" content="Find upcoming wine events in New York City â€” tastings, classes, dinners, festivals, and auctions." />
       </Head>
 
       <Header />
@@ -161,7 +124,7 @@ export default function EventsPage() {
         <div className="events-page-layout">
           <div className="events-page-list">
             {loading && (
-              <div className="events-page-msg">Loading events…</div>
+              <div className="events-page-msg">Loading eventsâ€¦</div>
             )}
             {!loading && filtered.length === 0 && (
               <div className="events-page-msg">
@@ -223,7 +186,7 @@ export default function EventsPage() {
                         <div className="events-page-card-venue">
                           {ev.venue}
                           {ev.venueAddress && (
-                            <span className="event-card-venue-addr"> · {ev.venueAddress}</span>
+                            <span className="event-card-venue-addr"> Â· {ev.venueAddress}</span>
                           )}
                           {ev.venueAddress && (
                             <EventMapBtn venue={ev.venue} address={ev.venueAddress} />
@@ -244,7 +207,7 @@ export default function EventsPage() {
 
           {/* Auctions sidebar */}
           <div className="events-page-sidebar">
-            {/* Map button — above auctions */}
+            {/* Map button â€” above auctions */}
             <Link href="/map">
               <div style={{ position: 'relative', display: 'block', marginBottom: '16px' }} className="map-btn-wrap">
                 <img
@@ -257,7 +220,7 @@ export default function EventsPage() {
             </Link>
             <WineVideosSidebar />
             {/* AdSense multiplex ad (Right Side Events) below videos */}
-            <SidebarMultiplexAd />
+            <SidebarVerticalAd />
           </div>
         </div>
       </main>

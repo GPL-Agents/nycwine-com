@@ -1,21 +1,22 @@
 // pages/social.js
-// ─────────────────────────────────────────────────────────────
-// Standalone Social page — uses the same two-column layout as
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// Standalone Social page â€” uses the same two-column layout as
 // the News page (news-page CSS classes), with a black ribbon
 // header matching the homepage Social section.
-// ─────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 import Head from 'next/head';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import QuickNav from '../components/QuickNav';
 import SocialSection from '../components/SocialSection';
+import SidebarVerticalAd from '../components/SidebarVerticalAd';
 
 export default function SocialPage() {
   return (
     <>
       <Head>
-        <title>NYC Wine Social — Instagram, Reddit &amp; More | NYCWine.com</title>
+        <title>NYC Wine Social â€” Instagram, Reddit &amp; More | NYCWine.com</title>
         <meta
           name="description"
           content="Follow NYC's wine community on Instagram, Reddit, X, Pinterest and Facebook. Real-time posts, discussions, and social updates from New York's wine scene."
@@ -32,7 +33,7 @@ export default function SocialPage() {
       */}
       <main className="news-page social-page">
 
-        {/* Black ribbon — same icon as homepage social section */}
+        {/* Black ribbon â€” same icon as homepage social section */}
         <div className="section-header news-page-header social-page-header">
           <div className="section-header-title">
             <img src="/images/icons/icon-social.png" className="ribbon-icon" alt="" aria-hidden="true" />
@@ -43,12 +44,12 @@ export default function SocialPage() {
         {/* Two-column layout: social feed + sidebar */}
         <div className="news-page-layout">
 
-          {/* Left — full SocialSection (header hidden via CSS, padding stripped) */}
+          {/* Left â€” full SocialSection (header hidden via CSS, padding stripped) */}
           <div className="news-page-list social-page-list">
             <SocialSection />
           </div>
 
-          {/* Right — sidebar with Facebook featured post */}
+          {/* Right â€” sidebar with Facebook featured post */}
           <div className="news-page-sidebar social-page-sidebar">
 
             <div className="ws-video-heading" style={{ marginTop: '8px', marginBottom: '12px' }}>
@@ -64,11 +65,11 @@ export default function SocialPage() {
                 rel="noopener noreferrer"
                 className="ws-video-channel-link"
               >
-                Follow @NYCWine →
+                Follow @NYCWine â†’
               </a>
             </div>
 
-            {/* Facebook post embed — scaled to fit 280px sidebar */}
+            {/* Facebook post embed â€” scaled to fit 280px sidebar */}
             <div className="social-page-fb-wrap">
               <iframe
                 src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FNYCWine%2Fposts%2Fpfbid02AgMTfUvigU74ue37CtAzurExaQ4SmWha8UpvQK2iDsM9ZrZk31fBkfkmtxDuPxbBl&show_text=true&width=500"
@@ -82,7 +83,7 @@ export default function SocialPage() {
               />
             </div>
 
-            {/* Castello di Borghese ad — moved here from left column */}
+            {/* Castello di Borghese ad â€” moved here from left column */}
             <a
               href="https://castellodiborghese.com/"
               target="_blank"
@@ -92,11 +93,13 @@ export default function SocialPage() {
             >
               <img
                 src="/images/Borghese3.png"
-                alt="Castello di Borghese Vineyard — North Fork, Long Island"
+                alt="Castello di Borghese Vineyard â€” North Fork, Long Island"
                 className="infeed-ad-img"
                 style={{ width: '100%', height: 'auto', borderRadius: '8px' }}
               />
             </a>
+
+            <SidebarVerticalAd />
 
           </div>
         </div>

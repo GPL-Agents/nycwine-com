@@ -1,8 +1,8 @@
 // pages/blog/[slug].js
-// ─────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // Individual blog post page.
-// Uses getStaticProps + getStaticPaths for SSG — fast, SEO-friendly.
-// ─────────────────────────────────────────────────────────────
+// Uses getStaticProps + getStaticPaths for SSG â€” fast, SEO-friendly.
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 import Head from 'next/head';
 import Link from 'next/link';
@@ -11,6 +11,7 @@ import fs from 'fs';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import QuickNav from '../../components/QuickNav';
+import SidebarVerticalAd from '../../components/SidebarVerticalAd';
 
 function formatDate(dateStr) {
   const d = new Date(dateStr + 'T12:00:00');
@@ -73,9 +74,9 @@ export default function BlogPost({ post, relatedPosts }) {
           {/* Breadcrumb */}
           <nav className="blog-breadcrumb" aria-label="Breadcrumb">
             <Link href="/">Home</Link>
-            <span className="blog-breadcrumb-sep">›</span>
+            <span className="blog-breadcrumb-sep">â€º</span>
             <Link href="/blog">Blog</Link>
-            <span className="blog-breadcrumb-sep">›</span>
+            <span className="blog-breadcrumb-sep">â€º</span>
             <span>{post.title}</span>
           </nav>
 
@@ -110,7 +111,7 @@ export default function BlogPost({ post, relatedPosts }) {
 
           {/* Footer */}
           <footer className="blog-post-footer">
-            <Link href="/blog" className="blog-back-link">← Back to all posts</Link>
+            <Link href="/blog" className="blog-back-link">â† Back to all posts</Link>
           </footer>
 
         </article>
@@ -120,13 +121,13 @@ export default function BlogPost({ post, relatedPosts }) {
           <div className="blog-sidebar-widget">
             <div className="blog-sidebar-heading">NYC Wine Events</div>
             <p className="blog-sidebar-text">Find upcoming tastings, festivals, and events happening around New York City.</p>
-            <Link href="/events" className="blog-sidebar-cta">Browse Events →</Link>
+            <Link href="/events" className="blog-sidebar-cta">Browse Events â†’</Link>
           </div>
 
           <div className="blog-sidebar-widget">
             <div className="blog-sidebar-heading">Wine Bars Near You</div>
             <p className="blog-sidebar-text">Discover the best wine bars across Manhattan, Brooklyn, and beyond.</p>
-            <Link href="/bars" className="blog-sidebar-cta">Explore Wine Bars →</Link>
+            <Link href="/bars" className="blog-sidebar-cta">Explore Wine Bars â†’</Link>
           </div>
 
           {relatedPosts && relatedPosts.length > 0 && (
@@ -149,6 +150,7 @@ export default function BlogPost({ post, relatedPosts }) {
               <a href="https://www.facebook.com/NYCWine" target="_blank" rel="noopener noreferrer" className="blog-social-link">Facebook @NYCWine</a>
             </div>
           </div>
+        <SidebarVerticalAd />
         </aside>
       </main>
 

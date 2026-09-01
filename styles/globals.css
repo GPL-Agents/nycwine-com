@@ -3872,6 +3872,19 @@ body {
   .dir-featured-logo-wrap { height: 70px; }
 }
 
+/* Responsive vertical AdSense unit in right-side columns of
+   secondary pages (bars/stores/wineries/news/events/social/blog).
+   Sits below the existing sidebar content. */
+.sidebar-vertical-ad {
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+}
+.sidebar-vertical-ad ins.adsbygoogle {
+  display: block;
+  margin: 0 auto;
+}
+
 
 /* ═══════════════════════════════════════════════════════════════
    ADVERTISE PAGE  (adv-*)

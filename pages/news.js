@@ -10,6 +10,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import QuickNav from '../components/QuickNav';
+import SidebarVerticalAd from '../components/SidebarVerticalAd';
 
 // ── Featured Venues data ─────────────────────────────────────
 // Sourced from The Infatuation's Best Wine Bars in NYC guide.
@@ -293,6 +294,7 @@ export default function NewsPage() {
               </a>
             </aside>
 
+            <SidebarVerticalAd />
           </div>
 
         </div>

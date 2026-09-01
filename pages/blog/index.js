@@ -1,10 +1,10 @@
 // pages/blog/index.js
-// ─────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // Blog listing page -- all posts, newest first.
 // Statically generated (getStaticProps) so crawlers see the
 // full post list in the HTML -- important for SEO / AdSense.
 // Mirrors the layout pattern of news.js and events.js.
-// ─────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 import Head from 'next/head';
 import Link from 'next/link';
@@ -13,6 +13,7 @@ import fs from 'fs';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import QuickNav from '../../components/QuickNav';
+import SidebarVerticalAd from '../../components/SidebarVerticalAd';
 
 function formatDate(dateStr) {
   const d = new Date(dateStr + 'T12:00:00');
@@ -65,7 +66,7 @@ export default function BlogIndex({ posts }) {
                   </div>
                   <h2 className="blog-card-title">{post.title}</h2>
                   <p className="blog-card-excerpt">{post.excerpt}</p>
-                  <span className="blog-card-read-more">Read more →</span>
+                  <span className="blog-card-read-more">Read more â†’</span>
                 </div>
               </Link>
             ))}
@@ -90,6 +91,7 @@ export default function BlogIndex({ posts }) {
                 <a href="https://www.facebook.com/NYCWine" target="_blank" rel="noopener noreferrer" className="blog-social-link">Facebook @NYCWine</a>
               </div>
             </div>
+          <SidebarVerticalAd />
           </aside>
         </div>
       </div></main>

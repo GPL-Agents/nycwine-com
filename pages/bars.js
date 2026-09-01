@@ -11,6 +11,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import MapLink from '../components/MapLink';
 import QuickNav from '../components/QuickNav';
+import SidebarVerticalAd from '../components/SidebarVerticalAd';
 
 // ── Featured Wine Bars ────────────────────────────────────────
 // Sourced from the wine-bars.json data (featured: true entries).
@@ -258,6 +259,7 @@ export default function BarsPage() {
                 </a>
               ))}
             </div>
+            <SidebarVerticalAd />
           </div>
 
         </div>
