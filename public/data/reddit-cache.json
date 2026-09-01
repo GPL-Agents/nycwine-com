@@ -1,11 +1,92 @@
 {
-  "wine": [],
+  "wine": [
+    {
+      "title": "How do people drink wine… help?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1w48u3n/how_do_people_drink_wine_help/",
+      "score": 1,
+      "comments": 0,
+      "ago": "Just now"
+    },
+    {
+      "title": "Trying this 10 year old fruit wine.",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1w423ht/trying_this_10_year_old_fruit_wine/",
+      "score": 1,
+      "comments": 0,
+      "ago": "6h ago"
+    },
+    {
+      "title": "Visit to Diamond Creek Vineyard",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1w3yrwz/visit_to_diamond_creek_vineyard/",
+      "score": 1,
+      "comments": 0,
+      "ago": "9h ago"
+    },
+    {
+      "title": "Sommelier for Private Event in AZ",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1w3qb42/sommelier_for_private_event_in_az/",
+      "score": 1,
+      "comments": 0,
+      "ago": "15h ago"
+    },
+    {
+      "title": "Wine spots in Seattle?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1w3myk0/wine_spots_in_seattle/",
+      "score": 1,
+      "comments": 0,
+      "ago": "17h ago"
+    },
+    {
+      "title": "Help me Pick a 1996 wine for a 30th Birthday Celebration",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1w3ker3/help_me_pick_a_1996_wine_for_a_30th_birthday/",
+      "score": 1,
+      "comments": 0,
+      "ago": "18h ago"
+    },
+    {
+      "title": "2010 Sine Qua Non Syrah Stockholm Syndrome Eleven Confessions Vineyard",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1w3h2im/2010_sine_qua_non_syrah_stockholm_syndrome_eleven/",
+      "score": 1,
+      "comments": 0,
+      "ago": "20h ago"
+    },
+    {
+      "title": "Perfect wine for $150",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1w3d7iy/perfect_wine_for_150/",
+      "score": 1,
+      "comments": 0,
+      "ago": "22h ago"
+    },
+    {
+      "title": "I was reading a science fiction novel and one character started talking about wine in space.. gotta hear yalls opinions",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1w3avyp/i_was_reading_a_science_fiction_novel_and_one/",
+      "score": 1,
+      "comments": 0,
+      "ago": "Yesterday"
+    },
+    {
+      "title": "Napa vs Barolo – Which Would You Pick?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1w381g0/napa_vs_barolo_which_would_you_pick/",
+      "score": 1,
+      "comments": 0,
+      "ago": "Yesterday"
+    }
+  ],
   "nyc": [],
-  "fetchedAt": "2026-08-31T14:16:10.859Z",
+  "fetchedAt": "2026-09-01T11:53:46.179Z",
   "stats": {
-    "winePostsFound": 0,
+    "winePostsFound": 10,
     "nycPostsFound": 0,
-    "totalCandidatesWine": 0,
+    "totalCandidatesWine": 25,
     "totalCandidatesNyc": 25
   }
 }
