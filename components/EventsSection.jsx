@@ -217,14 +217,16 @@ export default function EventsSection() {
                   <div className="event-row-arrow">&rsaquo;</div>
                 </a>
             ))}
-            {/* AdSense multiplex ad (Right Side Events) — beneath the events list, full column width */}
-            <MultiplexAd />
           </div>
           <div className="event-sidebar">
             <WineVideosSidebar />
           </div>
         </div>
       )}
+
+      {/* AdSense multiplex ad (Right Side Events) — always present below the
+          events list, full width between events and the social section */}
+      <MultiplexAd />
 
     </section>
   );
