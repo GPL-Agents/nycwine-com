@@ -109,12 +109,6 @@ body {
   flex-shrink: 0;
   margin-left: auto;
   line-height: 0;
-  border-radius: 6px;
-  overflow: hidden;
-  background: white;
-  padding: 4px 8px;
-  border: 1px solid rgba(0,0,0,0.08);
-  box-shadow: 0 1px 6px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04);
 }
 .header-ad-img {
   width: 468px;
