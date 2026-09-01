@@ -1179,7 +1179,7 @@ body {
 }
 
 /* Two-column layout: news list + featured venues sidebar
-   Mirrors .social-links-row so the sidebar aligns under the Borghese ad.
+   Mirrors .social-links-row so the sidebar aligns with the right column.
    No max-width/margin:auto here -- padding alone aligns it to match .social-grid. */
 .news-layout {
   display: grid;
@@ -2549,10 +2549,10 @@ body {
 .social-page .social-links-row {
   padding-left: 0;
   padding-right: 0;
-  /* Collapse to single column -- ad moved to right sidebar */
+  /* Collapse to single column -- ads live in the right sidebar */
   grid-template-columns: 1fr;
 }
-/* Hide the in-line ad sidebar; Borghese ad lives in the right sidebar instead */
+/* Hide the in-line ad sidebar; the vertical ad lives in the right sidebar instead */
 .social-page .social-ad-sidebar {
   display: none;
 }
