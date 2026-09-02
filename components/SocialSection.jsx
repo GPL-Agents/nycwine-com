@@ -150,13 +150,17 @@ export default function SocialSection() {
   // bug that wiped the feed). Logic unit-tested in tmp/dedupe-test.js.
   // v3: some accounts post the same episode/promo 2-3x within hours
   // (distinct shortcodes, so v2 cannot see it). Drop a tile when an
-  // EARLIER tile's text is closely similar AND the relative date label
-  // ("3 days ago") matches. v3.1 adds load-state guards after live
-  // testing over-removed partial tiles.
+  // EARLIER tile's text is closely similar (>= 0.75 token overlap and
+  // >= 12 common tokens) AND the relative date label ("3 days ago")
+  // matches. Tiles must be fully loaded (>= 16 tokens + media present)
+  // so partially-mounted slides are never compared.
+  // v3.2 schedule: no dedupe during Elfsight's 0-10s mount phase
+  // (removals race its slide cloning/rebuild); sweeps run 12s-240s on
+  // settled DOM only.
   useEffect(() => {
     const WIDGET_SELECTOR = '.elfsight-app-5c219adb-d249-478a-a3da-e1d087a08843';
 
-    const dedupe = (phase) => {
+    const dedupe = () => {
       const root = document.querySelector(WIDGET_SELECTOR);
       if (!root) return;
 
@@ -186,7 +190,6 @@ export default function SocialSection() {
           // Safety: same tile, tile nested inside kept tile, or kept
           // tile nested inside this tile => not a true duplicate.
           if (keptTile === tile || keptTile.contains(a) || tile.contains(keptTile)) return;
-          console.debug('ig-dedupe v2 remove', key);
           tile.remove();
         } else {
           seen.set(key, tile);
@@ -235,10 +238,8 @@ export default function SocialSection() {
         return scan(tile);
       };
 
-      // Content-level pass, only after the widget DOM has settled
-      // (sweeps start at 12s -- see schedule below).
-      if (phase !== 'sweep') return;
-
+      // Content-level pass follows the permalink pass above. Runs only
+      // on the scheduled sweeps (>= 12s), never during initial mount.
       const seenTiles = new Set();
       const tiles = [];
       collect(root).forEach((a) => {
@@ -265,25 +266,20 @@ export default function SocialSection() {
             })
           : undefined;
         if (dup) {
-          if (tile.isConnected) {
-            console.debug('ig-dedupe v3 remove', 'sim=' + similarity(dup.tokens, tokens).toFixed(2), 'kept=' + (dup.text || '').slice(0, 60), 'removed=' + (tile.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 60));
-            tile.remove();
-          }
+          if (tile.isConnected) tile.remove();
         } else {
-          kept.push({ tokens, bucket, ready, text: (tile.textContent || '').replace(/\s+/g, ' ').trim() });
+          kept.push({ tokens, bucket, ready });
         }
       });
     };
 
     // No dedupe during the widget's initial mount (0-10s): Elfsight
-    // clones/rebuilds carousel slides during that window and removals
-    // race its renderer (observed: 24 removal round-trips at 8s).
-    // Start only once the DOM has settled, then keep sweeping --
-    // idempotent, so re-runs are no-ops when nothing needs removing.
-    // Phase 'sweep' runs BOTH passes: permalink dupes first, then the
-    // content-level pass for same-day repost spam.
+    // clones/rebuilds carousel slides in that window and removals race
+    // its renderer (observed: removal churn at 8s in testing). Sweeps
+    // start at 12s on settled DOM and repeat; they are idempotent, so
+    // re-runs are no-ops when nothing needs removing.
     const sweeps = [12, 20, 30, 45, 60, 120, 240].map((t) =>
-      setTimeout(() => dedupe('sweep'), t * 1000)
+      setTimeout(dedupe, t * 1000)
     );
 
     return () => {
