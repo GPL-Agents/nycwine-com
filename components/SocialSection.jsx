@@ -141,14 +141,17 @@ export default function SocialSection() {
       .catch(() => setLoading(false));
   }, []);
 
-  // ── Dedupe Elfsight Instagram widget (2026-08-31, v2) ──────────
-  // The widget pulls from multiple overlapping sources (account +
-  // hashtags), so the same post can render once per matching source.
-  // Remove a post tile ONLY when a DIFFERENT tile with the same
-  // Instagram permalink already exists. A single tile often contains
-  // several links to its own post (image + caption) -- those are left
-  // untouched (that's the bug that wiped the feed this morning).
-  // Logic unit-tested in tmp/dedupe-test.js against jsdom fixtures.
+  // ── Dedupe Elfsight Instagram widget (v2 2026-08-31, v3 2026-09-02)
+  // v2: the widget pulls from overlapping sources (account + hashtags),
+  // so the same post can render once per matching source. Remove a post
+  // tile ONLY when a DIFFERENT tile with the same Instagram permalink
+  // already exists. A single tile often contains several links to its
+  // own post (image + caption) -- those are left untouched (that's the
+  // bug that wiped the feed). Logic unit-tested in tmp/dedupe-test.js.
+  // v3: some accounts post the same episode/promo 2-3x within hours
+  // (distinct shortcodes, so v2 cannot see it). Drop a tile when an
+  // EARLIER tile's text is closely similar AND the relative date label
+  // ("3 days ago") matches. Validated against live DOM 2026-09-02.
   useEffect(() => {
     const WIDGET_SELECTOR = '.elfsight-app-5c219adb-d249-478a-a3da-e1d087a08843';
 
@@ -185,6 +188,58 @@ export default function SocialSection() {
           tile.remove();
         } else {
           seen.set(key, tile);
+        }
+      });
+
+      // v3 content-level pass (see header comment). Compares tile text,
+      // scoped to tiles with the SAME relative date label so distinct
+      // episodes on different days are never merged (hashtag boilerplate
+      // is shared by every post of a given account).
+      const normalizeTokens = (s) =>
+        String(s || '')
+          .toLowerCase()
+          .replace(/https?:\/\/\S+/g, ' ')
+          .replace(/[^\p{L}\p{N}\s]/gu, ' ')
+          .split(/\s+/)
+          .filter(Boolean)
+          .filter((w) => !/^\d+$/.test(w));
+
+      const dateBucket = (s) => {
+        const m = String(s || '').match(/(\d+)\s+(minute|hour|day|week|month|year)s?\s+ago/i);
+        return m ? m[2].toLowerCase() + ':' + m[1] : null;
+      };
+
+      const similarity = (a, b) => {
+        if (!a.length || !b.length) return 0;
+        const sa = new Set(a);
+        const sb = new Set(b);
+        let common = 0;
+        sa.forEach((w) => { if (sb.has(w)) common += 1; });
+        return common / Math.min(sa.size, sb.size);
+      };
+
+      const seenTiles = new Set();
+      const tiles = [];
+      collect(root).forEach((a) => {
+        if (!/instagram\.com\/(p|reel|tv)\//.test(a.getAttribute('href') || '')) return;
+        const tile = a.closest('[class*="item"]') || a;
+        if (!seenTiles.has(tile)) {
+          seenTiles.add(tile);
+          tiles.push(tile);
+        }
+      });
+
+      const kept = [];
+      tiles.forEach((tile) => {
+        const tokens = normalizeTokens(tile.textContent);
+        const bucket = dateBucket(tile.textContent);
+        const dup = kept.find(
+          (p) => p.bucket && p.bucket === bucket && similarity(p.tokens, tokens) >= 0.6
+        );
+        if (dup) {
+          if (tile.isConnected) tile.remove();
+        } else {
+          kept.push({ tokens, bucket });
         }
       });
     };
