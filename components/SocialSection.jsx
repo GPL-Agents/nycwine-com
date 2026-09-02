@@ -141,32 +141,52 @@ export default function SocialSection() {
       .catch(() => setLoading(false));
   }, []);
 
-  // ── Dedupe Elfsight Instagram widget (v2 2026-08-31, v3 2026-09-02)
+  // ── Dedupe Elfsight Instagram widget (v2 2026-08-31, v3-v3.2 2026-09-02, v5 2026-09-02)
   // v2: the widget pulls from overlapping sources (account + hashtags),
   // so the same post can render once per matching source. Remove a post
   // tile ONLY when a DIFFERENT tile with the same Instagram permalink
   // already exists. A single tile often contains several links to its
   // own post (image + caption) -- those are left untouched (that's the
-  // bug that wiped the feed). Logic unit-tested in tmp/dedupe-test.js.
-  // v3: some accounts post the same episode/promo 2-3x within hours
-  // (distinct shortcodes, so v2 cannot see it). Drop a tile when an
-  // EARLIER tile's text is closely similar (>= 0.75 token overlap and
-  // >= 12 common tokens) AND the relative date label ("3 days ago")
-  // matches. Tiles must be fully loaded (>= 16 tokens + media present)
-  // so partially-mounted slides are never compared.
-  // v3.2 schedule: no dedupe during Elfsight's 0-10s mount phase
-  // (removals race its slide cloning/rebuild); sweeps run 12s-240s on
-  // settled DOM only.
-  // v4: date-bucket equality REMOVED. Elfsight's relative labels ("3
-  // days ago") hit rounding boundaries that split one episode's 3 spam
-  // posts across buckets (measured: 14:01 post = "4 days ago" while
-  // 15:21/16:28 posts = "3 days ago" at the 96h edge). Token sim alone
-  // separates cleanly: same-episode pairs measure 0.91-1.00, different
-  // episodes of the same account measure 0.50-0.56. Threshold raised to
-  // 0.85, no bucket gate. MutationObserver (post-12s, throttled) keeps
-  // dedupe alive past the sweeps for late Elfsight re-renders.
+  // bug that wiped the feed).
+  // v3-v3.2: content pass compared tile text; v4 dropped the relative-
+  // date gate (rounding boundaries split same-episode spam) and raised
+  // similarity to 0.85 -- same-episode pairs measure 0.91-1.00 vs
+  // 0.50-0.56 for different episodes of the same account.
+  // v5: the widget is a Swiper.js carousel. Removing the inner tile div
+  // left the .swiper-slide box behind = blank card (Greg, logged in).
+  // Now the whole .swiper-slide is removed, then Swiper's internal
+  // slides array is re-synced from the DOM + sw.update() called, so the
+  // flex row reflows (no blank slots) and navigation stays aligned.
   useEffect(() => {
     const WIDGET_SELECTOR = '.elfsight-app-5c219adb-d249-478a-a3da-e1d087a08843';
+
+    // Remove the swiper slide owning a dup tile (fallback: tile itself)
+    // and remember its swiper container for resync.
+    const dirtyContainers = new Set();
+    const removeDup = (tile) => {
+      const slide = tile.closest && tile.closest('.swiper-slide');
+      const container = slide && slide.closest ? slide.closest('.swiper') : null;
+      if (container) dirtyContainers.add(container);
+      (slide || tile).remove();
+    };
+    // After removals: tell Swiper the DOM changed so its internal slide
+    // array matches and the flex row stays consistent (no blank gaps,
+    // arrows still align). sw.removeSlide() is not exposed by the
+    // Elfsight bundle, so resync manually; verified in live tests that
+    // geometry + navigation stay correct afterwards.
+    const resyncSwiper = () => {
+      dirtyContainers.forEach((container) => {
+        const sw = container.swiper;
+        if (!sw) return;
+        try {
+          sw.slides = Array.from(container.querySelectorAll('.swiper-slide'));
+          if (typeof sw.update === 'function') sw.update();
+        } catch (e) {
+          // never let a Swiper hiccup break the page
+        }
+      });
+      dirtyContainers.clear();
+    };
 
     const dedupe = () => {
       const root = document.querySelector(WIDGET_SELECTOR);
@@ -181,36 +201,27 @@ export default function SocialSection() {
         return anchors;
       };
 
-      const seen = new Map(); // permalink key -> kept tile element
-
+      // Pass 1: same-permalink dupes (different tiles).
+      const seen = new Map();
       collect(root).forEach((a) => {
         const m = (a.getAttribute('href') || '').match(/instagram\.com\/(p|reel|tv)\/([A-Za-z0-9_-]+)/);
         if (!m) return;
         const key = m[1] + '/' + m[2];
-
-        // Tile = post container. Elfsight IG feed tiles ARE anchors
-        // (eapps-instagram-feed-posts-item); Social Feed tiles are divs
-        // (eapps-social-feed-item). Fall back to the anchor itself.
         const tile = a.closest('[class*="item"]') || a;
-
         if (seen.has(key)) {
           const keptTile = seen.get(key);
-          // Safety: same tile, tile nested inside kept tile, or kept
-          // tile nested inside this tile => not a true duplicate.
+          // Safety: same tile or nested tiles => not a true duplicate.
           if (keptTile === tile || keptTile.contains(a) || tile.contains(keptTile)) return;
-          tile.remove();
+          removeDup(tile);
         } else {
           seen.set(key, tile);
         }
       });
 
-      // v4 content-level pass (see header comment). Compares tile text;
-      // no date-bucket gate: same-episode spam measures sim 0.91-1.00
-      // while different episodes of the same account (shared template +
-      // hashtags) measure 0.50-0.56, so threshold 0.85 splits them with
-      // wide margin and bucket rounding edges can't break matching.
-      // Load guard: tiles must look fully mounted (>= 16 tokens AND
-      // media present) or they are never compared.
+      // Pass 2: content-level dupes (same episode posted 2-3x with
+      // distinct shortcodes, e.g. @drinkingonthejobpod). Text token
+      // similarity >= 0.85, tiles must be fully loaded (>= 16 tokens
+      // AND media present) so partial mounts are never compared.
       const normalizeTokens = (s) =>
         String(s || '')
           .toLowerCase()
@@ -240,9 +251,6 @@ export default function SocialSection() {
         return scan(tile);
       };
 
-      // Content-level pass follows the permalink pass above. Runs only
-      // on the scheduled sweeps (>= 12s) and gated observer callbacks,
-      // never during initial mount.
       const seenTiles = new Set();
       const tiles = [];
       collect(root).forEach((a) => {
@@ -267,35 +275,38 @@ export default function SocialSection() {
             })
           : undefined;
         if (dup) {
-          if (tile.isConnected) tile.remove();
+          if (tile.isConnected) removeDup(tile);
         } else {
           kept.push({ tokens, ready });
         }
       });
+
+      resyncSwiper();
     };
 
     // No dedupe during the widget's initial mount (0-10s): Elfsight
     // clones/rebuilds carousel slides in that window and removals race
-    // its renderer (observed: removal churn at 8s in testing). Sweeps
-    // start at 12s on settled DOM and repeat; they are idempotent, so
-    // re-runs are no-ops when nothing needs removing.
+    // its renderer. Sweeps start at 12s on settled DOM; they are
+    // idempotent, so re-runs are no-ops when nothing needs removing.
     const sweeps = [12, 20, 30, 45, 60, 120, 240].map((t) =>
       setTimeout(dedupe, t * 1000)
     );
 
-    // Long-tail observer: Elfsight re-renders the carousel on data
-    // refresh / user navigation, which can resurrect removed slides
-    // after the last sweep. Watch the widget light DOM AND its shadow
-    // roots once mounted (>= 12s) and re-run dedupe on additions,
-    // throttled to 3s. Dedupe is idempotent + guarded, so observer
-    // runs are safe.
+    // Long-tail observer: Elfsight re-renders / data-refreshes the
+    // carousel, which can resurrect dupes after the last sweep. Observe
+    // the widget light DOM AND every (new) shadow root. Dedupe runs are
+    // gated to >= 12s after mount and throttled to one per 3s; the
+    // observer itself attaches immediately so late-appearing shadow
+    // roots are caught.
+    const mountTime = Date.now();
     let observer = null;
-    let lastObsRun = 0;
+    let lastRun = 0;
     const runDedupe = () => {
-      const now = Date.now();
-      if (now - lastObsRun < 3000) return;
-      lastObsRun = now;
+      if (Date.now() - mountTime < 12000) return;
+      if (Date.now() - lastRun < 3000) return;
+      lastRun = Date.now();
       dedupe();
+      attachObserver(); // pick up any new shadow roots
     };
     const attachObserver = () => {
       if (!observer) observer = new MutationObserver(runDedupe);
@@ -317,11 +328,10 @@ export default function SocialSection() {
       };
       scan(root);
     };
-    const obsStart = setTimeout(attachObserver, 12000);
+    attachObserver();
 
     return () => {
       sweeps.forEach(clearTimeout);
-      clearTimeout(obsStart);
       if (observer) observer.disconnect();
     };
   }, []);
