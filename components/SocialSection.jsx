@@ -151,7 +151,8 @@ export default function SocialSection() {
   // v3: some accounts post the same episode/promo 2-3x within hours
   // (distinct shortcodes, so v2 cannot see it). Drop a tile when an
   // EARLIER tile's text is closely similar AND the relative date label
-  // ("3 days ago") matches. Validated against live DOM 2026-09-02.
+  // ("3 days ago") matches. v3.1 adds load-state guards after live
+  // testing over-removed partial tiles.
   useEffect(() => {
     const WIDGET_SELECTOR = '.elfsight-app-5c219adb-d249-478a-a3da-e1d087a08843';
 
@@ -195,6 +196,10 @@ export default function SocialSection() {
       // scoped to tiles with the SAME relative date label so distinct
       // episodes on different days are never merged (hashtag boilerplate
       // is shared by every post of a given account).
+      // v3.1 guard: Elfsight mounts tiles progressively (handle/date first,
+      // caption/media later). Two PARTIAL tiles can look similar, which
+      // wrongly removed real tiles (feed 5 -> 2 in testing). Only compare
+      // tiles that look fully loaded: >= 16 text tokens AND media present.
       const normalizeTokens = (s) =>
         String(s || '')
           .toLowerCase()
@@ -218,6 +223,17 @@ export default function SocialSection() {
         return common / Math.min(sa.size, sb.size);
       };
 
+      const hasMedia = (tile) => {
+        const scan = (scope) => {
+          if (scope.querySelector('img, video, iframe')) return true;
+          for (const el of scope.querySelectorAll('*')) {
+            if (el.shadowRoot && scan(el.shadowRoot)) return true;
+          }
+          return false;
+        };
+        return scan(tile);
+      };
+
       const seenTiles = new Set();
       const tiles = [];
       collect(root).forEach((a) => {
@@ -233,13 +249,20 @@ export default function SocialSection() {
       tiles.forEach((tile) => {
         const tokens = normalizeTokens(tile.textContent);
         const bucket = dateBucket(tile.textContent);
-        const dup = kept.find(
-          (p) => p.bucket && p.bucket === bucket && similarity(p.tokens, tokens) >= 0.6
-        );
+        const ready = tokens.length >= 16 && hasMedia(tile);
+        const dup = ready
+          ? kept.find((p) => {
+              if (!p.ready) return false;
+              if (!(p.bucket && p.bucket === bucket)) return false;
+              const sim = similarity(p.tokens, tokens);
+              const min = Math.min(p.tokens.length, tokens.length);
+              return sim >= 0.75 && (sim * min) >= 12;
+            })
+          : undefined;
         if (dup) {
           if (tile.isConnected) tile.remove();
         } else {
-          kept.push({ tokens, bucket });
+          kept.push({ tokens, bucket, ready });
         }
       });
     };
