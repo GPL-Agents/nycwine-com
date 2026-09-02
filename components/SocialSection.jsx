@@ -156,7 +156,7 @@ export default function SocialSection() {
   useEffect(() => {
     const WIDGET_SELECTOR = '.elfsight-app-5c219adb-d249-478a-a3da-e1d087a08843';
 
-    const dedupe = () => {
+    const dedupe = (phase) => {
       const root = document.querySelector(WIDGET_SELECTOR);
       if (!root) return;
 
@@ -186,6 +186,7 @@ export default function SocialSection() {
           // Safety: same tile, tile nested inside kept tile, or kept
           // tile nested inside this tile => not a true duplicate.
           if (keptTile === tile || keptTile.contains(a) || tile.contains(keptTile)) return;
+          console.debug('ig-dedupe v2 remove', key);
           tile.remove();
         } else {
           seen.set(key, tile);
@@ -234,6 +235,10 @@ export default function SocialSection() {
         return scan(tile);
       };
 
+      // v3 only runs on the later sweeps: the early timers (800ms-8s)
+      // fire while Elfsight is still mounting/cloning slides.
+      if (phase !== 'sweep') return;
+
       const seenTiles = new Set();
       const tiles = [];
       collect(root).forEach((a) => {
@@ -260,28 +265,32 @@ export default function SocialSection() {
             })
           : undefined;
         if (dup) {
-          if (tile.isConnected) tile.remove();
+          if (tile.isConnected) {
+            console.debug('ig-dedupe v3 remove', 'sim=' + similarity(dup.tokens, tokens).toFixed(2), 'kept=' + (dup.text || '').slice(0, 60), 'removed=' + (tile.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 60));
+            tile.remove();
+          }
         } else {
-          kept.push({ tokens, bucket, ready });
+          kept.push({ tokens, bucket, ready, text: (tile.textContent || '').replace(/\s+/g, ' ').trim() });
         }
       });
     };
 
     // Run after the lazy widget has had time to render, and keep
     // watching in case Elfsight appends more posts (load-more).
-    const timers = [800, 2000, 4000, 8000].map((t) => setTimeout(dedupe, t));
+    // Early passes: permalink dedupe only (phase 'early').
+    const timers = [800, 2000, 4000, 8000].map((t) => setTimeout(() => dedupe('early'), t));
 
     // Periodic sweep for the first 60s: the widget is lazy-loaded
     // (data-elfsight-app-lazy), so posts may render after the timers
     // above have already fired. Dedupe is idempotent, so re-running is
     // harmless -- a no-op when nothing needs removing.
-    const sweeps = [12, 20, 30, 45, 60].map((t) => setTimeout(dedupe, t * 1000));
+    const sweeps = [12, 20, 30, 45, 60].map((t) => setTimeout(() => dedupe('sweep'), t * 1000));
 
     let observer = null;
     const obsTimer = setInterval(() => {
       const root = document.querySelector(WIDGET_SELECTOR);
       if (root) {
-        observer = new MutationObserver(() => dedupe());
+        observer = new MutationObserver(() => dedupe('sweep'));
         observer.observe(root, { childList: true, subtree: true });
         clearInterval(obsTimer);
       }
