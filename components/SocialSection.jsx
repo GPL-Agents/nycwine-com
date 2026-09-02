@@ -157,6 +157,14 @@ export default function SocialSection() {
   // v3.2 schedule: no dedupe during Elfsight's 0-10s mount phase
   // (removals race its slide cloning/rebuild); sweeps run 12s-240s on
   // settled DOM only.
+  // v4: date-bucket equality REMOVED. Elfsight's relative labels ("3
+  // days ago") hit rounding boundaries that split one episode's 3 spam
+  // posts across buckets (measured: 14:01 post = "4 days ago" while
+  // 15:21/16:28 posts = "3 days ago" at the 96h edge). Token sim alone
+  // separates cleanly: same-episode pairs measure 0.91-1.00, different
+  // episodes of the same account measure 0.50-0.56. Threshold raised to
+  // 0.85, no bucket gate. MutationObserver (post-12s, throttled) keeps
+  // dedupe alive past the sweeps for late Elfsight re-renders.
   useEffect(() => {
     const WIDGET_SELECTOR = '.elfsight-app-5c219adb-d249-478a-a3da-e1d087a08843';
 
@@ -196,14 +204,13 @@ export default function SocialSection() {
         }
       });
 
-      // v3 content-level pass (see header comment). Compares tile text,
-      // scoped to tiles with the SAME relative date label so distinct
-      // episodes on different days are never merged (hashtag boilerplate
-      // is shared by every post of a given account).
-      // v3.1 guard: Elfsight mounts tiles progressively (handle/date first,
-      // caption/media later). Two PARTIAL tiles can look similar, which
-      // wrongly removed real tiles (feed 5 -> 2 in testing). Only compare
-      // tiles that look fully loaded: >= 16 text tokens AND media present.
+      // v4 content-level pass (see header comment). Compares tile text;
+      // no date-bucket gate: same-episode spam measures sim 0.91-1.00
+      // while different episodes of the same account (shared template +
+      // hashtags) measure 0.50-0.56, so threshold 0.85 splits them with
+      // wide margin and bucket rounding edges can't break matching.
+      // Load guard: tiles must look fully mounted (>= 16 tokens AND
+      // media present) or they are never compared.
       const normalizeTokens = (s) =>
         String(s || '')
           .toLowerCase()
@@ -212,11 +219,6 @@ export default function SocialSection() {
           .split(/\s+/)
           .filter(Boolean)
           .filter((w) => !/^\d+$/.test(w));
-
-      const dateBucket = (s) => {
-        const m = String(s || '').match(/(\d+)\s+(minute|hour|day|week|month|year)s?\s+ago/i);
-        return m ? m[2].toLowerCase() + ':' + m[1] : null;
-      };
 
       const similarity = (a, b) => {
         if (!a.length || !b.length) return 0;
@@ -239,7 +241,8 @@ export default function SocialSection() {
       };
 
       // Content-level pass follows the permalink pass above. Runs only
-      // on the scheduled sweeps (>= 12s), never during initial mount.
+      // on the scheduled sweeps (>= 12s) and gated observer callbacks,
+      // never during initial mount.
       const seenTiles = new Set();
       const tiles = [];
       collect(root).forEach((a) => {
@@ -254,21 +257,19 @@ export default function SocialSection() {
       const kept = [];
       tiles.forEach((tile) => {
         const tokens = normalizeTokens(tile.textContent);
-        const bucket = dateBucket(tile.textContent);
         const ready = tokens.length >= 16 && hasMedia(tile);
         const dup = ready
           ? kept.find((p) => {
               if (!p.ready) return false;
-              if (!(p.bucket && p.bucket === bucket)) return false;
               const sim = similarity(p.tokens, tokens);
               const min = Math.min(p.tokens.length, tokens.length);
-              return sim >= 0.75 && (sim * min) >= 12;
+              return sim >= 0.85 && (sim * min) >= 12;
             })
           : undefined;
         if (dup) {
           if (tile.isConnected) tile.remove();
         } else {
-          kept.push({ tokens, bucket, ready });
+          kept.push({ tokens, ready });
         }
       });
     };
@@ -282,8 +283,46 @@ export default function SocialSection() {
       setTimeout(dedupe, t * 1000)
     );
 
+    // Long-tail observer: Elfsight re-renders the carousel on data
+    // refresh / user navigation, which can resurrect removed slides
+    // after the last sweep. Watch the widget light DOM AND its shadow
+    // roots once mounted (>= 12s) and re-run dedupe on additions,
+    // throttled to 3s. Dedupe is idempotent + guarded, so observer
+    // runs are safe.
+    let observer = null;
+    let lastObsRun = 0;
+    const runDedupe = () => {
+      const now = Date.now();
+      if (now - lastObsRun < 3000) return;
+      lastObsRun = now;
+      dedupe();
+    };
+    const attachObserver = () => {
+      if (!observer) observer = new MutationObserver(runDedupe);
+      const root = document.querySelector(WIDGET_SELECTOR);
+      if (!root) return;
+      const seenTargets = new Set();
+      const observe = (target) => {
+        if (!seenTargets.has(target)) {
+          seenTargets.add(target);
+          observer.observe(target, { childList: true, subtree: true });
+        }
+      };
+      observe(root);
+      const scan = (scope) => {
+        if (scope.shadowRoot) observe(scope.shadowRoot);
+        for (const el of scope.querySelectorAll('*')) {
+          if (el.shadowRoot) observe(el.shadowRoot);
+        }
+      };
+      scan(root);
+    };
+    const obsStart = setTimeout(attachObserver, 12000);
+
     return () => {
       sweeps.forEach(clearTimeout);
+      clearTimeout(obsStart);
+      if (observer) observer.disconnect();
     };
   }, []);
 
