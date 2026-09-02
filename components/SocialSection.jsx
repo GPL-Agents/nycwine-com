@@ -235,8 +235,8 @@ export default function SocialSection() {
         return scan(tile);
       };
 
-      // v3 only runs on the later sweeps: the early timers (800ms-8s)
-      // fire while Elfsight is still mounting/cloning slides.
+      // Content-level pass, only after the widget DOM has settled
+      // (sweeps start at 12s -- see schedule below).
       if (phase !== 'sweep') return;
 
       const seenTiles = new Set();
@@ -275,32 +275,19 @@ export default function SocialSection() {
       });
     };
 
-    // Run after the lazy widget has had time to render, and keep
-    // watching in case Elfsight appends more posts (load-more).
-    // Early passes: permalink dedupe only (phase 'early').
-    const timers = [800, 2000, 4000, 8000].map((t) => setTimeout(() => dedupe('early'), t));
-
-    // Periodic sweep for the first 60s: the widget is lazy-loaded
-    // (data-elfsight-app-lazy), so posts may render after the timers
-    // above have already fired. Dedupe is idempotent, so re-running is
-    // harmless -- a no-op when nothing needs removing.
-    const sweeps = [12, 20, 30, 45, 60].map((t) => setTimeout(() => dedupe('sweep'), t * 1000));
-
-    let observer = null;
-    const obsTimer = setInterval(() => {
-      const root = document.querySelector(WIDGET_SELECTOR);
-      if (root) {
-        observer = new MutationObserver(() => dedupe('sweep'));
-        observer.observe(root, { childList: true, subtree: true });
-        clearInterval(obsTimer);
-      }
-    }, 500);
+    // No dedupe during the widget's initial mount (0-10s): Elfsight
+    // clones/rebuilds carousel slides during that window and removals
+    // race its renderer (observed: 24 removal round-trips at 8s).
+    // Start only once the DOM has settled, then keep sweeping --
+    // idempotent, so re-runs are no-ops when nothing needs removing.
+    // Phase 'sweep' runs BOTH passes: permalink dupes first, then the
+    // content-level pass for same-day repost spam.
+    const sweeps = [12, 20, 30, 45, 60, 120, 240].map((t) =>
+      setTimeout(() => dedupe('sweep'), t * 1000)
+    );
 
     return () => {
-      timers.forEach(clearTimeout);
       sweeps.forEach(clearTimeout);
-      clearInterval(obsTimer);
-      if (observer) observer.disconnect();
     };
   }, []);
 
