@@ -1,76 +1,11 @@
 {
-  "wine": [
-    {
-      "title": "Oregon, California, Burgundy, Rhone, Italy.",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1w550bt/oregon_california_burgundy_rhone_italy/",
-      "score": 1,
-      "comments": 0,
-      "ago": "2h ago"
-    },
-    {
-      "title": "Blind Tasting Napa Cabernet suggestions",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1w4rfj9/blind_tasting_napa_cabernet_suggestions/",
-      "score": 1,
-      "comments": 0,
-      "ago": "13h ago"
-    },
-    {
-      "title": "2008 Napa Cabernet",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1w4qfi2/2008_napa_cabernet/",
-      "score": 1,
-      "comments": 0,
-      "ago": "14h ago"
-    },
-    {
-      "title": "Burgundy during Hospice de Beaune wine auction weekend",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1w4p8gr/burgundy_during_hospice_de_beaune_wine_auction/",
-      "score": 1,
-      "comments": 0,
-      "ago": "14h ago"
-    },
-    {
-      "title": "Crisis hits Napa Valley as ranches left to rot, wine industry on a knife's edge",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1w4ghtd/crisis_hits_napa_valley_as_ranches_left_to_rot/",
-      "score": 1,
-      "comments": 0,
-      "ago": "19h ago"
-    },
-    {
-      "title": "Paso Robles Cabernet Sauvignon",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1w4fy5y/paso_robles_cabernet_sauvignon/",
-      "score": 1,
-      "comments": 0,
-      "ago": "19h ago"
-    },
-    {
-      "title": "Going on a third date and I volunteered to bring the wine. Mistakes were made",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1w4a7vr/going_on_a_third_date_and_i_volunteered_to_bring/",
-      "score": 1,
-      "comments": 0,
-      "ago": "23h ago"
-    },
-    {
-      "title": "Visit to Diamond Creek Vineyard",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1w3yrwz/visit_to_diamond_creek_vineyard/",
-      "score": 1,
-      "comments": 0,
-      "ago": "Yesterday"
-    }
-  ],
+  "wine": [],
   "nyc": [],
-  "fetchedAt": "2026-09-02T11:34:33.394Z",
+  "fetchedAt": "2026-09-03T11:30:37.704Z",
   "stats": {
-    "winePostsFound": 8,
+    "winePostsFound": 0,
     "nycPostsFound": 0,
-    "totalCandidatesWine": 25,
+    "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
 }
