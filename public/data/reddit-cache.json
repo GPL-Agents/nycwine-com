@@ -1,20 +1,100 @@
 {
-  "wine": [],
-  "nyc": [
+  "wine": [
     {
-      "title": "I’m Looking for a Non-Alcoholic Fancy Bubbly Celebration Drink",
-      "subreddit": "r/FoodNYC",
-      "url": "https://www.reddit.com/r/FoodNYC/comments/1w77462/im_looking_for_a_nonalcoholic_fancy_bubbly/",
+      "title": "Baby Barolo? – Bruno Giacosa Valmaggiore 2019",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1w8qk58/baby_barolo_bruno_giacosa_valmaggiore_2019/",
+      "score": 1,
+      "comments": 0,
+      "ago": "2h ago"
+    },
+    {
+      "title": "Question: \"DIY\" shipping wine to US from Tuscany advice?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1w8o1e9/question_diy_shipping_wine_to_us_from_tuscany/",
+      "score": 1,
+      "comments": 0,
+      "ago": "5h ago"
+    },
+    {
+      "title": "What wine would you serve with this?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1w8j631/what_wine_would_you_serve_with_this/",
+      "score": 1,
+      "comments": 0,
+      "ago": "9h ago"
+    },
+    {
+      "title": "How do you guys actually remember the wines you’ve tasted?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1w8i7ak/how_do_you_guys_actually_remember_the_wines_youve/",
+      "score": 1,
+      "comments": 0,
+      "ago": "9h ago"
+    },
+    {
+      "title": "2022 Groth Estate Grown Chardonnay",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1w8h5x2/2022_groth_estate_grown_chardonnay/",
+      "score": 1,
+      "comments": 0,
+      "ago": "10h ago"
+    },
+    {
+      "title": "Premier Cru Champagne for $10",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1w8dyj5/premier_cru_champagne_for_10/",
+      "score": 1,
+      "comments": 0,
+      "ago": "13h ago"
+    },
+    {
+      "title": "2022 Hall Kathryn Hall Cabernet Sauvignon",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1w850sj/2022_hall_kathryn_hall_cabernet_sauvignon/",
+      "score": 1,
+      "comments": 0,
+      "ago": "18h ago"
+    },
+    {
+      "title": "Is oxidative wine not at least partly reductive? Selosse? PYCM?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1w84n7c/is_oxidative_wine_not_at_least_partly_reductive/",
       "score": 1,
       "comments": 0,
       "ago": "19h ago"
+    },
+    {
+      "title": "Carneros Pinot Noir",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1w84mcd/carneros_pinot_noir/",
+      "score": 1,
+      "comments": 0,
+      "ago": "19h ago"
+    },
+    {
+      "title": "Great wine bar in Brussels",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1w7wfjv/great_wine_bar_in_brussels/",
+      "score": 1,
+      "comments": 0,
+      "ago": "Yesterday"
+    },
+    {
+      "title": "Is this wine legit?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1w7o3mk/is_this_wine_legit/",
+      "score": 1,
+      "comments": 0,
+      "ago": "Yesterday"
     }
   ],
-  "fetchedAt": "2026-09-05T10:49:29.922Z",
+  "nyc": [],
+  "fetchedAt": "2026-09-06T11:13:00.082Z",
   "stats": {
-    "winePostsFound": 0,
-    "nycPostsFound": 1,
-    "totalCandidatesWine": 0,
+    "winePostsFound": 11,
+    "nycPostsFound": 0,
+    "totalCandidatesWine": 25,
     "totalCandidatesNyc": 25
   }
 }
