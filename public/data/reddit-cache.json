@@ -1,42 +1,50 @@
 {
   "wine": [
     {
-      "title": "New to wine M25",
+      "title": "Affordable Bordeaux recommendations",
       "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1w9n7ep/new_to_wine_m25/",
+      "url": "https://www.reddit.com/r/wine/comments/1waio8t/affordable_bordeaux_recommendations/",
       "score": 1,
       "comments": 0,
-      "ago": "3h ago"
+      "ago": "2h ago"
     },
     {
-      "title": "The wine detail in The Gentlemen TV Show",
+      "title": "Wine Under the Stars",
       "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1w9jqvd/the_wine_detail_in_the_gentlemen_tv_show/",
+      "url": "https://www.reddit.com/r/wine/comments/1wacapf/wine_under_the_stars/",
       "score": 1,
       "comments": 0,
-      "ago": "6h ago"
+      "ago": "8h ago"
     },
     {
-      "title": "Sonoma Trip Reflections - Croix Estate, Porter Creek Vineyards, Littorai",
+      "title": "Martin Ray 2017 Cabernet",
       "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1w9gjdl/sonoma_trip_reflections_croix_estate_porter_creek/",
+      "url": "https://www.reddit.com/r/wine/comments/1wa9p0i/martin_ray_2017_cabernet/",
       "score": 1,
       "comments": 0,
-      "ago": "9h ago"
+      "ago": "10h ago"
     },
     {
-      "title": "recommendations for win and champagne glasses AUSTRALIA",
+      "title": "Michelin Guide just dropped its Grape selections for Bordeaux",
       "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1w9dqy4/recommendations_for_win_and_champagne_glasses/",
+      "url": "https://www.reddit.com/r/wine/comments/1wa2wai/michelin_guide_just_dropped_its_grape_selections/",
       "score": 1,
       "comments": 0,
-      "ago": "11h ago"
+      "ago": "15h ago"
+    },
+    {
+      "title": "French wine yields drop to new historic low after searing summer heat",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1wa0zph/french_wine_yields_drop_to_new_historic_low_after/",
+      "score": 1,
+      "comments": 0,
+      "ago": "16h ago"
     }
   ],
   "nyc": [],
-  "fetchedAt": "2026-09-07T12:54:28.210Z",
+  "fetchedAt": "2026-09-08T11:33:54.326Z",
   "stats": {
-    "winePostsFound": 4,
+    "winePostsFound": 5,
     "nycPostsFound": 0,
     "totalCandidatesWine": 25,
     "totalCandidatesNyc": 25
