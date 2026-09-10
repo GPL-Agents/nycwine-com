@@ -1,100 +1,11 @@
 {
-  "wine": [
-    {
-      "title": "Wine Bible or The World Atlas of Wine?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wbdx87/wine_bible_or_the_world_atlas_of_wine/",
-      "score": 1,
-      "comments": 0,
-      "ago": "4h ago"
-    },
-    {
-      "title": "Louis Jadot Chardonnay is it good?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wb97te/louis_jadot_chardonnay_is_it_good/",
-      "score": 1,
-      "comments": 0,
-      "ago": "8h ago"
-    },
-    {
-      "title": "My WineStation's arrived today!",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wb84tg/my_winestations_arrived_today/",
-      "score": 1,
-      "comments": 0,
-      "ago": "9h ago"
-    },
-    {
-      "title": "Dry Creek Cabernet Sauvignon",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wb5vl0/dry_creek_cabernet_sauvignon/",
-      "score": 1,
-      "comments": 0,
-      "ago": "11h ago"
-    },
-    {
-      "title": "UA99 Business Wine Selection",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wb4kg5/ua99_business_wine_selection/",
-      "score": 1,
-      "comments": 0,
-      "ago": "12h ago"
-    },
-    {
-      "title": "Wine for wedding",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wb3pui/wine_for_wedding/",
-      "score": 1,
-      "comments": 0,
-      "ago": "12h ago"
-    },
-    {
-      "title": "Opened a 55-ish year old champagne",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wayz40/opened_a_55ish_year_old_champagne/",
-      "score": 1,
-      "comments": 0,
-      "ago": "15h ago"
-    },
-    {
-      "title": "Moving wine",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1way0zg/moving_wine/",
-      "score": 1,
-      "comments": 0,
-      "ago": "16h ago"
-    },
-    {
-      "title": "Red Wine \"chiller\"",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wawlyd/red_wine_chiller/",
-      "score": 1,
-      "comments": 0,
-      "ago": "17h ago"
-    },
-    {
-      "title": "Los Carneros Chardonnay",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wates4/los_carneros_chardonnay/",
-      "score": 1,
-      "comments": 0,
-      "ago": "19h ago"
-    },
-    {
-      "title": "France Champagne Output Set to Halve on Heat Waves and Drought",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wapkf8/france_champagne_output_set_to_halve_on_heat/",
-      "score": 1,
-      "comments": 0,
-      "ago": "21h ago"
-    }
-  ],
+  "wine": [],
   "nyc": [],
-  "fetchedAt": "2026-09-09T11:41:50.819Z",
+  "fetchedAt": "2026-09-10T11:39:01.727Z",
   "stats": {
-    "winePostsFound": 11,
+    "winePostsFound": 0,
     "nycPostsFound": 0,
-    "totalCandidatesWine": 25,
-    "totalCandidatesNyc": 25
+    "totalCandidatesWine": 0,
+    "totalCandidatesNyc": 0
   }
 }
