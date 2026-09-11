@@ -9,19 +9,19 @@ export default function Header() {
   const headerAdRef = useRef(null);
   const headerAdPushed = useRef(false);
 
-  useEffect(() => {
-    // Push the AdSense ad slot once the <ins> is in the DOM.
-    // The slot container is always visible (no hide-until-filled), so AdSense
-    // can measure it and fill it as soon as the account starts serving ads.
-    if (!headerAdPushed.current && headerAdRef.current && typeof window !== 'undefined') {
-      try {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-        headerAdPushed.current = true;
-      } catch (e) {
-        console.warn('AdSense push error:', e);
-      }
-    }
-  }, []);
+  // AdSense push for the header slot is disabled while the Yorkshire Wines
+  // banner is running there (see header-ad-link below). Restore by
+  // uncommenting this effect and swapping the markup back to the <ins>.
+  // useEffect(() => {
+  //   if (!headerAdPushed.current && headerAdRef.current && typeof window !== 'undefined') {
+  //     try {
+  //       (window.adsbygoogle = window.adsbygoogle || []).push({});
+  //       headerAdPushed.current = true;
+  //     } catch (e) {
+  //       console.warn('AdSense push error:', e);
+  //     }
+  //   }
+  // }, []);
 
   function handleSearch(e) {
     e.preventDefault();
@@ -68,15 +68,23 @@ export default function Header() {
         />
       </form>
 
-      {/* Banner ad — right side of header (AdSense unit: Top right corner header, 468×60) */}
+      {/* Banner ad — right side of header (468×60). Currently Yorkshire Wines
+          & Spirits; AdSense unit (slot 2838548456) is commented out above. */}
       <div className="header-ad-link">
-        <ins
-          className="adsbygoogle"
-          style={{ display: 'inline-block', width: 468, height: 60 }}
-          data-ad-client="ca-pub-6782277104310503"
-          data-ad-slot="2838548456"
-          ref={headerAdRef}
-        />
+        <a
+          href="https://www.yorkshirewines.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Yorkshire Wines & Spirits — Fast delivery to Upper East Side"
+        >
+          <img
+            src="/images/yorkshire2.png"
+            alt="Yorkshire Wines & Spirits — Fast delivery to Upper East Side"
+            className="header-ad-img"
+            width={468}
+            height={60}
+          />
+        </a>
       </div>
     </header>
   );
