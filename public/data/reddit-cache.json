@@ -1,93 +1,11 @@
 {
-  "wine": [
-    {
-      "title": "Why are some of Germany’s top dry Riesling producers not members of the VDP?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wdaly5/why_are_some_of_germanys_top_dry_riesling/",
-      "score": 1,
-      "comments": 0,
-      "ago": "2h ago"
-    },
-    {
-      "title": "How flexible is working in wine distribution, really?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wd7a57/how_flexible_is_working_in_wine_distribution/",
-      "score": 1,
-      "comments": 0,
-      "ago": "6h ago"
-    },
-    {
-      "title": "What's the most WTF wine you've ever seen?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wd4iqh/whats_the_most_wtf_wine_youve_ever_seen/",
-      "score": 1,
-      "comments": 0,
-      "ago": "8h ago"
-    },
-    {
-      "title": "This $3 bottle of wine is good",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wd4gi8/this_3_bottle_of_wine_is_good/",
-      "score": 1,
-      "comments": 0,
-      "ago": "8h ago"
-    },
-    {
-      "title": "2017 Rhys Alpine Vineyards, Santa Cruz Mountains",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wd4b9h/2017_rhys_alpine_vineyards_santa_cruz_mountains/",
-      "score": 1,
-      "comments": 0,
-      "ago": "8h ago"
-    },
-    {
-      "title": "Bordeaux-ee-oh",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wd3n78/bordeauxeeoh/",
-      "score": 1,
-      "comments": 0,
-      "ago": "9h ago"
-    },
-    {
-      "title": "Wines under or around 30 dollars which are great ‘examples’ of their varietal?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wczpsy/wines_under_or_around_30_dollars_which_are_great/",
-      "score": 1,
-      "comments": 0,
-      "ago": "11h ago"
-    },
-    {
-      "title": "0 Michelin Grapes for Merlot Thursday: 2016 Chateau Pavie",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wcxaco/0_michelin_grapes_for_merlot_thursday_2016/",
-      "score": 1,
-      "comments": 0,
-      "ago": "13h ago"
-    },
-    {
-      "title": "Schiavenza - Cerretta Barolo -2016",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wcs3fa/schiavenza_cerretta_barolo_2016/",
-      "score": 1,
-      "comments": 0,
-      "ago": "16h ago"
-    }
-  ],
-  "nyc": [
-    {
-      "title": "Wine tasting group in NYC",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wcx9qn/wine_tasting_group_in_nyc/",
-      "score": 1,
-      "comments": 0,
-      "ago": "13h ago"
-    }
-  ],
-  "fetchedAt": "2026-09-11T11:40:11.205Z",
+  "wine": [],
+  "nyc": [],
+  "fetchedAt": "2026-09-12T11:04:11.697Z",
   "stats": {
-    "winePostsFound": 9,
-    "nycPostsFound": 1,
-    "totalCandidatesWine": 25,
+    "winePostsFound": 0,
+    "nycPostsFound": 0,
+    "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
 }
