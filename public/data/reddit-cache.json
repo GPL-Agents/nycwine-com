@@ -1,11 +1,69 @@
 {
-  "wine": [],
-  "nyc": [],
-  "fetchedAt": "2026-09-15T11:58:24.611Z",
+  "wine": [
+    {
+      "title": "Sherry wine corner- Venencia",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1whu2b0/sherry_wine_corner_venencia/",
+      "score": 1,
+      "comments": 0,
+      "ago": "Just now"
+    },
+    {
+      "title": "Vineyard Tours Reccs in Solvang, CA?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1whp46m/vineyard_tours_reccs_in_solvang_ca/",
+      "score": 1,
+      "comments": 0,
+      "ago": "5h ago"
+    },
+    {
+      "title": "Need Pinot Noir recommendations",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1whmm5k/need_pinot_noir_recommendations/",
+      "score": 1,
+      "comments": 0,
+      "ago": "7h ago"
+    },
+    {
+      "title": "Wine Fridge Upstairs",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1whdsj9/wine_fridge_upstairs/",
+      "score": 1,
+      "comments": 0,
+      "ago": "14h ago"
+    },
+    {
+      "title": "Reputable sources to buy older wines?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1whaj3k/reputable_sources_to_buy_older_wines/",
+      "score": 1,
+      "comments": 0,
+      "ago": "16h ago"
+    },
+    {
+      "title": "Wine bars/shops in San Francisco",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1wh7w6s/wine_barsshops_in_san_francisco/",
+      "score": 1,
+      "comments": 0,
+      "ago": "17h ago"
+    }
+  ],
+  "nyc": [
+    {
+      "title": "High end tasting events near NYC?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1whf7zb/high_end_tasting_events_near_nyc/",
+      "score": 1,
+      "comments": 0,
+      "ago": "13h ago"
+    }
+  ],
+  "fetchedAt": "2026-09-16T11:55:07.122Z",
   "stats": {
-    "winePostsFound": 0,
-    "nycPostsFound": 0,
-    "totalCandidatesWine": 0,
+    "winePostsFound": 6,
+    "nycPostsFound": 1,
+    "totalCandidatesWine": 25,
     "totalCandidatesNyc": 25
   }
 }
