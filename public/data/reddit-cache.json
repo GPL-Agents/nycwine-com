@@ -1,85 +1,28 @@
 {
-  "wine": [
-    {
-      "title": "Exploring mature Bordeaux: Château Le Boscq 2003 & Mayne Lalande 2003",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wjm8we/exploring_mature_bordeaux_château_le_boscq_2003/",
-      "score": 89,
-      "comments": 0,
-      "ago": "Yesterday"
-    },
-    {
-      "title": "1997 Berlin Riesling Spatlese [???]",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wkd9wm/1997_berlin_riesling_spatlese/",
-      "score": 1,
-      "comments": 0,
-      "ago": "5h ago"
-    },
-    {
-      "title": "Any Sonoma or Napa wineries make a great dessert wine?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wk8klm/any_sonoma_or_napa_wineries_make_a_great_dessert/",
-      "score": 1,
-      "comments": 0,
-      "ago": "9h ago"
-    },
-    {
-      "title": "How to clean The Bisque Hartstone Wine Tote",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wk7kti/how_to_clean_the_bisque_hartstone_wine_tote/",
-      "score": 1,
-      "comments": 0,
-      "ago": "10h ago"
-    },
-    {
-      "title": "How can we find this wine that we loved?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wk1var/how_can_we_find_this_wine_that_we_loved/",
-      "score": 1,
-      "comments": 0,
-      "ago": "14h ago"
-    },
-    {
-      "title": "Single Vineyard Napa Cab",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wjzpmb/single_vineyard_napa_cab/",
-      "score": 1,
-      "comments": 0,
-      "ago": "15h ago"
-    },
-    {
-      "title": "Airén en rama: a true story of medieval warfare, military orders and wine business",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wjy11o/airén_en_rama_a_true_story_of_medieval_warfare/",
-      "score": 1,
-      "comments": 0,
-      "ago": "16h ago"
-    }
-  ],
+  "wine": [],
   "nyc": [
     {
-      "title": "I visited 4 wineries in Campania, in the areas of Avellino (Irpinia) and Benevento (Sannio)! My thoughts!",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wjyyjs/i_visited_4_wineries_in_campania_in_the_areas_of/",
+      "title": "Tatiana by Kwame Onwuachi NYC Review 9.18: Great Food, Great Team, Weird Pacing!",
+      "subreddit": "r/FoodNYC",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1wkq6ud/tatiana_by_kwame_onwuachi_nyc_review_918_great/",
       "score": 1,
       "comments": 0,
-      "ago": "16h ago"
+      "ago": "19h ago"
     },
     {
-      "title": "How Are Wine Shops Doing These Days?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wjqmf1/how_are_wine_shops_doing_these_days/",
+      "title": "Looking for solo tasting menu recommendations - chefs counter or bar",
+      "subreddit": "r/FoodNYC",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1wkdoqq/looking_for_solo_tasting_menu_recommendations/",
       "score": 1,
       "comments": 0,
-      "ago": "21h ago"
+      "ago": "Yesterday"
     }
   ],
-  "fetchedAt": "2026-09-19T11:20:01.467Z",
+  "fetchedAt": "2026-09-20T11:41:24.299Z",
   "stats": {
-    "winePostsFound": 7,
+    "winePostsFound": 0,
     "nycPostsFound": 2,
-    "totalCandidatesWine": 25,
+    "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
 }
