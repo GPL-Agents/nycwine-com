@@ -1,19 +1,10 @@
 {
   "wine": [],
-  "nyc": [
-    {
-      "title": "Manhattan in December with two teens who eat everything",
-      "subreddit": "r/FoodNYC",
-      "url": "https://www.reddit.com/r/FoodNYC/comments/1wmtu85/manhattan_in_december_with_two_teens_who_eat/",
-      "score": 1,
-      "comments": 0,
-      "ago": "11h ago"
-    }
-  ],
-  "fetchedAt": "2026-09-22T11:56:01.546Z",
+  "nyc": [],
+  "fetchedAt": "2026-09-23T11:56:19.036Z",
   "stats": {
     "winePostsFound": 0,
-    "nycPostsFound": 1,
+    "nycPostsFound": 0,
     "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
