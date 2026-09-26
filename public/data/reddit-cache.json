@@ -1,92 +1,11 @@
 {
-  "wine": [
-    {
-      "title": "Wine Harvest Question",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wpttk0/wine_harvest_question/",
-      "score": 1,
-      "comments": 0,
-      "ago": "Just now"
-    },
-    {
-      "title": "Wine Sports Bars?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wpnep3/wine_sports_bars/",
-      "score": 1,
-      "comments": 0,
-      "ago": "7h ago"
-    },
-    {
-      "title": "Help me branch out from just Cabernet",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wpndg4/help_me_branch_out_from_just_cabernet/",
-      "score": 1,
-      "comments": 0,
-      "ago": "7h ago"
-    },
-    {
-      "title": "I hope this is appropriate here. My wine themed wall all from thrifted wall decor.",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wpiyj0/i_hope_this_is_appropriate_here_my_wine_themed/",
-      "score": 1,
-      "comments": 0,
-      "ago": "10h ago"
-    },
-    {
-      "title": "Do you really NEED to let a wine breathe if you aren't a wine sommelier?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wpges4/do_you_really_need_to_let_a_wine_breathe_if_you/",
-      "score": 1,
-      "comments": 0,
-      "ago": "13h ago"
-    },
-    {
-      "title": "My Merlot Thursday from Saint Emilion. Join us with your own Merlot",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wpb0qb/my_merlot_thursday_from_saint_emilion_join_us/",
-      "score": 1,
-      "comments": 0,
-      "ago": "16h ago"
-    },
-    {
-      "title": "What’s your go-to aperitif Champagne?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wp47ll/whats_your_goto_aperitif_champagne/",
-      "score": 1,
-      "comments": 0,
-      "ago": "20h ago"
-    },
-    {
-      "title": "Trump’s Canada tariffs force family-owned California winery to sell business, including 10 vineyards",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wozz8l/trumps_canada_tariffs_force_familyowned/",
-      "score": 1,
-      "comments": 0,
-      "ago": "23h ago"
-    },
-    {
-      "title": "2022 The Eyrie Vineyards Pinot Meunier",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1worg96/2022_the_eyrie_vineyards_pinot_meunier/",
-      "score": 1,
-      "comments": 0,
-      "ago": "Yesterday"
-    },
-    {
-      "title": "Canada's boycott forces the sale of a California winery",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1woh9ee/canadas_boycott_forces_the_sale_of_a_california/",
-      "score": 1,
-      "comments": 0,
-      "ago": "Yesterday"
-    }
-  ],
+  "wine": [],
   "nyc": [],
-  "fetchedAt": "2026-09-25T12:03:53.588Z",
+  "fetchedAt": "2026-09-26T11:39:54.314Z",
   "stats": {
-    "winePostsFound": 10,
+    "winePostsFound": 0,
     "nycPostsFound": 0,
-    "totalCandidatesWine": 25,
+    "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
 }
