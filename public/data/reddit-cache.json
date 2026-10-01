@@ -1,92 +1,20 @@
 {
-  "wine": [
+  "wine": [],
+  "nyc": [
     {
-      "title": "Buckfast tonic wine brewed by the benedictine monks of Buckfast Abbey Devon England",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wu2uxa/buckfast_tonic_wine_brewed_by_the_benedictine/",
+      "title": "Looking for a feel-good restaurant with good wine, pasta and decent service to celebrate a milestone birthday.",
+      "subreddit": "r/FoodNYC",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1wuldwt/looking_for_a_feelgood_restaurant_with_good_wine/",
       "score": 1,
       "comments": 0,
-      "ago": "1h ago"
-    },
-    {
-      "title": "Ask me about burgundy",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wu29af/ask_me_about_burgundy/",
-      "score": 1,
-      "comments": 0,
-      "ago": "1h ago"
-    },
-    {
-      "title": "Which wine to break out for dinner with a friend?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wu1e2x/which_wine_to_break_out_for_dinner_with_a_friend/",
-      "score": 1,
-      "comments": 0,
-      "ago": "2h ago"
-    },
-    {
-      "title": "Good, affordable wine glasses as an alternative to Zalto?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wu05ex/good_affordable_wine_glasses_as_an_alternative_to/",
-      "score": 1,
-      "comments": 0,
-      "ago": "3h ago"
-    },
-    {
-      "title": "2019 Sequoia Grove Cabernet Sauvignon Atlas Peak Stagecoach Vineyard",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wtry0j/2019_sequoia_grove_cabernet_sauvignon_atlas_peak/",
-      "score": 1,
-      "comments": 0,
-      "ago": "11h ago"
-    },
-    {
-      "title": "Looking for wine book recommendations after finishing Cork Dork",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wtlhub/looking_for_wine_book_recommendations_after/",
-      "score": 1,
-      "comments": 0,
-      "ago": "16h ago"
-    },
-    {
-      "title": "Barolo Trip report/experience Aug 9-15",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wtbvz6/barolo_trip_reportexperience_aug_915/",
-      "score": 1,
-      "comments": 0,
-      "ago": "22h ago"
-    },
-    {
-      "title": "Wine and Appetizer pairings",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wtbp2y/wine_and_appetizer_pairings/",
-      "score": 1,
-      "comments": 0,
-      "ago": "22h ago"
-    },
-    {
-      "title": "Chateau de Trinquevedel Tavel Rosé",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wsxbny/chateau_de_trinquevedel_tavel_rosé/",
-      "score": 1,
-      "comments": 0,
-      "ago": "Yesterday"
-    },
-    {
-      "title": "California Farmers Are Struggling to Sell Grapes as Demand for Wine Drops",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1wskxqm/california_farmers_are_struggling_to_sell_grapes/",
-      "score": 1,
-      "comments": 0,
-      "ago": "Yesterday"
+      "ago": "13h ago"
     }
   ],
-  "nyc": [],
-  "fetchedAt": "2026-09-30T12:52:43.936Z",
+  "fetchedAt": "2026-10-01T13:43:26.054Z",
   "stats": {
-    "winePostsFound": 10,
-    "nycPostsFound": 0,
-    "totalCandidatesWine": 25,
+    "winePostsFound": 0,
+    "nycPostsFound": 1,
+    "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
 }
