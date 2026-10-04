@@ -1,11 +1,100 @@
 {
-  "wine": [],
+  "wine": [
+    {
+      "title": "Georgian Wines",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1wxcxt9/georgian_wines/",
+      "score": 1,
+      "comments": 0,
+      "ago": "1h ago"
+    },
+    {
+      "title": "2022 Beringer Knights Valley Cabernet Sauvignon",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1wx4j4w/2022_beringer_knights_valley_cabernet_sauvignon/",
+      "score": 5,
+      "comments": 0,
+      "ago": "10h ago"
+    },
+    {
+      "title": "Good Wines at Total Wine?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1wx6lqy/good_wines_at_total_wine/",
+      "score": 1,
+      "comments": 0,
+      "ago": "8h ago"
+    },
+    {
+      "title": "2004 Zind Humbrecht Clos Windsbuhl Riesling",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1wx40ub/2004_zind_humbrecht_clos_windsbuhl_riesling/",
+      "score": 1,
+      "comments": 0,
+      "ago": "10h ago"
+    },
+    {
+      "title": "Charcuterie and Wine Pairing",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1wx406i/charcuterie_and_wine_pairing/",
+      "score": 1,
+      "comments": 0,
+      "ago": "10h ago"
+    },
+    {
+      "title": "Fantastic Spanish wine.",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1wx335a/fantastic_spanish_wine/",
+      "score": 1,
+      "comments": 0,
+      "ago": "11h ago"
+    },
+    {
+      "title": "Artevino III out of stock at Costco, only other option is Wine Ethusiast?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1wwwcs4/artevino_iii_out_of_stock_at_costco_only_other/",
+      "score": 1,
+      "comments": 0,
+      "ago": "16h ago"
+    },
+    {
+      "title": "Pinot noir Recommendation",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1wwwa86/pinot_noir_recommendation/",
+      "score": 1,
+      "comments": 0,
+      "ago": "16h ago"
+    },
+    {
+      "title": "Chicago Wine Tasting Group",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1wwu6di/chicago_wine_tasting_group/",
+      "score": 1,
+      "comments": 0,
+      "ago": "18h ago"
+    },
+    {
+      "title": "Kanonkop wines 🇿🇦",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1wwm723/kanonkop_wines/",
+      "score": 1,
+      "comments": 0,
+      "ago": "Yesterday"
+    },
+    {
+      "title": "I’m going to Poland and want to bring back Polish wine for a bunch of wine nerds in Japan — what should I buy?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1wwkypl/im_going_to_poland_and_want_to_bring_back_polish/",
+      "score": 1,
+      "comments": 0,
+      "ago": "Yesterday"
+    }
+  ],
   "nyc": [],
-  "fetchedAt": "2026-10-03T11:53:20.199Z",
+  "fetchedAt": "2026-10-04T12:43:25.693Z",
   "stats": {
-    "winePostsFound": 0,
+    "winePostsFound": 11,
     "nycPostsFound": 0,
-    "totalCandidatesWine": 0,
+    "totalCandidatesWine": 25,
     "totalCandidatesNyc": 25
   }
 }
