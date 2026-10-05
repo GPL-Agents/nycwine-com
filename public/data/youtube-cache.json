@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-28T16:10:31.824Z",
+  "fetchedAt": "2026-10-05T16:31:37.693Z",
   "source": "YouTube",
   "sourceUrl": "https://www.youtube.com/results?search_query=NYC+wine",
   "videos": [
@@ -31,22 +31,13 @@
       "url": "https://www.youtube.com/watch?v=WtIW_uVL1pc"
     },
     {
-      "videoId": "i_i-4smUdn0",
-      "title": "NYC Wine & Dining Experience #ayzanyc",
-      "channelTitle": "Ayza Wine & Chocolate Bar",
-      "publishedAt": "2026-04-21T08:42:49Z",
-      "publishedRelative": "5mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/i_i-4smUdn0/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=i_i-4smUdn0"
-    },
-    {
-      "videoId": "6sdbfdz8564",
-      "title": "BEST WINE BAR IN NYC? INTERVIEW WITH @supervinobros",
-      "channelTitle": "Beli App",
-      "publishedAt": "2025-09-20T14:00:24Z",
-      "publishedRelative": "1y ago",
-      "thumbnail": "https://i.ytimg.com/vi/6sdbfdz8564/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=6sdbfdz8564"
+      "videoId": "dW3LuXo4XZE",
+      "title": "In NYC for Work? A World-Class Wine Bar You Can Expense | I Know A Place",
+      "channelTitle": "InsideHook",
+      "publishedAt": "2025-12-30T12:01:16Z",
+      "publishedRelative": "9mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/dW3LuXo4XZE/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=dW3LuXo4XZE"
     },
     {
       "videoId": "RXsDxS4pRAw",
@@ -58,6 +49,24 @@
       "url": "https://www.youtube.com/watch?v=RXsDxS4pRAw"
     },
     {
+      "videoId": "Hl5XNBEBDoo",
+      "title": "Manhattan Wine Auction Installation",
+      "channelTitle": "Manhattan Beach Education Foundation",
+      "publishedAt": "2026-06-15T22:20:24Z",
+      "publishedRelative": "3mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/Hl5XNBEBDoo/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=Hl5XNBEBDoo"
+    },
+    {
+      "videoId": "i_i-4smUdn0",
+      "title": "NYC Wine & Dining Experience #ayzanyc",
+      "channelTitle": "Ayza Wine & Chocolate Bar",
+      "publishedAt": "2026-04-21T08:42:49Z",
+      "publishedRelative": "5mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/i_i-4smUdn0/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=i_i-4smUdn0"
+    },
+    {
       "videoId": "ocRGisyE9Vs",
       "title": "Food Network’s NYC Wine & Food Festival 🍷 #travel #foodie #food #foodlover #newyorkeats #nyeats",
       "channelTitle": "Morgan Yi",
@@ -67,49 +76,13 @@
       "url": "https://www.youtube.com/watch?v=ocRGisyE9Vs"
     },
     {
-      "videoId": "MWANvIPMR6g",
-      "title": "🍷 NYC Wine Bars I Visited for Emotional Support",
-      "channelTitle": "Wine Sinner",
-      "publishedAt": "2026-06-04T12:01:31Z",
-      "publishedRelative": "3mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/MWANvIPMR6g/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=MWANvIPMR6g"
-    },
-    {
-      "videoId": "xMcaDhbeXos",
-      "title": "18th annual NYC Wine and Food Festival held at the South Street Seaport",
-      "channelTitle": "CBS New York",
-      "publishedAt": "2025-10-19T23:24:31Z",
-      "publishedRelative": "11mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/xMcaDhbeXos/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=xMcaDhbeXos"
-    },
-    {
-      "videoId": "dW3LuXo4XZE",
-      "title": "In NYC for Work? A World-Class Wine Bar You Can Expense | I Know A Place",
-      "channelTitle": "InsideHook",
-      "publishedAt": "2025-12-30T12:01:16Z",
-      "publishedRelative": "8mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/dW3LuXo4XZE/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=dW3LuXo4XZE"
-    },
-    {
-      "videoId": "l5tlwItVnv0",
-      "title": "NYC Wine Fest! The next ones are 2/14 and 2/28. Go to bucketlisters.com for more! #winefestival #nyc",
-      "channelTitle": "Chi",
-      "publishedAt": "2026-01-23T00:30:11Z",
-      "publishedRelative": "8mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/l5tlwItVnv0/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=l5tlwItVnv0"
-    },
-    {
-      "videoId": "180vDLz67fM",
-      "title": "NYC Wine Bar with Live Music | Hanging Glasses & Chic Vibes",
-      "channelTitle": "Travel Boy",
-      "publishedAt": "2026-01-06T18:00:03Z",
-      "publishedRelative": "8mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/180vDLz67fM/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=180vDLz67fM"
+      "videoId": "6sdbfdz8564",
+      "title": "BEST WINE BAR IN NYC? INTERVIEW WITH @supervinobros",
+      "channelTitle": "Beli App",
+      "publishedAt": "2025-09-20T14:00:24Z",
+      "publishedRelative": "1y ago",
+      "thumbnail": "https://i.ytimg.com/vi/6sdbfdz8564/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=6sdbfdz8564"
     },
     {
       "videoId": "8QRUBFiCKpo",
@@ -121,22 +94,40 @@
       "url": "https://www.youtube.com/watch?v=8QRUBFiCKpo"
     },
     {
-      "videoId": "ld3HHlg5xvY",
-      "title": "NYC’s Best Wine Bars 🍷",
-      "channelTitle": "VinePair",
-      "publishedAt": "2025-07-29T19:08:31Z",
-      "publishedRelative": "1y ago",
-      "thumbnail": "https://i.ytimg.com/vi/ld3HHlg5xvY/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=ld3HHlg5xvY"
+      "videoId": "xMcaDhbeXos",
+      "title": "18th annual NYC Wine and Food Festival held at the South Street Seaport",
+      "channelTitle": "CBS New York",
+      "publishedAt": "2025-10-19T23:24:31Z",
+      "publishedRelative": "11mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/xMcaDhbeXos/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=xMcaDhbeXos"
     },
     {
-      "videoId": "Hl5XNBEBDoo",
-      "title": "Manhattan Wine Auction Installation",
-      "channelTitle": "Manhattan Beach Education Foundation",
-      "publishedAt": "2026-06-15T22:20:24Z",
-      "publishedRelative": "3mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/Hl5XNBEBDoo/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=Hl5XNBEBDoo"
+      "videoId": "l5tlwItVnv0",
+      "title": "NYC Wine Fest! The next ones are 2/14 and 2/28. Go to bucketlisters.com for more! #winefestival #nyc",
+      "channelTitle": "Chi",
+      "publishedAt": "2026-01-23T00:30:11Z",
+      "publishedRelative": "8mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/l5tlwItVnv0/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=l5tlwItVnv0"
+    },
+    {
+      "videoId": "MWANvIPMR6g",
+      "title": "🍷 NYC Wine Bars I Visited for Emotional Support",
+      "channelTitle": "Wine Sinner",
+      "publishedAt": "2026-06-04T12:01:31Z",
+      "publishedRelative": "4mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/MWANvIPMR6g/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=MWANvIPMR6g"
+    },
+    {
+      "videoId": "180vDLz67fM",
+      "title": "NYC Wine Bar with Live Music | Hanging Glasses & Chic Vibes",
+      "channelTitle": "Travel Boy",
+      "publishedAt": "2026-01-06T18:00:03Z",
+      "publishedRelative": "8mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/180vDLz67fM/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=180vDLz67fM"
     },
     {
       "videoId": "NFxn81bpt2s",
@@ -157,15 +148,6 @@
       "url": "https://www.youtube.com/watch?v=161jG-QQTJg"
     },
     {
-      "videoId": "0cZRj4IcY0A",
-      "title": "How a 27-Year-Old Immigrant Built a NYC Wine Bar From Nothing | Mamali NYC",
-      "channelTitle": "WOW Brand",
-      "publishedAt": "2026-05-28T20:19:08Z",
-      "publishedRelative": "4mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/0cZRj4IcY0A/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=0cZRj4IcY0A"
-    },
-    {
       "videoId": "kXn2oHhzJ-U",
       "title": "New York City Wine and Food Festival ( NYCWFF ) Preview",
       "channelTitle": "FoodPhone",
@@ -175,6 +157,15 @@
       "url": "https://www.youtube.com/watch?v=kXn2oHhzJ-U"
     },
     {
+      "videoId": "KdIb5ITHy4U",
+      "title": "Your Guide to Manhattan's Best Wine Bars, From a Sommelier",
+      "channelTitle": "Hillary Zio",
+      "publishedAt": "2026-06-10T16:42:52Z",
+      "publishedRelative": "3mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/KdIb5ITHy4U/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=KdIb5ITHy4U"
+    },
+    {
       "videoId": "G9hfWRZWy8Y",
       "title": "The Apartment Wine Bar!!! #food #cooking #nyc #wine #winebar #hosting #event #nehasdinnerparty",
       "channelTitle": "Neha",
@@ -182,6 +173,15 @@
       "publishedRelative": "8mo ago",
       "thumbnail": "https://i.ytimg.com/vi/G9hfWRZWy8Y/mqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=G9hfWRZWy8Y"
+    },
+    {
+      "videoId": "101RMOGxU6Q",
+      "title": "The 18 Best Wine Bars in New York City (2026)",
+      "channelTitle": "Unique Gift Presentations",
+      "publishedAt": "2026-03-12T13:30:05Z",
+      "publishedRelative": "6mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/101RMOGxU6Q/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=101RMOGxU6Q"
     }
   ]
 }
