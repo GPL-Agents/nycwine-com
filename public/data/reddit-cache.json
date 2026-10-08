@@ -1,11 +1,36 @@
 {
   "wine": [],
-  "nyc": [],
-  "fetchedAt": "2026-10-07T13:42:27.103Z",
+  "nyc": [
+    {
+      "title": "Balthazar or Le Gigot? Torn on which reservation to keep",
+      "subreddit": "r/FoodNYC",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1x0f84g/balthazar_or_le_gigot_torn_on_which_reservation/",
+      "score": 1,
+      "comments": 0,
+      "ago": "11h ago"
+    },
+    {
+      "title": "Boucherie in the West Village (August 2026) - Dinner",
+      "subreddit": "r/FoodNYC",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1wzzp93/boucherie_in_the_west_village_august_2026_dinner/",
+      "score": 1,
+      "comments": 0,
+      "ago": "22h ago"
+    },
+    {
+      "title": "Please tell me the name of your favorite dark Manhattan bar",
+      "subreddit": "r/FoodNYC",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1wze38q/please_tell_me_the_name_of_your_favorite_dark/",
+      "score": 1,
+      "comments": 0,
+      "ago": "Yesterday"
+    }
+  ],
+  "fetchedAt": "2026-10-08T13:50:48.162Z",
   "stats": {
     "winePostsFound": 0,
-    "nycPostsFound": 0,
+    "nycPostsFound": 3,
     "totalCandidatesWine": 0,
-    "totalCandidatesNyc": 0
+    "totalCandidatesNyc": 25
   }
 }
