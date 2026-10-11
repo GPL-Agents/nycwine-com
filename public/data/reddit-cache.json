@@ -1,28 +1,52 @@
 {
-  "wine": [],
-  "nyc": [
+  "wine": [
     {
-      "title": "Forma Pasta Factory (Greenpoint - Brooklyn): $18 ‘frutti di mare” Thursday special!",
-      "subreddit": "r/FoodNYC",
-      "url": "https://www.reddit.com/r/FoodNYC/comments/1x11362/forma_pasta_factory_greenpoint_brooklyn_18_frutti/",
+      "title": "Rose & Arrow 2024 Red Label Pinot Noir — A tart, earthy delight",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1x2ruyt/rose_arrow_2024_red_label_pinot_noir_a_tart/",
       "score": 1,
       "comments": 0,
-      "ago": "Yesterday"
+      "ago": "14h ago"
     },
     {
-      "title": "Postmortem on NYC Food Adventure over the past week",
-      "subreddit": "r/FoodNYC",
-      "url": "https://www.reddit.com/r/FoodNYC/comments/1x0su4v/postmortem_on_nyc_food_adventure_over_the_past/",
+      "title": "Favorite Restaurants In Santa Ynez Valley When Wine Tasting?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1x2qv83/favorite_restaurants_in_santa_ynez_valley_when/",
       "score": 1,
       "comments": 0,
-      "ago": "Yesterday"
+      "ago": "15h ago"
+    },
+    {
+      "title": "Salty wine?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1x2q712/salty_wine/",
+      "score": 1,
+      "comments": 0,
+      "ago": "16h ago"
+    },
+    {
+      "title": "Buccia Nera Chianti Riserva 2021",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1x2ix35/buccia_nera_chianti_riserva_2021/",
+      "score": 1,
+      "comments": 0,
+      "ago": "21h ago"
+    },
+    {
+      "title": "Dom Perignon Lady Gaga Brut Champagne 2010",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1x2iniv/dom_perignon_lady_gaga_brut_champagne_2010/",
+      "score": 1,
+      "comments": 0,
+      "ago": "21h ago"
     }
   ],
-  "fetchedAt": "2026-10-10T12:52:17.698Z",
+  "nyc": [],
+  "fetchedAt": "2026-10-11T13:16:22.509Z",
   "stats": {
-    "winePostsFound": 0,
-    "nycPostsFound": 2,
-    "totalCandidatesWine": 0,
+    "winePostsFound": 5,
+    "nycPostsFound": 0,
+    "totalCandidatesWine": 25,
     "totalCandidatesNyc": 25
   }
 }
