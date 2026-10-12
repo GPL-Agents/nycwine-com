@@ -1,52 +1,11 @@
 {
-  "wine": [
-    {
-      "title": "Rose & Arrow 2024 Red Label Pinot Noir — A tart, earthy delight",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1x2ruyt/rose_arrow_2024_red_label_pinot_noir_a_tart/",
-      "score": 1,
-      "comments": 0,
-      "ago": "14h ago"
-    },
-    {
-      "title": "Favorite Restaurants In Santa Ynez Valley When Wine Tasting?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1x2qv83/favorite_restaurants_in_santa_ynez_valley_when/",
-      "score": 1,
-      "comments": 0,
-      "ago": "15h ago"
-    },
-    {
-      "title": "Salty wine?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1x2q712/salty_wine/",
-      "score": 1,
-      "comments": 0,
-      "ago": "16h ago"
-    },
-    {
-      "title": "Buccia Nera Chianti Riserva 2021",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1x2ix35/buccia_nera_chianti_riserva_2021/",
-      "score": 1,
-      "comments": 0,
-      "ago": "21h ago"
-    },
-    {
-      "title": "Dom Perignon Lady Gaga Brut Champagne 2010",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1x2iniv/dom_perignon_lady_gaga_brut_champagne_2010/",
-      "score": 1,
-      "comments": 0,
-      "ago": "21h ago"
-    }
-  ],
+  "wine": [],
   "nyc": [],
-  "fetchedAt": "2026-10-11T13:16:22.509Z",
+  "fetchedAt": "2026-10-12T15:52:41.229Z",
   "stats": {
-    "winePostsFound": 5,
+    "winePostsFound": 0,
     "nycPostsFound": 0,
-    "totalCandidatesWine": 25,
+    "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
 }
