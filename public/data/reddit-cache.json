@@ -1,11 +1,36 @@
 {
   "wine": [],
-  "nyc": [],
-  "fetchedAt": "2026-10-15T11:54:23.058Z",
+  "nyc": [
+    {
+      "title": "Help me find a new Wine & Cheese bar !!!!!!!!!!!!!",
+      "subreddit": "r/FoodNYC",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1x72wl5/help_me_find_a_new_wine_cheese_bar/",
+      "score": 1,
+      "comments": 0,
+      "ago": "10h ago"
+    },
+    {
+      "title": "Is Hawskmoor still good? I don’t want to “elevate [my] steak”",
+      "subreddit": "r/FoodNYC",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1x6t2bj/is_hawskmoor_still_good_i_dont_want_to_elevate_my/",
+      "score": 1,
+      "comments": 0,
+      "ago": "17h ago"
+    },
+    {
+      "title": "Roundup of some of the things I ate in this recent trip.",
+      "subreddit": "r/FoodNYC",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1x5xhsl/roundup_of_some_of_the_things_i_ate_in_this/",
+      "score": 1,
+      "comments": 0,
+      "ago": "Yesterday"
+    }
+  ],
+  "fetchedAt": "2026-10-16T11:45:03.070Z",
   "stats": {
     "winePostsFound": 0,
-    "nycPostsFound": 0,
+    "nycPostsFound": 3,
     "totalCandidatesWine": 0,
-    "totalCandidatesNyc": 0
+    "totalCandidatesNyc": 25
   }
 }
