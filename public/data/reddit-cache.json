@@ -1,36 +1,76 @@
 {
-  "wine": [],
-  "nyc": [
+  "wine": [
     {
-      "title": "Just Had the Mutton Chops at Keens and I was blown away",
-      "subreddit": "r/FoodNYC",
-      "url": "https://www.reddit.com/r/FoodNYC/comments/1x8r6ut/just_had_the_mutton_chops_at_keens_and_i_was/",
+      "title": "Hungary wine cellar recommendations",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1x9x492/hungary_wine_cellar_recommendations/",
       "score": 1,
       "comments": 0,
-      "ago": "9h ago"
+      "ago": "Just now"
     },
     {
-      "title": "Thank you - Food report from October 9-12 long weekend",
-      "subreddit": "r/FoodNYC",
-      "url": "https://www.reddit.com/r/FoodNYC/comments/1x8lflk/thank_you_food_report_from_october_912_long/",
+      "title": "Anyone knows what winekey this is?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1x9m006/anyone_knows_what_winekey_this_is/",
+      "score": 1,
+      "comments": 0,
+      "ago": "10h ago"
+    },
+    {
+      "title": "2018 Between Five Bells Pinot Noir",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1x9izgr/2018_between_five_bells_pinot_noir/",
+      "score": 1,
+      "comments": 0,
+      "ago": "13h ago"
+    },
+    {
+      "title": "Mayacamas Judgement of Paris Dinner featuring 1971 Cabernet",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1x9ihqa/mayacamas_judgement_of_paris_dinner_featuring/",
+      "score": 1,
+      "comments": 0,
+      "ago": "13h ago"
+    },
+    {
+      "title": "2021 Pope Valley Winery Reserve Cabernet Sauvignon Napa Valley",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1x9i4lx/2021_pope_valley_winery_reserve_cabernet/",
+      "score": 1,
+      "comments": 0,
+      "ago": "13h ago"
+    },
+    {
+      "title": "Best fortified wine (porto) ? Any advice?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1x9gyek/best_fortified_wine_porto_any_advice/",
       "score": 1,
       "comments": 0,
       "ago": "14h ago"
     },
     {
-      "title": "Old-School Shanghainese restaurant for Thanksgiving dinner",
-      "subreddit": "r/FoodNYC",
-      "url": "https://www.reddit.com/r/FoodNYC/comments/1x8bkai/oldschool_shanghainese_restaurant_for/",
+      "title": "Lenoire, Vier‘t Laeve Chardonnay",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1x98p4m/lenoire_viert_laeve_chardonnay/",
       "score": 1,
       "comments": 0,
-      "ago": "21h ago"
+      "ago": "20h ago"
+    },
+    {
+      "title": "Anakota Knights Valley Cabernet Sauvignon 2022",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1x952oz/anakota_knights_valley_cabernet_sauvignon_2022/",
+      "score": 1,
+      "comments": 0,
+      "ago": "22h ago"
     }
   ],
-  "fetchedAt": "2026-10-18T11:33:03.134Z",
+  "nyc": [],
+  "fetchedAt": "2026-10-19T13:46:54.263Z",
   "stats": {
-    "winePostsFound": 0,
-    "nycPostsFound": 3,
-    "totalCandidatesWine": 0,
+    "winePostsFound": 8,
+    "nycPostsFound": 0,
+    "totalCandidatesWine": 25,
     "totalCandidatesNyc": 25
   }
 }
