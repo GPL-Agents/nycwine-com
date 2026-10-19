@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-12T17:05:38.132Z",
+  "fetchedAt": "2026-10-19T15:05:04.942Z",
   "source": "YouTube",
   "sourceUrl": "https://www.youtube.com/results?search_query=NYC+wine",
   "videos": [
@@ -13,15 +13,6 @@
       "url": "https://www.youtube.com/watch?v=AtPw7J9jjd0"
     },
     {
-      "videoId": "kQQL7_-V75g",
-      "title": "The Best Places To Drink Wine In NYC: A Night Out With SWURL Episode 01",
-      "channelTitle": "SWURL",
-      "publishedAt": "2025-11-17T16:01:17Z",
-      "publishedRelative": "10mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/kQQL7_-V75g/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=kQQL7_-V75g"
-    },
-    {
       "videoId": "WtIW_uVL1pc",
       "title": "NYC Wine & Food Festival #infoversedaily",
       "channelTitle": "InfoVerse Daily",
@@ -31,13 +22,22 @@
       "url": "https://www.youtube.com/watch?v=WtIW_uVL1pc"
     },
     {
-      "videoId": "Hl5XNBEBDoo",
-      "title": "Manhattan Wine Auction Installation",
-      "channelTitle": "Manhattan Beach Education Foundation",
-      "publishedAt": "2026-06-15T22:20:24Z",
-      "publishedRelative": "3mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/Hl5XNBEBDoo/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=Hl5XNBEBDoo"
+      "videoId": "ocRGisyE9Vs",
+      "title": "Food Network’s NYC Wine & Food Festival 🍷 #travel #foodie #food #foodlover #newyorkeats #nyeats",
+      "channelTitle": "Morgan Yi",
+      "publishedAt": "2025-10-18T02:27:27Z",
+      "publishedRelative": "1y ago",
+      "thumbnail": "https://i.ytimg.com/vi/ocRGisyE9Vs/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=ocRGisyE9Vs"
+    },
+    {
+      "videoId": "kQQL7_-V75g",
+      "title": "The Best Places To Drink Wine In NYC: A Night Out With SWURL Episode 01",
+      "channelTitle": "SWURL",
+      "publishedAt": "2025-11-17T16:01:17Z",
+      "publishedRelative": "11mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/kQQL7_-V75g/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=kQQL7_-V75g"
     },
     {
       "videoId": "dW3LuXo4XZE",
@@ -49,31 +49,67 @@
       "url": "https://www.youtube.com/watch?v=dW3LuXo4XZE"
     },
     {
-      "videoId": "RXsDxS4pRAw",
-      "title": "NYC's Sauced Has the Blueprint for a New Kind of Wine Bar | I Know a Place",
-      "channelTitle": "InsideHook",
-      "publishedAt": "2025-11-10T12:01:02Z",
-      "publishedRelative": "11mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/RXsDxS4pRAw/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=RXsDxS4pRAw"
+      "videoId": "fTP5IzEU83M",
+      "title": "Whoopi Goldberg & Ana Navarro To Appear At NYC Wine & Food Festival | The View",
+      "channelTitle": "The View",
+      "publishedAt": "2026-10-13T19:35:52Z",
+      "publishedRelative": "5d ago",
+      "thumbnail": "https://i.ytimg.com/vi/fTP5IzEU83M/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=fTP5IzEU83M"
+    },
+    {
+      "videoId": "Hl5XNBEBDoo",
+      "title": "Manhattan Wine Auction Installation",
+      "channelTitle": "Manhattan Beach Education Foundation",
+      "publishedAt": "2026-06-15T22:20:24Z",
+      "publishedRelative": "4mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/Hl5XNBEBDoo/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=Hl5XNBEBDoo"
+    },
+    {
+      "videoId": "i_i-4smUdn0",
+      "title": "NYC Wine & Dining Experience #ayzanyc",
+      "channelTitle": "Ayza Wine & Chocolate Bar",
+      "publishedAt": "2026-04-21T08:42:49Z",
+      "publishedRelative": "5mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/i_i-4smUdn0/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=i_i-4smUdn0"
+    },
+    {
+      "videoId": "ld3HHlg5xvY",
+      "title": "NYC’s Best Wine Bars 🍷",
+      "channelTitle": "VinePair",
+      "publishedAt": "2025-07-29T19:08:31Z",
+      "publishedRelative": "1y ago",
+      "thumbnail": "https://i.ytimg.com/vi/ld3HHlg5xvY/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=ld3HHlg5xvY"
     },
     {
       "videoId": "kXn2oHhzJ-U",
       "title": "New York City Wine and Food Festival ( NYCWFF ) Preview",
       "channelTitle": "FoodPhone",
       "publishedAt": "2025-10-15T06:07:43Z",
-      "publishedRelative": "11mo ago",
+      "publishedRelative": "1y ago",
       "thumbnail": "https://i.ytimg.com/vi/kXn2oHhzJ-U/mqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=kXn2oHhzJ-U"
     },
     {
-      "videoId": "8QRUBFiCKpo",
-      "title": "Manhattan Wine Auction 2025",
-      "channelTitle": "VOX Productions",
-      "publishedAt": "2025-07-21T20:48:34Z",
+      "videoId": "cGS9b4XsaIA",
+      "title": "08.Coziest NYC Wine Bars 나만 알고싶은 분위기 좋은 뉴욕 와인 바",
+      "channelTitle": "Bae in New York City",
+      "publishedAt": "2026-10-18T02:12:31Z",
+      "publishedRelative": "1d ago",
+      "thumbnail": "https://i.ytimg.com/vi/cGS9b4XsaIA/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=cGS9b4XsaIA"
+    },
+    {
+      "videoId": "6sdbfdz8564",
+      "title": "BEST WINE BAR IN NYC? INTERVIEW WITH @supervinobros",
+      "channelTitle": "Beli App",
+      "publishedAt": "2025-09-20T14:00:24Z",
       "publishedRelative": "1y ago",
-      "thumbnail": "https://i.ytimg.com/vi/8QRUBFiCKpo/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=8QRUBFiCKpo"
+      "thumbnail": "https://i.ytimg.com/vi/6sdbfdz8564/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=6sdbfdz8564"
     },
     {
       "videoId": "KdIb5ITHy4U",
@@ -94,13 +130,22 @@
       "url": "https://www.youtube.com/watch?v=xMcaDhbeXos"
     },
     {
-      "videoId": "i_i-4smUdn0",
-      "title": "NYC Wine & Dining Experience #ayzanyc",
-      "channelTitle": "Ayza Wine & Chocolate Bar",
-      "publishedAt": "2026-04-21T08:42:49Z",
-      "publishedRelative": "5mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/i_i-4smUdn0/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=i_i-4smUdn0"
+      "videoId": "180vDLz67fM",
+      "title": "NYC Wine Bar with Live Music | Hanging Glasses & Chic Vibes",
+      "channelTitle": "Travel Boy",
+      "publishedAt": "2026-01-06T18:00:03Z",
+      "publishedRelative": "9mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/180vDLz67fM/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=180vDLz67fM"
+    },
+    {
+      "videoId": "MWANvIPMR6g",
+      "title": "🍷 NYC Wine Bars I Visited for Emotional Support",
+      "channelTitle": "Wine Sinner",
+      "publishedAt": "2026-06-04T12:01:31Z",
+      "publishedRelative": "4mo ago",
+      "thumbnail": "https://i.ytimg.com/vi/MWANvIPMR6g/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=MWANvIPMR6g"
     },
     {
       "videoId": "NFxn81bpt2s",
@@ -112,49 +157,22 @@
       "url": "https://www.youtube.com/watch?v=NFxn81bpt2s"
     },
     {
-      "videoId": "0cZRj4IcY0A",
-      "title": "How a 27-Year-Old Immigrant Built a NYC Wine Bar From Nothing | Mamali NYC",
-      "channelTitle": "WOW Brand",
-      "publishedAt": "2026-05-28T20:19:08Z",
-      "publishedRelative": "4mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/0cZRj4IcY0A/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=0cZRj4IcY0A"
-    },
-    {
-      "videoId": "ocRGisyE9Vs",
-      "title": "Food Network’s NYC Wine & Food Festival 🍷 #travel #foodie #food #foodlover #newyorkeats #nyeats",
-      "channelTitle": "Morgan Yi",
-      "publishedAt": "2025-10-18T02:27:27Z",
+      "videoId": "RXsDxS4pRAw",
+      "title": "NYC's Sauced Has the Blueprint for a New Kind of Wine Bar | I Know a Place",
+      "channelTitle": "InsideHook",
+      "publishedAt": "2025-11-10T12:01:02Z",
       "publishedRelative": "11mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/ocRGisyE9Vs/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=ocRGisyE9Vs"
+      "thumbnail": "https://i.ytimg.com/vi/RXsDxS4pRAw/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=RXsDxS4pRAw"
     },
     {
-      "videoId": "l5tlwItVnv0",
-      "title": "NYC Wine Fest! The next ones are 2/14 and 2/28. Go to bucketlisters.com for more! #winefestival #nyc",
-      "channelTitle": "Chi",
-      "publishedAt": "2026-01-23T00:30:11Z",
-      "publishedRelative": "8mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/l5tlwItVnv0/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=l5tlwItVnv0"
-    },
-    {
-      "videoId": "6sdbfdz8564",
-      "title": "BEST WINE BAR IN NYC? INTERVIEW WITH @supervinobros",
-      "channelTitle": "Beli App",
-      "publishedAt": "2025-09-20T14:00:24Z",
-      "publishedRelative": "1y ago",
-      "thumbnail": "https://i.ytimg.com/vi/6sdbfdz8564/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=6sdbfdz8564"
-    },
-    {
-      "videoId": "180vDLz67fM",
-      "title": "NYC Wine Bar with Live Music | Hanging Glasses & Chic Vibes",
-      "channelTitle": "Travel Boy",
-      "publishedAt": "2026-01-06T18:00:03Z",
-      "publishedRelative": "9mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/180vDLz67fM/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=180vDLz67fM"
+      "videoId": "fiiaXRbbeqk",
+      "title": "NYC Wine and Food Festival kicks off with dozens of events across the city",
+      "channelTitle": "CBS New York",
+      "publishedAt": "2026-10-15T12:01:08Z",
+      "publishedRelative": "4d ago",
+      "thumbnail": "https://i.ytimg.com/vi/fiiaXRbbeqk/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=fiiaXRbbeqk"
     },
     {
       "videoId": "161jG-QQTJg",
@@ -164,24 +182,6 @@
       "publishedRelative": "1y ago",
       "thumbnail": "https://i.ytimg.com/vi/161jG-QQTJg/mqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=161jG-QQTJg"
-    },
-    {
-      "videoId": "ld3HHlg5xvY",
-      "title": "NYC’s Best Wine Bars 🍷",
-      "channelTitle": "VinePair",
-      "publishedAt": "2025-07-29T19:08:31Z",
-      "publishedRelative": "1y ago",
-      "thumbnail": "https://i.ytimg.com/vi/ld3HHlg5xvY/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=ld3HHlg5xvY"
-    },
-    {
-      "videoId": "MWANvIPMR6g",
-      "title": "🍷 NYC Wine Bars I Visited for Emotional Support",
-      "channelTitle": "Wine Sinner",
-      "publishedAt": "2026-06-04T12:01:31Z",
-      "publishedRelative": "4mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/MWANvIPMR6g/mqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=MWANvIPMR6g"
     }
   ]
 }
