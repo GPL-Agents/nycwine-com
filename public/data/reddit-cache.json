@@ -1,68 +1,20 @@
 {
-  "wine": [
+  "wine": [],
+  "nyc": [
     {
-      "title": "Does anyone have any experience ordering from Decantalo to the UK?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xbi6hl/does_anyone_have_any_experience_ordering_from/",
+      "title": "Are there any Restaurants like Les Sans Culottes still in NYC?",
+      "subreddit": "r/FoodNYC",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1xbxnha/are_there_any_restaurants_like_les_sans_culottes/",
       "score": 1,
       "comments": 0,
-      "ago": "3h ago"
-    },
-    {
-      "title": "2021 Corison Napa Cabernet Sauvignon",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xbeiv4/2021_corison_napa_cabernet_sauvignon/",
-      "score": 1,
-      "comments": 0,
-      "ago": "6h ago"
-    },
-    {
-      "title": "Ghost Block Estates Bonded Winery No. 9 Proprietary Red 2019, Napa Valley",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xb792m/ghost_block_estates_bonded_winery_no_9/",
-      "score": 1,
-      "comments": 0,
-      "ago": "12h ago"
-    },
-    {
-      "title": "Desire Lines Riesling Cole Ranch 2025",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xb61qb/desire_lines_riesling_cole_ranch_2025/",
-      "score": 1,
-      "comments": 0,
-      "ago": "13h ago"
-    },
-    {
-      "title": "2016 Jericho Canyon Stagecoach Vinyard Merlot",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xb4ir0/2016_jericho_canyon_stagecoach_vinyard_merlot/",
-      "score": 1,
-      "comments": 0,
-      "ago": "14h ago"
-    },
-    {
-      "title": "Wine drinkers, how do you feel about restaurants serving wine in short tumblers or water glasses instead of proper stemware?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xazz6k/wine_drinkers_how_do_you_feel_about_restaurants/",
-      "score": 1,
-      "comments": 0,
-      "ago": "17h ago"
-    },
-    {
-      "title": "Finally tried 1965 Bordeaux: the worst vintage of the century and my country's independence year",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xav8y3/finally_tried_1965_bordeaux_the_worst_vintage_of/",
-      "score": 1,
-      "comments": 0,
-      "ago": "20h ago"
+      "ago": "16h ago"
     }
   ],
-  "nyc": [],
-  "fetchedAt": "2026-10-21T12:10:20.673Z",
+  "fetchedAt": "2026-10-22T12:14:07.371Z",
   "stats": {
-    "winePostsFound": 7,
-    "nycPostsFound": 0,
-    "totalCandidatesWine": 25,
+    "winePostsFound": 0,
+    "nycPostsFound": 1,
+    "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
 }
