@@ -1,100 +1,11 @@
 {
-  "wine": [
-    {
-      "title": "Champagne Laherte - dégustation au domaine",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xda7ol/champagne_laherte_dégustation_au_domaine/",
-      "score": 1,
-      "comments": 0,
-      "ago": "1h ago"
-    },
-    {
-      "title": "Looking at an importer wine club. Anyone familiar with Rosenthal Wine Merchant vs Kermit Lynch? They both have similar tiers, just curious if anyone has tried them and were you happy with the wines you received.",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xd4jwg/looking_at_an_importer_wine_club_anyone_familiar/",
-      "score": 1,
-      "comments": 0,
-      "ago": "7h ago"
-    },
-    {
-      "title": "Barolo/Barbaresco Visit",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xd0efd/barolobarbaresco_visit/",
-      "score": 1,
-      "comments": 0,
-      "ago": "10h ago"
-    },
-    {
-      "title": "Annoyed with Wine Access service fee",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xd0b3w/annoyed_with_wine_access_service_fee/",
-      "score": 1,
-      "comments": 0,
-      "ago": "10h ago"
-    },
-    {
-      "title": "Oregon winery introduces lighter glass bottles",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xcy4f3/oregon_winery_introduces_lighter_glass_bottles/",
-      "score": 1,
-      "comments": 0,
-      "ago": "12h ago"
-    },
-    {
-      "title": "Vegan pairings for Wine Tasting",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xcvz85/vegan_pairings_for_wine_tasting/",
-      "score": 1,
-      "comments": 0,
-      "ago": "14h ago"
-    },
-    {
-      "title": "1999 Merlot for my Merlot Thursday. Join us with your own Merlot",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xcs5ap/1999_merlot_for_my_merlot_thursday_join_us_with/",
-      "score": 1,
-      "comments": 0,
-      "ago": "16h ago"
-    },
-    {
-      "title": "2008 Elio Grasso Barolo Ginestra Casa Mate",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xcpzjs/2008_elio_grasso_barolo_ginestra_casa_mate/",
-      "score": 1,
-      "comments": 0,
-      "ago": "17h ago"
-    },
-    {
-      "title": "Von Winning 2024 Ruppertsberger Reiterpfad Riesling",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xcompo/von_winning_2024_ruppertsberger_reiterpfad/",
-      "score": 1,
-      "comments": 0,
-      "ago": "18h ago"
-    },
-    {
-      "title": "Le Bernardin dinner - wine pairing option or buy a bottle from the wine list?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xcjd9d/le_bernardin_dinner_wine_pairing_option_or_buy_a/",
-      "score": 1,
-      "comments": 0,
-      "ago": "21h ago"
-    },
-    {
-      "title": "Beef, Burgers, and Back Vintage Bordeauxs",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xce65e/beef_burgers_and_back_vintage_bordeauxs/",
-      "score": 1,
-      "comments": 0,
-      "ago": "Yesterday"
-    }
-  ],
+  "wine": [],
   "nyc": [],
-  "fetchedAt": "2026-10-23T11:54:56.213Z",
+  "fetchedAt": "2026-10-24T11:24:07.322Z",
   "stats": {
-    "winePostsFound": 11,
+    "winePostsFound": 0,
     "nycPostsFound": 0,
-    "totalCandidatesWine": 25,
+    "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
 }
