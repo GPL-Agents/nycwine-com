@@ -1,11 +1,84 @@
 {
-  "wine": [],
+  "wine": [
+    {
+      "title": "Wine tasting in Almaty",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1xeyogj/wine_tasting_in_almaty/",
+      "score": 1,
+      "comments": 0,
+      "ago": "1h ago"
+    },
+    {
+      "title": "Wines with interesting/unique bottles",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1xexckq/wines_with_interestingunique_bottles/",
+      "score": 1,
+      "comments": 0,
+      "ago": "3h ago"
+    },
+    {
+      "title": "One day late for National Champagne day. 88' Rare",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1xex2dj/one_day_late_for_national_champagne_day_88_rare/",
+      "score": 1,
+      "comments": 0,
+      "ago": "3h ago"
+    },
+    {
+      "title": "Red wine as a gift for partners (American) parents - looking for suggestions!",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1xesvt2/red_wine_as_a_gift_for_partners_american_parents/",
+      "score": 1,
+      "comments": 0,
+      "ago": "7h ago"
+    },
+    {
+      "title": "ISO Mystery Wine",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1xercm0/iso_mystery_wine/",
+      "score": 1,
+      "comments": 0,
+      "ago": "8h ago"
+    },
+    {
+      "title": "Saturday Wine - Château Figeac 2023",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1xepvja/saturday_wine_château_figeac_2023/",
+      "score": 1,
+      "comments": 0,
+      "ago": "10h ago"
+    },
+    {
+      "title": "Florence Vineyard Rockpile Zinfandel",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1xeohe1/florence_vineyard_rockpile_zinfandel/",
+      "score": 1,
+      "comments": 0,
+      "ago": "11h ago"
+    },
+    {
+      "title": "Alexander Valley Vineyards Cyrus 2021",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1xelrcq/alexander_valley_vineyards_cyrus_2021/",
+      "score": 1,
+      "comments": 0,
+      "ago": "13h ago"
+    },
+    {
+      "title": "Happy International Champagne Day! Tonight we had 2009 Dom Ruinart Rosé.",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1xdztdx/happy_international_champagne_day_tonight_we_had/",
+      "score": 1,
+      "comments": 0,
+      "ago": "Yesterday"
+    }
+  ],
   "nyc": [],
-  "fetchedAt": "2026-10-24T11:24:07.322Z",
+  "fetchedAt": "2026-10-25T11:54:01.740Z",
   "stats": {
-    "winePostsFound": 0,
+    "winePostsFound": 9,
     "nycPostsFound": 0,
-    "totalCandidatesWine": 0,
+    "totalCandidatesWine": 25,
     "totalCandidatesNyc": 25
   }
 }
