@@ -1,10 +1,19 @@
 {
   "wine": [],
-  "nyc": [],
-  "fetchedAt": "2026-10-26T13:26:44.471Z",
+  "nyc": [
+    {
+      "title": "Went to Sam's on Court Street Brooklyn this weekend",
+      "subreddit": "r/FoodNYC",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1xgglfn/went_to_sams_on_court_street_brooklyn_this_weekend/",
+      "score": 1,
+      "comments": 0,
+      "ago": "10h ago"
+    }
+  ],
+  "fetchedAt": "2026-10-27T12:32:07.169Z",
   "stats": {
     "winePostsFound": 0,
-    "nycPostsFound": 0,
+    "nycPostsFound": 1,
     "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
