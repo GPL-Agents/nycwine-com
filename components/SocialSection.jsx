@@ -6,6 +6,7 @@
 // ─────────────────────────────────────────────────────────────
 
 import { useState, useEffect, useRef, useCallback } from 'react';
+import WineComAd from './WineComAd';
 
 function RedditGrid({ posts, loading, emptyMsg }) {
   const scrollRef = useRef(null);
@@ -88,32 +89,11 @@ function RedditGrid({ posts, loading, emptyMsg }) {
   );
 }
 
-// Fixed 300×250 display ad in the social sidebar (AdSense unit).
-// Always rendered (no hide-until-filled) so the slot is stable.
+// Social sidebar ad: Wine.com 300x250 (was AdSense 6624358873).
 function SocialInFeedAd() {
-  const adRef = useRef(null);
-  const pushed = useRef(false);
-
-  useEffect(() => {
-    if (!pushed.current && adRef.current && typeof window !== 'undefined') {
-      try {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-        pushed.current = true;
-      } catch (e) {
-        console.warn('AdSense push error:', e);
-      }
-    }
-  }, []);
-
   return (
-    <div className="infeed-ad" style={{ padding: 0 }}>
-      <ins
-        className="adsbygoogle"
-        style={{ display: 'inline-block', width: 300, height: 250 }}
-        data-ad-client="ca-pub-6782277104310503"
-        data-ad-slot="6624358873"
-        ref={adRef}
-      />
+    <div className="infeed-ad" style={{ padding: 0, alignItems: 'center' }}>
+      <WineComAd size="300x250" />
     </div>
   );
 }

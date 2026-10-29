@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
+import WineComAd from './WineComAd';
 /* v2 – logo frame + header ad (right side) */
 
 export default function Header() {
@@ -70,21 +71,11 @@ export default function Header() {
 
       {/* Banner ad — right side of header (468×60). Currently Yorkshire Wines
           & Spirits; AdSense unit (slot 2838548456) is commented out above. */}
-      <div className="header-ad-link">
-        <a
-          href="https://www.yorkshirewines.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Yorkshire Wines & Spirits — Fast delivery to Upper East Side"
-        >
-          <img
-            src="/images/yorkshire2.png"
-            alt="Yorkshire Wines & Spirits — Fast delivery to Upper East Side"
-            className="header-ad-img"
-            width={468}
-            height={60}
-          />
-        </a>
+      {/* Header ad: Wine.com 728x90 scaled to the 468px slot.
+          Yorkshire Wines banner (/images/yorkshire2.png, yorkshirewines.com)
+          ran here before 2026-10-29. */}
+      <div className="header-ad-link" style={{ width: 468 }}>
+        <WineComAd size="728x90" />
       </div>
     </header>
   );

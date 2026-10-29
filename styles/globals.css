@@ -5238,3 +5238,23 @@ body {
   height: auto;
   display: block;
 }
+/* Wine.com affiliate banners (components/WineComAd.jsx) */
+.winecom-ad { text-align: center; line-height: 0; }
+/* Sidebars stretch to full page height so the second Wine.com banner
+   (.sidebar-sticky-ad) can follow the reader down the empty column.
+   Overrides the earlier align-self / whole-sidebar sticky rules. */
+.events-page-sidebar,
+.news-page-sidebar,
+.dir-page-sidebar,
+.blog-page-sidebar,
+.blog-post-sidebar {
+  align-self: stretch;
+  position: static;
+}
+.sidebar-sticky-ad {
+  position: sticky;
+  top: 150px;
+  margin-top: 20px;
+  text-align: center;
+}
+.map-about-ad { margin-bottom: 20px; }

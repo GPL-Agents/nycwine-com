@@ -11,33 +11,13 @@
 
 import { useState, useEffect, useRef } from 'react';
 import WineVideosSidebar from './WineVideosSidebar';
+import WineComAd from './WineComAd';
 
-// Fixed 336×280 display ad (AdSense unit) — rendered below the events
-// list where the static Acker banner used to be.
+// Ad below the events list: Wine.com 300x250 (was AdSense 1714918171).
 function MultiplexAd() {
-  const adRef = useRef(null);
-  const pushed = useRef(false);
-
-  useEffect(() => {
-    if (!pushed.current && adRef.current && typeof window !== 'undefined') {
-      try {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-        pushed.current = true;
-      } catch (e) {
-        console.warn('AdSense push error:', e);
-      }
-    }
-  }, []);
-
   return (
     <div className="event-multiplex-ad">
-      <ins
-        className="adsbygoogle"
-        style={{ display: 'inline-block', width: 336, height: 280 }}
-        data-ad-client="ca-pub-6782277104310503"
-        data-ad-slot="1714918171"
-        ref={adRef}
-      />
+      <WineComAd size="300x250" />
     </div>
   );
 }

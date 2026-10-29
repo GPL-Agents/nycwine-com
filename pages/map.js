@@ -20,6 +20,7 @@ import path from 'path';
 import fs from 'fs';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import WineComAd from '../components/WineComAd';
 import QuickNav from '../components/QuickNav';
 
 // ── Layer config ──────────────────────────────────────────────
@@ -676,6 +677,7 @@ export default function MapPage({ venueCounts }) {
 
         {/* ── About the map — crawlable editorial content ──────── */}
         <section className="map-about">
+          <WineComAd size="728x90" className="map-about-ad" />
           <h2>About the NYC Wine Map</h2>
           <p>
             This map plots {venueCounts.bars} wine bars, {venueCounts.stores} wine
