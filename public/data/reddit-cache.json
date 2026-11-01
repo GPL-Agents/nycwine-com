@@ -1,11 +1,84 @@
 {
-  "wine": [],
+  "wine": [
+    {
+      "title": "2014 Bordeaux – An Underrated Vintage?",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1xk8stp/2014_bordeaux_an_underrated_vintage/",
+      "score": 94,
+      "comments": 0,
+      "ago": "Yesterday"
+    },
+    {
+      "title": "2024 Member's Mark California Cabernet Sauvigonon",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1xkw1n8/2024_members_mark_california_cabernet_sauvigonon/",
+      "score": 1,
+      "comments": 0,
+      "ago": "7h ago"
+    },
+    {
+      "title": "1987 Duckhorn Three Palms Merlot",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1xkq2yc/1987_duckhorn_three_palms_merlot/",
+      "score": 1,
+      "comments": 0,
+      "ago": "12h ago"
+    },
+    {
+      "title": "Climate change means Orange vineyards now grow grapes for the Hunter Valley",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1xkpq6d/climate_change_means_orange_vineyards_now_grow/",
+      "score": 1,
+      "comments": 0,
+      "ago": "13h ago"
+    },
+    {
+      "title": "Grocery Outlet Fall 2026 wine sale: two zins to try",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1xknfub/grocery_outlet_fall_2026_wine_sale_two_zins_to_try/",
+      "score": 1,
+      "comments": 0,
+      "ago": "14h ago"
+    },
+    {
+      "title": "Bench Vineyards Stags Leap District Circa 64 2014",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1xkn81h/bench_vineyards_stags_leap_district_circa_64_2014/",
+      "score": 1,
+      "comments": 0,
+      "ago": "15h ago"
+    },
+    {
+      "title": "Tasting of Finger Lakes Rieslings",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1xkencv/tasting_of_finger_lakes_rieslings/",
+      "score": 1,
+      "comments": 0,
+      "ago": "21h ago"
+    },
+    {
+      "title": "2006 Mayacamas Cabernet Sauvignon",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1xkede6/2006_mayacamas_cabernet_sauvignon/",
+      "score": 1,
+      "comments": 0,
+      "ago": "21h ago"
+    },
+    {
+      "title": "45th Bday Wine: 1981 Beaucastel - Chateauneuf du Pape",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1xjzt1o/45th_bday_wine_1981_beaucastel_chateauneuf_du_pape/",
+      "score": 1,
+      "comments": 0,
+      "ago": "Yesterday"
+    }
+  ],
   "nyc": [],
-  "fetchedAt": "2026-10-31T12:55:43.483Z",
+  "fetchedAt": "2026-11-01T13:40:44.775Z",
   "stats": {
-    "winePostsFound": 0,
+    "winePostsFound": 9,
     "nycPostsFound": 0,
-    "totalCandidatesWine": 0,
+    "totalCandidatesWine": 25,
     "totalCandidatesNyc": 25
   }
 }
