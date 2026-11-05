@@ -1,10 +1,19 @@
 {
   "wine": [],
-  "nyc": [],
-  "fetchedAt": "2026-11-04T14:46:20.454Z",
+  "nyc": [
+    {
+      "title": "BYOB and fine-dining-ish (corkage is fine, lists are outdated)",
+      "subreddit": "r/FoodNYC",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1xnw2kk/byob_and_finediningish_corkage_is_fine_lists_are/",
+      "score": 1,
+      "comments": 0,
+      "ago": "20h ago"
+    }
+  ],
+  "fetchedAt": "2026-11-05T14:51:17.719Z",
   "stats": {
     "winePostsFound": 0,
-    "nycPostsFound": 0,
+    "nycPostsFound": 1,
     "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
