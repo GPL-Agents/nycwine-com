@@ -16,14 +16,24 @@
 //       Body: { pw, id, data: { ...fields to merge into data } }
 
 import { db } from '../../../lib/supabase.js';
+import { adminDb } from '../../../lib/supabase-admin.js';
 
-const ADMIN_PW  = process.env.ADMIN_PASSWORD  || 'nycwine-admin';
-const CRON_KEY  = process.env.CRON_API_KEY    || 'nycwine-cron-2026';
+function isAdminAuthorized(pw) {
+  const adminPassword = process.env.ADMIN_PASSWORD;
+  return Boolean(adminPassword) && pw === adminPassword;
+}
+
+function isReadAuthorized(pw, key) {
+  // Preserve the existing daily checker as read-only. This fallback is never
+  // accepted by POST/PATCH, which require the configured admin password.
+  const cronKey = process.env.CRON_API_KEY || 'nycwine-cron-2026';
+  return isAdminAuthorized(pw) || (Boolean(key) && key === cronKey);
+}
 
 // Publish an approved event to submitted_events table
 async function publishEvent(submission) {
   const d = submission.data || {};
-  await db.upsert('submitted_events', {
+  await adminDb.upsert('submitted_events', {
     id:            `sub_${submission.id}`,
     title:         submission.name,
     venue:         d.venue         || null,
@@ -42,6 +52,10 @@ async function publishEvent(submission) {
 function databaseStatus(error) {
   const match = String(error?.message || '').match(/→\s*(\d{3}):/);
   return match ? Number(match[1]) : null;
+}
+
+function hasAdminSupabaseKey() {
+  return Boolean(process.env.SUPABASE_SECRET_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY);
 }
 
 function actionErrorMessage(error, phase, published) {
@@ -75,7 +89,7 @@ export default async function handler(req, res) {
   if (req.method === 'GET') {
     const pw  = req.query.pw;
     const key = req.query.key;
-    const authenticated = (pw === ADMIN_PW) || (key === CRON_KEY);
+    const authenticated = isReadAuthorized(pw, key);
     if (!authenticated) return res.status(401).json({ error: 'Unauthorized' });
 
     let query;
@@ -102,17 +116,20 @@ export default async function handler(req, res) {
   // -- POST: approve or reject ---------------------------------------
   if (req.method === 'POST') {
     const { pw, id, action } = req.body || {};
-    const key = req.query.key;
-    const authenticatedPatch = (pw === ADMIN_PW) || (key === CRON_KEY);
-    if (!authenticatedPatch) return res.status(401).json({ error: 'Unauthorized' });
+    if (!isAdminAuthorized(pw)) return res.status(401).json({ error: 'Unauthorized' });
     if (!id || !['approve', 'reject'].includes(action)) {
       return res.status(400).json({ error: 'id and action (approve|reject) required' });
+    }
+    if (!hasAdminSupabaseKey()) {
+      return res.status(503).json({
+        error: 'Admin writes are not configured. Set the server-only SUPABASE_SECRET_KEY (preferred) or legacy SUPABASE_SERVICE_ROLE_KEY in Vercel; the public anon key cannot publish approved events.',
+      });
     }
 
     let phase = 'load';
     let eventPublished = false;
     try {
-      const rows = await db.select('submissions', `?id=eq.${encodeURIComponent(id)}`);
+      const rows = await adminDb.select('submissions', `?id=eq.${encodeURIComponent(id)}`);
       if (!rows || rows.length === 0) {
         return res.status(404).json({ error: 'Submission not found' });
       }
@@ -142,7 +159,7 @@ export default async function handler(req, res) {
       }
 
       phase = 'save review status';
-      await db.update(
+      await adminDb.update(
         'submissions',
         {
           status,
@@ -168,22 +185,25 @@ export default async function handler(req, res) {
   // -- PATCH: update submission data (fix typos, etc.) ---------------
   if (req.method === 'PATCH') {
     const { pw, id, data } = req.body || {};
-    const key = req.query.key;
-    const authenticatedPatch = (pw === ADMIN_PW) || (key === CRON_KEY);
-    if (!authenticatedPatch) return res.status(401).json({ error: 'Unauthorized' });
+    if (!isAdminAuthorized(pw)) return res.status(401).json({ error: 'Unauthorized' });
     if (!id || !data) {
       return res.status(400).json({ error: 'id and data (object with fields to merge) required' });
     }
+    if (!hasAdminSupabaseKey()) {
+      return res.status(503).json({
+        error: 'Admin writes are not configured. Set the server-only SUPABASE_SECRET_KEY (preferred) or legacy SUPABASE_SERVICE_ROLE_KEY in Vercel.',
+      });
+    }
 
     try {
-      const rows = await db.select('submissions', `?id=eq.${encodeURIComponent(id)}`);
+      const rows = await adminDb.select('submissions', `?id=eq.${encodeURIComponent(id)}`);
       if (!rows || rows.length === 0) {
         return res.status(404).json({ error: 'Submission not found' });
       }
 
       const existing = rows[0];
       const mergedData = { ...(existing.data || {}), ...data };
-      await db.update(
+      await adminDb.update(
         'submissions',
         { data: mergedData },
         `?id=eq.${encodeURIComponent(id)}`

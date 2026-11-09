@@ -54,6 +54,9 @@ ALTER TABLE submitted_events ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Public read submitted_events"
   ON submitted_events FOR SELECT USING (true);
 
+-- Admin publication writes use the server-only SUPABASE_SECRET_KEY
+-- (or legacy SUPABASE_SERVICE_ROLE_KEY). Do not grant anon INSERT/UPDATE here.
+
 -- submissions and ad_bookings are server-only (anon key can insert, not read)
 ALTER TABLE submissions ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Allow insert submissions"

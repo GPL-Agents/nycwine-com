@@ -1,6 +1,6 @@
 // pages/admin.js
 // Admin panel for reviewing flagged submissions + AI review log.
-// Password is set via ADMIN_PASSWORD env var (default: nycwine-admin).
+// Admin access requires ADMIN_PASSWORD in the server environment.
 
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
