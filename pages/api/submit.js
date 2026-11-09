@@ -9,7 +9,7 @@
 // Returns: { ok: true } or { error: string }
 // ─────────────────────────────────────────────────────────────
 
-import { db } from '../../lib/supabase';
+import { db } from '../../lib/supabase.js';
 
 // ── Basic validation ──────────────────────────────────────────
 function validate(body) {
@@ -77,7 +77,27 @@ Respond with ONLY a JSON object: {"verdict":"post","reason":"Looks like a real N
         messages:   [{ role: 'user', content: prompt }],
       }),
     });
-    if (!res.ok) return { verdict: 'escalate', reason: 'AI review failed.' };
+    if (!res.ok) {
+      const responseText = await res.text().catch(() => '');
+      let payload = null;
+      try { payload = responseText ? JSON.parse(responseText) : null; } catch {}
+      const providerType = payload?.error?.type || '';
+      const providerMessage = String(payload?.error?.message || payload?.message || '')
+        .replace(/(?:sk-ant-|sk-)[A-Za-z0-9_-]{8,}/g, '[redacted]')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .slice(0, 240);
+      console.error('AI review provider error:', {
+        status: res.status,
+        type: providerType || null,
+        message: providerMessage || null,
+      });
+      const detail = [providerType, providerMessage].filter(Boolean).join(': ');
+      return {
+        verdict: 'escalate',
+        reason: `Anthropic API HTTP ${res.status}${detail ? `: ${detail}` : ''}.`,
+      };
+    }
     const data  = await res.json();
     const text  = data.content?.[0]?.text?.trim() || '';
     const match = text.match(/\{[\s\S]*\}/);
@@ -85,10 +105,19 @@ Respond with ONLY a JSON object: {"verdict":"post","reason":"Looks like a real N
       const parsed = JSON.parse(match[0]);
       if (['post', 'escalate', 'reject'].includes(parsed.verdict)) return parsed;
     }
-    return { verdict: 'escalate', reason: 'Could not parse AI verdict.' };
+    const safeText = text.replace(/(?:sk-ant-|sk-)[A-Za-z0-9_-]{8,}/g, '[redacted]').slice(0, 180);
+    return {
+      verdict: 'escalate',
+      reason: safeText ? `AI response was not valid JSON: ${safeText}` : 'AI response was empty; could not parse a verdict.',
+    };
   } catch (err) {
-    console.error('AI review error:', err);
-    return { verdict: 'escalate', reason: 'AI review error; needs human check.' };
+    const errorName = err?.name || 'Error';
+    const errorMessage = String(err?.message || 'Network request failed')
+      .replace(/(?:sk-ant-|sk-)[A-Za-z0-9_-]{8,}/g, '[redacted]')
+      .replace(/\s+/g, ' ')
+      .slice(0, 240);
+    console.error('AI review error:', { name: errorName, message: errorMessage });
+    return { verdict: 'escalate', reason: `AI review ${errorName}: ${errorMessage}` };
   }
 }
 

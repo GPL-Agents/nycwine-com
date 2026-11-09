@@ -95,6 +95,7 @@ function SubmissionCard({ sub, pw, onAction }) {
   const [busy, setBusy] = useState(false);
   const [saving, setSaving] = useState(false);
   const [done, setDone] = useState(null);
+  const [actionError, setActionError] = useState('');
   const [editing, setEditing] = useState(false);
   const [editData, setEditData] = useState({});
 
@@ -140,16 +141,25 @@ function SubmissionCard({ sub, pw, onAction }) {
 
   async function act(action) {
     setBusy(true);
-    const res = await fetch('/api/admin/submissions', {
-      method:  'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify({ pw, id: sub.id, action }),
-    });
-    if (res.ok) {
-      setDone(action);
-      onAction(sub.id, action);
+    setActionError('');
+    try {
+      const res = await fetch('/api/admin/submissions', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ pw, id: sub.id, action }),
+      });
+      const result = await res.json().catch(() => ({}));
+      if (res.ok) {
+        setDone(action);
+        onAction(sub.id, action, result);
+      } else {
+        setActionError(result.error || `Could not ${action} this submission (HTTP ${res.status}).`);
+      }
+    } catch (error) {
+      setActionError(error.message || 'Could not reach the admin API. Please try again.');
+    } finally {
+      setBusy(false);
     }
-    setBusy(false);
   }
 
   if (done) {
@@ -240,6 +250,8 @@ function SubmissionCard({ sub, pw, onAction }) {
         </div>
       )}
 
+      {actionError && <div role="alert" style={styles.actionError}>{actionError}</div>}
+
       <div style={styles.cardActions}>
         <button onClick={() => act('approve')} disabled={busy}
           style={{ ...styles.actionBtn, ...styles.approveBtn }}>
@@ -258,20 +270,167 @@ function SubmissionCard({ sub, pw, onAction }) {
   );
 }
 
-// --- Compact log row ---------------------------------------
-function LogRow({ sub }) {
-  const vs = VERDICT_STYLES[sub.status] || { bg: '#f5f5f5', color: '#555', label: sub.status };
+function formatLogDate(value) {
+  if (!value) return '';
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? String(value) : date.toLocaleString();
+}
+
+function formatLogLabel(key) {
+  return key.replace(/([a-z0-9])([A-Z])/g, '$1 $2').replace(/[_-]/g, ' ')
+    .replace(/\b\w/g, (letter) => letter.toUpperCase());
+}
+
+function logVerdictStyle(sub, adminHistory) {
+  const lastDecision = adminHistory.at(-1);
+  if (lastDecision?.action === 'approve') {
+    return { bg: '#e8f5e9', color: '#2e7d32', label: 'Admin-approved' };
+  }
+  if (lastDecision?.action === 'reject') {
+    return { bg: '#ffebee', color: '#c62828', label: 'Admin-rejected' };
+  }
+  if (sub.status === 'reviewed-posted' && sub.ai_verdict && sub.ai_verdict !== 'post') {
+    return { bg: '#e8f5e9', color: '#2e7d32', label: 'Approved after AI review' };
+  }
+  if (sub.status === 'reviewed-rejected' && sub.ai_verdict && sub.ai_verdict !== 'reject') {
+    return { bg: '#ffebee', color: '#c62828', label: 'Rejected after AI review' };
+  }
+  return VERDICT_STYLES[sub.status] || { bg: '#f5f5f5', color: '#555', label: sub.status };
+}
+
+// --- Expandable AI review log row --------------------------
+function LogRow({ sub, pw, onAction }) {
+  const [expanded, setExpanded] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [actionError, setActionError] = useState('');
+  const adminHistory = Array.isArray(sub.data?.admin_review_history) ? sub.data.admin_review_history : [];
+  const verdict = logVerdictStyle(sub, adminHistory);
+  const rejected = sub.status === 'reviewed-rejected';
+  const canApprove = ['reviewed-escalated', 'reviewed-rejected'].includes(sub.status) &&
+    ['event', 'bar', 'store', 'winery'].includes(sub.type);
+  const detailId = `log-details-${String(sub.id).replace(/[^A-Za-z0-9_-]/g, '-')}`;
+  const submittedData = sub.data && typeof sub.data === 'object' && !Array.isArray(sub.data)
+    ? Object.entries(sub.data).filter(([key, value]) => key !== 'admin_review_history' && value !== null && value !== undefined && value !== '')
+    : [];
+
+  async function approve() {
+    setBusy(true);
+    setActionError('');
+    try {
+      const res = await fetch('/api/admin/submissions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ pw, id: sub.id, action: 'approve' }),
+      });
+      const result = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setActionError(result.error || `Approval failed (HTTP ${res.status}).`);
+        return;
+      }
+      onAction(sub.id, result);
+    } catch (error) {
+      setActionError(error.message || 'Could not reach the admin API. Please try again.');
+    } finally {
+      setBusy(false);
+    }
+  }
+
   return (
     <div style={styles.logRow}>
-      <span style={styles.logTypeBadge}>{TYPE_LABELS[sub.type] || sub.type}</span>
-      <span style={styles.logName}>{sub.name}</span>
-      <span style={{ ...styles.logVerdict, background: vs.bg, color: vs.color }}>{vs.label}</span>
-      {sub.ai_reason && (
-        <span style={styles.logReason} title={sub.ai_reason}>
-          {sub.ai_reason.length > 80 ? sub.ai_reason.slice(0, 80) + '...' : sub.ai_reason}
-        </span>
-      )}
-      <span style={styles.logDate}>{new Date(sub.submitted_at).toLocaleDateString()}</span>
+      <button
+        type="button"
+        style={styles.logSummary}
+        aria-expanded={expanded}
+        aria-controls={detailId}
+        onClick={() => setExpanded((value) => !value)}
+      >
+        <span style={styles.logDisclosure} aria-hidden="true">{expanded ? '▾' : '▸'}</span>
+        <span style={styles.logTypeBadge}>{TYPE_LABELS[sub.type] || sub.type}</span>
+        <span style={styles.logName}>{sub.name}</span>
+        <span style={{ ...styles.logVerdict, background: verdict.bg, color: verdict.color }}>{verdict.label}</span>
+        {sub.ai_reason && (
+          <span style={styles.logReason} title={sub.ai_reason}>
+            {sub.ai_reason.length > 80 ? sub.ai_reason.slice(0, 80) + '...' : sub.ai_reason}
+          </span>
+        )}
+        <span style={styles.logDate}>{new Date(sub.submitted_at).toLocaleDateString()}</span>
+      </button>
+
+      <div id={detailId} hidden={!expanded} style={expanded ? styles.logExpanded : { display: 'none' }}>
+          <h3 style={styles.logSectionTitle}>Submission details</h3>
+          <div style={styles.logFieldGrid}>
+            {[
+              ['Submission ID', sub.id],
+              ['Type', TYPE_LABELS[sub.type] || sub.type],
+              ['Current status', verdict.label],
+              ['Contact email', sub.contact_email],
+              ['AI verdict', sub.ai_verdict],
+              ['Submitted', formatLogDate(sub.submitted_at)],
+              ['Flagged', formatLogDate(sub.flagged_at)],
+              ['Approved', formatLogDate(sub.approved_at)],
+              ['Rejected', formatLogDate(sub.rejected_at)],
+            ].filter(([, value]) => value !== null && value !== undefined && value !== '').map(([label, value]) => (
+              <div style={styles.logField} key={label}>
+                <strong style={styles.logFieldLabel}>{label}</strong>
+                <span style={styles.logFieldValue}>{String(value)}</span>
+              </div>
+            ))}
+          </div>
+
+          <h3 style={styles.logSectionTitle}>Information provided</h3>
+          {submittedData.length ? (
+            <div style={styles.logDataGrid}>
+              {submittedData.map(([key, value]) => {
+                const isLink = typeof value === 'string' && /^(url|website|image|logoUrl)$/i.test(key) && /^https?:\/\//i.test(value);
+                return (
+                  <div style={styles.logDataItem} key={key}>
+                    <strong>{formatLogLabel(key)}</strong>
+                    {isLink
+                      ? <a href={value} target="_blank" rel="noreferrer" style={styles.logDataValue}>{value}</a>
+                      : <pre style={styles.logDataValue}>{typeof value === 'object' ? JSON.stringify(value, null, 2) : String(value)}</pre>}
+                  </div>
+                );
+              })}
+            </div>
+          ) : <p style={styles.logEmpty}>No additional submission fields were saved.</p>}
+
+          {sub.ai_reason && (
+            <div style={styles.logAiReason}>
+              <strong>Full AI reason:</strong> {sub.ai_reason}
+              {sub.ai_reason === 'AI review failed.' && (
+                <p style={styles.logEmpty}>This older record saved only a generic failure. The provider response was not captured, so its exact historical HTTP error cannot be recovered. New failures will show the HTTP status and provider message.</p>
+              )}
+            </div>
+          )}
+
+          {adminHistory.length > 0 && (
+            <div style={styles.logHistory}>
+              <strong>Admin review history</strong>
+              {adminHistory.map((entry, index) => (
+                <div key={`${entry.at || index}-${index}`}>
+                  {entry.action === 'approve' ? 'Approved' : 'Rejected'} at {formatLogDate(entry.at)}
+                  {entry.previous_status ? ` (was ${entry.previous_status})` : ''}
+                </div>
+              ))}
+            </div>
+          )}
+
+          {canApprove && (
+            <div style={styles.logActionBar}>
+              {sub.type === 'event' ? (
+                <button onClick={approve} disabled={busy} style={{ ...styles.actionBtn, ...styles.approveBtn }}>
+                  {busy ? 'Approving...' : rejected ? 'Override rejection & publish' : 'Approve & publish'}
+                </button>
+              ) : (
+                <button onClick={approve} disabled={busy} style={{ ...styles.actionBtn, ...styles.approveBtn }}>
+                  {busy ? 'Saving...' : rejected ? 'Override rejection' : 'Approve'}
+                </button>
+              )}
+              {sub.type !== 'event' && <p style={styles.logEmpty}>This records the review decision; venue listings still use the existing manual publishing step.</p>}
+            </div>
+          )}
+          {actionError && <div role="alert" style={styles.actionError}>{actionError}</div>}
+      </div>
     </div>
   );
 }
@@ -300,8 +459,27 @@ export default function AdminPage() {
     loadSubs(password);
   }
 
-  function handleAction(id) {
+  function updateLogRow(id, result) {
+    setAllLogs((prev) => prev.map((row) => row.id === id ? {
+      ...row,
+      status: result.status || row.status,
+      approved_at: result.status === 'reviewed-posted' ? result.reviewed_at || row.approved_at : row.approved_at,
+      rejected_at: result.status === 'reviewed-rejected' ? result.reviewed_at || row.rejected_at : row.rejected_at,
+      data: {
+        ...(row.data || {}),
+        ...(Array.isArray(result.admin_review_history) ? { admin_review_history: result.admin_review_history } : {}),
+      },
+    } : row));
+  }
+
+  function handleAction(id, action, result) {
     setSubs((prev) => prev.filter((s) => s.id !== id));
+    updateLogRow(id, result || {});
+  }
+
+  function handleLogAction(id, result) {
+    setSubs((prev) => prev.filter((s) => s.id !== id));
+    updateLogRow(id, result || {});
   }
 
   if (!pw) return (
@@ -363,7 +541,7 @@ export default function AdminPage() {
             <>
               <p style={styles.logHelp}>
                 All submissions processed by AI in the last 100 entries.
-                Green = auto-approved, Red = auto-rejected, Yellow = escalated for human review.
+                Green = approved, Red = rejected, Yellow = escalated for human review.
               </p>
               {allLogs.length === 0 ? (
                 <div style={styles.emptyState}>
@@ -371,7 +549,7 @@ export default function AdminPage() {
                 </div>
               ) : (
                 <div style={styles.logTable}>
-                  {allLogs.map((sub) => <LogRow key={sub.id} sub={sub} />)}
+                  {allLogs.map((sub) => <LogRow key={sub.id} sub={sub} pw={pw} onAction={handleLogAction} />)}
                 </div>
               )}
             </>
@@ -476,15 +654,32 @@ const styles = {
     borderRadius: 5, fontSize: 14, outline: 'none', resize: 'vertical',
     fontFamily: 'inherit', lineHeight: 1.5,
   },
+  actionError: { marginBottom: 12, padding: '9px 12px', borderRadius: 6, background: '#ffebee', color: '#b71c1c', fontSize: 13 },
   logHelp: { fontSize: 13, color: '#666', marginBottom: 16 },
   logTable: {
     background: '#fff', border: '1px solid #e0e0e0',
     borderRadius: 10, overflow: 'hidden',
   },
-  logRow: {
-    display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap',
-    padding: '12px 16px', borderBottom: '1px solid #f0f0f0', fontSize: 13,
+  logRow: { borderBottom: '1px solid #f0f0f0', fontSize: 13 },
+  logSummary: {
+    width: '100%', display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap',
+    padding: '12px 16px', border: 'none', background: 'transparent', color: 'inherit',
+    textAlign: 'left', font: 'inherit', cursor: 'pointer',
   },
+  logDisclosure: { width: 14, flex: '0 0 14px', color: '#888', fontSize: 16, textAlign: 'center' },
+  logExpanded: { padding: '6px 16px 18px', background: '#fcfcfc' },
+  logSectionTitle: { margin: '12px 0 8px', fontSize: 13, color: '#333' },
+  logFieldGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(230px,1fr))', gap: 7 },
+  logField: { display: 'flex', flexDirection: 'column', gap: 2, minWidth: 0 },
+  logFieldLabel: { fontSize: 11, color: '#777', textTransform: 'uppercase' },
+  logFieldValue: { fontSize: 13, color: '#333', overflowWrap: 'anywhere' },
+  logDataGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(260px,1fr))', gap: 8 },
+  logDataItem: { padding: '8px 10px', border: '1px solid #eee', borderRadius: 6, background: '#fff', minWidth: 0 },
+  logDataValue: { display: 'block', margin: '4px 0 0', color: '#444', fontSize: 12, lineHeight: 1.5, whiteSpace: 'pre-wrap', overflowWrap: 'anywhere' },
+  logEmpty: { margin: '6px 0 0', color: '#777', fontSize: 12, lineHeight: 1.5 },
+  logAiReason: { marginTop: 10, padding: '10px 12px', borderRadius: 6, background: '#fff8e1', color: '#5d4037', overflowWrap: 'anywhere' },
+  logHistory: { marginTop: 12, display: 'grid', gap: 4, fontSize: 12, color: '#555' },
+  logActionBar: { display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap', marginTop: 14 },
   logTypeBadge: {
     background: '#fce4ec', color: '#c2185b',
     borderRadius: 12, padding: '2px 8px',

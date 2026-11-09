@@ -15,7 +15,7 @@
 // PATCH /api/admin/submissions                  -> update submission data
 //       Body: { pw, id, data: { ...fields to merge into data } }
 
-import { db } from '../../../lib/supabase';
+import { db } from '../../../lib/supabase.js';
 
 const ADMIN_PW  = process.env.ADMIN_PASSWORD  || 'nycwine-admin';
 const CRON_KEY  = process.env.CRON_API_KEY    || 'nycwine-cron-2026';
@@ -23,20 +23,39 @@ const CRON_KEY  = process.env.CRON_API_KEY    || 'nycwine-cron-2026';
 // Publish an approved event to submitted_events table
 async function publishEvent(submission) {
   const d = submission.data || {};
-  await db.insert('submitted_events', {
+  await db.upsert('submitted_events', {
     id:            `sub_${submission.id}`,
     title:         submission.name,
     venue:         d.venue         || null,
-    venue_address: null,
+    venue_address: d.address       || null,
     date:          d.date          || null,
     time:          d.time          || null,
     price:         d.price         || null,
     description:   d.description   || null,
     url:           d.url           || null,
-    image:         d.image         || null,
+    image:         d.logoUrl       || d.image || null,
     source:        'NYCWine',
     submitted_at:  submission.submitted_at,
-  });
+  }, 'id');
+}
+
+function databaseStatus(error) {
+  const match = String(error?.message || '').match(/→\s*(\d{3}):/);
+  return match ? Number(match[1]) : null;
+}
+
+function actionErrorMessage(error, phase, published) {
+  const status = databaseStatus(error);
+  if (published) {
+    return 'The event was published, but the review status could not be saved. Retrying is safe and will not create a duplicate.';
+  }
+  if (phase === 'publish') {
+    return `Could not publish this event${status ? ` (database HTTP ${status})` : ''}. It remains available for review.`;
+  }
+  if (phase === 'load') {
+    return `Could not load this submission${status ? ` (database HTTP ${status})` : ''}. No change was made.`;
+  }
+  return `Could not save the review decision${status ? ` (database HTTP ${status})` : ''}. No approval or rejection was recorded.`;
 }
 
 function buildFilterQuery(params) {
@@ -90,6 +109,8 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'id and action (approve|reject) required' });
     }
 
+    let phase = 'load';
+    let eventPublished = false;
     try {
       const rows = await db.select('submissions', `?id=eq.${encodeURIComponent(id)}`);
       if (!rows || rows.length === 0) {
@@ -98,28 +119,49 @@ export default async function handler(req, res) {
       const submission = rows[0];
 
       const now = new Date().toISOString();
+      const status = action === 'approve' ? 'reviewed-posted' : 'reviewed-rejected';
+      const history = Array.isArray(submission.data?.admin_review_history)
+        ? submission.data.admin_review_history
+        : [];
+      const adminReviewHistory = [
+        ...history,
+        {
+          action,
+          at: now,
+          previous_status: submission.status,
+          previous_ai_verdict: submission.ai_verdict || null,
+        },
+      ];
 
-      if (action === 'approve') {
-        await db.update(
-          'submissions',
-          { status: 'reviewed-posted', approved_at: now },
-          `?id=eq.${encodeURIComponent(id)}`
-        );
-        if (submission.type === 'event') {
-          await publishEvent(submission);
-        }
-      } else {
-        await db.update(
-          'submissions',
-          { status: 'reviewed-rejected', rejected_at: now },
-          `?id=eq.${encodeURIComponent(id)}`
-        );
+      // Publish first. If publication fails, the submission stays in its
+      // current review state; the idempotent upsert makes retries safe.
+      if (action === 'approve' && submission.type === 'event') {
+        phase = 'publish';
+        await publishEvent(submission);
+        eventPublished = true;
       }
 
-      return res.status(200).json({ ok: true, status: action === 'approve' ? 'reviewed-posted' : 'reviewed-rejected' });
+      phase = 'save review status';
+      await db.update(
+        'submissions',
+        {
+          status,
+          [action === 'approve' ? 'approved_at' : 'rejected_at']: now,
+          data: { ...(submission.data || {}), admin_review_history: adminReviewHistory },
+        },
+        `?id=eq.${encodeURIComponent(id)}`
+      );
+
+      return res.status(200).json({
+        ok: true,
+        status,
+        reviewed_at: now,
+        admin_review_history: adminReviewHistory,
+        published: action === 'approve' && submission.type === 'event',
+      });
     } catch (err) {
-      console.error('Admin action error:', err);
-      return res.status(500).json({ error: 'Action failed.' });
+      console.error('Admin action error:', { id, action, error: err });
+      return res.status(500).json({ error: actionErrorMessage(err, phase, eventPublished) });
     }
   }
 
