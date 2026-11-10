@@ -1,12 +1,52 @@
 {
   "wine": [
     {
+      "title": "Arnoux-Lachaux NSG 2021 and Selvapiana Chianti Rùfina 1975",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1xsobrz/arnouxlachaux_nsg_2021_and_selvapiana_chianti/",
+      "score": 1,
+      "comments": 0,
+      "ago": "Just now"
+    },
+    {
+      "title": "Hello Wine friends, i got a question about la mission",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1xsoia9/hello_wine_friends_i_got_a_question_about_la/",
+      "score": 1,
+      "comments": 0,
+      "ago": "Just now"
+    },
+    {
       "title": "My favorite 2014 Bordeaux so far – Château Smith Haut Lafitte (95/100)",
       "subreddit": "r/wine",
       "url": "https://www.reddit.com/r/wine/comments/1xr767l/my_favorite_2014_bordeaux_so_far_château_smith/",
       "score": 96,
       "comments": 0,
-      "ago": "21h ago"
+      "ago": "Yesterday"
+    },
+    {
+      "title": "New to wine/alcohol",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1xsenvh/new_to_winealcohol/",
+      "score": 1,
+      "comments": 0,
+      "ago": "9h ago"
+    },
+    {
+      "title": "Looking for info and advice on these vintage wines from an estate (first time trying a vintage wine) (1967 Inglenook Cream Sherry; 2000 Chevalier Noir Summers)",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1xsd6as/looking_for_info_and_advice_on_these_vintage/",
+      "score": 1,
+      "comments": 0,
+      "ago": "11h ago"
+    },
+    {
+      "title": "V. Sattui Rutherford Dust Up Cabernet Sauvignon 2022, Napa Valley",
+      "subreddit": "r/wine",
+      "url": "https://www.reddit.com/r/wine/comments/1xs0qij/v_sattui_rutherford_dust_up_cabernet_sauvignon/",
+      "score": 1,
+      "comments": 0,
+      "ago": "19h ago"
     },
     {
       "title": "If you are looking for Youtube wine channels",
@@ -14,31 +54,7 @@
       "url": "https://www.reddit.com/r/wine/comments/1xrtvin/if_you_are_looking_for_youtube_wine_channels/",
       "score": 1,
       "comments": 0,
-      "ago": "1h ago"
-    },
-    {
-      "title": "What are the best type of Indian wines to try for?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xrt8mr/what_are_the_best_type_of_indian_wines_to_try_for/",
-      "score": 1,
-      "comments": 0,
-      "ago": "2h ago"
-    },
-    {
-      "title": "2024 Commune of Buttons Moonlight Chardonnay",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xrf8wx/2024_commune_of_buttons_moonlight_chardonnay/",
-      "score": 1,
-      "comments": 0,
-      "ago": "14h ago"
-    },
-    {
-      "title": "2021 Intersection Riesling",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xrehvt/2021_intersection_riesling/",
-      "score": 1,
-      "comments": 0,
-      "ago": "15h ago"
+      "ago": "Yesterday"
     },
     {
       "title": "Not much of a wine guy, but I was looking for a French red to make with my beef stew, incredibly surprised by this find for $9.50. Chevalier Delaude Languedoc 2022",
@@ -46,37 +62,13 @@
       "url": "https://www.reddit.com/r/wine/comments/1xrb0sn/not_much_of_a_wine_guy_but_i_was_looking_for_a/",
       "score": 1,
       "comments": 0,
-      "ago": "18h ago"
-    },
-    {
-      "title": "What to do during the Hospices de Beaune Wine Auction Weekend",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xrammr/what_to_do_during_the_hospices_de_beaune_wine/",
-      "score": 1,
-      "comments": 0,
-      "ago": "18h ago"
-    },
-    {
-      "title": "Help needed with South African wine",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xr59g0/help_needed_with_south_african_wine/",
-      "score": 1,
-      "comments": 0,
-      "ago": "22h ago"
-    },
-    {
-      "title": "-actually- good books for getting into wine fundamental knowledge",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xr4jid/actually_good_books_for_getting_into_wine/",
-      "score": 1,
-      "comments": 0,
-      "ago": "22h ago"
+      "ago": "Yesterday"
     }
   ],
   "nyc": [],
-  "fetchedAt": "2026-11-09T16:44:05.765Z",
+  "fetchedAt": "2026-11-10T15:06:50.087Z",
   "stats": {
-    "winePostsFound": 9,
+    "winePostsFound": 8,
     "nycPostsFound": 0,
     "totalCandidatesWine": 25,
     "totalCandidatesNyc": 25
