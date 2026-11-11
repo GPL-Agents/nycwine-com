@@ -1,76 +1,11 @@
 {
-  "wine": [
-    {
-      "title": "Arnoux-Lachaux NSG 2021 and Selvapiana Chianti Rùfina 1975",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xsobrz/arnouxlachaux_nsg_2021_and_selvapiana_chianti/",
-      "score": 1,
-      "comments": 0,
-      "ago": "Just now"
-    },
-    {
-      "title": "Hello Wine friends, i got a question about la mission",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xsoia9/hello_wine_friends_i_got_a_question_about_la/",
-      "score": 1,
-      "comments": 0,
-      "ago": "Just now"
-    },
-    {
-      "title": "My favorite 2014 Bordeaux so far – Château Smith Haut Lafitte (95/100)",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xr767l/my_favorite_2014_bordeaux_so_far_château_smith/",
-      "score": 96,
-      "comments": 0,
-      "ago": "Yesterday"
-    },
-    {
-      "title": "New to wine/alcohol",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xsenvh/new_to_winealcohol/",
-      "score": 1,
-      "comments": 0,
-      "ago": "9h ago"
-    },
-    {
-      "title": "Looking for info and advice on these vintage wines from an estate (first time trying a vintage wine) (1967 Inglenook Cream Sherry; 2000 Chevalier Noir Summers)",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xsd6as/looking_for_info_and_advice_on_these_vintage/",
-      "score": 1,
-      "comments": 0,
-      "ago": "11h ago"
-    },
-    {
-      "title": "V. Sattui Rutherford Dust Up Cabernet Sauvignon 2022, Napa Valley",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xs0qij/v_sattui_rutherford_dust_up_cabernet_sauvignon/",
-      "score": 1,
-      "comments": 0,
-      "ago": "19h ago"
-    },
-    {
-      "title": "If you are looking for Youtube wine channels",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xrtvin/if_you_are_looking_for_youtube_wine_channels/",
-      "score": 1,
-      "comments": 0,
-      "ago": "Yesterday"
-    },
-    {
-      "title": "Not much of a wine guy, but I was looking for a French red to make with my beef stew, incredibly surprised by this find for $9.50. Chevalier Delaude Languedoc 2022",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xrb0sn/not_much_of_a_wine_guy_but_i_was_looking_for_a/",
-      "score": 1,
-      "comments": 0,
-      "ago": "Yesterday"
-    }
-  ],
+  "wine": [],
   "nyc": [],
-  "fetchedAt": "2026-11-10T15:06:50.087Z",
+  "fetchedAt": "2026-11-11T14:38:16.926Z",
   "stats": {
-    "winePostsFound": 8,
+    "winePostsFound": 0,
     "nycPostsFound": 0,
-    "totalCandidatesWine": 25,
+    "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
 }
