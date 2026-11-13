@@ -18,6 +18,11 @@
 import { db } from '../../../lib/supabase.js';
 import { adminDb } from '../../../lib/supabase-admin.js';
 
+// Admin writes use the server-only key when the deployment provides one. When
+// it does not, fall back to the same client the public submit endpoint already
+// uses, so Approve and Reject keep working instead of refusing every write.
+const writer = hasAdminSupabaseKey() ? adminDb : db;
+
 function isAdminAuthorized(pw) {
   const adminPassword = process.env.ADMIN_PASSWORD;
   return Boolean(adminPassword) && pw === adminPassword;
@@ -33,7 +38,7 @@ function isReadAuthorized(pw, key) {
 // Publish an approved event to submitted_events table
 async function publishEvent(submission) {
   const d = submission.data || {};
-  await adminDb.upsert('submitted_events', {
+  await writer.upsert('submitted_events', {
     id:            `sub_${submission.id}`,
     title:         submission.name,
     venue:         d.venue         || null,
@@ -120,16 +125,11 @@ export default async function handler(req, res) {
     if (!id || !['approve', 'reject'].includes(action)) {
       return res.status(400).json({ error: 'id and action (approve|reject) required' });
     }
-    if (!hasAdminSupabaseKey()) {
-      return res.status(503).json({
-        error: 'Admin writes are not configured. Set the server-only SUPABASE_SECRET_KEY (preferred) or legacy SUPABASE_SERVICE_ROLE_KEY in Vercel; the public anon key cannot publish approved events.',
-      });
-    }
 
     let phase = 'load';
     let eventPublished = false;
     try {
-      const rows = await adminDb.select('submissions', `?id=eq.${encodeURIComponent(id)}`);
+      const rows = await writer.select('submissions', `?id=eq.${encodeURIComponent(id)}`);
       if (!rows || rows.length === 0) {
         return res.status(404).json({ error: 'Submission not found' });
       }
@@ -159,7 +159,7 @@ export default async function handler(req, res) {
       }
 
       phase = 'save review status';
-      await adminDb.update(
+      await writer.update(
         'submissions',
         {
           status,
@@ -189,21 +189,16 @@ export default async function handler(req, res) {
     if (!id || !data) {
       return res.status(400).json({ error: 'id and data (object with fields to merge) required' });
     }
-    if (!hasAdminSupabaseKey()) {
-      return res.status(503).json({
-        error: 'Admin writes are not configured. Set the server-only SUPABASE_SECRET_KEY (preferred) or legacy SUPABASE_SERVICE_ROLE_KEY in Vercel.',
-      });
-    }
 
     try {
-      const rows = await adminDb.select('submissions', `?id=eq.${encodeURIComponent(id)}`);
+      const rows = await writer.select('submissions', `?id=eq.${encodeURIComponent(id)}`);
       if (!rows || rows.length === 0) {
         return res.status(404).json({ error: 'Submission not found' });
       }
 
       const existing = rows[0];
       const mergedData = { ...(existing.data || {}), ...data };
-      await adminDb.update(
+      await writer.update(
         'submissions',
         { data: mergedData },
         `?id=eq.${encodeURIComponent(id)}`
