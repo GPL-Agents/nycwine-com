@@ -39,6 +39,55 @@ function deriveLogoUrl(url) {
 // ── Claude AI review ──────────────────────────────────────────
 
 // ── Main handler ──────────────────────────────────────────────
+async function aiReview(body) {
+  const apiKey = process.env.GOOGLE_GEMINI_API_KEY;
+  if (!apiKey) return { verdict: 'escalate', reason: 'No AI review configured; needs a human check.' };
+  const types = { event: 'Wine Event', bar: 'Wine Bar', store: 'Wine Store', winery: 'Winery' };
+  const lines = [
+    'You are reviewing a free listing submission for NYCWine.com, a NYC-focused wine website.',
+    'Submission type: ' + (types[body.type] || body.type),
+    'Name: ' + (body.name || '(none)'),
+  ];
+  if (body.venue) lines.push('Venue: ' + body.venue);
+  if (body.address) lines.push('Address: ' + body.address);
+  if (body.website) lines.push('Website: ' + body.website);
+  if (body.url) lines.push('URL: ' + body.url);
+  if (body.date) lines.push('Date: ' + body.date);
+  if (body.region) lines.push('Region: ' + body.region);
+  if (body.description) lines.push('Description: ' + String(body.description).slice(0, 800));
+  lines.push('Decide one of three things:');
+  lines.push('- "post": looks legitimate, wine-related, and NYC or nearby. Approve immediately.');
+  lines.push('- "escalate": uncertain: suspicious URL, vague name, or unclear wine relevance.');
+  lines.push('- "reject": clearly spam, not wine-related, or inappropriate.');
+  lines.push('Respond with ONLY a JSON object: {"verdict":"post","reason":"Looks like a real NYC wine bar."}');
+  const prompt = lines.join(String.fromCharCode(10));
+  const model = process.env.REVIEW_MODEL || 'gemini-2.0-flash-lite';
+  const url = 'https://generativelanguage.googleapis.com/v1beta/models/' + model + ':generateContent?key=' + encodeURIComponent(apiKey);
+  try {
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { temperature: 0, maxOutputTokens: 256 } }),
+      signal: AbortSignal.timeout(15000),
+    });
+    if (!res.ok) {
+      const detail = String(await res.text().catch(() => '')).slice(0, 200);
+      console.error('AI review provider error:', { status: res.status });
+      return { verdict: 'escalate', reason: 'Review provider HTTP ' + res.status + (detail ? ': ' + detail : '') + '.' };
+    }
+    const data = await res.json();
+    const parts = (((data.candidates || [])[0] || {}).content || {}).parts || [];
+    const text = parts.map((part) => part.text || '').join('').trim();
+    const match = text.match(/{[sS]*}/);
+    if (match) {
+      const parsed = JSON.parse(match[0]);
+      if (['post', 'escalate', 'reject'].includes(parsed.verdict)) return parsed;
+    }
+    return { verdict: 'escalate', reason: 'Review response was not valid JSON.' };
+  } catch (err) {
+    return { verdict: 'escalate', reason: 'Review failed: ' + String((err && err.message) || err).slice(0, 180) };
+  }
+}
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
@@ -53,7 +102,7 @@ export default async function handler(req, res) {
   const now = new Date().toISOString();
 
   // 3. AI review
-  const review = { verdict: 'escalate', reason: '' }; // no external reviewer: every listing goes to the human queue
+  const review = await aiReview(body);
   const status = review.verdict === 'post'     ? 'reviewed-posted'
                : review.verdict === 'reject'   ? 'reviewed-rejected'
                :                                 'reviewed-escalated';
