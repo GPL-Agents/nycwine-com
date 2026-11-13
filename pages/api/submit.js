@@ -61,6 +61,27 @@ async function aiReview(body) {
   lines.push('- "reject": clearly spam, not wine-related, or inappropriate.');
   lines.push('Respond with ONLY a JSON object: {"verdict":"post","reason":"Looks like a real NYC wine bar."}');
   const prompt = lines.join(String.fromCharCode(10));
+  const dsKey = process.env.DEEPSEEK_API_KEY;
+  if (dsKey) {
+    try {
+      const ds = await fetch('https://api.deepseek.com/chat/completions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + dsKey },
+        body: JSON.stringify({ model: process.env.DEEPSEEK_MODEL || 'deepseek-chat', messages: [{ role: 'user', content: prompt }], temperature: 0, max_tokens: 256 }),
+        signal: AbortSignal.timeout(15000),
+      });
+      if (ds.ok) {
+        const payload = await ds.json();
+        const content = (((payload.choices || [])[0] || {}).message || {}).content || '';
+        const dsOpen = content.indexOf(String.fromCharCode(123));
+        const dsClose = content.lastIndexOf(String.fromCharCode(125));
+        if (dsOpen > -1 && dsClose > dsOpen) {
+          const parsed = JSON.parse(content.slice(dsOpen, dsClose + 1));
+          if (['post', 'escalate', 'reject'].includes(parsed.verdict)) return parsed;
+        }
+      }
+    } catch {}
+  }
   const model = process.env.REVIEW_MODEL || 'gemini-2.0-flash-lite';
   const callUrl = (name) => 'https://generativelanguage.googleapis.com/v1beta/models/' + name + ':generateContent?key=' + encodeURIComponent(apiKey);
   const askModel = (name) => fetch(callUrl(name), {
