@@ -37,89 +37,6 @@ function deriveLogoUrl(url) {
 }
 
 // ── Claude AI review ──────────────────────────────────────────
-async function aiReview(body) {
-  const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) {
-    return { verdict: 'escalate', reason: 'No AI review configured; needs human check.' };
-  }
-
-  const typeLabels = { event: 'Wine Event', bar: 'Wine Bar', store: 'Wine Store', winery: 'Winery' };
-  const prompt = `You are reviewing a free listing submission for NYCWine.com, a NYC-focused wine website.
-
-Submission type: ${typeLabels[body.type] || body.type}
-Name: ${body.name || '(none)'}
-${body.venue       ? `Venue: ${body.venue}`       : ''}
-${body.address     ? `Address: ${body.address}`   : ''}
-${body.website     ? `Website: ${body.website}`   : ''}
-${body.url         ? `URL: ${body.url}`           : ''}
-${body.description ? `Description: ${body.description}` : ''}
-${body.date        ? `Date: ${body.date}`         : ''}
-${body.region      ? `Region: ${body.region}`     : ''}
-
-Decide one of three things:
-- "post"     — Looks legitimate, wine-related, and NYC/nearby. Approve immediately.
-- "escalate" — Uncertain: suspicious URL, vague name, or unclear wine relevance.
-- "reject"   — Clearly spam, not wine-related, or inappropriate.
-
-Respond with ONLY a JSON object: {"verdict":"post","reason":"Looks like a real NYC wine bar."}`;
-
-  try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method:  'POST',
-      headers: {
-        'Content-Type':      'application/json',
-        'x-api-key':         apiKey,
-        'anthropic-version': '2023-06-01',
-      },
-      body: JSON.stringify({
-        model:      'claude-haiku-4-5-20251001',
-        max_tokens: 128,
-        messages:   [{ role: 'user', content: prompt }],
-      }),
-    });
-    if (!res.ok) {
-      const responseText = await res.text().catch(() => '');
-      let payload = null;
-      try { payload = responseText ? JSON.parse(responseText) : null; } catch {}
-      const providerType = payload?.error?.type || '';
-      const providerMessage = String(payload?.error?.message || payload?.message || '')
-        .replace(/(?:sk-ant-|sk-)[A-Za-z0-9_-]{8,}/g, '[redacted]')
-        .replace(/\s+/g, ' ')
-        .trim()
-        .slice(0, 240);
-      console.error('AI review provider error:', {
-        status: res.status,
-        type: providerType || null,
-        message: providerMessage || null,
-      });
-      const detail = [providerType, providerMessage].filter(Boolean).join(': ');
-      return {
-        verdict: 'escalate',
-        reason: `Anthropic API HTTP ${res.status}${detail ? `: ${detail}` : ''}.`,
-      };
-    }
-    const data  = await res.json();
-    const text  = data.content?.[0]?.text?.trim() || '';
-    const match = text.match(/\{[\s\S]*\}/);
-    if (match) {
-      const parsed = JSON.parse(match[0]);
-      if (['post', 'escalate', 'reject'].includes(parsed.verdict)) return parsed;
-    }
-    const safeText = text.replace(/(?:sk-ant-|sk-)[A-Za-z0-9_-]{8,}/g, '[redacted]').slice(0, 180);
-    return {
-      verdict: 'escalate',
-      reason: safeText ? `AI response was not valid JSON: ${safeText}` : 'AI response was empty; could not parse a verdict.',
-    };
-  } catch (err) {
-    const errorName = err?.name || 'Error';
-    const errorMessage = String(err?.message || 'Network request failed')
-      .replace(/(?:sk-ant-|sk-)[A-Za-z0-9_-]{8,}/g, '[redacted]')
-      .replace(/\s+/g, ' ')
-      .slice(0, 240);
-    console.error('AI review error:', { name: errorName, message: errorMessage });
-    return { verdict: 'escalate', reason: `AI review ${errorName}: ${errorMessage}` };
-  }
-}
 
 // ── Main handler ──────────────────────────────────────────────
 export default async function handler(req, res) {
@@ -136,7 +53,7 @@ export default async function handler(req, res) {
   const now = new Date().toISOString();
 
   // 3. AI review
-  const review = await aiReview(body);
+  const review = { verdict: 'escalate', reason: '' }; // no external reviewer: every listing goes to the human queue
   const status = review.verdict === 'post'     ? 'reviewed-posted'
                : review.verdict === 'reject'   ? 'reviewed-rejected'
                :                                 'reviewed-escalated';
