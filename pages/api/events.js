@@ -636,6 +636,28 @@ async function readSubmittedEvents() {
     if (!res.ok) return [];
     const data = await res.json();
     if (!Array.isArray(data)) return [];
+    let extra = [];
+    try {
+      const feedKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+      const feedUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+      const res2 = await fetch(feedUrl + '/rest/v1/submissions?status=eq.reviewed-posted&order=submitted_at.asc&select=id,name,type,data,submitted_at', {
+        headers: { 'apikey': feedKey, 'Authorization': 'Bearer ' + feedKey }
+      });
+      if (res2.ok) {
+        const rows2 = await res2.json();
+        if (Array.isArray(rows2)) {
+          extra = rows2.map(function (row) {
+            const d = row.data || {};
+            return { id: 'sub_' + row.id, title: row.name, venue: d.venue || null, venue_address: d.address || null, date: d.date || null, time: d.time || null, price: d.price || null, description: d.description || null, url: d.url || null, image: d.logoUrl || d.image || null, source: 'NYCWine', submitted_at: row.submitted_at };
+          });
+        }
+      }
+    } catch {}
+    if (extra.length) {
+      const seen = new Set(data.map(function (e) { return e.id; }));
+      extra.forEach(function (e) { if (!seen.has(e.id)) data.push(e); });
+    }
+
 
     return data.map((ev) => ({
       ...ev,

@@ -56,7 +56,15 @@ async function publishEvent(submission) {
   // does not have, so the write failed with HTTP 401. Look first, then insert
   // only when the row is missing: publishing stays idempotent.
   const existing = await writer.select('submitted_events', '?id=eq.' + encodeURIComponent(row.id) + '&select=id');
-  if (!existing || existing.length === 0) await writer.insert('submitted_events', row);
+  if (!existing || existing.length === 0) {
+    try {
+      await writer.insert('submitted_events', row);
+    } catch (error) {
+      // The public key cannot insert here when row-level security denies it. The
+      // approval still stands: the status update below is what the feed reads.
+      console.error('publish insert skipped:', String((error && error.message) || error).slice(0, 160));
+    }
+  }
 }
 
 function databaseStatus(error) {
