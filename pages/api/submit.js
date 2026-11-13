@@ -62,14 +62,16 @@ async function aiReview(body) {
   lines.push('Respond with ONLY a JSON object: {"verdict":"post","reason":"Looks like a real NYC wine bar."}');
   const prompt = lines.join(String.fromCharCode(10));
   const model = process.env.REVIEW_MODEL || 'gemini-2.0-flash-lite';
-  const url = 'https://generativelanguage.googleapis.com/v1beta/models/' + model + ':generateContent?key=' + encodeURIComponent(apiKey);
+  const callUrl = (name) => 'https://generativelanguage.googleapis.com/v1beta/models/' + name + ':generateContent?key=' + encodeURIComponent(apiKey);
+  const askModel = (name) => fetch(callUrl(name), {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { temperature: 0, maxOutputTokens: 256 } }),
+    signal: AbortSignal.timeout(15000),
+  });
   try {
-    const res = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { temperature: 0, maxOutputTokens: 256 } }),
-      signal: AbortSignal.timeout(15000),
-    });
+    let res = await askModel(model);
+    if (res.status === 404 && model !== 'gemini-2.0-flash') res = await askModel('gemini-2.0-flash');
     if (!res.ok) {
       const detail = String(await res.text().catch(() => '')).slice(0, 200);
       console.error('AI review provider error:', { status: res.status });
@@ -78,10 +80,13 @@ async function aiReview(body) {
     const data = await res.json();
     const parts = (((data.candidates || [])[0] || {}).content || {}).parts || [];
     const text = parts.map((part) => part.text || '').join('').trim();
-    const match = text.match(/{[sS]*}/);
-    if (match) {
-      const parsed = JSON.parse(match[0]);
-      if (['post', 'escalate', 'reject'].includes(parsed.verdict)) return parsed;
+    const open = text.indexOf(String.fromCharCode(123));
+    const close = text.lastIndexOf(String.fromCharCode(125));
+    if (open > -1 && close > open) {
+      try {
+        const parsed = JSON.parse(text.slice(open, close + 1));
+        if (['post', 'escalate', 'reject'].includes(parsed.verdict)) return parsed;
+      } catch {}
     }
     return { verdict: 'escalate', reason: 'Review response was not valid JSON.' };
   } catch (err) {
