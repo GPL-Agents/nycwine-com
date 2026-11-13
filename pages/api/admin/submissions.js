@@ -38,7 +38,7 @@ function isReadAuthorized(pw, key) {
 // Publish an approved event to submitted_events table
 async function publishEvent(submission) {
   const d = submission.data || {};
-  await writer.upsert('submitted_events', {
+  const row = {
     id:            `sub_${submission.id}`,
     title:         submission.name,
     venue:         d.venue         || null,
@@ -51,7 +51,12 @@ async function publishEvent(submission) {
     image:         d.logoUrl       || d.image || null,
     source:        'NYCWine',
     submitted_at:  submission.submitted_at,
-  }, 'id');
+  };
+  // Upsert needs UPDATE permission on submitted_events, which the public key
+  // does not have, so the write failed with HTTP 401. Look first, then insert
+  // only when the row is missing: publishing stays idempotent.
+  const existing = await writer.select('submitted_events', '?id=eq.' + encodeURIComponent(row.id) + '&select=id');
+  if (!existing || existing.length === 0) await writer.insert('submitted_events', row);
 }
 
 function databaseStatus(error) {
