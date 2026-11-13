@@ -67,7 +67,7 @@ async function aiReview(body) {
       const ds = await fetch('https://api.deepseek.com/chat/completions', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + dsKey },
-        body: JSON.stringify({ model: process.env.DEEPSEEK_MODEL || 'deepseek-chat', messages: [{ role: 'user', content: prompt }], temperature: 0, max_tokens: 256 }),
+        body: JSON.stringify({ model: process.env.DEEPSEEK_MODEL || 'deepseek-flash', messages: [{ role: 'user', content: prompt }], temperature: 0, max_tokens: 256 }),
         signal: AbortSignal.timeout(15000),
       });
       if (ds.ok) {
