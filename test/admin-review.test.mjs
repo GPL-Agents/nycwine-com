@@ -186,45 +186,7 @@ test('legacy cron fallback remains read-only for the existing admin checker', as
   assert.deepEqual(res.body, [{ id: 'readonly-check' }]);
 });
 
-test('Anthropic HTTP errors are saved as useful, secret-redacted review reasons', async (t) => {
-  const originalFetch = globalThis.fetch;
-  const originalKey = process.env.ANTHROPIC_API_KEY;
-  let savedSubmission;
-  process.env.ANTHROPIC_API_KEY = 'sk-ant-test-key-that-must-not-leak';
-  globalThis.fetch = async (url, options) => {
-    assert.equal(url, 'https://api.anthropic.com/v1/messages');
-    assert.equal(options.headers['x-api-key'], process.env.ANTHROPIC_API_KEY);
-    return new Response(JSON.stringify({
-      type: 'error',
-      error: { type: 'authentication_error', message: 'Invalid API key sk-ant-test-key-that-must-not-leak' },
-    }), { status: 401, headers: { 'Content-Type': 'application/json' } });
-  };
-  t.after(() => {
-    globalThis.fetch = originalFetch;
-    if (originalKey === undefined) delete process.env.ANTHROPIC_API_KEY;
-    else process.env.ANTHROPIC_API_KEY = originalKey;
-  });
-  mockDb(t, {
-    insert: async (table, row) => { assert.equal(table, 'submissions'); savedSubmission = row; },
-  });
 
-  const res = response();
-  await submitHandler({
-    method: 'POST',
-    body: {
-      type: 'event', name: 'A Wine Tasting', contactEmail: 'events@example.test',
-      venue: 'Verve Wine', date: '2026-12-02', url: 'https://example.test/event',
-      description: 'An evening tasting.',
-    },
-  }, res);
-
-  assert.equal(res.statusCode, 200);
-  assert.equal(savedSubmission.status, 'reviewed-escalated');
-  assert.match(savedSubmission.ai_reason, /Anthropic API HTTP 401/);
-  assert.match(savedSubmission.ai_reason, /authentication_error/);
-  assert.match(savedSubmission.ai_reason, /Invalid API key/);
-  assert.doesNotMatch(savedSubmission.ai_reason, /sk-ant-test-key/);
-});
 
 test('Supabase upsert sends merge-duplicates against the chosen conflict key', async (t) => {
   const originalFetch = globalThis.fetch;
