@@ -1,116 +1,20 @@
 {
-  "wine": [
+  "wine": [],
+  "nyc": [
     {
-      "title": "£50-£80 Single Bottle Red Wine to Gift",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xv8vis/5080_single_bottle_red_wine_to_gift/",
+      "title": "Nepali Bhanchha Ghar - Lunch Take-out (November 2026)",
+      "subreddit": "r/FoodNYC",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1xv8e72/nepali_bhanchha_ghar_lunch_takeout_november_2026/",
       "score": 1,
       "comments": 0,
-      "ago": "Just now"
-    },
-    {
-      "title": "Tasting #26 (Quarter Final 2) - ARGENTINIAN BORDEAUX BLEND vs. WASHINGTON CABERNET",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xv8706/tasting_26_quarter_final_2_argentinian_bordeaux/",
-      "score": 1,
-      "comments": 0,
-      "ago": "1h ago"
-    },
-    {
-      "title": "Recommendations wanted for 1 day winery visit in Tuscany area",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xv84hv/recommendations_wanted_for_1_day_winery_visit_in/",
-      "score": 1,
-      "comments": 0,
-      "ago": "1h ago"
-    },
-    {
-      "title": "A good friend turns 40 in a few weeks and I am looking for input on which 1986 wine to try and find",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xv5pyd/a_good_friend_turns_40_in_a_few_weeks_and_i_am/",
-      "score": 1,
-      "comments": 0,
-      "ago": "3h ago"
-    },
-    {
-      "title": "Good wine in Irish supermarkets",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xv5id4/good_wine_in_irish_supermarkets/",
-      "score": 1,
-      "comments": 0,
-      "ago": "3h ago"
-    },
-    {
-      "title": "Pinot noir recs",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xuw0jc/pinot_noir_recs/",
-      "score": 1,
-      "comments": 0,
-      "ago": "12h ago"
-    },
-    {
-      "title": "Noob at this wine game, please be kind!",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xut61h/noob_at_this_wine_game_please_be_kind/",
-      "score": 1,
-      "comments": 0,
-      "ago": "14h ago"
-    },
-    {
-      "title": "I'm from Georgia (the country) and I'm trying to get real qvevri wine to people abroad",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xupfkf/im_from_georgia_the_country_and_im_trying_to_get/",
-      "score": 1,
-      "comments": 0,
-      "ago": "17h ago"
-    },
-    {
-      "title": "Terrasses du Larzac in France to launch first white wines in 2027",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xupdy4/terrasses_du_larzac_in_france_to_launch_first/",
-      "score": 1,
-      "comments": 0,
-      "ago": "17h ago"
-    },
-    {
-      "title": "Which UK supermarket wines are actually good?",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xuny1u/which_uk_supermarket_wines_are_actually_good/",
-      "score": 1,
-      "comments": 0,
-      "ago": "18h ago"
-    },
-    {
-      "title": "Juliane Eller Frühmesse Riesling Juwel, Rheinhessen, 2021",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xunqut/juliane_eller_frühmesse_riesling_juwel/",
-      "score": 1,
-      "comments": 0,
-      "ago": "18h ago"
-    },
-    {
-      "title": "A boring evening turned into an impromptu wine tasting",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xuluho/a_boring_evening_turned_into_an_impromptu_wine/",
-      "score": 1,
-      "comments": 0,
-      "ago": "19h ago"
-    },
-    {
-      "title": "Italian wine lunch",
-      "subreddit": "r/wine",
-      "url": "https://www.reddit.com/r/wine/comments/1xu529g/italian_wine_lunch/",
-      "score": 1,
-      "comments": 0,
-      "ago": "Yesterday"
+      "ago": "23h ago"
     }
   ],
-  "nyc": [],
-  "fetchedAt": "2026-11-13T14:46:50.250Z",
+  "fetchedAt": "2026-11-14T13:43:18.444Z",
   "stats": {
-    "winePostsFound": 13,
-    "nycPostsFound": 0,
-    "totalCandidatesWine": 25,
+    "winePostsFound": 0,
+    "nycPostsFound": 1,
+    "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
 }
