@@ -5270,7 +5270,7 @@ body {
   border-bottom: 1px solid var(--border);
 }
 /* Optional patterns, set via theme.pattern in data/seasonal-hero.js */
-/* Thanksgiving: fine-line maple leaves + wheat (public/images/seasonal/thanksgiving-pattern.svg) */
+/* Thanksgiving: fine-line maple leaves + turkeys (public/images/seasonal/thanksgiving-pattern.svg) */
 .sh-pattern-thanksgiving {
   background-image: url("/images/seasonal/thanksgiving-pattern.svg");
   background-size: 240px 240px;
