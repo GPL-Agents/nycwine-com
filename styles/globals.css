@@ -5258,3 +5258,70 @@ body {
   text-align: center;
 }
 .map-about-ad { margin-bottom: 20px; }
+
+/* ═══════════════════════════════════════
+   SEASONAL HERO -- swappable promo band
+   Content: data/seasonal-hero.js
+═══════════════════════════════════════ */
+.seasonal-hero {
+  background: var(--sh-bg, var(--black));
+  color: white;
+  padding: 20px var(--content-pad);
+}
+.sh-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: 24px;
+  align-items: center;
+}
+.sh-media { display: block; border-radius: 10px; overflow: hidden; line-height: 0; }
+.sh-media img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
+.sh-eyebrow {
+  font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--sh-accent, var(--pink));
+  margin-bottom: 6px;
+}
+.sh-headline { font-family: var(--font-serif); font-size: 26px; line-height: 1.2; font-weight: 700; margin-bottom: 8px; }
+.sh-blurb { font-size: 14px; line-height: 1.5; color: rgba(255,255,255,.82); margin-bottom: 14px; }
+.sh-cta {
+  display: inline-block; background: var(--sh-accent, var(--pink)); color: var(--black);
+  font-weight: 700; font-size: 14px; padding: 9px 16px; border-radius: 999px; text-decoration: none;
+}
+.sh-cta:hover { opacity: .9; }
+
+.sh-partner { background: white; color: var(--text); border-radius: 10px; padding: 14px 16px; }
+.sh-partner-tag { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.sh-partner-heading { font-family: var(--font-serif); font-size: 17px; font-weight: 700; margin: 2px 0 10px; color: var(--black); }
+.sh-partner-links { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.sh-partner-links a {
+  font-size: 12px; font-weight: 600; color: var(--pink-dark); background: var(--pink-light);
+  padding: 5px 10px; border-radius: 999px; text-decoration: none;
+}
+.sh-partner-links a:hover { background: var(--pink-muted); color: white; }
+.sh-deals { list-style: none; border-top: 1px solid var(--border-light); padding-top: 8px; margin-bottom: 8px; }
+.sh-deals li + li { margin-top: 5px; }
+.sh-deals a { display: flex; align-items: baseline; gap: 8px; text-decoration: none; color: var(--text); font-size: 12px; }
+.sh-code {
+  font-family: ui-monospace, Menlo, Consolas, monospace; font-weight: 700; font-size: 11px;
+  border: 1px dashed var(--pink); color: var(--pink-dark); padding: 1px 6px; border-radius: 4px; flex-shrink: 0;
+}
+.sh-deals a:hover .sh-deal-text { text-decoration: underline; }
+.sh-all-deals { font-size: 13px; font-weight: 700; color: var(--pink-dark); text-decoration: none; }
+.sh-all-deals:hover { text-decoration: underline; }
+
+@media (max-width: 1000px) {
+  .sh-inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .sh-partner { grid-column: 1 / -1; }
+}
+@media (max-width: 640px) {
+  .seasonal-hero { padding: 16px var(--content-pad); }
+  .sh-inner { grid-template-columns: 1fr; gap: 16px; }
+  .sh-headline { font-size: 22px; }
+}
+
+/* Social page sidebar: static Facebook card (replaces age-gated embed) */
+.social-page-fb-card {
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  margin-bottom: 16px;
+}

@@ -12,6 +12,7 @@
 import Head from 'next/head';
 import Header from '../components/Header';
 import QuickNav from '../components/QuickNav';
+import SeasonalHero from '../components/SeasonalHero';
 import EventsSection from '../components/EventsSection';
 import SocialSection from '../components/SocialSection';
 import BlogSection from '../components/BlogSection';
@@ -77,6 +78,9 @@ export default function Home() {
 
       {/* ── Main content ─────────────────────────────────── */}
       <main>
+        {/* Seasonal promo: edit data/seasonal-hero.js to swap */}
+        <SeasonalHero />
+
         <EventsSection />
         {/* <AdUnit slot="after-events" /> */}
 
