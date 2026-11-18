@@ -21,7 +21,7 @@ const PROMOS = {
   'thanksgiving-2026': {
     active: true,
     end: '2026-11-30T23:59:59-05:00',
-    theme: { bg: '#2b1a12', accent: '#f0a04b' },
+    theme: { bg: '#fbf4ea', text: '#3a2418', accent: '#c4561d', pattern: 'leaves' },
     image: {
       src: '/images/seasonal/thanksgiving-2026.jpg',
       alt: 'Happy Thanksgiving from NYCWine: a turkey in sunglasses raising a glass of red wine over a holiday table',

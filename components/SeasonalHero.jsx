@@ -22,9 +22,9 @@ export default function SeasonalHero() {
 
   return (
     <section
-      className="seasonal-hero"
+      className={`seasonal-hero${theme.pattern ? ` sh-pattern-${theme.pattern}` : ''}`}
       aria-label={eyebrow || 'Seasonal feature'}
-      style={{ '--sh-bg': theme.bg, '--sh-accent': theme.accent }}
+      style={{ '--sh-bg': theme.bg, '--sh-text': theme.text, '--sh-accent': theme.accent }}
     >
       <div className="sh-inner">
         {image && (
