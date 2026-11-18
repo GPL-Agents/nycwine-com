@@ -1,19 +1,10 @@
 {
   "wine": [],
-  "nyc": [
-    {
-      "title": "South Brooklyn Sushi and Shellfish on Saturday Night!",
-      "subreddit": "r/FoodNYC",
-      "url": "https://www.reddit.com/r/FoodNYC/comments/1xx1nkx/south_brooklyn_sushi_and_shellfish_on_saturday/",
-      "score": 1,
-      "comments": 0,
-      "ago": "22h ago"
-    }
-  ],
-  "fetchedAt": "2026-11-16T16:14:25.366Z",
+  "nyc": [],
+  "fetchedAt": "2026-11-17T16:20:46.550Z",
   "stats": {
     "winePostsFound": 0,
-    "nycPostsFound": 1,
+    "nycPostsFound": 0,
     "totalCandidatesWine": 0,
     "totalCandidatesNyc": 25
   }
