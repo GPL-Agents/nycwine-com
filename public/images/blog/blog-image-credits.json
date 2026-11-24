@@ -128,6 +128,14 @@
       "source_url": "https://cdn.stocksnap.io/img-thumbs/960w/CZNWTXMZQF.jpg",
       "subject_verified": "Glass of white wine on a table",
       "verified_with": "google/gemini-2.5-flash image check, 2026-11-18"
+    },
+    {
+      "file": "/images/blog/wine-barrels-cellar.jpg",
+      "source": "Rawpixel",
+      "license": "CC0 1.0 public domain dedication",
+      "source_url": "https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9zdGF0aWMvaW1hZ2Uvd2Vic2l0ZS8yMDIyLTA0L2xyL2Zyd2luZV93aW5lcnlfYmFycmVsX2FnZS1pbWFnZS1reWJhYjR2bC5qcGc.jpg",
+      "subject_verified": "Rows of oak wine barrels in a cellar",
+      "verified_with": "google/gemini-2.5-flash image check, 2026-11-24"
     }
   ]
 }

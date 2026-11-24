@@ -1,12 +1,4 @@
 {
   "note": "Vetted spare photos for future posts; each was visually checked for wine context. Prefer an unused entry here before sourcing a new photo.",
-  "entries": [
-    {
-      "remote_url": "https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9zdGF0aWMvaW1hZ2Uvd2Vic2l0ZS8yMDIyLTA0L2xyL2Zyd2luZV93aW5lcnlfYmFycmVsX2FnZS1pbWFnZS1reWJhYjR2bC5qcGc.jpg",
-      "license": "CC0",
-      "source": "Rawpixel",
-      "subject_verified": "Wine barrels in a cellar",
-      "local_name_suggestion": "wine-barrels-cellar.jpg"
-    }
-  ]
+  "entries": []
 }
